@@ -10,8 +10,11 @@ commit `a2feb2104981a375ffd4f87ee04f4f5344ac43c6`, under the MIT licence in [`LI
 
 ## Voice profile
 
-Every skill reads `~/.claude/youtube/voice.md`. Copy [`voice.template.md`](voice.template.md) there
-and fill it in, or give Claude three of your own videos and ask it to write the file.
+Every skill reads `~/.claude/youtube/voice.md`. This channel's profile is kept in
+[`voice.md`](voice.md), and a `SessionStart` hook in [`../settings.json`](../settings.json) copies it
+there at the start of each session, so it survives fresh cloud containers. Edit `voice.md` here, not
+the copy in your home directory. [`voice.template.md`](voice.template.md) is the blank upstream
+template.
 
 ## Tools
 
