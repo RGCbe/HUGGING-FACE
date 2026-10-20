@@ -1,0 +1,36 @@
+# Doodle video engine
+
+Whiteboard-style videos: hand-drawn sketches that draw themselves with a marker pen, in time with
+a voiceover. Each idea gets its own board, and the camera pans along one long whiteboard. All
+artwork is drawn in code with [rough.js](https://roughjs.com) (MIT, `vendor/`), and the text uses
+Patrick Hand (SIL Open Font License, `fonts/`).
+
+| File | What it does |
+| --- | --- |
+| `engine.js` | Scenes, timed items (`draw`, `write`, `pop`, `stamp`), the camera, the pen, `renderAt(t)` |
+| `doodles.js` | Reusable drawings: emu, person (hats: slouch, straw, top, helmet), gun, map of Australia, calendar, newspaper, trophy and more |
+| `render.mjs` | Renders frames in headless Chromium (Playwright) and pipes them into ffmpeg; `--stills auto` saves one finished frame per scene for review |
+| `timing.py` | Word timings for a sectioned voiceover, aligned to the script (faster-whisper) |
+| `captions.py` | Burned-in ASS captions from the timings, with spoken numbers shown as digits |
+| `short.py` | Builds a vertical Short: a new hook line plus stretches of the long video |
+
+## Making a video
+
+A video folder (for example `../01-emu-war/`) holds the script, `voiceover_en.txt` (one section
+per line, as the voice reads it), `scenes.js`, and the generated `timing.json`.
+
+```bash
+# from videos/; $WHISPER_PY is a Python that has faster-whisper installed
+$WHISPER_PY doodle/timing.py 01-emu-war/voiceover_en.txt "tts/full_en_{n:02d}.wav" 0.6 01-emu-war/timing.json
+node doodle/render.mjs --scenes 01-emu-war/scenes.js --timing 01-emu-war/timing.json --out stills/x.mp4 --stills auto
+node doodle/render.mjs --scenes 01-emu-war/scenes.js --timing 01-emu-war/timing.json --out silent.mp4
+python3 doodle/captions.py 01-emu-war/timing.json captions.ass --replace 01-emu-war/caption_replace.json
+ffmpeg -i silent.mp4 -i voiceover.m4a -vf "ass=captions.ass:fontsdir=doodle/fonts" -af apad -shortest out.mp4
+OUT_DIR=. WORK_DIR=work TTS_DIR=tts python3 doodle/short.py 01-emu-war/short1.json
+```
+
+When Playwright is installed globally, set `PLAYWRIGHT_MODULE` to its folder.
+
+In `scenes.js`, `cue(section, "words")` gives the time those words are spoken. `scene(t, build)`
+starts a new board, and the engine pans to it just before `t`. Anything still drawing when the camera
+leaves is sped up to finish in time, and items that start too late are reported as warnings.

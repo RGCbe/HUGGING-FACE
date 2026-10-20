@@ -1,0 +1,16 @@
+{
+  "name": "short2",
+  "out": "$OUT_DIR/emu_war_short2_10_bullets.mp4",
+  "work_dir": "$WORK_DIR",
+  "scenes": "01-emu-war/scenes.js",
+  "timing": "01-emu-war/timing.json",
+  "voiceover": "$TTS_DIR/full_en.wav",
+  "replace": "01-emu-war/caption_replace.json",
+  "title": "THE EMU WAR (1932)",
+  "subtitle": "10 bullets per bird?!",
+  "hook": {"wav": "$TTS_DIR/short_hooks_02.wav", "timing": "01-emu-war/shorts_hooks_timing.json", "section": 2, "visual_to": 7.35},
+  "segments": [
+    {"from": 138.58, "to": 151.12, "visual_to": 151.0},
+    {"from": 151.62, "to": 166.78, "visual_to": 166.1}
+  ]
+}
