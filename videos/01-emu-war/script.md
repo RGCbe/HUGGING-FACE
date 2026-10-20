@@ -1,6 +1,6 @@
 # Video 1: The Emu War (1932)
 
-Working title: Army vs Emu: 1932-la Birds Jeicha Real War
+Working title: Army vs Emu: The War the Birds Won (1932)
 Read the SAY lines out loud. The ON SCREEN lines are for editing, so don't read them.
 
 ---
@@ -8,111 +8,111 @@ Read the SAY lines out loud. The ON SCREEN lines are for editing, so don't read 
 ## HOOK (0:00-0:08)
 
 SAY:
-Before you laugh, idhu real history. 1932-la Australia army, machine gun-oda emu birds kitta war
-declare pannuchu. But what happened next?
+Before you laugh, this is real history. In 1932, an army declared war on birds, with machine guns.
+But what happened next?
 
 [ON SCREEN: Emu close-up, running. Big text: "1932: ARMY vs EMU"]
 
 ## TURN (0:08-0:20)
 
 SAY:
-Vanakkam nanbargale, naan unga Manoj.
-Indha video-la, indha "Emu War" eppadi start aachu, eppadi nadanthuchu, kadaisila yaaru jeichaanga,
-ellame step by step solren. Ellame true story. Source description-la irukku.
+Hello friends, I'm Manoj. In this video, I'll tell you how the Emu War started, what happened, and
+who won in the end. Step by step. Every word is true, and the sources are in the description.
 
 [ON SCREEN: Map of Australia, Western Australia highlighted. Text: "TRUE STORY"]
 
-## BEAT 1: The farmers (0:20-0:36)
+## BEAT 1: The farmers (0:20-0:45)
 
 SAY:
-First World War mudinjathum, Australia government soldiers-ku land kuduthuchu. "Neenga naatukaaga
-sandai pottinga, ippo farming pannunga" nu. Nalla idea thaane?
-Western Australia-la Campion nu oru area. Anga indha ex-soldiers wheat farming start pannaanga.
-Ellaam nalla thaan poyittu irundhuchu... 1932 varaikkum.
+After the First World War, Australia gave land to its old soldiers. The idea was simple: you fought
+for your country, now go and farm. Nice idea, right?
+So in Western Australia, in an area called Campion, these ex-soldiers started growing wheat.
+Everything was going fine... until 1932.
 
 [ON SCREEN: Wheat field stock video. Text: "Ex-soldiers → wheat farmers"]
 
-## BEAT 2: The enemy arrives (0:36-0:51)
+## BEAT 2: The enemy arrives (0:45-1:10)
 
 SAY:
-1932-la, around 20,000 emus andha area-ku vandhuchu.
-Emu theriyumla? Periya bird. Parakka mudiyaadhu. Aana odum paarunga, semma fast-a.
-Indha emus wheat-a saapittuchu, crop-a kedutthuchu, fence-la periya periya ottai pottuchu. Andha
-ottai vazhiya rabbits-um ulla vandhuchu. Farmers-ku double problem.
+In 1932, around 20,000 emus walked into the area.
+If you've never seen an emu, it's a huge bird. It can't fly. But it can run. Very fast.
+These emus ate the wheat, ruined the crops, and broke big holes in the fences. And through those
+holes, rabbits came in too. Double trouble for the farmers.
 
 [ON SCREEN: Emu group running. Big text: "20,000 EMUS". Then a broken fence.]
 
-## BEAT 3: Call the army (0:51-1:11)
+## BEAT 3: Call the army (1:10-1:40)
 
 SAY:
-Farmers enna pannaanga? Avangalum ex-soldiers thaane. Government kitta poi kettaanga: "Engalukku
-machine guns venum."
-Defence Minister Sir George Pearce "sari" nu sollittaaru.
-Army anuppunadhu: Major Meredith, rendu soldiers, rendu Lewis machine guns, 10,000 bullets.
-Plan simple: emus-a shoot pannu, problem solve. Namma office meeting-la manager solra plan
-maadhiri. Paper-la perfect.
+So what did the farmers do? Remember, they were ex-soldiers. They went to the government and said:
+we need machine guns.
+The Defence Minister, Sir George Pearce, said yes.
+The army sent Major Meredith, two soldiers, two Lewis machine guns, and 10,000 bullets.
+The plan was simple. Shoot the emus. Problem solved. Just like a plan from your manager in a Monday
+meeting. Perfect on paper.
 
 [ON SCREEN: Text cards one by one: "Major Meredith" / "2 soldiers" / "2 Lewis guns" / "10,000 bullets"]
 
-## BEAT 4: Round 1 (1:11-1:34)
+## BEAT 4: Round 1 (1:40-2:15)
 
 SAY:
-2 November 1932. War start.
-Army emus-a paathuchu, gun-a ready pannuchu. Emus enna pannuchu? Chinna chinna group-a pirinju,
-gun range-ku veliya odiduchu. Indha move army plan-laye illa.
-Rendu naal kazhichu, oru dam pakkathula 1,000-ku mela emus vandhuchu. Perfect chance! Army ready.
-Shoot start pannaanga... 12 emus thaan. Appuram? Gun jam aagiduchu.
-Meedhi emus ellaam? Bye bye. Escape.
+November 2nd, 1932. The war begins.
+The soldiers spot the emus. They get the guns ready. And the emus? They split into small groups and
+run out of range. That move was not in the army's plan.
+Two days later, more than 1,000 emus came near a dam. Perfect chance! The army was ready.
+They started shooting... and got just 12 emus. Then? The gun jammed.
+And the rest of the emus? Bye bye. Gone.
 
 [ON SCREEN: Text: "2 Nov 1932". Emus scattering. Big text: "GUN JAMMED" with a funny sound effect.]
 
-## BEAT 5: Retreat (1:34-1:43)
+## BEAT 5: Retreat (2:15-2:35)
 
 SAY:
-8 November-kulla 2,500 bullets poyiduchu. Result? Romba kammi.
-Newspapers ellaam army-a kalaaikka aarambichaanga.
-So 8 November, army withdraw aagiduchu.
-Round 1: Emu win.
+By November 8th, the army had fired 2,500 bullets. The results? Very poor.
+The newspapers started making fun of the army.
+So on November 8th, the army pulled out.
+Round one: the emus win.
 
 [ON SCREEN: Scoreboard: "ARMY 0 - EMU 1"]
 
-## BEAT 6: Round 2 (1:43-2:00)
+## BEAT 6: Round 2 (2:35-3:05)
 
 SAY:
-Aana kadha inga mudiyala. Farmers thirumba kettaanga. 13 November, army thirumbi vandhuchu. Round 2.
-Indha thadava konjam better. December 10 varaikkum sandai nadanthuchu.
-Major Meredith report-la sonnaaru: 986 emus, 9,860 bullets.
-Konjam calculate pannunga. Oru emu-ku exactly 10 bullets! Oru bird-ku pathu bullet!
+But the story doesn't end there. The farmers asked again, and on November 13th, the army came back.
+Round two.
+This time it went a bit better. The fighting went on until December 10th.
+In his report, Major Meredith said: 986 emus, 9,860 bullets.
+Do the maths. That's exactly 10 bullets for every emu. Ten bullets. For one bird.
 
 [ON SCREEN: Big text: "986 emus = 9,860 bullets", then "10 BULLETS PER EMU"]
 
-## BEAT 7: The quote (2:00-2:21)
+## BEAT 7: The quote (3:05-3:35)
 
 SAY:
-Major Meredith emus pathi enna sonnaaru theriyuma?
+And here's what Major Meredith said about the emus:
 "They can face machine guns with the invulnerability of tanks."
-Simple-a sonna: indha birds machine gun munnadi tank maadhiri nikkudhu.
-Oru army major, oru bird-a tank-oda compare panraaru. Adhu thaan indha war-oda level.
-Parliament-la oru senator, Defence Minister-a "Minister of the Emu War" nu kalaaichaaru.
+In simple words: these birds stood in front of machine guns like tanks.
+An army major, comparing a bird to a tank. That's the level of this war.
+In parliament, one senator even called the Defence Minister "the Minister of the Emu War."
 
 [ON SCREEN: Quote card with Meredith's words. Then text: "Minister of the Emu War"]
 
-## PAYOFF (2:21-2:37)
+## PAYOFF (3:35-4:00)
 
 SAY:
-So, starting-la ketta question. What happened next? Yaaru jeichaanga?
-Answer: Emu.
-Farmers 1934, 1943, 1948-layum army help thirumba kettaanga. Government ovvoru thadavaiyum "No"
-sollidichu. Army thirumbi varave illa.
-Kadaisila farmers bounty system-um, strong fences-um thaan use pannaanga. Machine gun illa.
+So, back to the question from the start. What happened next? Who won?
+The answer: the emus.
+The farmers asked for army help again in 1934, 1943 and 1948. Every time, the government said no.
+The army never came back.
+In the end, the farmers used the bounty system and strong fences instead. Not machine guns.
 
 [ON SCREEN: Final scoreboard: "WINNER: EMU". Emu walking slowly, like a boss.]
 
-## CLOSE (2:37-2:44)
+## CLOSE (4:00-4:10)
 
 SAY:
-Unga ooru-la, illa unga family-la, indha maadhiri funny-aana true story theriyuma? Comment-la
-sollunga. Adutha video adhu kooda aagalaam.
+Do you know a funny true story like this, from your town or your family? Tell me in the comments.
+It could be my next video.
 
 [ON SCREEN: Text: "Comment your story 👇". Small text: "Sources: Murray Johnson, 'Feathered Foes', Journal of Australian Studies (2006); Wikipedia: Emu War"]
 
