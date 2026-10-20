@@ -2,6 +2,8 @@
 
 ## Long video
 
+Upload **`emu_war_doodle_with_music.mp4`**.
+
 **Title** (98/100 on the title linter, 43 characters):
 
     The Emu War: When Birds Beat an Army (1932)
@@ -42,7 +44,7 @@ help against around 20,000 emus. Major Meredith arrived with two soldiers, two L
 
 Do you know a funny true story like this? Tell me in the comments.
 
-The voice in this video is an AI copy of my own voice.
+The voice in this video is an AI copy of my own voice. The music is original.
 ---
 
 **Tags:** emu war, the emu war, emu war 1932, great emu war, australia emu war, emu war explained,
@@ -52,6 +54,7 @@ emus vs army, funny history, history facts, true story, western australia histor
 - Audience: **No, it's not made for kids** (history comedy for adults).
 - Altered or synthetic content: **Yes**, because the voice is an AI copy of your voice.
 - Category: Education (or Comedy).
+- Music: original, made for this video, so there's nothing to credit and no copyright claim to expect.
 
 ## Shorts
 

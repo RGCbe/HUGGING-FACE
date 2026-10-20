@@ -13,6 +13,8 @@ Patrick Hand (SIL Open Font License, `fonts/`).
 | `timing.py` | Word timings for a sectioned voiceover, aligned to the script (faster-whisper) |
 | `captions.py` | Burned-in ASS captions from the timings, with spoken numbers shown as digits |
 | `short.py` | Builds a vertical Short: a new hook line plus stretches of the long video |
+| `music.py` | Original background music (plucked bass, marimba, a whistled tune), synthesised so there is nothing to claim |
+| `mix.py` | Mixes music under the voice, ducking it while the voice speaks, at -14 LUFS |
 
 ## Making a video
 

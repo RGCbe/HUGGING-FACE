@@ -8,7 +8,8 @@
   "replace": "01-emu-war/caption_replace.json",
   "title": "THE EMU WAR (1932)",
   "subtitle": "Round 1: army vs emus",
-  "hook": {"wav": "$TTS_DIR/short_hooks_01.wav", "timing": "01-emu-war/shorts_hooks_timing.json", "section": 1, "visual_to": 7.35},
+  "hook": {"wav": "$TTS_DIR/short_hooks_01.wav", "timing": "01-emu-war/shorts_hooks_timing.json", "section": 1, "visual_from": 2.2, "visual_to": 7.35},
+  "music": "$MUSIC",
   "segments": [
     {"from": 84.48, "to": 113.23, "visual_to": 113.1},
     {"from": 124.55, "to": 126.07, "visual_to": 125.95}
