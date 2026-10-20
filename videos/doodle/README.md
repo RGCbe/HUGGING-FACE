@@ -15,6 +15,7 @@ Patrick Hand (SIL Open Font License, `fonts/`).
 | `short.py` | Builds a vertical Short: a new hook line plus stretches of the long video |
 | `music.py` | Original background music (plucked bass, marimba, a whistled tune), synthesised so there is nothing to claim |
 | `mix.py` | Mixes music under the voice, ducking it while the voice speaks, at -14 LUFS |
+| `upload.py` | Uploads a video and its Shorts to YouTube (Data API, resumable) with title, description, tags, audience, AI-content label and thumbnail; private by default, dry run without credentials |
 
 ## Making a video
 
@@ -36,3 +37,13 @@ When Playwright is installed globally, set `PLAYWRIGHT_MODULE` to its folder.
 In `scenes.js`, `cue(section, "words")` gives the time those words are spoken. `scene(t, build)`
 starts a new board, and the engine pans to it just before `t`. Anything still drawing when the camera
 leaves is sped up to finish in time, and items that start too late are reported as warnings.
+
+## Uploading
+
+`upload.py` reads a per-video `upload.json` and needs three environment variables, which are
+never committed: `YT_CLIENT_ID`, `YT_CLIENT_SECRET` (an OAuth client in your own Google Cloud
+project with the YouTube Data API v3 enabled) and `YT_REFRESH_TOKEN` (scope `youtube.upload`).
+Without them it does a dry run. Videos are uploaded **private**. Google also keeps uploads from
+unaudited API projects private, so you publish them from YouTube Studio.
+
+This repository is public: don't commit voice samples, credentials or unreleased videos to it.
