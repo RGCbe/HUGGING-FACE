@@ -1,8 +1,8 @@
 # voice.md
 
-Draft from the setup questions on 2026-10-20. There is no voice sample yet, so "How I actually
-talk" and "Words I do use" are a starting guess. Update them from the transcript of the first
-voiceover.
+Draft from the setup questions on 2026-10-20, updated the same day from two short phone voice
+notes (a 15-second Tamil greeting and 33 seconds of reading English text aloud). Update "How I
+actually talk" and "Words I do use" again from the transcript of the first real voiceover.
 
 ## Who I am talking to
 
@@ -17,7 +17,11 @@ and that they can repeat to their friends at work the next day.
   stay in English. Never Tamil script.
 - Funny and casual, like telling a friend a story over tea. Short sentences. Jokes come from the
   story itself, not from forced punchlines.
-- No voice sample yet. Do not invent catchphrases or slang for me until there is one.
+- I'm Manoj. I greet viewers warmly as friends ("nanbargale") and ask how they and their family
+  are, the way you'd greet someone you know.
+- I read English text clearly and comfortably, so short English phrases and quotes are fine to
+  keep in English.
+- Do not invent catchphrases or slang for me beyond what is listed under "Words I do use".
 
 ## Words I never use
 
@@ -26,7 +30,13 @@ None given yet. Default: avoid stiff, formal or "AI-sounding" phrases ("dive in"
 
 ## Words I do use
 
-Not known yet. Fill in from the first voiceover.
+From my voice notes:
+
+- "Vanakkam nanbargale"
+- "Naan unga Manoj pesuren"
+- "Eppadi irukeenga?" / "Veetla ellarum eppadi irukaanga?"
+
+Keep the greeting short and put it AFTER the hook, never before it.
 
 ## What I will not claim
 
