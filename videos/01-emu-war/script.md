@@ -8,7 +8,7 @@ Read the SAY lines out loud. The ON SCREEN lines are for editing, so don't read 
 ## HOOK (0:00-0:08)
 
 SAY:
-Before you laugh, this is real history. In 1932, an army declared war on birds, with machine guns.
+Before you start laughing, this is real history. In 1932, an army declared war on birds, with machine guns.
 But what happened next?
 
 [ON SCREEN: Emu close-up, running. Big text: "1932: ARMY vs EMU"]
@@ -26,10 +26,10 @@ who won in the end. Step by step. Every word is true, and the sources are in the
 SAY:
 After the First World War, Australia gave land to its old soldiers. The idea was simple: you fought
 for your country, now go and farm. Nice idea, right?
-So in Western Australia, in an area called Campion, these ex-soldiers started growing wheat.
+So in Western Australia, in an area called Campion, these former soldiers started growing wheat.
 Everything was going fine... until 1932.
 
-[ON SCREEN: Wheat field stock video. Text: "Ex-soldiers → wheat farmers"]
+[ON SCREEN: Wheat field stock video. Text: "Soldiers → wheat farmers"]
 
 ## BEAT 2: The enemy arrives (0:45-1:10)
 
@@ -37,14 +37,14 @@ SAY:
 In 1932, around 20,000 emus walked into the area.
 If you've never seen an emu, it's a huge bird. It can't fly. But it can run. Very fast.
 These emus ate the wheat, ruined the crops, and broke big holes in the fences. And through those
-holes, rabbits came in too. Double trouble for the farmers.
+holes, rabbits came in as well. Double trouble for the farmers.
 
 [ON SCREEN: Emu group running. Big text: "20,000 EMUS". Then a broken fence.]
 
 ## BEAT 3: Call the army (1:10-1:40)
 
 SAY:
-So what did the farmers do? Remember, they were ex-soldiers. They went to the government and said:
+So what did the farmers do? Remember, they were former soldiers. They went to the government and said:
 we need machine guns.
 The Defence Minister, Sir George Pearce, said yes.
 The army sent Major Meredith, two soldiers, two Lewis machine guns, and 10,000 bullets.
@@ -59,7 +59,8 @@ SAY:
 November 2nd, 1932. The war begins.
 The soldiers spot the emus. They get the guns ready. And the emus? They split into small groups and
 run out of range. That move was not in the army's plan.
-Two days later, more than 1,000 emus came near a dam. Perfect chance! The army was ready.
+Two days later, more than 1,000 emus gathered near a dam. This was the perfect chance! The army was
+ready.
 They started shooting... and got just 12 emus. Then? The gun jammed.
 And the rest of the emus? Bye bye. Gone.
 
@@ -101,10 +102,10 @@ In parliament, one senator even called the Defence Minister "the Minister of the
 
 SAY:
 So, back to the question from the start. What happened next? Who won?
-The answer: the emus.
-The farmers asked for army help again in 1934, 1943 and 1948. Every time, the government said no.
+And the answer is... the emus.
+The farmers asked for army help three more times: in 1934, in 1943, and one last time in 1948. Every time, the government said no.
 The army never came back.
-In the end, the farmers used the bounty system and strong fences instead. Not machine guns.
+In the end, the farmers used bounty rewards and strong fences instead. Not machine guns.
 
 [ON SCREEN: Final scoreboard: "WINNER: EMU". Emu walking slowly, like a boss.]
 
