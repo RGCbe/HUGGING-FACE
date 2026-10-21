@@ -1,6 +1,6 @@
 """Make one Super Kural Short from a story spec, from voice to finished video (and upload).
 
-    python3 make.py STORY_JSON [--publish-at 2026-10-22T12:00:00Z] [--upload]
+    python3 make.py STORY_JSON [--publish-at 2026-10-22T12:00:00Z | --public] [--upload]
 
 STORY_JSON (see stories/0003.json and the kural-daily skill) holds the kural number, a title,
 the story lines with what to draw, the spoken meaning and the lesson. Steps:
@@ -129,6 +129,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("story")
     ap.add_argument("--publish-at")
+    ap.add_argument("--public", action="store_true", help="go public as soon as it is uploaded")
     ap.add_argument("--upload", action="store_true")
     a = ap.parse_args()
 
@@ -270,7 +271,7 @@ def main():
              + spec.get("tags", [])}
     if a.publish_at:
         video["publish_at"] = a.publish_at
-    upload = {"defaults": {"privacy": "private", "made_for_kids": True, "ai_content": True, "category_id": 27,
+    upload = {"defaults": {"privacy": "public" if a.public and not a.publish_at else "private", "made_for_kids": True, "ai_content": True, "category_id": 27,
                            "language": "en"}, "videos": [video]}
     upload_json = os.path.join(out_dir, f"super_kural_{n:04d}.upload.json")
     json.dump(upload, open(upload_json, "w"), ensure_ascii=False, indent=1)

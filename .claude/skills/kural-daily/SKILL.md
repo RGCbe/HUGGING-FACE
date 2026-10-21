@@ -26,7 +26,7 @@ one.
 ## 2. Which kural
 
 ```bash
-python3 videos/kural/next.py          # {"kural": N, "publish_at": "...Z", "last_on_channel": M}
+python3 videos/kural/next.py          # {"kural": N, "publish_at": "...Z" or null, "last_on_channel": M}
 python3 videos/kural/show.py N        # the couplet, its chapter, two old English translations
 ```
 
@@ -86,7 +86,7 @@ grown-ups watching with them.
 ## 4. Make, check, upload
 
 ```bash
-cd videos/kural && python3 make.py stories/NNNN.json --publish-at PUBLISH_AT
+cd videos/kural && python3 make.py stories/NNNN.json --publish-at PUBLISH_AT   # or --public when publish_at is null
 ```
 
 `make.py` checks the spec, voices each line and listens to it with Whisper **without the script**,
@@ -103,8 +103,10 @@ look right, upload:
 python3 ../doodle/upload.py "$KURAL_OUT/super_kural_NNNN.upload.json"
 ```
 
-It goes up private, made for kids, marked as AI voice, and is scheduled to go public at
-`publish_at` (17:30 India time), so the owner can watch it in YouTube Studio first.
+It goes up made for kids, marked as AI voice, and private until `publish_at` (17:30 India time),
+so the owner can watch it in YouTube Studio first. A run after about 16:30 has no `publish_at`
+and uses `--public`: the video goes public straight away, so the next morning's run finds it on
+the channel instead of making the same kural again.
 
 ## 5. Report
 

@@ -1,11 +1,12 @@
 """Which kural is next, and when should it go live?
 
-    python3 next.py            prints {"kural": N, "publish_at": "...Z", "last_on_channel": M}
+    python3 next.py            prints {"kural": N, "publish_at": "...Z" or null, "last_on_channel": M}
 
 Reads the channel's public feed (no login needed) and finds the highest "Super Kural #N" already
 published, so a day that failed is simply tried again the next day. publish_at is today's
-publish_time in config.json (or tomorrow's, if that is less than two hours away), in UTC.
-Exits with status 2 once last_kural is done.
+publish_time in config.json, in UTC. If that is less than an hour away (or past), publish_at is
+null: the video goes public as soon as it is uploaded, so the next morning's run sees it on the
+channel and moves on. Exits with status 2 once last_kural is done.
 """
 import datetime
 import json
@@ -33,7 +34,5 @@ tz = ZoneInfo(cfg["timezone"])
 now = datetime.datetime.now(tz)
 hh, mm = map(int, cfg["publish_time"].split(":"))
 at = now.replace(hour=hh, minute=mm, second=0, microsecond=0)
-if at - now < datetime.timedelta(hours=2):
-    at += datetime.timedelta(days=1)
-print(json.dumps({"kural": kural, "publish_at": at.astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-                  "last_on_channel": last}))
+publish_at = at.astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ") if at - now >= datetime.timedelta(hours=1) else None
+print(json.dumps({"kural": kural, "publish_at": publish_at, "last_on_channel": last}))
