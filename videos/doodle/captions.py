@@ -1,6 +1,6 @@
 """Burned-in caption file (ASS) from word timings.
 
-    python3 captions.py TIMING_JSON OUT_ASS [--layout landscape|vertical] [--replace REPLACE_JSON]
+    python3 captions.py TIMING_JSON OUT_ASS [--layout landscape|vertical] [--margin PX] [--replace REPLACE_JSON]
                         [--from SEC] [--to SEC] [--shift SEC]
 
 Words are grouped into short captions that break at punctuation. REPLACE_JSON is a list of
@@ -15,6 +15,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("timing")
 ap.add_argument("out")
 ap.add_argument("--layout", default="landscape")
+ap.add_argument("--margin", type=int, help="bottom margin in pixels (default depends on the layout)")
 ap.add_argument("--replace")
 ap.add_argument("--from", dest="t_from", type=float, default=0.0)
 ap.add_argument("--to", dest="t_to", type=float, default=1e9)
@@ -62,6 +63,8 @@ if a.layout == "landscape":
     play, size, margin = (1920, 1080), 64, 42
 else:
     play, size, margin = (1080, 1920), 84, 330
+if a.margin is not None:
+    margin = a.margin
 header = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {play[0]}

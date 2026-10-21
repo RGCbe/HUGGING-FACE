@@ -6,7 +6,8 @@ VOICEOVER_TXT has one section per line (the text the TTS read). SECTION_WAV_PATT
 "{n:02d}", e.g. "tts/full_en_{n:02d}.wav". Sections were joined with GAP_SECONDS of silence
 between them. Whisper transcribes each section with word timestamps; the script's own words are
 then aligned to Whisper's, so the output carries the script's spelling (Whisper mishears names)
-with Whisper's timing. Needs faster-whisper and ffmpeg.
+with Whisper's timing. Each section also keeps Whisper's own words ("heard") and how many script
+words matched them exactly ("matched"). Needs faster-whisper and ffmpeg.
 """
 import difflib
 import json
@@ -64,7 +65,8 @@ for n, line in enumerate(lines, 1):
              for w, (a, b) in zip(script, times)]
     matched = sum(b1 - b0 for op, a0, a1, b0, b1 in sm.get_opcodes() if op == "equal")
     print(f"section {n}: {len(script)} words, {matched} matched exactly, {duration:.2f}s", flush=True)
-    sections.append({"n": n, "offset": round(offset, 3), "duration": round(duration, 3), "words": words})
+    sections.append({"n": n, "offset": round(offset, 3), "duration": round(duration, 3), "words": words,
+                     "matched": matched, "heard": [{"w": w, "t0": round(a, 3), "t1": round(b, 3)} for w, a, b in heard]})
     offset += duration + gap
 
 json.dump({"total": round(offset - gap, 3), "sections": sections}, open(out_json, "w"), indent=1)

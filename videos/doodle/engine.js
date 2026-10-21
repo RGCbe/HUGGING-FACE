@@ -31,10 +31,11 @@
   const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
   const ease = (q) => (q < 0.5 ? 2 * q * q : 1 - Math.pow(-2 * q + 2, 2) / 2);
 
-  // stage: {width, height, scale, x, y} - the 1920x1080 scene space is drawn at scale, offset x/y.
+  // stage: {width, height, scale, x, y, sceneW?, sceneH?} - the scene space (1920x1080 unless the
+  // stage says otherwise) is drawn at scale, offset x/y.
   D.init = function (stage) {
-    D.W = 1920;
-    D.H = 1080;
+    D.W = stage.sceneW || 1920;
+    D.H = stage.sceneH || 1080;
     svg = mk('svg', { width: stage.width, height: stage.height, viewBox: `0 0 ${stage.width} ${stage.height}` });
     document.body.appendChild(svg);
     defs = mk('defs', {}, svg);
@@ -140,9 +141,17 @@
   };
 
   // Handwritten text revealed left to right. Lines split on "\n" are written one after another.
+  // font: 'Hand' (Latin) or 'Tamil'; maxWidth shrinks the font until every line fits.
   D.write = function (at, x, y, str, o = {}) {
-    const size = o.size || 64;
+    let size = o.size || 64;
     const lines = str.split('\n');
+    const font = o.font || 'Hand';
+    if (o.maxWidth) {
+      const probe = mk('text', { 'font-family': font, 'font-size': size }, cur.g);
+      const widest = Math.max(...lines.map((l) => ((probe.textContent = l), probe.getBBox().width)));
+      probe.remove();
+      if (widest > o.maxWidth) size = Math.floor((size * o.maxWidth) / widest);
+    }
     let t = at;
     const items = [];
     lines.forEach((line, i) => {
@@ -150,7 +159,7 @@
       const txt = mk('text', {
         x,
         y: y + i * size * (o.lineHeight || 1.12),
-        'font-family': 'Hand',
+        'font-family': font,
         'font-size': size,
         fill: o.color || D.INK,
         'text-anchor': o.anchor || 'middle',

@@ -3,15 +3,16 @@
 Whiteboard-style videos: hand-drawn sketches that draw themselves with a marker pen, in time with
 a voiceover. Each idea gets its own board, and the camera pans along one long whiteboard. All
 artwork is drawn in code with [rough.js](https://roughjs.com) (MIT, `vendor/`), and the text uses
-Patrick Hand (SIL Open Font License, `fonts/`).
+Patrick Hand and, for Tamil, Kavivanar (both SIL Open Font License, `fonts/`).
 
 | File | What it does |
 | --- | --- |
 | `engine.js` | Scenes, timed items (`draw`, `write`, `pop`, `stamp`), the camera, the pen, `renderAt(t)` |
 | `doodles.js` | Reusable drawings: emu, person (hats: slouch, straw, top, helmet), gun, map of Australia, calendar, newspaper, trophy and more |
-| `render.mjs` | Renders frames in headless Chromium (Playwright) and pipes them into ffmpeg; `--stills auto` saves one finished frame per scene for review |
-| `timing.py` | Word timings for a sectioned voiceover, aligned to the script (faster-whisper) |
-| `captions.py` | Burned-in ASS captions from the timings, with spoken numbers shown as digits |
+| `doodles_story.js` | People and things for children's stories: kids, grandparents, parents, a teacher, a poet; trees, animals, houses, a temple, books, lamps and more |
+| `render.mjs` | Renders frames in headless Chromium (Playwright) and pipes them into ffmpeg; `--stills auto` saves one finished frame per scene for review; `--layout portrait` draws a 1080x1250 board at full size for Shorts; `--data` passes a JSON spec to the scenes |
+| `timing.py` | Word timings for a sectioned voiceover, aligned to the script (faster-whisper); also keeps what Whisper heard |
+| `captions.py` | Burned-in ASS captions from the timings, with spoken numbers shown as digits; `--margin` moves them up or down |
 | `short.py` | Builds a vertical Short: a new hook line plus stretches of the long video |
 | `music.py` | Original background music (plucked bass, marimba, a whistled tune), synthesised so there is nothing to claim |
 | `mix.py` | Mixes music under the voice, ducking it while the voice speaks, at -14 LUFS |

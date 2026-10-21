@@ -1,9 +1,11 @@
 // Render a doodle video's frames with headless Chromium and pipe them into ffmpeg.
 //
 //   node render.mjs --scenes SCENES.js --timing TIMING.json --out OUT.mp4
-//        [--layout landscape|vertical] [--fps 30] [--from SEC] [--to SEC] [--stills t1,t2,...]
+//        [--layout landscape|vertical|portrait] [--data DATA.json] [--fps 30] [--from SEC] [--to SEC]
+//        [--stills t1,t2,...|auto]
 //
 // --stills writes PNG frames at the given times next to OUT instead of a video (for checking).
+// --data is loaded as window.DATA before the scenes script runs (for scenes built from a spec).
 import { spawn } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
@@ -23,6 +25,9 @@ const layouts = {
   // The 1920x1080 scene space shrinks into the middle of a 1080x1920 frame; captions and a
   // title go above and below it.
   vertical: { width: 1080, height: 1920, scale: 0.5625, x: 0, y: 660, penScale: 0.7 },
+  // A 1080x1250 scene space at full size between a title (top) and captions (bottom), for Shorts
+  // drawn for the phone from the start.
+  portrait: { width: 1080, height: 1920, scale: 1, x: 0, y: 400, penScale: 0.8, sceneW: 1080, sceneH: 1250 },
 };
 const stage = layouts[args.layout || 'landscape'];
 
@@ -31,11 +36,12 @@ const page = await browser.newPage({ viewport: { width: stage.width, height: sta
 page.on('pageerror', (e) => console.error('page error:', e.message));
 page.on('console', (m) => m.type() === 'warning' && console.log('warning:', m.text()));
 await page.goto('file://' + path.join(here, 'engine.html'));
-await page.evaluate(() => document.fonts.load("64px 'Hand'"));
-await page.evaluate(([timing, st]) => {
+await page.evaluate(() => Promise.all([document.fonts.load("64px 'Hand'"), document.fonts.load("64px 'Tamil'", 'அ')]));
+await page.evaluate(([timing, st, data]) => {
   window.TIMING = timing;
+  window.DATA = data;
   window.Doodle.init(st);
-}, [JSON.parse(readFileSync(args.timing, 'utf8')), stage]);
+}, [JSON.parse(readFileSync(args.timing, 'utf8')), stage, args.data ? JSON.parse(readFileSync(args.data, 'utf8')) : null]);
 await page.addScriptTag({ path: path.resolve(args.scenes) });
 const total = await page.evaluate(() => window.Doodle.duration());
 
