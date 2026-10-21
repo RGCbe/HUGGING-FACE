@@ -12,6 +12,7 @@ layout. A title sits above the drawing and big captions below it. SPEC_JSON keys
                                                line; the picture under it is the long video's
                                                visual_from..visual_to
   music (optional): background music WAV, mixed under the voice with doodle/mix.py
+  music_gain (optional): music level before ducking (default 0.30; Shorts on phone speakers need less)
   segments: [{from, to, visual_to?}, ...]      seconds on the long timeline; visual_to freezes
                                                the picture early (to skip a camera pan)
 Needs ffmpeg and node with Playwright; run from the folder that holds the doodle/ engine.
@@ -89,7 +90,8 @@ voice = os.path.join(work, "voice.wav")
 run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, voice)
 audio = os.path.join(work, "audio.m4a")
 if spec.get("music"):
-    run("python3", os.path.join(here, "mix.py"), voice, spec["music"], audio)
+    run("python3", os.path.join(here, "mix.py"), voice, spec["music"], audio,
+        "--music-gain", str(spec.get("music_gain", 0.30)))
 else:
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", voice, "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
         "-ar", "44100", "-c:a", "aac", "-b:a", "160k", audio)
