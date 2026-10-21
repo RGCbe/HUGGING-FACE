@@ -222,7 +222,7 @@ def main():
     run("python3", os.path.join(DOODLE, "captions.py"), timing, ass, "--layout", "vertical", "--margin", "110")
     seconds = json.load(open(timing))["total"] + 1.2
     music = os.path.join(work, "music.wav")
-    run("python3", "-I", os.path.join(HERE, "music.py"), music, seconds, "--seed", n)
+    run(whisper_py, "-I", os.path.join(HERE, "music.py"), music, seconds, "--seed", n)  # needs numpy
 
     # The finished mix, cut back into sections, must still pass the listening test; if the music
     # hides a word anywhere, it is turned down and mixed again.
