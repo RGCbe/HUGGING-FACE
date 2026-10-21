@@ -114,27 +114,29 @@
     }
   }
 
-  // Items with a cue start on that word; the others share out the time that is left.
-  function board(section, items) {
+  // Items with a cue start on that word; the others share out the time that is left. The first
+  // board fills within its first two seconds, so the Short never opens on an empty page.
+  function board(section, items, quick) {
     const sec = window.TIMING.sections[section - 1];
     const free = items.filter((it) => !it.cue);
     const step = Math.min(1.2, Math.max(0.5, (sec.duration - 0.6) / Math.max(1, free.length)));
     let k = 0;
-    items.forEach((it) => {
-      const at = it.cue ? D.cue(section, it.cue) : sec.offset + 0.1 + step * k++;
+    items.forEach((it, j) => {
+      let at = it.cue ? D.cue(section, it.cue) : sec.offset + 0.1 + step * k++;
+      if (quick) at = Math.min(at, sec.offset + 0.05 + 0.45 * j);
       place(it, at);
     });
   }
   const scene = (section, build) => D.scene(Math.max(0, D.sectionStart(section) - LEAD), build);
 
   // The hook, then the series intro, then the rest of the story: one board per line.
-  D.scene(0, () => board(S.lines[0].section, S.lines[0].board));
+  D.scene(0, () => board(S.lines[0].section, S.lines[0].board, true));
   scene(S.intro_section, () => {
     const t0 = D.sectionStart(S.intro_section);
     place({ draw: S.kid || 'girl', at: 'left', mood: 'laugh', arms: 'wave' }, t0);
     place({ bubble: 'Hello friends!', at: 'left' }, t0 + 0.2);
     D.write(D.cue(S.intro_section, 'Super'), 700, 760, 'SUPER\nKURAL', { size: 120, color: D.ORANGE, dur: 0.8 });
-    D.stamp(D.cue(S.intro_section, 'time') - 0.1, 760, 1060, `KURAL ${S.n}`, { size: 64, rotate: -6 });
+    D.stamp(D.cue(S.intro_section, 'Super') + 0.6, 760, 1060, `KURAL ${S.n}`, { size: 64, rotate: -6 });
   });
   S.lines.slice(1).forEach((line) => scene(line.section, () => board(line.section, line.board)));
 

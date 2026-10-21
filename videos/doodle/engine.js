@@ -265,11 +265,13 @@
     scenes.forEach((s, i) => {
       const leave = i + 1 < scenes.length ? scenes[i + 1].t0 - PAN - 0.08 : Infinity;
       s.items.forEach((it) => {
-        if (it.at > leave - 0.3) {
+        // solid fills fade in for 0.25 s after a drawing's strokes, and must be done before the pan
+        const fade = it.kind === 'draw' && it.fills.length ? 0.25 : 0;
+        if (it.at > leave - 0.3 - fade) {
           console.warn(`scene ${i + 1}: item at ${it.at.toFixed(2)}s starts too close to the pan at ${leave.toFixed(2)}s`);
-          it.at = leave - 0.3;
+          it.at = leave - 0.3 - fade;
         }
-        if (it.at + it.dur > leave) it.dur = Math.max(0.2, leave - it.at);
+        if (it.at + it.dur + fade > leave) it.dur = Math.max(0.2, leave - fade - it.at);
       });
     });
   }

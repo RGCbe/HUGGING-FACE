@@ -77,8 +77,9 @@ grown-ups watching with them.
   top-left, top, top-right, middle-left, middle, middle-right, bottom float.
 - Moods: happy, sad, angry, surprised, laugh, calm, worried. Arms: down, up, wave, point, give,
   hips, pray. Colors: red, blue, green, orange, yellow, brown, grey, pink, purple, black.
-- `cue` is a word or phrase from that line; the item appears when it is spoken. One drawing per
-  place per board. A person at left and right with something in the middle reads best.
+- `cue` is a word or phrase from that line; the item appears when it is spoken. Do not cue the
+  last two or three words of a line: the board moves on right after them. One drawing per place
+  per board. A person at left and right with something in the middle reads best.
 - `kid` (top level) is the child who appears on the intro, kural and lesson boards; `lesson_draw`
   is the drawing over the lesson.
 
