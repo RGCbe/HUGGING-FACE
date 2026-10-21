@@ -1,6 +1,6 @@
 ---
 name: kural-daily
-description: Make and schedule today's Super Kural Short for the Kiddo Corner channel - the next Thirukkural, a children's story about it in doodles, the AI voice checked word by word, original music, uploaded made-for-kids and scheduled. Use for "make today's kural", "run the daily kural", or when a scheduled task asks for the daily Super Kural.
+description: Make and schedule today's Super Kural Short for the Kiddo Corner channel - the next Thirukkural as a short doodle story, the AI voice checked word by word, original music, uploaded and scheduled. Use for "make today's kural", "run the daily kural", or when a scheduled task asks for the daily Super Kural.
 ---
 
 # Super Kural, daily
@@ -36,28 +36,37 @@ the series is finished: report that and stop.
 
 ## 3. Write the story: `$KURAL_HOME/stories/NNNN.json`
 
-Copy the shape of `videos/kural/stories/0003.json`. The audience is children aged 4 to 10 and the
-grown-ups watching with them.
+Copy the shape of `videos/kural/stories/0003.json`. Who it is for depends on `audience` in
+`videos/kural/config.json`:
+
+- **`"all"`: adults and families.** Grown-up characters (man, woman, mom, dad, grandma, grandpa,
+  teacher) in grown-up situations: work, home, money, neighbours, friendship, patience, honesty.
+  A warm, thoughtful tone for anyone, not baby talk, and nothing aimed at young children (no
+  "little friends", no toys or cartoons-for-toddlers framing). Still clean enough for a family
+  to watch together. The upload is marked not made for kids, which is honest only if the story
+  really is for everyone. Set `kid` (below) to an adult, usually `man` or `woman`.
+- **`"kids"`: children aged 4 to 10** and the grown-ups watching with them. Kid characters and a
+  child's world. The upload is marked made for kids.
 
 - **Meaning first.** Work out what the kural really says from the Tamil and both translations.
-  `meaning` is that, in plain English a child understands, at most 30 words. Do not invent a
+  `meaning` is that, in plain English anyone understands, at most 30 words. Do not invent a
   meaning the translations do not support.
 - **A tiny story** that shows the meaning: 4 or 5 `lines`, each one or two short sentences
-  (at most 40 words). Line 1 is the hook: a question or a surprise a child wants answered.
+  (at most 40 words). Line 1 is the hook: a question or a surprise the viewer wants answered.
   Simple, everyday English. 80 to 150 words for all lines, the meaning and the lesson together.
 - **Clear words only.** The voice is checked word by word, so avoid rare words, Tamil words and
-  hard names. Kids' names that pass the check: Meena, Ravi, Arun, Priya, Anu, Kavin, Divya. List
+  hard names. Names that pass the check: Meena, Ravi, Arun, Priya, Anu, Kavin, Divya. List
   the names you use in `names`. Use Grandma, Grandpa, Mom, Dad, Teacher (not Paati, Thatha, Amma,
   Appa). Do not say "Kural" or "Thiruvalluvar" in your lines: the fixed intro, "Now listen to what
   the great poet Thiruvalluvar says." and the goodbye are added for you, already approved.
-- **Child-safe always.** Kurals about war, rulers, spies, wealth or vice still get a gentle story
+- **Family-safe always.** Kurals about war, rulers, spies, wealth or vice still get a gentle story
   about the same value (fairness, honesty, staying away from bad company). No violence, fear,
   romance, alcohol or gambling on screen. Chapter 92 and the whole book of Love (from kural 1081)
   are not for this channel: `last_kural` in config.json stops the series at 1080.
 - **Respectful.** Chapter 1 praises God; keep it simple and not tied to one religion.
 - `lesson` (spoken, at most 20 words) and `lesson_short` (on screen, at most 44 characters).
-- `title`: under 45 characters, a question or promise a parent would tap, e.g. "Why Is Grandma
-  Always Smiling?". No clickbait, no emoji.
+- `title`: under 45 characters, a question or promise a viewer would tap, e.g. "Why Is Grandma
+  Always Smiling?" or "The Boss Who Never Got Angry". No clickbait, no emoji.
 
 **Boards.** Each line has a `board`: 1 to 5 items, drawn as the words are spoken.
 
@@ -81,8 +90,8 @@ grown-ups watching with them.
 - `cue` is a word or phrase from that line; the item appears when it is spoken. Do not cue the
   last two or three words of a line: the board moves on right after them. One drawing per place
   per board. A person at left and right with something in the middle reads best.
-- `kid` (top level) is the child who appears on the intro, kural and lesson boards; `lesson_draw`
-  is the drawing over the lesson.
+- `kid` (top level) is the main character who appears on the intro, kural and lesson boards (any
+  person: an adult for `"all"`, a child for `"kids"`); `lesson_draw` is the drawing over the lesson.
 
 ## 4. Make, check, upload
 
@@ -105,7 +114,8 @@ look right, upload:
 python3 ../doodle/upload.py "$KURAL_OUT/super_kural_NNNN.upload.json"
 ```
 
-It goes up made for kids, marked as AI voice, and private until `publish_at` (17:30 India time),
+It goes up marked as AI voice, made for kids or not as config.json `audience` says, and private
+until `publish_at` (17:30 India time),
 so the owner can watch it in YouTube Studio first. A run after about 16:30 has no `publish_at`
 and uses `--public`: the video goes public straight away, so the next morning's run finds it on
 the channel instead of making the same kural again.

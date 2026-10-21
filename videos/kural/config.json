@@ -6,5 +6,6 @@
   "publish_time": "17:30",
   "timezone": "Asia/Kolkata",
   "voice_repo": "Rggroups/super-kural-voice",
-  "voice_engine": "chatterbox"
+  "voice_engine": "chatterbox",
+  "audience": "kids"
 }

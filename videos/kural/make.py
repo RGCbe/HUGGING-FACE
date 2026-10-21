@@ -33,14 +33,18 @@ SEEDS = [7, 11, 23, 42, 77, 101]
 GAP = 0.5
 MUSIC_GAINS = [0.22, 0.15, 0.10]  # music level under the voice, loudest first; the music matters here
 ENGINE = os.environ.get("TTS_ENGINE", "qwen")
-FIXED = {  # pre-approved clips (FIXED_DIR/NAME.wav, NAME_qwen.wav for Qwen3-TTS) and the words they say
-    "intro": "Hello little friends! It's Super Kural time!",
+CONFIG = json.load(open(os.path.join(HERE, "config.json")))
+KIDS = CONFIG.get("audience", "kids") == "kids"  # "kids": made for kids; "all": adults and families
+FIXED = {  # pre-approved clips in FIXED_DIR (FIXED_FILES) and the words they say
+    "intro": "Hello little friends! It's Super Kural time!" if KIDS else "Hello friends! It's Super Kural time!",
     "says": "Now listen to what the great poet Thiruvalluvar says.",
     # "Kural" at the very end of a sentence kept coming out as "coral" in the Qwen voice
     "outro": "See you tomorrow for the next Super Kural, friends!" if ENGINE == "qwen" else
              "See you tomorrow for the next Super Kural!",
 }
 FIXED_SUFFIX = "_qwen" if ENGINE == "qwen" else ""
+FIXED_FILES = {"intro": ("intro" if KIDS else "intro_all") + FIXED_SUFFIX, "says": "says" + FIXED_SUFFIX,
+               "outro": "outro" + FIXED_SUFFIX}
 PEOPLE = ["kid", "boy", "girl", "grandma", "grandpa", "mom", "dad", "teacher", "man", "woman", "sage"]
 THINGS = ["tree", "mango", "flower", "lotus", "sun", "moon", "star", "cloud", "river", "hill", "bird", "dog", "cat",
           "cow", "fish", "elephant", "peacock", "house", "school", "temple", "shop", "well", "book", "palmleaf",
@@ -161,7 +165,7 @@ def main():
     new = [i for i, (kind, _) in enumerate(sections, 1) if kind == "story"]
     for i, (kind, _) in enumerate(sections, 1):
         if kind.startswith("fixed:"):
-            shutil.copy(os.path.join(fixed, kind[6:] + FIXED_SUFFIX + ".wav"), wav(i))
+            shutil.copy(os.path.join(fixed, FIXED_FILES[kind[6:]] + ".wav"), wav(i))
 
     # 2. Voice, listen, and voice again until every line is clear. Lines that passed on an earlier
     # run with the same words are kept, so a rerun after a reword only voices what changed.
@@ -263,21 +267,23 @@ def main():
     # 4. Upload details.
     title = f"Super Kural #{n}: {spec['title']}"
     description = (
-        f"{spec['title']} - a short story for children about Thirukkural {n}.\n\n"
+        f"{spec['title']} - a short story about Thirukkural {n}" + (", for children.\n\n" if KIDS else ".\n\n") +
         f"{kural['line1']}\n{kural['line2']}\n({kural['translit']})\n\n"
         f"Meaning: {spec['meaning']}\n\nToday's lesson: {spec['lesson']}\n\n"
         f"Chapter {kural['chapter']}: {kural['chapter_en']} ({kural['chapter_ta']})\n"
         f"G. U. Pope's translation (1886): \"{kural['pope']}\"\n\n"
         "A new Super Kural every day. The voice is an AI copy of my own voice; the music is original.\n"
-        "#thirukkural #tamil #kidsstories #shorts"
+        + ("#thirukkural #tamil #kidsstories #shorts" if KIDS else "#thirukkural #tamil #lifelessons #shorts")
     )
     video = {"file": out, "title": title, "description": description,
-             "tags": ["thirukkural", f"thirukkural {n}", "kural", "super kural", "thirukkural for kids",
-                      "tamil moral stories", "kids stories", "moral stories for kids", kural["chapter_en"].lower()]
+             "tags": ["thirukkural", f"thirukkural {n}", "kural", "super kural", "tamil moral stories",
+                      kural["chapter_en"].lower()]
+             + (["thirukkural for kids", "kids stories", "moral stories for kids"] if KIDS else
+                ["thirukkural explained", "thirukkural story", "life lessons", "tamil wisdom", "moral stories"])
              + spec.get("tags", [])}
     if a.publish_at:
         video["publish_at"] = a.publish_at
-    upload = {"defaults": {"privacy": "public" if a.public and not a.publish_at else "private", "made_for_kids": True, "ai_content": True, "category_id": 27,
+    upload = {"defaults": {"privacy": "public" if a.public and not a.publish_at else "private", "made_for_kids": KIDS, "ai_content": True, "category_id": 27,
                            "language": "en"}, "videos": [video]}
     upload_json = os.path.join(out_dir, f"super_kural_{n:04d}.upload.json")
     json.dump(upload, open(upload_json, "w"), ensure_ascii=False, indent=1)
