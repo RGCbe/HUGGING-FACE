@@ -6,8 +6,8 @@ TEXT_FILE has one section per line, spelled the way it should be understood (not
 the voice). WAV_PATTERN contains "{n:02d}". Whisper transcribes each section WITHOUT seeing the
 script, so it cannot guess words the voice did not say clearly; then the two are compared word by
 word. Allowed: spelling of numbers ("3" / "three"), words run together or split ("goodnight"),
-and close spellings of the names in --names ("Mina" for Meena). Anything else - a wrong, missing
-or extra word - fails the section.
+and other spellings of the same sound for the names in --names ("Mina" for Meena). Anything else -
+a wrong, missing or extra word - fails the section.
 
 OUT_JSON: {"ok": bool, "sections": [{"n", "ok", "heard", "problems": [...]}]}
 """
@@ -54,12 +54,20 @@ def tokens(text):
 NAMES = [n.lower() for n in a.names.split(",") if n]
 
 
+def sound(w):
+    """A rough sound key, so spellings of one name match: meena / mina, preethi / priti."""
+    for a_, b_ in (("ee", "i"), ("ea", "i"), ("ie", "i"), ("oo", "u"), ("ou", "u"), ("ph", "f"),
+                   ("th", "t"), ("dh", "d"), ("bh", "b"), ("kh", "k"), ("sh", "s"), ("w", "v"), ("y", "i")):
+        w = w.replace(a_, b_)
+    return re.sub(r"(.)\1+", r"\1", w)
+
+
 def close(script_words, heard_words):
     s, h = "".join(script_words), "".join(heard_words)
     if s == h:
         return True
     if any(n in s for n in NAMES):
-        return difflib.SequenceMatcher(a=s, b=h).ratio() >= 0.8
+        return difflib.SequenceMatcher(a=sound(s), b=sound(h)).ratio() >= 0.85
     return False
 
 
