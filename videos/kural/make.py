@@ -1,6 +1,6 @@
 """Make one Super Kural Short from a story spec, from voice to finished video (and upload).
 
-    python3 make.py STORY_JSON [--publish-at 2026-10-22T12:00:00Z | --public] [--upload]
+    python3 make.py STORY_JSON --channel kids|adult [--publish-at 2026-10-22T12:00:00Z | --public] [--upload]
 
 STORY_JSON (see stories/0003.json and the kural-daily skill) holds the kural number, a title,
 the story lines with what to draw, the spoken meaning and the lesson. Steps:
@@ -34,17 +34,21 @@ GAP = 0.5
 MUSIC_GAINS = [0.22, 0.15, 0.10]  # music level under the voice, loudest first; the music matters here
 ENGINE = os.environ.get("TTS_ENGINE", "qwen")
 CONFIG = json.load(open(os.path.join(HERE, "config.json")))
-KIDS = CONFIG.get("audience", "kids") == "kids"  # "kids": made for kids; "all": adults and families
-FIXED = {  # pre-approved clips in FIXED_DIR (FIXED_FILES) and the words they say
-    "intro": "Hello little friends! It's Super Kural time!" if KIDS else "Hello friends! It's Super Kural time!",
-    "says": "Now listen to what the great poet Thiruvalluvar says.",
-    # "Kural" at the very end of a sentence kept coming out as "coral" in the Qwen voice
-    "outro": "See you tomorrow for the next Super Kural, friends!" if ENGINE == "qwen" else
-             "See you tomorrow for the next Super Kural!",
-}
-FIXED_SUFFIX = "_qwen" if ENGINE == "qwen" else ""
-FIXED_FILES = {"intro": ("intro" if KIDS else "intro_all") + FIXED_SUFFIX, "says": "says" + FIXED_SUFFIX,
-               "outro": "outro" + FIXED_SUFFIX}
+
+
+def fixed_clips(kids):
+    """The pre-approved clips (file names in FIXED_DIR) and the words they say. "kids" videos are
+    made for kids; "all" videos are for adults and families."""
+    suffix = "_qwen" if ENGINE == "qwen" else ""
+    lines = {
+        "intro": "Hello little friends! It's Super Kural time!" if kids else "Hello, my friends! It's Super Kural time!",
+        "says": "Now listen to what the great poet Thiruvalluvar says.",
+        # "Kural" at the very end of a sentence kept coming out as "coral" in the Qwen voice
+        "outro": "See you tomorrow for the next Super Kural, friends!" if ENGINE == "qwen" else
+                 "See you tomorrow for the next Super Kural!",
+    }
+    files = {"intro": ("intro" if kids else "intro_all") + suffix, "says": "says" + suffix, "outro": "outro" + suffix}
+    return lines, files
 PEOPLE = ["kid", "boy", "girl", "grandma", "grandpa", "mom", "dad", "teacher", "man", "woman", "sage"]
 THINGS = ["tree", "mango", "flower", "lotus", "sun", "moon", "star", "cloud", "river", "hill", "bird", "dog", "cat",
           "cow", "fish", "elephant", "peacock", "house", "school", "temple", "shop", "well", "book", "palmleaf",
@@ -137,6 +141,7 @@ def validate(spec):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("story")
+    ap.add_argument("--channel", required=True, choices=sorted(CONFIG["channels"]))
     ap.add_argument("--publish-at")
     ap.add_argument("--public", action="store_true", help="go public as soon as it is uploaded")
     ap.add_argument("--upload", action="store_true")
@@ -147,7 +152,10 @@ def main():
     n = spec["kural"]
     kural = json.load(open(os.path.join(HERE, "kurals.json")))["kurals"][n - 1]
     assert kural["n"] == n
-    work = os.path.join(env("KURAL_WORK"), f"{n:04d}")
+    channel = CONFIG["channels"][a.channel]
+    kids = channel["audience"] == "kids"
+    FIXED, FIXED_FILES = fixed_clips(kids)
+    work = os.path.join(env("KURAL_WORK"), a.channel, f"{n:04d}")
     out_dir = env("KURAL_OUT")
     fixed = env("FIXED_DIR")
     os.makedirs(work, exist_ok=True)
@@ -256,7 +264,7 @@ def main():
     title_file, sub_file = os.path.join(work, "title.txt"), os.path.join(work, "subtitle.txt")
     open(title_file, "w").write(f"SUPER KURAL #{n}")
     open(sub_file, "w").write(spec["title"])
-    out = os.path.join(out_dir, f"super_kural_{n:04d}.mp4")
+    out = os.path.join(out_dir, f"super_kural_{a.channel}_{n:04d}.mp4")
     vf = (f"drawtext=fontfile={font}:textfile={title_file}:fontsize=110:fontcolor=0xe8590c:x=(w-text_w)/2:y=95,"
           f"drawtext=fontfile={font}:textfile={sub_file}:fontsize=62:fontcolor=0x1d1d1f:x=(w-text_w)/2:y=245,"
           f"ass={ass}:fontsdir={os.path.join(DOODLE, 'fonts')}")
@@ -267,25 +275,25 @@ def main():
     # 4. Upload details.
     title = f"Super Kural #{n}: {spec['title']}"
     description = (
-        f"{spec['title']} - a short story about Thirukkural {n}" + (", for children.\n\n" if KIDS else ".\n\n") +
+        f"{spec['title']} - a short story about Thirukkural {n}" + (", for children.\n\n" if kids else ".\n\n") +
         f"{kural['line1']}\n{kural['line2']}\n({kural['translit']})\n\n"
         f"Meaning: {spec['meaning']}\n\nToday's lesson: {spec['lesson']}\n\n"
         f"Chapter {kural['chapter']}: {kural['chapter_en']} ({kural['chapter_ta']})\n"
         f"G. U. Pope's translation (1886): \"{kural['pope']}\"\n\n"
         "A new Super Kural every day. The voice is an AI copy of my own voice; the music is original.\n"
-        + ("#thirukkural #tamil #kidsstories #shorts" if KIDS else "#thirukkural #tamil #lifelessons #shorts")
+        + ("#thirukkural #tamil #kidsstories #shorts" if kids else "#thirukkural #tamil #lifelessons #shorts")
     )
     video = {"file": out, "title": title, "description": description,
              "tags": ["thirukkural", f"thirukkural {n}", "kural", "super kural", "tamil moral stories",
                       kural["chapter_en"].lower()]
-             + (["thirukkural for kids", "kids stories", "moral stories for kids"] if KIDS else
+             + (["thirukkural for kids", "kids stories", "moral stories for kids"] if kids else
                 ["thirukkural explained", "thirukkural story", "life lessons", "tamil wisdom", "moral stories"])
              + spec.get("tags", [])}
     if a.publish_at:
         video["publish_at"] = a.publish_at
-    upload = {"defaults": {"privacy": "public" if a.public and not a.publish_at else "private", "made_for_kids": KIDS, "ai_content": True, "category_id": 27,
+    upload = {"defaults": {"privacy": "public" if a.public and not a.publish_at else "private", "made_for_kids": kids, "refresh_token_env": channel["refresh_token_env"], "ai_content": True, "category_id": 27,
                            "language": "en"}, "videos": [video]}
-    upload_json = os.path.join(out_dir, f"super_kural_{n:04d}.upload.json")
+    upload_json = os.path.join(out_dir, f"super_kural_{a.channel}_{n:04d}.upload.json")
     json.dump(upload, open(upload_json, "w"), ensure_ascii=False, indent=1)
     print(f"\nwrote {out}\nstills: {work}/still_*.png\nupload details: {upload_json}")
     if a.upload:

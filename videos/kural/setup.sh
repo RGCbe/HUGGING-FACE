@@ -5,8 +5,8 @@
 # Needs: uv, ffmpeg, node with Playwright (all present in Claude Code cloud containers), and
 # HF_TOKEN, a read token for the private Hugging Face dataset in config.json "voice_repo" that holds
 # the voice sample (ref_en.opus) and the three approved fixed clips for the voice engine chosen in
-# config.json "voice_engine": intro/says/outro.opus for chatterbox, intro_qwen/... for qwen; with
-# "audience": "all" the intro is intro_all_qwen.opus ("Hello friends!" instead of "little friends").
+# config.json "voice_engine": intro/says/outro.opus for chatterbox; intro_qwen, intro_all_qwen
+# (the all-ages "Hello friends!"), says_qwen and outro_qwen for qwen.
 set -euo pipefail
 here=$(cd "$(dirname "$0")" && pwd)
 home=${KURAL_HOME:-$HOME/.cache/super-kural}
@@ -15,7 +15,7 @@ mkdir -p "$home/voice" "$home/work" "$home/out" "$home/hf"
 cfg() { python3 -c "import json,sys; print(json.load(open(sys.argv[1]))[sys.argv[2]])" "$here/config.json" "$1"; }
 engine=$(cfg voice_engine)
 suffix=$([ "$engine" = qwen ] && echo _qwen || true)
-intro=$([ "$(cfg audience)" = all ] && echo intro_all || echo intro)
+intros=$([ "$engine" = qwen ] && echo "intro intro_all" || echo intro)
 if [ ! -x "$home/$engine/bin/python" ]; then
   echo "installing the $engine voice model's Python packages (a few minutes)"
   uv venv -q --python 3.11 "$home/$engine"
@@ -29,7 +29,7 @@ if [ ! -x "$home/whisper/bin/python" ]; then
 fi
 
 repo=$(cfg voice_repo)
-for f in ref_en "$intro$suffix" "says$suffix" "outro$suffix"; do
+for f in ref_en $(for i in $intros; do echo "$i$suffix"; done) "says$suffix" "outro$suffix"; do
   [ -s "$home/voice/$f.wav" ] && continue
   if [ -z "${HF_TOKEN:-}" ]; then
     echo "HF_TOKEN is not set: add a Hugging Face read token for $repo to the environment settings" >&2

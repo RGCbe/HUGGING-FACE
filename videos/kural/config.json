@@ -1,11 +1,23 @@
 {
-  "channel_id": "UCcIYdN4x4ep_BXryTGURAuQ",
-  "channel_name": "Kiddo Corner",
-  "first_kural": 3,
+  "channels": {
+    "kids": {
+      "name": "Kiddo Corner",
+      "channel_id": "UCcIYdN4x4ep_BXryTGURAuQ",
+      "audience": "kids",
+      "first_kural": 3,
+      "refresh_token_env": "YT_REFRESH_TOKEN"
+    },
+    "adult": {
+      "name": "",
+      "channel_id": "",
+      "audience": "all",
+      "first_kural": 1,
+      "refresh_token_env": "YT_REFRESH_TOKEN_ADULT"
+    }
+  },
   "last_kural": 1080,
   "publish_time": "17:30",
   "timezone": "Asia/Kolkata",
   "voice_repo": "Rggroups/super-kural-voice",
-  "voice_engine": "chatterbox",
-  "audience": "kids"
+  "voice_engine": "chatterbox"
 }

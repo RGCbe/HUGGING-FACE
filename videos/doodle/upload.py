@@ -10,7 +10,8 @@ until the project passes its audit.
 
 Credentials come from environment variables, never from the repo:
   YT_CLIENT_ID, YT_CLIENT_SECRET   an OAuth client from your Google Cloud project
-  YT_REFRESH_TOKEN                 a refresh token for your channel, scope youtube.upload
+  YT_REFRESH_TOKEN                 a refresh token for your channel, scope youtube.upload (another
+                                   channel's token can be named in defaults.refresh_token_env)
 Without them (or with --dry-run) nothing is sent; it prints what it would upload.
 File paths in UPLOAD_JSON may use environment variables, e.g. "$OUT_DIR/video.mp4".
 """
@@ -25,11 +26,11 @@ API = "https://www.googleapis.com/upload/youtube/v3"
 CHUNK = 8 * 1024 * 1024
 
 
-def access_token():
+def access_token(token_env):
     body = urllib.parse.urlencode({
         "client_id": os.environ["YT_CLIENT_ID"],
         "client_secret": os.environ["YT_CLIENT_SECRET"],
-        "refresh_token": os.environ["YT_REFRESH_TOKEN"],
+        "refresh_token": os.environ[token_env],
         "grant_type": "refresh_token",
     }).encode()
     with urllib.request.urlopen("https://oauth2.googleapis.com/token", data=body, timeout=60) as r:
@@ -119,11 +120,11 @@ def set_thumbnail(token, video_id, image):
 
 def main():
     spec_path = sys.argv[1]
-    dry = "--dry-run" in sys.argv or not all(os.environ.get(k) for k in
-                                             ("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN"))
     spec = json.load(open(spec_path))
     defaults = spec.get("defaults", {})
-    token = None if dry else access_token()
+    token_env = defaults.get("refresh_token_env", "YT_REFRESH_TOKEN")
+    dry = "--dry-run" in sys.argv or not all(os.environ.get(k) for k in ("YT_CLIENT_ID", "YT_CLIENT_SECRET", token_env))
+    token = None if dry else access_token(token_env)
     results = []
     for v in spec["videos"]:
         path = os.path.expandvars(v["file"])
@@ -143,7 +144,7 @@ def main():
                         "publish_at": meta["status"].get("publishAt")})
     if dry:
         print("\nDry run: nothing was uploaded." + ("" if "--dry-run" in sys.argv else
-              " Set YT_CLIENT_ID, YT_CLIENT_SECRET and YT_REFRESH_TOKEN to upload."))
+              f" Set YT_CLIENT_ID, YT_CLIENT_SECRET and {token_env} to upload."))
     else:
         out = os.path.splitext(spec_path)[0] + ".results.json"
         json.dump(results, open(out, "w"), indent=1)
