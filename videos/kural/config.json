@@ -6,13 +6,6 @@
       "audience": "kids",
       "first_kural": 3,
       "refresh_token_env": "YT_REFRESH_TOKEN"
-    },
-    "adult": {
-      "name": "",
-      "channel_id": "",
-      "audience": "all",
-      "first_kural": 1,
-      "refresh_token_env": "YT_REFRESH_TOKEN_ADULT"
     }
   },
   "last_kural": 1080,

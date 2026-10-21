@@ -5,8 +5,8 @@
 # Needs: uv, ffmpeg, node with Playwright (all present in Claude Code cloud containers), and
 # HF_TOKEN, a read token for the private Hugging Face dataset in config.json "voice_repo" that holds
 # the voice sample (ref_en.opus) and the three approved fixed clips for the voice engine chosen in
-# config.json "voice_engine": intro/says/outro.opus for chatterbox; intro_qwen, intro_all_qwen
-# (the all-ages "Hello friends!"), says_qwen and outro_qwen for qwen.
+# config.json "voice_engine": intro/says/outro.opus for chatterbox; intro_qwen, says_qwen and
+# outro_qwen for qwen, plus intro_all_qwen (the all-ages "Hello, my friends!") if a channel is for all ages.
 set -euo pipefail
 here=$(cd "$(dirname "$0")" && pwd)
 home=${KURAL_HOME:-$HOME/.cache/super-kural}
@@ -15,7 +15,9 @@ mkdir -p "$home/voice" "$home/work" "$home/out" "$home/hf"
 cfg() { python3 -c "import json,sys; print(json.load(open(sys.argv[1]))[sys.argv[2]])" "$here/config.json" "$1"; }
 engine=$(cfg voice_engine)
 suffix=$([ "$engine" = qwen ] && echo _qwen || true)
-intros=$([ "$engine" = qwen ] && echo "intro intro_all" || echo intro)
+# the all-ages intro is needed only if a channel in config.json is for all ages (and only in the qwen voice)
+all_ages=$(python3 -c "import json,sys; print(any(c['audience'] == 'all' for c in json.load(open(sys.argv[1]))['channels'].values()))" "$here/config.json")
+intros=$([ "$engine" = qwen ] && [ "$all_ages" = True ] && echo "intro intro_all" || echo intro)
 if [ ! -x "$home/$engine/bin/python" ]; then
   echo "installing the $engine voice model's Python packages (a few minutes)"
   uv venv -q --python 3.11 "$home/$engine"

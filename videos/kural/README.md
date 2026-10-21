@@ -7,7 +7,7 @@ the `kural-daily` skill (`.claude/skills/kural-daily/SKILL.md`), started by a sc
 | File | What it does |
 | --- | --- |
 | `kurals.json` | All 1,330 kurals: Tamil text, transliteration, chapter, G. U. Pope's verse translation (1886) and the Drew/Lazarus prose translation (1840/1885), all public domain |
-| `config.json` | The channels (`kids`: Kiddo Corner, made for kids; `adult`: all ages, not made for kids), each with its first kural and the environment variable holding its YouTube key; the last kural (the series stops at 1080, before the book of Love), publish time, voice engine, private voice dataset |
+| `config.json` | The channels (now `kids`: Kiddo Corner, made for kids; an all-ages channel can be added with `"audience": "all"`), each with its first kural and the environment variable holding its YouTube key; the last kural (the series stops at 1080, before the book of Love), publish time, voice engine, private voice dataset |
 | `next.py` | The next kural for a channel, from its public feed, and today's publish time |
 | `show.py` | Prints one kural for writing its story |
 | `stories/NNNN.json` | A day's story: lines to say, what to draw on each board, the meaning and the lesson |
@@ -46,5 +46,5 @@ Face dataset (`voice_repo` in config.json), which `setup.sh` downloads with `HF_
 `outro.opus` for Chatterbox; `intro_qwen.opus`, `intro_all_qwen.opus` (all ages), `says_qwen.opus`
 and `outro_qwen.opus` for Qwen3-TTS). The
 uploads also need `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, and one refresh token per channel:
-`YT_REFRESH_TOKEN` (Kiddo Corner) and `YT_REFRESH_TOKEN_ADULT` (see `../doodle/README.md`). All of
+`YT_REFRESH_TOKEN` for Kiddo Corner (see `../doodle/README.md`). All of
 these are environment variables in the cloud environment's settings.

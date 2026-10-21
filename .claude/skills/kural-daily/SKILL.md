@@ -5,9 +5,9 @@ description: Make and schedule today's Super Kural Shorts - the next Thirukkural
 
 # Super Kural, daily
 
-Every day, the next kural for each channel in `videos/kural/config.json` → `channels`: a kids'
-version for `kids` (Kiddo Corner, made for kids) and an all-ages version for `adult` (not made
-for kids). Each channel keeps its own count. Everything lives in `videos/kural/`; read its README
+Every day, the next kural for each channel in `videos/kural/config.json` → `channels`. Today
+that is only `kids` (Kiddo Corner, made for kids); a channel with `"audience": "all"` would get
+an all-ages version, not made for kids. Each channel keeps its own count. Everything lives in `videos/kural/`; read its README
 if something here is unclear. Work from the repository root.
 
 **This run makes and uploads one video per channel, no more. Do not commit, push or open pull
@@ -28,10 +28,10 @@ one.
 
 ## 2. For each channel: which kural
 
-Do steps 2 to 4 for `kids`, then for `adult`. Skip a channel, and say why in the report, when:
+Do steps 2 to 4 for each channel in config.json. Skip a channel, and say why in the report, when:
 - `next.py` exits with status 3 (no `channel_id` yet) or 2 (the series is finished there);
-- its `refresh_token_env` (for `adult`: `YT_REFRESH_TOKEN_ADULT`) is not set;
-- it is `adult` and `voice_engine` in config.json is not `qwen` (its "Hello friends!" intro is
+- its `refresh_token_env` is not set;
+- its audience is `all` and `voice_engine` in config.json is not `qwen` (the all-ages intro is
   recorded only in that voice).
 
 ```bash
