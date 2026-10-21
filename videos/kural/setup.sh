@@ -4,7 +4,7 @@
 #
 # Needs: uv, ffmpeg, node with Playwright (all present in Claude Code cloud containers), and
 # HF_TOKEN, a read token for the private Hugging Face dataset in config.json "voice_repo" that holds
-# the voice sample (ref_en.opus) and the three approved fixed clips (intro.wav, says.wav, outro.wav).
+# the voice sample (ref_en.opus) and the three approved fixed clips (intro.opus, says.opus, outro.opus).
 set -euo pipefail
 here=$(cd "$(dirname "$0")" && pwd)
 home=${KURAL_HOME:-$HOME/.cache/super-kural}
@@ -23,16 +23,16 @@ if [ ! -x "$home/whisper/bin/python" ]; then
 fi
 
 repo=$(python3 -c "import json,sys; print(json.load(open(sys.argv[1]))['voice_repo'])" "$here/config.json")
-for f in ref_en.opus intro.wav says.wav outro.wav; do
-  [ -s "$home/voice/$f" ] && continue
+for f in ref_en intro says outro; do
+  [ -s "$home/voice/$f.wav" ] && continue
   if [ -z "${HF_TOKEN:-}" ]; then
     echo "HF_TOKEN is not set: add a Hugging Face read token for $repo to the environment settings" >&2
     exit 3
   fi
-  curl -fsSL -H "Authorization: Bearer $HF_TOKEN" -o "$home/voice/$f" \
-    "https://huggingface.co/datasets/$repo/resolve/main/$f"
+  curl -fsSL -H "Authorization: Bearer $HF_TOKEN" -o "$home/voice/$f.opus" \
+    "https://huggingface.co/datasets/$repo/resolve/main/$f.opus"
+  ffmpeg -nostdin -v error -y -i "$home/voice/$f.opus" -ar 24000 -ac 1 "$home/voice/$f.wav"
 done
-[ -s "$home/voice/ref_en.wav" ] || ffmpeg -nostdin -v error -y -i "$home/voice/ref_en.opus" -ar 24000 -ac 1 "$home/voice/ref_en.wav"
 
 playwright=${PLAYWRIGHT_MODULE:-$(npm root -g)/playwright}
 [ -d "$playwright" ] || { echo "Playwright not found at $playwright" >&2; exit 4; }

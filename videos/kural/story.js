@@ -136,7 +136,7 @@
     place({ draw: S.kid || 'girl', at: 'left', mood: 'laugh', arms: 'wave' }, t0);
     place({ bubble: 'Hello friends!', at: 'left' }, t0 + 0.2);
     D.write(D.cue(S.intro_section, 'Super'), 700, 760, 'SUPER\nKURAL', { size: 120, color: D.ORANGE, dur: 0.8 });
-    D.stamp(D.cue(S.intro_section, 'Super') + 0.6, 760, 1060, `KURAL ${S.n}`, { size: 64, rotate: -6 });
+    D.stamp(t0 + 0.9, 760, 1060, `KURAL ${S.n}`, { size: 64, rotate: -6 });
   });
   S.lines.slice(1).forEach((line) => scene(line.section, () => board(line.section, line.board)));
 
