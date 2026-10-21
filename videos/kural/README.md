@@ -12,12 +12,13 @@ the `kural-daily` skill (`.claude/skills/kural-daily/SKILL.md`), started by a sc
 | `show.py` | Prints one kural for writing its story |
 | `stories/NNNN.json` | A day's story: lines to say, what to draw on each board, the meaning and the lesson |
 | `make.py` | Story to finished Short: voice, listening test, timings, scenes, render, captions, music, title, upload details |
-| `tts.py` | Chatterbox-Turbo voice in the owner's voice (temperature 0.5 for steadier words) |
+| `tts.py` | The owner's voice: Qwen3-TTS-0.6B (closest to the real voice) or Chatterbox-Turbo, chosen by `voice_engine` in config.json |
+| `ref_prep.py` | Trims the voice sample to end on a whole word and writes down its words (Qwen3-TTS carries on from the sample) |
 | `check.py` | The listening test: Whisper hears each line without seeing the script; any wrong, missing or extra word fails |
 | `story.js` | Builds the boards from a story (portrait layout): hook, intro, story, the kural, the lesson |
 | `music.py` | Original music: tanpura drone, bansuri-style flute in raga Mohanam, soft tabla, small bells |
 | `setup.sh` | Readies a fresh cloud container and writes `env.sh` for make.py |
-| `requirements-*.txt` | Exact Python packages for the voice and listening models |
+| `requirements-*.txt` | Exact Python packages for each voice engine and for the listening model |
 
 ## How a video is put together
 
@@ -25,7 +26,7 @@ the `kural-daily` skill (`.claude/skills/kural-daily/SKILL.md`), started by a sc
 2. The rest of the story, one board per line.
 3. The fixed "Now listen to what the great poet Thiruvalluvar says.", with the couplet written in
    Tamil, then the meaning in English.
-4. The lesson, then the fixed goodbye "See you tomorrow for the next Super Kural!"
+4. The lesson, then the fixed goodbye "See you tomorrow for the next Super Kural, friends!"
 
 The three fixed lines say the Tamil words (Kural, Thiruvalluvar) that the voice finds hardest.
 They were recorded once, kept only from takes Whisper heard exactly, and approved by ear. The
@@ -39,6 +40,8 @@ any word.
 ## Voice files
 
 The voice sample and the fixed clips are not in this repository. They are in a private Hugging
-Face dataset (`voice_repo` in config.json), which `setup.sh` downloads with `HF_TOKEN`. The
+Face dataset (`voice_repo` in config.json), which `setup.sh` downloads with `HF_TOKEN`: the sample
+`ref_en.opus`, and the fixed clips recorded in the chosen engine's voice (`intro.opus`, `says.opus`,
+`outro.opus` for Chatterbox; `intro_qwen.opus` and so on for Qwen3-TTS). The
 uploads also need `YT_CLIENT_ID`, `YT_CLIENT_SECRET` and `YT_REFRESH_TOKEN` (see
 `../doodle/README.md`). All four are environment variables in the cloud environment's settings.

@@ -13,9 +13,11 @@ the story lines with what to draw, the spoken meaning and the lesson. Steps:
      under the voice, title on top; then the finished mix is listened to once more
   4. write upload.json next to the video, and upload it with doodle/upload.py if --upload
 
-Environment: KURAL_WORK (work folder), KURAL_OUT (finished videos), VOICE_REF (reference WAV of
-the speaker), FIXED_DIR (the pre-approved intro/says/goodbye clips), TTS_PY and WHISPER_PY
-(Pythons with chatterbox-tts and faster-whisper), PLAYWRIGHT_MODULE if Playwright is global.
+Environment: KURAL_WORK (work folder), KURAL_OUT (finished videos), TTS_ENGINE (qwen or
+chatterbox), VOICE_REF and, for qwen, VOICE_REF_TEXT (the speaker's sample, trimmed to whole words
+by ref_prep.py, and its words), FIXED_DIR (the pre-approved intro/says/goodbye clips), TTS_PY and
+WHISPER_PY (Pythons with the voice engine and faster-whisper), PLAYWRIGHT_MODULE if Playwright is
+global. setup.sh writes all of these.
 """
 import argparse
 import json
@@ -28,14 +30,17 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 DOODLE = os.path.join(HERE, "..", "doodle")
 SEEDS = [7, 11, 23, 42, 77, 101]
-TEMPERATURE = 0.5  # steadier pronunciation than the default 0.8
 GAP = 0.5
 MUSIC_GAINS = [0.22, 0.15, 0.10]  # music level under the voice, loudest first; the music matters here
-FIXED = {  # pre-approved clips (fixed/NAME.wav) and the words they say
+ENGINE = os.environ.get("TTS_ENGINE", "qwen")
+FIXED = {  # pre-approved clips (FIXED_DIR/NAME.wav, NAME_qwen.wav for Qwen3-TTS) and the words they say
     "intro": "Hello little friends! It's Super Kural time!",
     "says": "Now listen to what the great poet Thiruvalluvar says.",
-    "outro": "See you tomorrow for the next Super Kural!",
+    # "Kural" at the very end of a sentence kept coming out as "coral" in the Qwen voice
+    "outro": "See you tomorrow for the next Super Kural, friends!" if ENGINE == "qwen" else
+             "See you tomorrow for the next Super Kural!",
 }
+FIXED_SUFFIX = "_qwen" if ENGINE == "qwen" else ""
 PEOPLE = ["kid", "boy", "girl", "grandma", "grandpa", "mom", "dad", "teacher", "man", "woman", "sage"]
 THINGS = ["tree", "mango", "flower", "lotus", "sun", "moon", "star", "cloud", "river", "hill", "bird", "dog", "cat",
           "cow", "fish", "elephant", "peacock", "house", "school", "temple", "shop", "well", "book", "palmleaf",
@@ -156,7 +161,7 @@ def main():
     new = [i for i, (kind, _) in enumerate(sections, 1) if kind == "story"]
     for i, (kind, _) in enumerate(sections, 1):
         if kind.startswith("fixed:"):
-            shutil.copy(os.path.join(fixed, kind[6:] + ".wav"), wav(i))
+            shutil.copy(os.path.join(fixed, kind[6:] + FIXED_SUFFIX + ".wav"), wav(i))
 
     # 2. Voice, listen, and voice again until every line is clear. Lines that passed on an earlier
     # run with the same words are kept, so a rerun after a reword only voices what changed.
@@ -168,8 +173,9 @@ def main():
     for seed in SEEDS:
         if not todo:
             break
-        run(tts_py, "-I", os.path.join(HERE, "tts.py"), env("VOICE_REF"), text, work, "--sections",
-            ",".join(map(str, todo)), "--seed", seed, "--temperature", TEMPERATURE)
+        voice = ["--engine", ENGINE] + (["--ref-text", env("VOICE_REF_TEXT")] if ENGINE == "qwen" else [])
+        run(tts_py, "-I", os.path.join(HERE, "tts.py"), env("VOICE_REF"), text, work, *voice,
+            "--sections", ",".join(map(str, todo)), "--seed", seed)
         report = os.path.join(work, "check.json")
         run(whisper_py, "-I", os.path.join(HERE, "check.py"), text, os.path.join(work, "sec_{n:02d}.wav"), report,
             "--names", names, "--sections", ",".join(map(str, todo)))
