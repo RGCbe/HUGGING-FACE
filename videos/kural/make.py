@@ -31,6 +31,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DOODLE = os.path.join(HERE, "..", "doodle")
 SEEDS = [7, 11, 23, 42, 77, 101]
 GAP = 0.5
+HOOK_WORDS = 9       # first sentence of line 1: said in under three seconds
+HOOK_MIN_SCORE = 40  # yt-script/hookscore.py; flat openers ("Hello friends, today...") score about 30
 MUSIC_GAINS = [0.22, 0.15, 0.10]  # music level under the voice, loudest first; the music matters here
 ENGINE = os.environ.get("TTS_ENGINE", "qwen")
 CONFIG = json.load(open(os.path.join(HERE, "config.json")))
@@ -134,8 +136,46 @@ def validate(spec):
     for k in ("lesson_draw", "kid"):
         if spec.get(k) and spec[k] not in PEOPLE + THINGS:
             errors.append(f'{k}: unknown drawing "{spec[k]}"')
+    errors += hook_problems(spec)
     if errors:
         sys.exit("story spec problems:\n  " + "\n  ".join(errors))
+
+
+def stem(w):
+    w = norm(w)
+    return w[:-1] if len(w) > 4 and w.endswith("s") else w
+
+
+def hook_problems(spec):
+    """The Shorts rules: a hook said in under three seconds, a lesson that loops back to it, and a
+    meaning short enough to follow. The hook is the first sentence of line 1."""
+    errors = []
+    line1 = spec["lines"][0]["say"]
+    hook = re.split(r"(?<=[.?!])\s+", line1.strip())[0]
+    if len(words(hook)) > HOOK_WORDS:
+        errors.append(f'hook "{hook}" is {len(words(hook))} words; keep the first sentence to {HOOK_WORDS} or fewer, '
+                      "so it is said in under three seconds")
+    if len(words(line1)) > 16:
+        errors.append(f"line 1 is {len(words(line1))} words; the hook line should be 16 or fewer")
+    if len(words(spec["meaning"])) > 25:
+        errors.append(f"meaning is {len(words(spec['meaning']))} words; 25 at most, in short sentences")
+    small = {"that", "this", "with", "what", "when", "your", "they", "them", "then", "have", "were", "from", "will",
+             "would", "could", "every", "never", "always", "very", "just", "even"}
+    hook_words = {stem(w) for w in words(hook) if len(norm(w)) >= 4 and norm(w) not in small}
+    if not hook_words & {stem(w) for w in words(spec["lesson"])}:
+        errors.append("the lesson should repeat a word from the hook (" + ", ".join(sorted(hook_words)) +
+                      "), so the end loops back to the start")
+    scorer = os.path.join(HERE, "..", "..", ".claude", "skills", "yt-script", "hookscore.py")
+    if os.path.exists(scorer):
+        out = subprocess.run(["python3", "-I", scorer, "--json", "--hook", hook], capture_output=True, text=True)
+        try:
+            score = json.loads(out.stdout)[0]["verdict"]
+        except (ValueError, IndexError, KeyError):
+            score = None
+        if score is not None and score < HOOK_MIN_SCORE:
+            errors.append(f'hook "{hook}" scores {score} with yt-script/hookscore.py; it needs {HOOK_MIN_SCORE}+. '
+                          "Talk to the viewer (\"Can you guess...\") or ask what they want answered")
+    return errors
 
 
 def main():

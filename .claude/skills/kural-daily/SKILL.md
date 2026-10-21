@@ -56,11 +56,20 @@ about the same idea, written for their audience (the channel's `audience` in con
 
 For both:
 - **Meaning first.** Work out what the kural really says from the Tamil and both translations.
-  `meaning` is that, in plain English anyone understands, at most 30 words. Do not invent a
-  meaning the translations do not support.
+  `meaning` is that, in plain English anyone understands: at most 25 words, in one or two short
+  sentences. Do not invent a meaning the translations do not support.
+- **The hook decides the Short.** Line 1's first sentence is the hook: **9 words or fewer**, said
+  in under three seconds, talking to the viewer or asking what they want answered ("Can you
+  guess why Grandma never gets angry?"). Never open on a greeting or "today's story". Write three
+  hooks in a file, one per line, score them, and use the best:
+  `python3 .claude/skills/yt-script/hookscore.py hooks.txt`. It must score **40 or more** (flat
+  openers score about 30). Line 1 is 16 words at most.
+- **Loop back.** The `lesson` repeats a word from the hook, so the end leads into the replay
+  ("...and you will smile like Grandma").
 - **A tiny story** that shows the meaning: 4 or 5 `lines`, each one or two short sentences
-  (at most 40 words). Line 1 is the hook: a question or a surprise the viewer wants answered.
-  Simple, everyday English. 80 to 150 words for all lines, the meaning and the lesson together.
+  (at most 40 words). Simple, everyday English. 80 to 150 words for all lines, the meaning and
+  the lesson together. `make.py` checks the hook length, its score, the loop and the meaning
+  length, and says what to fix.
 - **Clear words only.** The voice is checked word by word, so avoid rare words, Tamil words and
   hard names. Names that pass the check: Meena, Ravi, Arun, Priya, Anu, Kavin, Divya. List
   the names you use in `names`. Use Grandma, Grandpa, Mom, Dad, Teacher (not Paati, Thatha, Amma,
