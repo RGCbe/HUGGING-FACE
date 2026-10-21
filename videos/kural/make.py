@@ -231,7 +231,8 @@ def main():
     for gain in MUSIC_GAINS:
         run("python3", os.path.join(DOODLE, "mix.py"), voice, music, audio, "--music-gain", gain)
         for s in json.load(open(timing))["sections"]:
-            run("ffmpeg", "-nostdin", "-v", "error", "-y", "-ss", s["offset"], "-t", s["duration"], "-i", audio,
+            # a little of the silent gap on each side, so no word is clipped at the cut
+            run("ffmpeg", "-nostdin", "-v", "error", "-y", "-ss", max(0, s["offset"] - 0.2), "-t", s["duration"] + 0.4, "-i", audio,
                 "-ac", "1", "-ar", "16000", mixed.format(n=s["n"]))
         run(whisper_py, "-I", os.path.join(HERE, "check.py"), text, mixed, final_check, "--names", names,
             "--sections", ",".join(map(str, new)))
