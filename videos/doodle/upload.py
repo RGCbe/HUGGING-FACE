@@ -139,14 +139,20 @@ def main():
         thumb = os.path.expandvars(v["thumbnail"]) if v.get("thumbnail") else None
         if thumb:
             set_thumbnail(token, video["id"], thumb)
-        results.append({"title": v["title"], "id": video["id"], "url": url})
+        results.append({"title": v["title"], "id": video["id"], "url": url, "privacy": meta["status"]["privacyStatus"],
+                        "publish_at": meta["status"].get("publishAt")})
     if dry:
         print("\nDry run: nothing was uploaded." + ("" if "--dry-run" in sys.argv else
               " Set YT_CLIENT_ID, YT_CLIENT_SECRET and YT_REFRESH_TOKEN to upload."))
     else:
         out = os.path.splitext(spec_path)[0] + ".results.json"
         json.dump(results, open(out, "w"), indent=1)
-        print(f"\nDone. Video links saved to {out}. They are private: open YouTube Studio to check and publish.")
+        print(f"\nDone. Video links saved to {out}.")
+        for r in results:
+            when = (f"private until {r['publish_at']}, then public" if r["publish_at"] else r["privacy"])
+            print(f"  {r['url']}  {when}")
+        if any(r["privacy"] == "private" and not r["publish_at"] for r in results):
+            print("Private videos stay private: open YouTube Studio to check and publish them.")
 
 
 if __name__ == "__main__":

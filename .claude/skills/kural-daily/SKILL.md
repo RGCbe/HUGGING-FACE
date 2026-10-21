@@ -8,9 +8,10 @@ description: Make and schedule today's Super Kural Short for the Kiddo Corner ch
 One Short a day, one kural at a time, in order. Everything lives in `videos/kural/`; read its
 README if something here is unclear. Work from the repository root.
 
-**This run makes and uploads one video. Do not commit, push or open pull requests.** The only file
-you add to the repository is the day's story, `videos/kural/stories/NNNN.json`; leave every other
-file as it is.
+**This run makes and uploads one video. Do not commit, push or open pull requests, and leave the
+repository's files as they are.** Write the day's story outside the repository, at
+`$KURAL_HOME/stories/NNNN.json` (if `videos/kural/stories/NNNN.json` already exists, copy it there
+and work on the copy).
 
 ## 1. Ready the container
 
@@ -33,7 +34,7 @@ python3 videos/kural/show.py N        # the couplet, its chapter, two old Englis
 `next.py` reads the channel's public feed, so a failed day is simply retried. Exit status 2 means
 the series is finished: report that and stop.
 
-## 3. Write the story: `videos/kural/stories/NNNN.json`
+## 3. Write the story: `$KURAL_HOME/stories/NNNN.json`
 
 Copy the shape of `videos/kural/stories/0003.json`. The audience is children aged 4 to 10 and the
 grown-ups watching with them.
@@ -86,7 +87,8 @@ grown-ups watching with them.
 ## 4. Make, check, upload
 
 ```bash
-cd videos/kural && python3 make.py stories/NNNN.json --publish-at PUBLISH_AT   # or --public when publish_at is null
+mkdir -p "$KURAL_HOME/stories"
+cd videos/kural && python3 make.py "$KURAL_HOME/stories/NNNN.json" --publish-at PUBLISH_AT   # or --public when publish_at is null
 ```
 
 `make.py` checks the spec, voices each line and listens to it with Whisper **without the script**,
