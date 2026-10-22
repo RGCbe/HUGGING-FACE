@@ -50,8 +50,11 @@ python -m pytest
 
 * NSE sometimes serves the previous day's file for a holiday; those files are
   detected by their date and skipped.
-* Everything is end of day. Intraday straddle VWAP and live order flow need a
-  broker feed (Zerodha Kite, Upstox or Dhan); `straddle.intraday_straddle` and
-  `orderflow.footprint` already accept intraday bars and ticks.
+* Everything above is end of day. For **live intraday** straddle VWAP and order
+  flow, connect a broker feed. A **Fyers API v3** connector is included
+  (`marketscan/brokers/fyers.py`); run it on the machine that holds your key —
+  credentials are read from the environment, never the code. See
+  [docs/live-data.md](docs/live-data.md). `straddle.intraday_straddle` and
+  `orderflow.footprint` accept the live bars and ticks it produces.
 
 Not investment advice.
