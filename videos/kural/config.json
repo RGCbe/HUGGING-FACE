@@ -5,7 +5,8 @@
       "channel_id": "UCcIYdN4x4ep_BXryTGURAuQ",
       "audience": "kids",
       "first_kural": 3,
-      "refresh_token_env": "YT_REFRESH_TOKEN"
+      "refresh_token_env": "YT_REFRESH_TOKEN",
+      "handle": "@kiddocorner-rg"
     }
   },
   "last_kural": 1080,

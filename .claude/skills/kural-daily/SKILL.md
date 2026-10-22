@@ -29,7 +29,8 @@ one.
 ## 2. For each channel: which kural
 
 Do steps 2 to 4 for each channel in config.json. Skip a channel, and say why in the report, when:
-- `next.py` exits with status 3 (no `channel_id` yet) or 2 (the series is finished there);
+- `next.py` exits with status 3 (no `channel_id` yet), 2 (the series is finished there) or 4
+  (neither the channel's feed nor its pages could be read; never guess a number instead);
 - its `refresh_token_env` is not set;
 - its audience is `all` and `voice_engine` in config.json is not `qwen` (the all-ages intro is
   recorded only in that voice).
@@ -39,7 +40,8 @@ python3 videos/kural/next.py CHANNEL  # {"kural": N, "publish_at": "...Z" or nul
 python3 videos/kural/show.py N        # the couplet, its chapter, two old English translations
 ```
 
-`next.py` reads that channel's public feed, so a failed day is simply retried.
+`next.py` reads that channel's public feed and its Shorts and Videos pages, so a failed day is
+simply retried.
 
 ## 3. Write the story: `$KURAL_HOME/stories/CHANNEL-NNNN.json`
 
