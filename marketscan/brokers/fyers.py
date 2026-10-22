@@ -52,7 +52,11 @@ class FyersClient:
 
     def __post_init__(self) -> None:
         self.app_id = self.app_id or _require("FYERS_APP_ID")
-        self.token = self.token or _require("FYERS_ACCESS_TOKEN")
+        if not self.token:
+            # Prefer a token for today (cache -> env -> automated login).
+            from marketscan.brokers import fyers_auth
+
+            self.token = fyers_auth.ensure_token(auto=os.environ.get("FYERS_AUTO_LOGIN") == "1")
         self._model = None
 
     @property

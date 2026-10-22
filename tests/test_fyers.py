@@ -63,3 +63,49 @@ def test_atm_straddle_symbol_selection(monkeypatch):
     assert picked["put"] == "NSE:NIFTY-22800PE"
     # one strike above the money
     assert c.atm_straddle_symbols("NSE:NIFTY50-INDEX", offset=1)["strike"] == 22900
+
+
+def test_token_cache_roundtrip(tmp_path, monkeypatch):
+    from datetime import date
+    from marketscan.brokers import fyers_auth
+
+    monkeypatch.setenv("FYERS_TOKEN_FILE", str(tmp_path / "tok.json"))
+    assert fyers_auth.cached_token() is None
+    fyers_auth.save_token("abc123")
+    assert fyers_auth.cached_token() == "abc123"
+    # a token saved for a different day is treated as stale
+    (tmp_path / "tok.json").write_text(f'{{"date": "2000-01-01", "token": "old"}}')
+    assert fyers_auth.cached_token() is None
+
+
+def test_ensure_token_prefers_cache_then_env(tmp_path, monkeypatch):
+    from marketscan.brokers import fyers_auth
+
+    monkeypatch.setenv("FYERS_TOKEN_FILE", str(tmp_path / "tok.json"))
+    monkeypatch.setenv("FYERS_ACCESS_TOKEN", "fromenv")
+    assert fyers_auth.ensure_token(auto=False) == "fromenv"      # env used and cached
+    monkeypatch.delenv("FYERS_ACCESS_TOKEN")
+    assert fyers_auth.ensure_token(auto=False) == "fromenv"      # now served from cache
+
+
+def test_b64_encoding():
+    from marketscan.brokers import fyers_auth
+    import base64
+
+    assert fyers_auth._b64("1234") == base64.b64encode(b"1234").decode()
+
+
+def test_market_hours_logic():
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    import importlib.util, pathlib
+
+    spec = importlib.util.spec_from_file_location("fyers_runner", pathlib.Path("scripts/fyers_runner.py"))
+    runner = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(runner)
+    ist = ZoneInfo("Asia/Kolkata")
+    assert runner.market_open(datetime(2026, 10, 22, 10, 0, tzinfo=ist))      # Thursday 10:00
+    assert not runner.market_open(datetime(2026, 10, 22, 8, 0, tzinfo=ist))   # before open
+    assert not runner.market_open(datetime(2026, 10, 22, 16, 0, tzinfo=ist))  # after close
+    assert not runner.market_open(datetime(2026, 10, 24, 10, 0, tzinfo=ist))  # Saturday
+    assert runner.wait_seconds(datetime(2026, 10, 22, 9, 0, tzinfo=ist)) == 15 * 60

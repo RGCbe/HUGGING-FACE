@@ -4,3 +4,5 @@ __pycache__/
 data/cache/
 output/
 .env
+deploy/fyers.env
+.fyers_token.json

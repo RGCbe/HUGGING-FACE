@@ -1,0 +1,26 @@
+# systemd unit for the hands-off Fyers live runner.
+# Install (edit the paths/user first):
+#   sudo cp deploy/fyers-straddle.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now fyers-straddle
+#   journalctl -u fyers-straddle -f        # watch the output
+#
+# The runner stays up across days, refreshes the token each morning, and only
+# streams during market hours. Secrets come from deploy/fyers.env (chmod 600).
+
+[Unit]
+Description=Fyers live straddle VWAP runner
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=CHANGE_ME
+WorkingDirectory=/home/CHANGE_ME/HUGGING-FACE
+EnvironmentFile=/home/CHANGE_ME/HUGGING-FACE/deploy/fyers.env
+ExecStart=/usr/bin/python3 scripts/fyers_runner.py --symbol NSE:NIFTY50-INDEX
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
