@@ -85,6 +85,8 @@ For both:
 - `lesson` (spoken, at most 20 words) and `lesson_short` (on screen, at most 44 characters).
 - `title`: under 45 characters, a question or promise a viewer would tap ("Why Is Grandma Always
   Smiling?" for kids, "The Boss Who Never Got Angry" for all ages). No clickbait, no emoji.
+  `make.py` puts "Thirukkural N for Kids: " (all ages: "Thirukkural N: ") in front, because
+  that is what people search for; do not repeat it in `title`.
 
 **Boards.** Each line has a `board`: 1 to 5 items, drawn as the words are spoken.
 

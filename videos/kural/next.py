@@ -3,8 +3,8 @@
     python3 next.py CHANNEL    prints {"kural": N, "publish_at": "...Z" or null, "last_on_channel": M}
 
 CHANNEL is a key of "channels" in config.json (kids, adult). Reads that channel's public feed and its
-Shorts and Videos pages (no login needed) and finds the highest "Super Kural #N" already
-published, so a day that failed is simply tried again the next day. publish_at is today's
+Shorts and Videos pages (no login needed) and finds the highest "Thirukkural N" or "Super Kural #N"
+already published, so a day that failed is simply tried again the next day. publish_at is today's
 publish_time in config.json, in UTC. If that is less than an hour away (or past), publish_at is
 null: the video goes public as soon as it is uploaded, so the next morning's run sees it on the
 channel and moves on. Exits with status 2 once last_kural is done, 3 if the channel is not set up yet (no channel_id), and
@@ -56,7 +56,8 @@ for tab in ("shorts", "videos"):
 if not sources:
     print(json.dumps({"kural": None, "error": "could not read the channel's feed or pages; try again later"}))
     sys.exit(4)
-done = [int(n) for t in texts for n in re.findall(r"super\s*kural\s*#?\s*(\d+)", t, re.I)]
+# titles are "Thirukkural N for Kids: ..." (or "Thirukkural N: ..."); the first ones were "Super Kural #N"
+done = [int(n) for t in texts for n in re.findall(r"(?:super\s*kural\s*#?|thirukkural)\s*(\d+)", t, re.I)]
 last = max(done, default=0)
 kural = max(last + 1, channel["first_kural"])
 if kural > cfg["last_kural"]:

@@ -313,7 +313,8 @@ def main():
         "-movflags", "+faststart", out)
 
     # 4. Upload details.
-    title = f"Super Kural #{n}: {spec['title']}"
+    # "Thirukkural" first: it is what parents search for (next.py reads this number back)
+    title = f"Thirukkural {n} for Kids: {spec['title']}" if kids else f"Thirukkural {n}: {spec['title']}"
     description = (
         f"{spec['title']} - a short story about Thirukkural {n}" + (", for children.\n\n" if kids else ".\n\n") +
         f"{kural['line1']}\n{kural['line2']}\n({kural['translit']})\n\n"
