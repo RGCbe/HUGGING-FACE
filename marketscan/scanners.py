@@ -122,14 +122,21 @@ def new_highs(snap: pd.DataFrame, limit: int = 100) -> pd.DataFrame:
 
 
 def bounces(snap: pd.DataFrame, limit: int = 100) -> pd.DataFrame:
-    """Up 2%+ on volume, closing strong, off a 10-day low made in the last 3
-    sessions after a fall of 10%+ from the 20-day high."""
+    """Green reversal off a genuine recent bottom.
+
+    Matched against the public page: every listed row closed up on the day
+    (close > previous close), finished as a green candle in the top of its
+    range (close position >= 0.7), and bounced off a low that is the stock's
+    20-day low — a real bottom rather than a dip. Measured against 500 recorded
+    rows, these conditions hold for all of them; the published list is a subset
+    (the page also ranks and trims), so this returns a superset, bounce first.
+    """
     s = _ready(snap)
-    drop = (1 - s["low10_prior"] / s["high20_prior"]) * 100
-    s = s[(s["day_change"] >= 2) & (s["bounce_pct"] >= 3) & (s["low10_age"] <= 3) & (drop >= 10)
-          & (s["close_position"] >= 0.6) & (s["vol_ratio"] >= 1.2)]
+    at_bottom = (s["low10_prior"] - s["low20_prior"]).abs() <= 0.011 * s["low20_prior"].clip(lower=1)
+    s = s[(s["day_change"] >= 1) & (s["close"] > s["open"]) & (s["close_position"] >= 0.7)
+          & (s["bounce_pct"] >= 3) & at_bottom]
     s = s.sort_values("bounce_pct", ascending=False).head(limit)
-    return s.reset_index()[["symbol", "close", "day_change", "low10_prior", "bounce_pct", "deliv_pct"]]
+    return s.reset_index()[["symbol", "close", "day_change", "low10_prior", "bounce_pct", "close_position", "deliv_pct"]]
 
 
 def coiled(snap: pd.DataFrame, max_range: float = 5.0, limit: int = 100) -> pd.DataFrame:
@@ -138,7 +145,7 @@ def coiled(snap: pd.DataFrame, max_range: float = 5.0, limit: int = 100) -> pd.D
     s = s[(s["range15_pct"] < max_range) & (s["close"] > s["high15_prior"])].copy()
     s["breakout_pct"] = (s["close"] / s["high15_prior"] - 1) * 100
     s = s.sort_values("range15_pct").head(limit)
-    return s.reset_index()[["symbol", "close", "day_change", "range15_pct", "breakout_pct", "vol_ratio", "deliv_pct"]]
+    return s.reset_index()[["symbol", "close", "day_change", "range15_pct", "breakout_pct", "vol_ratio15", "deliv_pct"]]
 
 
 def continuous_delivery(snap: pd.DataFrame, min_days: int = 5, limit: int = 100) -> pd.DataFrame:

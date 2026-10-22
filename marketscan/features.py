@@ -76,6 +76,8 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
     # Price levels.
     df["high20_prior"] = prior("high", 20, "max")
     df["breakout_pct"] = (df["close"] / df["high20_prior"] - 1) * 100
+    df["low20_prior"] = prior("low", 20, "min")
+    df["vol_ratio15"] = df["volume"] / prior("volume", 15, "mean")
     df["low10_prior"] = prior("low", 10, "min")
     df["bounce_pct"] = (df["close"] / df["low10_prior"] - 1) * 100
     # Sessions since the prior-10-day low (1 = yesterday).

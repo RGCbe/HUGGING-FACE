@@ -75,3 +75,19 @@ def test_next_day_levels_are_consistent(history):
     out = scanners.next_day_setups(snap)
     for _, r in out.iterrows():
         assert r["stop_loss"] < r["entry"] < r["target1"] < r["target2"]
+
+
+def test_bounce_rows_meet_documented_conditions(history):
+    # Every bounce row must be a green up-day closing strong off a 20-day bottom.
+    snap = features.snapshot(history, history["date"].max())
+    out = scanners.bounces(snap)
+    for _, r in out.iterrows():
+        assert r["day_change"] >= 1
+        assert r["close_position"] >= 0.7
+        assert r["bounce_pct"] >= 3
+
+
+def test_coiled_reports_prior_15_volume_ratio(history):
+    snap = features.snapshot(history, history["date"].max())
+    out = scanners.coiled(snap, max_range=100)  # loose range so rows appear
+    assert "vol_ratio15" in out.columns

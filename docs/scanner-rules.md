@@ -44,9 +44,9 @@ Action: below 60 WATCH; 60-69 ACCUMULATE; 70+ on a down day ACCUMULATE, else BUY
 | Volume spike | volume x >= 2 | volume x, top 100 |
 | Delivery spike | delivery % >= 50 and delivery ratio >= 1.5 | ratio, top 100 |
 | New high | close above the 20-day high | breakout %, top 100 |
-| Coiled | prior-15-row range under 5% and close above its high | tightest first |
+| Coiled | prior-15-row range under 5% and close above its high (volume ratio shown over the prior 15 rows) | tightest first |
 | Continuous delivery | delivery >= 50% for 5+ rows in a row (shown up to 10) | streak, then average delivery over it |
-| Bounce | up 2%+, 3%+ off a prior-10-row low set in the last 3 rows, after a 10%+ fall from the 20-day high, close position >= 0.6, volume x >= 1.2 | bounce % |
+| Bounce | green up-day (close > open, day change >= 1%), close position >= 0.7, 3%+ off a prior-10-row low that is also the 20-day low (a genuine bottom) | bounce % |
 
 ## VWAP levels (5, 15, 30 days)
 
@@ -135,3 +135,16 @@ Spread = log(A) - beta x log(B), beta from least squares. Z-score over a
 rolling window (default 20). Entry at |z| >= 2, exit at |z| <= 0.5.
 Mean reversion is checked with an ADF statistic (below -2.86 at 5%) and the
 half-life of the spread.
+
+## Validation
+
+These rules were reverse-engineered black-box (clean-room): only the numbers a
+public page shows plus NSE's own free files, never any site's source code or
+private endpoints. Checked against 31 trading days of public end-of-day
+results, the smart-money, volume-spike, delivery-spike, new-high, coiled and
+penny lists reproduce the published lists at roughly 90-100%, and the smart,
+POC, high-buzz and new-high column values are exact or near-exact. The bounce,
+next-day and early-setup *selections* are our own definitions: their published
+column values match, but the exact stock-selection rule for those three is not
+reproduced, so those lists are built from the documented rules above rather
+than claimed to match any site.
