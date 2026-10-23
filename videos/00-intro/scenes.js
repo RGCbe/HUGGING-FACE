@@ -1,6 +1,6 @@
 // Scenes for the Tea Break with Manoj channel intro. Each board is an AI illustration (images.json,
 // made with doodle/imagegen.py) painted in behind the pen, with handwritten words on top, cued to
-// the voiceover. render.mjs --data passes {"img": DIR}, the folder holding s1.png ... s7.png.
+// the voiceover. render.mjs --data passes {"img": DIR}, the folder holding s1.png ... s7.png (00-intro/img).
 (function () {
   const D = Doodle;
   const L = D.lib;
