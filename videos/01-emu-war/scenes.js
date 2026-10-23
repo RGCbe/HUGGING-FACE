@@ -47,7 +47,7 @@
     write(c(2, 'what happened'), 1400, 300, '2. What happened', { size: 56 });
     write(c(2, 'who won'), 1400, 370, '3. Who won?', { size: 56 });
     D.stamp(c(2, 'Every word is true'), 400, 340, '100% TRUE', { size: 58 });
-    write(c(2, 'sources'), 960, 140, 'sources in the description', { size: 44, color: D.BLUE });
+    write(c(2, 'sources'), 1400, 455, 'sources in the description', { size: 44, color: D.BLUE });
   });
 
   // 3a. Soldiers become farmers
@@ -72,9 +72,9 @@
 
   // 4b. What an emu is
   scene(c(4, "If you've never seen"), 'e06', () => {
-    write(c(4, 'huge bird'), 480, 140, 'HUGE bird', { size: 84 });
-    write(c(4, "can't fly"), 480, 240, "can't fly", { size: 70, color: D.RED });
-    draw(c(4, "can't fly") + 0.4, 0.4, 700, 220, 0.4, L.cross());
+    write(c(4, 'huge bird'), 880, 140, 'HUGE bird', { size: 84 });
+    write(c(4, "can't fly"), 880, 240, "can't fly", { size: 70, color: D.RED });
+    draw(c(4, "can't fly") + 0.4, 0.4, 1080, 220, 0.4, L.cross());
     big(c(4, 'Very fast'), 1450, 180, 'VERY FAST!', { size: 100, color: D.ORANGE });
   });
 
@@ -89,9 +89,9 @@
   scene(D.sectionStart(5), 'e08', () => {
     write(c(5, 'we need'), 450, 130, 'We need', { size: 66 });
     big(c(5, 'machine guns'), 450, 230, 'MACHINE GUNS!', { size: 84, color: D.RED });
-    write(c(5, 'Sir George Pearce'), 1450, 130, 'Sir George Pearce', { size: 66 });
-    write(c(5, 'Sir George Pearce') + 0.5, 1450, 200, 'Defence Minister', { size: 48, color: D.GREY, dur: 0.5 });
-    D.stamp(c(5, 'said yes'), 1450, 300, 'YES!', { size: 80, color: D.GREEN });
+    write(c(5, 'Sir George Pearce'), 1050, 130, 'Sir George Pearce', { size: 66 });
+    write(c(5, 'Sir George Pearce') + 0.5, 1050, 200, 'Defence Minister', { size: 48, color: D.GREY, dur: 0.5 });
+    D.stamp(c(5, 'said yes'), 1050, 310, 'YES!', { size: 80, color: D.GREEN });
   });
 
   // 5b. What the army sent
@@ -106,12 +106,12 @@
 
   // 5c. The plan
   scene(c(5, 'The plan was simple'), 'e10', () => {
-    write(c(5, 'The plan was simple'), 960, 110, 'THE PLAN', { size: 84, color: D.BLUE });
-    write(c(5, 'Shoot the emus'), 960, 200, '1. Shoot the emus', { size: 62 });
-    write(c(5, 'Problem solved'), 960, 280, '2. Problem solved', { size: 62 });
-    draw(c(5, 'Problem solved') + 0.7, 0.3, 1230, 260, 1, L.check());
+    D.write(c(5, 'The plan was simple'), 1250, 290, 'THE PLAN', { size: 84, color: D.BLUE });
+    D.write(c(5, 'Shoot the emus'), 1250, 390, '1. Shoot the emus', { size: 62 });
+    D.write(c(5, 'Problem solved'), 1250, 470, '2. Problem solved', { size: 62 });
+    draw(c(5, 'Problem solved') + 0.7, 0.3, 1520, 450, 1, L.check());
     write(c(5, 'Monday meeting'), 330, 150, 'Monday meeting', { size: 58, color: D.GREY });
-    D.stamp(c(5, 'Perfect on paper'), 1580, 200, 'PERFECT ON PAPER', { size: 56, color: D.ORANGE, rotate: -5 });
+    D.stamp(c(5, 'Perfect on paper'), 1250, 120, 'PERFECT ON PAPER', { size: 56, color: D.ORANGE, rotate: -4 });
   });
 
   // 6a. Round 1 starts; emus scatter out of range
@@ -127,9 +127,9 @@
     write(c(6, 'Two days later'), 300, 110, '2 days later...', { size: 56, color: D.GREY });
     write(c(6, 'more than a thousand'), 1500, 140, '1,000+ emus', { size: 80 });
     big(c(6, 'perfect chance'), 960, 140, 'PERFECT CHANCE!', { size: 84, color: D.ORANGE });
-    write(c(6, 'twelve'), 330, 230, 'only 12', { size: 84, color: D.RED });
-    D.pop(c(6, 'gun jammed'), put(560, 330, 0.75, L.burst(140)));
-    D.write(c(6, 'gun jammed') + 0.15, 560, 352, 'JAMMED!', { size: 62, color: D.RED, dur: 0.4 });
+    write(c(6, 'twelve'), 960, 250, 'only 12', { size: 84, color: D.RED });
+    D.pop(c(6, 'gun jammed'), put(860, 470, 0.7, L.burst(140)));
+    D.write(c(6, 'gun jammed') + 0.15, 860, 490, 'JAMMED!', { size: 58, color: D.RED, dur: 0.4 });
     big(c(6, 'Bye bye'), 1500, 260, 'BYE BYE!', { size: 80, color: D.ORANGE });
   });
 
@@ -147,8 +147,8 @@
     write(c(8, 'But the story'), 960, 120, 'But wait...', { size: 90 });
     write(c(8, 'farmers asked again'), 400, 230, 'Again, please!', { size: 64 });
     calendar(c(8, 'November thirteenth'), 1730, 210, 'NOV', '13');
-    D.stamp(c(8, 'Round two'), 960, 240, 'ROUND 2', { size: 80, color: D.RED });
-    write(c(8, 'December tenth'), 960, 340, 'fighting until 10 December', { size: 52, color: D.GREY });
+    D.stamp(c(8, 'Round two'), 960, 215, 'ROUND 2', { size: 76, color: D.RED });
+    write(c(8, 'December tenth'), 960, 300, 'fighting until 10 December', { size: 48, color: D.GREY });
   });
 
   // 8b. The maths: ten bullets per emu
@@ -161,9 +161,9 @@
 
   // 9a. The tank quote
   scene(D.sectionStart(9), 'e16', () => {
-    write(c(9, 'They can face'), 960, 100, '"They can face machine guns with\nthe invulnerability of tanks."', { size: 66, dur: 3.2 });
-    write(c(9, 'In simple words'), 960, 250, '- Major Meredith, 1932', { size: 48, color: D.GREY });
-    big(c(9, 'comparing a bird'), 960, 350, 'A bird... like a TANK!', { size: 80, color: D.RED });
+    write(c(9, 'They can face'), 1500, 100, '"They can face machine guns with\nthe invulnerability of tanks."', { size: 54, dur: 3.2 });
+    write(c(9, 'In simple words'), 1500, 230, '- Major Meredith, 1932', { size: 42, color: D.GREY });
+    big(c(9, 'comparing a bird'), 60, 140, 'A bird...\nlike a TANK!', { size: 72, color: D.RED, anchor: 'start' });
   });
 
   // 9b. Minister of the Emu War
@@ -174,19 +174,19 @@
 
   // 10a. Who won
   scene(D.sectionStart(10), 'e18', () => {
-    big(c(10, 'Who won'), 960, 170, 'WHO WON?', { size: 140 });
+    big(c(10, 'Who won'), 320, 200, 'WHO WON?', { size: 110 });
     D.stamp(c(10, 'the emus'), 1550, 300, 'WINNER: THE EMUS', { size: 62, color: D.GREEN, rotate: -3 });
   });
 
   // 10b. Three more requests, three noes; bounties and fences instead
   scene(c(10, 'three more times'), 'e19', () => {
-    write(c(10, 'three more times'), 960, 100, 'The farmers asked for the army again:', { size: 56 });
-    write(c(10, 'nineteen thirty-four'), 450, 210, '1934', { size: 90 });
-    write(c(10, 'nineteen forty-three'), 960, 210, '1943', { size: 90 });
-    write(c(10, 'nineteen forty-eight'), 1470, 210, '1948', { size: 90 });
-    [450, 960, 1470].forEach((x, i) => D.stamp(c(10, 'said no') + i * 0.25, x, 300, 'NO', { size: 64 }));
-    write(c(10, 'bounty rewards'), 330, 400, 'bounty rewards', { size: 56, color: D.GREEN });
-    write(c(10, 'strong fences'), 1590, 400, 'strong fences', { size: 56, color: D.GREEN });
+    write(c(10, 'three more times'), 960, 90, 'The farmers asked for the army again:', { size: 50 });
+    write(c(10, 'nineteen thirty-four'), 450, 180, '1934', { size: 80 });
+    write(c(10, 'nineteen forty-three'), 960, 180, '1943', { size: 80 });
+    write(c(10, 'nineteen forty-eight'), 1470, 180, '1948', { size: 80 });
+    [450, 960, 1470].forEach((x, i) => D.stamp(c(10, 'said no') + i * 0.25, x, 255, 'NO', { size: 54 }));
+    write(c(10, 'bounty rewards'), 175, 420, 'bounty\nrewards', { size: 48, color: D.GREEN });
+    write(c(10, 'strong fences'), 1760, 330, 'strong\nfences', { size: 48, color: D.GREEN });
   });
 
   // 11. Comments
