@@ -60,10 +60,10 @@
   // 6. Saturday: a new story. Monday and Wednesday: Shorts.
   scene(D.sectionStart(6), () => {
     picture(D.sectionStart(6) - LEAD, 's6');
-    say(c(6, 'Saturday'), 420, 300, 'SATURDAY', { size: 110, color: D.ORANGE, outline: D.INK, outlineWidth: 12 });
-    say(c(6, 'new story'), 420, 400, 'a new story', { size: 72 });
-    say(c(6, 'Monday'), 1500, 300, 'MON + WED', { size: 110, color: D.ORANGE, outline: D.INK, outlineWidth: 12 });
-    say(c(6, 'short ones'), 1500, 400, 'Shorts', { size: 72 });
+    say(c(6, 'Saturday'), 370, 300, 'SATURDAY', { size: 104, color: D.ORANGE, outline: D.INK, outlineWidth: 12 });
+    say(c(6, 'new story'), 370, 400, 'a new story', { size: 72 });
+    say(c(6, 'Monday'), 1580, 300, 'MON + WED', { size: 104, color: D.ORANGE, outline: D.INK, outlineWidth: 12 });
+    say(c(6, 'short ones'), 1580, 400, 'Shorts', { size: 72 });
   });
 
   // 7. Grab your tea, subscribe, see you next tea break.
