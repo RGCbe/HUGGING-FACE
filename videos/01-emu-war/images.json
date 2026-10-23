@@ -1,0 +1,27 @@
+{
+ "style": "Hand-drawn cartoon illustration with flat colours and clean black ink outlines, warm cream paper background, soft shadows, friendly and funny. The top third of the picture is plain empty cream paper. No text, no letters, no numbers anywhere. Emus have shaggy dark brown feathers, a blue-grey neck and face, a dark grey beak and long grey legs. Australian soldiers of 1932 wear khaki uniforms and wide slouch hats with one side of the brim pinned up. A Lewis gun is a light machine gun with a flat round drum magazine on top and a thick cooling tube around the barrel, on a small bipod.",
+ "aspect": "16:9",
+ "style_ref": "ref",
+ "images": [
+  {"name": "e01", "seed": 7, "prompt": "On the left, a nervous Australian soldier lying behind a Lewis gun on its bipod. On the right, one big cheeky emu standing proudly, looking straight at him. A golden wheat field behind them."},
+  {"name": "e02", "seed": 7, "prompt": "A cosy wooden desk seen from the front with an open notebook with blank pages, a pencil, a magnifying glass and a steaming white teacup with an orange stripe."},
+  {"name": "e03", "seed": 7, "prompt": "Two Australian soldiers walking happily along a country road away from a steam ship, one carrying a pitchfork over his shoulder, towards a wooden signpost and green farmland."},
+  {"name": "e04", "seed": 7, "prompt": "A wide golden wheat field in the Australian countryside with a small tin-roofed farmhouse, a windmill water pump and a farmer in a straw hat proudly looking at his wheat."},
+  {"name": "e05", "seed": 7, "prompt": "A huge crowd of emus, dozens and dozens of them, marching over a dusty hill towards a wheat field, looking determined."},
+  {"name": "e06", "seed": 7, "prompt": "On the left, one tall emu standing calmly, side view, showing how big it is next to a small fence post. On the right, another emu running very fast with cartoon speed lines and dust behind it."},
+  {"name": "e07", "seed": 7, "prompt": "Emus happily eating a ruined wheat field, a broken wire fence with big holes in it, and cheeky rabbits hopping in through the holes."},
+  {"name": "e08", "seed": 7, "prompt": "On the left, a group of angry wheat farmers in straw hats and work shirts shaking their fists. On the right, a tall serious politician in a dark 1930s suit and bowler hat, nodding. A grand government building with columns in the background."},
+  {"name": "e09", "seed": 7, "prompt": "On a dusty country road: an army major with a moustache and a peaked officer's cap, two soldiers in slouch hats, two Lewis guns lying on the ground and a stack of wooden ammunition boxes."},
+  {"name": "e10", "seed": 7, "prompt": "A modern office meeting room: a confident manager in a tie pointing at a big blank whiteboard while three bored office workers sit around a table with coffee cups."},
+  {"name": "e11", "seed": 7, "prompt": "Soldiers with a Lewis gun at the edge of a wheat field, looking confused, while emus split into small groups and run away in every direction far out of reach."},
+  {"name": "e12", "seed": 7, "prompt": "A muddy farm dam with many emus drinking at it on the right. On the left, a soldier looking shocked at his jammed Lewis gun with a puff of smoke coming out of it."},
+  {"name": "e13", "seed": 7, "prompt": "On the left, newspaper sellers laughing and holding up newspapers. On the right, soldiers walking away along a road with their heads down, carrying their guns."},
+  {"name": "e14", "seed": 7, "prompt": "Soldiers arriving again in an old 1930s army truck at a wheat farm, a farmer waving them in happily, and emus watching suspiciously from a hill."},
+  {"name": "e15", "seed": 7, "prompt": "An army officer with a moustache sitting at a wooden desk writing a long report, a big pile of empty brass bullet cases on the desk and one emu feather."},
+  {"name": "e16", "seed": 7, "prompt": "A giant emu standing calmly and bravely like a tank in front of a soldier with a Lewis gun, cartoon bullets bouncing off its feathers, the soldier amazed."},
+  {"name": "e17", "seed": 7, "prompt": "A 1930s parliament chamber with green benches, politicians in suits laughing and pointing at one embarrassed minister who is hiding his face."},
+  {"name": "e18", "seed": 7, "prompt": "A proud emu standing on the top step of a winner's podium, holding up a big golden trophy with its wing, confetti falling."},
+  {"name": "e19", "seed": 7, "prompt": "A wheat farmer building a strong, tall wire fence around his wheat field, a jar of coins on a fence post, and emus outside the fence looking disappointed."},
+  {"name": "e20", "seed": 7, "prompt": "A cosy tea break table with a steaming white teacup with an orange stripe and a smartphone lying next to it, and a small curious emu peeking in from the side."}
+ ]
+}
