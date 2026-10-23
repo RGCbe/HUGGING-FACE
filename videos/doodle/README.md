@@ -7,10 +7,11 @@ Patrick Hand and, for Tamil, Kavivanar (both SIL Open Font License, `fonts/`).
 
 | File | What it does |
 | --- | --- |
-| `engine.js` | Scenes, timed items (`draw`, `write`, `pop`, `stamp`), the camera, the pen, `renderAt(t)` |
+| `engine.js` | Scenes, timed items (`draw`, `write`, `pop`, `stamp`, and `image`: a picture painted in row by row behind the pen, then slowly zoomed), the camera, the pen, `renderAt(t)` |
 | `doodles.js` | Reusable drawings: emu, person (hats: slouch, straw, top, helmet), gun, map of Australia, calendar, newspaper, trophy and more |
 | `doodles_story.js` | People and things for children's stories: kids, grandparents, parents, a teacher, a poet; trees, animals, houses, a temple, books, lamps and more |
 | `render.mjs` | Renders frames in headless Chromium (Playwright) and pipes them into ffmpeg; `--stills auto` saves one finished frame per scene for review; `--layout portrait` draws a 1080x1250 board at full size for Shorts; `--data` passes a JSON spec to the scenes |
+| `imagegen.py` | Illustrations for a video's scenes from Qwen-Image (Apache-2.0) on a Hugging Face Space, one shared style per video (`images.json`); uses `HF_TOKEN` and the account's daily ZeroGPU quota, so it skips pictures that already exist and a rerun makes only the missing ones |
 | `timing.py` | Word timings for a sectioned voiceover, aligned to the script (faster-whisper); also keeps what Whisper heard |
 | `captions.py` | Burned-in ASS captions from the timings, with spoken numbers shown as digits; `--margin` moves them up or down |
 | `short.py` | Builds a vertical Short: a new hook line plus stretches of the long video |

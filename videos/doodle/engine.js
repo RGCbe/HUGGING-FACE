@@ -186,6 +186,30 @@
     return items;
   };
 
+  // A picture (an illustration file) painted in row by row behind the pen, then slowly zooming in.
+  // o: rows (4), zoom (0.04: how much it grows over zoomDur), zoomDur (8 s).
+  D.loading = [];
+  D.image = function (at, dur, href, x, y, w, h, o = {}) {
+    const rows = o.rows || 4;
+    const id = `clip${uid++}`;
+    const cp = mk('clipPath', { id }, defs);
+    const bands = [];
+    for (let i = 0; i < rows; i++) bands.push(mk('rect', { x, y: y + (i * h) / rows - 1, width: 0, height: h / rows + 2 }, cp));
+    const g = mk('g', { 'clip-path': `url(#${id})` }, cur.g);
+    const inner = mk('g', {}, g);
+    mk('image', { href, x, y, width: w, height: h, preserveAspectRatio: 'xMidYMid slice' }, inner);
+    D.loading.push(new Promise((done) => {
+      const im = new Image();
+      im.onload = im.onerror = done;
+      im.src = href;
+    }));
+    const it = { kind: 'image', g, inner, at, dur, x, y, w, h, rows, bands, zoom: o.zoom ?? 0.04, zoomDur: o.zoomDur || 8 };
+    cur.items.push(it);
+    return it;
+  };
+  // Resolves once every picture has loaded (render.mjs waits for it before the first frame).
+  D.ready = () => Promise.all(D.loading);
+
   // Appear with a small bounce (stamps, bursts).
   D.pop = function (at, nodes, o = {}) {
     const outer = mk('g', {}, cur.g);
@@ -230,6 +254,18 @@
       it.fills.forEach((p) => p.setAttribute('opacity', `${f}`));
     } else if (it.kind === 'write') {
       it.rect.setAttribute('width', `${(it.bb.width + 16) * q}`);
+    } else if (it.kind === 'image') {
+      // rows are painted one after another, alternating direction
+      const p = q * it.rows;
+      it.bands.forEach((b, i) => {
+        const f = clamp(p - i);
+        b.setAttribute('width', `${it.w * f}`);
+        b.setAttribute('x', `${i % 2 === 0 ? it.x : it.x + it.w * (1 - f)}`);
+      });
+      const s = 1 + it.zoom * clamp((t - it.at) / it.zoomDur);
+      const cx = it.x + it.w / 2;
+      const cy = it.y + it.h / 2;
+      it.inner.setAttribute('transform', `translate(${cx},${cy}) scale(${s}) translate(${-cx},${-cy})`);
     } else if (it.kind === 'pop') {
       const s = q <= 0 ? 0 : 1 + 0.35 * Math.sin(Math.PI * q) * (1 - q);
       it.g.setAttribute('opacity', q <= 0 ? '0' : '1');
@@ -253,6 +289,12 @@
       const x = it.bb.x + it.bb.width * q;
       const y = it.bb.y + it.bb.height * 0.72;
       return new DOMPoint(x, y).matrixTransform(it.txt.getCTM());
+    } else if (it.kind === 'image') {
+      const p = Math.min(q * it.rows, it.rows - 1e-6);
+      const i = Math.floor(p);
+      const f = p - i;
+      const x = i % 2 === 0 ? it.x + it.w * f : it.x + it.w * (1 - f);
+      return new DOMPoint(x, it.y + ((i + 0.5) * it.h) / it.rows).matrixTransform(it.g.getCTM());
     }
     return null;
   }

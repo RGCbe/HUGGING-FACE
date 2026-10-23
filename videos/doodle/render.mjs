@@ -43,6 +43,7 @@ await page.evaluate(([timing, st, data]) => {
   window.Doodle.init(st);
 }, [JSON.parse(readFileSync(args.timing, 'utf8')), stage, args.data ? JSON.parse(readFileSync(args.data, 'utf8')) : null]);
 await page.addScriptTag({ path: path.resolve(args.scenes) });
+await page.evaluate(() => window.Doodle.ready()); // pictures added with Doodle.image
 const total = await page.evaluate(() => window.Doodle.duration());
 
 if (args.stills) {

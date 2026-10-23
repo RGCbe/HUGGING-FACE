@@ -1,0 +1,41 @@
+{
+ "style": "Hand-drawn cartoon illustration with flat colours and clean black ink outlines, warm cream paper background, soft shadows, friendly and funny. The top third of the picture is plain empty cream paper. No text, no letters, no numbers anywhere.",
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "s1",
+   "seed": 11,
+   "prompt": "A huge old dusty history book lying open on a desk, and funny characters leaping out of its pages: a cheeky emu with shaggy dark brown feathers, a blue-grey neck and a dark grey beak, a pink pig, a grey cat wearing a tiny detective hat, and a laughing knight in armour."
+  },
+  {
+   "name": "s2",
+   "seed": 7,
+   "prompt": "A cosy wooden table seen from the front with a steaming white teacup with an orange stripe on a white saucer, a small plate of biscuits and a folded old newspaper beside it, warm morning light."
+  },
+  {
+   "name": "s3",
+   "seed": 7,
+   "prompt": "A busy office worker in a blue shirt sitting at a desk piled with papers, taking a tea break: holding a cup of tea in one hand and laughing at a phone in the other, a round wall clock behind."
+  },
+  {
+   "name": "s4",
+   "seed": 7,
+   "prompt": "An old professor with glasses and a long grey beard giving a very long, boring lecture beside a blackboard covered in squiggles, while three students sleep on their desks, one with a bubble of snot."
+  },
+  {
+   "name": "s5",
+   "seed": 7,
+   "prompt": "A big magnifying glass held by a hand over a neat stack of old history books, rolled old maps and old newspapers, with small coloured bookmarks sticking out of the books."
+  },
+  {
+   "name": "s6",
+   "seed": 11,
+   "prompt": "A cheerful wall calendar hanging on a nail on a cream wall; its page is a simple grid of empty white squares with nothing written in them. A shelf below with a cup of tea and a small potted plant."
+  },
+  {
+   "name": "s7",
+   "seed": 7,
+   "prompt": "A friendly hand reaching to pick up a steaming white teacup with an orange stripe from a saucer on a wooden table, cosy and warm."
+  }
+ ]
+}
