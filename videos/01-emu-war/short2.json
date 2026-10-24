@@ -8,11 +8,29 @@
   "replace": "01-emu-war/caption_replace.json",
   "title": "THE EMU WAR (1932)",
   "subtitle": "10 bullets per bird?!",
-  "hook": {"wav": "$TTS_DIR/short_hooks_02.wav", "timing": "01-emu-war/shorts_hooks_timing.json", "section": 2, "visual_from": 2.2, "visual_to": 7.35},
+  "hook": {
+    "wav": "$TTS_DIR/short_hooks_02.wav",
+    "timing": "01-emu-war/shorts_hooks_timing.json",
+    "section": 2,
+    "visual_from": 2.2,
+    "visual_to": 7.35
+  },
   "music": "$MUSIC",
-  "music_gain": 0.15,
+  "music_gain": 0.3,
   "segments": [
-    {"from": 138.58, "to": 151.12, "visual_to": 151.0},
-    {"from": 151.62, "to": 166.78, "visual_to": 166.1}
-  ]
+    {
+      "from": 138.58,
+      "to": 151.12,
+      "visual_to": 151.0
+    },
+    {
+      "from": 151.62,
+      "to": 166.78,
+      "visual_to": 166.1
+    }
+  ],
+  "data": {
+    "img": "01-emu-war/img"
+  },
+  "background": "0xfff8e7"
 }

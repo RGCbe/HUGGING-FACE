@@ -1,0 +1,26 @@
+{
+  "defaults": {
+    "privacy": "private",
+    "made_for_kids": false,
+    "ai_content": true,
+    "category_id": 27,
+    "language": "en",
+    "refresh_token_env": "YT_REFRESH_TOKEN_ADULT"
+  },
+  "videos": [
+    {
+      "file": "$OUT_DIR/emu_war_short2_10_bullets.mp4",
+      "title": "10 Bullets for 1 Bird?! The Emu War (1932) #shorts",
+      "publish_at": "2026-10-26T12:30:00Z",
+      "tags": ["emu war", "emu war 1932", "funny history", "true story", "history facts", "shorts"],
+      "description": "The army fired 9,860 bullets and got 986 emus. That's 10 bullets for every bird.\n\nThe full story: https://youtu.be/rUER31XYzwY\n\nSources: Wikipedia \"Emu War\"; Murray Johnson, Journal of Australian Studies (2006).\nThe voice is an AI copy of my own voice; the pictures are made with an AI image model, and the music is original."
+    },
+    {
+      "file": "$OUT_DIR/emu_war_short1_round1.mp4",
+      "title": "Soldiers With Machine Guns vs Emus: Round 1 (1932) #shorts",
+      "publish_at": "2026-10-28T12:30:00Z",
+      "tags": ["emu war", "emu war 1932", "funny history", "true story", "history facts", "shorts"],
+      "description": "November 1932: soldiers with machine guns against 20,000 emus. Round 1 did not go to plan.\n\nThe full story: https://youtu.be/rUER31XYzwY\n\nSources: Wikipedia \"Emu War\"; Murray Johnson, Journal of Australian Studies (2006).\nThe voice is an AI copy of my own voice; the pictures are made with an AI image model, and the music is original."
+    }
+  ]
+}

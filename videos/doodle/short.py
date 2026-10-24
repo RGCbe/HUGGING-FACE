@@ -15,6 +15,9 @@ layout. A title sits above the drawing and big captions below it. SPEC_JSON keys
   music_gain (optional): music level before ducking (default 0.30; Shorts on phone speakers need less)
   segments: [{from, to, visual_to?}, ...]      seconds on the long timeline; visual_to freezes
                                                the picture early (to skip a camera pan)
+  data (optional): passed to render.mjs --data, e.g. {"img": "01-emu-war/img"} for illustrated scenes
+                   ("img" may be relative to the current folder)
+  background (optional): colour around the board instead of white, e.g. "0xfff8e7"
 Needs ffmpeg and node with Playwright; run from the folder that holds the doodle/ engine.
 """
 import json
@@ -45,9 +48,19 @@ def run(*cmd):
     subprocess.run(cmd, check=True)
 
 
+data_args = []
+if spec.get("data"):
+    data = dict(spec["data"])
+    if data.get("img"):
+        data["img"] = os.path.abspath(data["img"])
+    data_json = os.path.join(work, "data.json")
+    json.dump(data, open(data_json, "w"))
+    data_args = ["--data", data_json]
+
+
 def render(t0, t1, out):
     run("node", os.path.join(here, "render.mjs"), "--scenes", spec["scenes"], "--timing", spec["timing"],
-        "--layout", "vertical", "--from", f"{t0}", "--to", f"{t1}", "--out", out)
+        "--layout", "vertical", "--from", f"{t0}", "--to", f"{t1}", "--out", out, *data_args)
 
 
 def hold(src, dur, out):
@@ -126,10 +139,17 @@ title_file = os.path.join(work, "title.txt")
 sub_file = os.path.join(work, "subtitle.txt")
 open(title_file, "w").write(spec["title"])
 open(sub_file, "w").write(spec["subtitle"])
-vf = (f"drawtext=fontfile={font}:textfile={title_file}:fontsize=118:fontcolor=0xe8590c:x=(w-text_w)/2:y=250,"
-      f"drawtext=fontfile={font}:textfile={sub_file}:fontsize=72:fontcolor=0x1d1d1f:x=(w-text_w)/2:y=420,"
-      f"ass={ass}:fontsdir={os.path.join(here, 'fonts')}")
-run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", silent, "-i", audio, "-vf", vf, "-af", "apad", "-shortest",
+text = (f"drawtext=fontfile={font}:textfile={title_file}:fontsize=118:fontcolor=0xe8590c:x=(w-text_w)/2:y=250,"
+        f"drawtext=fontfile={font}:textfile={sub_file}:fontsize=72:fontcolor=0x1d1d1f:x=(w-text_w)/2:y=420,"
+        f"ass={ass}:fontsdir={os.path.join(here, 'fonts')}")
+if spec.get("background"):
+    # the vertical layout draws the 1920x1080 board 1080x608 at y=660; lay it on a coloured page
+    inputs = ["-f", "lavfi", "-i", f"color=c={spec['background']}:s=1080x1920:r={FPS}", "-i", silent, "-i", audio]
+    graph = f"[1:v]crop=1080:608:0:660[board];[0:v][board]overlay=0:660:shortest=1,{text}[v]"
+    maps = ["-filter_complex", graph, "-map", "[v]", "-map", "2:a"]
+else:
+    inputs, maps = ["-i", silent, "-i", audio], ["-vf", text]
+run("ffmpeg", "-nostdin", "-v", "error", "-y", *inputs, *maps, "-af", "apad", "-shortest",
     "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
     "-movflags", "+faststart", spec["out"])
 print(f"wrote {spec['out']}: {total:.1f}s")
