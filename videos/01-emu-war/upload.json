@@ -1,0 +1,33 @@
+{
+  "defaults": {
+    "privacy": "private",
+    "made_for_kids": false,
+    "ai_content": true,
+    "category_id": 27,
+    "language": "en",
+    "refresh_token_env": "YT_REFRESH_TOKEN_ADULT"
+  },
+  "videos": [
+    {
+      "file": "$OUT_DIR/emu_war_illustrated.mp4",
+      "thumbnail": "$OUT_DIR/emu_war_thumbnail.jpg",
+      "title": "The Emu War: When Birds Beat an Army (1932)",
+      "tags": [
+        "emu war",
+        "the emu war",
+        "emu war 1932",
+        "great emu war",
+        "australia emu war",
+        "emu war explained",
+        "emus vs army",
+        "funny history",
+        "history facts",
+        "true story",
+        "western australia history",
+        "major meredith"
+      ],
+      "description": "The Emu War of 1932 really happened: Australia sent soldiers with machine guns to stop 20,000 emus\neating the wheat in Western Australia, and the emus won. The true story, explained in 3 minutes.\n\nSources:\n- Murray Johnson, \"'Feathered foes': soldier settlers and Western Australia's 'Emu War' of 1932\",\n  Journal of Australian Studies 30(88), 2006\n- Wikipedia, \"Emu War\": https://en.wikipedia.org/wiki/Emu_War\n\nChapters:\n0:00 Army vs birds\n0:19 Soldiers become farmers\n0:37 20,000 emus arrive\n0:58 The army is called in\n1:24 Round 1\n1:53 The army pulls out\n2:06 Round 2: 10 bullets per emu\n2:31 Birds like tanks\n2:52 Who won?\n3:16 Your story\n\nIn November 1932, wheat farmers in Western Australia, many of them former soldiers, asked for\nhelp against around 20,000 emus. Major Meredith arrived with two soldiers, two Lewis guns and\n10,000 rounds. Round one ended with a jammed gun and a retreat. Round two went on until\n10 December, at about ten bullets for every emu. The farmers asked for the army again in 1934,\n1943 and 1948 and were refused every time.\n\nDo you know a funny true story like this? Tell me in the comments.\n\nThe voice in this video is an AI copy of my own voice. The pictures are made with an AI image model (FLUX.2 klein), and the music is original.",
+      "publish_at": "2026-10-24T12:30:00Z"
+    }
+  ]
+}

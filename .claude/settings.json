@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "src=\"$CLAUDE_PROJECT_DIR/.claude/youtube/voice.md\"; [ -f \"$src\" ] && mkdir -p \"$HOME/.claude/youtube\" && cp \"$src\" \"$HOME/.claude/youtube/voice.md\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}
