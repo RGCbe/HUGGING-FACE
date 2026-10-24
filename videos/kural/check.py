@@ -5,7 +5,7 @@
 TEXT_FILE has one section per line, spelled the way it should be understood (not respelled for
 the voice). WAV_PATTERN contains "{n:02d}". Whisper transcribes each section WITHOUT seeing the
 script, so it cannot guess words the voice did not say clearly; then the two are compared word by
-word. Allowed: spelling of numbers ("3" / "three"), words run together or split ("goodnight"),
+word. Allowed: spelling of numbers ("3" / "three", "1859" / "eighteen fifty-nine"), words run together or split ("goodnight"),
 and other spellings of the same sound for the names in --names ("Mina" for Meena). Anything else -
 a wrong, missing or extra word - fails the section.
 
@@ -43,12 +43,41 @@ def spell(n):
     return spell(n // 1000) + "thousand" + ("" if n % 1000 == 0 else spell(n % 1000))
 
 
+def year(n):
+    """How a year is said: 1859 -> eighteen fifty nine, 1905 -> nineteen oh five, 1900 -> nineteen hundred."""
+    hi, lo = divmod(n, 100)
+    return spell(hi) + ("hundred" if lo == 0 else "oh" + spell(lo) if lo < 10 else spell(lo))
+
+
+# Contractions and their full forms are the same words (Whisper often writes "I'm" as "I am").
+CONTRACTIONS = {"i'm": "i am", "you're": "you are", "we're": "we are", "they're": "they are", "it's": "it is",
+                "that's": "that is", "there's": "there is", "what's": "what is", "he's": "he is", "she's": "she is",
+                "let's": "let us", "don't": "do not", "doesn't": "does not", "didn't": "did not", "can't": "can not",
+                "cannot": "can not", "won't": "will not", "isn't": "is not", "aren't": "are not", "wasn't": "was not",
+                "weren't": "were not", "i'll": "i will", "you'll": "you will", "we'll": "we will", "they'll": "they will",
+                "i've": "i have", "you've": "you have", "we've": "we have", "they've": "they have", "i'd": "i would"}
+
+
 def tokens(text):
     out = []
+    text = re.sub(r"(?<=\d),(?=\d{3}\b)", "", text.replace("’", "'"))  # 9,860 is one number
+    text = re.sub(r"[A-Za-z]+'[A-Za-z]+|cannot", lambda m: CONTRACTIONS.get(m.group(0).lower(), m.group(0)), text, flags=re.I)
     for w in re.findall(r"[A-Za-z0-9']+", text.replace("-", " ")):
         w = w.lower().replace("'", "")
-        out.append(spell(int(w)) if w.isdigit() and int(w) < 10000 else w)
+        if w.isdigit() and 1100 <= int(w) < 2100:
+            out.append("§" + w)  # could be a year or a number: close() accepts either reading
+        else:
+            out.append(spell(int(w)) if w.isdigit() and int(w) < 10000 else w)
     return [w for w in out if w]
+
+
+def readings(words):
+    """Every way the words can be said (a 4-digit number as a year or as a number)."""
+    options = [""]
+    for w in words:
+        alts = [spell(int(w[1:])), year(int(w[1:]))] if w.startswith("§") else [w]
+        options = [o + x for o in options for x in alts]
+    return set(options)
 
 
 NAMES = [n.lower() for n in a.names.split(",") if n]
@@ -63,9 +92,9 @@ def sound(w):
 
 
 def close(script_words, heard_words):
-    s, h = "".join(script_words), "".join(heard_words)
-    if s == h:
+    if readings(script_words) & readings(heard_words):
         return True
+    s, h = "".join(script_words), "".join(heard_words)
     if any(n in s for n in NAMES):
         return difflib.SequenceMatcher(a=sound(s), b=sound(h)).ratio() >= 0.85
     return False
