@@ -130,6 +130,7 @@ def style_reference():
 
 
 ref = style_reference()
+failed = []
 for im in spec["images"]:
     out = os.path.join(a.out_dir, im["name"] + ".png")
     if (only and im["name"] not in only) or (not only and os.path.exists(out)):
@@ -138,6 +139,7 @@ for im in spec["images"]:
     if ref is not None and im["name"] != spec.get("style_ref"):
         prompt = ("Draw in exactly the same art style as image 0: the same black ink outlines, flat colours, "
                   "warm cream paper background and soft shadows. " + prompt)
+    data = None
     for attempt in range(3):
         try:
             started = time.time()
@@ -149,11 +151,16 @@ for im in spec["images"]:
             sys.exit(f"{im['name']}: the free daily quota is used up ({str(e)[:200]}); run again after it resets")
         except (urllib.error.URLError, RuntimeError, OSError) as e:
             print(f"{im['name']}: try {attempt + 1} failed: {e}", file=sys.stderr)
-            if attempt == 2:
-                sys.exit(f"could not make {im['name']}")
-            time.sleep(20 * (attempt + 1))
+            if attempt < 2:
+                time.sleep(20 * (attempt + 1))
+    if data is None:
+        failed.append(im["name"])  # carry on with the others; reword this one's prompt and run again
+        continue
     raw = out + ".download"
     open(raw, "wb").write(data)
     ffmpeg("-i", raw, out)
     os.remove(raw)
     print(f"{im['name']}: {out} ({time.time() - started:.0f}s, {a.engine}, seed {seed})", flush=True)
+if failed:
+    sys.exit(f"could not make {', '.join(failed)} (flagged by the safety filter, or the service failed): "
+             "reword those prompts and run again")
