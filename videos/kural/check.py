@@ -99,18 +99,23 @@ def tokens(text):
         nth = re.fullmatch(r"(\d+)(st|nd|rd|th)", w)
         if nth and int(nth.group(1)) < 10000:
             out.append(ordinal(int(nth.group(1))))
-        elif w.isdigit() and 1100 <= int(w) < 2100:
-            out.append("§" + w)  # could be a year or a number: close() accepts either reading
+        elif w.isdigit() and int(w) < 10000:
+            out.append("§" + w)  # "27" may be read "twenty seven" or (a date) "twenty seventh": readings() has both
         else:
-            out.append(spell(int(w)) if w.isdigit() and int(w) < 10000 else w)
+            out.append(w)
     return [w for w in out if w]
 
 
+def said(n):
+    """How a number written in digits may be read: as a number, an ordinal (dates) or a year."""
+    return {spell(n), ordinal(n)} | ({year(n)} if 1100 <= n < 2100 else set())
+
+
 def readings(words):
-    """Every way the words can be said (a 4-digit number as a year or as a number)."""
+    """Every way the words can be said (a number in digits in each of its readings)."""
     options = [""]
     for w in words:
-        alts = [spell(int(w[1:])), year(int(w[1:]))] if w.startswith("§") else [w]
+        alts = said(int(w[1:])) if w.startswith("§") else [w]
         options = [o + x for o in options for x in alts]
     return set(options)
 
@@ -170,8 +175,8 @@ for n in todo:
     for op, a0, a1, b0, b1 in difflib.SequenceMatcher(a=want, b=got, autojunk=False).get_opcodes():
         if op == "equal" or close(want[a0:a1], got[b0:b1]):
             continue
-        said = " ".join(want[a0:a1]) or "(nothing)"
-        heard = " ".join(got[b0:b1]) or "(nothing)"
+        said = " ".join(want[a0:a1]).replace("§", "") or "(nothing)"
+        heard = " ".join(got[b0:b1]).replace("§", "") or "(nothing)"
         problems.append(f'"{said}" was heard as "{heard}"')
     report.append({"n": n, "ok": not problems, "heard": heard_text, "problems": problems})
     print(f"section {n}: {'clear' if not problems else 'NOT CLEAR - ' + '; '.join(problems)}", flush=True)
