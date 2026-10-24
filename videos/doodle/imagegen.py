@@ -141,7 +141,9 @@ for im in spec["images"]:
     for attempt in range(3):
         try:
             started = time.time()
-            data = cloudflare(prompt, im.get("seed", 7), ref) if a.engine == "cloudflare" else qwen(prompt, im.get("seed", 7))
+            # the safety filter sometimes flags a harmless picture; another seed usually passes
+            seed = im.get("seed", 7) + 1000 * attempt
+            data = cloudflare(prompt, seed, ref) if a.engine == "cloudflare" else qwen(prompt, seed)
             break
         except QuotaUsedUp as e:
             sys.exit(f"{im['name']}: the free daily quota is used up ({str(e)[:200]}); run again after it resets")
@@ -154,4 +156,4 @@ for im in spec["images"]:
     open(raw, "wb").write(data)
     ffmpeg("-i", raw, out)
     os.remove(raw)
-    print(f"{im['name']}: {out} ({time.time() - started:.0f}s, {a.engine})")
+    print(f"{im['name']}: {out} ({time.time() - started:.0f}s, {a.engine}, seed {seed})", flush=True)

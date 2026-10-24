@@ -106,7 +106,9 @@ one picture per 10 seconds of voice (20 to 24). `characters` says exactly how ea
 animal and thing looks (clothes, hair, colours), so every picture draws them the same way. The
 channel style (cream paper, ink outlines, the top third left empty for words, no text) is added
 by build.py. Each prompt: who is where (left / middle / right), what they are doing, their faces;
-add "No pig" or "No people" when something must not appear. No flags, no blood, no gore: a shot
+whoever is described in `characters` tends to appear in every picture, so end each prompt with
+"No pig, no animals." (or "No people", "no farmers") for anyone who must not be there, such as an
+animal after it has died. No flags, no blood, no gore: a shot
 or a battle is shown before or after, never the wound. The last picture is the tea table with a
 cup and phone; `end.png` (the channel's end card) is added for you.
 
@@ -118,7 +120,10 @@ Look at every picture (make contact sheets with ffmpeg and open them with Read).
 extra limbs or doubled objects, a missing main subject, writing, a character who should not be
 there, or anything that contradicts the story: delete the png, change its seed or sharpen its
 prompt, and run the step again (finished pictures are kept). Cloudflare's free allowance is
-about 60 pictures a day.
+10,000 neurons a day, about 70 pictures (a picture the safety filter blocks costs too, and is
+retried with another seed). If the step stops with "the free daily quota is used up", run it
+again every 10 minutes: pictures made the day before stop counting about 24 hours after they
+were made.
 
 ## 7. Boards: `scenes.js`, then `build.py stills`
 
