@@ -7,7 +7,7 @@ Patrick Hand and, for Tamil, Kavivanar (both SIL Open Font License, `fonts/`).
 
 | File | What it does |
 | --- | --- |
-| `engine.js` | Scenes, timed items (`draw`, `write`, `pop`, `stamp`, and `image`: a picture painted in row by row behind the pen, then slowly zoomed), the camera, the pen, `renderAt(t)` |
+| `engine.js` | Scenes, timed items (`draw`, `write`, `pop`, `stamp`, and `image`: a picture painted in row by row behind the pen, then slowly zoomed), sound effects (`sfx`, and automatically for pictures, pops and stamps) and punchlines (`punch`), the camera, the pen, `renderAt(t)` |
 | `doodles.js` | Reusable drawings: emu, person (hats: slouch, straw, top, helmet), gun, map of Australia, calendar, newspaper, trophy and more |
 | `doodles_story.js` | People and things for children's stories: kids, grandparents, parents, a teacher, a poet; trees, animals, houses, a temple, books, lamps and more |
 | `render.mjs` | Renders frames in headless Chromium (Playwright) and pipes them into ffmpeg; `--stills auto` saves one finished frame per scene for review; `--layout portrait` draws a 1080x1250 board at full size for Shorts; `--data` passes a JSON spec to the scenes |
@@ -16,7 +16,8 @@ Patrick Hand and, for Tamil, Kavivanar (both SIL Open Font License, `fonts/`).
 | `captions.py` | Burned-in ASS captions from the timings, with spoken numbers shown as digits; `--margin` moves them up or down |
 | `short.py` | Builds a vertical Short: a new hook line plus stretches of the long video |
 | `music.py` | Original background music (plucked bass, marimba, a whistled tune), synthesised so there is nothing to claim |
-| `mix.py` | Mixes music under the voice, ducking it while the voice speaks, at -14 LUFS |
+| `mix.py` | Mixes music under the voice (brought to -16 LUFS first, so the music sits 18-20 dB under it), ducking it while the voice speaks, at -14 LUFS; with `--events` it adds the sound effects and stops the music around each punchline |
+| `sfx.py` | Small synthesised sound effects (pop, stamp, whoosh, ding) placed at the times `render.mjs --events` lists |
 | `upload.py` | Uploads a video and its Shorts to YouTube (Data API, resumable) with title, description, tags, audience, AI-content label and thumbnail; private by default, dry run without credentials |
 
 ## Making a video

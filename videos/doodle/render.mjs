@@ -2,12 +2,12 @@
 //
 //   node render.mjs --scenes SCENES.js --timing TIMING.json --out OUT.mp4
 //        [--layout landscape|vertical|portrait] [--data DATA.json] [--fps 30] [--from SEC] [--to SEC]
-//        [--stills t1,t2,...|auto]
+//        [--stills t1,t2,...|auto] [--events EVENTS.json]
 //
 // --stills writes PNG frames at the given times next to OUT instead of a video (for checking).
 // --data is loaded as window.DATA before the scenes script runs (for scenes built from a spec).
 import { spawn } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -45,6 +45,14 @@ await page.evaluate(([timing, st, data]) => {
 await page.addScriptTag({ path: path.resolve(args.scenes) });
 await page.evaluate(() => window.Doodle.ready()); // pictures added with Doodle.image
 const total = await page.evaluate(() => window.Doodle.duration());
+
+if (args.events) {
+  // sound effects and punchlines for mix.py --events, instead of a video
+  writeFileSync(args.events, JSON.stringify(await page.evaluate(() => window.Doodle.soundEvents()), null, 1));
+  console.log('wrote', args.events);
+  await browser.close();
+  process.exit(0);
+}
 
 if (args.stills) {
   const times = args.stills === 'auto'

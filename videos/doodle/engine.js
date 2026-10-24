@@ -205,12 +205,13 @@
     }));
     const it = { kind: 'image', g, inner, at, dur, x, y, w, h, rows, bands, zoom: o.zoom ?? 0.04, zoomDur: o.zoomDur || 8 };
     cur.items.push(it);
+    sounds.push({ it, kind: 'whoosh' });
     return it;
   };
   // Resolves once every picture has loaded (render.mjs waits for it before the first frame).
   D.ready = () => Promise.all(D.loading);
 
-  // Appear with a small bounce (stamps, bursts).
+  // Appear with a small bounce (stamps, bursts). o.sound: the sound effect it makes ('pop'), or null.
   D.pop = function (at, nodes, o = {}) {
     const outer = mk('g', {}, cur.g);
     const g = mk('g', {}, outer);
@@ -218,8 +219,17 @@
     const bb = g.getBBox();
     const it = { kind: 'pop', g: outer, inner: g, at, dur: o.dur || 0.3, cx: bb.x + bb.width / 2, cy: bb.y + bb.height / 2 };
     cur.items.push(it);
+    if (o.sound !== null) sounds.push({ it, kind: o.sound || 'pop' });
     return it;
   };
+
+  // ---- sound effects -------------------------------------------------------------------------
+  // Pictures whoosh in, pops pop and stamps thump by themselves; D.sfx adds one ('ding', 'pop',
+  // 'whoosh', 'stamp') and D.punch marks a punchline, where mix.py stops the music for a moment.
+  // render.mjs --events writes them out with their final times.
+  const sounds = [];
+  D.sfx = (at, kind) => sounds.push({ at, kind });
+  D.punch = (at) => sounds.push({ at, kind: 'punch' });
 
   // A stamp: rotated rough box with bold text, popped in.
   D.stamp = function (at, x, y, str, o = {}) {
@@ -234,7 +244,7 @@
     const box = D.rect(bb.x - 22, bb.y - 10, bb.width + 44, bb.height + 20, { stroke: color, strokeWidth: 7, roughness: 1.6 });
     const g = mk('g', { transform: `rotate(${o.rotate ?? -8},${x},${y})` });
     [box, txt].flat(Infinity).forEach((n) => g.appendChild(n));
-    return D.pop(at, [g]);
+    return D.pop(at, [g], { sound: 'stamp' });
   };
 
   // ---- rendering -----------------------------------------------------------------------------
@@ -351,6 +361,12 @@
   // The moment each scene is complete, just before the camera leaves it (for review stills).
   D.sceneEnds = () =>
     scenes.map((s, i) => (i + 1 < scenes.length ? scenes[i + 1].t0 - PAN - 0.05 : D.duration() - 0.05));
+
+  // Sound effects and punchlines as [{t, kind}], at the times items really appear (after finalize).
+  D.soundEvents = () => {
+    if (!finalized) finalize();
+    return sounds.map((s) => ({ t: +(s.it ? s.it.at : s.at).toFixed(3), kind: s.kind })).sort((a, b) => a.t - b.t);
+  };
 
   D.tail = 0; // extra seconds after the voiceover ends (an end card)
   D.duration = () => window.TIMING.total + D.tail;

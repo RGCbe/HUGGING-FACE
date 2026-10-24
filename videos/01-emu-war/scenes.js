@@ -175,6 +175,7 @@
   // 10a. Who won
   scene(D.sectionStart(10), 'e18', () => {
     big(c(10, 'Who won'), 320, 200, 'WHO WON?', { size: 110 });
+    D.punch(c(10, 'the emus'));
     D.stamp(c(10, 'the emus'), 1550, 300, 'WINNER: THE EMUS', { size: 62, color: D.GREEN, rotate: -3 });
   });
 

@@ -13,7 +13,7 @@ home=${KURAL_HOME:-$HOME/.cache/super-kural}
 mkdir -p "$home/voice" "$home/work" "$home/out" "$home/hf"
 
 cfg() { python3 -c "import json,sys; print(json.load(open(sys.argv[1]))[sys.argv[2]])" "$here/config.json" "$1"; }
-engine=$(cfg voice_engine)
+engine=${VOICE_ENGINE:-$(cfg voice_engine)}
 suffix=$([ "$engine" = qwen ] && echo _qwen || true)
 # the all-ages intro is needed only if a channel in config.json is for all ages (and only in the qwen voice)
 all_ages=$(python3 -c "import json,sys; print(any(c['audience'] == 'all' for c in json.load(open(sys.argv[1]))['channels'].values()))" "$here/config.json")
@@ -31,7 +31,8 @@ if [ ! -x "$home/whisper/bin/python" ]; then
 fi
 
 repo=$(cfg voice_repo)
-for f in ref_en $(for i in $intros; do echo "$i$suffix"; done) "says$suffix" "outro$suffix"; do
+clips=$([ "${FIXED_CLIPS:-1}" = 0 ] || { for i in $intros; do echo "$i$suffix"; done; echo "says$suffix" "outro$suffix"; })
+for f in ref_en $clips; do
   [ -s "$home/voice/$f.wav" ] && continue
   if [ -z "${HF_TOKEN:-}" ]; then
     echo "HF_TOKEN is not set: add a Hugging Face read token for $repo to the environment settings" >&2
