@@ -106,7 +106,7 @@ def tokens(text):
     return [w for w in out if w]
 
 
-def said(n):
+def number_readings(n):
     """How a number written in digits may be read: as a number, an ordinal (dates) or a year."""
     return {spell(n), ordinal(n)} | ({year(n)} if 1100 <= n < 2100 else set())
 
@@ -115,7 +115,7 @@ def readings(words):
     """Every way the words can be said (a number in digits in each of its readings)."""
     options = [""]
     for w in words:
-        alts = said(int(w[1:])) if w.startswith("§") else [w]
+        alts = number_readings(int(w[1:])) if w.startswith("§") else [w]
         options = [o + x for o in options for x in alts]
     return set(options)
 
