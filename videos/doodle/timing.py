@@ -33,18 +33,28 @@ def load(path):
     return np.frombuffer(raw, np.int16).astype(np.float32) / 32768.0
 
 
+def listen(audio, script, prompt):
+    """Whisper's words with times, and how the script's words line up with them."""
+    segs, _ = model.transcribe(audio, language="en", word_timestamps=True, beam_size=5, initial_prompt=prompt)
+    heard = [(w.word.strip(), w.start, w.end) for s in segs for w in s.words if norm(w.word)]
+    sm = difflib.SequenceMatcher(a=[norm(w) for w in script], b=[norm(h[0]) for h in heard], autojunk=False)
+    return heard, sm, sum(b1 - b0 for op, a0, a1, b0, b1 in sm.get_opcodes() if op == "equal")
+
+
 sections, offset = [], 0.0
 for n, line in enumerate(lines, 1):
     audio = load(pattern.format(n=n))
     duration = len(audio) / 16000
-    segs, _ = model.transcribe(audio, language="en", word_timestamps=True, beam_size=5,
-                               initial_prompt=line)
-    heard = [(w.word.strip(), w.start, w.end) for s in segs for w in s.words if norm(w.word)]
     script = [w for w in re.sub(r"\[[a-z]+\]", "", line).split() if norm(w)]
+    # The script as a prompt helps Whisper spell names, but now and then it makes Whisper skip a
+    # stretch of speech; then the words are timed again without it, and the better match is kept.
+    heard, sm, matched = listen(audio, script, line)
+    if matched < 0.85 * len(script):
+        again = listen(audio, script, None)
+        if again[2] > matched:
+            heard, sm, matched = again
 
     times = [None] * len(script)
-    sm = difflib.SequenceMatcher(a=[norm(w) for w in script], b=[norm(h[0]) for h in heard],
-                                 autojunk=False)
     for op, a0, a1, b0, b1 in sm.get_opcodes():
         if op == "equal":
             for k in range(a1 - a0):
@@ -63,7 +73,6 @@ for n, line in enumerate(lines, 1):
 
     words = [{"w": w, "t0": round(offset + a, 3), "t1": round(offset + b, 3)}
              for w, (a, b) in zip(script, times)]
-    matched = sum(b1 - b0 for op, a0, a1, b0, b1 in sm.get_opcodes() if op == "equal")
     print(f"section {n}: {len(script)} words, {matched} matched exactly, {duration:.2f}s", flush=True)
     sections.append({"n": n, "offset": round(offset, 3), "duration": round(duration, 3), "words": words,
                      "matched": matched, "heard": [{"w": w, "t0": round(a, 3), "t1": round(b, 3)} for w, a, b in heard]})
