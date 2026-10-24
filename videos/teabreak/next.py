@@ -5,8 +5,8 @@
 Reads every upload on the channel (public, private and scheduled) with the channel's YouTube key
 (YT_CLIENT_ID, YT_CLIENT_SECRET and the refresh token named in config.json), and picks the first
 topic in topics.json whose "match" words are in no upload's title, so a week that failed is simply
-made again next time. The long video goes public on the first long_day (Saturday) after today at
-publish_time, and its two Shorts on the shorts_days after that. Exits with status 2 when every
+made again next time. The long video goes public on the first long_day (Saturday) after today, and
+after the last upload already scheduled, at publish_time; its two Shorts on the shorts_days after that. Exits with status 2 when every
 topic is done (add more to topics.json).
 """
 import datetime
@@ -36,18 +36,26 @@ def get(path, tok, **params):
 
 
 def uploads():
+    """Every upload's title, and the latest time one of them is scheduled to go public (or None)."""
     tok = token()
     playlist = get("channels", tok, part="contentDetails", mine="true")["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
-    titles, page = [], None
+    titles, ids, page = [], [], None
     while True:
         params = {"part": "snippet", "playlistId": playlist, "maxResults": 50}
         if page:
             params["pageToken"] = page
         d = get("playlistItems", tok, **params)
         titles += [i["snippet"]["title"] for i in d.get("items", [])]
+        ids += [i["snippet"]["resourceId"]["videoId"] for i in d.get("items", [])]
         page = d.get("nextPageToken")
         if not page:
-            return titles
+            break
+    scheduled = []
+    for k in range(0, len(ids), 50):
+        for v in get("videos", tok, part="status", id=",".join(ids[k:k + 50])).get("items", []):
+            if v["status"].get("publishAt"):
+                scheduled.append(datetime.datetime.fromisoformat(v["status"]["publishAt"].replace("Z", "+00:00")))
+    return titles, max(scheduled, default=None)
 
 
 def after(day, name):
@@ -62,13 +70,15 @@ def at(day):
     return local.astimezone(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-titles = uploads()
+titles, last_scheduled = uploads()
 todo = [t for t in topics if not any(t["match"].lower() in title.lower() for title in titles)]
 if not todo:
     print(json.dumps({"slug": None, "uploaded": titles}))
     sys.exit(2)
-today = datetime.datetime.now(ZoneInfo(cfg["timezone"])).date()
-long_day = after(today, cfg["long_day"])
+start = datetime.datetime.now(ZoneInfo(cfg["timezone"])).date()
+if last_scheduled:  # never on top of a week that is already scheduled
+    start = max(start, last_scheduled.astimezone(ZoneInfo(cfg["timezone"])).date())
+long_day = after(start, cfg["long_day"])
 shorts = []
 for name in cfg["shorts_days"]:
     shorts.append(after(shorts[-1] if shorts else long_day, name))
