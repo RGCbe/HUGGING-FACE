@@ -5,9 +5,11 @@
 TEXT_FILE has one section per line, spelled the way it should be understood (not respelled for
 the voice). WAV_PATTERN contains "{n:02d}". Whisper transcribes each section WITHOUT seeing the
 script, so it cannot guess words the voice did not say clearly; then the two are compared word by
-word. Allowed: spelling of numbers ("3" / "three", "1859" / "eighteen fifty-nine"), words run together or split ("goodnight"),
-and other spellings of the same sound for the names in --names ("Mina" for Meena). Anything else -
-a wrong, missing or extra word - fails the section.
+word. Allowed: spelling of numbers ("3" / "three", "1859" / "eighteen fifty-nine", "15th" / "fifteenth",
+"$10" / "ten dollars"), words run together or split ("goodnight"), British and American spelling
+("neighbours" / "neighbors"), and other spellings of the same sound for the names in --names
+("Mina" for Meena, "Cutler" for Cutlar). A name can also list how it may be heard, after "=":
+"San Juan=sun one|san wan". Anything else - a wrong, missing or extra word - fails the section.
 
 OUT_JSON: {"ok": bool, "sections": [{"n", "ok", "heard", "problems": [...]}]}
 """
@@ -43,6 +45,26 @@ def spell(n):
     return spell(n // 1000) + "thousand" + ("" if n % 1000 == 0 else spell(n % 1000))
 
 
+ORDINAL = {"one": "first", "two": "second", "three": "third", "five": "fifth", "eight": "eighth", "nine": "ninth",
+           "twelve": "twelfth"}
+
+
+def ordinal(n):
+    """21 -> twentyfirst, 15 -> fifteenth, 30 -> thirtieth."""
+    w = spell(n)
+    for end, form in ORDINAL.items():
+        if w.endswith(end):
+            return w[: -len(end)] + form
+    return w[:-1] + "ieth" if w.endswith("y") else w + "th"
+
+
+def british(w):
+    """One spelling for British and American words: neighbour/neighbor, centre/center, realise/realize."""
+    w = re.sub(r"^(\w{2,})our(s|ed|ing|ite|ites|hood|ly|able)?$", r"\1or\2", w)
+    w = re.sub(r"^(\w{2,}[^aeiou])re(s)?$", r"\1er\2", w)
+    return re.sub(r"^(\w{2,})is(e|es|ed|ing|ation|ations)$", r"\1iz\2", w)
+
+
 def year(n):
     """How a year is said: 1859 -> eighteen fifty nine, 1905 -> nineteen oh five, 1900 -> nineteen hundred."""
     hi, lo = divmod(n, 100)
@@ -55,16 +77,29 @@ CONTRACTIONS = {"i'm": "i am", "you're": "you are", "we're": "we are", "they're"
                 "let's": "let us", "don't": "do not", "doesn't": "does not", "didn't": "did not", "can't": "can not",
                 "cannot": "can not", "won't": "will not", "isn't": "is not", "aren't": "are not", "wasn't": "was not",
                 "weren't": "were not", "i'll": "i will", "you'll": "you will", "we'll": "we will", "they'll": "they will",
-                "i've": "i have", "you've": "you have", "we've": "we have", "they've": "they have", "i'd": "i would"}
+                "i've": "i have", "you've": "you have", "we've": "we have", "they've": "they have", "i'd": "i would",
+                "here's": "here is", "who's": "who is", "how's": "how is", "where's": "where is", "he'd": "he would",
+                "she'd": "she would", "we'd": "we would", "they'd": "they would", "you'd": "you would",
+                "it'll": "it will", "that'll": "that will", "he'll": "he will", "she'll": "she will",
+                "couldn't": "could not", "wouldn't": "would not", "shouldn't": "should not", "hasn't": "has not",
+                "haven't": "have not", "hadn't": "had not", "mustn't": "must not"}
+# A ruler's number is written as a Roman numeral: "Wilhelm I" is "Wilhelm the first".
+ROMAN = {"I": "first", "II": "second", "III": "third", "IV": "fourth", "V": "fifth", "VI": "sixth", "VII": "seventh",
+         "VIII": "eighth"}
 
 
 def tokens(text):
     out = []
     text = re.sub(r"(?<=\d),(?=\d{3}\b)", "", text.replace("’", "'"))  # 9,860 is one number
+    text = re.sub(r"\$(\d+)", r"\1 dollars", text)
+    text = re.sub(r"\b([A-Z][a-z]+) (I|II|III|IV|V|VI|VII|VIII)\b(?! [a-z])", lambda m: f"{m.group(1)} the {ROMAN[m.group(2)]}", text)
     text = re.sub(r"[A-Za-z]+'[A-Za-z]+|cannot", lambda m: CONTRACTIONS.get(m.group(0).lower(), m.group(0)), text, flags=re.I)
     for w in re.findall(r"[A-Za-z0-9']+", text.replace("-", " ")):
-        w = w.lower().replace("'", "")
-        if w.isdigit() and 1100 <= int(w) < 2100:
+        w = british(w.lower().replace("'", ""))
+        nth = re.fullmatch(r"(\d+)(st|nd|rd|th)", w)
+        if nth and int(nth.group(1)) < 10000:
+            out.append(ordinal(int(nth.group(1))))
+        elif w.isdigit() and 1100 <= int(w) < 2100:
             out.append("§" + w)  # could be a year or a number: close() accepts either reading
         else:
             out.append(spell(int(w)) if w.isdigit() and int(w) < 10000 else w)
@@ -80,7 +115,12 @@ def readings(words):
     return set(options)
 
 
-NAMES = [n.lower() for n in a.names.split(",") if n]
+NAMES, HEARD_AS = [], {}
+for entry in filter(None, a.names.split(",")):
+    name, _, alts = entry.partition("=")
+    key = re.sub(r"[^a-z]", "", name.lower())
+    NAMES.append(key)
+    HEARD_AS[key] = [re.sub(r"[^a-z]", "", x.lower()) for x in alts.split("|") if x.strip()]
 
 
 def sound(w):
@@ -91,12 +131,27 @@ def sound(w):
     return re.sub(r"(.)\1+", r"\1", w)
 
 
+def consonants(w):
+    """The consonants of a name, in order: unstressed vowels are heard many ways (cutlar / cutler)."""
+    return w[:1] + re.sub(r"[aeiouy]", "", sound(w)[1:])
+
+
 def close(script_words, heard_words):
     if readings(script_words) & readings(heard_words):
         return True
     s, h = "".join(script_words), "".join(heard_words)
-    if any(n in s for n in NAMES):
-        return difflib.SequenceMatcher(a=sound(s), b=sound(h)).ratio() >= 0.85
+    for n in NAMES:
+        if n not in s:
+            continue
+        if any(s.replace(n, alt) == h for alt in HEARD_AS[n]):
+            return True
+        rest = s.replace(n, "")
+        if h.endswith(rest) or h.startswith(rest):  # the name with the words around it
+            heard = h[: len(h) - len(rest)] if h.endswith(rest) else h[len(rest):]
+            if consonants(heard) == consonants(n):
+                return True
+        if difflib.SequenceMatcher(a=sound(s), b=sound(h)).ratio() >= 0.85:
+            return True
     return False
 
 

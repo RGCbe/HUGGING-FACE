@@ -16,8 +16,9 @@ VIDEO_DIR holds what the writer (the tea-break-weekly skill) prepares:
   caption_replace.json  optional: [["eighteen fifty-nine", "1859"], ...] so captions show numbers as digits
 
 Steps, in order (each can be run again; finished voice lines and pictures are kept):
-  voice    voices every line and both hooks, listens to each without the script (kural/check.py) and
-           tries other seeds until every word is clear, then joins and times the voiceover
+  voice    voices every line and both hooks a sentence or two at a time, listens to each piece without
+           the script (kural/check.py) and tries other seeds until every word is clear, then joins
+           and times the voiceover
   images   makes the pictures (Cloudflare FLUX.2 klein, in the style of config.json's style_ref)
   stills   renders one finished frame per board into stills/, plus contact sheets, for review
   video    renders the video, adds music, sound effects, captions; makes the thumbnail
@@ -30,6 +31,7 @@ bash ../kural/setup.sh, then source ~/.cache/tea-break/env.sh.
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -40,7 +42,8 @@ DOODLE = os.path.join(VIDEOS, "doodle")
 KURAL = os.path.join(VIDEOS, "kural")
 cfg = json.load(open(os.path.join(HERE, "config.json")))
 SEEDS = [7, 11, 23, 42, 77, 101]
-GAP = 0.5
+GAP = 0.5  # silence between lines
+BREATH = 0.2  # silence between the pieces of a line
 TAIL = 3.0  # the end card: render.mjs runs this long past the voiceover (scenes.js sets D.tail to match)
 
 
@@ -59,56 +62,99 @@ def duration(path):
                      capture_output=True, text=True).stdout)
 
 
+def pieces(line):
+    """A line cut into sentences, short ones joined to the next (at least 8 words a piece). The voice
+    model slips more in long stretches, and a slip then costs one piece, not the whole line."""
+    out, cur = [], ""
+    for sentence in re.split(r"(?<=[.?!])\s+", line.strip()):
+        cur = f"{cur} {sentence}".strip()
+        if len(cur.split()) >= 8:
+            out.append(cur)
+            cur = ""
+    if cur and out and len(cur.split()) < 4:
+        out[-1] += " " + cur
+    elif cur:
+        out.append(cur)
+    return out
+
+
 def say(text_file, out_dir, names):
-    """Voice each line of text_file into out_dir/sec_NN.wav until Whisper hears every word."""
+    """Voice each line of text_file into out_dir/line_NN.wav, a piece at a time (sec_NN.wav, the
+    pieces listed in pieces.txt), trying other seeds until Whisper hears every word of every piece."""
     lines = [l.strip() for l in open(text_file, encoding="utf-8") if l.strip()]
+    split = [pieces(l) for l in lines]
+    flat = [p for ps in split for p in ps]
     os.makedirs(out_dir, exist_ok=True)
-    wav = lambda i: os.path.join(out_dir, f"sec_{i:02d}.wav")
+    pieces_file = os.path.join(out_dir, "pieces.txt")
+    open(pieces_file, "w", encoding="utf-8").write("\n".join(flat) + "\n")
+    wav = lambda n: os.path.join(out_dir, f"sec_{n:02d}.wav")
     cache_file = os.path.join(out_dir, "cache.json")
-    cache = json.load(open(cache_file)) if os.path.exists(cache_file) else {}
-    todo = [i for i in range(1, len(lines) + 1) if not (cache.get(str(i)) == lines[i - 1] and os.path.exists(wav(i)))]
+    cache = json.load(open(cache_file)) if os.path.exists(cache_file) else {}  # piece number: the text it passed with
+    passed = lambda n: cache.get(str(n)) == flat[n - 1] and os.path.exists(wav(n))
     engine = os.environ.get("TTS_ENGINE", cfg["voice_engine"])
     voice = ["--engine", engine] + (["--ref-text", env("VOICE_REF_TEXT")] if engine == "qwen" else ["--temperature", 0.5])
     problems = {}
+
+    def listen(todo):
+        report = os.path.join(out_dir, "check.json")
+        run(env("WHISPER_PY"), "-I", os.path.join(KURAL, "check.py"), pieces_file, os.path.join(out_dir, "sec_{n:02d}.wav"),
+            report, "--names", names, "--sections", ",".join(map(str, todo)))
+        for r in json.load(open(report))["sections"]:
+            if r["ok"]:
+                cache[str(r["n"])] = flat[r["n"] - 1]
+            else:
+                problems[r["n"]] = r["problems"]
+        json.dump(cache, open(cache_file, "w"), indent=1)
+
+    # pieces voiced by an earlier run that stopped before listening to them
+    unheard = [n for n in range(1, len(flat) + 1) if not passed(n) and os.path.exists(wav(n))]
+    if unheard:
+        listen(unheard)
+    todo = [n for n in range(1, len(flat) + 1) if not passed(n)]
     for seed in SEEDS:
         if not todo:
             break
-        run(env("TTS_PY"), "-I", os.path.join(KURAL, "tts.py"), env("VOICE_REF"), text_file, out_dir, *voice,
+        run(env("TTS_PY"), "-I", os.path.join(KURAL, "tts.py"), env("VOICE_REF"), pieces_file, out_dir, *voice,
             "--sections", ",".join(map(str, todo)), "--seed", seed)
-        report = os.path.join(out_dir, "check.json")
-        run(env("WHISPER_PY"), "-I", os.path.join(KURAL, "check.py"), text_file, os.path.join(out_dir, "sec_{n:02d}.wav"), report,
-            "--names", names, "--sections", ",".join(map(str, todo)))
-        for r in json.load(open(report))["sections"]:
-            if r["ok"]:
-                cache[str(r["n"])] = lines[r["n"] - 1]
-                json.dump(cache, open(cache_file, "w"), indent=1)
-            else:
-                problems[r["n"]] = r["problems"]
-        todo = [i for i in todo if cache.get(str(i)) != lines[i - 1]]
+        listen(todo)
+        todo = [n for n in todo if not passed(n)]
     if todo:
-        sys.exit("NOT CLEAR after every seed. Reword these lines with simpler words and run `voice` again:\n" +
-                 "\n".join(f'  line {i} "{lines[i - 1]}": ' + "; ".join(problems[i]) for i in todo))
-    return [wav(i) for i in range(1, len(lines) + 1)]
+        sys.exit("NOT CLEAR after every seed. Reword these sentences with simpler words and run `voice` again:\n" +
+                 "\n".join(f'  "{flat[n - 1]}": ' + "; ".join(problems[n]) for n in todo))
+    breath = os.path.join(out_dir, "breath.wav")
+    run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "lavfi", "-t", BREATH, "-i", "anullsrc=r=24000:cl=mono", breath)
+    out, n = [], 0
+    for i, ps in enumerate(split, 1):
+        parts = [wav(n + k) for k in range(1, len(ps) + 1)]
+        n += len(ps)
+        out.append(os.path.join(out_dir, f"line_{i:02d}.wav"))
+        concat([p for k, part in enumerate(parts) for p in ([breath, part] if k else [part])], out[-1])
+    return out
+
+
+def concat(wavs, out):
+    lst = out + ".txt"
+    open(lst, "w").write("".join(f"file '{w}'\n" for w in wavs))
+    run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c:a", "pcm_s16le", out)
+    os.remove(lst)
 
 
 def step_voice(d):
     names_file = os.path.join(d, "names.txt")
     names = ",".join(l.strip() for l in open(names_file) if l.strip()) if os.path.exists(names_file) else ""
     names = ",".join(n for n in (names, "Manoj") if n)
-    parts = say(os.path.join(d, "voiceover_en.txt"), os.path.join(d, "tts"), names)
+    lines = say(os.path.join(d, "voiceover_en.txt"), os.path.join(d, "tts"), names)
     say(os.path.join(d, "hooks.txt"), os.path.join(d, "hooks"), names)
     gap = os.path.join(d, "tts", "gap.wav")
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "lavfi", "-t", GAP, "-i", "anullsrc=r=24000:cl=mono", gap)
-    lst = os.path.join(d, "tts", "list.txt")
-    open(lst, "w").write("".join(f"file '{p}'\n" + (f"file '{gap}'\n" if k < len(parts) - 1 else "") for k, p in enumerate(parts)))
     voice = os.path.join(d, "voice.wav")
-    run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c:a", "pcm_s16le", voice)
+    concat([p for k, line in enumerate(lines) for p in ([gap, line] if k else [line])], voice)
     whisper = env("WHISPER_PY")
     run(whisper, "-I", os.path.join(DOODLE, "timing.py"), os.path.join(d, "voiceover_en.txt"),
-        os.path.join(d, "tts", "sec_{n:02d}.wav"), GAP, os.path.join(d, "timing.json"))
+        os.path.join(d, "tts", "line_{n:02d}.wav"), GAP, os.path.join(d, "timing.json"))
     run(whisper, "-I", os.path.join(DOODLE, "timing.py"), os.path.join(d, "hooks.txt"),
-        os.path.join(d, "hooks", "sec_{n:02d}.wav"), 0, os.path.join(d, "hooks_timing.json"))
-    print(f"voice: {duration(voice):.1f}s, every line clear")
+        os.path.join(d, "hooks", "line_{n:02d}.wav"), 0, os.path.join(d, "hooks_timing.json"))
+    print(f"voice: {duration(voice):.1f}s, every word clear")
 
 
 def step_images(d):
@@ -192,7 +238,7 @@ def step_shorts(d):
             "name": f"short{k}", "out": os.path.join(out, f"{slug}_short{k}.mp4"), "work_dir": os.path.join(d, "shorts_work"),
             "scenes": os.path.join(d, "scenes.js"), "timing": os.path.join(d, "timing.json"),
             "voiceover": os.path.join(d, "voice.wav"), "title": s["title"], "subtitle": s["subtitle"],
-            "hook": {"wav": os.path.join(d, "hooks", f"sec_{s['hook']:02d}.wav"), "timing": os.path.join(d, "hooks_timing.json"),
+            "hook": {"wav": os.path.join(d, "hooks", f"line_{s['hook']:02d}.wav"), "timing": os.path.join(d, "hooks_timing.json"),
                      "section": s["hook"], "visual_from": s.get("hook_visual_from", 0.3), "visual_to": s.get("hook_visual_to", 6.0)},
             "music": os.path.join(d, "music.wav"), "music_gain": cfg["music_gain"],
             "segments": s["segments"], "data": {"img": os.path.join(d, "img")}, "background": "0xfff8e7",
