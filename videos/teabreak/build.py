@@ -12,7 +12,8 @@ VIDEO_DIR holds what the writer (the tea-break-weekly skill) prepares:
   scenes.js         the boards: pictures, handwriting, stamps, punchlines (see ../01-emu-war/scenes.js)
   thumbnail.js      the thumbnail (see ../01-emu-war/thumbnail.js)
   shorts.json       [{"title", "subtitle", "hook": 1, "segments": [{"from", "to"}]}, ...] on the long timeline
-  meta.json         {"title", "description", "tags", "long_at", "shorts_at": [..], "shorts": [{"title", "description"}]}
+  meta.json         {"title", "description", "tags", "long_at", "shorts_at": [..], "shorts": [{"title", "description"}],
+                     "tiktok": {"title", "subtitle", "caption"}}
   caption_replace.json  optional: [["eighteen fifty-nine", "1859"], ...] so captions show numbers as digits
 
 Steps, in order (each can be run again; finished voice lines and pictures are kept):
@@ -23,6 +24,7 @@ Steps, in order (each can be run again; finished voice lines and pictures are ke
   stills   renders one finished frame per board into stills/, plus contact sheets, for review
   video    renders the video, adds music, sound effects, captions; makes the thumbnail
   shorts   cuts both vertical Shorts
+  tiktok   the whole story as one vertical video, for the owner to post on TikTok
   upload   writes upload.json for doodle/upload.py: long video and Shorts, private until their times
 
 Needs the voice setup: KURAL_HOME=~/.cache/tea-break VOICE_ENGINE=<config voice_engine> FIXED_CLIPS=0
@@ -250,6 +252,35 @@ def step_shorts(d):
         run("python3", os.path.join(DOODLE, "short.py"), path, cwd=VIDEOS)
 
 
+def step_tiktok(d):
+    """The whole story as one vertical video (TikTok pays only for videos over a minute): the board
+    in the middle of a cream page, the title above it and big captions under it, the long video's sound."""
+    slug = os.path.basename(os.path.normpath(d))
+    meta = json.load(open(os.path.join(d, "meta.json")))["tiktok"]
+    work = os.path.join(d, "tiktok_work")
+    os.makedirs(work, exist_ok=True)
+    silent = os.path.join(work, "silent.mp4")
+    render(d, "--scenes", os.path.join(d, "scenes.js"), "--out", silent, "--layout", "vertical")
+    ass = os.path.join(work, "captions.ass")
+    run("python3", os.path.join(DOODLE, "captions.py"), os.path.join(d, "timing.json"), ass, "--layout", "vertical", *replace(d))
+    for name in ("title", "subtitle"):
+        open(os.path.join(work, f"{name}.txt"), "w").write(meta[name])
+    font = os.path.join(DOODLE, "fonts", "PatrickHand-Regular.ttf")
+    total = json.load(open(os.path.join(d, "timing.json")))["total"] + TAIL
+    # the vertical layout draws the 1920x1080 board 1080x608 at y=660
+    graph = (f"[1:v]crop=1080:608:0:660[board];[0:v][board]overlay=0:660:shortest=1,"
+             f"drawtext=fontfile={font}:textfile={os.path.join(work, 'title.txt')}:fontsize=118:fontcolor=0xe8590c:"
+             f"x=(w-text_w)/2:y=250,"
+             f"drawtext=fontfile={font}:textfile={os.path.join(work, 'subtitle.txt')}:fontsize=72:fontcolor=0x1d1d1f:"
+             f"x=(w-text_w)/2:y=420,ass={ass}:fontsdir={os.path.join(DOODLE, 'fonts')}[v]")
+    video = os.path.join(d, "out", f"{slug}_tiktok.mp4")
+    run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "lavfi", "-i", "color=c=0xfff8e7:s=1080x1920:r=30", "-i", silent,
+        "-i", os.path.join(d, "mix.m4a"), "-filter_complex", graph, "-map", "[v]", "-map", "2:a",
+        "-af", f"afade=t=out:st={total - 1.5}:d=1.5", "-shortest", "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+        "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", video)
+    print(f"tiktok: {video} ({duration(video):.1f}s)\ncaption: {meta['caption']}")
+
+
 def step_upload(d):
     slug = os.path.basename(os.path.normpath(d))
     meta = json.load(open(os.path.join(d, "meta.json")))
@@ -270,7 +301,7 @@ def step_upload(d):
 
 
 STEPS = {"voice": step_voice, "images": step_images, "stills": step_stills, "video": step_video,
-         "shorts": step_shorts, "upload": step_upload}
+         "shorts": step_shorts, "tiktok": step_tiktok, "upload": step_upload}
 if __name__ == "__main__":
     if len(sys.argv) != 3 or sys.argv[1] not in STEPS:
         sys.exit(__doc__)

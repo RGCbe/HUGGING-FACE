@@ -97,7 +97,9 @@ python3 videos/teabreak/build.py voice "$KURAL_WORK/SLUG"
 It voices each line and listens to it with Whisper without the script; any word that is not
 clear fails the line, and it tries six seeds. If it stops with "NOT CLEAR", reword the lines it
 names (simpler, more common words; shorter sentences; a hard name said once less) and run it
-again; lines that passed are kept. After three rewordings, stop and report. About 30-50 minutes.
+again; pieces that passed are kept. After three rewordings, stop and report. About 30-50 minutes.
+Run nothing else heavy while it works (another voice job, a video render): two such jobs on the
+container's 4 cores each run about ten times slower.
 
 ## 6. Pictures: `images.json`, then `build.py images`
 
@@ -163,6 +165,13 @@ python3 videos/teabreak/build.py video "$KURAL_WORK/SLUG"
 python3 videos/teabreak/build.py shorts "$KURAL_WORK/SLUG"
 ```
 
+Then the whole story as one vertical video for TikTok (TikTok pays only for videos over a
+minute), from `meta.json`'s `tiktok` (write it now, see step 9):
+
+```bash
+python3 videos/teabreak/build.py tiktok "$KURAL_WORK/SLUG"
+```
+
 Watch for problems: open a few frames of each output (`ffmpeg -ss T -i out/X.mp4 -frames:v 1
 f.png`) and check the lengths with ffprobe (long video 3-5 minutes; Shorts under 60 seconds).
 
@@ -179,6 +188,9 @@ f.png`) and check the lengths with ffprobe (long video 3-5 minutes; Shorts under
 - `tags`: 10 to 12, from what people search ("pig war", "pig war 1859", "funny history", ...).
 - `long_at`, `shorts_at`: from next.py.
 - `shorts`: a title (under 60 characters, ending in "#shorts") and a two-line description for each.
+- `tiktok`: `title` (the story and year in capitals, "THE PIG WAR (1859)"), `subtitle` (at most
+  five words, "One pig. Two countries."), and `caption`: one or two sentences that tease the story,
+  an emoji, and 5 or 6 hashtags (#history #funnyhistory #truestory, the story's own, #learnontiktok).
 
 ```bash
 python3 videos/teabreak/build.py upload "$KURAL_WORK/SLUG"
@@ -191,6 +203,9 @@ the channel's phone number is verified; that is not an error to fix, just report
 
 ## 10. Report
 
-A few lines: the story, the three titles with their YouTube links and when each goes public
-(India time), anything you had to reword or redo, and anything that failed with what the owner
-needs to do.
+Send the owner the TikTok video (`out/SLUG_tiktok.mp4`) with SendUserFile, and the two Shorts
+too, which they may also post on TikTok a few days later. Then a few lines: the story, the three
+titles with their YouTube links and when each goes public (India time), the TikTok caption in a
+block to copy (and a reminder to switch on "AI-generated content" under More options when
+posting), anything you had to reword or redo, and anything that failed with what the owner needs
+to do.
