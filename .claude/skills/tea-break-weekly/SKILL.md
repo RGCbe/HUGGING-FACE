@@ -1,11 +1,12 @@
 ---
 name: tea-break-weekly
-description: Make and schedule this week's Tea Break with Manoj videos - the next funny true history story from the topic list as a 3-5 minute illustrated doodle video plus two vertical Shorts, in Manoj's AI voice checked word by word, with original music and sound effects, uploaded private and scheduled. Use for "make this week's Tea Break video", "run the weekly Tea Break", or when a scheduled task asks for the weekly Tea Break run.
+description: Make and schedule this week's Tea Break with Manoj videos - the next funny true history story from the topic list as a 2-5 minute illustrated doodle video plus two vertical Shorts, in Manoj's AI voice checked word by word, with original music and sound effects, uploaded private and scheduled. Use for "make this week's Tea Break video", "run the weekly Tea Break", or when a scheduled task asks for the weekly Tea Break run.
 ---
 
 # Tea Break with Manoj, weekly
 
-Every week, one long video (3 to 5 minutes) and two Shorts about the next story in
+Every week, one long video (2 to 5 minutes, never longer: the channel's promise is a story you
+finish in a tea break) and two Shorts about the next story in
 `videos/teabreak/topics.json`, for the channel in `videos/teabreak/config.json`. The long video
 goes public on Saturday at 18:00 India time and the Shorts on the Monday and Wednesday after it.
 The finished example to copy is The Pig War: its files are in `videos/teabreak/example/`
@@ -62,8 +63,9 @@ Note where they disagree.
 
 ## 4. Write the script: `voiceover_en.txt`
 
-One section per line, 14 to 16 lines, 25 to 65 words each, 550 to 650 words in all (about four
-minutes). Spell every number as it is said ("eighteen fifty-nine", "two thousand one hundred and
+One section per line, 13 to 16 lines, 25 to 60 words each, 450 to 650 words in all (3 to 4½
+minutes, like the Pig War example: 648 words, 4:22; `build.py voice` stops if the video would run
+past 5 minutes or under 2, and says how many words to cut or add). Spell every number as it is said ("eighteen fifty-nine", "two thousand one hundred and
 forty"). No sound tags like [laugh]: the voice reads them out.
 
 1. **Hook.** Write four or five hooks in a scratch file and score them:
@@ -173,7 +175,7 @@ python3 videos/teabreak/build.py tiktok "$KURAL_WORK/SLUG"
 ```
 
 Watch for problems: open a few frames of each output (`ffmpeg -ss T -i out/X.mp4 -frames:v 1
-f.png`) and check the lengths with ffprobe (long video 3-5 minutes; Shorts under 60 seconds).
+f.png`) and check the lengths with ffprobe (long video 2-5 minutes; Shorts under 60 seconds).
 
 ## 9. Upload
 

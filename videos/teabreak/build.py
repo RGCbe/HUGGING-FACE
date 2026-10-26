@@ -151,6 +151,16 @@ def step_voice(d):
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "lavfi", "-t", GAP, "-i", "anullsrc=r=24000:cl=mono", gap)
     voice = os.path.join(d, "voice.wav")
     concat([p for k, line in enumerate(lines) for p in ([gap, line] if k else [line])], voice)
+    # a Tea Break video is 2 to 5 minutes, end card included: a story you finish in a tea break
+    shortest, longest = cfg["length_seconds"]
+    seconds = duration(voice) + TAIL
+    words = len(open(os.path.join(d, "voiceover_en.txt"), encoding="utf-8").read().split())
+    per_second = words / duration(voice)
+    if not shortest <= seconds <= longest:
+        change = (f"cut about {round((seconds - longest) * per_second) + 10} words" if seconds > longest
+                  else f"add about {round((shortest - seconds) * per_second) + 10} words")
+        sys.exit(f"the video would be {seconds:.0f}s, outside Tea Break's {shortest}-{longest}s: {change} "
+                 "and run voice again (unchanged sentences are kept)")
     whisper = env("WHISPER_PY")
     run(whisper, "-I", os.path.join(DOODLE, "timing.py"), os.path.join(d, "voiceover_en.txt"),
         os.path.join(d, "tts", "line_{n:02d}.wav"), GAP, os.path.join(d, "timing.json"))
