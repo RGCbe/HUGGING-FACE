@@ -287,12 +287,17 @@ def step_upload(d):
     out = os.path.abspath(os.path.join(d, "out"))
     note = ("\n\nThe voice is an AI copy of my own voice; the pictures are made with an AI image model "
             "(FLUX.2 klein), and the music is original.")
+    # the long video goes in "long" and in its topic's playlists (topics.json), each Short in "shorts"
+    topic = next((t for t in json.load(open(os.path.join(HERE, "topics.json"))) if t["slug"] == slug), {})
+    playlist = lambda key: cfg.get("playlists", {}).get(key, {}).get("id")
+    long_lists = [playlist(k) for k in ["long"] + topic.get("playlists", []) if playlist(k)]
     videos = [{"file": os.path.join(out, f"{slug}.mp4"), "thumbnail": os.path.join(out, f"{slug}_thumbnail.jpg"),
                "title": meta["title"], "description": meta["description"] + note, "tags": meta["tags"],
-               "publish_at": meta["long_at"]}]
+               "publish_at": meta["long_at"], "playlists": long_lists}]
     for k, (s, when) in enumerate(zip(meta["shorts"], meta["shorts_at"]), 1):
         videos.append({"file": os.path.join(out, f"{slug}_short{k}.mp4"), "title": s["title"],
-                       "description": s["description"] + note, "tags": meta["tags"][:5] + ["shorts"], "publish_at": when})
+                       "description": s["description"] + note, "tags": meta["tags"][:5] + ["shorts"], "publish_at": when,
+                       "playlists": [p for p in [playlist("shorts")] if p]})
     upload = {"defaults": {"privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 27,
                            "language": "en", "refresh_token_env": cfg["channel"]["refresh_token_env"]}, "videos": videos}
     path = os.path.join(d, "upload.json")

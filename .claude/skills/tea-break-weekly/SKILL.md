@@ -198,7 +198,10 @@ python3 videos/doodle/upload.py "$KURAL_WORK/SLUG/upload.json"
 ```
 
 Everything goes up private, with YouTube's AI-content label, and goes public by itself at its
-time, so the owner can watch it in YouTube Studio first. A custom thumbnail fails with 403 until
+time, so the owner can watch it in YouTube Studio first. Each video is also added to the channel's
+playlists (config.json `playlists`): the long video to "Funny True History Stories" and to its
+topic's playlists in topics.json (war stories to "Weird Wars in History"), each Short to "Funny
+History Shorts". A custom thumbnail fails with 403 until
 the channel's phone number is verified; that is not an error to fix, just report it.
 
 ## 10. Report

@@ -2,11 +2,11 @@
 
     python3 upload.py UPLOAD_JSON [--dry-run]
 
-Reads the title, description, tags, category, audience, AI-content label and thumbnail from
-UPLOAD_JSON and uploads each file with the YouTube Data API (resumable upload, standard library
-only). Videos go up as PRIVATE unless the JSON says otherwise, so you can watch them in YouTube
-Studio before anyone else sees them. Google also keeps API uploads private on new API projects
-until the project passes its audit.
+Reads the title, description, tags, category, audience, AI-content label, thumbnail and playlists
+(a video's "playlists": [playlist ids]) from UPLOAD_JSON and uploads each file with the YouTube
+Data API (resumable upload, standard library only). Videos go up as PRIVATE unless the JSON says
+otherwise, so you can watch them in YouTube Studio before anyone else sees them. Google also keeps
+API uploads private on new API projects until the project passes its audit.
 
 Credentials come from environment variables, never from the repo:
   YT_CLIENT_ID, YT_CLIENT_SECRET   an OAuth client from your Google Cloud project
@@ -118,6 +118,19 @@ def set_thumbnail(token, video_id, image):
         return False
 
 
+def add_to_playlist(token, playlist_id, video_id):
+    body = {"snippet": {"playlistId": playlist_id, "resourceId": {"kind": "youtube#video", "videoId": video_id}}}
+    req = urllib.request.Request("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet",
+                                 data=json.dumps(body).encode(), method="POST",
+                                 headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"})
+    try:
+        urllib.request.urlopen(req, timeout=120).read()
+        return True
+    except urllib.error.HTTPError as e:
+        print(f"  not added to playlist {playlist_id} ({e.code}): {e.read().decode(errors='replace')[:200]}")
+        return False
+
+
 def main():
     spec_path = sys.argv[1]
     spec = json.load(open(spec_path))
@@ -140,6 +153,9 @@ def main():
         thumb = os.path.expandvars(v["thumbnail"]) if v.get("thumbnail") else None
         if thumb:
             set_thumbnail(token, video["id"], thumb)
+        for playlist in v.get("playlists", []):
+            if add_to_playlist(token, playlist, video["id"]):
+                print(f"  added to playlist {playlist}")
         results.append({"title": v["title"], "id": video["id"], "url": url, "privacy": meta["status"]["privacyStatus"],
                         "publish_at": meta["status"].get("publishAt")})
     if dry:

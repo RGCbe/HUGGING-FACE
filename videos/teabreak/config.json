@@ -12,5 +12,22 @@
   "style": "Hand-drawn cartoon illustration with flat colours and clean black ink outlines, warm cream paper background, soft shadows, friendly and funny. The top third of the picture is plain empty cream paper. No text, no letters, no numbers anywhere.",
   "style_ref": "../00-intro/img/s2.png",
   "music_gain": 0.3,
-  "end_card": "../00-intro/img/s7.png"
+  "end_card": "../00-intro/img/s7.png",
+  "playlists": {
+    "long": {
+      "title": "Funny True History Stories",
+      "description": "Every full story from Tea Break with Manoj: funny true history, explained in the time it takes to drink your tea. Every word is true, with the sources in each video's description. A new story every Saturday.",
+      "id": "PLUAmyQAv4d68"
+    },
+    "shorts": {
+      "title": "Funny History Shorts",
+      "description": "The funniest moments from the full stories, in under a minute. Every word is true. Watch the whole story in the playlist Funny True History Stories.",
+      "id": "PLNMchGZEVlZw"
+    },
+    "wars": {
+      "title": "Weird Wars in History",
+      "description": "Real wars that sound made up: an army against 20,000 emus, two countries and one pig, and more. The true stories, with sources, from Tea Break with Manoj.",
+      "id": "PLW9zRU1t75yY"
+    }
+  }
 }
