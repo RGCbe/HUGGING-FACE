@@ -30,5 +30,6 @@
       "id": "PLW9zRU1t75yY"
     }
   },
-  "length_seconds": [120, 300]
+  "length_seconds": [120, 300],
+  "voice_repo": "Rggroups/super-kural-voice"
 }

@@ -160,7 +160,8 @@ def close(script_words, heard_words):
     return False
 
 
-lines = [l.strip() for l in open(a.text, encoding="utf-8") if l.strip()]
+# emotion tags ("[excited] ...") direct the voice and are not said
+lines = [re.sub(r"\[[a-z]+\]\s*", "", l).strip() for l in open(a.text, encoding="utf-8") if l.strip()]
 todo = [int(x) for x in a.sections.split(",")] if a.sections else range(1, len(lines) + 1)
 model = WhisperModel(a.model, device="cpu", compute_type="int8")
 report = []

@@ -39,6 +39,8 @@ import re
 import shutil
 import subprocess
 import sys
+import urllib.error
+import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 VIDEOS = os.path.dirname(HERE)
@@ -66,9 +68,52 @@ def duration(path):
                      capture_output=True, text=True).stdout)
 
 
+TAG = re.compile(r"^\[([a-z]+)\]\s*")
+EMOTIONS = ["excited", "mysterious", "funny", "shocked", "serious", "warm"]
+
+
+def private(path, out):
+    """A file from the owner's private voice dataset (config.json voice_repo), kept in out; None if
+    the dataset has no such file."""
+    if not os.path.exists(out):
+        req = urllib.request.Request(f"https://huggingface.co/datasets/{cfg['voice_repo']}/resolve/main/{path}",
+                                     headers={"Authorization": "Bearer " + env("HF_TOKEN")})
+        try:
+            data = urllib.request.urlopen(req, timeout=120).read()
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                return None
+            raise
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        open(out, "wb").write(data)
+    return out
+
+
+def emotion_refs(d):
+    """refs.json for tts.py: each emotion sample the owner recorded (teabreak/emotion/NAME.opus and
+    its words, NAME.txt), so a line tagged "[excited]" is said from the excited sample."""
+    home = os.path.join(env("KURAL_HOME"), "voice", "teabreak")
+    refs = {}
+    for e in EMOTIONS:
+        opus = private(f"teabreak/emotion/{e}.opus", os.path.join(home, f"{e}.opus"))
+        txt = private(f"teabreak/emotion/{e}.txt", os.path.join(home, f"{e}.txt"))
+        if opus and txt:
+            wav = os.path.join(home, f"{e}.wav")
+            if not os.path.exists(wav):
+                run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", opus, "-ar", 24000, "-ac", 1, wav)
+            refs[e] = [wav, txt]
+    path = os.path.join(d, "tts", "refs.json")
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    json.dump(refs, open(path, "w"), indent=1)
+    return path, sorted(refs)
+
+
 def pieces(line):
     """A line cut into sentences, short ones joined to the next (at least 8 words a piece). The voice
-    model slips more in long stretches, and a slip then costs one piece, not the whole line."""
+    model slips more in long stretches, and a slip then costs one piece, not the whole line. An
+    emotion tag at the start of the line goes on every piece."""
+    tag = TAG.match(line)
+    line = TAG.sub("", line)
     out, cur = [], ""
     for sentence in re.split(r"(?<=[.?!])\s+", line.strip()):
         cur = f"{cur} {sentence}".strip()
@@ -79,14 +124,17 @@ def pieces(line):
         out[-1] += " " + cur
     elif cur:
         out.append(cur)
-    return out
+    return [f"[{tag.group(1)}] {p}" for p in out] if tag else out
 
 
-def say(text_file, out_dir, names):
+def say(text_file, out_dir, names, refs=None, recorded=None):
     """Voice each line of text_file into out_dir/line_NN.wav, a piece at a time (sec_NN.wav, the
-    pieces listed in pieces.txt), trying other seeds until Whisper hears every word of every piece."""
+    pieces listed in pieces.txt), trying other seeds until Whisper hears every word of every piece.
+    refs is tts.py's --refs (emotion samples); recorded maps a line number to the owner's own
+    recording of it, used as it is."""
+    recorded = recorded or {}
     lines = [l.strip() for l in open(text_file, encoding="utf-8") if l.strip()]
-    split = [pieces(l) for l in lines]
+    split = [[] if i in recorded else pieces(l) for i, l in enumerate(lines, 1)]
     flat = [p for ps in split for p in ps]
     os.makedirs(out_dir, exist_ok=True)
     pieces_file = os.path.join(out_dir, "pieces.txt")
@@ -97,6 +145,8 @@ def say(text_file, out_dir, names):
     passed = lambda n: cache.get(str(n)) == flat[n - 1] and os.path.exists(wav(n))
     engine = os.environ.get("TTS_ENGINE", cfg["voice_engine"])
     voice = ["--engine", engine] + (["--ref-text", env("VOICE_REF_TEXT")] if engine == "qwen" else ["--temperature", 0.5])
+    if refs and engine == "qwen":
+        voice += ["--refs", refs]
     problems = {}
 
     def listen(todo):
@@ -129,9 +179,12 @@ def say(text_file, out_dir, names):
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "lavfi", "-t", BREATH, "-i", "anullsrc=r=24000:cl=mono", breath)
     out, n = [], 0
     for i, ps in enumerate(split, 1):
+        out.append(os.path.join(out_dir, f"line_{i:02d}.wav"))
+        if i in recorded:
+            run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", recorded[i], "-ar", 24000, "-ac", 1, "-c:a", "pcm_s16le", out[-1])
+            continue
         parts = [wav(n + k) for k in range(1, len(ps) + 1)]
         n += len(ps)
-        out.append(os.path.join(out_dir, f"line_{i:02d}.wav"))
         concat([p for k, part in enumerate(parts) for p in ([breath, part] if k else [part])], out[-1])
     return out
 
@@ -147,8 +200,21 @@ def step_voice(d):
     names_file = os.path.join(d, "names.txt")
     names = ",".join(l.strip() for l in open(names_file) if l.strip()) if os.path.exists(names_file) else ""
     names = ",".join(n for n in (names, "Manoj") if n)
-    lines = say(os.path.join(d, "voiceover_en.txt"), os.path.join(d, "tts"), names)
-    say(os.path.join(d, "hooks.txt"), os.path.join(d, "hooks"), names)
+    refs, moods = emotion_refs(d)
+    print(f"emotion samples: {', '.join(moods) or 'none yet (every line in the usual voice)'}")
+    # "[mytake] ..." is the owner's own recording for this story (teabreak/mytake/SLUG.opus)
+    slug = os.path.basename(os.path.normpath(d))
+    text = os.path.join(d, "voiceover_en.txt")
+    script = [l.strip() for l in open(text, encoding="utf-8") if l.strip()]
+    recorded = {}
+    for i, line in enumerate(script, 1):
+        if line.startswith("[mytake]"):
+            clip = private(f"teabreak/mytake/{slug}.opus", os.path.join(env("KURAL_HOME"), "voice", "teabreak", f"mytake-{slug}.opus"))
+            if not clip:
+                sys.exit(f"line {i} is [mytake], but the owner has no recording for {slug}: take the line out")
+            recorded[i] = clip
+    lines = say(text, os.path.join(d, "tts"), names, refs, recorded)
+    say(os.path.join(d, "hooks.txt"), os.path.join(d, "hooks"), names, refs)
     gap = os.path.join(d, "tts", "gap.wav")
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "lavfi", "-t", GAP, "-i", "anullsrc=r=24000:cl=mono", gap)
     voice = os.path.join(d, "voice.wav")
@@ -156,7 +222,7 @@ def step_voice(d):
     # a Tea Break video is 2 to 5 minutes, end card included: a story you finish in a tea break
     shortest, longest = cfg["length_seconds"]
     seconds = duration(voice) + TAIL
-    words = len(open(os.path.join(d, "voiceover_en.txt"), encoding="utf-8").read().split())
+    words = len(re.sub(r"\[[a-z]+\]", "", open(text, encoding="utf-8").read()).split())
     per_second = words / duration(voice)
     if not shortest <= seconds <= longest:
         change = (f"cut about {round((seconds - longest) * per_second) + 10} words" if seconds > longest

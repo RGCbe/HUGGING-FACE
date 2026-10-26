@@ -82,6 +82,21 @@ forty"). No sound tags like [laugh]: the voice reads them out.
 5. Last line: "Do you know a funny true story like this, from your town or your family? Tell me in
    the comments. It could be my next video."
 
+**Direct the voice.** Start every line with the emotion it should be said in, like a director's
+note: `[excited]` (the hook, big reveals), `[mysterious]` (a build-up, "but then..."), `[funny]`
+(jokes and punchlines), `[shocked]` (twists, crazy numbers), `[serious]` (armies, danger),
+`[warm]` (the greeting, calm moments, the comments line). The voice is made from the owner's own
+sample of that emotion, so the delivery follows the story; a line without a tag uses the usual
+sample, and tags are never read out. Change the emotion where the story's feeling changes, not
+every line.
+
+**The owner's own words.** If the topic in topics.json has a `my_take`, add it as its own line
+just before the comments line, exactly as written there, starting with `[mytake]`:
+`[mytake] This war was shorter than my tea break. ...`. That line is the owner's real recording,
+not the AI voice. Give it its own board (the funniest picture again with a big "MY TAKE" stamp and
+a few of its words), in a `warm` or `playful` mood, without `D.punch` (the music stays under it).
+Put any numbers it says in `caption_replace.json`.
+
 Also write:
 - `hooks.txt`: two hook lines, one for each Short, each scored 55 or more, each about its Short's
   part of the story.
