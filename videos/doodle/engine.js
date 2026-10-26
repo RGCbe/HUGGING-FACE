@@ -81,6 +81,13 @@
     throw new Error(`cue not found: section ${n} "${phrase}"`);
   };
   D.sectionStart = (n) => window.TIMING.sections[n - 1].offset;
+  // Absolute time the last word of `phrase` ends (to land a sting just after a punchline).
+  D.cueEnd = function (n, phrase, nth = 0) {
+    const t = D.cue(n, phrase, nth);
+    const words = window.TIMING.sections[n - 1].words;
+    const i = words.findIndex((w) => w.t0 === t);
+    return words[i + phrase.split(/\s+/).filter(Boolean).length - 1].t1;
+  };
 
   // ---- shapes: rough.js nodes, outlines first, hachure fills as separate nodes ----------------
 
@@ -223,13 +230,17 @@
     return it;
   };
 
-  // ---- sound effects -------------------------------------------------------------------------
+  // ---- sound effects and music direction -----------------------------------------------------
   // Pictures whoosh in, pops pop and stamps thump by themselves; D.sfx adds one ('ding', 'pop',
   // 'whoosh', 'stamp') and D.punch marks a punchline, where mix.py stops the music for a moment.
-  // render.mjs --events writes them out with their final times.
+  // D.mood(at, 'suspense') changes the background music's mood from then on, and D.sting(at,
+  // 'rimshot') plays a musical hit (both made by score.py). render.mjs --events writes them all
+  // out with their final times.
   const sounds = [];
   D.sfx = (at, kind) => sounds.push({ at, kind });
   D.punch = (at) => sounds.push({ at, kind: 'punch' });
+  D.mood = (at, mood) => sounds.push({ at, kind: 'mood', mood });
+  D.sting = (at, name) => sounds.push({ at, kind: 'sting', name });
 
   // A stamp: rotated rough box with bold text, popped in.
   D.stamp = function (at, x, y, str, o = {}) {
@@ -365,7 +376,10 @@
   // Sound effects and punchlines as [{t, kind}], at the times items really appear (after finalize).
   D.soundEvents = () => {
     if (!finalized) finalize();
-    return sounds.map((s) => ({ t: +(s.it ? s.it.at : s.at).toFixed(3), kind: s.kind })).sort((a, b) => a.t - b.t);
+    return sounds
+      .map((s) => Object.assign({ t: +(s.it ? s.it.at : s.at).toFixed(3), kind: s.kind },
+        s.mood ? { mood: s.mood } : {}, s.name ? { name: s.name } : {}))
+      .sort((a, b) => a.t - b.t);
   };
 
   D.tail = 0; // extra seconds after the voiceover ends (an end card)

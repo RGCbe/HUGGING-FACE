@@ -31,6 +31,29 @@
     if (year) D.write(at + 1.0, x, y + 88 * s, year, { size: 36 * s, color: D.GREY, dur: 0.3 });
   }
 
+  // Music direction: the mood of each stretch (doodle/score.py), and a sting after some punchlines.
+  D.mood(0, 'curious'); //                           one dead pig... but how?
+  D.mood(D.sectionStart(2), 'warm'); //              hello friends
+  D.mood(D.sectionStart(3), 'curious'); //           the border puzzle
+  D.mood(D.sectionStart(4), 'playful'); //           MINE! NO, MINE!
+  D.mood(D.sectionStart(5), 'sneaky'); //            a pig in the potatoes
+  D.mood(c(5, 'Fun fact'), 'playful'); //            happy anniversary, $10 or $100, the mango tree
+  D.mood(D.sectionStart(7), 'suspense'); //          they would arrest him
+  D.mood(c(7, 'And the army sent'), 'dramatic'); //  Pickett, Bunker Hill, the warships
+  D.mood(D.sectionStart(9), 'suspense'); //          will the admiral attack?
+  D.mood(D.sectionStart(10), 'warm'); //             General Scott calms things down
+  D.mood(D.sectionStart(11), 'playful'); //          twelve years of visits, holidays and sports
+  D.mood(D.sectionStart(12), 'curious'); //          who decides?
+  D.mood(c(13, 'they decided'), 'triumphant'); //    the island belongs to America
+  D.mood(c(14, 'But in the whole'), 'sad'); //       not one soldier... the pig
+  D.mood(D.sectionStart(15), 'warm'); //             tell me in the comments
+  D.sting(D.cueEnd(5, 'Happy anniversary'), 'tada');
+  D.sting(D.cueEnd(6, 'between their houses'), 'rimshot');
+  D.sting(D.cueEnd(7, 'Over a pig'), 'wahwah');
+  D.sting(D.cueEnd(8, 'of one pig'), 'hit');
+  D.sting(D.cueEnd(11, 'It was the alcohol'), 'rimshot');
+  D.sting(D.cueEnd(14, 'was the pig'), 'wahwah');
+
   // 1. Hook
   scene(0, 'p01', () => {
     big(c(1, 'eighteen fifty-nine'), 300, 190, '1859', { size: 150, color: D.ORANGE });

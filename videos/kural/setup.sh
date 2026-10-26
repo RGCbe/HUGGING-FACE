@@ -2,7 +2,8 @@
 # Get a fresh cloud container ready to make Super Kural videos, then write the settings make.py
 # reads to $KURAL_HOME/env.sh (source it). Safe to run again: finished steps are skipped.
 #
-# Needs: uv, ffmpeg, node with Playwright (all present in Claude Code cloud containers), and
+# Needs: uv, ffmpeg, node with Playwright (all present in Claude Code cloud containers), apt (for
+# fluidsynth and its sound font, installed here), and
 # HF_TOKEN, a read token for the private Hugging Face dataset in config.json "voice_repo" that holds
 # the voice sample (ref_en.opus) and the three approved fixed clips for the voice engine chosen in
 # config.json "voice_engine": intro/says/outro.opus for chatterbox; intro_qwen, says_qwen and
@@ -23,6 +24,12 @@ if [ ! -x "$home/$engine/bin/python" ]; then
   uv venv -q --python 3.11 "$home/$engine"
   VIRTUAL_ENV="$home/$engine" uv pip install -q --no-deps --index-strategy unsafe-best-match \
     --extra-index-url https://download.pytorch.org/whl/cpu -r "$here/requirements-$engine.txt"
+fi
+if [ ! -s /usr/share/sounds/sf2/FluidR3_GM.sf2 ] || ! command -v fluidsynth > /dev/null; then
+  echo "installing fluidsynth and the FluidR3 orchestra (MIT) for the mood music (doodle/score.py)"
+  (apt-get install -y -qq --no-install-recommends fluidsynth fluid-soundfont-gm > /dev/null 2>&1 ||
+   { apt-get update -qq > /dev/null 2>&1 && apt-get install -y -qq --no-install-recommends fluidsynth fluid-soundfont-gm > /dev/null 2>&1; }) ||
+    echo "could not install fluidsynth: videos whose scenes set moods cannot get their music" >&2
 fi
 if [ ! -x "$home/whisper/bin/python" ]; then
   echo "installing the listening model's Python packages"

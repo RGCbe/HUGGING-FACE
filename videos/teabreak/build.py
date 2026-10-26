@@ -23,6 +23,8 @@ Steps, in order (each can be run again; finished voice lines and pictures are ke
   images   makes the pictures (Cloudflare FLUX.2 klein, in the style of config.json's style_ref)
   stills   renders one finished frame per board into stills/, plus contact sheets, for review
   video    renders the video, adds music, sound effects, captions; makes the thumbnail
+  sound    only the sound again (events, music, mix, captions) on the rendered pictures, after
+           changing moods, stings or punchlines in scenes.js
   shorts   cuts both vertical Shorts
   tiktok   the whole story as one vertical video, for the owner to post on TikTok
   upload   writes upload.json for doodle/upload.py: long video and Shorts, private until their times
@@ -211,18 +213,41 @@ def step_video(d):
     slug = os.path.basename(os.path.normpath(d))
     out = os.path.join(d, "out")
     os.makedirs(out, exist_ok=True)
+    render(d, "--scenes", os.path.join(d, "scenes.js"), "--out", os.path.join(d, "silent.mp4"))
+    video = step_sound(d)
+    thumb = os.path.join(d, "thumb")
+    render(d, "--scenes", os.path.join(d, "thumbnail.js"), "--out", os.path.join(thumb, "t.mp4"), "--stills", "3")
+    run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", os.path.join(thumb, "t_3.00.png"), "-vf", "scale=1280:720:flags=lanczos",
+        "-q:v", "3", os.path.join(out, f"{slug}_thumbnail.jpg"))
+    print(f"video: {video} ({duration(video):.1f}s), thumbnail: {slug}_thumbnail.jpg")
+
+
+def step_sound(d):
+    """The sound again on the rendered pictures: events, the mood score (or the one-mood loop when
+    scenes.js sets no moods), the mix, captions."""
+    slug = os.path.basename(os.path.normpath(d))
+    out = os.path.join(d, "out")
+    os.makedirs(out, exist_ok=True)
     total = json.load(open(os.path.join(d, "timing.json")))["total"] + TAIL
     silent = os.path.join(d, "silent.mp4")
-    render(d, "--scenes", os.path.join(d, "scenes.js"), "--out", silent)
     events = os.path.join(d, "events.json")
     render(d, "--scenes", os.path.join(d, "scenes.js"), "--out", os.devnull, "--events", events)
     music = os.path.join(d, "music.wav")
+    stings = os.path.join(d, "music_stings.wav")
+    if os.path.exists(stings):
+        os.remove(stings)
     seed = int(hashlib.sha1(slug.encode()).hexdigest(), 16) % 1000
-    run(env("TTS_PY"), "-I", os.path.join(DOODLE, "music.py"), music, total + 1, "--seed", seed)
+    if any(e["kind"] == "mood" for e in json.load(open(events))):
+        if not shutil.which("fluidsynth"):
+            sys.exit("scenes.js sets moods, but fluidsynth is missing: run ../kural/setup.sh (it installs it)")
+        run(env("TTS_PY"), "-I", os.path.join(DOODLE, "score.py"), music, total + 1, "--events", events, "--seed", seed)
+    else:
+        run(env("TTS_PY"), "-I", os.path.join(DOODLE, "music.py"), music, total + 1, "--seed", seed)
     voice_pad = os.path.join(d, "voice_pad.wav")
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", os.path.join(d, "voice.wav"), "-af", f"apad=pad_dur={TAIL}", voice_pad)
     mix = os.path.join(d, "mix.m4a")
-    run("python3", os.path.join(DOODLE, "mix.py"), voice_pad, music, mix, "--music-gain", cfg["music_gain"], "--events", events)
+    run("python3", os.path.join(DOODLE, "mix.py"), voice_pad, music, mix, "--music-gain", cfg["music_gain"], "--events", events,
+        *(["--stings", stings] if os.path.exists(stings) else []))
     ass = os.path.join(d, "captions.ass")
     run("python3", os.path.join(DOODLE, "captions.py"), os.path.join(d, "timing.json"), ass, *replace(d))
     video = os.path.join(out, f"{slug}.mp4")
@@ -230,11 +255,7 @@ def step_video(d):
         f"ass={ass}:fontsdir={os.path.join(DOODLE, 'fonts')}", "-af", f"afade=t=out:st={total - 1.5}:d=1.5", "-shortest",
         "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
         "-movflags", "+faststart", video)
-    thumb = os.path.join(d, "thumb")
-    render(d, "--scenes", os.path.join(d, "thumbnail.js"), "--out", os.path.join(thumb, "t.mp4"), "--stills", "3")
-    run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", os.path.join(thumb, "t_3.00.png"), "-vf", "scale=1280:720:flags=lanczos",
-        "-q:v", "3", os.path.join(out, f"{slug}_thumbnail.jpg"))
-    print(f"video: {video} ({duration(video):.1f}s), thumbnail: {slug}_thumbnail.jpg")
+    return video
 
 
 def replace(d):
@@ -252,11 +273,13 @@ def step_shorts(d):
             "voiceover": os.path.join(d, "voice.wav"), "title": s["title"], "subtitle": s["subtitle"],
             "hook": {"wav": os.path.join(d, "hooks", f"line_{s['hook']:02d}.wav"), "timing": os.path.join(d, "hooks_timing.json"),
                      "section": s["hook"], "visual_from": s.get("hook_visual_from", 0.3), "visual_to": s.get("hook_visual_to", 6.0)},
-            "music": os.path.join(d, "music.wav"), "music_gain": cfg["music_gain"],
+            "music": os.path.join(d, "music.wav"), "music_gain": cfg["music_gain"], "music_follows": True,
             "segments": s["segments"], "data": {"img": os.path.join(d, "img")}, "background": "0xfff8e7",
         }
         if replace(d):
             spec["replace"] = replace(d)[1]
+        if os.path.exists(os.path.join(d, "music_stings.wav")):
+            spec["stings"] = os.path.join(d, "music_stings.wav")
         path = os.path.join(d, f"short{k}.json")
         json.dump(spec, open(path, "w"), indent=1)
         run("python3", os.path.join(DOODLE, "short.py"), path, cwd=VIDEOS)
@@ -315,7 +338,7 @@ def step_upload(d):
     print(f"wrote {path}: upload with python3 {os.path.join(DOODLE, 'upload.py')} {path}")
 
 
-STEPS = {"voice": step_voice, "images": step_images, "stills": step_stills, "video": step_video,
+STEPS = {"voice": step_voice, "images": step_images, "stills": step_stills, "video": step_video, "sound": step_sound,
          "shorts": step_shorts, "tiktok": step_tiktok, "upload": step_upload}
 if __name__ == "__main__":
     if len(sys.argv) != 3 or sys.argv[1] not in STEPS:

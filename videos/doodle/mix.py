@@ -1,6 +1,7 @@
 """Mix background music under a voiceover, ducking the music whenever the voice speaks.
 
     python3 mix.py VOICE MUSIC OUT [--music-gain 0.30] [--lufs -14] [--events EVENTS.json] [--sfx-gain 0.5]
+                   [--stings STINGS.wav] [--sting-gain 0.35]
 
 The voice is first brought to -16 LUFS, so --music-gain means the same thing whatever level the voice
 was recorded or generated at (with the default, the music sits about 18-20 dB under the voice). The
@@ -10,7 +11,8 @@ as long as the voice.
 
 --events takes render.mjs --events output: the sound effects (pops, stamps, whooshes, dings; see
 sfx.py) are added at --sfx-gain, and at each punchline the music stops from a moment before it
-until just after, so the joke lands in silence.
+until just after, so the joke lands in silence. --stings takes score.py's musical hits, which are
+added at --sting-gain after the ducking and the punchline pauses, so nothing cuts them.
 """
 import argparse
 import json
@@ -32,6 +34,8 @@ ap.add_argument("--music-gain", type=float, default=0.30)
 ap.add_argument("--lufs", type=float, default=-14)
 ap.add_argument("--events")
 ap.add_argument("--sfx-gain", type=float, default=0.5)
+ap.add_argument("--stings")
+ap.add_argument("--sting-gain", type=float, default=0.35)
 a = ap.parse_args()
 
 events = json.load(open(a.events)) if a.events else []
@@ -53,16 +57,20 @@ graph = (
     "[m][key]sidechaincompress=threshold=0.02:ratio=6:attack=20:release=450[duck];"
 )
 with tempfile.TemporaryDirectory() as tmp:
+    layers = ["[v]", "[duck]"]
     if any(e["kind"] in sfx.SOUNDS for e in events):
         seconds = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
                                         a.voice], check=True, capture_output=True, text=True).stdout)
         effects = os.path.join(tmp, "sfx.wav")
         sfx.write(effects, sfx.track(events, seconds))
         inputs += ["-i", effects]
-        graph += (f"[2:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={a.sfx_gain}[fx];"
-                  "[v][duck][fx]amix=inputs=3:duration=first:normalize=0,")
-    else:
-        graph += "[v][duck]amix=inputs=2:duration=first:normalize=0,"
+        graph += f"[{len(inputs) // 2 - 1}:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={a.sfx_gain}[fx];"
+        layers.append("[fx]")
+    if a.stings:
+        inputs += ["-i", a.stings]
+        graph += f"[{len(inputs) // 2 - 1}:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={a.sting_gain}[st];"
+        layers.append("[st]")
+    graph += f"{''.join(layers)}amix=inputs={len(layers)}:duration=first:normalize=0,"
     graph += f"loudnorm=I={a.lufs}:TP=-1.5:LRA=11[out]"
     subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", *inputs,
                     "-filter_complex", graph, "-map", "[out]", "-ar", "44100", "-c:a", "aac", "-b:a", "192k", a.out],

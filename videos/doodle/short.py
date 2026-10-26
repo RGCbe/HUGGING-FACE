@@ -13,6 +13,9 @@ layout. A title sits above the drawing and big captions below it. SPEC_JSON keys
                                                visual_from..visual_to
   music (optional): background music WAV, mixed under the voice with doodle/mix.py
   music_gain (optional): music level before ducking (default 0.30; Shorts on phone speakers need less)
+  music_follows (optional): true when music is the long video's own track (a score.py mood score):
+                   the Short then takes the music from the same moments as its pictures, so each
+                   stretch keeps its mood; stings (optional) is the score's stings track, cut the same way
   segments: [{from, to, visual_to?}, ...]      seconds on the long timeline; visual_to freezes
                                                the picture early (to skip a camera pan)
   data (optional): passed to render.mjs --data, e.g. {"img": "01-emu-war/img"} for illustrated scenes
@@ -102,9 +105,24 @@ open(lst, "w").write("".join(f"file '{p}'\n" for p in parts))
 voice = os.path.join(work, "voice.wav")
 run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, voice)
 audio = os.path.join(work, "audio.m4a")
+
+
+def follow(track, out):
+    """track cut at the Short's moments of the long video: under the hook its pictures' stretch,
+    then each segment, joined with short fades."""
+    spans = [(hook.get("visual_from", 0.0), hook_dur)] + [(s["from"], s["to"] - s["from"]) for s in spec["segments"]]
+    graph = "".join(f"[0:a]atrim=start={t0}:duration={dur},asetpts=PTS-STARTPTS,"
+                    f"afade=t=in:d=0.15,afade=t=out:st={max(0, dur - 0.15)}:d=0.15[m{k}];" for k, (t0, dur) in enumerate(spans))
+    graph += "".join(f"[m{k}]" for k in range(len(spans))) + f"concat=n={len(spans)}:v=0:a=1[out]"
+    run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", track, "-filter_complex", graph, "-map", "[out]", out)
+    return out
+
+
 if spec.get("music"):
-    run("python3", os.path.join(here, "mix.py"), voice, spec["music"], audio,
-        "--music-gain", str(spec.get("music_gain", 0.30)))
+    music = follow(spec["music"], os.path.join(work, "music.wav")) if spec.get("music_follows") else spec["music"]
+    stings = ["--stings", follow(spec["stings"], os.path.join(work, "stings.wav"))] if spec.get("stings") else []
+    run("python3", os.path.join(here, "mix.py"), voice, music, audio,
+        "--music-gain", str(spec.get("music_gain", 0.30)), *stings)
 else:
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", voice, "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
         "-ar", "44100", "-c:a", "aac", "-b:a", "160k", audio)

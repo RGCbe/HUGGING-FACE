@@ -137,6 +137,30 @@ Handwriting, stamps and calendars go in the empty top third (y up to about 300; 
 1920x1080). `D.punch(c(n, 'words'))` before each punchline's big words: the music stops just
 before it and comes back after. Keep `D.tail = 3` and the end card scene.
 
+**Direct the music like a film** (see the block at the top of the example's `scenes.js`). The
+background music follows the story's feeling, so mark every change of mood with
+`D.mood(time, 'mood')` (doodle/score.py composes a new piece for each stretch and fades between
+them):
+
+| Mood | When |
+| --- | --- |
+| `curious` | the hook's question, a puzzle, "who decides?" |
+| `warm` | "Hello friends", a deal or a calm moment, the comments line and end card |
+| `playful` | jokes, arguments, haggling, silly situations, parties |
+| `sneaky` | someone sneaking, plotting or planning, an animal up to mischief |
+| `suspense` | a threat, a decision hanging, "but then..." |
+| `dramatic` | armies, warships, battles, big numbers of soldiers or guns |
+| `triumphant` | a win, a ruling, a happy ending |
+| `sad` | a loss, told with a wink ("the only casualty was the pig") |
+| `silence` | a deliberate stop before a big reveal |
+
+Give each mood at least 8 seconds (shorter ones are folded into the one before), change it where
+the story turns rather than every line, and use 5 to 8 moods in a video. After the best
+punchlines, play a sting: `D.sting(D.cueEnd(n, 'last words'), 'name')`: `rimshot` for a joke,
+`wahwah` (sad trombone) for a let-down, `tada` for a happy surprise, `hit` for a dramatic number.
+About one sting every 40 seconds, never the same one twice in a row. To hear a change without
+drawing the video again: `python3 videos/teabreak/build.py sound "$KURAL_WORK/SLUG"`.
+
 ```bash
 python3 videos/teabreak/build.py stills "$KURAL_WORK/SLUG"
 ```
