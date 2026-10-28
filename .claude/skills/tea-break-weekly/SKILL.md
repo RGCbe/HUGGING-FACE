@@ -222,6 +222,9 @@ f.png`) and check the lengths with ffprobe (long video 2-5 minutes; Shorts under
 - `title`: under 60 characters, the story's name people search for, then the hook ("The Pig War:
   When One Pig Nearly Started a War (1859)"). Score options with
   `python3 .claude/skills/yt-package/title.py titles.txt`.
+  The title must contain the topic's `match` words from topics.json (the name people search for,
+  such as "Anglo-Zanzibar War"): a catchy title without the name ("The Shortest War Ever") is not
+  found by search.
 - `description`: two sentences saying what happened, then `Sources:` (both links), `Chapters:`
   (from `timing.json` section offsets: the first at 0:00, at least 3, each at least 10 seconds
   long), a short paragraph of the story with the main names and numbers, and "Do you know a funny

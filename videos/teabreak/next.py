@@ -4,7 +4,7 @@
 
 Reads every upload on the channel (public, private and scheduled) with the channel's YouTube key
 (YT_CLIENT_ID, YT_CLIENT_SECRET and the refresh token named in config.json), and picks the first
-topic in topics.json whose "match" words are in no upload's title, so a week that failed is simply
+topic in topics.json whose "match" words are in no upload's title or description, so a week that failed is simply
 made again next time. The long video goes public on the first long_day (Saturday) after today, and
 after the last upload already scheduled, at publish_time; its two Shorts on the shorts_days after that. Exits with status 2 when every
 topic is done (add more to topics.json).
@@ -36,7 +36,7 @@ def get(path, tok, **params):
 
 
 def uploads():
-    """Every upload's title, and the latest time one of them is scheduled to go public (or None)."""
+    """Every upload's title and description, and the latest time one of them is scheduled to go public (or None)."""
     tok = token()
     playlist = get("channels", tok, part="contentDetails", mine="true")["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
     titles, ids, page = [], [], None
@@ -45,7 +45,7 @@ def uploads():
         if page:
             params["pageToken"] = page
         d = get("playlistItems", tok, **params)
-        titles += [i["snippet"]["title"] for i in d.get("items", [])]
+        titles += [i["snippet"]["title"] + "\n" + i["snippet"].get("description", "") for i in d.get("items", [])]
         ids += [i["snippet"]["resourceId"]["videoId"] for i in d.get("items", [])]
         page = d.get("nextPageToken")
         if not page:
@@ -71,7 +71,8 @@ def at(day):
 
 
 titles, last_scheduled = uploads()
-todo = [t for t in topics if not any(t["match"].lower() in title.lower() for title in titles)]
+# a topic is done when its match words are in an upload's title or description (a catchy title may leave the name out)
+todo = [t for t in topics if not any(t["match"].lower() in text.lower() for text in titles)]
 if not todo:
     print(json.dumps({"slug": None, "uploaded": titles}))
     sys.exit(2)
@@ -82,4 +83,5 @@ long_day = after(start, cfg["long_day"])
 shorts = []
 for name in cfg["shorts_days"]:
     shorts.append(after(shorts[-1] if shorts else long_day, name))
-print(json.dumps(dict(todo[0], long_at=at(long_day), shorts_at=[at(d) for d in shorts], uploaded=titles), indent=1))
+print(json.dumps(dict(todo[0], long_at=at(long_day), shorts_at=[at(d) for d in shorts],
+                      uploaded=[t.split("\n")[0] for t in titles]), indent=1))
