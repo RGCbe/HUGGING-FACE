@@ -33,7 +33,7 @@
   },
   {
    "panel": "p10",
-   "text": "He holds the glass like it is poison. Tea from an F-Rank? Is it poisoned with weakness?"
+   "text": "Holding the glass like it is poison, he asks: tea from an F-Rank? Is it poisoned with weakness?"
   },
   {
    "panel": "p11",
@@ -157,7 +157,7 @@
    {
     "new": {
      "panel": "p12",
-     "text": "[excited] He drank tea from the weakest hunter on Earth, and became unstoppable.",
+     "text": "[excited] This knight drank tea from the weakest hunter on Earth, and became unstoppable.",
      "mood": "playful"
     }
    },
@@ -214,5 +214,5 @@
   },
   "short_at": "2026-11-01T12:30:00Z"
  },
- "names": "Arjun=arjoon|arjan|arjen,Viktor=victor,Meera=mira|meira,Mumbai"
+ "names": "Arjun=arjoon|arjan|arjen,Viktor=victor,Meera=mira|meira,Mumbai,Tea Seller=t cellar|tea cellar|t seller,tea=t|tee"
 }
