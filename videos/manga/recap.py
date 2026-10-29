@@ -1,6 +1,6 @@
 """A YouTube recap of a lettered episode, in Manoj's voice, plus a vertical Short.
 
-    python3 recap.py STEP EPISODE_DIR        (STEP: voice, video, short, upload)
+    python3 recap.py STEP EPISODE_DIR        (STEP: voice, video, short, tiktok, upload)
 
 EPISODE_DIR/recap/recap.json holds the narration: "lines" [{"panel", "text", "mood"?, "sting"?, "punch"?}]
 where panel is a panel name from the lettered strip (letter.py's panels.json; "end" is the closing card),
@@ -13,6 +13,7 @@ tags and publish times.
   video   the 1920x1080 recap: the strip in the middle over a blurred copy of itself, the camera moving
           to each line's panel and down tall ones; mood music, stings, whooshes, captions; a thumbnail
   short   the 1080x1920 Short, the strip full width
+  tiktok  the whole recap as vertical TikTok parts, each just over a minute, with end cards
   upload  writes upload.json for ../doodle/upload.py, both videos private until their times
 
 Needs the Tea Break voice setup (source ~/.cache/tea-break/env.sh) and letter.py's out/webtoon/strip.png.
@@ -213,6 +214,68 @@ def step_short(ep):
     print(f"short: {out} ({tb.duration(out):.1f}s)")
 
 
+def step_tiktok(ep):
+    """The whole recap as vertical parts for TikTok, each just over a minute (TikTok rewards only longer
+    videos): cut in the pauses between lines, "PART n/N" along the top, and a 2.5 s end card pointing to
+    the next part, or to WEBTOON after the last."""
+    r, spec = load(ep)
+    work = os.path.join(r, "tiktok")
+    os.makedirs(work, exist_ok=True)
+    timing = json.load(open(os.path.join(r, "timing.json")))
+    silent, total = render(ep, work, spec["lines"], timing, "vertical")
+    ass = os.path.join(work, "captions.ass")
+    tb.run("python3", os.path.join(DOODLE, "captions.py"), os.path.join(r, "timing.json"), ass, "--layout", "vertical")
+    full = os.path.join(work, "full.mp4")
+    tb.run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", silent, "-i", os.path.join(r, "mix.m4a"), "-vf",
+           f"ass={ass}:fontsdir={os.path.join(DOODLE, 'fonts')}", "-shortest", "-c:v", "libx264", "-preset", "medium",
+           "-crf", "20", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", full)
+    secs, bounds = timing["sections"], [0.0]
+    for i in range(len(secs) - 1):  # a cut in the pause after the first line that makes the part over 61.5 s
+        mid = (secs[i]["offset"] + secs[i]["duration"] + secs[i + 1]["offset"]) / 2
+        if mid - bounds[-1] >= 61.5 and total - mid >= 58:
+            bounds.append(mid)
+    bounds.append(total)
+    n = len(bounds) - 1
+    font = os.path.join(HERE, "fonts", "Bangers-Regular.ttf")
+    out_dir = os.path.join(r, "out")
+    for k in range(n):
+        card = os.path.join(work, f"card{k + 1}.png")
+        end_card(ep, card, [("PART " + str(k + 2) + " IS NEXT", "#ffd43b"), ("FOLLOW SO YOU", "white"), ("DON'T MISS IT!", "white")]
+                 if k + 1 < n else [("READ IT FREE", "#ffd43b"), ("ON WEBTOON", "white"), ("THE F-RANK TEA SELLER", "white")])
+        a, b = bounds[k], bounds[k + 1]
+        label = os.path.join(work, f"label{k + 1}.txt")
+        open(label, "w").write(f"PART {k + 1}/{n}  ·  THE F-RANK TEA SELLER")
+        out = os.path.join(out_dir, f"tiktok_part{k + 1}.mp4")
+        graph = (f"[0:v]trim={a}:{b},setpts=PTS-STARTPTS,drawtext=fontfile={font}:textfile={label}:fontsize=58:fontcolor=white:"
+                 f"box=1:boxcolor=black@0.6:boxborderw=18:x=(w-text_w)/2:y=70[body];"
+                 f"[0:a]atrim={a}:{b},asetpts=PTS-STARTPTS,afade=t=in:d=0.3,afade=t=out:st={b - a - 0.4}:d=0.4[bodya];"
+                 f"[1:v]scale=1080:1920,setsar=1,fps={FPS},format=yuv420p[cardv];"
+                 f"[2:a]atrim={min(b, total - 2.5)}:{min(b, total - 2.5) + 2.5},asetpts=PTS-STARTPTS,volume=0.35,"
+                 f"afade=t=in:d=0.3,afade=t=out:st=1.8:d=0.7,aformat=sample_rates=44100:channel_layouts=stereo[carda];"
+                 f"[bodya]aformat=sample_rates=44100:channel_layouts=stereo[bodya2];"
+                 f"[body][bodya2][cardv][carda]concat=n=2:v=1:a=1[v][aout]")
+        tb.run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", full, "-loop", "1", "-t", "2.5", "-i", card,
+               "-i", os.path.join(r, "music.wav"), "-filter_complex", graph, "-map", "[v]", "-map", "[aout]",
+               "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
+               "-movflags", "+faststart", out)
+        print(f"tiktok part {k + 1}: {out} ({tb.duration(out):.1f}s)")
+
+
+def end_card(ep, out, lines):
+    """1080x1920: the series cover in the middle of a dark page, three lines of big text under it."""
+    card = Image.new("RGB", (1080, 1920), "#0d0d0f")
+    cover = Image.open(os.path.join(ep, "upload", "thumb-square.jpg")).convert("RGB").resize((900, 900), Image.LANCZOS)
+    card.paste(cover, (90, 260))
+    d = ImageDraw.Draw(card)
+    big = ImageFont.truetype(os.path.join(HERE, "fonts", "Bangers-Regular.ttf"), 110)
+    y = 1240
+    for text, fill in lines:
+        size = big if big.getlength(text) < 1000 else ImageFont.truetype(big.path, 84)
+        d.text(((1080 - size.getlength(text)) / 2, y), text, font=size, fill=fill, stroke_width=6, stroke_fill="black")
+        y += 130
+    card.save(out)
+
+
 def thumbnail(ep, out):
     """1280x720: glowing Viktor on the left, deadpan Arjun on the right, the hook in big letters."""
     img = os.path.join(ep, "out", "img")
@@ -253,7 +316,7 @@ def step_upload(ep):
     print(f"wrote {path}: upload with python3 {os.path.join(DOODLE, 'upload.py')} {path}")
 
 
-STEPS = {"voice": step_voice, "video": step_video, "short": step_short, "upload": step_upload}
+STEPS = {"voice": step_voice, "video": step_video, "short": step_short, "tiktok": step_tiktok, "upload": step_upload}
 if __name__ == "__main__":
     if len(sys.argv) != 3 or sys.argv[1] not in STEPS:
         sys.exit(__doc__)
