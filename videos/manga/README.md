@@ -10,7 +10,8 @@ A capability test for making our own webtoon (for WEBTOON CANVAS) and a YouTube 
 | `example/` | the upload slices from the test |
 | `space/` | our private ZeroGPU Space `Rggroups/manga-panels`: Animagine XL 4.0 with IP-Adapter Plus, so a character sheet passed as a reference keeps the face and clothes. The model stays loaded there, so nothing is downloaded per panel. Upload changes with `HfApi().upload_folder(repo_id="Rggroups/manga-panels", repo_type="space", folder_path="space")` |
 | `draw.py` | draws a list of panels on that Space (`python draw.py f-rank/reftest.json f-rank/out`); about 5 s of the account's daily ZeroGPU time each (5 minutes free, about 55 panels a day) |
-| `f-rank/` | The F-Rank Tea Seller: character sheet prompts (`characters.json`), the chosen sheets (`ref/`), a reference test (`reftest.json`) |
+| `f-rank/` | The F-Rank Tea Seller: character sheet prompts (`characters.json`), the chosen sheets (`ref/`; `arjun_face.jpg` for close-ups, since the full-body sheet pulls the framing to the body), a reference test (`reftest.json`) |
+| `f-rank/ep01/` | Episode 1: `episode.json` holds each panel's prompt, reference and lettering (bubbles, narration, sound effects, the status window, caption cards); `upload/` is the WEBTOON CANVAS pack (26 slices, 3 thumbnails, `PUBLISH.txt`). Remake with `python draw.py f-rank/ep01/episode.json f-rank/ep01/out/img` then `python letter.py f-rank/ep01/episode.json f-rank/ep01/out/img f-rank/ep01/out/webtoon` |
 
 Fonts: Bangers and Comic Neue (SIL Open Font License, `fonts/OFL-*.txt`).
 

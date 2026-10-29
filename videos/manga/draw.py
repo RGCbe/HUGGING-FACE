@@ -24,7 +24,7 @@ os.makedirs(out_dir, exist_ok=True)
 client = Client(SPACE, token=os.environ["HF_TOKEN"], verbose=False)
 for s in json.load(open(shots_file)):
     out = os.path.join(out_dir, s["name"] + ".png")
-    if os.path.exists(out):
+    if os.path.exists(out) or "prompt" not in s:  # a lettering-only panel (a caption card) has no prompt
         continue
     ref = s.get("ref")
     t = time.time()
