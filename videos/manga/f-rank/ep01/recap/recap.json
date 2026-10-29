@@ -1,0 +1,218 @@
+{
+ "lines": [
+  {
+   "panel": "p05",
+   "text": "[excited] This boy is the weakest hunter on Earth. He sells tea for ten rupees a glass. But anyone who drinks his tea becomes unstoppable, for exactly one hour.",
+   "mood": "playful"
+  },
+  {
+   "panel": "p03",
+   "text": "[warm] Hello friends, I'm Manoj. Today is something new: our very own webtoon, The F-Rank Tea Seller. Here is episode one.",
+   "mood": "curious"
+  },
+  {
+   "panel": "p03",
+   "text": "[mysterious] It is the year twenty thirty-one. Gates to monster dungeons have opened in every city on Earth. Hunters go in, and they come out rich."
+  },
+  {
+   "panel": "p04",
+   "text": "And right next to the biggest Gate in Mumbai, there is a tiny tea stall."
+  },
+  {
+   "panel": "p06",
+   "text": "[funny] This is Arjun. He is eighteen years old, and his hunter rank is F, the lowest rank there is. Business is slow.",
+   "mood": "playful"
+  },
+  {
+   "panel": "p07",
+   "text": "Then a famous team walks past. Their leader is Viktor, a B-Rank hunter with two million followers and zero manners."
+  },
+  {
+   "panel": "p08",
+   "text": "[funny] Viktor points at Arjun and laughs. Look, everyone, it's the F-Rank tea boy!"
+  },
+  {
+   "panel": "p10",
+   "text": "He holds the glass like it is poison. Tea from an F-Rank? Is it poisoned with weakness?"
+  },
+  {
+   "panel": "p11",
+   "text": "[warm] Meera, the healer, is the only nice one on the team. She pays for three teas."
+  },
+  {
+   "panel": "p12",
+   "text": "Viktor drinks it in one gulp and says, nothing special."
+  },
+  {
+   "panel": "p13",
+   "text": "[mysterious] But look at Arjun's face. He smiles and thinks: one hour. That's all you get.",
+   "mood": "sneaky"
+  },
+  {
+   "panel": "p15",
+   "text": "[serious] Inside the dungeon, things go wrong fast. Ogres and monster wolves attack from the dark.",
+   "mood": "suspense"
+  },
+  {
+   "panel": "p16",
+   "text": "Their tank goes flying, and his shield cracks in half."
+  },
+  {
+   "panel": "p17",
+   "text": "Viktor gets cut. These monsters are far too strong for level nine.",
+   "mood": "dramatic"
+  },
+  {
+   "panel": "p19",
+   "text": "[shocked] And then, his body starts to glow. Golden power fills his hands. What is this power?"
+  },
+  {
+   "panel": "p20",
+   "text": "[excited] One swing, and the giant ogre is gone.",
+   "sting": {
+    "name": "hit",
+    "at": "start"
+   }
+  },
+  {
+   "panel": "p21",
+   "text": "[funny] His team can't believe it. Did he just one-shot it?",
+   "mood": "playful"
+  },
+  {
+   "panel": "p22",
+   "text": "Viktor thinks he has finally awakened. For fifty-eight minutes, he cuts through every monster in the dungeon.",
+   "mood": "triumphant"
+  },
+  {
+   "panel": "p24",
+   "text": "[serious] Then they reach the boss, a giant minotaur with an axe the size of a car.",
+   "mood": "suspense"
+  },
+  {
+   "panel": "p25",
+   "text": "Viktor jumps in for the final hit, and the clock reaches sixty minutes.",
+   "mood": "dramatic"
+  },
+  {
+   "panel": "p26",
+   "text": "[funny] The golden light fades away. His sword just bounces off the armor. Oh no.",
+   "mood": "playful",
+   "sting": {
+    "name": "wahwah",
+    "at": "end"
+   }
+  },
+  {
+   "panel": "p27",
+   "text": "So they do the smartest thing a hunter can do. They run."
+  },
+  {
+   "panel": "p28",
+   "text": "They crawl out of the Gate, barely alive.",
+   "mood": "sad"
+  },
+  {
+   "panel": "p29",
+   "text": "[shocked] Viktor storms back to the tea stall and grabs Arjun. What did you put in that tea?",
+   "mood": "dramatic"
+  },
+  {
+   "panel": "p30",
+   "text": "[funny] And Arjun, totally calm, says: cardamom.",
+   "mood": "silence",
+   "sting": {
+    "name": "rimshot",
+    "at": "end"
+   },
+   "punch": true
+  },
+  {
+   "panel": "p31",
+   "text": "[funny] And Meera just asks: can I get one to go?",
+   "mood": "playful"
+  },
+  {
+   "panel": "p33",
+   "text": "[mysterious] That night, Arjun looks at his secret skill. Hunter's Chai. Anyone who drinks it borrows great power, for exactly one hour. And he thinks: ten rupees for an hour of power? I'm undercharging.",
+   "mood": "curious"
+  },
+  {
+   "panel": "p34",
+   "text": "[mysterious] But deep inside the Gate, a giant red eye opens. Something has noticed his tea.",
+   "mood": "suspense",
+   "sting": {
+    "name": "hit",
+    "at": "start"
+   }
+  },
+  {
+   "panel": "end",
+   "text": "[warm] You can read episode one free on WEBTOON. The link is in the description. A new episode comes every Thursday. So tell me in the comments: what do you think is inside the Gate?",
+   "mood": "warm"
+  }
+ ],
+ "short": {
+  "lines": [
+   {
+    "new": {
+     "panel": "p12",
+     "text": "[excited] He drank tea from the weakest hunter on Earth, and became unstoppable.",
+     "mood": "playful"
+    }
+   },
+   {
+    "from": 15,
+    "mood": "dramatic"
+   },
+   {
+    "from": 16
+   },
+   {
+    "from": 20
+   },
+   {
+    "from": 21,
+    "mood": "playful"
+   },
+   {
+    "from": 24,
+    "mood": "dramatic"
+   },
+   {
+    "from": 25,
+    "mood": "silence"
+   },
+   {
+    "new": {
+     "panel": "p05",
+     "text": "[warm] Read The F-Rank Tea Seller free on WEBTOON. A new episode comes every Thursday.",
+     "mood": "warm"
+    }
+   }
+  ]
+ },
+ "meta": {
+  "title": "His Tea Gives You 1 Hour of Power | The F-Rank Tea Seller, Episode 1",
+  "description": "A boy who sells tea next to a monster Gate is the weakest hunter on Earth. But anyone who drinks his tea becomes unstoppable, for exactly one hour.\n\nRead Episode 1 free on WEBTOON:\nhttps://www.webtoons.com/en/canvas/the-f-rank-tea-seller/list?title_no=1182633\n\nNew episode every Thursday. What do you think is inside the Gate? Tell me in the comments!\n\nThe F-Rank Tea Seller is our own webtoon by Tea Break Comics. Created by Manoj, made with AI tools.",
+  "tags": [
+   "webtoon",
+   "manhwa",
+   "manga recap",
+   "webtoon recap",
+   "the f-rank tea seller",
+   "fantasy comedy",
+   "hunter",
+   "dungeon",
+   "tea",
+   "anime"
+  ],
+  "long_at": "2026-10-30T12:30:00Z",
+  "short": {
+   "title": "He drank the F-Rank's tea... #webtoon #manhwa",
+   "description": "The weakest hunter's tea gives you one hour of power. Read The F-Rank Tea Seller free on WEBTOON: https://www.webtoons.com/en/canvas/the-f-rank-tea-seller/list?title_no=1182633\n\nCreated by Manoj, made with AI tools."
+  },
+  "short_at": "2026-11-01T12:30:00Z"
+ },
+ "names": "Arjun=arjoon|arjan|arjen,Viktor=victor,Meera=mira|meira,Mumbai"
+}
