@@ -11,8 +11,8 @@ Content rating: answer the questions honestly. Violence: monster fights with swo
 
 EPISODE 1
 Episode title: Episode 1 - Ten Rupees a Glass
-Episode thumbnail: thumb-episode.jpg (160 x 151)
+Episode thumbnail: ep1thumb.jpg (202 x 142, WEBTOON's size since 2025; file names letters and numbers only)
 Pages: upload slice_01.jpg to slice_26.jpg, in that order (all 800 px wide, 5.8 MB in total)
-Creator's note: Story and lettering by Manoj. Art made with AI tools. New episode every week!
+Creator's note: Created by Manoj · Made with AI tools. What do you think is inside the Gate? Tell me in the comments! New episode every week.
 
 Preview the episode on the phone view before you publish.
