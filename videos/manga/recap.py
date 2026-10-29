@@ -222,9 +222,13 @@ def step_tiktok(ep):
     work = os.path.join(r, "tiktok")
     os.makedirs(work, exist_ok=True)
     timing = json.load(open(os.path.join(r, "timing.json")))
-    silent, total = render(ep, work, spec["lines"], timing, "vertical")
+    silent, total = os.path.join(work, "silent.mp4"), timing["total"] + TAIL
+    if not os.path.exists(silent):  # the pictures only change with the strip or the voice: delete it to redraw
+        silent, total = render(ep, work, spec["lines"], timing, "vertical")
+    # TikTok covers the top ~150 px (tabs) and the bottom ~500 px (name, caption, sound): keep text between
     ass = os.path.join(work, "captions.ass")
-    tb.run("python3", os.path.join(DOODLE, "captions.py"), os.path.join(r, "timing.json"), ass, "--layout", "vertical")
+    tb.run("python3", os.path.join(DOODLE, "captions.py"), os.path.join(r, "timing.json"), ass, "--layout", "vertical",
+           "--margin", 560)
     full = os.path.join(work, "full.mp4")
     tb.run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", silent, "-i", os.path.join(r, "mix.m4a"), "-vf",
            f"ass={ass}:fontsdir={os.path.join(DOODLE, 'fonts')}", "-shortest", "-c:v", "libx264", "-preset", "medium",
@@ -247,7 +251,7 @@ def step_tiktok(ep):
         open(label, "w").write(f"PART {k + 1}/{n}  ·  THE F-RANK TEA SELLER")
         out = os.path.join(out_dir, f"tiktok_part{k + 1}.mp4")
         graph = (f"[0:v]trim={a}:{b},setpts=PTS-STARTPTS,drawtext=fontfile={font}:textfile={label}:fontsize=58:fontcolor=white:"
-                 f"box=1:boxcolor=black@0.6:boxborderw=18:x=(w-text_w)/2:y=70[body];"
+                 f"box=1:boxcolor=black@0.6:boxborderw=18:x=(w-text_w)/2:y=190[body];"
                  f"[0:a]atrim={a}:{b},asetpts=PTS-STARTPTS,afade=t=in:d=0.3,afade=t=out:st={b - a - 0.4}:d=0.4[bodya];"
                  f"[1:v]scale=1080:1920,setsar=1,fps={FPS},format=yuv420p[cardv];"
                  f"[2:a]atrim={min(b, total - 2.5)}:{min(b, total - 2.5) + 2.5},asetpts=PTS-STARTPTS,volume=0.35,"
