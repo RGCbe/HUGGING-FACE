@@ -23,8 +23,11 @@ and leave the repository's files as they are.** Everything you write goes in
   commute. Not a history expert. They want a true story that makes them laugh and that they can
   retell at work tomorrow.
 - Simple, clear English only, no Tamil or Tanglish. Funny and casual, like telling a friend a
-  story over tea. Short sentences, everyday words. The jokes come from the story; add one or two
+  story over tea: everyday words, contractions, a mix of longer and shorter sentences that flow
+  into each other, and Manoj's own reactions. The jokes come from the story; add one or two
   everyday comparisons ("just like a plan from your manager in a Monday meeting").
+- **Read `videos/SCRIPT_STYLE.md` before writing, and follow it.** The voice is the show: a
+  script that reads like a list of facts sounds like a computer, however good the voice.
 - The greeting is exactly "Hello friends, I'm Manoj." and it comes AFTER the hook, never first.
 - Never "dive in", "game-changer", "unlock", "let's get into it", or other stiff phrases.
 - **Every fact has a source you can name.** No made-up numbers, dates or quotes. Where the two
@@ -74,13 +77,18 @@ forty"). No sound tags like [laugh]: the voice reads them out.
    and an open question at the end ("But how?"). The Pig War's: "Before you laugh, this is real
    history. In eighteen fifty-nine, one dead pig almost started a war between America and
    Britain. But how?" (69).
-2. "Hello friends, I'm Manoj. In this video, I'll tell you how ..., what happened next, and who
-   won in the end. Every word is true, and the sources are in the description."
-3. The story in order, with 4 or 5 **punchlines**: a short line after a pause that makes the
-   viewer laugh ("Over a pig.", "Happy anniversary.", "It was the alcohol.").
+2. "Hello friends, I'm Manoj." then one or two sentences in fresh words that tell the viewer
+   what they're in for and that it really happened (never the same words as an earlier video;
+   no "In this video, I'll tell you..."; see the Pig War example in `videos/SCRIPT_STYLE.md`).
+3. The story in order, told the way Manoj would tell it, with 4 or 5 **punchlines**: a short line
+   after a pause that makes the viewer laugh ("Over a pig.", "Happy anniversary.", "It was the
+   alcohol."), a turn every 30 to 40 seconds, and his own reaction about once a minute.
 4. Answer the hook's question near the end ("So who won? ...").
-5. Last line: "Do you know a funny true story like this, from your town or your family? Tell me in
-   the comments. It could be my next video."
+5. Last line: a question about this story for the comments, in fresh words each week, asking for
+   their own funny true story or their side ("Would you have shot the pig? Tell me in the
+   comments."). The sources are in the description; the voice doesn't have to say so.
+
+Before voicing, check the script against the list at the end of `videos/SCRIPT_STYLE.md`.
 
 **Direct the voice.** Start every line with the emotion it should be said in, like a director's
 note: `[excited]` (the hook, big reveals), `[mysterious]` (a build-up, "but then..."), `[funny]`
@@ -113,8 +121,10 @@ python3 videos/teabreak/build.py voice "$KURAL_WORK/SLUG"
 
 It voices each line and listens to it with Whisper without the script; any word that is not
 clear fails the line, and it tries six seeds. If it stops with "NOT CLEAR", reword the lines it
-names (simpler, more common words; shorter sentences; a hard name said once less) and run it
-again; pieces that passed are kept. After three rewordings, stop and report. About 30-50 minutes.
+names the way a person would say them (more common words, a hard name said once less, a tiny first
+word like "He" or "A" joined to the sentence before) and run it again; pieces that passed are kept.
+Don't chop lines into short sentences to make them pass: that is what makes a script sound like a
+computer. After three rewordings, stop and report. About 30-50 minutes.
 Run nothing else heavy while it works (another voice job, a video render): two such jobs on the
 container's 4 cores each run about ten times slower.
 
