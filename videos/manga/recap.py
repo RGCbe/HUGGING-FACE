@@ -307,12 +307,13 @@ def step_upload(ep):
     m = spec["meta"]
     out = os.path.abspath(os.path.join(r, "out"))
     note = "\n\nThe voice is an AI copy of my own voice, the pictures are made with an AI image model, and the music is original."
-    playlist = lambda key: tb.cfg.get("playlists", {}).get(key, {}).get("id")
+    # never the Tea Break playlists: they promise "every word is true", and this is fiction ("playlists" in
+    # recap.json's meta may name the series' own playlist ids)
     videos = [{"file": os.path.join(out, "recap.mp4"), "thumbnail": os.path.join(out, "recap_thumbnail.jpg"),
                "title": m["title"], "description": m["description"] + note, "tags": m["tags"], "publish_at": m["long_at"],
-               "playlists": [p for p in [playlist("long")] if p]},
+               "playlists": m.get("playlists", [])},
               {"file": os.path.join(out, "short.mp4"), "title": m["short"]["title"], "description": m["short"]["description"] + note,
-               "tags": m["tags"][:5] + ["shorts"], "publish_at": m["short_at"], "playlists": [p for p in [playlist("shorts")] if p]}]
+               "tags": m["tags"][:5] + ["shorts"], "publish_at": m["short_at"], "playlists": m.get("playlists", [])}]
     upload = {"defaults": {"privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 24, "language": "en",
                            "refresh_token_env": tb.cfg["channel"]["refresh_token_env"]}, "videos": videos}
     path = os.path.join(r, "upload.json")
