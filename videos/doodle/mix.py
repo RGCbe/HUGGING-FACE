@@ -8,8 +8,8 @@ more of the 3-5 kHz clarity the cloned voice lacks, compression so it sounds lou
 soft gate so the room hiss in the pauses drops away; --plain-voice skips it), then brought to -16
 LUFS, so --music-gain means the same thing whatever level the voice was recorded or generated at
 (with the default, the music sits about 18-20 dB under the voice). The music gets quieter by itself
-under speech (sidechain compression keyed on the voice) and comes back up in the pauses. The result is stereo, loudness-normalised (YouTube plays at about -14 LUFS), and
-as long as the voice.
+under speech (sidechain compression keyed on the voice) and comes back up in the pauses. The result
+is stereo, loudness-normalised (YouTube plays at about -14 LUFS), and as long as the voice.
 
 --events takes render.mjs --events output: the sound effects (pops, stamps, whooshes, dings; see
 sfx.py) are added at --sfx-gain, and at each punchline the music stops from a moment before it
