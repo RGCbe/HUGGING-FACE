@@ -1,0 +1,18 @@
+{
+  "defaults": {
+    "privacy": "public",
+    "made_for_kids": false,
+    "ai_content": true,
+    "category_id": 27,
+    "language": "en",
+    "refresh_token_env": "YT_REFRESH_TOKEN_ADULT"
+  },
+  "videos": [
+    {
+      "file": "$OUT_DIR/tea_break_intro_vertical.mp4",
+      "title": "Welcome to Tea Break with Manoj ☕ Funny True History #shorts",
+      "tags": ["tea break with manoj", "funny history", "history facts", "true stories", "weird history", "shorts"],
+      "description": "Hello friends, I'm Manoj. Funny true stories from history, told in the time it takes to drink a cup of tea. Every story is real, and the sources are always in the description.\n\nA new story every Saturday, and Shorts on Monday and Wednesday. Grab your tea and subscribe.\n\nThe voice is an AI copy of my own voice; the pictures are made with an AI image model, and the music is original."
+    }
+  ]
+}
