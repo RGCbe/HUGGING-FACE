@@ -96,9 +96,11 @@ Before voicing, check the script against the list at the end of `videos/SCRIPT_S
 **Direct the voice.** Start every line with the emotion it should be said in, like a director's
 note: `[excited]` (the hook, big reveals), `[mysterious]` (a build-up, "but then..."), `[funny]`
 (jokes and punchlines), `[shocked]` (twists, crazy numbers), `[serious]` (armies, danger),
-`[warm]` (the greeting, calm moments, the comments line). The voice is made from the owner's own
-sample of that emotion, so the delivery follows the story; a line without a tag uses the usual
-sample, and tags are never read out. Change the emotion where the story's feeling changes, not
+`[warm]` (the greeting, calm moments, the comments line). Once the owner's own sample of that
+emotion is stored (`build.py voice` prints which ones exist; the recording sheet is
+`videos/teabreak/voice_recording.md`), the line is said from it, so the delivery follows the story.
+Until then a tagged line falls back to the usual sample, so the script's own rhythm and punctuation
+carry the feeling. Tags are never read out. Change the emotion where the story's feeling changes, not
 every line.
 
 **The owner's own words.** If the topic in topics.json has a `my_take`, add it as its own line
