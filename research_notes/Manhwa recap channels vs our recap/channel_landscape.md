@@ -110,7 +110,9 @@ Relative to each channel's own median:
 - 5-30 minute videos underperform at 0.66x.
 - Shorts posted on long-form channels flop (0.14x-0.44x).
 
-Shorts-only recap channels run about 1-minute Shorts (pooled median 57 seconds). The only consistent 3-4-minute format at scale is Dummyworld's Korean "3분/4분 요약" ("3/4-minute summary") parody animations.
+Shorts-only recap channels run about 1-minute Shorts (pooled median 57 seconds). The only consistent 3-5-minute formats at scale are:
+- Dummyworld's Korean "3분/4분 요약" ("3/4-minute summary") parody animations with original characters;
+- skipos's English 4-5-minute comic dubs (with credited artists and voice actors).
 
 ### Cited Findings
 - Pooled long-form duration mix (20 English recap channels, 3,662 non-Short uploads, 2025-26): under 5 min = 0; 5-30 min = 156; 30-60 min = 402; 1-10 h = 2,858; 10h+ = 246. Median 161.95 min, p10 50.3 min, p90 497.0 min. The same 20 channels posted only 44 Shorts in total across 2025-26 — own analysis of [YouTube Data API v3 videos.list](https://developers.google.com/youtube/v3/docs/videos/list) contentDetails.duration
@@ -164,13 +166,20 @@ Shorts-only recap channels run about 1-minute Shorts (pooled median 57 seconds).
   - 58 videos under 5 min had a median of 855,694 views (0.86x channel median).
   - Its 13 videos of 5-30 min ("올 컴플리트 에디션", "all complete edition" compilations of 13-14 min) had a median of 2,142,421 (2.14x). The top one, "파피플레이타임 vs 기가고죠 올 컴플리트 에디션", has 10,884,816 views at 14.4 min — [video](https://www.youtube.com/watch?v=EKQqcRMBjpA)
   - 3-4 minute examples: "체인소맨 레제 극장편 4분 요약" ("Chainsaw Man Reze movie 4-minute summary"), 3,593,640 views, 3.9 min — [video](https://www.youtube.com/watch?v=u4_SA4Mg92c); "기가고죠의 모닝루틴", 3,925,476 views, 3.4 min — [video](https://www.youtube.com/watch?v=dW7_OBC4HDI)
-- Across all 38 channels, every 2025-26 non-Short video under 5 minutes with substantial views is a Dummyworld video. No English recap channel in the set publishes 3-minute non-Short recaps — own analysis of [YouTube Data API v3 videos.list](https://developers.google.com/youtube/v3/docs/videos/list)
+- Across all 38 channels, the 12 most-viewed 2025-26 non-Short videos under 5 minutes are all Dummyworld's. Other sub-5-minute non-Shorts come from:
+  - skipos (English **comic dubs** with credited human voice actors, not recaps): 23 such videos, bucket median 110,385 views (1.68x its median, n=21 at least 7 days old). Example: "From Assassin To Wife", 445,249 views, 4.9 min — [video](https://www.youtube.com/watch?v=6b2Z21TAWXg)
+  - Manhwa Senpai (Hindi): 2 such videos, median 825,055 (4.03x its median)
+  - None of the 20 English long-form manhwa or anime **recap** channels posted a single non-Short under 5 minutes in 2025-26
+  - Source: own analysis of [YouTube Data API v3 videos.list](https://developers.google.com/youtube/v3/docs/videos/list)
 - Chapter-range and part labelling ties into length. Long videos are cumulative compilations of a series, often re-uploaded as the series grows:
   - Manga Otaku "He Restores His Former Glory After Being Complete Trash (Ch. 1-450)", 2,309 min, 158,841 views — [video](https://www.youtube.com/watch?v=7Uy_1WNffs4); later re-cut as "(Ch. 1-572)", 3,402 min, 115,116 views — [video](https://www.youtube.com/watch?v=KJK6VNlVMZ0)
   - Asura Recaps posts single chapters of about 16-18 min ("[149] He Farmed for 1,000 Days…", 17,710 views — [video](https://www.youtube.com/watch?v=NkKKq1yIXtQ)) alongside multi-chapter bundles ("[139-146] …", 94 min, 44,214 views — [video](https://www.youtube.com/watch?v=dym40t8CWIA))
 
 ### Inferences
-- In this niche, "recap" means a long audiobook-style narration over panels. Viewers use it as background or binge content, and the algorithm rewards watch time. A 3-minute English recap is effectively a format that no English competitor publishes as long-form. Its nearest analogues are Shorts (about 1 minute) and Dummyworld's 3-4-minute comedic summaries, a pattern proven in Korean with original characters.
+- In this niche, "recap" means a long audiobook-style narration over panels. Viewers use it as background or binge content, and the algorithm rewards watch time. A 3-minute English recap is effectively a format that no English competitor publishes as long-form. Its nearest analogues are:
+- Shorts (about 1 minute);
+- Dummyworld's 3-4-minute comedic summaries, proven in Korean with original characters;
+- skipos's 4-5-minute English comic dubs, which credit the artist and voice actors.
 - The 10h+ advantage is partly selection bias: channels compile series that already proved popular in shorter parts. Older compilations have also had more time to gather views. Treat the 1.63x as an upper bound.
 - Shorts and long-form audiences don't transfer on the same channel in this niche (long-form channels' Shorts get 0.14x-0.44x of their medians). Shorts work on dedicated Shorts channels.
 
@@ -275,10 +284,10 @@ First person is a sub-genre marker, not a mainstream formula: romance/female-lea
   - Lumos "Woke Up in Cursed Village With Starved Daughter and Wife, But I'll Hunt Every Beast to Feed Them", 447,171 views — [video](https://www.youtube.com/watch?v=bFoaYfGNGyY)
   - Leveling Manhwa "Got an infinite water source during the drought, now every girl wants to move in with me.", 58,536 views (about 5x its 11,244 median) — [video](https://www.youtube.com/watch?v=11o0HON7xZs)
   - Shorts: Jasper Natalie "I knitted a scarf with my own hair.#shorts #anime #fyp #recap #foryou", 6,621,869 views — [video](https://www.youtube.com/watch?v=u7WaI7ZWPbg)
-  - Hindi: Manhwa Senpai "After 99 Rejections… He Finally Walked Away — And She Lost Everything - Manhwa Recap in Hindi", 3,808,674 views — [video](https://www.youtube.com/watch?v=aQ0xKM2OCwQ); yuva explainop "Meri Behen Mere Marks Copy Karti Thi 😳 #ytshorts #anime #manhwa", 12,509,110 views — [video](https://www.youtube.com/watch?v=JbbuwwBvVac)
+  - Hindi: Manhwa Senpai "Reborn! My Family Hears My Thoughts and REGRETS after I Expose Evil Daughter - Manhwa Recap in Hindi", 1,414,440 views at only 3.8 min — [video](https://www.youtube.com/watch?v=cDN9cnCE_TQ). Its top video is third-person: "After 99 Rejections… He Finally Walked Away — And She Lost Everything", 3,808,674 views — [video](https://www.youtube.com/watch?v=aQ0xKM2OCwQ). yuva explainop "Meri Behen Mere Marks Copy Karti Thi 😳 #ytshorts #anime #manhwa", 12,509,110 views — [video](https://www.youtube.com/watch?v=JbbuwwBvVac)
 - "Until" examples:
-  - Mamoru "Boy Was Humiliated In Academy Until He Summoned A 1-in-a-Billion Legendary BEAST!", 809,086 views — [video](https://www.youtube.com/watch?v=kDj7JK3w1mk)
-  - Tobs "Reincarnated in a Disabled Body He Trains HARD Until He Enters The Nº1 Magic Academy | Manhwa Recap", 769,551 views — [Tobs](https://www.youtube.com/@tobsmanhwa)
+  - Mamoru "Boy Was Humiliated In Academy Until He Summoned A 1-in-a-Billion Legendary BEAST!", 809,086 views, 140 min — [video](https://www.youtube.com/watch?v=V9LAMrQdTkk)
+  - Tobs "Reincarnated in a Disabled Body He Trains HARD Until He Enters The Nº1 Magic Academy | Manhwa Recap", 769,551 views, 394 min — [video](https://www.youtube.com/watch?v=6bHgEfScC0Y)
   - Magical "He Trained For 7 YEARS But Remained WEAK Until The SYSTEM Chose Him! - Manhwa Recap", 555,049 views (13.5x) — [video](https://www.youtube.com/watch?v=bSoINivv9uU)
   - Manga Otaku "He Was A Useless Fish Until He Evolved Into The Strongest Dragon", 329,504 views (11.0x) — [video](https://www.youtube.com/watch?v=aW7lB853GM8)
   - Shorts: Takovara "They were the perfect pair until that happened", 4,906,190 views — [video](https://www.youtube.com/watch?v=1MGvBcB3OG0); Enir "She Was Rejected Until MC Took Her In", 4,239,917 views — [video](https://www.youtube.com/watch?v=mA7h1AzTye4)
@@ -330,7 +339,7 @@ The art is usually custom redrawn key art rather than original panels. Exception
 - **Manhwa Recap Zone**: BEFORE/AFTER splits on 2 of 6 sampled, plus label-and-arrow ("S-RANK CHIMERA", "LEVEL 1", "S-RANK") with "!?" reaction marks — [thumbnail RSkHINcw9W4](https://i.ytimg.com/vi/RSkHINcw9W4/maxresdefault.jpg)
 - **Daily Manhwas and Manhwa Outpost**: label-and-arrow ("LOSER", "COLORLESS", "GENIUS", "AWAKENED", "NEW STUDENT"), skill-alert boxes ("ALERT! SKILL: TAME BEAST", "[SKILL] TALENT 97% COPIED", "ALERT SPEED 300%"), chapter-range badge ("1-128"), temperature contrasts ("-90°" vs "29°"), "SLAP!" impact text — [thumbnail Yp_W_LdGbQo](https://i.ytimg.com/vi/Yp_W_LdGbQo/maxresdefault.jpg); [thumbnail E4q9RTu5dXs](https://i.ytimg.com/vi/E4q9RTu5dXs/maxresdefault.jpg)
 - **Manga Explained**: two-panel contrast with one serif yellow word per panel ("One / Ten", "WEAK / STRONG", "Unfused / Fused", "OLD / YOUNG", "Deity / Lizardmen"), using original-style panel art — [thumbnail HeOVxUoRd-k](https://i.ytimg.com/vi/HeOVxUoRd-k/maxresdefault.jpg)
-- **AniQuickRecaps** (anime): screenshots with game-UI stat windows ("LEVEL +999 / RANGO F"), small numbers ("1000 LB", "+9", "697+ / 999+"), single "GOD" label, red or yellow arrows — [thumbnail Bd2sJOMkgYg](https://i.ytimg.com/vi/Bd2sJOMkgYg/maxresdefault.jpg)
+- **AniQuickRecaps** (anime): screenshots with game-UI stat windows ("LEVEL +999 / RANGO F"), small numbers ("1000 LB", "+9", "697+ / 999+"), single "GOD" label, red or yellow arrows — [thumbnail krbXQT_H_t4](https://i.ytimg.com/vi/krbXQT_H_t4/maxresdefault.jpg)
 - **Romantic Fangirl** (romance): official-looking cover or key art of the female lead, soft pastel palette (saturation 0.32), **no text** except corner badges "#1-2" or "FULL STORY", 1-3 characters, no arrows — [thumbnail GHWwFoGYY0M](https://i.ytimg.com/vi/GHWwFoGYY0M/maxresdefault.jpg)
 - **Dummyworld** (original characters): crowded chibi group shots with the big franchise logo as the text ("NARUTO", "DEMON SLAYER", "SPIDER-MAN", "Cyberpunk EDGERUNNERS"), and a single protagonist hero shot for its own character ("기가고죠", "Giga Gojo") — [thumbnail EKQqcRMBjpA](https://i.ytimg.com/vi/EKQqcRMBjpA/maxresdefault.jpg)
 
