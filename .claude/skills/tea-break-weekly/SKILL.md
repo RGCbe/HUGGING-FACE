@@ -9,9 +9,12 @@ Every week, one long video (2 to 5 minutes, never longer: the channel's promise 
 finish in a tea break) and two Shorts about the next story in
 `videos/teabreak/topics.json`, for the channel in `videos/teabreak/config.json`. The long video
 goes public on Saturday at 18:00 India time and the Shorts on the Monday and Wednesday after it.
-The finished example to copy is The Pig War: its files are in `videos/teabreak/example/`
+The finished example is The Pig War: its files are in `videos/teabreak/example/`
 (`voiceover_en.txt`, `hooks.txt`, `images.json`, `scenes.js`, `thumbnail.js`, `shorts.json`,
-`meta.json`, `caption_replace.json`). Work from the repository root.
+`meta.json`, `caption_replace.json`). Copy the SHAPE of its files, never its sentences: its opening
+("Before you laugh, this is real history..."), its "In this video, I'll tell you how..." line and
+its comments line were written before `videos/SCRIPT_STYLE.md` and are banned now. Every video says
+its own things in fresh words. Work from the repository root.
 
 **This run makes and uploads three videos, no more. Do not commit, push or open pull requests,
 and leave the repository's files as they are.** Everything you write goes in
@@ -74,9 +77,9 @@ forty"). No sound tags like [laugh]: the voice reads them out.
 1. **Hook.** Write four or five hooks in a scratch file and score them:
    `python3 .claude/skills/yt-script/hookscore.py hooks.txt`. Use the best, at least 60
    (WORKABLE). What scores: "you" early, a date or number, a stake ("dead", "lose", "never"),
-   and an open question at the end ("But how?"). The Pig War's: "Before you laugh, this is real
-   history. In eighteen fifty-nine, one dead pig almost started a war between America and
-   Britain. But how?" (69).
+   and an open question at the end ("But how?"). The Pig War's scored 69, but its start ("Before
+   you laugh, this is real history.") has been used in every video since: never use it again, and
+   never start two videos the same way. Open straight on this story's strangest true fact.
 2. "Hello friends, I'm Manoj." then one or two sentences in fresh words that tell the viewer
    what they're in for and that it really happened (never the same words as an earlier video;
    no "In this video, I'll tell you..."; see the Pig War example in `videos/SCRIPT_STYLE.md`).
