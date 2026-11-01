@@ -32,6 +32,22 @@ Say each line out loud. If you wouldn't say it that way to a friend at a tea sta
     Manoj." Nothing else is copied from video to video: no "In this video, I'll tell you...",
     no stock ending. End on a take or a question about this story.
 
+## Manoj's kind of joke
+
+These are lines Manoj wrote and recorded himself. They are the model for every joke in his voice:
+
+- "This war was shorter than my tea break. Some of my office meetings last longer than this whole war!"
+- "In eighteen thirty-five, people believed in bat-men on the Moon. Today we have WhatsApp forwards.
+  Honestly, not much has changed!"
+- "Mike lived for eighteen months without a head. On Monday mornings, I feel exactly like Mike!"
+- "The CIA spent a fortune to turn a cat into a spy. Anyone who owns a cat could have told them:
+  cats never do what you ask!"
+
+The pattern: a true fact from the story, then the same thing in a busy working person's everyday
+life (the office, Monday mornings, the commute, WhatsApp groups, the neighbours, the shared water
+tank, chai). Put three or four of these in every video, in his "I" and "my": that is what makes it
+his, and nobody else's. Laugh with people, never at them.
+
 ## Never
 
 "dive in", "game-changer", "unlock", "let's get into it", "little did they know", "but then, he
