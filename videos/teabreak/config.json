@@ -5,6 +5,7 @@
     "refresh_token_env": "YT_REFRESH_TOKEN_ADULT"
   },
   "voice_engine": "qwen",
+  "voice_only": true,
   "timezone": "Asia/Kolkata",
   "publish_time": "18:00",
   "long_day": "Saturday",

@@ -145,6 +145,8 @@ def say(text_file, out_dir, names, refs=None, recorded=None):
     passed = lambda n: cache.get(str(n)) == flat[n - 1] and os.path.exists(wav(n))
     engine = os.environ.get("TTS_ENGINE", cfg["voice_engine"])
     voice = ["--engine", engine] + (["--ref-text", env("VOICE_REF_TEXT")] if engine == "qwen" else ["--temperature", 0.5])
+    if engine == "qwen" and cfg.get("voice_only"):  # the owner's voice, the model's own livelier delivery (tts.py)
+        voice += ["--voice-only"]
     if refs and engine == "qwen":
         voice += ["--refs", refs]
     problems = {}

@@ -124,7 +124,9 @@ Also write:
 python3 videos/teabreak/build.py voice "$KURAL_WORK/SLUG"
 ```
 
-It voices each line and listens to it with Whisper without the script; any word that is not
+It voices each line in the owner's voice (with `voice_only` on in config.json, the model takes only the
+sound of his voice and speaks in its own livelier rhythm; his old sample is a flat bank announcement)
+and listens to it with Whisper without the script; any word that is not
 clear fails the line, and it tries six seeds. If it stops with "NOT CLEAR", reword the lines it
 names the way a person would say them (more common words, a hard name said once less, a tiny first
 word like "He" or "A" joined to the sentence before) and run it again; pieces that passed are kept.
