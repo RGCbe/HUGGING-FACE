@@ -60,7 +60,7 @@ def ts(t):
 
 
 if a.layout == "landscape":
-    play, size, margin = (1920, 1080), 64, 42
+    play, size, margin = (1920, 1080), 80, 46  # 80 px: readable on a phone held sideways
 else:
     play, size, margin = (1080, 1920), 84, 330
 if a.margin is not None:

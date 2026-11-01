@@ -357,7 +357,8 @@
       if (!near) return;
       s.items.forEach((it) => {
         pose(it, t);
-        if (it.kind !== 'pop' && t >= it.at && t < it.at + it.dur && (!active || it.at >= active.at)) active = it;
+        // the pen follows only the scene in view (the next one's picture may be painted off camera)
+        if (i === k && it.kind !== 'pop' && t >= it.at && t < it.at + it.dur && (!active || it.at >= active.at)) active = it;
       });
     });
     const pt = !panning && active ? tip(active, t) : null;
