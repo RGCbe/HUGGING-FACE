@@ -23,7 +23,9 @@ against his 139 Hz), thinner and swinging up to about 190 Hz. He made his own vo
 1. The key comes only from the environment (`ELEVENLABS_API_KEY`, set in the cloud environment
    settings) or the git-ignored `.env.local`. Never ask for it in chat. Verify with
    `npx -y @elevenlabs/cli@latest onboard check --env-path .env.local` (it never prints the key).
-2. Ask the owner the clone's name, and find its voice_id with `GET /v1/voices`.
+2. The clone is named **"Manoj kumar T"** (English, middle-aged Indian man); find its voice_id with
+   `GET /v1/voices`. His ElevenLabs app shows an "Eleven v4" voice collection: list `GET /v1/models` and use
+   the most expressive model that supports his clone (v4 or v3), with the mood tags as its audio tags.
 3. Add an ElevenLabs engine to `videos/kural/tts.py` (one request per piece:
    `POST /v1/text-to-speech/{voice_id}?output_format=pcm_24000`), wire it into `say()` in
    `videos/teabreak/build.py`, and set `"voice_engine"` in both recap.json files. Keep the Whisper check
