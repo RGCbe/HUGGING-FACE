@@ -16,9 +16,13 @@
    "text": "This is The F-Rank Tea Seller, our own webtoon. And trust me, after this episode, you'll never look at a glass of chai the same way again."
   },
   {
-   "panel": "p02",
-   "text": "Now, the episode actually starts at the end, which I love, by the way. Viktor's glowing gold and shouting, where is this power coming from? And then it cuts to... one hour earlier.",
+   "panel": "p01",
+   "text": "Now, the episode actually starts at the end, which I love, by the way. Viktor's glowing gold and shouting, where is this power coming from?",
    "mood": "curious"
+  },
+  {
+   "panel": "p02",
+   "text": "And then it cuts to... one hour earlier."
   },
   {
    "panel": "p03",
@@ -273,14 +277,11 @@
     }
    },
    {
-    "from": 24,
+    "from": 25,
     "mood": "dramatic"
    },
    {
-    "from": 25
-   },
-   {
-    "from": 32
+    "from": 26
    },
    {
     "from": 33
@@ -289,11 +290,14 @@
     "from": 34
    },
    {
-    "from": 36,
+    "from": 35
+   },
+   {
+    "from": 37,
     "mood": "dramatic"
    },
    {
-    "from": 38
+    "from": 39
    },
    {
     "new": {
