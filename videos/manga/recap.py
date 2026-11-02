@@ -8,7 +8,7 @@ mood a score.py mood that starts with the line, sting {"name", "at": "start" | "
 stops the music just before the line's last word, and chapter starts a YouTube chapter at the line. "short"
 lists the Short's lines: {"from": N} reuses line N of the recap, {"new": {...}} is a line voiced only for the
 Short. "meta" has the titles, descriptions, tags and publish times; "length_seconds" [min, max] overrides the
-Tea Break limits for the recap.
+Tea Break limits for the recap; "voice_engine" (e.g. "actor") picks the voice over env.sh's TTS_ENGINE.
 
   voice   voices the lines with ../teabreak/build.py's say() (every word checked) and times them
   video   the 1920x1080 recap: the strip in the middle over a blurred copy of itself, the camera moving
@@ -69,6 +69,9 @@ def short_lines(spec):
 
 def step_voice(ep):
     r, spec = load(ep)
+    if spec.get("voice_engine"):  # the review's own voice wins over the machine default (env.sh's TTS_ENGINE)
+        os.environ["TTS_ENGINE"] = spec["voice_engine"]
+    print(f"voice: {os.environ.get('TTS_ENGINE', tb.cfg['voice_engine'])}")
     refs, moods = tb.emotion_refs(r)
     print(f"emotion samples: {', '.join(moods) or 'none yet (every line in the usual voice)'}")
     names = ",".join(n for n in (spec.get("names", ""), "Manoj") if n)
