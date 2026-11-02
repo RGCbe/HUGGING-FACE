@@ -8,7 +8,8 @@ mood a score.py mood that starts with the line, sting {"name", "at": "start" | "
 stops the music just before the line's last word, and chapter starts a YouTube chapter at the line. "short"
 lists the Short's lines: {"from": N} reuses line N of the recap, {"new": {...}} is a line voiced only for the
 Short. "meta" has the titles, descriptions, tags and publish times; "length_seconds" [min, max] overrides the
-Tea Break limits for the recap; "voice_engine" (e.g. "actor") picks the voice over env.sh's TTS_ENGINE.
+Tea Break limits for the recap; "tiktok_parts" N cuts the TikTok version into N about-equal parts (each at
+least 61 s); "voice_engine" (e.g. "actor") picks the voice over env.sh's TTS_ENGINE.
 
   voice   voices the lines with ../teabreak/build.py's say() (every word checked) and times them
   video   the 1920x1080 recap: the strip in the middle over a blurred copy of itself, the camera moving
@@ -266,12 +267,20 @@ def step_tiktok(ep):
     tb.run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", silent, "-i", os.path.join(r, "mix.m4a"), "-vf",
            f"ass={ass}:fontsdir={os.path.join(DOODLE, 'fonts')}", "-shortest", "-c:v", "libx264", "-preset", "medium",
            "-crf", "20", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", full)
-    secs, bounds = timing["sections"], [0.0]
-    for i in range(len(secs) - 1):  # a cut in the pause after the first line that makes the part over 61.5 s
-        mid = (secs[i]["offset"] + secs[i]["duration"] + secs[i + 1]["offset"]) / 2
-        if mid - bounds[-1] >= 61.5 and total - mid >= 58:
-            bounds.append(mid)
-    bounds.append(total)
+    secs = timing["sections"]
+    pauses = [(secs[i]["offset"] + secs[i]["duration"] + secs[i + 1]["offset"]) / 2 for i in range(len(secs) - 1)]
+    parts = spec.get("tiktok_parts")
+    if parts:  # that many parts of about equal length: each cut in the pause nearest its share of the whole
+        bounds = [0.0] + [min(pauses, key=lambda p: abs(p - total * k / parts)) for k in range(1, parts)] + [total]
+        short = [round(b - a, 1) for a, b in zip(bounds, bounds[1:]) if b - a < 61]
+        if short or bounds != sorted(set(bounds)):
+            sys.exit(f"{parts} TikTok parts would leave parts under 61 s ({short}): ask for fewer")
+    else:  # a cut in the pause after the first line that makes the part over 61.5 s
+        bounds = [0.0]
+        for mid in pauses:
+            if mid - bounds[-1] >= 61.5 and total - mid >= 58:
+                bounds.append(mid)
+        bounds.append(total)
     n = len(bounds) - 1
     font = os.path.join(HERE, "fonts", "Bangers-Regular.ttf")
     out_dir = os.path.join(r, "out")
@@ -296,6 +305,10 @@ def step_tiktok(ep):
                "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
                "-movflags", "+faststart", out)
         print(f"tiktok part {k + 1}: {out} ({tb.duration(out):.1f}s)")
+    k = n + 1  # parts left over from an earlier cut into more parts
+    while os.path.exists(os.path.join(out_dir, f"tiktok_part{k}.mp4")):
+        os.remove(os.path.join(out_dir, f"tiktok_part{k}.mp4"))
+        k += 1
 
 
 def series_cover(ep, name):
