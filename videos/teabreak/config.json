@@ -4,7 +4,7 @@
     "channel_id": "UCOEtL8JtwJ4TVJiJewHpwew",
     "refresh_token_env": "YT_REFRESH_TOKEN_ADULT"
   },
-  "voice_engine": "qwen",
+  "voice_engine": "eleven",
   "voice_only": true,
   "timezone": "Asia/Kolkata",
   "publish_time": "18:00",
@@ -56,5 +56,11 @@
   "voice_repo": "Rggroups/super-kural-voice",
   "actor": {
     "instruct": "A warm, friendly Indian man in his thirties telling a story to a friend over tea. Relaxed and expressive, natural rhythm, real pauses, curious and amused, a smile on the funny parts. He is talking, not reading."
+  },
+  "eleven": {
+    "voice": "Manoj kumar T",
+    "model": "eleven_v4",
+    "stability": 0.35,
+    "similarity": 0.85
   }
 }

@@ -37,6 +37,10 @@ TTS_ENGINE=actor is the most human voice: Qwen3-TTS VoiceDesign performs each pi
 into the owner's own voice (teabreak/natural.opus in the private dataset). It also needs CHATTERBOX_PY
 and CHATTERBOX_HF_HOME (the Chatterbox environment from the super-kural setup, TTS_ENGINE=chatterbox).
 It is slow on a CPU: about 20 s of work for each second of voice.
+
+TTS_ENGINE=eleven (the default) is the owner's own ElevenLabs voice clone (config.json "eleven": the voice's
+name, the model and its settings), acted from each line's emotion tag by ../kural/eleven.py. It needs
+ELEVENLABS_API_KEY in the environment (or the git-ignored .env.local) and no voice model on this machine.
 """
 import hashlib
 import json
@@ -163,7 +167,9 @@ def say(text_file, out_dir, names, refs=None, recorded=None):
     cache = json.load(open(cache_file)) if os.path.exists(cache_file) else {}  # piece number: the text it passed with
     engine = os.environ.get("TTS_ENGINE", cfg["voice_engine"])
     actor = engine == "actor"  # an actor's performance (tts.py --engine design), then vc.py: the owner's voice
-    key = (lambda n: "actor|" + flat[n - 1]) if actor else (lambda n: flat[n - 1])  # a piece passes for its engine
+    eleven = engine == "eleven"  # the owner's ElevenLabs clone (eleven.py)
+    # a piece passes only for the engine that voiced it
+    key = (lambda n: f"{engine}|" + flat[n - 1]) if actor or eleven else (lambda n: flat[n - 1])
     passed = lambda n: cache.get(str(n)) == key(n) and os.path.exists(wav(n))
     voice = ["--engine", engine] + (["--ref-text", env("VOICE_REF_TEXT")] if engine == "qwen" else ["--temperature", 0.5])
     if actor:
@@ -199,8 +205,9 @@ def say(text_file, out_dir, names, refs=None, recorded=None):
                 problems[r["n"]] = r["problems"]
         json.dump(cache, open(cache_file, "w"), indent=1)
 
-    # pieces voiced by an earlier run that stopped before listening to them
-    unheard = [n for n in range(1, len(flat) + 1) if not passed(n) and os.path.exists(wav(n))]
+    # pieces voiced by an earlier run that stopped before listening to them (a piece with a record that passed for
+    # another engine or other words is stale, never re-heard: switching engines must not keep the old voice)
+    unheard = [n for n in range(1, len(flat) + 1) if str(n) not in cache and os.path.exists(wav(n))]
     if unheard:
         listen(unheard)
     todo = [n for n in range(1, len(flat) + 1) if not passed(n)]
@@ -208,6 +215,14 @@ def say(text_file, out_dir, names, refs=None, recorded=None):
         if not todo:
             break
         sections = ",".join(map(str, todo))
+        if eleven:
+            e = cfg["eleven"]
+            run("python3", "-I", os.path.join(KURAL, "eleven.py"), pieces_file, out_dir, "--sections", sections,
+                "--seed", seed, "--voice", e["voice"], "--model", e["model"], "--stability", e["stability"],
+                "--similarity", e["similarity"])
+            listen(todo)
+            todo = [n for n in todo if not passed(n)]
+            continue
         run(env("TTS_PY"), "-I", os.path.join(KURAL, "tts.py"), env("VOICE_REF"), pieces_file, perf if actor else out_dir,
             *voice, "--sections", sections, "--seed", seed)
         if actor:

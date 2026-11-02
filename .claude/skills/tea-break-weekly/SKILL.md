@@ -40,13 +40,14 @@ and leave the repository's files as they are.** Everything you write goes in
 ## 1. Ready the container
 
 ```bash
-for v in YT_CLIENT_ID YT_CLIENT_SECRET YT_REFRESH_TOKEN_ADULT HF_TOKEN CF_ACCOUNT_ID CF_API_TOKEN; do
+for v in YT_CLIENT_ID YT_CLIENT_SECRET YT_REFRESH_TOKEN_ADULT HF_TOKEN CF_ACCOUNT_ID CF_API_TOKEN ELEVENLABS_API_KEY; do
   [ -n "${!v:-}" ] || echo "missing $v"; done
-KURAL_HOME=$HOME/.cache/tea-break VOICE_ENGINE=qwen FIXED_CLIPS=0 bash videos/kural/setup.sh
+KURAL_HOME=$HOME/.cache/tea-break VOICE_ENGINE=eleven FIXED_CLIPS=0 bash videos/kural/setup.sh
 source ~/.cache/tea-break/env.sh
 ```
 
-(Use `voice_engine` from config.json for VOICE_ENGINE.) If a variable is missing or setup fails,
+(Use `voice_engine` from config.json for VOICE_ENGINE: "eleven" is the owner's own ElevenLabs voice clone,
+"Manoj kumar T", made by `videos/kural/eleven.py`.) If a variable is missing or setup fails,
 stop and report exactly that in one or two lines: the owner adds it in the cloud environment's
 settings. Never ask for a key in chat, and never print one.
 
@@ -96,12 +97,10 @@ Before voicing, check the script against the list at the end of `videos/SCRIPT_S
 **Direct the voice.** Start every line with the emotion it should be said in, like a director's
 note: `[excited]` (the hook, big reveals), `[mysterious]` (a build-up, "but then..."), `[funny]`
 (jokes and punchlines), `[shocked]` (twists, crazy numbers), `[serious]` (armies, danger),
-`[warm]` (the greeting, calm moments, the comments line). Once the owner's own sample of that
-emotion is stored (`build.py voice` prints which ones exist; the recording sheet is
-`videos/teabreak/voice_recording.md`), the line is said from it, so the delivery follows the story.
-Until then a tagged line falls back to the usual sample, so the script's own rhythm and punctuation
-carry the feeling. Tags are never read out. Change the emotion where the story's feeling changes, not
-every line.
+`[warm]` (the greeting, calm moments, the comments line). The owner's ElevenLabs voice acts each tag
+(eleven.py turns it into the model's own audio tag), and the script's rhythm and punctuation carry the
+rest. Tags are never read out: the listening test fails a piece that says one. Change the emotion where
+the story's feeling changes, not every line.
 
 **The owner's own words.** If the topic in topics.json has a `my_take`, add it as its own line
 just before the comments line, exactly as written there, starting with `[mytake]`:

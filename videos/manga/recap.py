@@ -9,7 +9,7 @@ stops the music just before the line's last word, and chapter starts a YouTube c
 lists the Short's lines: {"from": N} reuses line N of the recap, {"new": {...}} is a line voiced only for the
 Short. "meta" has the titles, descriptions, tags and publish times; "length_seconds" [min, max] overrides the
 Tea Break limits for the recap; "tiktok_parts" N cuts the TikTok version into N about-equal parts (each at
-least 61 s); "voice_engine" (e.g. "actor") picks the voice over env.sh's TTS_ENGINE.
+least 61 s); "voice_engine" ("eleven": the owner's ElevenLabs clone) picks the voice over env.sh's TTS_ENGINE.
 
   voice   voices the lines with ../teabreak/build.py's say() (every word checked) and times them
   video   the 1920x1080 recap: the strip in the middle over a blurred copy of itself, the camera moving

@@ -8,6 +8,8 @@
 # the voice sample (ref_en.opus) and the three approved fixed clips for the voice engine chosen in
 # config.json "voice_engine": intro/says/outro.opus for chatterbox; intro_qwen, says_qwen and
 # outro_qwen for qwen, plus intro_all_qwen (the all-ages "Hello, my friends!") if a channel is for all ages.
+# VOICE_ENGINE=eleven (the owner's ElevenLabs clone, eleven.py) installs no voice model, only what the
+# music needs (requirements-eleven.txt), and needs ELEVENLABS_API_KEY when voicing.
 set -euo pipefail
 here=$(cd "$(dirname "$0")" && pwd)
 home=${KURAL_HOME:-$HOME/.cache/super-kural}
