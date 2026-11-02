@@ -2,12 +2,13 @@
 
     python3 recap.py STEP EPISODE_DIR        (STEP: voice, video, short, tiktok, upload)
 
-EPISODE_DIR/recap/recap.json holds the narration: "lines" [{"panel", "text", "mood"?, "sting"?, "punch"?}]
+EPISODE_DIR/recap/recap.json holds the narration: "lines" [{"panel", "text", "mood"?, "sting"?, "punch"?, "chapter"?}]
 where panel is a panel name from the lettered strip (letter.py's panels.json; "end" is the closing card),
-mood a score.py mood that starts with the line, sting {"name", "at": "start" | "end"} a score.py hit, and
-punch stops the music just before the line's last word. "short" lists the Short's lines: {"from": N} reuses
-line N of the recap, {"new": {...}} is a line voiced only for the Short. "meta" has the titles, descriptions,
-tags and publish times.
+mood a score.py mood that starts with the line, sting {"name", "at": "start" | "end"} a score.py hit, punch
+stops the music just before the line's last word, and chapter starts a YouTube chapter at the line. "short"
+lists the Short's lines: {"from": N} reuses line N of the recap, {"new": {...}} is a line voiced only for the
+Short. "meta" has the titles, descriptions, tags and publish times; "length_seconds" [min, max] overrides the
+Tea Break limits for the recap.
 
   voice   voices the lines with ../teabreak/build.py's say() (every word checked) and times them
   video   the 1920x1080 recap: the strip in the middle over a blurred copy of itself, the camera moving
@@ -33,6 +34,7 @@ sys.path.insert(0, os.path.join(VIDEOS, "teabreak"))
 import build as tb  # noqa: E402  (say, concat, emotion_refs, run, env, duration, cfg)
 
 FPS, MOVE, TAIL = 30, 0.8, 3.0
+ZOOM = 0.05  # how far a still panel zooms in over its shot
 
 
 def load(ep):
@@ -66,7 +68,7 @@ def step_voice(ep):
     voice = os.path.join(r, "voice.wav")
     tb.concat([p for k, w in enumerate(lines) for p in ([gap, w] if k else [w])], voice)
     seconds = tb.duration(voice) + TAIL
-    shortest, longest = tb.cfg["length_seconds"]
+    shortest, longest = spec.get("length_seconds", tb.cfg["length_seconds"])
     if not shortest <= seconds <= longest:
         sys.exit(f"the recap would be {seconds:.0f}s, outside {shortest}-{longest}s: shorten or lengthen the narration")
     whisper = tb.env("WHISPER_PY")
@@ -93,31 +95,36 @@ def ease(a):
 
 
 def camera_path(lines, timing, panels, k, view_h, total):
-    """Camera top (in scaled strip pixels) as a function of time: each line's panel centred, a panel taller
-    than the view scrolled top to bottom while the line is said, and an eased move between panels."""
-    secs = timing["sections"]
+    """The camera as a function of time: (top in scaled strip pixels, zoom). Lines in a row on the same panel are
+    one shot. A panel that fits the view is centred and slowly zoomed into (ZOOM by the end of the shot), so a long
+    explanation never sits on a frozen picture; a taller panel is scrolled top to bottom; an eased move between."""
     shots = []
-    for l, s in zip(lines, secs):
+    for l, s in zip(lines, timing["sections"]):
+        end = s["offset"] + s["duration"]
+        if shots and shots[-1]["panel"] == l["panel"]:
+            shots[-1]["end"] = end
+            continue
         p = panels[l["panel"]]
         top, h = p["top"] * k, p["height"] * k
-        if h <= view_h - 80:
-            y0 = y1 = top + h / 2 - view_h / 2
-        else:
-            y0, y1 = top - 40, top + h - view_h + 40
-        shots.append((s["offset"], s["offset"] + s["duration"], y0, y1))
-    end_t = shots[-1][1]
-    shots[-1] = (shots[-1][0], total, shots[-1][2], shots[-1][3])
+        still = h <= view_h - 80
+        y0, y1 = (top + h / 2 - view_h / 2,) * 2 if still else (top - 40, top + h - view_h + 40)
+        shots.append({"panel": l["panel"], "start": s["offset"], "end": end, "y0": y0, "y1": y1, "zoom": ZOOM if still else 0})
+    end_t = shots[-1]["end"]
+    shots[-1]["end"] = total
 
-    def along(i, t):
-        s, e, y0, y1 = shots[i]
-        return y0 + (y1 - y0) * ease((t - s - MOVE) / max(0.1, e - s - MOVE))
+    def at(i, t):
+        sh = shots[i]
+        y = sh["y0"] + (sh["y1"] - sh["y0"]) * ease((t - sh["start"] - MOVE) / max(0.1, sh["end"] - sh["start"] - MOVE))
+        z = 1 + sh["zoom"] * min(1.0, max(0.0, (t - sh["start"]) / max(0.1, sh["end"] - sh["start"])))
+        return y, z
 
-    starts = [along(i - 1, shots[i][0]) if i else shots[0][2] for i in range(len(shots))]
+    starts = [at(i - 1, sh["start"]) if i else at(0, sh["start"]) for i, sh in enumerate(shots)]
 
     def cam(t):
-        i = max([j for j, sh in enumerate(shots) if sh[0] <= t] or [0])
-        y = starts[i] + (along(i, t) - starts[i]) * ease((t - shots[i][0]) / MOVE)
-        return y
+        i = max([j for j, sh in enumerate(shots) if sh["start"] <= t] or [0])
+        (by, bz), (y, z) = starts[i], at(i, t)
+        a = ease((t - shots[i]["start"]) / MOVE)
+        return by + (y - by) * a, bz + (z - bz) * a
     return cam, end_t
 
 
@@ -167,13 +174,20 @@ def render(ep, work, lines, timing, layout):
                            "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
                            silent], stdin=subprocess.PIPE)
     for f in range(int(total * FPS)):
-        y = min(max(0, cam(f / FPS)), fg.height - vh)
-        frame = fg.crop((0, int(y), sw, int(y) + vh))
-        if sw < vw:  # the same rows of the small copy, around the frame's centre, stretched to fill it
+        y, z = cam(f / FPS)
+        y = min(max(0, y), fg.height - vh)
+        if z > 1.0005:  # zoomed: the strip column grows wider where there is room (16:9), else its sides are cut
+            src_w, src_h = min(sw, vw / z), vh / z
+            out_w = min(vw, round(src_w * z))
+            x0, y0 = (sw - src_w) / 2, y + (vh - src_h) / 2
+            frame = fg.transform((out_w, vh), Image.EXTENT, (x0, y0, x0 + src_w, y0 + src_h), Image.BILINEAR)
+        else:
+            frame, out_w = fg.crop((0, int(y), sw, int(y) + vh)), sw
+        if out_w < vw:  # the same rows of the small copy, around the frame's centre, stretched to fill it
             half = 480 * vh / vw / 2
             c = min(max((y + vh / 2) / k * bg_k, half), bg.height - half)
             back = bg.crop((0, int(c - half), 480, int(c + half))).resize((vw, vh), Image.BILINEAR)
-            back.paste(frame, ((vw - sw) // 2, 0))
+            back.paste(frame, ((vw - out_w) // 2, 0))
             frame = back
         ff.stdin.write(frame.tobytes())
     ff.stdin.close()
@@ -198,7 +212,7 @@ def step_video(ep):
     os.makedirs(os.path.join(r, "out"), exist_ok=True)
     out = os.path.join(r, "out", "recap.mp4")
     finish(r, silent, mix, os.path.join(r, "timing.json"), total, "landscape", out)
-    thumbnail(ep, os.path.join(r, "out", "recap_thumbnail.jpg"))
+    thumbnail(ep, os.path.join(r, "out", "recap_thumbnail.jpg"), spec)
     print(f"recap: {out} ({tb.duration(out):.1f}s)")
 
 
@@ -265,10 +279,17 @@ def step_tiktok(ep):
         print(f"tiktok part {k + 1}: {out} ({tb.duration(out):.1f}s)")
 
 
+def series_cover(ep, name):
+    """A series cover (thumb-square.jpg, thumb-vertical.jpg): the episode's own pack, else Episode 1's, where
+    the series covers were made."""
+    own = os.path.join(ep, "upload", name)
+    return own if os.path.exists(own) else os.path.join(os.path.dirname(os.path.abspath(ep)), "ep01", "upload", name)
+
+
 def end_card(ep, out, lines):
     """1080x1920: the series cover in the middle of a dark page, three lines of big text under it."""
     card = Image.new("RGB", (1080, 1920), "#0d0d0f")
-    cover = Image.open(os.path.join(ep, "upload", "thumb-square.jpg")).convert("RGB").resize((900, 900), Image.LANCZOS)
+    cover = Image.open(series_cover(ep, "thumb-square.jpg")).convert("RGB").resize((900, 900), Image.LANCZOS)
     card.paste(cover, (90, 260))
     d = ImageDraw.Draw(card)
     big = ImageFont.truetype(os.path.join(HERE, "fonts", "Bangers-Regular.ttf"), 110)
@@ -280,13 +301,18 @@ def end_card(ep, out, lines):
     card.save(out)
 
 
-def thumbnail(ep, out):
-    """1280x720: glowing Viktor on the left, deadpan Arjun on the right, the hook in big letters."""
+def thumbnail(ep, out, spec=None):
+    """1280x720: one panel on the left, another on the right, the hook in big letters along the bottom
+    (recap.json meta "thumbnail": {"left", "right", "text": [[words, colour], ...]}; Episode 1's by default:
+    glowing Viktor, deadpan Arjun, HIS TEA = 1 HOUR OF POWER)."""
+    th = (spec or {}).get("meta", {}).get("thumbnail", {})
     img = os.path.join(ep, "out", "img")
     t = Image.new("RGB", (1280, 720), "#111")
-    v = Image.open(os.path.join(img, "p19.png")).convert("RGB")
-    v = v.crop((0, 0, 832, 1170)).resize((512, 720), Image.LANCZOS)
-    a = Image.open(os.path.join(img, "p30.png")).convert("RGB").resize((720, 720), Image.LANCZOS)
+    v = Image.open(os.path.join(img, th.get("left", "p19") + ".png")).convert("RGB")
+    v = v.crop((0, 0, v.width, min(v.height, round(v.width * 720 / 512)))).resize((512, 720), Image.LANCZOS)
+    a = Image.open(os.path.join(img, th.get("right", "p30") + ".png")).convert("RGB")
+    side = min(a.size)
+    a = a.crop(((a.width - side) // 2, 0, (a.width + side) // 2, side)).resize((720, 720), Image.LANCZOS)
     t.paste(a, (560, 0))
     t.paste(v, (0, 0))
     band = Image.new("RGBA", t.size, (0, 0, 0, 0))
@@ -294,7 +320,7 @@ def thumbnail(ep, out):
     t = Image.alpha_composite(t.convert("RGBA"), band).convert("RGB")
     d = ImageDraw.Draw(t)
     big = ImageFont.truetype(os.path.join(HERE, "fonts", "Bangers-Regular.ttf"), 112)
-    parts = [("HIS TEA = ", "white"), ("1 HOUR OF POWER", "#ffd43b")]
+    parts = th.get("text", [("HIS TEA = ", "white"), ("1 HOUR OF POWER", "#ffd43b")])
     x = (1280 - sum(big.getlength(p) for p, _ in parts)) / 2
     for text, fill in parts:  # one line along the bottom, clear of both faces
         d.text((x, 588), text, font=big, fill=fill, stroke_width=8, stroke_fill="black")
@@ -307,10 +333,15 @@ def step_upload(ep):
     m = spec["meta"]
     out = os.path.abspath(os.path.join(r, "out"))
     note = "\n\nThe voice is an AI copy of my own voice, the pictures are made with an AI image model, and the music is original."
+    timing = json.load(open(os.path.join(r, "timing.json")))
+    marks = [(0 if not k else s["offset"], l["chapter"]) for k, (l, s) in
+             enumerate((l, s) for l, s in zip(spec["lines"], timing["sections"]) if l.get("chapter"))]
+    chapters = ("\n\nChapters\n" + "\n".join(f"{int(t // 60)}:{int(t % 60):02d} {name}" for t, name in marks)
+                if len(marks) >= 3 else "")  # YouTube needs three or more, the first at 0:00
     # never the Tea Break playlists: they promise "every word is true", and this is fiction ("playlists" in
     # recap.json's meta may name the series' own playlist ids)
     videos = [{"file": os.path.join(out, "recap.mp4"), "thumbnail": os.path.join(out, "recap_thumbnail.jpg"),
-               "title": m["title"], "description": m["description"] + note, "tags": m["tags"], "publish_at": m["long_at"],
+               "title": m["title"], "description": m["description"] + chapters + note, "tags": m["tags"], "publish_at": m["long_at"],
                "playlists": m.get("playlists", [])},
               {"file": os.path.join(out, "short.mp4"), "title": m["short"]["title"], "description": m["short"]["description"] + note,
                "tags": m["tags"][:5] + ["shorts"], "publish_at": m["short_at"], "playlists": m.get("playlists", [])}]

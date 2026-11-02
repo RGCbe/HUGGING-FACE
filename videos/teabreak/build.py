@@ -31,6 +31,12 @@ Steps, in order (each can be run again; finished voice lines and pictures are ke
 
 Needs the voice setup: KURAL_HOME=~/.cache/tea-break VOICE_ENGINE=<config voice_engine> FIXED_CLIPS=0
 bash ../kural/setup.sh, then source ~/.cache/tea-break/env.sh.
+
+TTS_ENGINE=actor is the most human voice: Qwen3-TTS VoiceDesign performs each piece as a storyteller
+(config.json "actor" instruct; ACTOR_INSTRUCT overrides it), and ../kural/vc.py turns that performance
+into the owner's own voice (teabreak/natural.opus in the private dataset). It also needs CHATTERBOX_PY
+and CHATTERBOX_HF_HOME (the Chatterbox environment from the super-kural setup, TTS_ENGINE=chatterbox).
+It is slow on a CPU: about 20 s of work for each second of voice.
 """
 import hashlib
 import json
@@ -108,6 +114,19 @@ def emotion_refs(d):
     return path, sorted(refs)
 
 
+def actor_target():
+    """The owner talking naturally (teabreak/natural.opus in the private dataset, about 30 s of his own
+    recorded jokes): the voice vc.py turns the actor's performance into."""
+    home = os.path.join(env("KURAL_HOME"), "voice", "teabreak")
+    opus = private("teabreak/natural.opus", os.path.join(home, "natural.opus"))
+    if not opus:
+        sys.exit("teabreak/natural.opus is not in the private voice dataset: the actor voice needs it")
+    wav = os.path.join(home, "natural.wav")
+    if not os.path.exists(wav):
+        run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", opus, "-ar", 24000, "-ac", 1, wav)
+    return wav
+
+
 def pieces(line):
     """A line cut into sentences, short ones joined to the next (at least 8 words a piece). The voice
     model slips more in long stretches, and a slip then costs one piece, not the whole line. An
@@ -142,9 +161,15 @@ def say(text_file, out_dir, names, refs=None, recorded=None):
     wav = lambda n: os.path.join(out_dir, f"sec_{n:02d}.wav")
     cache_file = os.path.join(out_dir, "cache.json")
     cache = json.load(open(cache_file)) if os.path.exists(cache_file) else {}  # piece number: the text it passed with
-    passed = lambda n: cache.get(str(n)) == flat[n - 1] and os.path.exists(wav(n))
     engine = os.environ.get("TTS_ENGINE", cfg["voice_engine"])
+    actor = engine == "actor"  # an actor's performance (tts.py --engine design), then vc.py: the owner's voice
+    key = (lambda n: "actor|" + flat[n - 1]) if actor else (lambda n: flat[n - 1])  # a piece passes for its engine
+    passed = lambda n: cache.get(str(n)) == key(n) and os.path.exists(wav(n))
     voice = ["--engine", engine] + (["--ref-text", env("VOICE_REF_TEXT")] if engine == "qwen" else ["--temperature", 0.5])
+    if actor:
+        voice = ["--engine", "design", "--instruct", os.environ.get("ACTOR_INSTRUCT", cfg["actor"]["instruct"])]
+        target = actor_target()
+        perf = os.path.join(out_dir, "perf")
     if engine == "qwen" and cfg.get("voice_only"):  # the owner's voice, the model's own livelier delivery (tts.py)
         voice += ["--voice-only"]
     if refs and engine == "qwen":
@@ -157,7 +182,7 @@ def say(text_file, out_dir, names, refs=None, recorded=None):
             report, "--names", names, "--sections", ",".join(map(str, todo)))
         for r in json.load(open(report))["sections"]:
             if r["ok"]:
-                cache[str(r["n"])] = flat[r["n"] - 1]
+                cache[str(r["n"])] = key(r["n"])
             else:
                 problems[r["n"]] = r["problems"]
         json.dump(cache, open(cache_file, "w"), indent=1)
@@ -170,8 +195,12 @@ def say(text_file, out_dir, names, refs=None, recorded=None):
     for seed in SEEDS:
         if not todo:
             break
-        run(env("TTS_PY"), "-I", os.path.join(KURAL, "tts.py"), env("VOICE_REF"), pieces_file, out_dir, *voice,
-            "--sections", ",".join(map(str, todo)), "--seed", seed)
+        sections = ",".join(map(str, todo))
+        run(env("TTS_PY"), "-I", os.path.join(KURAL, "tts.py"), env("VOICE_REF"), pieces_file, perf if actor else out_dir,
+            *voice, "--sections", sections, "--seed", seed)
+        if actor:
+            run(env("CHATTERBOX_PY"), "-I", os.path.join(KURAL, "vc.py"), target, perf, out_dir, "--sections", sections,
+                env=dict(os.environ, HF_HOME=env("CHATTERBOX_HF_HOME")))
         listen(todo)
         todo = [n for n in todo if not passed(n)]
     if todo:

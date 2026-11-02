@@ -2,8 +2,8 @@
 
     python pdf.py EPISODE_DIR "Series" "Episode 1 - Title" OUT.pdf
 
-Uses EPISODE_DIR/out/webtoon/strip.png (from letter.py) and EPISODE_DIR/upload/thumb-vertical.jpg. Pages
-break only on rows that are plain white, so no panel, bubble or caption is cut in half.
+Uses EPISODE_DIR/out/webtoon/strip.png (from letter.py) and EPISODE_DIR/upload/thumb-vertical.jpg (else
+Episode 1's). Pages break only on rows that are plain white, so no panel, bubble or caption is cut in half.
 """
 import io
 import os
@@ -52,7 +52,10 @@ def credits():
 c = canvas.Canvas(out)
 c.setTitle(f"{series} - {episode}")
 c.setAuthor("Manoj")
-cover = Image.open(os.path.join(ep_dir, "upload", "thumb-vertical.jpg")).convert("RGB").resize((800, 1422), Image.LANCZOS)
+cover_path = os.path.join(ep_dir, "upload", "thumb-vertical.jpg")
+if not os.path.exists(cover_path):  # the series cover is on Episode 1's pack
+    cover_path = os.path.join(os.path.dirname(os.path.abspath(ep_dir)), "ep01", "upload", "thumb-vertical.jpg")
+cover = Image.open(cover_path).convert("RGB").resize((800, 1422), Image.LANCZOS)
 for im in [cover] + pages + [credits()]:
     buf = io.BytesIO()
     im.save(buf, "JPEG", quality=90)

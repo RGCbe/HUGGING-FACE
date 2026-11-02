@@ -1,0 +1,321 @@
+{
+ "names": "Arjun=arjoon|arjan|arjen,Viktor=victor,Meera=mira|meira,Mumbai,Hale=hail,Tea Seller=t cellar|tea cellar|t seller,tea=t|tee,chai=chi|chay|shy|chy,mustache=moustache,cardamom=cardamon,hoodie=hoody",
+ "length_seconds": [
+  300,
+  720
+ ],
+ "lines": [
+  {
+   "panel": "p01",
+   "text": "[excited] Imagine becoming famous overnight for a power you don't actually have. Millions of people watching your video, and every single one of them wants to see you do it again.",
+   "mood": "dramatic",
+   "chapter": "Famous for borrowed power"
+  },
+  {
+   "panel": "p01",
+   "text": "That's exactly where Viktor Hale is at the start of episode two of The F-Rank Tea Seller, our very own webtoon. And honestly, this one's even better than the first.",
+   "mood": "playful"
+  },
+  {
+   "panel": "p05",
+   "text": "Quick catch-up if you missed episode one. Arjun is the weakest Hunter in Mumbai, rank F, and he sells chai next to a monster Gate for ten rupees a glass."
+  },
+  {
+   "panel": "p05",
+   "text": "But anyone who drinks his tea gets a huge boost of power for exactly one hour. Viktor drank it, became unstoppable, then ran out of time in front of the boss... and ran.",
+   "mood": "curious"
+  },
+  {
+   "panel": "p01",
+   "text": "[funny] So the next morning, all of Mumbai is watching one video. Viktor Hale awakens, nearly ten million views. And somewhere in the comments, one honest guy points out that he also ran from the boss.",
+   "mood": "playful"
+  },
+  {
+   "panel": "p02",
+   "text": "His manager is thrilled. Two million new followers, and Viktor's doing it again tonight. Live. And Viktor, who knows the power wasn't really his, just says... sure. Totally.",
+   "punch": true
+  },
+  {
+   "panel": "p02",
+   "text": "[funny] You know that feeling when your boss praises you in front of everyone, for a report your colleague wrote? And then asks for another one... by tonight? That's Viktor right now.",
+   "mood": "playful",
+   "punch": true
+  },
+  {
+   "panel": "p03",
+   "text": "So, there's only one place he can go.",
+   "mood": "sneaky",
+   "chapter": "The worst disguise in Mumbai"
+  },
+  {
+   "panel": "p04",
+   "text": "[funny] Viktor shows up at the tea stall in a disguise. Hoodie, sunglasses, a fake mustache... and he orders one tea, for a friend. Very smooth.",
+   "mood": "playful",
+   "punch": true
+  },
+  {
+   "panel": "p05",
+   "text": "And Arjun doesn't even look up. Good morning, Viktor.",
+   "punch": true
+  },
+  {
+   "panel": "p07",
+   "text": "[funny] Because the disguise has one tiny problem. Viktor's full armor is still on under the hoodie, and it's shining right through. It's like me sneaking out of the office early with my ID card still around my neck.",
+   "punch": true
+  },
+  {
+   "panel": "p08",
+   "text": "[serious] So Viktor drops the act. He slams a pile of money on the counter and says he'll buy all of it. Every glass Arjun will ever make. Name your price.",
+   "mood": "dramatic",
+   "chapter": "Ten rupees for everyone"
+  },
+  {
+   "panel": "p08",
+   "text": "Think about why he wants that. If Viktor owns all the tea, he's the only Hunter who ever gets that power. Nobody else. He stays famous forever."
+  },
+  {
+   "panel": "p09",
+   "text": "[warm] And Arjun's answer is the same as always. Ten rupees a glass.",
+   "mood": "warm",
+   "punch": true
+  },
+  {
+   "panel": "p10",
+   "text": "Viktor honestly can't understand it. For all of it? The guy is offering a fortune, and Arjun is quoting the price of one cup."
+  },
+  {
+   "panel": "p11",
+   "text": "Ten rupees a glass, same price for everyone. And this is the part I really like about Arjun. Last episode he said he was undercharging. He knows exactly what his tea is worth... and he still won't sell it to only one person."
+  },
+  {
+   "panel": "p12",
+   "text": "[warm] Then Meera walks up, the healer from episode one. Remember that glass to go she bought? She still has it. She never even drank it.",
+   "mood": "curious",
+   "chapter": "A glass to go"
+  },
+  {
+   "panel": "p13",
+   "text": "[mysterious] And then she notices something. Wait... were your hands glowing just now?",
+   "mood": "sneaky"
+  },
+  {
+   "panel": "p14",
+   "text": "Because they were. When Arjun makes his tea, his hands light up gold, right over the pot. That's the hidden skill, working where anyone could see it."
+  },
+  {
+   "panel": "p15",
+   "text": "[funny] And Arjun, without missing a beat, says... steam. Last week it was cardamom, this week it's steam. This guy has an excuse for everything.",
+   "mood": "silence",
+   "sting": {
+    "name": "rimshot",
+    "at": "end"
+   },
+   "punch": true
+  },
+  {
+   "panel": "p16",
+   "text": "[serious] But before she can ask anything else, the ground starts to shake.",
+   "mood": "suspense",
+   "chapter": "Gate break"
+  },
+  {
+   "panel": "p17",
+   "text": "[shocked] And the warning everyone in this world fears goes off. A Gate break. That means the monsters aren't staying inside the dungeon anymore. They're coming out into the city. Rank unknown.",
+   "mood": "dramatic"
+  },
+  {
+   "panel": "p18",
+   "text": "Something huge crawls out of the sky, right over the street, with a glowing red eye in its mouth. This is not a level nine ogre."
+  },
+  {
+   "panel": "p19",
+   "text": "[funny] And of course, Viktor jumps in front of everyone. Stand back, Viktor Hale is here! Full confidence. Full armor.",
+   "mood": "triumphant",
+   "punch": true
+  },
+  {
+   "panel": "p20",
+   "text": "And he gets smashed straight into the ground.",
+   "sting": {
+    "name": "hit",
+    "at": "start"
+   }
+  },
+  {
+   "panel": "p21",
+   "text": "[funny] Because Viktor, the famous awakened Hunter... hasn't had his tea yet.",
+   "mood": "silence",
+   "sting": {
+    "name": "wahwah",
+    "at": "end"
+   },
+   "punch": true
+  },
+  {
+   "panel": "p22",
+   "text": "[funny] Arjun's already got the kettle out, shouting that his hour ended yesterday, and the next one needs two minutes, because it has to boil. Even in a monster attack, you don't rush chai. Every Indian knows this.",
+   "mood": "playful",
+   "punch": true
+  },
+  {
+   "panel": "p22",
+   "text": "And that's a real weakness, by the way. The power is amazing, but fresh tea takes time. And a monster isn't going to wait two minutes."
+  },
+  {
+   "panel": "p23",
+   "text": "[serious] So now it's Meera standing in front of the monster. She's a healer. She heals people. She doesn't fight things like this.",
+   "mood": "suspense",
+   "chapter": "The healer"
+  },
+  {
+   "panel": "p24",
+   "text": "[mysterious] But she's holding yesterday's tea. Cold. In a to go cup. And she's thinking the exact question we're all thinking... does it still work?",
+   "mood": "sneaky"
+  },
+  {
+   "panel": "p25",
+   "text": "So she drinks it. All of it, in one go."
+  },
+  {
+   "panel": "p26",
+   "text": "[shocked] And her eyes turn gold. That's all she says. Oh.",
+   "mood": "dramatic",
+   "punch": true
+  },
+  {
+   "panel": "p27",
+   "text": "[excited] One swing of her staff, and that giant Gate monster is gone. One hit.",
+   "mood": "triumphant",
+   "sting": {
+    "name": "hit",
+    "at": "start"
+   }
+  },
+  {
+   "panel": "p28",
+   "text": "[funny] And look at Viktor's face. The healer? The healer just one-shot the thing that flattened him!",
+   "mood": "playful",
+   "punch": true
+  },
+  {
+   "panel": "p29",
+   "text": "The whole street is cheering, and Meera, the quiet healer from the back of the team, is standing in the middle of it all, glowing.",
+   "mood": "warm"
+  },
+  {
+   "panel": "p30",
+   "text": "[warm] And her only comment? That was the best tea she's ever had. Cold, a day old, from a to go cup.",
+   "punch": true
+  },
+  {
+   "panel": "p31",
+   "text": "[mysterious] But look at Arjun here, because he just learned something huge about his own skill. Even cold. Even to go.",
+   "mood": "curious",
+   "chapter": "What it really means"
+  },
+  {
+   "panel": "p31",
+   "text": "Think about what that means. His tea doesn't have to be drunk at the stall. It can be carried. Saved for later. And it works for anyone, even a healer who has never swung a weapon at a monster."
+  },
+  {
+   "panel": "p31",
+   "text": "One hour of borrowed power, in a cup you can put in your pocket. In a world full of Gates, that's not a drink anymore. That's a weapon. And now the whole street has seen it."
+  },
+  {
+   "panel": "p32",
+   "text": "[serious] Which is exactly the problem. Up on a rooftop, a man in a black suit is on the phone. Boss, I found it. The tea seller.",
+   "mood": "suspense",
+   "sting": {
+    "name": "hit",
+    "at": "start"
+   }
+  },
+  {
+   "panel": "p32",
+   "text": "So somebody powerful already knows. And whoever that boss is, I don't think he wants a glass for ten rupees."
+  },
+  {
+   "panel": "p33",
+   "text": "[mysterious] And deep inside the Gate, that red eye is still open. Still watching.",
+   "mood": "suspense"
+  },
+  {
+   "panel": "end",
+   "text": "[warm] So Viktor wants all the tea, a mystery boss wants the tea seller, and something in the Gate is watching all of them. You can read episode two free on WEBTOON, just search The F-Rank Tea Seller. And tell me in the comments... if you had one glass to go, when would you drink it?",
+   "mood": "warm"
+  }
+ ],
+ "short": {
+  "lines": [
+   {
+    "new": {
+     "panel": "p23",
+     "text": "[excited] She's a healer. She has never fought a monster. And all she has is yesterday's cold tea.",
+     "mood": "suspense"
+    }
+   },
+   {
+    "from": 30
+   },
+   {
+    "from": 31
+   },
+   {
+    "from": 32
+   },
+   {
+    "from": 33
+   },
+   {
+    "from": 34
+   },
+   {
+    "from": 36
+   },
+   {
+    "new": {
+     "panel": "p31",
+     "text": "[warm] Read The F-Rank Tea Seller free on WEBTOON, and tell me... would you drink it cold?",
+     "mood": "warm"
+    }
+   }
+  ]
+ },
+ "meta": {
+  "title": "A Healer Drank Yesterday's Cold Tea and ONE-SHOT a Gate Monster - Webtoon Recap",
+  "description": "Viktor is famous for a power he doesn't have, so he tries to buy every glass of the F-Rank's tea. Then a Gate breaks open in the middle of Mumbai, and the only one with any tea left is the healer.\n\nRead Episode 2 free on WEBTOON:\nhttps://www.webtoons.com/en/canvas/the-f-rank-tea-seller/list?title_no=1182633\n\nIf you had one glass to go, when would you drink it? Tell me in the comments!\n\nThe F-Rank Tea Seller is our own webtoon by Tea Break Comics. Created by Manoj, made with AI tools.",
+  "tags": [
+   "webtoon",
+   "manhwa",
+   "manga recap",
+   "webtoon recap",
+   "the f-rank tea seller",
+   "fantasy comedy",
+   "hunter",
+   "gate break",
+   "healer",
+   "tea",
+   "anime"
+  ],
+  "long_at": "2026-11-13T12:30:00Z",
+  "short": {
+   "title": "The healer drank yesterday's cold tea... #webtoon #manhwa",
+   "description": "One hour of borrowed power, even cold, even to go. Read The F-Rank Tea Seller free on WEBTOON: https://www.webtoons.com/en/canvas/the-f-rank-tea-seller/list?title_no=1182633\n\nCreated by Manoj, made with AI tools."
+  },
+  "short_at": "2026-11-15T12:30:00Z",
+  "thumbnail": {
+   "left": "p26",
+   "right": "p21",
+   "text": [
+    [
+     "COLD TEA = ",
+     "white"
+    ],
+    [
+     "ONE HIT",
+     "#ffd43b"
+    ]
+   ]
+  }
+ }
+}

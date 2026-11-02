@@ -1,7 +1,8 @@
 """Voice sections of a script in a reference speaker's voice.
 
     python tts.py REF_WAV TEXT_FILE OUT_DIR [--ref-text REF_TXT] [--sections 1,3] [--seed 7]
-                  [--temperature T] [--engine qwen|chatterbox] [--refs REFS_JSON] [--voice-only]
+                  [--temperature T] [--engine qwen|chatterbox|design] [--refs REFS_JSON] [--voice-only]
+                  [--instruct TEXT]
 
 TEXT_FILE has one section per line; each is saved as OUT_DIR/sec_NN.wav (24 kHz mono), and
 --sections regenerates only those sections.
@@ -15,6 +16,9 @@ read out.
 --engine qwen (the default) is Qwen3-TTS-12Hz-0.6B-Base: closest to the speaker's voice. It needs
 --ref-text, the exact words of REF_WAV (see ref_prep.py), and a sample that ends on a whole word.
 --engine chatterbox is Chatterbox-Turbo, the earlier engine: quicker, but less like the speaker.
+--engine design is Qwen3-TTS-12Hz-1.7B-VoiceDesign: no sample at all, a voice actor described by
+--instruct, and an emotion tag adds how that line is said (MOODS). It is the first half of the "actor"
+voice (build.py): this performance is then turned into the owner's voice by vc.py. REF is unused.
 
 --voice-only (qwen) takes only the sound of REF_WAV's voice (its speaker embedding), not its
 delivery: the model speaks in its own rhythm instead of carrying on the sample's. With a flat sample
@@ -40,9 +44,11 @@ ap.add_argument("--ref-text")
 ap.add_argument("--sections")
 ap.add_argument("--seed", type=int, default=7)
 ap.add_argument("--temperature", type=float)
-ap.add_argument("--engine", default="qwen", choices=["qwen", "chatterbox"])
+ap.add_argument("--engine", default="qwen", choices=["qwen", "chatterbox", "design"])
 ap.add_argument("--refs")
 ap.add_argument("--voice-only", action="store_true")
+ap.add_argument("--instruct", default="A warm, friendly Indian man in his thirties telling a story to a friend over tea. "
+                "Relaxed and expressive, natural rhythm, real pauses. He is talking, not reading.")
 a = ap.parse_args()
 TAG = re.compile(r"^\[([a-z]+)\]\s*")
 
@@ -70,6 +76,25 @@ if a.engine == "qwen":
         prompt = prompts.get(tag.group(1) if tag else None, prompts[None])
         text = re.sub(r"\[[a-z]+\]\s*", "", text)
         wavs, sr = model.generate_voice_clone(text=text, language="English", voice_clone_prompt=prompt, **extra)
+        assert sr == SR, sr
+        return wavs[0].astype(np.float32)
+elif a.engine == "design":
+    from qwen_tts import Qwen3TTSModel
+
+    MOODS = {"excited": "This line is excited and fast, he can't wait to tell it.",
+             "funny": "This line is funny: a smile in the voice, deadpan on the last words.",
+             "mysterious": "This line is quiet and slow, a little mysterious.",
+             "shocked": "This line is surprised, as if he can't believe it.",
+             "serious": "This line is low, steady and serious, no smile.",
+             "warm": "This line is warm and friendly, like greeting a friend."}
+    model = Qwen3TTSModel.from_pretrained("Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign", device_map="cpu", dtype=torch.float32,
+                                          attn_implementation="sdpa")
+    extra = {"temperature": a.temperature} if a.temperature else {}
+
+    def say(text):
+        tag = TAG.match(text)
+        instruct = a.instruct + (" " + MOODS[tag.group(1)] if tag and tag.group(1) in MOODS else "")
+        wavs, sr = model.generate_voice_design(text=TAG.sub("", text), instruct=instruct, language="English", **extra)
         assert sr == SR, sr
         return wavs[0].astype(np.float32)
 else:
