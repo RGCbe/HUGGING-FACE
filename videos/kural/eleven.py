@@ -3,7 +3,7 @@ emotion tags: "[funny] Rank F. That's the floor." is sent as "[playful] Rank F. 
 audio tag Eleven v3/v4 performs, not says (the listening test, check.py, catches it if it ever is said).
 
     python3 eleven.py PIECES_FILE OUT_DIR --sections 1,3 [--seed 7] [--voice "Manoj kumar T"]
-                      [--model eleven_v4] [--stability 0.35] [--similarity 0.85]
+                      [--model eleven_v4] [--stability 0.3] [--similarity 0.9]
 
 PIECES_FILE has one piece per line (build.py's pieces.txt); piece N becomes OUT_DIR/sec_NN.wav, 24 kHz
 mono, like tts.py. --seed picks another take of the same words (build.py tries other seeds when a piece
@@ -11,6 +11,7 @@ fails the listening test). Standard library only.
 
 The key is ELEVENLABS_API_KEY from the environment (the cloud environment's settings), or else the
 git-ignored .env.local at the repo root that `elevenlabs onboard` writes. It is never printed.
+The default settings are the owner's pick (sample "B", the more expressive one, 2 Nov 2026).
 """
 import argparse
 import json
@@ -80,8 +81,8 @@ def main():
     ap.add_argument("--seed", type=int, default=7)
     ap.add_argument("--voice", default="Manoj kumar T")
     ap.add_argument("--model", default="eleven_v4")
-    ap.add_argument("--stability", type=float, default=0.35)  # lower lets the voice move more with the emotion
-    ap.add_argument("--similarity", type=float, default=0.85)  # how closely it keeps to the owner's clone
+    ap.add_argument("--stability", type=float, default=0.3)  # lower lets the voice move more with the emotion
+    ap.add_argument("--similarity", type=float, default=0.9)  # how closely it keeps to the owner's clone
     a = ap.parse_args()
     key = api_key()
     vid = voice_id(a.voice, key)

@@ -60,7 +60,7 @@
   "eleven": {
     "voice": "Manoj kumar T",
     "model": "eleven_v4",
-    "stability": 0.35,
-    "similarity": 0.85
+    "stability": 0.3,
+    "similarity": 0.9
   }
 }
