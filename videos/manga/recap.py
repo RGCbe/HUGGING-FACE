@@ -19,6 +19,7 @@ Tea Break limits for the recap.
 
 Needs the Tea Break voice setup (source ~/.cache/tea-break/env.sh) and letter.py's out/webtoon/strip.png.
 """
+import ast
 import json
 import os
 import shutil
@@ -37,9 +38,24 @@ FPS, MOVE, TAIL = 30, 0.8, 3.0
 ZOOM = 0.05  # how far a still panel zooms in over its shot
 
 
+def music_names():
+    """score.py's MOODS and STINGS, read without importing it (it needs the TTS environment)."""
+    tree = ast.parse(open(os.path.join(DOODLE, "score.py")).read())
+    return {t.id: ast.literal_eval(n.value) for n in tree.body if isinstance(n, ast.Assign)
+            for t in n.targets if isinstance(t, ast.Name) and t.id in ("MOODS", "STINGS")}
+
+
 def load(ep):
     r = os.path.join(ep, "recap")
-    return r, json.load(open(os.path.join(r, "recap.json")))
+    spec = json.load(open(os.path.join(r, "recap.json")))
+    # a line's "mood" is the music under it, not the voice tag: catch a wrong one before hours of voicing
+    names = music_names()
+    for l in spec["lines"] + short_lines(spec):
+        bad = [x for x in [l.get("mood")] if x and x not in names["MOODS"]] + \
+              [x for x in [(l.get("sting") or {}).get("name")] if x and x not in names["STINGS"]]
+        if bad:
+            sys.exit(f"{ep}: music {bad} in {l['text'][:50]!r}: moods are {names['MOODS']}, stings {names['STINGS']}")
+    return r, spec
 
 
 def write_lines(path, lines):
