@@ -55,6 +55,30 @@ discovers a shocking secret" (name the secret instead), "in conclusion", "it is 
 is", chains like "This is X. He is Y.", or reading a speech bubble word for word and then
 describing the same picture.
 
+## AI habits to cut (found in our own drafts)
+
+These read fine on paper and sound like a machine out loud. Say the thing instead:
+
+- Signposts: "Things get interesting when...", "Think about that for a second.", "Think about what this
+  really means.", "The irony is almost too good.", "Here's the thing." Just say the interesting thing.
+- "That's not X anymore. That's Y." ("That's not a drink anymore. That's a weapon.")
+- Polished comparisons: "nowhere near as impressive as his reputation", "basically a gold mine",
+  "at the bottom of the food chain", "on a completely different level", "could change the whole world".
+- A tidy summary closing every section, and grand endings: "a mystery that has only just begun".
+- Three neat clauses in a row ("He hasn't learned a new skill, nobody gave him a weapon, and nothing
+  should make him this strong") when one honest reaction does the job ("B-Rank Hunters don't just do that.").
+
+What a person does instead: an opinion in "I" ("which I love, by the way", "to be fair to him, I'd think
+I was special too"), a tiny everyday detail ("same traffic, same noise"), a fragment ("Rank F. That's the
+floor."), a reminder to the viewer ("Remember he said that."), and letting a line end flat.
+
+## Manga reviews: explain it like a friend
+
+The owner's rule: never read out what is written in the manga. Explain it: what the world is, why each
+character does what they do, why a moment matters, what a twist means for later, and what Manoj thinks
+of it. Quote a character only for the line that lands. Every review gets YouTube chapters ("chapter"
+in recap.json).
+
 ## Dialogue in manga recaps
 
 Quote one or two lines that matter per scene, with attitude and who said it ("and Viktor, being

@@ -175,6 +175,18 @@ def say(text_file, out_dir, names, refs=None, recorded=None):
     if refs and engine == "qwen":
         voice += ["--refs", refs]
     problems = {}
+    # a piece voiced earlier under another number (a line above it was added, cut or split differently): reuse it
+    done = {v: int(k) for k, v in cache.items() if os.path.exists(wav(int(k)))}
+    moves = {n: done[key(n)] for n in range(1, len(flat) + 1) if not passed(n) and key(n) in done}
+    if moves:
+        for m in set(moves.values()):
+            shutil.copy(wav(m), wav(m) + ".keep")
+        for n, m in moves.items():
+            shutil.copy(wav(m) + ".keep", wav(n))
+            cache[str(n)] = key(n)
+        for m in set(moves.values()):
+            os.remove(wav(m) + ".keep")
+        json.dump(cache, open(cache_file, "w"), indent=1)
 
     def listen(todo):
         report = os.path.join(out_dir, "check.json")

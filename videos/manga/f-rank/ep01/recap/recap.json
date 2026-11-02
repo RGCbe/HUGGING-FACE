@@ -13,113 +13,116 @@
   },
   {
    "panel": "p04",
-   "text": "This is The F-Rank Tea Seller, our very own webtoon, where one glass of chai might be worth more than a whole room full of weapons."
+   "text": "This is The F-Rank Tea Seller, our own webtoon. And trust me, after this episode, you'll never look at a glass of chai the same way again."
   },
   {
    "panel": "p02",
-   "text": "Now, this episode actually opens at the end, with Viktor glowing and shouting, where is this power coming from? Then it jumps back one hour, to show us how he got there.",
+   "text": "Now, the episode actually starts at the end, which I love, by the way. Viktor's glowing gold and shouting, where is this power coming from? And then it cuts to... one hour earlier.",
    "mood": "curious"
   },
   {
    "panel": "p03",
-   "text": "[mysterious] So, Mumbai, in the year twenty thirty-one. But this isn't the Mumbai we know today. Mysterious Gates have opened all over the world, and behind every Gate there's a dungeon full of monsters.",
+   "text": "[mysterious] So. Mumbai, twenty thirty-one. Same traffic, same noise... but now there are Gates. Big glowing portals all over the world, and behind every one of them, a dungeon full of monsters.",
    "mood": "mysterious",
    "chapter": "A world of Gates"
   },
   {
    "panel": "p03",
-   "text": "The people who can fight those monsters are called Hunters. They go in, kill whatever's inside, and bring back monster cores, which sell for serious money. For a strong Hunter, this new world is basically a gold mine."
+   "text": "The people who can fight them are called Hunters. They go in, they kill whatever's in there, and they come out with monster cores, which sell for crazy money. So if you're a strong Hunter? Life is good. Very good."
   },
   {
    "panel": "p04",
-   "text": "But not everyone gets a share of that gold. Right next to the biggest Gate in the city, there's a tiny tea stall, and behind the counter is a young man named Arjun.",
+   "text": "Now, right next to the biggest Gate in the city, there's this tiny tea stall. And the guy running it is Arjun.",
    "mood": "curious"
   },
   {
    "panel": "p06",
-   "text": "[funny] Arjun's eighteen, and technically, he is a Hunter. His rank is F... the weakest rank there is. In a world where your rank decides your value, he's right at the bottom of the food chain.",
-   "mood": "playful"
+   "text": "[funny] Arjun's eighteen, and yes, technically, he's a Hunter too. Rank F. That's the lowest rank they have. There's nothing below F. F is the floor.",
+   "mood": "playful",
+   "punch": true
   },
   {
    "panel": "p05",
-   "text": "So instead of fighting monsters, he sells chai, ten rupees a glass. And judging by how quiet the street is, even that isn't making him rich."
+   "text": "So instead of fighting monsters, he sells chai. Ten rupees a glass. And from the look of that empty street... business is not exactly booming."
   },
   {
    "panel": "p07",
-   "text": "Things get interesting when a group of professional Hunters walks up to the stall. Leading them is Viktor Hale, a B-Rank Hunter with two million followers.",
+   "text": "Then a proper Hunter team walks up to the stall, and right at the front is Viktor Hale. B-Rank, two million followers, shiny armor, the full package.",
    "mood": "dramatic",
    "chapter": "Enter Viktor Hale"
   },
   {
    "panel": "p07",
-   "text": "[funny] He's strong, he's famous, and he knows it. Sadly, his manners are nowhere near as impressive as his follower count. Every office has one Viktor, right? The loudest one in every meeting.",
+   "text": "[funny] And he knows it. You can tell just from the way he walks. Every office has one Viktor, right? The loudest guy in every meeting.",
    "mood": "playful",
    "punch": true
   },
   {
    "panel": "p08",
-   "text": "The moment Viktor spots Arjun, he turns it into a show. To him, an F-Rank has no business standing anywhere near a Gate, let alone selling something to real Hunters."
+   "text": "He sees Arjun and straight away makes it a show for everyone. Look, it's the F-Rank tea boy! Because for a guy like Viktor, an F-Rank standing near a Gate is just a joke."
   },
   {
    "panel": "p09",
-   "text": "But Arjun doesn't lose his temper. He just offers him a glass, and says it's good for the nerves before a dungeon. Which is a very polite way of saying... you look nervous.",
+   "text": "And Arjun? Doesn't react at all. He just offers him a glass. Good for the nerves before a dungeon, he says. Which, if you think about it, is a very polite way of saying... you look nervous.",
    "punch": true
   },
   {
    "panel": "p10",
-   "text": "[funny] Of course, Viktor takes that as another chance to make fun of him. Tea from an F-Rank? He actually asks if it's poisoned with weakness. He's already decided Arjun is useless, without giving him a single chance.",
-   "mood": "playful"
+   "text": "[funny] Viktor, of course, doesn't get it. Tea from an F-Rank? Is it poisoned with weakness? I mean... who even talks like that?",
+   "mood": "playful",
+   "punch": true
   },
   {
    "panel": "p11",
-   "text": "[warm] Luckily, not everyone in the group thinks like Viktor. Meera, their healer, tells him to be nice and buys three teas. She's the only one in the party who treats Arjun like a person.",
+   "text": "[warm] Thankfully, there's Meera. She's the healer on the team, she tells Viktor to be nice, and she just buys three teas. Honestly, the only normal person in this group.",
    "mood": "warm"
   },
   {
    "panel": "p12",
-   "text": "Viktor drinks his in one gulp and says it's nothing special. As far as he's concerned, it's just an ordinary cup of chai."
+   "text": "Viktor finishes his in one gulp. Nothing special, he says. Remember he said that.",
+   "punch": true
   },
   {
    "panel": "p13",
-   "text": "[mysterious] Then, as they walk toward the Gate, Arjun wishes them luck... and says something that sounds completely unimportant. One hour. That's all you get.",
+   "text": "[mysterious] And as they walk off toward the Gate, Arjun says good luck... and then, very quietly, one hour. That's all you get.",
    "mood": "sneaky"
   },
   {
    "panel": "p13",
-   "text": "Keep that number in your head, because it's the most important thing anyone says in this whole episode."
+   "text": "Nobody really hears it. But hold on to that line, because this whole episode hangs on it."
   },
   {
    "panel": "p14",
-   "text": "[serious] The team walks into a level nine dungeon, expecting a normal day at work. It doesn't stay normal for very long.",
+   "text": "[serious] So they go in. Level nine dungeon. For a B-Rank team, that should be easy. Just a normal working day.",
    "mood": "suspense",
    "chapter": "Inside the dungeon"
   },
   {
    "panel": "p15",
-   "text": "The monsters inside are way stronger than they should be. Ogres, monster wolves, all of them hitting much harder than anything in a level nine dungeon ever should."
+   "text": "It is not easy. Ogres, giant wolves, and every single one of them is way stronger than a level nine monster should be."
   },
   {
    "panel": "p16",
-   "text": "Their tank, the guy whose whole job is to take the hits, gets thrown across the cave. That's when you know it's bad.",
+   "text": "Their tank, the guy whose whole job is to take the hits, gets thrown across the cave like a cricket ball. And when your tank goes flying... that's bad.",
    "mood": "dramatic"
   },
   {
    "panel": "p17",
-   "text": "Viktor's struggling too. He's a B-Rank, this place should be easy for him, and he honestly can't understand why these ogres are this strong."
+   "text": "Even Viktor's in trouble. He's bleeding, he's confused, and you can see it on his face. Since when are level nine ogres this strong?"
   },
   {
    "panel": "p18",
-   "text": "Meera's already telling everyone to retreat. For the first time, the famous Hunter is in a fight where confidence just isn't enough."
+   "text": "Meera's shouting at everyone to get out. And honestly? She's right. This is the moment a smart team runs."
   },
   {
    "panel": "p19",
-   "text": "[shocked] And right when it looks hopeless, something strange happens. Viktor feels a huge surge of power, and golden light starts pouring out of his body.",
+   "text": "[shocked] But then, Viktor's heart gives this one huge thump, and gold light just starts pouring out of him. All over his body.",
    "mood": "dramatic",
    "chapter": "The golden power"
   },
   {
    "panel": "p20",
-   "text": "[excited] One swing... and the ogre that was beating him a minute ago is just gone.",
+   "text": "[excited] One swing. Just one. And the ogre that was beating him up a minute ago is just... gone.",
    "sting": {
     "name": "hit",
     "at": "start"
@@ -127,41 +130,41 @@
   },
   {
    "panel": "p21",
-   "text": "His own team can't believe it. Where did that come from? He hasn't learned a new skill, nobody handed him a magic sword, and nothing in that dungeon should make him this strong.",
+   "text": "His own team is standing there with their mouths open. Did he just one-shot that thing? Because B-Rank Hunters don't just do that.",
    "mood": "playful"
   },
   {
    "panel": "p22",
-   "text": "[funny] So Viktor comes up with the only explanation that makes sense to Viktor. He has awakened. Of course he has. He's just that special.",
+   "text": "[funny] And Viktor, being Viktor, decides there's only one explanation. He has awakened. Obviously. He's just that special.",
    "mood": "triumphant",
    "punch": true
   },
   {
    "panel": "p22",
-   "text": "And honestly, who could blame him? If you went from losing to an ogre to one-shotting it, you'd think something amazing happened to you too."
+   "text": "And to be fair to him... if I went from losing to an ogre to one-shotting it, I'd think I was pretty special too."
   },
   {
    "panel": "p23",
-   "text": "But we know something he doesn't. Before he walked in, Viktor drank a cheap glass of tea... from the guy he called useless."
+   "text": "But we know what really happened, right? Just before he walked in, he drank a ten-rupee chai... from the F-Rank tea boy."
   },
   {
    "panel": "p23",
-   "text": "For the next fifty-eight minutes, he's unstoppable. He goes through that dungeon like it's a tutorial level. And if you've been counting the minutes... you can probably guess where this is going."
+   "text": "For the next fifty-eight minutes, he's unstoppable. He's walking through that dungeon like it's a tutorial level. And if you've been counting... yeah. You know where this is going."
   },
   {
    "panel": "p24",
-   "text": "[serious] Then they reach the boss. A giant minotaur in black armor, with an axe bigger than a car. The kind of monster a B-Rank should never fight alone.",
+   "text": "[serious] Then they reach the boss. A giant minotaur in black armor, with an axe that's honestly bigger than my car.",
    "mood": "suspense",
    "chapter": "Minute sixty"
   },
   {
    "panel": "p25",
-   "text": "Viktor doesn't even think. He jumps in for the final hit, full of confidence... and that's exactly when the clock reaches sixty minutes.",
+   "text": "And Viktor doesn't even think twice. He jumps up for the big final hit, full power, full confidence... and that's the exact second the clock hits sixty minutes.",
    "mood": "dramatic"
   },
   {
    "panel": "p26",
-   "text": "[funny] The golden light just fizzles out, right there in the air. And Viktor's face says everything. Oh no.",
+   "text": "[funny] The gold light just... fizzles out. In mid-air. And look at his face. Oh no.",
    "mood": "silence",
    "sting": {
     "name": "wahwah",
@@ -171,28 +174,28 @@
   },
   {
    "panel": "p27",
-   "text": "[funny] So the great Viktor Hale, two million followers, does the smartest thing he does all day. He runs. Just like the office Viktor... first one out the door when the real work starts.",
+   "text": "[funny] So the great Viktor Hale, two million followers, does the smartest thing he's done all day. He runs. Just like the office Viktor... first one out the door when the real work starts.",
    "mood": "playful",
    "punch": true
   },
   {
    "panel": "p28",
-   "text": "They crawl out of the Gate barely alive. Whatever happened in there, it was much more dangerous than anyone expected.",
+   "text": "They come crawling out of that Gate barely alive. All of them.",
    "mood": "sad"
   },
   {
    "panel": "p29",
-   "text": "[shocked] Viktor goes straight to the tea stall, grabs Arjun, and demands to know what he put in that tea.",
+   "text": "[shocked] And Viktor goes straight to the tea stall, grabs Arjun, and shouts, what did you put in that tea?",
    "mood": "dramatic",
    "chapter": "Cardamom"
   },
   {
    "panel": "p29",
-   "text": "Think about that for a second. This morning, Arjun was a nobody. Now the famous Hunter is standing in front of him, begging for answers. The irony is almost too good."
+   "text": "And I love this part, because one hour ago, Arjun was a joke to him. Now he's the only person in Mumbai with the answer."
   },
   {
    "panel": "p30",
-   "text": "[funny] And Arjun, totally calm, gives him the most honest answer possible... cardamom.",
+   "text": "[funny] And Arjun, completely calm, just says... cardamom.",
    "mood": "silence",
    "sting": {
     "name": "rimshot",
@@ -208,41 +211,41 @@
   },
   {
    "panel": "p31",
-   "text": "[funny] Meanwhile, Meera has clearly figured something out. She just holds up her coins and asks if she can get one to go. Smartest person in the whole episode. And remember that glass, because it's going to matter.",
+   "text": "[funny] And Meera? She doesn't ask a single question. She just holds up her coins. Can I get one to go? Smartest person in the whole episode. And remember that glass to go... it comes back.",
    "mood": "warm"
   },
   {
    "panel": "p32",
-   "text": "[mysterious] That night, when the street is empty, the story finally shows us what's really going on.",
+   "text": "[mysterious] Then that night, when the street's empty, we finally get to see Arjun's secret.",
    "mood": "curious",
    "chapter": "The secret skill"
   },
   {
    "panel": "p33",
-   "text": "Arjun has a hidden skill called Hunter's Chai. Its rank is unknown, and what it does is simple. Anyone who drinks his tea borrows a huge amount of strength... for exactly one hour."
+   "text": "It's a hidden skill called Hunter's Chai. Rank, unknown. And what it does is simple. Whoever drinks his tea borrows a huge amount of power... for exactly one hour."
   },
   {
    "panel": "p33",
-   "text": "So suddenly, everything in that dungeon makes sense. Viktor didn't awaken. He was running on borrowed power, and the moment that hour ran out, he was back to being plain old Viktor."
+   "text": "So Viktor never awakened. That was borrowed power. And the second the hour ran out, he was just plain old Viktor again."
   },
   {
    "panel": "p33",
-   "text": "[funny] And what's Arjun's big thought about all this? Ten rupees for an hour of power... he's undercharging. My office canteen charges more than that for a cold samosa.",
+   "text": "[funny] And Arjun's big thought about all this? Ten rupees for an hour of power... he's undercharging. And he's right. My office canteen charges more than that for a cold samosa.",
    "mood": "playful",
    "punch": true
   },
   {
    "panel": "p05",
-   "text": "But think about what this really means. Arjun doesn't need to be the strongest fighter in the world. He doesn't even need to walk into a dungeon. He can make any Hunter stronger, just by handing them a glass of chai.",
+   "text": "And this is why I like this story so much. Arjun's never going to be the strongest fighter. He doesn't need to be. He just has to make a good cup of tea, and suddenly anyone can be strong.",
    "mood": "curious"
   },
   {
    "panel": "p04",
-   "text": "That little roadside stall might be the most valuable place in all of Mumbai, and nobody knows it yet."
+   "text": "Nobody knows it yet, but that tiny stall might be the most valuable place in Mumbai."
   },
   {
    "panel": "p34",
-   "text": "[mysterious] But there's one more thing. Deep inside the Gate, something huge opens one glowing red eye... and it looks like it noticed.",
+   "text": "[mysterious] Oh, and one more thing. Right at the end, deep inside the Gate... something opens one big red eye. And I think it noticed.",
    "mood": "suspense",
    "sting": {
     "name": "hit",
@@ -252,11 +255,11 @@
   },
   {
    "panel": "p34",
-   "text": "If the Hunters barely survived a level nine dungeon, whatever's watching from in there is on a completely different level. And Arjun is sitting on a secret that could change the whole Hunter world."
+   "text": "So if a level nine dungeon nearly finished Viktor's whole team... I really don't want to meet whatever that is."
   },
   {
    "panel": "end",
-   "text": "[warm] Ten rupees a glass. One hour of borrowed power. And a mystery that's only just started. You can read episode one free on WEBTOON, just search The F-Rank Tea Seller. So tell me in the comments... what would you do with one hour of power?",
+   "text": "[warm] So that's episode one. Ten rupees a glass, one hour of power, and something in the Gate watching. You can read it free on WEBTOON, just search The F-Rank Tea Seller. And tell me in the comments... if you had one hour of power, what would you do with it?",
    "mood": "warm"
   }
  ],
@@ -265,7 +268,7 @@
    {
     "new": {
      "panel": "p12",
-     "text": "[excited] This knight drank tea from the weakest hunter on Earth, and for one hour, he was unstoppable.",
+     "text": "[excited] This guy drank tea from the weakest hunter on Earth, and for one hour, he was unstoppable.",
      "mood": "playful"
     }
    },
