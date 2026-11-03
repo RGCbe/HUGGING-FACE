@@ -17,9 +17,8 @@ The Ep 2 Short and its upload file wait in `~/.cache/tea-break/pending/f-rank-ep
 reset, then take the old Ep 2 Short off the schedule. Until then the old one (https://youtu.be/MiYxzFF3pFk,
 old voice) is still scheduled for 15 Nov as a fallback.
 
-The old versions in the earlier voice are private with no publish date (taken off the schedule, not
-deleted): Ep 1 review `tzr6iIxQg-0`, Ep 1 Short `3Q_9upx0e1k`, Ep 2 review `aQ0Aad6XMIY`. They are deleted
-only if the owner asks.
+The owner deleted the old versions in the earlier voice on 3 Nov (Ep 1 review `tzr6iIxQg-0`, Ep 1 Short
+`3Q_9upx0e1k`, Ep 2 review `aQ0Aad6XMIY`).
 
 The custom thumbnails were refused (403) until the channel is phone-verified. They are in
 `epNN/recap/out/recap_thumbnail.jpg`. TikTok parts (6 for each episode, `tiktok_parts` in recap.json)
