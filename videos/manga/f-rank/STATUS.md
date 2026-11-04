@@ -10,15 +10,12 @@
 | Ep 1 review, 8:18 | https://youtu.be/IkLUX6FkzD8 | Fri 6 Nov 12:30 UTC |
 | Ep 1 Short, 1:15 | https://youtu.be/nAF-gsZIiUo | Sun 8 Nov 12:30 UTC |
 | Ep 2 review, 6:48 | https://youtu.be/1wQCM-Jbk1E | Fri 13 Nov 12:30 UTC |
-| Ep 2 Short, 0:57 | not uploaded yet: YouTube's daily upload limit (`uploadLimitExceeded`) | Sun 15 Nov 12:30 UTC |
+| Ep 2 Short, 0:57 | https://youtu.be/vEqxFJiWnIY | Sun 15 Nov 12:30 UTC |
 
-The Ep 2 Short and its upload file wait in `~/.cache/tea-break/pending/f-rank-ep02-short/`. Upload it with
-`python3 videos/doodle/upload.py ~/.cache/tea-break/pending/f-rank-ep02-short/upload.json` once the limit has
-reset, then take the old Ep 2 Short off the schedule. Until then the old one (https://youtu.be/MiYxzFF3pFk,
-old voice) is still scheduled for 15 Nov as a fallback.
-
-The owner deleted the old versions in the earlier voice on 3 Nov (Ep 1 review `tzr6iIxQg-0`, Ep 1 Short
-`3Q_9upx0e1k`, Ep 2 review `aQ0Aad6XMIY`).
+The Ep 2 Short went up a day later (4 Nov): YouTube's daily upload limit (`uploadLimitExceeded`) refused it on
+3 Nov. The old one in the earlier voice (`MiYxzFF3pFk`) is now private with no publish date, not deleted.
+The owner deleted the other old versions on 3 Nov (Ep 1 review `tzr6iIxQg-0`, Ep 1 Short `3Q_9upx0e1k`,
+Ep 2 review `aQ0Aad6XMIY`).
 
 The custom thumbnails were refused (403) until the channel is phone-verified. They are in
 `epNN/recap/out/recap_thumbnail.jpg`. TikTok parts (6 for each episode, `tiktok_parts` in recap.json)
