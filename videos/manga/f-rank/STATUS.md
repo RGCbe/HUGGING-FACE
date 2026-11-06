@@ -2,7 +2,8 @@
 
 ## On WEBTOON
 - Episode 1 is live: https://www.webtoons.com/en/canvas/the-f-rank-tea-seller/list?title_no=1182633
-- Episode 2 is packed in `ep02/upload/` (26 slices, thumbnail, PUBLISH.txt). The owner publishes it on Thu 5 Nov.
+- Episode 2 ("A Glass to Go") is live since 6 Nov (the pack is in `ep02/upload/`). On 6 Nov the series had
+  1 subscriber and 10 views.
 
 ## YouTube reviews (private, scheduled, owner's ElevenLabs voice, every word checked)
 | Video | Link | Public |
