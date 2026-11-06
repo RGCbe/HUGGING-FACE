@@ -16,6 +16,8 @@ const SCOPES = "user.info.basic,video.upload";
 
 export default {
   async fetch(request, env, ctx) {
+    // keys pasted into the dashboard can carry a stray space or line break: TikTok would reject them
+    env = { ...env, TIKTOK_CLIENT_KEY: (env.TIKTOK_CLIENT_KEY || "").trim(), TIKTOK_CLIENT_SECRET: (env.TIKTOK_CLIENT_SECRET || "").trim() };
     try {
       return await route(request, env, ctx);
     } catch (e) {
