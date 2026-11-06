@@ -70,6 +70,11 @@ async function route(request, env, ctx) {
     const name = new URLSearchParams(await request.text()).get("name") || "";
     const meta = await env.TB.get("q:" + name, "json");
     if (!meta) return text("That video is not in the queue.", 404);
+    if (await env.TB.get("sent:" + name)) return text("This video is already in your TikTok inbox.", 409);
+    const last = await env.TB.get("job:" + name, "json");
+    if (last && (last.state === "processing" || (last.state === "uploading" && now() - last.at < 600))) {
+      return text("TikTok is still working on this video. Reload the page in a minute.", 409);
+    }
     const { readable, writable } = new TransformStream();
     const w = writable.getWriter();
     const say = (line) => w.write(new TextEncoder().encode(line + "\n"));
@@ -91,6 +96,9 @@ async function send(env, name, meta, say) {
     source_info: { source: "FILE_UPLOAD", video_size: meta.size, chunk_size: meta.chunk, total_chunk_count: meta.count } });
   if (!init.error || init.error.code !== "ok") throw new Error("TikTok refused the upload: " + JSON.stringify(init.error || init));
   const { publish_id, upload_url } = init.data;
+  // remembered, so the page can show how it ended even if it was closed while TikTok was still working
+  const job = (state, extra = {}) => env.TB.put("job:" + name, JSON.stringify({ publish_id, state, at: now(), ...extra }));
+  await job("uploading");
   await say(`Sending to TikTok (0 of ${meta.count})`);
   for (let k = 0; k < meta.count; k++) {
     const part = await env.TB.get(`v:${name}:${k}`, "arrayBuffer");
@@ -103,23 +111,47 @@ async function send(env, name, meta, say) {
       if (r.ok || r.status < 500) break;
       await sleep(3000);
     }
-    if (!r.ok) throw new Error(`TikTok refused part ${k + 1}: HTTP ${r.status}`);
+    if (!r.ok) {
+      await job("failed", { reason: `TikTok refused part ${k + 1}: HTTP ${r.status}` });
+      throw new Error(`TikTok refused part ${k + 1}: HTTP ${r.status}`);
+    }
     await say(`Sending to TikTok (${k + 1} of ${meta.count})`);
   }
+  await job("processing");
   for (let i = 0; i < 40; i++) {
-    const s = await tiktok("POST", "/v2/post/publish/status/fetch/", await accessToken(env), { publish_id });
-    const st = s.data && s.data.status;
-    if (st === "FAILED") throw new Error("TikTok could not process it: " + (s.data.fail_reason || "unknown"));
-    if (st === "SEND_TO_USER_INBOX" || st === "PUBLISH_COMPLETE") {
-      await env.TB.put("sent:" + name, JSON.stringify({ publish_id, status: st, at: now() }));
-      for (let k = 0; k < meta.count; k++) await env.TB.delete(`v:${name}:${k}`);  // free the space; the record stays
+    const st = await checkJob(env, name);
+    if (st.state === "failed") throw new Error(st.reason);
+    if (st.state === "inbox") {
       await say("DONE In your TikTok inbox: open TikTok, tap the notification, paste the caption and post.");
       return;
     }
     await say("TikTok is processing the video");
     await sleep(4000);
   }
-  await say("DONE Still processing at TikTok: check your TikTok inbox in a few minutes.");
+  await say("DONE Still processing at TikTok: check your TikTok inbox in a few minutes, or reload this page.");
+}
+
+// Ask TikTok how the last upload of NAME is doing, and record it when it has reached the inbox.
+async function checkJob(env, name) {
+  const job = await env.TB.get("job:" + name, "json");
+  if (!job) return { state: "none" };
+  if (job.state === "inbox" || job.state === "failed" || job.state === "uploading") return job;
+  const s = await tiktok("POST", "/v2/post/publish/status/fetch/", await accessToken(env), { publish_id: job.publish_id });
+  const st = s.data && s.data.status;
+  if (st === "FAILED") {
+    const failed = { ...job, state: "failed", reason: "TikTok could not process it: " + (s.data.fail_reason || "unknown"), at: now() };
+    await env.TB.put("job:" + name, JSON.stringify(failed));
+    return failed;
+  }
+  if (st === "SEND_TO_USER_INBOX" || st === "PUBLISH_COMPLETE") {
+    const meta = (await env.TB.get("q:" + name, "json")) || {};
+    await env.TB.put("sent:" + name, JSON.stringify({ publish_id: job.publish_id, status: st, at: now() }));
+    for (let k = 0; k < (meta.count || 0); k++) await env.TB.delete(`v:${name}:${k}`);  // free the space; the record stays
+    const done = { ...job, state: "inbox", status: st, at: now() };
+    await env.TB.put("job:" + name, JSON.stringify(done));
+    return done;
+  }
+  return { ...job, state: "processing", status: st || (s.error && s.error.code) };
 }
 
 // ---------- TikTok ----------
@@ -223,13 +255,22 @@ videos to your TikTok inbox as drafts. Nothing is posted until you post it yours
   for (const k of list.keys) {
     const name = k.name.slice(2);
     const it = (await env.TB.get(k.name, "json")) || {};
-    const sent = await env.TB.get("sent:" + name, "json");
+    let sent = await env.TB.get("sent:" + name, "json");
+    let note = "", canSend = !sent;
+    if (!sent) {
+      const job = await checkJob(env, name).catch((e) => ({ state: "failed", reason: String(e.message || e) }));
+      if (job.state === "inbox") { sent = { at: job.at }; canSend = false; }
+      else if (job.state === "processing") { note = "⏳ TikTok is still processing this video. Reload this page in a minute."; canSend = false; }
+      else if (job.state === "uploading" && now() - job.at < 600) { note = "⏳ Sending to TikTok…"; canSend = false; }
+      else if (job.state === "uploading") note = "The last try was interrupted. You can send it again.";
+      else if (job.state === "failed") note = "❌ The last try failed: " + job.reason + ". You can send it again.";
+    }
     const n = esc(name);
     rows.push(`<div class="card"><div><b>${esc(it.title || name)}</b> <span class="muted">(${Math.round((it.size || 0) / 1048576)} MB)</span></div>
 <p class="muted">Caption to paste in TikTok:</p><textarea readonly id="c-${n}">${esc(it.caption || "")}</textarea>
 <p><button class="btn light" onclick="copyCap('${n}', this)">Copy caption</button>
-${sent ? "" : `<button class="btn" id="b-${n}" onclick="go('${n}')">Send to TikTok</button>`}</p>
-<div class="st" id="s-${n}"></div>${sent ? `<div class="muted">Sent to your TikTok inbox on ${new Date(sent.at * 1000).toDateString()}.</div>` : ""}</div>`);
+${canSend ? `<button class="btn" id="b-${n}" onclick="go('${n}')">Send to TikTok</button>` : ""}</p>
+<div class="st" id="s-${n}">${esc(note)}</div>${sent ? `<div class="st">✅ Sent to your TikTok inbox on ${new Date(sent.at * 1000).toDateString()}. Open TikTok, tap the notification, paste the caption and post.</div>` : ""}</div>`);
   }
   const vids = rows.join("") || '<div class="card muted">No videos are waiting. New videos appear here when they are ready.</div>';
   const script = `<script>
