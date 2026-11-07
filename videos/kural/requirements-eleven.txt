@@ -2,3 +2,4 @@ cffi==2.1.1
 numpy==2.4.6
 pycparser==3.11
 soundfile==0.14.0
+typing_extensions==4.12.2
