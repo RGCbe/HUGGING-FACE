@@ -157,8 +157,10 @@ title_file = os.path.join(work, "title.txt")
 sub_file = os.path.join(work, "subtitle.txt")
 open(title_file, "w").write(spec["title"])
 open(sub_file, "w").write(spec["subtitle"])
-text = (f"drawtext=fontfile={font}:textfile={title_file}:fontsize=118:fontcolor=0xe8590c:x=(w-text_w)/2:y=250,"
-        f"drawtext=fontfile={font}:textfile={sub_file}:fontsize=72:fontcolor=0x1d1d1f:x=(w-text_w)/2:y=420,"
+sys.path.insert(0, here)
+from textfit import font_size  # a long title shrinks to fit the 1080-pixel width instead of being cut off
+text = (f"drawtext=fontfile={font}:textfile={title_file}:fontsize={font_size(font, spec['title'], 118)}:fontcolor=0xe8590c:x=(w-text_w)/2:y=250,"
+        f"drawtext=fontfile={font}:textfile={sub_file}:fontsize={font_size(font, spec['subtitle'], 72)}:fontcolor=0x1d1d1f:x=(w-text_w)/2:y=420,"
         f"ass={ass}:fontsdir={os.path.join(here, 'fonts')}")
 if spec.get("background"):
     # the vertical layout draws the 1920x1080 board 1080x608 at y=660; lay it on a coloured page

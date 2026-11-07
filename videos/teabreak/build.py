@@ -423,12 +423,14 @@ def step_tiktok(d):
     for name in ("title", "subtitle"):
         open(os.path.join(work, f"{name}.txt"), "w").write(meta[name])
     font = os.path.join(DOODLE, "fonts", "PatrickHand-Regular.ttf")
+    sys.path.insert(0, DOODLE)
+    from textfit import font_size  # a long title shrinks to fit the 1080-pixel width instead of being cut off
     total = json.load(open(os.path.join(d, "timing.json")))["total"] + TAIL
     # the vertical layout draws the 1920x1080 board 1080x608 at y=660
     graph = (f"[1:v]crop=1080:608:0:660[board];[0:v][board]overlay=0:660:shortest=1,"
-             f"drawtext=fontfile={font}:textfile={os.path.join(work, 'title.txt')}:fontsize=118:fontcolor=0xe8590c:"
+             f"drawtext=fontfile={font}:textfile={os.path.join(work, 'title.txt')}:fontsize={font_size(font, meta['title'], 118)}:fontcolor=0xe8590c:"
              f"x=(w-text_w)/2:y=250,"
-             f"drawtext=fontfile={font}:textfile={os.path.join(work, 'subtitle.txt')}:fontsize=72:fontcolor=0x1d1d1f:"
+             f"drawtext=fontfile={font}:textfile={os.path.join(work, 'subtitle.txt')}:fontsize={font_size(font, meta['subtitle'], 72)}:fontcolor=0x1d1d1f:"
              f"x=(w-text_w)/2:y=420,ass={ass}:fontsdir={os.path.join(DOODLE, 'fonts')}[v]")
     video = os.path.join(d, "out", f"{slug}_tiktok.mp4")
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "lavfi", "-i", "color=c=0xfff8e7:s=1080x1920:r=30", "-i", silent,
