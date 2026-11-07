@@ -91,6 +91,7 @@ ROMAN = {"I": "first", "II": "second", "III": "third", "IV": "fourth", "V": "fif
 def tokens(text):
     out = []
     text = re.sub(r"(?<=\d),(?=\d{3}\b)", "", text.replace("’", "'"))  # 9,860 is one number
+    text = re.sub(r"\$(\d+) (thousand|million|billion)\b", r"\1 \2 dollars", text)  # $20 million: twenty million dollars
     text = re.sub(r"\$(\d+)", r"\1 dollars", text)
     text = re.sub(r"\b([A-Z][a-z]+) (I|II|III|IV|V|VI|VII|VIII)\b(?! [a-z])", lambda m: f"{m.group(1)} the {ROMAN[m.group(2)]}", text)
     text = re.sub(r"[A-Za-z]+'[A-Za-z]+|cannot", lambda m: CONTRACTIONS.get(m.group(0).lower(), m.group(0)), text, flags=re.I)
@@ -98,11 +99,11 @@ def tokens(text):
         w = british(w.lower().replace("'", ""))
         nth = re.fullmatch(r"(\d+)(st|nd|rd|th)", w)
         decade = re.fullmatch(r"(\d{0,2}\d0)s", w)
-        if nth and int(nth.group(1)) < 10000:
+        if nth and int(nth.group(1)) < 1000000:
             out.append(ordinal(int(nth.group(1))))
         elif decade:
             out.append("¤" + decade.group(1))  # "1960s" is "nineteen sixties", "60s" is "sixties": readings() has them
-        elif w.isdigit() and int(w) < 10000:
+        elif w.isdigit() and int(w) < 1000000:
             out.append("§" + w)  # "27" may be read "twenty seven" or (a date) "twenty seventh": readings() has both
         else:
             out.append(w)
