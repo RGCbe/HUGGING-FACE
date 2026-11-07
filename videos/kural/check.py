@@ -97,8 +97,11 @@ def tokens(text):
     for w in re.findall(r"[A-Za-z0-9']+", text.replace("-", " ")):
         w = british(w.lower().replace("'", ""))
         nth = re.fullmatch(r"(\d+)(st|nd|rd|th)", w)
+        decade = re.fullmatch(r"(\d{0,2}\d0)s", w)
         if nth and int(nth.group(1)) < 10000:
             out.append(ordinal(int(nth.group(1))))
+        elif decade:
+            out.append("¤" + decade.group(1))  # "1960s" is "nineteen sixties", "60s" is "sixties": readings() has them
         elif w.isdigit() and int(w) < 10000:
             out.append("§" + w)  # "27" may be read "twenty seven" or (a date) "twenty seventh": readings() has both
         else:
@@ -107,15 +110,26 @@ def tokens(text):
 
 
 def number_readings(n):
-    """How a number written in digits may be read: as a number, an ordinal (dates) or a year."""
-    return {spell(n), ordinal(n)} | ({year(n)} if 1100 <= n < 2100 else set())
+    """How a number written in digits may be read: as a number, an ordinal (dates) or a year. 2001 is also
+    "two thousand and one"."""
+    out = {spell(n), ordinal(n)} | ({year(n)} if 1100 <= n < 2100 else set())
+    if n > 1000 and 0 < n % 1000 < 100:
+        out.add(spell(n // 1000) + "thousandand" + spell(n % 1000))
+    return out
+
+
+def decade_readings(n):
+    """1960s: "nineteen sixties" (or "one thousand nine hundred and sixties"); 60s: "sixties"."""
+    plural = lambda w: w[:-1] + "ies" if w.endswith("y") else w + "s"
+    return {plural(w) for w in ({spell(n)} | ({year(n)} if 1100 <= n < 2100 else set()))}
 
 
 def readings(words):
     """Every way the words can be said (a number in digits in each of its readings)."""
     options = [""]
     for w in words:
-        alts = number_readings(int(w[1:])) if w.startswith("§") else [w]
+        alts = (number_readings(int(w[1:])) if w.startswith("§") else
+                decade_readings(int(w[1:])) if w.startswith("¤") else [w])
         options = [o + x for o in options for x in alts]
     return set(options)
 
@@ -176,8 +190,8 @@ for n in todo:
     for op, a0, a1, b0, b1 in difflib.SequenceMatcher(a=want, b=got, autojunk=False).get_opcodes():
         if op == "equal" or close(want[a0:a1], got[b0:b1]):
             continue
-        said = " ".join(want[a0:a1]).replace("§", "") or "(nothing)"
-        heard = " ".join(got[b0:b1]).replace("§", "") or "(nothing)"
+        said = " ".join(want[a0:a1]).replace("§", "").replace("¤", "") or "(nothing)"
+        heard = " ".join(got[b0:b1]).replace("§", "").replace("¤", "") or "(nothing)"
         problems.append(f'"{said}" was heard as "{heard}"')
     report.append({"n": n, "ok": not problems, "heard": heard_text, "problems": problems})
     print(f"section {n}: {'clear' if not problems else 'NOT CLEAR - ' + '; '.join(problems)}", flush=True)
