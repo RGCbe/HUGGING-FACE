@@ -1,0 +1,120 @@
+{
+ "characters": "The pig is a plump pink pig with a few black spots, a curly tail and a cheeky face. Lyman Cutlar is an American farmer of 1859 with a short brown beard, a straw hat, a red checked shirt and brown braces. Charles Griffin is a British ranch manager of 1859 with ginger side whiskers, a brown frock coat and a round brown bowler hat. American soldiers of 1859 wear dark blue uniforms and dark blue peaked forage caps. British Royal Marines of 1859 wear bright red coats with white cross belts and black shakos. The island has dark green pine trees, rocky shores and grey-blue sea. No flags anywhere.",
+ "images": [
+  {
+   "name": "p01",
+   "seed": 11,
+   "prompt": "On a small green island beach, one plump pink pig with black spots standing in the middle looking innocent. On the left, an American soldier in a dark blue uniform and cap pointing a small cannon towards the right. On the right, a British Royal Marine in a red coat pointing a small cannon towards the left. Both soldiers look very serious, the pig is smiling."
+  },
+  {
+   "name": "p02",
+   "seed": 13,
+   "prompt": "A wooden desk seen from above, with a big open notebook with blank white pages in the middle, a yellow pencil lying across the notebook, a round magnifying glass, a small toy pig figure, and a steaming white teacup with an orange stripe. No newspaper, no biscuits."
+  },
+  {
+   "name": "p03",
+   "seed": 7,
+   "prompt": "An old hand-drawn sea map seen from above, like a treasure map: a big coastline on the right, a long big island on the left, and between them two wavy blue sea channels side by side, with a group of small green islands with pine trees between the two channels. A dashed line on the land stops at the sea. No words, no compass letters."
+  },
+  {
+   "name": "p04",
+   "seed": 11,
+   "prompt": "On a small green island with pine trees, two men pulling hard on a rope in a tug of war: on the left an American gentleman of 1859 in a tall black top hat and a blue coat, on the right a British gentleman of 1859 in a tall grey top hat and a brown coat. Both look stubborn and red in the face."
+  },
+  {
+   "name": "p05",
+   "seed": 13,
+   "prompt": "A big sheep farm on a green island by the sea: a wooden farmhouse, a long wooden fence and many white sheep. Charles Griffin, the ranch manager with ginger side whiskers, a brown frock coat and a bowler hat, stands proudly among the sheep. On a hill far behind, three small log cabins of American settlers with smoke from the chimneys."
+  },
+  {
+   "name": "p06",
+   "seed": 11,
+   "prompt": "A plump pink pig with black spots happily digging in a vegetable garden next to a small log cabin, dirt flying, potatoes scattered all around, the pig chewing a potato with a big grin. No people."
+  },
+  {
+   "name": "p07",
+   "seed": 21,
+   "prompt": "Lyman Cutlar, the American farmer with a short brown beard, a straw hat, a red checked shirt and braces, standing at his garden fence looking very angry, holding one single old long rifle pointed up at the sky. In the potato garden in front of him, the pink pig with black spots looks up, surprised, with a potato in its mouth."
+  },
+  {
+   "name": "p08",
+   "seed": 21,
+   "prompt": "A big round pink birthday cake with white icing and one tall lit candle, sitting in the middle of a wooden table, with colourful party streamers and confetti around it, and an old rolled-up paper scroll tied with a red ribbon and a red wax seal lying beside the cake. No teacup, no newspaper, no biscuits, no writing."
+  },
+  {
+   "name": "p09",
+   "seed": 21,
+   "prompt": "In front of a wooden farm fence: on the left, Lyman Cutlar, the bearded American farmer in a straw hat and red checked shirt, holding out a few silver coins in his open hand. On the right, Charles Griffin with ginger side whiskers, a brown frock coat and a bowler hat, crossing his arms and turning his nose up, refusing. No pig, no animals."
+  },
+  {
+   "name": "p10",
+   "seed": 7,
+   "prompt": "Two Indian neighbours, a man in a white shirt and a woman in a green saree, arguing over a mango tree full of ripe yellow mangoes that grows on top of the brick wall between their two small houses. Each points at the tree. A few mangoes on the ground."
+  },
+  {
+   "name": "p11",
+   "seed": 13,
+   "prompt": "Next to a wooden fence by the sea: a British official in a black frock coat and a top hat reading out a long paper notice to Lyman Cutlar, the bearded American farmer in a straw hat and red checked shirt, who scratches his head, worried. Behind them, a few American settlers in work clothes talk together. No pig, no animals."
+  },
+  {
+   "name": "p12",
+   "seed": 11,
+   "prompt": "A US Army captain of 1859 with long wavy brown hair down to his shoulders and a moustache, in a dark blue uniform and a dark blue forage cap, standing proudly on a beach with one hand on his sword, and a line of American soldiers in dark blue uniforms with rifles behind him. A small paddle steamship in the bay. No pig, no animals."
+  },
+  {
+   "name": "p13",
+   "seed": 13,
+   "prompt": "A big old British wooden warship with three tall masts, white sails and two rows of cannons on its side, in the grey-blue sea on the left. On the right, a green hill on an island where a row of American soldiers in dark blue uniforms stand next to a long row of small black cannons on wheels pointing at the ship. Only soldiers on the hill, no farmers. No pig, no animals."
+  },
+  {
+   "name": "p14",
+   "seed": 7,
+   "prompt": "The plump pink pig with black spots sitting on a small beach in the middle, with an innocent little smile. On the far left, big cannons sticking out of the side of a British wooden warship. On the far right, American soldiers' cannons on a hill. All the cannons point towards the middle, over the pig."
+  },
+  {
+   "name": "p15",
+   "seed": 11,
+   "prompt": "On the deck of a big wooden sailing ship: a kind old British admiral of 1859 with big white side whiskers, a dark navy coat with gold epaulettes and a black bicorne hat, calmly holding up one open hand as if saying no thank you. Next to him, a worried gentleman in a black frock coat and top hat gesturing towards a green island across the water. No pig, no animals."
+  },
+  {
+   "name": "p16",
+   "seed": 21,
+   "prompt": "A wide view of a sandy beach by a calm sea, seen from far away. Small in the lower half of the picture: a large old American general of 1859 with grey hair and bushy grey side whiskers, a dark blue uniform with gold epaulettes and a gold sash, shaking hands with a British naval officer in a dark navy coat and a black bicorne hat. Both smile politely. The whole top half of the picture is empty pale sky. No pig, no animals."
+  },
+  {
+   "name": "p17",
+   "seed": 7,
+   "prompt": "A green island seen from above like a picture map: at the top, on the north shore by a bay, a small British camp with white tents and a white wooden blockhouse; at the bottom, on a windy grassy meadow on the south end, a small American camp of white tents. Tiny soldiers in red coats at the top and dark blue at the bottom. No flags, no words. No pig, no animals."
+  },
+  {
+   "name": "p18",
+   "seed": 11,
+   "prompt": "On a green meadow, British Royal Marines in red coats and American soldiers in dark blue uniforms running a friendly race together, laughing, while other soldiers from both sides cheer. In the background, a long wooden table with bottles and mugs. No pig, no animals."
+  },
+  {
+   "name": "p19",
+   "seed": 13,
+   "prompt": "An old German emperor of 1871 with big bushy white side whiskers and a white moustache, a dark blue uniform with medals and a Prussian spiked helmet, sitting on a red throne and looking through a magnifying glass at a big map on his lap. A tiny toy pig figure is standing on the map."
+  },
+  {
+   "name": "p20",
+   "seed": 7,
+   "prompt": "Inside a grand meeting hall: three serious gentlemen in dark 1870s suits, with grey beards and spectacles, sitting side by side at a long wooden table covered with papers and rolled-up maps, thinking hard. A tall window behind them shows a blue lake and snowy mountains. No pig, no animals."
+  },
+  {
+   "name": "p21",
+   "seed": 11,
+   "prompt": "British Royal Marines in red coats carrying their bags up a wooden gangway onto a ship at a dock, waving goodbye. On the dock, American soldiers in dark blue uniforms waving back. Seagulls in the sky. No pig, no animals."
+  },
+  {
+   "name": "p22",
+   "seed": 13,
+   "prompt": "A cute plump pink pig with black spots as a little angel with a golden halo and small white feathered wings, floating happily in the sky above a green island with pine trees, soft clouds around it."
+  },
+  {
+   "name": "p23",
+   "seed": 11,
+   "prompt": "A cosy tea break table with a steaming white teacup with an orange stripe and a black smartphone with a blank dark screen lying next to it, and a small cheeky pink pig with black spots peeking in from the right side. No newspaper, no biscuits."
+  }
+ ]
+}

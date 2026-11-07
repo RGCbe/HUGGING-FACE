@@ -1,0 +1,688 @@
+[
+ {
+  "name": "p01",
+  "prompt": "close-up, a hand holding a smartphone, the phone screen shows a glowing golden knight in silver armor slashing a giant ogre, light from the screen, dark bedroom, night, blanket",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "before": [
+   {
+    "text": "The next morning, all of Mumbai was watching one video."
+   }
+  ],
+  "status": [
+   {
+    "title": "[ TRENDING #1 ]",
+    "x": 0.5,
+    "y": 0.8,
+    "w": 0.88,
+    "lines": [
+     "VIKTOR HALE AWAKENS?!   9.8M views",
+     "\"he ONE-SHOT an ogre!!\"",
+     "\"bro ran from the boss tho\""
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p02",
+  "prompt": "2boys, male focus, a blonde man with short slicked back hair in silver armor sitting on a white sofa, nervous, sweating, forced smile, and a man in a black suit with glasses holding a tablet, talking excitedly, modern office, big window, city view",
+  "seed": 11,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "Two million NEW followers, Viktor! You're doing it again tonight. LIVE!",
+    "x": 0.2,
+    "y": 0.08,
+    "w": 0.34,
+    "to": [
+     0.3,
+     0.2
+    ],
+    "size": 23
+   },
+   {
+    "text": "...Again. Sure. Totally.",
+    "x": 0.84,
+    "y": 0.1,
+    "w": 0.24,
+    "to": [
+     0.68,
+     0.28
+    ],
+    "size": 25
+   }
+  ]
+ },
+ {
+  "name": "p03",
+  "prompt": "scenery, morning, small tea stall at the side of a stone plaza, giant glowing blue portal in the background, steam rising from a big steel kettle, lanterns, a few people walking, warm sunlight",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "Meanwhile, at the tea stall..."
+   }
+  ]
+ },
+ {
+  "name": "p04",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, sunglasses, black hoodie over silver armor, fake mustache, hood up, looking around nervously, sneaking, leaning on a tea stall counter, morning",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.45,
+  "bubbles": [
+   {
+    "text": "One tea, please. For... a friend.",
+    "x": 0.8,
+    "y": 0.07,
+    "w": 0.34,
+    "to": [
+     0.63,
+     0.15
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p05",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, deadpan, half-closed eyes, slight smile, looking at viewer, face focus, portrait, tea stall, morning",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "Good morning, Viktor.",
+    "x": 0.8,
+    "y": 0.12,
+    "w": 0.26,
+    "to": [
+     0.62,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p06",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, sunglasses slipping off nose, shocked, wide-eyed, open mouth, sweatdrop, comedy, black hoodie, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "HOW?!",
+    "x": 0.2,
+    "y": 0.14,
+    "w": 0.16,
+    "to": [
+     0.38,
+     0.3
+    ],
+    "size": 34
+   }
+  ]
+ },
+ {
+  "name": "p07",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, pointing finger, deadpan, holding a glass cup of tea, tea stall counter, upper body, morning",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "Your armor. It's shining through the hoodie.",
+    "x": 0.78,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.6,
+     0.25
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p08",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, leaning over a wooden counter, an open briefcase full of banknotes on the counter, money, cash, intense face, black hoodie, tea stall",
+  "seed": 11,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.4,
+  "sfx": [
+   {
+    "text": "SLAM!",
+    "x": 0.78,
+    "y": 0.78,
+    "size": 110,
+    "rotate": -6
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "I'll buy all of it. Every glass you'll ever make. Name your price.",
+    "x": 0.22,
+    "y": 0.14,
+    "w": 0.32,
+    "to": [
+     0.38,
+     0.3
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p09",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, calm smile, closed eyes, face focus, portrait, steam, tea stall",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "Ten rupees a glass.",
+    "x": 0.8,
+    "y": 0.12,
+    "w": 0.26,
+    "to": [
+     0.62,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p10",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, confused, blank stare, chibi, comedy, sweatdrop, question mark, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "...For ALL of it?",
+    "x": 0.78,
+    "y": 0.12,
+    "w": 0.26,
+    "to": [
+     0.6,
+     0.28
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p11",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, pouring tea from height into a glass, long pour, gentle smile, tea stall, steam, morning light",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "Ten rupees a glass. Same price for everyone.",
+    "x": 0.74,
+    "y": 0.2,
+    "w": 0.3,
+    "to": [
+     0.5,
+     0.24
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p12",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, smiling, waving, holding a small clay cup with a lid, walking up to a tea stall, morning",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/meera.jpg",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "Morning! I still have yesterday's tea to go. Haven't even drunk it yet.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.34,
+    "to": [
+     0.45,
+     0.25
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p13",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, curious, looking down, surprised, face focus, portrait, steam",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/meera_face.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "Wait... were your hands glowing just now?",
+    "x": 0.78,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.6,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p14",
+  "prompt": "close-up of a young man's hands stirring tea in a steel pot with a spoon, faint golden glow around the hands, steam, warm light, tea stall, no face",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024
+ },
+ {
+  "name": "p15",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, deadpan, expressionless, looking to the side, face focus, steam",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "...Steam.",
+    "x": 0.8,
+    "y": 0.14,
+    "w": 0.2,
+    "to": [
+     0.62,
+     0.32
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p16",
+  "prompt": "glass cups rattling and falling off a wooden counter, cracks spreading across a stone street, dust, earthquake, tea stall, motion lines",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "And then the ground started to shake."
+   }
+  ],
+  "sfx": [
+   {
+    "text": "RUMBLE RUMBLE",
+    "x": 0.5,
+    "y": 0.2,
+    "size": 100,
+    "rotate": -4
+   }
+  ]
+ },
+ {
+  "name": "p17",
+  "prompt": "giant portal glowing red in a city plaza, red lightning, people running away, alarm lights, debris, from below, dramatic",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "status": [
+   {
+    "title": "[ WARNING: GATE BREAK ]",
+    "x": 0.5,
+    "y": 0.82,
+    "w": 0.84,
+    "lines": [
+     "Rank: UNKNOWN",
+     "Evacuate the area now."
+    ]
+   }
+  ],
+  "sfx": [
+   {
+    "text": "WEEOO WEEOO",
+    "x": 0.5,
+    "y": 0.12,
+    "size": 90,
+    "rotate": 4,
+    "color": "#ff5a4f"
+   }
+  ]
+ },
+ {
+  "name": "p18",
+  "prompt": "giant armored centipede monster with glowing red eyes bursting out of a red glowing portal into a city street, debris flying, rubble, dramatic, from below, dust",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "sfx": [
+   {
+    "text": "KRAKOOM!!",
+    "x": 0.5,
+    "y": 0.88,
+    "size": 130,
+    "rotate": -6,
+    "color": "#ff5a4f"
+   }
+  ]
+ },
+ {
+  "name": "p19",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, throwing off a black hoodie, drawing sword, heroic pose, determined, wind, city street, debris",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.45,
+  "bubbles": [
+   {
+    "text": "Stand back! Viktor Hale is here!",
+    "x": 0.22,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.42,
+     0.25
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p20",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, flying through the air, knocked away, hit by a giant monster tail, crashing through a stall awning, comedy, motion lines, debris, city street",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.35,
+  "sfx": [
+   {
+    "text": "WHAM!",
+    "x": 0.76,
+    "y": 0.2,
+    "size": 120,
+    "rotate": 8
+   }
+  ]
+ },
+ {
+  "name": "p21",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, lying in rubble, dazed, swirly eyes, chibi, comedy, bandages, dust",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "I... haven't had my tea yet...",
+    "x": 0.76,
+    "y": 0.14,
+    "w": 0.28,
+    "to": [
+     0.56,
+     0.35
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p22",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, holding a steel kettle, pouring hot water, steam, shouting, open mouth, worried, tea stall, chaos, debris",
+  "seed": 11,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "Your hour ended yesterday! Give me two minutes, it has to boil!",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.34,
+    "to": [
+     0.45,
+     0.25
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p23",
+  "prompt": "1girl, healer girl in white robe with gold trim and long black braid, seen from behind, standing in front of a small tea stall, holding a staff and a small clay cup, a giant armored centipede monster with red eyes towering over her, dramatic, city street, debris",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "ref": "../ref/meera.jpg",
+  "ref_scale": 0.35
+ },
+ {
+  "name": "p24",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, looking at a small clay cup in her hand, worried, sweat, face focus",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/meera_face.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "It's cold... does it still work?",
+    "x": 0.78,
+    "y": 0.12,
+    "w": 0.28,
+    "to": [
+     0.6,
+     0.3
+    ],
+    "kind": "thought"
+   }
+  ]
+ },
+ {
+  "name": "p25",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, drinking from a small clay cup in one gulp, head back, determined, closed eyes, upper body, debris",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/meera.jpg",
+  "ref_scale": 0.5,
+  "sfx": [
+   {
+    "text": "GULP",
+    "x": 0.72,
+    "y": 0.5,
+    "size": 110,
+    "rotate": 10
+   }
+  ]
+ },
+ {
+  "name": "p26",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, golden aura, glowing body, glowing eyes, yellow eyes, braid floating, power up, light particles, city street, debris, dramatic",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "ref": "../ref/meera.jpg",
+  "ref_scale": 0.45,
+  "sfx": [
+   {
+    "text": "BA-DUMP",
+    "x": 0.78,
+    "y": 0.62,
+    "size": 90,
+    "rotate": 8
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "...Oh.",
+    "x": 0.2,
+    "y": 0.14,
+    "w": 0.14,
+    "to": [
+     0.38,
+     0.2
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p27",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, swinging staff, smashing a giant armored centipede monster, golden shockwave, blood splatter, impact, dynamic pose, motion blur, action, city street",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/meera.jpg",
+  "ref_scale": 0.35,
+  "sfx": [
+   {
+    "text": "KRA-THOOM!!",
+    "x": 0.68,
+    "y": 0.18,
+    "size": 130,
+    "rotate": -7
+   }
+  ]
+ },
+ {
+  "name": "p28",
+  "prompt": "1boy, blonde knight in silver armor sitting in rubble, a crowd of people behind him, all shocked, jaw drop, wide-eyed, chibi, comedy, sweatdrop, city street",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.4,
+  "bubbles": [
+   {
+    "text": "THE HEALER?!",
+    "x": 0.26,
+    "y": 0.12,
+    "w": 0.24,
+    "to": [
+     0.42,
+     0.3
+    ],
+    "size": 32
+   }
+  ]
+ },
+ {
+  "name": "p29",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, standing on top of a defeated giant armored centipede monster, staff on shoulder, golden aura fading, smoke, crowd watching from a distance, city street, sunlight",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/meera.jpg",
+  "ref_scale": 0.4
+ },
+ {
+  "name": "p30",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, sweet smile, holding an empty clay cup, sparkle, face focus, golden light",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/meera_face.jpg",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "That was the best tea I've ever had.",
+    "x": 0.78,
+    "y": 0.12,
+    "w": 0.28,
+    "to": [
+     0.6,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p31",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, slight smile, looking at viewer, thinking, face focus, steam, golden light",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "Even cold. Even to go.",
+    "x": 0.78,
+    "y": 0.12,
+    "w": 0.26,
+    "to": [
+     0.6,
+     0.3
+    ],
+    "kind": "thought"
+   }
+  ],
+  "after": [
+   {
+    "text": "One hour of borrowed power. And anyone can drink it."
+   }
+  ]
+ },
+ {
+  "name": "p32",
+  "prompt": "1boy, solo, man in a black suit and black sunglasses standing on a rooftop, holding a phone to his ear, red lotus pin on his chest, looking down at a city street, wind, morning, ominous",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "bubbles": [
+   {
+    "text": "Boss. I found it. The tea seller.",
+    "x": 0.8,
+    "y": 0.42,
+    "w": 0.3,
+    "to": [
+     0.55,
+     0.24
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p33",
+  "prompt": "no humans, giant red eye with a slit pupil inside a dark red glowing portal, narrowing, ominous, darkness, red light, horror",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "before": [
+   {
+    "text": "And deep inside the Gate..."
+   }
+  ],
+  "after": [
+   {
+    "text": "...the eye was still watching."
+   }
+  ]
+ },
+ {
+  "name": "end",
+  "card": "To be continued",
+  "h": 360
+ }
+]

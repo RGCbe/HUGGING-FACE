@@ -1,0 +1,23 @@
+[
+ {
+  "name": "t_arjun_stall",
+  "seed": 5,
+  "ref": "ref/arjun.jpg",
+  "ref_scale": 0.65,
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, holding teapot, pouring tea, glass cup, tea stall, street, night, string lights, steam, smile, upper body"
+ },
+ {
+  "name": "t_arjun_fight",
+  "seed": 5,
+  "ref": "ref/arjun.jpg",
+  "ref_scale": 0.65,
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, holding sword, glowing sword, golden aura, fighting, blood, blood splatter, blood on face, cut on cheek, dungeon, cave, dynamic angle, action, motion lines, dramatic lighting"
+ },
+ {
+  "name": "t_viktor_shock",
+  "seed": 5,
+  "ref": "ref/viktor.jpg",
+  "ref_scale": 0.5,
+  "prompt": "1boy, male focus, solo, adult, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, surprised, open mouth, wide-eyed, sweatdrop, comedy, holding glass cup, tea, upper body, tea stall, night"
+ }
+]
