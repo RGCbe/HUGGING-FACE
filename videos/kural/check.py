@@ -58,8 +58,14 @@ def ordinal(n):
     return w[:-1] + "ieth" if w.endswith("y") else w + "th"
 
 
+SPELLINGS = {"mould": "mold", "moulds": "molds", "mouldy": "moldy", "whisky": "whiskey", "whiskies": "whiskeys", "grey": "gray",
+             "tyre": "tire", "tyres": "tires", "cheque": "check", "pyjamas": "pajamas", "aluminium": "aluminum"}
+
+
 def british(w):
-    """One spelling for British and American words: neighbour/neighbor, centre/center, realise/realize."""
+    """One spelling for British and American words: neighbour/neighbor, centre/center, realise/realize, mould/mold."""
+    if w in SPELLINGS:
+        return SPELLINGS[w]
     w = re.sub(r"^(\w{2,})our(s|ed|ing|ite|ites|hood|ly|able)?$", r"\1or\2", w)
     w = re.sub(r"^(\w{2,}[^aeiou])re(s)?$", r"\1er\2", w)
     return re.sub(r"^(\w{2,})is(e|es|ed|ing|ation|ations)$", r"\1iz\2", w)
@@ -91,6 +97,7 @@ ROMAN = {"I": "first", "II": "second", "III": "third", "IV": "fourth", "V": "fif
 def tokens(text):
     out = []
     text = re.sub(r"(?<=\d),(?=\d{3}\b)", "", text.replace("’", "'"))  # 9,860 is one number
+    text = re.sub(r"(\d)\.(\d)", r"\1 point \2", text)  # 1.3 is "one point three"
     text = re.sub(r"\$(\d+) (thousand|million|billion)\b", r"\1 \2 dollars", text)  # $20 million: twenty million dollars
     text = re.sub(r"\$(\d+)", r"\1 dollars", text)
     text = re.sub(r"\b([A-Z][a-z]+) (I|II|III|IV|V|VI|VII|VIII)\b(?! [a-z])", lambda m: f"{m.group(1)} the {ROMAN[m.group(2)]}", text)
@@ -100,7 +107,7 @@ def tokens(text):
         nth = re.fullmatch(r"(\d+)(st|nd|rd|th)", w)
         decade = re.fullmatch(r"(\d{0,2}\d0)s", w)
         if nth and int(nth.group(1)) < 1000000:
-            out.append(ordinal(int(nth.group(1))))
+            out.append("º" + nth.group(1))  # "102nd": "one hundred and second" or "hundred and second": readings() has both
         elif decade:
             out.append("¤" + decade.group(1))  # "1960s" is "nineteen sixties", "60s" is "sixties": readings() has them
         elif w.isdigit() and int(w) < 1000000:
@@ -116,7 +123,12 @@ def number_readings(n):
     out = {spell(n), ordinal(n)} | ({year(n)} if 1100 <= n < 2100 else set())
     if n > 1000 and 0 < n % 1000 < 100:
         out.add(spell(n // 1000) + "thousandand" + spell(n % 1000))
-    return out
+    return out | short_forms(out)
+
+
+def short_forms(words):
+    """"one hundred" is also said "a hundred" or, in a name, "hundred" ("the hundred and second Infantry")."""
+    return {pre + x[3:] for x in words if x.startswith(("onehundred", "onethousand")) for pre in ("", "a")}
 
 
 def decade_readings(n):
@@ -130,7 +142,8 @@ def readings(words):
     options = [""]
     for w in words:
         alts = (number_readings(int(w[1:])) if w.startswith("§") else
-                decade_readings(int(w[1:])) if w.startswith("¤") else [w])
+                decade_readings(int(w[1:])) if w.startswith("¤") else
+                {ordinal(int(w[1:]))} | short_forms({ordinal(int(w[1:]))}) if w.startswith("º") else [w])
         options = [o + x for o in options for x in alts]
     return set(options)
 
@@ -191,8 +204,8 @@ for n in todo:
     for op, a0, a1, b0, b1 in difflib.SequenceMatcher(a=want, b=got, autojunk=False).get_opcodes():
         if op == "equal" or close(want[a0:a1], got[b0:b1]):
             continue
-        said = " ".join(want[a0:a1]).replace("§", "").replace("¤", "") or "(nothing)"
-        heard = " ".join(got[b0:b1]).replace("§", "").replace("¤", "") or "(nothing)"
+        said = " ".join(want[a0:a1]).replace("§", "").replace("¤", "").replace("º", "") or "(nothing)"
+        heard = " ".join(got[b0:b1]).replace("§", "").replace("¤", "").replace("º", "") or "(nothing)"
         problems.append(f'"{said}" was heard as "{heard}"')
     report.append({"n": n, "ok": not problems, "heard": heard_text, "problems": problems})
     print(f"section {n}: {'clear' if not problems else 'NOT CLEAR - ' + '; '.join(problems)}", flush=True)
