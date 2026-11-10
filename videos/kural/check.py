@@ -97,6 +97,7 @@ ROMAN = {"I": "first", "II": "second", "III": "third", "IV": "fourth", "V": "fif
 def tokens(text):
     out = []
     text = re.sub(r"(?<=\d),(?=\d{3}\b)", "", text.replace("’", "'"))  # 9,860 is one number
+    text = text.replace("%", " percent")  # 3.5%: "three point five percent"
     text = re.sub(r"(\d)\.(\d)", r"\1 point \2", text)  # 1.3 is "one point three"
     text = re.sub(r"\$(\d+) (thousand|million|billion)\b", r"\1 \2 dollars", text)  # $20 million: twenty million dollars
     text = re.sub(r"\$(\d+)", r"\1 dollars", text)
@@ -145,7 +146,7 @@ def readings(words):
                 decade_readings(int(w[1:])) if w.startswith("¤") else
                 {ordinal(int(w[1:]))} | short_forms({ordinal(int(w[1:]))}) if w.startswith("º") else [w])
         options = [o + x for o in options for x in alts]
-    return set(options)
+    return {o.replace("pointfive", "andahalf") for o in options}  # 3.5 is also "three and a half"
 
 
 NAMES, HEARD_AS = [], {}
