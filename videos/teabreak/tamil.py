@@ -11,6 +11,8 @@ writes (the owner checks the Tamil):
                      scenes.js is looked up, and a text with no entry stays English (names, a sale's name)
   thumbnail_ta.js    the Tamil thumbnail (like thumbnail.js)
   meta_ta.json       {"title", "description", "tags", "publish_at"}
+  caption_replace_ta.json (optional)  [["ஆயிரத்து தொள்ளாயிரத்து எழுபதுல", "1970-ல"], ...]: spoken words shown
+                     another way in the captions (numbers as digits)
 
   voice   each section in the owner's ElevenLabs voice (kural/eleven.py, config.json "eleven"), and a check
           that Whisper hears Tamil in every section (Whisper's Tamil is too weak to check word by word: the
@@ -110,6 +112,25 @@ def word_times(words, spans):
     return out
 
 
+def shown(words, table):
+    """Caption words with each spoken phrase in table replaced by how it is shown ("1970-ல" for the year in words);
+    the phrase's last word keeps its punctuation, and the shown word spans the phrase's time."""
+    strip = lambda w: re.sub(r"[.,?!:;\"]+$", "", w)
+    phrases = sorted(((p.split(), v) for p, v in table), key=lambda r: -len(r[0]))
+    out, i = [], 0
+    while i < len(words):
+        for p, v in phrases:
+            if [strip(w["w"]) for w in words[i:i + len(p)]] == p:
+                last = words[i + len(p) - 1]
+                out.append({"w": v + last["w"][len(strip(last["w"])):], "t0": words[i]["t0"], "t1": last["t1"]})
+                i += len(p)
+                break
+        else:
+            out.append(words[i])
+            i += 1
+    return out
+
+
 def step_voice(d):
     t = os.path.join(d, "tamil")
     n = len(lines(os.path.join(t, "voiceover_ta.txt")))
@@ -172,6 +193,8 @@ def step_video(d):
     secs, total = timing["sections"], timing["total"] + TAIL
     text = [re.sub(r"^\[[a-z]+\]\s*", "", l) for l in lines(os.path.join(t, "voiceover_ta.txt"))]
     track = np.zeros(int(total * SR) + SR, dtype=np.float32)
+    rp = os.path.join(t, "caption_replace_ta.json")
+    table = json.load(open(rp, encoding="utf-8")) if os.path.exists(rp) else []
     ta_sections, slow = [], []
     for k, s in enumerate(secs):
         a = trim(load(os.path.join(t, "tts", f"sec_{s['n']:02d}.wav")))
@@ -189,7 +212,7 @@ def step_video(d):
         track[i:i + len(a)] += a[: len(track) - i]
         spans = [[s["offset"] + x, s["offset"] + y] for x, y in speech_spans(a)]
         ta_sections.append({"n": s["n"], "offset": s["offset"], "duration": len(a) / SR,
-                            "words": word_times(text[k].split(), spans)})
+                            "words": shown(word_times(text[k].split(), spans), table)})
     if slow:
         sys.exit("Tamil too long for its pictures; shorten these lines in voiceover_ta.txt and run voice again:\n  "
                  + "\n  ".join(slow))
@@ -209,8 +232,13 @@ def step_video(d):
     # pictures: the boards with Tamil words, on the English timeline (the cues are English words)
     data = os.path.join(d, "data.json")
     silent = os.path.join(t, "silent_ta.mp4")
-    run("node", os.path.join(DOODLE, "render.mjs"), "--timing", os.path.join(d, "timing.json"), "--data", data,
-        "--scenes", scenes_ta(d), "--out", silent)
+    scenes = scenes_ta(d)
+    inputs = [os.path.join(d, "scenes.js"), os.path.join(t, "onscreen_ta.json"), os.path.join(d, "timing.json")]
+    if os.path.exists(silent) and os.path.getmtime(silent) > max(os.path.getmtime(p) for p in inputs):
+        print(f"boards unchanged since {silent}: not rendered again")
+    else:
+        run("node", os.path.join(DOODLE, "render.mjs"), "--timing", os.path.join(d, "timing.json"), "--data", data,
+            "--scenes", scenes, "--out", silent)
     out = os.path.join(d, "out")
     video = os.path.join(out, f"{slug}_ta.mp4")
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", silent, "-i", mix, "-vf",
