@@ -1,11 +1,12 @@
 """Burned-in caption file (ASS) from word timings.
 
     python3 captions.py TIMING_JSON OUT_ASS [--layout landscape|vertical] [--margin PX] [--replace REPLACE_JSON]
-                        [--from SEC] [--to SEC] [--shift SEC]
+                        [--from SEC] [--to SEC] [--shift SEC] [--font NAME]
 
 Words are grouped into short captions that break at punctuation. REPLACE_JSON is a list of
 [spoken phrase, shown text] pairs, so "nineteen thirty-two" can read "1932" on screen.
---from/--to keep only that stretch of the timeline and --shift moves it (for Shorts).
+--from/--to keep only that stretch of the timeline and --shift moves it (for Shorts). --font is a font
+in fonts/: "Patrick Hand" (default) or "Kavivanar" for Tamil captions.
 """
 import argparse
 import json
@@ -20,6 +21,7 @@ ap.add_argument("--replace")
 ap.add_argument("--from", dest="t_from", type=float, default=0.0)
 ap.add_argument("--to", dest="t_to", type=float, default=1e9)
 ap.add_argument("--shift", type=float, default=0.0)
+ap.add_argument("--font", default="Patrick Hand")
 a = ap.parse_args()
 
 norm = lambda w: re.sub(r"[^a-z0-9]", "", w.lower())
@@ -73,7 +75,7 @@ WrapStyle: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Cap,Patrick Hand,{size},&H00111111,&H00111111,&H0080E6FF,&H00000000,0,0,0,0,100,100,0,0,3,10,0,2,60,60,{margin},1
+Style: Cap,{a.font},{size},&H00111111,&H00111111,&H0080E6FF,&H00000000,0,0,0,0,100,100,0,0,3,10,0,2,60,60,{margin},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text

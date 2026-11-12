@@ -148,11 +148,13 @@
   };
 
   // Handwritten text revealed left to right. Lines split on "\n" are written one after another.
-  // font: 'Hand' (Latin) or 'Tamil'; maxWidth shrinks the font until every line fits.
+  // font: 'Hand' (Latin) or 'Tamil'; by default Latin letters are drawn in 'Hand' and Tamil letters in
+  // 'Tamil', so a Tamil version of a video needs no font changes. maxWidth shrinks the font until every line fits.
+  D.FONT = 'Hand, Tamil';
   D.write = function (at, x, y, str, o = {}) {
     let size = o.size || 64;
     const lines = str.split('\n');
-    const font = o.font || 'Hand';
+    const font = o.font || D.FONT;
     if (o.maxWidth) {
       const probe = mk('text', { 'font-family': font, 'font-size': size }, cur.g);
       const widest = Math.max(...lines.map((l) => ((probe.textContent = l), probe.getBBox().width)));
@@ -246,7 +248,7 @@
   D.stamp = function (at, x, y, str, o = {}) {
     const size = o.size || 60;
     const color = o.color || D.RED;
-    const txt = mk('text', { x, y: y + size * 0.35, 'font-family': 'Hand', 'font-size': size, fill: color, 'text-anchor': 'middle' });
+    const txt = mk('text', { x, y: y + size * 0.35, 'font-family': o.font || D.FONT, 'font-size': size, fill: color, 'text-anchor': 'middle' });
     txt.textContent = str;
     // measure in place, then build the box around it
     cur.g.appendChild(txt);
