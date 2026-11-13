@@ -1,0 +1,645 @@
+[
+ {
+  "name": "p01",
+  "prompt": "scenery, night, the tallest skyscraper in a huge modern Indian city, a giant glowing red lotus symbol on top of the tower, city lights, a giant glowing blue portal in the distance, clouds, ominous, from below",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "Mumbai's tallest tower. Home of the Red Lotus Guild."
+   }
+  ]
+ },
+ {
+  "name": "p02",
+  "prompt": "1girl, solo, woman seen from behind, long black hair in a low bun, red blazer, red lotus earrings, standing at a huge dark office window at night, watching a giant screen on the wall showing a healer girl in a white robe smashing a giant armored centipede monster with a golden shockwave, dark office, ominous",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "bubbles": [
+   {
+    "text": "A healer one-shot a Gate monster... with a glass of chai.",
+    "x": 0.24,
+    "y": 0.1,
+    "w": 0.34,
+    "to": [
+     0.42,
+     0.24
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p03",
+  "prompt": "1boy, solo, adult man in a black suit and black sunglasses, slicked back black hair, red lotus pin on his chest, black tie, standing in a dark office, bowing slightly, serious face, upper body, red light from a window",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "The tea seller sells it for ten rupees a glass, Boss.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.58,
+     0.28
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p04",
+  "prompt": "close-up of a woman's red lips smiling, red lotus earring, long black hair, lower face only, dark office, red light, ominous, no eyes visible",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "Then buy the tea seller.",
+    "x": 0.78,
+    "y": 0.14,
+    "w": 0.3,
+    "to": [
+     0.56,
+     0.5
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p05",
+  "prompt": "scenery, morning, a very long queue of many hunters in armor and robes stretching down a city street to a small tea stall, crowd, waiting in line, a giant glowing blue portal in the background, stone plaza, sunlight",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "The next morning..."
+   }
+  ],
+  "status": [
+   {
+    "title": "[ ARJUN'S TEA STALL ]",
+    "x": 0.5,
+    "y": 0.8,
+    "w": 0.84,
+    "lines": [
+     "Queue: 214 hunters",
+     "Pots: 1",
+     "Price: 10 rupees a glass"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p06",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, shocked, sweating, sweatdrop, wide-eyed, holding a small steel tea pot, comedy, tea stall, upper body, morning",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "...I only have one pot.",
+    "x": 0.78,
+    "y": 0.12,
+    "w": 0.28,
+    "to": [
+     0.6,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p07",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, wearing an apron over her white robe, pouring tea into glass cups at a tea stall, cheerful smile, wink, upper body, morning",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/meera.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "I'm here to help! Not for the tea. ...Okay, also for the tea.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.36,
+    "to": [
+     0.45,
+     0.25
+    ],
+    "size": 23
+   }
+  ]
+ },
+ {
+  "name": "p08",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, sunglasses, black hoodie over silver armor, fake mustache, hood up, standing in a queue, holding a small paper token with the number 187, proud smile, crowd behind him, comedy, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.45,
+  "bubbles": [
+   {
+    "text": "Number 187. Even Viktor Hale waits in line.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.42,
+     0.28
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p09",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, stirring tea in a big steel pot, hands glowing golden, tired, sweating, heavy breathing, steam, tea stall, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "Glass 140... why am I so tired?",
+    "x": 0.78,
+    "y": 0.12,
+    "w": 0.28,
+    "to": [
+     0.6,
+     0.3
+    ],
+    "kind": "thought"
+   }
+  ]
+ },
+ {
+  "name": "p10",
+  "prompt": "close-up of a young man's trembling hands holding a glass of tea, faint golden glow flickering around the fingers, sweat drops, steam, dramatic lighting",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "sfx": [
+   {
+    "text": "flicker...",
+    "x": 0.78,
+    "y": 0.8,
+    "size": 80,
+    "rotate": -5,
+    "color": "#e8c56a"
+   }
+  ],
+  "after": [
+   {
+    "text": "Every glass took a little of something. He didn't know what yet."
+   }
+  ]
+ },
+ {
+  "name": "p11",
+  "prompt": "a long black car stopping in a city street, a crowd parting, a man in a black suit and black sunglasses stepping out, two huge men in red armor behind him, red lotus symbol on their armor, morning, tension, from below",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "Then the Red Lotus arrived."
+   }
+  ],
+  "sfx": [
+   {
+    "text": "SCREECH!",
+    "x": 0.74,
+    "y": 0.18,
+    "size": 110,
+    "rotate": 8
+   }
+  ]
+ },
+ {
+  "name": "p12",
+  "prompt": "1boy, solo, adult man in a black suit and black sunglasses, slicked back black hair, red lotus pin on his chest, black tie, placing an open silver briefcase full of banknotes on a wooden tea stall counter, cash, money, cold smile, upper body",
+  "seed": 11,
+  "w": 1024,
+  "h": 1024,
+  "sfx": [
+   {
+    "text": "CLICK",
+    "x": 0.78,
+    "y": 0.8,
+    "size": 90,
+    "rotate": -6
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "Ten crore rupees. For the recipe. And for you.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.34,
+    "to": [
+     0.42,
+     0.28
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p13",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, deadpan, half-closed eyes, calm, holding a glass of tea, face focus, portrait, steam, tea stall",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "Ten rupees a glass.",
+    "x": 0.8,
+    "y": 0.12,
+    "w": 0.26,
+    "to": [
+     0.62,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p14",
+  "prompt": "1boy, solo, adult man in a black suit and black sunglasses, slicked back black hair, red lotus pin on his chest, black tie, lowering his sunglasses with one finger, cold eyes, menacing smile, face focus, close-up, dramatic shadow",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "You misunderstand. This isn't an offer.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.42,
+     0.28
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p15",
+  "prompt": "several big men in red armor with red lotus symbols surrounding a small tea stall, cracking knuckles, one holding a giant hammer, menacing grins, scared customers in the background, city street, morning, tension",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "sfx": [
+   {
+    "text": "KRAK KRAK",
+    "x": 0.76,
+    "y": 0.84,
+    "size": 100,
+    "rotate": -6
+   }
+  ]
+ },
+ {
+  "name": "p16",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, throwing off a black hoodie, standing in front of a tea stall, arms spread, protecting, heroic pose, determined, wind, city street",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.45,
+  "bubbles": [
+   {
+    "text": "This tea stall is under MY protection!",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.42,
+     0.26
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p17",
+  "prompt": "1boy, solo, adult man in a black suit and black sunglasses, slicked back black hair, red lotus pin on his chest, black tie, unimpressed, smirk, crossing arms, upper body, city street",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "Viktor Hale. You lost to a centipede yesterday.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.58,
+     0.28
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p18",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, embarrassed, sweatdrop, blushing, scratching cheek, comedy, chibi, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "...That was yesterday.",
+    "x": 0.78,
+    "y": 0.12,
+    "w": 0.26,
+    "to": [
+     0.6,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p19",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, stepping forward beside a tea stall, holding her staff in one hand and a glass of tea in the other, confident smile, wind in her braid, city street",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/meera.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "And mine.",
+    "x": 0.78,
+    "y": 0.12,
+    "w": 0.2,
+    "to": [
+     0.6,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p20",
+  "prompt": "a huge crowd of many hunters in armor and robes turning around together, every one of them holding a glass of tea, golden glowing auras around all of them, glowing eyes, staring, city street, dramatic, from behind a small group of men in red armor",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "sfx": [
+   {
+    "text": "BA-DUMP  BA-DUMP  BA-DUMP",
+    "x": 0.5,
+    "y": 0.88,
+    "size": 80,
+    "rotate": -3
+   }
+  ]
+ },
+ {
+  "name": "p21",
+  "prompt": "1boy, solo, adult man in a black suit and black sunglasses, slicked back black hair, red lotus pin on his chest, black tie, sweating, nervous, sweatdrop, sunglasses slipping, shocked, comedy, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "...Wait. How many of you just drank the tea?",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.58,
+     0.28
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p22",
+  "prompt": "a big crowd of hunters in armor and robes all raising one hand, every one holding up a glass of tea, golden glow, big menacing smiles, comedy, city street, sunlight",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "sfx": [
+   {
+    "text": "*ALL OF US*",
+    "x": 0.5,
+    "y": 0.12,
+    "size": 90,
+    "rotate": 3
+   }
+  ]
+ },
+ {
+  "name": "p23",
+  "prompt": "two big men in red armor hugging each other in fear, crying comically, shrinking, sweatdrops, chibi, comedy, city street",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "The Boss said nothing about 214 powered-up hunters!",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.36,
+    "to": [
+     0.45,
+     0.3
+    ],
+    "size": 23
+   }
+  ]
+ },
+ {
+  "name": "p24",
+  "prompt": "1boy, solo, adult man in a black suit and black sunglasses, slicked back black hair, red lotus pin on his chest, black tie, putting his sunglasses back on, turning away, walking to a black car, calm, cold, city street",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "We'll come back. In one hour.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.58,
+     0.28
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p25",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, pouring tea from height into a glass, long pour, calm smile, closed eyes, steam, tea stall, morning light",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "Come back in two. I'll have a fresh pot ready.",
+    "x": 0.24,
+    "y": 0.14,
+    "w": 0.32,
+    "to": [
+     0.42,
+     0.28
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p26",
+  "prompt": "scenery, a crowd of hunters cheering and raising glasses of tea, a black car driving away in the distance, a small tea stall, confetti of steam, celebration, city street, sunlight",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "sfx": [
+   {
+    "text": "CHEER!!",
+    "x": 0.76,
+    "y": 0.16,
+    "size": 120,
+    "rotate": 8
+   }
+  ]
+ },
+ {
+  "name": "p27",
+  "prompt": "scenery, evening, sunset, an empty city street, a small closed tea stall, a lone young man sweeping the ground, long shadow, quiet, orange sky, a giant glowing portal far away",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "That evening, after the last glass..."
+   }
+  ]
+ },
+ {
+  "name": "p28",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, looking down at his own trembling hand, faint golden glow fading, worried, sweat, sunset light, face focus",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "214 glasses... and my hands won't stop shaking.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.58,
+     0.3
+    ],
+    "kind": "thought",
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p29",
+  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, kind smile, wooden walking stick, standing in front of a small tea stall at dusk, warm lamp light, mysterious, gentle, full body, city street, evening",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "bubbles": [
+   {
+    "text": "You're pouring too much of yourself into the pot, beta.",
+    "x": 0.26,
+    "y": 0.08,
+    "w": 0.4,
+    "to": [
+     0.5,
+     0.2
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p30",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, shocked, wide-eyed, open mouth, dropping a broom, face focus, evening light",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "...Paati?!",
+    "x": 0.78,
+    "y": 0.14,
+    "w": 0.22,
+    "to": [
+     0.6,
+     0.3
+    ],
+    "size": 32
+   }
+  ]
+ },
+ {
+  "name": "p31",
+  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, kind smile, wooden walking stick, close-up, face focus, kind smile, eyes glowing faint gold, steam rising from a glass of tea in her hand, warm light, mysterious",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "Who do you think taught you to make chai?",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.58,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p32",
+  "prompt": "1girl, solo, woman seen from behind, long black hair in a low bun, red blazer, red lotus earrings, standing at a huge dark office window at night, holding a phone to her ear, looking down at the glowing city, red light, ominous",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "bubbles": [
+   {
+    "text": "One hour? Fine. Everyone sleeps eventually.",
+    "x": 0.28,
+    "y": 0.08,
+    "w": 0.4,
+    "to": [
+     0.5,
+     0.22
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "end",
+  "card": "To be continued",
+  "h": 360
+ }
+]
