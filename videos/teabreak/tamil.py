@@ -174,9 +174,10 @@ def scenes_ta(d):
             return m.group(0)  # a cue phrase: the English words it waits for, never shown
         plain = text.replace("\\'", "'").replace('\\"', '"')
         plain = re.sub(r"\\u([0-9a-fA-F]{4})", lambda u: chr(int(u.group(1), 16)), plain)  # 'COULDN\u2019T' is COULDN’T
+        plain = plain.replace("\\n", "\n")  # a board text on two lines
         if plain in table:
             used.add(plain)
-            return q + table[plain].replace("\\", "\\\\").replace(q, "\\" + q) + q
+            return q + table[plain].replace("\\", "\\\\").replace("\n", "\\n").replace(q, "\\" + q) + q
         return m.group(0)
     out = re.sub(r"(['\"])((?:\\.|(?!\1).)*)\1", swap, src)
     for k in set(table) - used:
