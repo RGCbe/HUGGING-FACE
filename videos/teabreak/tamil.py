@@ -116,7 +116,7 @@ def shown(words, table):
     """Caption words with each spoken phrase in table replaced by how it is shown ("1970-ல" for the year in words);
     the phrase's last word keeps its punctuation, and the shown word spans the phrase's time."""
     strip = lambda w: re.sub(r"[.,?!:;\"]+$", "", w)
-    phrases = sorted(((p.split(), v) for p, v in table), key=lambda r: -len(r[0]))
+    phrases = sorted((([strip(x) for x in p.split()], strip(v)) for p, v in table), key=lambda r: -len(r[0]))
     out, i = [], 0
     while i < len(words):
         for p, v in phrases:
