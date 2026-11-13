@@ -171,6 +171,7 @@ def scenes_ta(d):
         if re.search(r"\b(?:c|cue|cueEnd)\(\d+, *$", src[max(0, m.start() - 20):m.start()]):
             return m.group(0)  # a cue phrase: the English words it waits for, never shown
         plain = text.replace("\\'", "'").replace('\\"', '"')
+        plain = re.sub(r"\\u([0-9a-fA-F]{4})", lambda u: chr(int(u.group(1), 16)), plain)  # 'COULDN\u2019T' is COULDN’T
         if plain in table:
             used.add(plain)
             return q + table[plain].replace("\\", "\\\\").replace(q, "\\" + q) + q
