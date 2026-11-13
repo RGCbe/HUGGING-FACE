@@ -10,7 +10,8 @@ writes (the owner checks the Tamil):
   onscreen_ta.json   {"English text on a board": "Tamil text", ...}; every write/big/stamp/calendar text in
                      scenes.js is looked up, and a text with no entry stays English (names, a sale's name)
   thumbnail_ta.js    the Tamil thumbnail (like thumbnail.js)
-  meta_ta.json       {"title", "description", "tags", "publish_at"}
+  meta_ta.json       {"title", "description", "tags", "publish_at"} (or, for a video whose English one is already
+                     out, no publish_at and "privacy": "public")
   caption_replace_ta.json (optional)  [["ஆயிரத்து தொள்ளாயிரத்து எழுபதுல", "1970-ல"], ...]: spoken words shown
                      another way in the captions (numbers as digits)
 
@@ -22,7 +23,8 @@ writes (the owner checks the Tamil):
           of the English video, Tamil captions (word times spread over the speech, skipping pauses), the
           boards re-rendered with the Tamil words, and the Tamil thumbnail:
           out/SLUG_ta.mp4, out/SLUG_ta_thumbnail.jpg
-  upload  writes tamil/upload_ta.json and uploads it (private, scheduled at publish_at, language Tamil)
+  upload  writes tamil/upload_ta.json and uploads it (language Tamil): private and scheduled at publish_at, the
+          English video's own time, or public at once when meta_ta.json says so
 """
 import json
 import os
@@ -268,7 +270,8 @@ def step_upload(d):
                          "language": "ta", "refresh_token_env": cfg["channel"]["refresh_token_env"]},
             "videos": [{"file": os.path.join(out, f"{slug}_ta.mp4"), "thumbnail": os.path.join(out, f"{slug}_ta_thumbnail.jpg"),
                         "title": meta["title"], "description": meta["description"] + note, "tags": meta["tags"],
-                        "publish_at": meta["publish_at"], "playlists": [long_list] if long_list else []}]}
+                        "publish_at": meta.get("publish_at"), "privacy": meta.get("privacy", "private"),
+                        "playlists": [long_list] if long_list else []}]}
     path = os.path.join(t, "upload_ta.json")
     json.dump(spec, open(path, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
     run("python3", os.path.join(DOODLE, "upload.py"), path)
