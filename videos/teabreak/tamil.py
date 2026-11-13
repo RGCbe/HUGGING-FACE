@@ -246,6 +246,7 @@ def step_video(d):
             "--scenes", scenes, "--out", part)
         os.replace(part, silent)
     out = os.path.join(d, "out")
+    os.makedirs(out, exist_ok=True)
     video = os.path.join(out, f"{slug}_ta.mp4")
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", silent, "-i", mix, "-vf",
         f"ass={ass}:fontsdir={os.path.join(DOODLE, 'fonts')}", "-af", f"afade=t=out:st={total - 1.5}:d=1.5", "-shortest",
