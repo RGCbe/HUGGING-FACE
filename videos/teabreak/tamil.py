@@ -236,9 +236,11 @@ def step_video(d):
     inputs = [os.path.join(d, "scenes.js"), os.path.join(t, "onscreen_ta.json"), os.path.join(d, "timing.json")]
     if os.path.exists(silent) and os.path.getmtime(silent) > max(os.path.getmtime(p) for p in inputs):
         print(f"boards unchanged since {silent}: not rendered again")
-    else:
+    else:  # rendered under another name first, so a render cut short (a restart) is never taken for a finished one
+        part = os.path.join(t, "silent_ta.part.mp4")
         run("node", os.path.join(DOODLE, "render.mjs"), "--timing", os.path.join(d, "timing.json"), "--data", data,
-            "--scenes", scenes, "--out", silent)
+            "--scenes", scenes, "--out", part)
+        os.replace(part, silent)
     out = os.path.join(d, "out")
     video = os.path.join(out, f"{slug}_ta.mp4")
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", silent, "-i", mix, "-vf",
