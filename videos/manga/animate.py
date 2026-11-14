@@ -7,8 +7,9 @@ LoRA so 4 steps are enough).
 SHOTS.json is a list of {"name", "motion", "seconds"?, "seed"?}: "name" is a panel in IMG_DIR (NAME.png) and
 "motion" says what moves ("her braid and robe blow in the wind, golden light pulses, the camera slowly pushes
 in"). A clip already in OUT_DIR is skipped, so delete one to make it again. Each 2-second clip reserves about
-60 s of the account's daily ZeroGPU time (300 s free, 40 min with PRO); the script stops cleanly when the day's
-time runs out, and running it again the next day carries on. Needs HF_TOKEN.
+120 s of the account's daily ZeroGPU time (300 s free, 40 min with PRO); the script stops cleanly when the day's
+time runs out, and running it again the next day carries on. The model needs the whole GPU ("xlarge"), which
+counts double against the daily time. Needs HF_TOKEN.
 """
 import json
 import os
@@ -24,7 +25,7 @@ SPACE = "Rggroups/anime-motion"
 STYLE = "anime, 2d animation, clean line art, consistent character, "
 NEGATIVE = ("static, still picture, blurred details, worst quality, low quality, deformed, disfigured, extra fingers, "
             "poorly drawn hands, poorly drawn faces, morphing, flicker, watermark, text, subtitles, signature")
-RESERVE = {2: 60, 3: 75}  # seconds of GPU time the Space reserves for a clip of this length at 4 steps
+RESERVE = {2: 120, 3: 150}  # daily GPU time a clip of this length reserves at 4 steps (twice the Space's duration: xlarge)
 
 shots_file, img_dir, out_dir = sys.argv[1:4]
 os.makedirs(out_dir, exist_ok=True)
