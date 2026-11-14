@@ -13,8 +13,8 @@
  },
  {
   "name": "p02",
-  "prompt": "1girl, solo, woman seen from behind, long black hair in a low bun, red blazer, red lotus earrings, standing at a huge dark office window at night, watching a giant screen on the wall showing a healer girl in a white robe smashing a giant armored centipede monster with a golden shockwave, dark office, ominous",
-  "seed": 7,
+  "prompt": "1girl, solo, from behind, woman in a red business suit, long black hair in a low bun, standing in a dark office at night, looking up at a big tv screen on the wall, on the screen a dark-skinned girl in a white robe with a long braid swings a staff at a giant centipede monster, golden light from the screen, ominous, wide shot",
+  "seed": 23,
   "w": 1216,
   "h": 832,
   "bubbles": [
@@ -140,8 +140,8 @@
  },
  {
   "name": "p08",
-  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, sunglasses, black hoodie over silver armor, fake mustache, hood up, standing in a queue, holding a small paper token with the number 187, proud smile, crowd behind him, comedy, upper body",
-  "seed": 7,
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, slicked back hair, blue eyes, sunglasses, black hoodie over silver armor, fake mustache, hood up, standing in a queue on a city street, holding up a small paper ticket, proud smile, comedy, upper body, blurred people in the background, morning",
+  "seed": 31,
   "w": 1024,
   "h": 1024,
   "ref": "../ref/viktor.jpg",
@@ -431,8 +431,8 @@
  },
  {
   "name": "p22",
-  "prompt": "a big crowd of hunters in armor and robes all raising one hand, every one holding up a glass of tea, golden glow, big menacing smiles, comedy, city street, sunlight",
-  "seed": 7,
+  "prompt": "many people, crowd, close-up of many smiling young men and women in fantasy armor and robes, all holding up small glass cups of tea, toast, cheers, happy, laughing, golden glow, sparkles, comedy, sunny city street, from the front",
+  "seed": 5,
   "w": 1216,
   "h": 832,
   "sfx": [

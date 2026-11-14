@@ -5,7 +5,7 @@ Publish as soon as it is ready (Thursday 12 Nov was missed), then weekly on Thur
 EPISODE 3
 Episode title: Episode 3 - Not For Sale
 Episode thumbnail: ep3thumb.jpg (202 x 142; file names letters and numbers only)
-Pages: upload the slice_NN.jpg files in order (all 800 px wide)
+Pages: upload slice_01.jpg to slice_23.jpg, in that order (all 800 px wide, about 4.9 MB in total)
 Creator's note: Created by Manoj · Made with AI tools. Who do you think Paati really is? Tell me in the comments! New episode every Thursday.
 
 Content rating: the same answers as Episodes 1 and 2. Tough guys in armour and a briefcase of money, no fight on screen
