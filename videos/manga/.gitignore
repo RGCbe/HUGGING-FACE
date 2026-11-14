@@ -1,0 +1,6 @@
+out/
+voice/
+*.log
+**/recap/*
+!**/recap/recap.json
+clips/

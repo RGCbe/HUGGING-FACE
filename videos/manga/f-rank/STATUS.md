@@ -1,0 +1,35 @@
+# The F-Rank Tea Seller: where things stand (3 Nov 2026)
+
+## On WEBTOON
+- Episode 1 is live: https://www.webtoons.com/en/canvas/the-f-rank-tea-seller/list?title_no=1182633
+- Episode 2 ("A Glass to Go") is live since 6 Nov (the pack is in `ep02/upload/`). On 6 Nov the series had
+  1 subscriber and 10 views.
+
+## YouTube reviews (private, scheduled, owner's ElevenLabs voice, every word checked)
+| Video | Link | Public |
+|---|---|---|
+| Ep 1 review, 8:18 | https://youtu.be/IkLUX6FkzD8 | Fri 6 Nov 12:30 UTC |
+| Ep 1 Short, 1:15 | https://youtu.be/nAF-gsZIiUo | Sun 8 Nov 12:30 UTC |
+| Ep 2 review, 6:48 | https://youtu.be/1wQCM-Jbk1E | Fri 13 Nov 12:30 UTC |
+| Ep 2 Short, 0:57 | https://youtu.be/vEqxFJiWnIY | Sun 15 Nov 12:30 UTC |
+
+The Ep 2 Short went up a day later (4 Nov): YouTube's daily upload limit (`uploadLimitExceeded`) refused it on
+3 Nov. The old one in the earlier voice (`MiYxzFF3pFk`) is now private with no publish date, not deleted.
+The owner deleted the other old versions on 3 Nov (Ep 1 review `tzr6iIxQg-0`, Ep 1 Short `3Q_9upx0e1k`,
+Ep 2 review `aQ0Aad6XMIY`).
+
+The custom thumbnails were refused (403) until the channel is phone-verified. They are in
+`epNN/recap/out/recap_thumbnail.jpg`. TikTok parts (6 for each episode, `tiktok_parts` in recap.json)
+are posted by the owner.
+
+## The voice
+`"voice_engine": "eleven"` in recap.json: the owner's own ElevenLabs clone **"Manoj kumar T"**, model Eleven v4,
+stability 0.3, similarity 0.9 (his pick, sample B). The script's mood tags become audio tags
+(`videos/kural/eleven.py`); the Whisper listening check (`videos/kural/check.py`) still hears every piece and
+re-voices any piece with a word it can't hear. The key comes only from the environment (`ELEVENLABS_API_KEY`) or
+the git-ignored `.env.local`; never ask for it in chat. The Creator plan gives about 161,000 characters a
+month, and v4 uses about 0.45 credits a character.
+
+A fresh container needs the voice tools for the listening check:
+`KURAL_HOME=$HOME/.cache/tea-break VOICE_ENGINE=eleven FIXED_CLIPS=0 bash videos/kural/setup.sh`
+(see `.claude/skills/tea-break-weekly/SKILL.md`).
