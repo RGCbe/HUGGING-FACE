@@ -21,6 +21,10 @@ layout. A title sits above the drawing and big captions below it. SPEC_JSON keys
   data (optional): passed to render.mjs --data, e.g. {"img": "01-emu-war/img"} for illustrated scenes
                    ("img" may be relative to the current folder)
   background (optional): colour around the board instead of white, e.g. "0xfff8e7"
+  caption_timing (optional): word timings for the captions when they differ from "timing", which still drives
+                   the boards (a Tamil Short: boards cued by the English words, captions from the Tamil voice)
+  caption_font (optional): caption font in fonts/, e.g. "Kavivanar" for Tamil (default Patrick Hand)
+  title_font (optional): font file in fonts/ for the title and subtitle, e.g. "Kavivanar-Regular.ttf"
 Needs ffmpeg and node with Playwright; run from the folder that holds the doodle/ engine.
 """
 import json
@@ -89,7 +93,7 @@ run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", hook["wav"], "-af", f"apad=
     "-ar", "24000", "-ac", "1", hook_audio)
 parts.append(hook_audio)
 clock = hook_dur
-long_words = [w for s in json.load(open(spec["timing"]))["sections"] for w in s["words"]]
+long_words = [w for s in json.load(open(spec.get("caption_timing", spec["timing"])))["sections"] for w in s["words"]]
 for k, seg in enumerate(spec["segments"], 1):
     a = os.path.join(work, f"a{k}.wav")
     dur = seg["to"] - seg["from"]
@@ -134,6 +138,8 @@ ass = os.path.join(work, "captions.ass")
 cap_cmd = ["python3", os.path.join(here, "captions.py"), timing, ass, "--layout", "vertical"]
 if spec.get("replace"):
     cap_cmd += ["--replace", spec["replace"]]
+if spec.get("caption_font"):
+    cap_cmd += ["--font", spec["caption_font"]]
 run(*cap_cmd)
 
 # 3. Pictures: the long video's opening under the hook, then each stretch, frozen where asked.
@@ -152,7 +158,7 @@ silent = os.path.join(work, "silent.mp4")
 run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", vlst, "-c", "copy", silent)
 
 # 4. Title, captions and sound.
-font = os.path.join(here, "fonts", "PatrickHand-Regular.ttf")
+font = os.path.join(here, "fonts", spec.get("title_font", "PatrickHand-Regular.ttf"))
 title_file = os.path.join(work, "title.txt")
 sub_file = os.path.join(work, "subtitle.txt")
 open(title_file, "w").write(spec["title"])
