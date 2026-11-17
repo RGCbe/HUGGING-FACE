@@ -9,10 +9,7 @@
   "timezone": "Asia/Kolkata",
   "publish_time": "18:00",
   "long_day": "Saturday",
-  "shorts_days": [
-    "Monday",
-    "Wednesday"
-  ],
+  "shorts_days": ["Monday", "Wednesday"],
   "style": "Hand-drawn cartoon illustration with flat colours and clean black ink outlines, warm cream paper background, soft shadows, friendly and funny. The top third of the picture is plain empty cream paper. No text, no letters, no numbers anywhere.",
   "style_ref": "../00-intro/img/s2.png",
   "music_gain": 0.3,
@@ -47,6 +44,23 @@
       "title": "Strange But True History",
       "description": "Moments from history that sound made up: meat falling from a clear sky, a dead whale blown up with dynamite, a river so smelly that Parliament thought about moving out. Funny true stories, with sources, from Tea Break with Manoj.",
       "id": "PLCxGCvqyFIG4"
+    },
+    "tamil": {
+      "title": "வேடிக்கையான உண்மை வரலாறு | Tea Break தமிழ்",
+      "description": "Tea Break with Manoj-ஓட முழுக் கதைகள், எளிய தமிழ்ல: ஈமு பறவைகள் ஜெயிச்ச போர், ஒரு பன்னியால வந்த போர், தலை இல்லாத கோழி, இன்னும் நிறைய. எல்லாம் உண்மை, ஆதாரங்கள் ஒவ்வொரு வீடியோவோட டிஸ்கிரிப்ஷன்ல.",
+      "language": "ta",
+      "id": "PLB6q-VVG9itI"
+    },
+    "shorts_ta": {
+      "title": "தமிழ் ஷார்ட்ஸ் | Tea Break தமிழ்",
+      "description": "வேடிக்கையான உண்மை வரலாற்றுக் கதைகளோட சிறந்த தருணங்கள், ஒரு நிமிஷத்துக்குள்ள, தமிழ்ல. முழுக் கதைகள்: வேடிக்கையான உண்மை வரலாறு | Tea Break தமிழ் playlist-ல.",
+      "language": "ta",
+      "id": "PLQ7CXSfdmD90"
+    },
+    "frank": {
+      "title": "The F-Rank Tea Seller | Webtoon Reviews",
+      "description": "Reviews and Shorts of The F-Rank Tea Seller, my own webtoon on WEBTOON CANVAS: Arjun, the weakest hunter in Mumbai, sells chai next to a monster Gate, and anyone who drinks it becomes unstoppable for one hour. Read it free: https://www.webtoons.com/en/canvas/the-f-rank-tea-seller/list?title_no=1182633",
+      "id": "PLcloICv1OYq8"
     }
   },
   "length_seconds": [
