@@ -61,6 +61,8 @@ def every(path, **params):
 def seconds(iso):
     import re
     m = re.fullmatch(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", iso)
+    if not m:  # "P0D" while YouTube is still processing a new upload
+        return 0
     return sum(int(x or 0) * k for x, k in zip(m.groups(), (3600, 60, 1)))
 
 
