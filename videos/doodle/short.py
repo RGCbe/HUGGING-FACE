@@ -24,7 +24,8 @@ layout. A title sits above the drawing and big captions below it. SPEC_JSON keys
   caption_timing (optional): word timings for the captions when they differ from "timing", which still drives
                    the boards (a Tamil Short: boards cued by the English words, captions from the Tamil voice)
   caption_font (optional): caption font in fonts/, e.g. "Kavivanar" for Tamil (default Patrick Hand)
-  title_font (optional): font file in fonts/ for the title and subtitle, e.g. "Kavivanar-Regular.ttf"
+  title_font (optional): font file in fonts/ for the title and subtitle, e.g. "Kavivanar-Regular.ttf"; the title is then
+                   drawn by libass, which shapes Tamil correctly (drawtext puts its vowel signs in the wrong place)
 Needs ffmpeg and node with Playwright; run from the folder that holds the doodle/ engine.
 """
 import json
@@ -146,11 +147,20 @@ run(*cap_cmd)
 clips = []
 pieces = [(hook.get("visual_from", 0.0), hook["visual_to"], hook_dur)] + [
     (s["from"], s.get("visual_to", s["to"]), s["to"] - s["from"]) for s in spec["segments"]]
+# a piece already rendered from the same scenes, timing and stretch is kept (a re-run that only changes the title
+# or the captions takes seconds instead of minutes)
+made_file = os.path.join(work, "pieces.json")
+made = json.load(open(made_file)) if os.path.exists(made_file) else {}
+stamp = lambda p: f"{p}:{os.path.getmtime(p):.0f}" if os.path.exists(p) else p
 for k, (t0, t1, dur) in enumerate(pieces):
     raw = os.path.join(work, f"v{k}_raw.mp4")
-    render(t0, min(t1, t0 + dur), raw)
     clip = os.path.join(work, f"v{k}.mp4")
-    hold(raw, dur, clip)
+    key = json.dumps([stamp(spec["scenes"]), stamp(spec["timing"]), t0, min(t1, t0 + dur), round(dur, 3), data_args and stamp(data_args[1])])
+    if made.get(str(k)) != key or not os.path.exists(clip):
+        render(t0, min(t1, t0 + dur), raw)
+        hold(raw, dur, clip)
+        made[str(k)] = key
+        json.dump(made, open(made_file, "w"), indent=1)
     clips.append(clip)
 vlst = os.path.join(work, "video.txt")
 open(vlst, "w").write("".join(f"file '{c}'\n" for c in clips))
@@ -165,9 +175,31 @@ open(title_file, "w").write(spec["title"])
 open(sub_file, "w").write(spec["subtitle"])
 sys.path.insert(0, here)
 from textfit import font_size  # a long title shrinks to fit the 1080-pixel width instead of being cut off
-text = (f"drawtext=fontfile={font}:textfile={title_file}:fontsize={font_size(font, spec['title'], 118)}:fontcolor=0xe8590c:x=(w-text_w)/2:y=250,"
-        f"drawtext=fontfile={font}:textfile={sub_file}:fontsize={font_size(font, spec['subtitle'], 72)}:fontcolor=0x1d1d1f:x=(w-text_w)/2:y=420,"
-        f"ass={ass}:fontsdir={os.path.join(here, 'fonts')}")
+fonts_dir = os.path.join(here, "fonts")
+if spec.get("title_font"):
+    # Tamil and other complex scripts: libass shapes them (vowel signs placed and reordered), ffmpeg's drawtext here
+    # does not, so the title and subtitle go in their own subtitle file, at the same places and sizes
+    from PIL import ImageFont
+    family = ImageFont.truetype(font, 40).getname()[0]
+    # libass sizes a font by its whole line height (ascent + descent), drawtext by its em: scale to the same look
+    asc, desc = ImageFont.truetype(font, 100).getmetrics()
+    line = (asc + desc) / 100
+    title_ass = os.path.join(work, "title.ass")
+    esc = lambda t: t.replace("\\", "\\\\").replace("{", "(").replace("}", ")")
+    open(title_ass, "w", encoding="utf-8").write(
+        "[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\nWrapStyle: 2\n\n[V4+ Styles]\n"
+        "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, "
+        "StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n"
+        f"Style: Title,{family},{round(font_size(font, spec['title'], 118) * line)},&H000C59E8,&H000C59E8,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,8,20,20,0,1\n"
+        f"Style: Sub,{family},{round(font_size(font, spec['subtitle'], 72) * line)},&H001F1D1D,&H001F1D1D,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,8,20,20,0,1\n\n"
+        "[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n"
+        f"Dialogue: 0,0:00:00.00,9:59:59.00,Title,,0,0,0,,{{\\pos(540,250)}}{esc(spec['title'])}\n"
+        f"Dialogue: 0,0:00:00.00,9:59:59.00,Sub,,0,0,0,,{{\\pos(540,420)}}{esc(spec['subtitle'])}\n")
+    text = f"ass={title_ass}:fontsdir={fonts_dir},ass={ass}:fontsdir={fonts_dir}"
+else:
+    text = (f"drawtext=fontfile={font}:textfile={title_file}:fontsize={font_size(font, spec['title'], 118)}:fontcolor=0xe8590c:x=(w-text_w)/2:y=250,"
+            f"drawtext=fontfile={font}:textfile={sub_file}:fontsize={font_size(font, spec['subtitle'], 72)}:fontcolor=0x1d1d1f:x=(w-text_w)/2:y=420,"
+            f"ass={ass}:fontsdir={fonts_dir}")
 if spec.get("background"):
     # the vertical layout draws the 1920x1080 board 1080x608 at y=660; lay it on a coloured page
     inputs = ["-f", "lavfi", "-i", f"color=c={spec['background']}:s=1080x1920:r={FPS}", "-i", silent, "-i", audio]
