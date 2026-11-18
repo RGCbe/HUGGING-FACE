@@ -427,3 +427,17 @@ No clip came back. **What we learned:**
 4. The runner now shows GridShare's refusal reason, and the "no progress" limit can be set per run (`--stall`).
 
 **GridShare total for 18 Nov:** ₹111.17 (balance ₹494.93 -> about ₹383.76).
+
+## The animation plan after the failed test (Manoj chose "Mix + GridShare")
+
+- **20 shots get AI motion** (`"anim": "ai"` in `shots.json`): S01, S02, S08, S09, S15, S17, S18, S19, S22, S23, S28,
+  S30, S31, S33, S36, S41, S43, S45, S46, S49: the shimmer, the pour, the toss and catch, the power-up, the slash, the
+  leap and the fizzle, the shield impact, the cape yank, the sprint, the counter slam and the main talking moments.
+  Wan 2.2 TI2V-5B at 832x480 (about 4x faster than 1280x704), 20 steps, on the RTX 3090 (it ran 3 sessions without
+  a crash; the 4090 home PC crashed), upscaled to 1920x1080 in the edit.
+- **27 shots get camera moves made here, free** (`"anim": "camera"`; `videos/manga/camera.py`): each move follows the
+  shot's direction (S07 floats down to the stall, S39 tilts up to the minotaur, S53 pulls back from the lonely stall,
+  S55 rises to the Gate, S27 a small shake for the roar, S24 cropped tighter for Arjun's close-up); smooth start and
+  stop; 1920x1080, 24 fps; made in about 2 minutes for all 27. S26 still needs its picture.
+- Disk on this cloud machine was down to 0.8 GB: the 1.2 GB of "silent" in-between renders of already uploaded videos
+  were deleted (the finished videos are kept; the in-between files can be rebuilt).
