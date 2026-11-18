@@ -61,7 +61,7 @@
     "This power... where is it coming from?!"
    ],
    "sfx": "aura roar, whoosh to white",
-   "tag": "[stunned]"
+   "tag": "[stunned, breathless]"
   },
   {
    "id": "S03",
@@ -98,7 +98,8 @@
     "narrator",
     "Mumbai, 2031. Gates to monster dungeons have opened in every city on Earth."
    ],
-   "sfx": "city hum, deep portal drone"
+   "sfx": "city hum, deep portal drone",
+   "tag": "[dramatically]"
   },
   {
    "id": "S06",
@@ -113,7 +114,8 @@
     "narrator",
     "Hunters go in. Monster cores come out. Hunters get rich."
    ],
-   "sfx": "cheers, camera clicks"
+   "sfx": "cheers, camera clicks",
+   "tag": "[dramatically]"
   },
   {
    "id": "S07",
@@ -128,7 +130,8 @@
     "narrator",
     "And right next to the biggest Gate in the city... stands a tiny tea stall."
    ],
-   "sfx": "crowd murmur"
+   "sfx": "crowd murmur",
+   "tag": "[with a hint of humor]"
   },
   {
    "id": "S08",
@@ -205,7 +208,8 @@
     "narrator",
     "Arjun. Eighteen years old. Hunter rank: F, the weakest rank there is."
    ],
-   "sfx": "UI blip"
+   "sfx": "UI blip",
+   "tag": "[matter-of-factly]"
   },
   {
    "id": "S13",
@@ -241,7 +245,8 @@
     "narrator",
     "Viktor Hale. B-Rank. Two million followers. Zero manners."
    ],
-   "sfx": "UI blip"
+   "sfx": "UI blip",
+   "tag": "[dryly]"
   },
   {
    "id": "S15",
@@ -259,7 +264,7 @@
     "Ha! Look, everyone! It's the F-Rank tea boy!"
    ],
    "sfx": "crowd laughter",
-   "tag": "[laughs]"
+   "tag": "[laughs arrogantly]"
   },
   {
    "id": "S16",
@@ -306,7 +311,7 @@
     "Tea from an F-Rank? Is it poisoned with weakness?"
    ],
    "sfx": "sniff",
-   "tag": "[sarcastically]"
+   "tag": "[arrogantly, mocking]"
   },
   {
    "id": "S19",
@@ -372,7 +377,8 @@
     "viktor",
     "...Hmph. Nothing special."
    ],
-   "sfx": "GULP"
+   "sfx": "GULP",
+   "tag": "[unimpressed]"
   },
   {
    "id": "S23",
@@ -408,7 +414,8 @@
     "arjun",
     "(quietly) One hour. That's all you get."
    ],
-   "sfx": "music drops out"
+   "sfx": "music drops out",
+   "tag": "[mysteriously, whispering]"
   },
   {
    "id": "S25",
@@ -445,7 +452,7 @@
     "Level 9. Easy content, chat."
    ],
    "sfx": "cave drips, drone hum",
-   "tag": "[confidently]"
+   "tag": "[arrogantly]"
   },
   {
    "id": "S27",
@@ -492,7 +499,7 @@
     "Tch! Since when are Level 9 ogres this strong?!"
    ],
    "sfx": "heavy breathing",
-   "tag": "[angrily]"
+   "tag": "[in pain, angry]"
   },
   {
    "id": "S30",
@@ -510,7 +517,7 @@
     "Viktor! We have to retreat!"
    ],
    "sfx": "magic chime",
-   "tag": "[shouting]"
+   "tag": "[panicked, shouting]"
   },
   {
    "id": "S31",
@@ -528,7 +535,7 @@
     "(thinking) What... is this power?!"
    ],
    "sfx": "BA-DUMP, rising hum",
-   "tag": "[stunned]"
+   "tag": "[stunned, whispering]"
   },
   {
    "id": "S32",
@@ -574,7 +581,7 @@
     "Did he just... one-shot it?!"
    ],
    "sfx": "dust settling",
-   "tag": "[shocked]"
+   "tag": "[shocked, breathless]"
   },
   {
    "id": "S35",
@@ -609,7 +616,8 @@
     "narrator",
     "For the next fifty-eight minutes, Viktor was unstoppable."
    ],
-   "sfx": "SLASH x3"
+   "sfx": "SLASH x3",
+   "tag": "[dramatically]"
   },
   {
    "id": "S37",
@@ -649,7 +657,8 @@
     "narrator",
     "Then they reached the boss."
    ],
-   "sfx": "GRRRMMM, fire roar"
+   "sfx": "GRRRMMM, fire roar",
+   "tag": "[ominously]"
   },
   {
    "id": "S40",
@@ -668,7 +677,7 @@
     "Boss time."
    ],
    "sfx": "hum",
-   "tag": "[confidently]"
+   "tag": "[arrogantly]"
   },
   {
    "id": "S41",
@@ -686,7 +695,7 @@
     "HYAAAH!!"
    ],
    "sfx": "battle cry",
-   "tag": "[shouting]"
+   "tag": "[battle cry]"
   },
   {
    "id": "S42",
@@ -701,7 +710,8 @@
     "narrator",
     "Minute sixty."
    ],
-   "sfx": "alarm beep"
+   "sfx": "alarm beep",
+   "tag": "[dramatic pause]"
   },
   {
    "id": "S43",
@@ -732,7 +742,7 @@
     "...Oh no."
    ],
    "sfx": "silence, monster breath",
-   "tag": "[nervously]"
+   "tag": "[terrified, small voice]"
   },
   {
    "id": "S45",
@@ -751,7 +761,7 @@
     "RUN!!!"
    ],
    "sfx": "cloth tug",
-   "tag": "[shouting]"
+   "tag": "[panicked, screaming]"
   },
   {
    "id": "S46",
@@ -784,7 +794,8 @@
     "narrator",
     "Outside the Gate. Barely alive."
    ],
-   "sfx": "night crowd, drone hum"
+   "sfx": "night crowd, drone hum",
+   "tag": "[dryly]"
   },
   {
    "id": "S48",
@@ -815,7 +826,7 @@
     "YOU! What did you put in that tea?!"
    ],
    "sfx": "counter slam",
-   "tag": "[shouting]"
+   "tag": "[furious, shouting]"
   },
   {
    "id": "S50",
@@ -881,7 +892,8 @@
     "narrator",
     "That night. Nobody knew the truth about his tea."
    ],
-   "sfx": "quiet night, crickets"
+   "sfx": "quiet night, crickets",
+   "tag": "[softly]"
   },
   {
    "id": "S54",
@@ -899,7 +911,7 @@
     "(thinking) Ten rupees for an hour of power... I'm undercharging."
    ],
    "sfx": "system chime",
-   "tag": "[amused]"
+   "tag": "[amused, thinking to himself]"
   },
   {
    "id": "S55",
@@ -914,7 +926,8 @@
     "narrator",
     "And deep inside the Gate... something had noticed."
    ],
-   "sfx": "low drone, heartbeat"
+   "sfx": "low drone, heartbeat",
+   "tag": "[ominously, slowly]"
   },
   {
    "id": "S56",

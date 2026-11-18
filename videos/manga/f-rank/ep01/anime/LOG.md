@@ -386,3 +386,21 @@ digits (10, 18, 58, 60), "tea" written as "T", "Meera" as "Mira", and battle cri
 "HYAAAH") are all fine. One to listen to: S14 "Zero manners" is heard as "manors" in all 3 takes; it is the Indian
 "maa" sound of the narrator's clone, not a wrong word. A bigger listening model could not be downloaded (the disk is
 almost full), so this one is for Manoj's ear.
+
+## The voices, adjusted (Manoj: "save the voice model for continuous run, and a little adjustment")
+
+**Saved for every episode:** the cast's voices are now a series file, `videos/manga/f-rank/cast/voices.json` (voice,
+voice id, model, stability, similarity, tempo per character); `voices.py` reads it for any episode of the series.
+
+**Adjustment (Manoj picked "slower, clearer pace" and "more emotion / acting"):**
+- Pace: 8% slower. ElevenLabs' own "speed" setting did nothing on the Eleven v4 model (the length stayed 118 s), so
+  the pace is set after recording with ffmpeg's atempo, which keeps the voice's pitch: 118 s -> 128 s. Saved as
+  `"tempo": 0.92` per character.
+- Emotion: lower stability (more expressive): narrator 0.25, Arjun 0.35, Meera 0.3, Viktor 0.2, Raghu 0.3; stronger
+  acting directions: Viktor "[arrogantly]", "[laughs arrogantly]", "[furious, shouting]"; Meera "[panicked,
+  shouting]", "[shocked, breathless]"; Arjun "[mysteriously, whispering]", "[deadpan]"; narrator "[dramatically]" at
+  the start, "[ominously, slowly]" at the end, "[dramatic pause]" for "Minute sixty."
+- Listening check after the change: no direction was spoken aloud; only the known homophones ("tea" written "T",
+  "manners" heard "manors") and the battle cries are flagged.
+
+The first take is kept in `out/voice_v1/` for comparison. New preview: `out/dialogue_preview_v2.m4a` (2 min 27 s).

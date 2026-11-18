@@ -2,8 +2,11 @@
 
     python3 voices.py add                              add the cast's library voices to the ElevenLabs account
     python3 voices.py casting OUT.wav                  one test file: each candidate voice says two of its lines
-    python3 voices.py lines SHOTS.json OUT_DIR [--only S08,S20] [--seed 7]
+    python3 voices.py lines SHOTS.json OUT_DIR [--only S08,S20] [--seed 7] [--cast cast/voices.json]
                                                        every spoken line of the shot list -> OUT_DIR/SNN.wav
+
+The voices of a series are saved in its cast/voices.json (voice, voice id, model, stability, similarity, speed,
+style per character), so every episode uses the same voices; CAST below is only the starting point.
 
 A line in shots.json is ["who", "text"]; "(quietly)" or "(thinking)" at the start becomes an ElevenLabs audio tag
 that is performed, not said. A shot may add "tag": "[laughs]" for how the line is acted. 24 kHz mono WAV.
@@ -67,14 +70,36 @@ def add(key):
 
 
 def speak(key, vid, text, cfg, seed=7):
+    settings = {"stability": cfg["stability"], "similarity_boost": cfg["similarity"]}
+    for k in ("speed", "style"):  # the small adjustments saved per character in the series voice file
+        if k in cfg:
+            settings[k] = cfg[k]
     return call(f"/text-to-speech/{vid}?output_format=pcm_{SR}", key,
-                {"text": text, "model_id": MODEL, "seed": seed,
-                 "voice_settings": {"stability": cfg["stability"], "similarity_boost": cfg["similarity"]}})
+                {"text": text, "model_id": cfg.get("model", MODEL), "seed": seed, "voice_settings": settings})
+
+
+def series_cast(shots_file, cast_file=None):
+    """The series' saved voices (cast/voices.json next to the episodes), so every episode sounds the same."""
+    path = cast_file or os.path.join(os.path.dirname(os.path.abspath(shots_file)), "..", "..", "cast", "voices.json")
+    if os.path.exists(path):
+        return json.load(open(path))["cast"], path
+    return CAST, "voices.py defaults"
 
 
 def write(path, pcm):
     with wave.open(path, "wb") as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm)
+
+
+def tempo(pcm, factor):
+    """Slow down (factor < 1) or speed up a line without changing the voice's pitch (ffmpeg atempo).
+    ElevenLabs' own "speed" setting is ignored by the Eleven v4 model, so the pace is set here."""
+    if not factor or abs(factor - 1) < 0.001:
+        return pcm
+    import subprocess
+    return subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-f", "s16le", "-ar", str(SR), "-ac", "1", "-i", "-",
+                           "-af", f"atempo={factor}", "-f", "s16le", "-ar", str(SR), "-ac", "1", "-"],
+                          input=pcm, capture_output=True, check=True).stdout
 
 
 def acted(text, tag=""):
@@ -90,6 +115,7 @@ def main():
     ap.add_argument("args", nargs="*")
     ap.add_argument("--only")
     ap.add_argument("--seed", type=int, default=7)
+    ap.add_argument("--cast", help="the series voice file (default: cast/voices.json of the episode's series)")
     a = ap.parse_args()
     key = api_key()
     if a.cmd == "add":
@@ -108,15 +134,18 @@ def main():
         print(f"{len(pcm) / 2 / SR:.0f} s -> {out}")
         return
     shots, out_dir = json.load(open(a.args[0]))["shots"], a.args[1]
+    cast, where = series_cast(a.args[0], a.cast)
+    print(f"voices from {where}")
     os.makedirs(out_dir, exist_ok=True)
     only = set(a.only.split(",")) if a.only else None
     for s in shots:
         if not s.get("line") or (only and s["id"] not in only):
             continue
         who, text = s["line"]
-        cfg = CAST[who]
+        cfg = cast[who]
         t = time.time()
-        pcm = speak(key, have[cfg["voice"]], acted(text, s.get("tag", "")), cfg, a.seed)
+        pcm = speak(key, cfg.get("voice_id") or have[cfg["voice"]], acted(text, s.get("tag", "")), cfg, a.seed)
+        pcm = tempo(pcm, cfg.get("tempo", 1.0))
         write(os.path.join(out_dir, f"{s['id']}.wav"), pcm)
         print(f"{s['id']} {who}: {len(pcm) / 2 / SR:.1f} s ({time.time() - t:.0f} s) {text[:50]}", flush=True)
 
