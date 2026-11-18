@@ -29,20 +29,25 @@ GS = "https://gridshare.in"
 STYLE = ("Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin "
          "and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, "
          "warm golden key light and teal shadows, crisp detail, shallow depth of field.")
-DARK = " This scene is darker: low-key light, deep shadows, only torches, glowing mushrooms or magic light."
+DARK = " This scene is darker: low-key light, deep shadows, lit only by torches and magic light."
 STREET = (" Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop "
           "signs are dark or out of focus so no writing can be read.")
+EVENING = " Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces."
+NIGHT = " Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate."
 WHO = {
     "arjun": "Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, "
              "wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red "
              "string bracelet",
     "viktor": "Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate "
-              "armor with steel gauntlets and a black cape fastened with round silver clasps",
+              "armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses",
     "meera": "Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a "
              "tall carved wooden staff topped with a small green crystal",
     "raghu": "Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall "
              "rectangular steel tower shield held by a handle on his left arm",
+    "ogre": "the ogre, a huge hairy monster three times a man's height with a butcher's cleaver",
+    "minotaur": "the minotaur boss, a giant bull-headed monster in black armor with a huge axe and glowing red eyes",
 }
+CREATURES = {"ogre", "minotaur"}
 DUNGEON_SCENES = {1, 7, 8, 9}
 STREET_SCENES = {3, 4, 5, 10, 11, 12}
 
@@ -50,11 +55,18 @@ STREET_SCENES = {3, 4, 5, 10, 11, 12}
 def prompt(shot):
     text = f"{STYLE} Film still: {shot['see']}."
     for i, who in enumerate(shot.get("cast", [])):
-        text += f" {WHO[who]}; {who.capitalize()} is the person in image {i}, with exactly the same face."
+        if who in CREATURES:
+            text += f" {WHO[who]}: the same creature as in image {i}."
+        else:
+            text += f" {WHO[who]}; {who.capitalize()} is the person in image {i}, with exactly the same face."
     if shot["scene"] in DUNGEON_SCENES:
         text += DARK
     if shot["scene"] in STREET_SCENES:
         text += STREET
+    if shot["scene"] in (3, 4, 5):
+        text += EVENING
+    if shot["scene"] in (10, 11, 12, 13):
+        text += NIGHT
     return text
 
 

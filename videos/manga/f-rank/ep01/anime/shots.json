@@ -17,7 +17,12 @@
   "Mumbai streets: name Indian details (marigold strings, oil lamps, Indian shop fronts with plain boards), never just 'lanterns'",
   "signs: keep backgrounds dark or blurred so no fake letters can be read; frame tighter if needed",
   "Raghu's shield is a separate tall rectangular steel tower shield held by a handle on his left arm",
-  "a correction of a picture is only for small changes; age and big changes need a fresh picture"
+  "a correction of a picture is only for small changes; age and big changes need a fresh picture",
+  "every street shot in scenes 3-5 is EVENING after sunset (dark blue sky, lamps lit); scenes 10-12 are NIGHT (black sky)",
+  "no glowing mushrooms except in the Level 9 entrance cave (scene 7)",
+  "say how many people are in the frame ('exactly three people', 'Arjun alone'), or the model adds strangers and doubles",
+  "creatures use a reference picture too: cast/ogre.jpg, cast/minotaur.jpg",
+  "Viktor never wears glasses"
  ],
  "cast": {
   "arjun": "18, dark brown skin, short messy black hair, brown eyes, slim, white kurta with rolled sleeves, red sash, red string bracelet",
@@ -36,7 +41,7 @@
     "viktor"
    ],
    "kind": "ai",
-   "see": "dark wet cave lit by one torch, Viktor in silver armor and black cape stands with his sword, a cut on his cheek, a huge dark shape breathing behind him",
+   "see": "dark wet cave lit by one torch, Viktor in silver armor and black cape stands with his sword in his hand, a cut on his cheek; behind him only darkness, where two faint red eyes and the outline of something huge can just be seen; a first faint golden glow on the edges of his armor; no mushrooms",
    "motion": "torchlight flickers, his chest rises and falls, golden light starts to glow on his armor, slow push in",
    "sfx": "heartbeat BA-DUMP, heavy breathing"
   },
@@ -49,7 +54,7 @@
     "viktor"
    ],
    "kind": "ai",
-   "see": "extreme close-up of Viktor's eyes lit gold, golden light around his face",
+   "see": "extreme close-up of Viktor's face from the eyebrows to the chin, his eyes glowing bright golden yellow with light, golden light reflecting on his skin, dark background",
    "motion": "his eyes ignite bright yellow, light flares and fills the screen to white",
    "line": [
     "viktor",
@@ -101,7 +106,7 @@
    "seconds": 5,
    "cast": [],
    "kind": "ai",
-   "see": "street level: armored hunters walk out of a smaller blue Gate carrying glowing blue crystals the size of footballs, a cheering crowd films them on phones",
+   "see": "street level in Mumbai: human hunters, ordinary Indian and foreign men and women in modern armor, walk out of a smaller glowing blue Gate carrying glowing blue crystals the size of footballs, a cheering crowd of Indian people films them on phones, no signs or writing anywhere",
    "motion": "hunters walk toward camera, the crystals pulse, phones held up, camera tracks back",
    "line": [
     "narrator",
@@ -389,7 +394,7 @@
     "arjun"
    ],
    "kind": "ai",
-   "see": "close-up of Arjun lit by his oil lamp, watching the party walk away, smile with serious eyes, dark background",
+   "see": "tight close-up portrait of Arjun alone, only his face and shoulders, lit from one side by the warm flame of his oil lamp, the background completely dark, a small smile but serious, knowing eyes looking past the camera",
    "motion": "very slow push in, lamp flickers, his eyes follow them",
    "line": [
     "arjun",
@@ -422,10 +427,12 @@
    "panel": "new",
    "seconds": 4,
    "cast": [
-    "viktor"
+    "viktor",
+    "meera",
+    "raghu"
    ],
    "kind": "ai",
-   "see": "a huge cave lit by glowing blue mushrooms, Viktor walking with his drone floating beside him, Meera and Raghu behind",
+   "see": "a huge cave lit by glowing blue mushrooms, Viktor walks in front with a small camera drone floating beside his head, Meera with her glowing staff and Raghu with his tower shield walk two steps behind him; exactly three people",
    "motion": "they walk forward, the drone light sweeps the cave, Viktor talks to the drone",
    "line": [
     "viktor",
@@ -453,7 +460,7 @@
     "raghu"
    ],
    "kind": "ai",
-   "see": "Raghu braced behind his tall steel tower shield as the ogre's cleaver comes down",
+   "see": "in a dark cave Raghu crouches behind a tall rectangular steel tower shield held up in front of his body with both arms, bracing as a huge shadow looms over him, dust in the torch light",
    "motion": "impact: the shield cracks, Raghu is thrown backwards, dust bursts",
    "line": [
     "raghu",
@@ -504,7 +511,7 @@
     "viktor"
    ],
    "kind": "ai",
-   "see": "Viktor looking down at his own gauntleted hands as golden light climbs up his arms",
+   "see": "Viktor in a dark cave looks down in shock at his own raised gauntleted hands, bright golden light glowing on his gauntlets and climbing up his arms like flames, golden sparks rising, gold light on his face",
    "motion": "golden light spreads over his armor, light particles rise, his hands tremble",
    "line": [
     "viktor",
@@ -531,10 +538,11 @@
    "panel": "p20",
    "seconds": 3,
    "cast": [
-    "viktor"
+    "viktor",
+    "ogre"
    ],
    "kind": "ai",
-   "see": "a golden blur slash across the ogre in the dark cave",
+   "see": "Viktor in mid-swing, his sword cutting through the air and leaving a bright golden arc of light that slices across the huge ogre in front of him, sparks and dust, motion blur on the sword",
    "motion": "one fast golden slash across the screen, white flash, the ogre falls in two",
    "sfx": "KRAAACK, impact boom"
   },
@@ -636,10 +644,11 @@
    "panel": "new",
    "seconds": 2,
    "cast": [
-    "viktor"
+    "viktor",
+    "minotaur"
    ],
    "kind": "ai",
-   "see": "Viktor grinning at his drone, golden aura still around him, the boss behind",
+   "see": "Viktor grinning into a small camera drone floating in front of him, golden aura around him, and far behind him in the shadows the huge minotaur boss on its stone throne; only Viktor and the minotaur",
    "motion": "he grins and cracks his neck",
    "line": [
     "viktor",
@@ -719,7 +728,7 @@
     "viktor"
    ],
    "kind": "ai",
-   "see": "Raghu grabs Viktor by the cape from behind",
+   "see": "Raghu, behind Viktor, grabs Viktor's black cape at the shoulder with his big hand and yanks him backwards, Viktor stumbling back with a shocked face, dark cave; exactly two people",
    "motion": "Raghu yanks Viktor backwards by the cape",
    "line": [
     "viktor",
@@ -735,10 +744,11 @@
    "cast": [
     "viktor",
     "meera",
-    "raghu"
+    "raghu",
+    "minotaur"
    ],
    "kind": "ai",
-   "see": "the three hunters sprinting down a stone corridor toward a wall of blue light, the minotaur charging behind them",
+   "see": "Viktor, Meera and Raghu sprinting toward the camera down a stone corridor, a wall of blue light ahead of them, the huge minotaur charging far behind them; exactly three people and the minotaur",
    "motion": "they run toward camera and dive into the light, the floor shakes",
    "sfx": "DOOM DOOM footsteps"
   },
@@ -781,7 +791,7 @@
     "viktor"
    ],
    "kind": "ai",
-   "see": "Viktor slams both hands on the tea stall counter, shouting, bandaged and bruised, glasses jumping",
+   "see": "night at the tea stall: Viktor, without glasses, bruised and bandaged, slams both gauntleted hands on the wooden counter and shouts, small glasses of chai jumping on the counter, lamp light",
    "motion": "he slams the counter, the glasses jump",
    "line": [
     "viktor",
@@ -815,7 +825,7 @@
     "meera"
    ],
    "kind": "ai",
-   "see": "Meera beside Viktor, coins already out on her palm, hopeful bright eyes",
+   "see": "night at the tea stall: Meera alone in the frame, holding three coins out on her open palm, hopeful bright eyes, her staff in her other hand, lamp light",
    "motion": "she leans in hopefully, holding out the coins",
    "line": [
     "meera",
@@ -832,7 +842,7 @@
     "raghu"
    ],
    "kind": "ai",
-   "see": "behind Meera, Raghu silently holds up two fingers",
+   "see": "night: Raghu, deadpan face, raises one hand holding up exactly two fingers, index and middle finger, like a V sign, lamp light, the tea stall behind him",
    "motion": "he raises two fingers, deadpan",
    "sfx": ""
   },
@@ -845,7 +855,7 @@
     "arjun"
    ],
    "kind": "ai",
-   "see": "late night, the square empty, one oil lamp, Arjun alone wiping glasses at his stall, the Gate glowing far behind",
+   "see": "late at night, the stone plaza completely empty, one small oil lamp burning on the little tea stall, Arjun alone behind the counter wiping a small glass with a cloth, the giant Gate glowing blue far behind",
    "motion": "very slow pull back, the lamp flame flickers, he wipes a glass",
    "line": [
     "narrator",
@@ -862,7 +872,7 @@
     "arjun"
    ],
    "kind": "ai",
-   "see": "Arjun looking at a floating blue window of light in front of him, blue light on his face, small smile",
+   "see": "late at night at his tea stall, Arjun looks at a floating translucent blue holographic panel of light hanging in the air in front of his face, blank with no writing, blue light on his face, a small smile; only one person",
    "motion": "the blue window flickers open (text added in the edit), the light washes over his face, he smiles",
    "line": [
     "arjun",
@@ -896,5 +906,9 @@
    "motion": "made in the edit",
    "sfx": "end sting"
   }
- ]
+ ],
+ "creatures": {
+  "ogre": "../../cast/ogre.jpg",
+  "minotaur": "../../cast/minotaur.jpg"
+ }
 }

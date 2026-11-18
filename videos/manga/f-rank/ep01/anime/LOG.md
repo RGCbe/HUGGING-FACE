@@ -229,3 +229,78 @@ invented by the AI; none is meant to look like a real person.
 
 **Next (day 3):** the 36 keyframes, made with the face files and the rules learned above, checked one by one and
 logged the same way. About 36-70 pictures with retries, so 1-2 days of the free allowance.
+
+---
+
+# Day 3 (18 Nov): the screenplay, and the keyframes on GridShare
+
+## The screenplay
+Manoj: "connect the manga panels, give a proper story". `SCRIPT.md` tells Episode 1 as one connected story (13
+scenes) with 11 new connecting moments; `shots.json` was rebuilt from it: 56 shots, 48 made by AI.
+
+## Moving the pictures to GridShare (Manoj: "for this use GridShare")
+**Why:** a rented RTX 3090 (24 GB, ₹30 an hour) runs the same FLUX.2 [klein] 4B model with no daily limit, and it
+can take the face files at full size (Cloudflare only takes a 512-pixel copy).
+
+**How it works (`videos/manga/gridshare/`):** a private drop box on our Cloudflare account (`dropbox.py`, only
+our secret key opens it) carries the prompts and face files to the machine and the pictures back; the machine's
+start command runs `boot.sh` and `keyframes_worker.py`; `keyframes.py` rents the machine, follows it, saves the
+pictures and always ends the machine.
+
+**Mistakes on the way, and the fixes:**
+| Try | What went wrong | Cost | Fix |
+|---|---|---|---|
+| 1 | GridShare gave an Apple M3 Max (cannot run the model) instead of the RTX 3090 | ₹0 (stopped at once) | `node_id` alone is ignored when a size is also sent |
+| 2 | gave an RTX 3060 Ti instead | ₹0 | send `preferred_node_id` (what GridShare's app sends) and check the machine we got |
+| 3 | crashed after downloading the model: the image's Python is 3.11.0rc1, too old for PyTorch's compiler | ₹9.78 | a 2-minute check run (₹0) found it; the machine now builds its own Python 3.12 with uv |
+| 4 | PyTorch was installed into the wrong Python | ₹0.10 | `uv pip install --python /root/venv/bin/python` |
+| 5 | **worked**: 96 pictures in 15 minutes (6-19 s each) | ₹21.52 | |
+
+Also decided: the 16 GB model is kept in `/workspace/models` with "keep my large files" on, and the machine is
+stopped instead of deleted, so the next machine starts with it (public models are restored before billing starts).
+
+## Round 1 of the keyframes: all 48 AI shots, 2 versions each (`keyframes_job.json`)
+
+![sheet 1](log/d3_r1_sheet_1.jpg) ![sheet 2](log/d3_r1_sheet_2.jpg) ![sheet 3](log/d3_r1_sheet_3.jpg) ![sheet 4](log/d3_r1_sheet_4.jpg)
+![sheet 5](log/d3_r1_sheet_5.jpg) ![sheet 6](log/d3_r1_sheet_6.jpg) ![sheet 7](log/d3_r1_sheet_7.jpg) ![sheet 8](log/d3_r1_sheet_8.jpg)
+
+**Result:** the faces stay the same in every shot (Viktor, Arjun, Meera, Raghu). **32 shots are good** (the version
+kept is in `keyframes_review_r1.json`, full size in `out/keyframes_ok/`).
+
+**16 shots have mistakes:**
+| Shot | Mistake |
+|---|---|
+| S01 | the monster behind Viktor is fully visible (should stay a dark shape); no golden glow; mushrooms that are not in the scene |
+| S02 | eyes stay blue, not glowing gold; not an extreme close-up |
+| S06 | the hunters look like grey orcs, not people; a fake word "SITNBA" over the Gate |
+| S24 | not a close-up, not dark (a); two Arjuns in one picture (b) |
+| S26 | Meera and Raghu missing: two strangers walk behind Viktor |
+| S28 | the shield is a strange metal frame, not a shield Raghu braces behind |
+| S31 | no golden light on his arms |
+| S33 | no slash: Viktor only stands next to the ogre |
+| S40 | a random knight behind him instead of the boss far away |
+| S45 | Raghu does not grab the cape |
+| S46 | two Meeras (a fourth person) |
+| S49 | Viktor wears glasses |
+| S51 | a random man with a second staff next to Meera |
+| S52 | Raghu holds up one finger, not two |
+| S53 | the square is busy, not empty; he is not wiping glasses |
+| S54 | the blue window is on a wall, not floating (a); two Arjuns (b) |
+
+**Mistakes across many shots:**
+1. Several street shots look like **daytime**, but the story happens in the evening (scenes 3-5) and at night
+   (10-12). Shots S11, S12, S16, S17, S18, S19, S21, S22 and S50 are too bright.
+2. **Glowing mushrooms in every cave shot**: my "darker scene" sentence mentioned mushrooms.
+3. **The ogre and the minotaur look different from shot to shot** (they had no reference picture).
+
+**How we solve it (round 2):**
+- The 16 shots get rewritten descriptions: say exactly what must be seen ("only his face", "glowing bright golden
+  yellow eyes", "his hand grips the cape"), and **how many people are in the frame** ("exactly three people",
+  "Meera alone"), because otherwise the model adds strangers or doubles.
+- Every street prompt now names the time: "evening after sunset, deep blue sky, all lamps lit" or "late night,
+  black sky"; the 9 bright shots are made again.
+- The mushrooms are removed from the dungeon sentence (only the entrance cave has them).
+- The ogre (from S27 a) and the minotaur (from S39 b) become reference pictures (`cast/ogre.jpg`,
+  `cast/minotaur.jpg`), used like the faces.
+- Viktor's description now says "no glasses".
+- Round 2: 25 shots x 2 versions = 50 pictures on the RTX 3090.
