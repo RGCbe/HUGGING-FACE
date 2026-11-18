@@ -1,7 +1,8 @@
 {
- "title": "The F-Rank Tea Seller - Episode 1: Hunter's Chai (anime version)",
- "format": "16:9, keyframes 1344x768, animated at 832x480 (Wan image-to-video), upscaled to 1920x1080, 24 fps",
- "style": "semi-realistic shonen anime: real human proportions (7-7.5 heads tall), adult faces, normal-size eyes, clean cel shading with soft rim light, painted backgrounds, dramatic lighting; no chibi",
+ "title": "The F-Rank Tea Seller - Episode 1: Hunter's Chai (live-action movie look)",
+ "format": "16:9, keyframes 1280x720, animated at 1280x720 (Wan 2.2 image-to-video, 720p), upscaled to 1920x1080, 24 fps",
+ "style": "photorealistic cinematic live action, like a big-budget superhero movie: real people with real skin and hair, anamorphic widescreen look, shallow depth of field, practical lantern and portal light, VFX for aura, magic and monsters, warm/teal colour grade; no cartoon, no comic text on screen (sounds only)",
+ "faces": "every face is an invented AI person with one locked face reference per character; never a real actor or real person; Viktor must not look like any film hero (short slicked-back hair, black cape, modern silver plate armor)",
  "cast": {
   "arjun": "18, dark brown skin, short messy black hair, brown eyes, slim, white kurta with rolled sleeves, red sash, red string bracelet",
   "viktor": "late 20s, tall, broad shoulders, slicked-back blonde hair, blue eyes, silver armor, black cape, longsword",
