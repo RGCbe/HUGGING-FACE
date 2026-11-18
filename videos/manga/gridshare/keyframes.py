@@ -2,6 +2,7 @@
 
     python3 keyframes.py prompts SHOTS.json                 write SHOTS_dir/keyframes_job.json (the prompts) and print one
     python3 keyframes.py run SHOTS.json OUT_DIR [--only S05,S09] [--takes 2] [--node ID] [--max-min 90]
+    python3 keyframes.py attach INSTANCE_ID OUT_DIR --run RUN_ID     follow (and finally delete) a running machine
 
 run: uploads the job, the cast face files and the machine scripts to the private drop box (dropbox.py), rents one
 machine (gpu_count 1, image gridshare/pytorch) whose GRIDSHARE_START_CMD runs boot.sh, follows its progress, saves
@@ -13,6 +14,7 @@ reference picture, Indian street details for Mumbai, signs kept unreadable, the 
 """
 import argparse
 import json
+import signal
 import os
 import sys
 import time
@@ -98,20 +100,35 @@ def run(a):
     # the machine sees only this run's folder: DROP_URL/NAME is the drop box's file RUN_ID/NAME
     env = {"DROP_URL": f"{dropbox.base()}/files/{run_id}", "NVIDIA_DRIVER_CAPABILITIES": "all",
            "GRIDSHARE_START_CMD": "bash -c 'curl -fsS -A gs-machine \"$DROP_URL/boot.sh\" | bash'"}
-    body = {"image": "gridshare/pytorch:latest", "label": "keyframes", "gpu_count": 1, "min_vram_gb": a.min_vram,
-            "disk_gb": 60, "job_type": "ondemand", "exposed_ports": [], "env": env}
+    body = {"image": "gridshare/pytorch:latest", "label": "keyframes", "gpu_count": 1, "disk_gb": 60,
+            "job_type": "ondemand", "exposed_ports": [], "env": env, "reliability_tier": "bronze"}
+    # GridShare picks the machine by size when min_vram_gb is sent, even with a node_id (it once gave us an Apple
+    # M3 Max that cannot run CUDA): send only the node_id, like GridShare's own SDK, and check what we got
     if a.node:
-        body["node_id"] = a.node
+        body["node_id"] = body["preferred_node_id"] = a.node
+    else:
+        body["min_vram_gb"] = a.min_vram
     inst = gs("POST", "/v1/instances/", body)
     iid = inst["id"]
-    print(f"machine {iid[:8]} {inst.get('status')} at ₹{inst.get('rate_per_hr_inr')}/hour", flush=True)
+    print(f"machine {iid[:8]} {inst.get('status')} at ₹{inst.get('rate_per_hr_inr')}/hour, run {run_id}", flush=True)
+    if a.max_rate and (inst.get("rate_per_hr_inr") or 0) > a.max_rate:
+        print(f"rate ₹{inst.get('rate_per_hr_inr')} is above --max-rate {a.max_rate}: stopping")
+        return delete(iid, run_id, a.out_dir, set())
+    got = (gs("GET", f"/v1/instances/{iid}").get("node_id") or "")
+    if a.node and got != a.node:
+        print(f"GridShare gave machine {got[:8]}, not the chosen {a.node[:8]}: stopping")
+        return delete(iid, run_id, a.out_dir, set())
+    watch(iid, run_id, a.out_dir, a.max_min)
+
+
+def watch(iid, run_id, out_dir, max_min):
+    """Follow a running machine: print its progress, save its pictures, and ALWAYS delete it at the end."""
+    os.makedirs(out_dir, exist_ok=True)
     t0 = last_change = time.time()
-    seen, last_status, finished = set(), "", False
+    seen = {f for f in os.listdir(out_dir) if f.endswith(".jpg")}
+    last_status, finished = "", False
     try:
-        if a.max_rate and (inst.get("rate_per_hr_inr") or 0) > a.max_rate:
-            print(f"rate ₹{inst.get('rate_per_hr_inr')} is above --max-rate {a.max_rate}: stopping")
-            return
-        while time.time() - t0 < a.max_min * 60 and time.time() - last_change < 25 * 60:
+        while time.time() - t0 < max_min * 60 and time.time() - last_change < 25 * 60:
             time.sleep(30)
             status = (dropbox.get(f"{run_id}/out/status.txt") or b"").decode("utf-8", "replace")
             if status != last_status:
@@ -121,7 +138,7 @@ def run(a):
             for name in dropbox.names(f"{run_id}/out/"):
                 short = name.split("/out/", 1)[1]
                 if short.endswith(".jpg") and short not in seen:
-                    open(os.path.join(a.out_dir, short), "wb").write(dropbox.get(name))
+                    open(os.path.join(out_dir, short), "wb").write(dropbox.get(name))
                     seen.add(short)
             if dropbox.get(f"{run_id}/out/DONE") or "ALL DONE" in status or "STOPPED WITH AN ERROR" in status:
                 finished = True
@@ -131,28 +148,31 @@ def run(a):
                 print("the machine stopped by itself:", st.get("status"), st.get("error_msg") or st.get("display_message"))
                 break
         if not finished:
-            print("stopping: " + ("time limit" if time.time() - t0 >= a.max_min * 60 else "no progress for 25 minutes"))
+            print("stopping: " + ("time limit" if time.time() - t0 >= max_min * 60 else "no progress for 25 minutes"))
     finally:
-        try:
-            gs("DELETE", f"/v1/instances/{iid}")
-            print("machine deleted", flush=True)
-        except Exception as e:  # noqa: BLE001
-            print("DELETE FAILED, delete it in the GridShare app:", iid, e, flush=True)
-        time.sleep(15)
-        try:
-            st = gs("GET", f"/v1/instances/{iid}")
-            print(f"final: {st.get('status')}, ran {st.get('running_seconds')} s, cost ₹{st.get('total_cost_inr')}")
-        except Exception:  # noqa: BLE001
-            pass
-        log = dropbox.get(f"{run_id}/out/run.log")
-        if log:
-            open(os.path.join(a.out_dir, f"run_{run_id}.log"), "wb").write(log)
-        print(f"{len(seen)} pictures saved in {a.out_dir}")
+        delete(iid, run_id, out_dir, seen)
 
+
+def delete(iid, run_id, out_dir, seen):
+    try:
+        gs("DELETE", f"/v1/instances/{iid}")
+        print("machine deleted", flush=True)
+    except Exception as e:  # noqa: BLE001
+        print("DELETE FAILED, delete it in the GridShare app:", iid, e, flush=True)
+    time.sleep(15)
+    try:
+        st = gs("GET", f"/v1/instances/{iid}")
+        print(f"final: {st.get('status')}, ran {st.get('running_seconds')} s, cost ₹{st.get('total_cost_inr')}")
+    except Exception:  # noqa: BLE001
+        pass
+    log = dropbox.get(f"{run_id}/out/run.log")
+    if log:
+        open(os.path.join(out_dir, f"run_{run_id}.log"), "wb").write(log)
+    print(f"{len(seen)} pictures in {out_dir}")
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["prompts", "run"])
+    ap.add_argument("cmd", choices=["prompts", "run", "attach"])
     ap.add_argument("shots")
     ap.add_argument("out_dir", nargs="?")
     ap.add_argument("--only")
@@ -161,11 +181,15 @@ if __name__ == "__main__":
     ap.add_argument("--min-vram", type=float, default=23)
     ap.add_argument("--max-rate", type=float, default=35)
     ap.add_argument("--max-min", type=float, default=90)
+    ap.add_argument("--run", help="attach: the run id")
     a = ap.parse_args()
+    signal.signal(signal.SIGTERM, lambda *_: sys.exit("terminated"))  # so the machine is still deleted (finally)
     if a.cmd == "prompts":
         job, _ = job_for(a.shots, set(a.only.split(",")) if a.only else None, a.takes)
         out = os.path.join(os.path.dirname(os.path.abspath(a.shots)), "keyframes_job.json")
         json.dump(job, open(out, "w"), indent=1, ensure_ascii=False)
         print(f"{len(job['images'])} pictures, cast {job['cast']} -> {out}\n\nexample:\n{job['images'][0]['prompt']}")
+    elif a.cmd == "attach":  # keyframes.py attach INSTANCE_ID OUT_DIR --run RUN_ID
+        watch(a.shots, a.run, a.out_dir, a.max_min)
     else:
         run(a)
