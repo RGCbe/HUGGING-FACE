@@ -44,6 +44,7 @@ def main():
     ap.add_argument("--node")
     ap.add_argument("--max-rate", type=float, default=35)
     ap.add_argument("--max-min", type=float, default=120)
+    ap.add_argument("--stall", type=float, default=30, help="end the machine after this many minutes without a new clip")
     a = ap.parse_args()
     w, h = map(int, a.size.split("x"))
     d = json.load(open(a.shots))
@@ -89,7 +90,7 @@ def main():
     if (inst.get("rate_per_hr_inr") or 0) > a.max_rate or (a.node and keyframes.gs("GET", f"/v1/instances/{iid}").get("node_id") != a.node):
         print("not the chosen machine or too expensive: stopping")
         return keyframes.delete(iid, run_id, a.out_dir, set())
-    keyframes.watch(iid, run_id, a.out_dir, a.max_min)
+    keyframes.watch(iid, run_id, a.out_dir, a.max_min, a.stall)
 
 
 if __name__ == "__main__":
