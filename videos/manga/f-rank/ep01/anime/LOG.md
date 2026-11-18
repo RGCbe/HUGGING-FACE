@@ -441,3 +441,14 @@ No clip came back. **What we learned:**
   stop; 1920x1080, 24 fps; made in about 2 minutes for all 27. S26 still needs its picture.
 - Disk on this cloud machine was down to 0.8 GB: the 1.2 GB of "silent" in-between renders of already uploaded videos
   were deleted (the finished videos are kept; the in-between files can be rebuilt).
+
+## AI clips, try 1 on the RTX 3090 (failed: out of memory)
+
+The 31 GB video model took 46 minutes to download; the first clip then rendered well (about 5 seconds a step, so
+about 2 minutes for a 20-step clip at 832x480), but the program was killed in the middle of the clip without an error
+message: the home PC has only 21.5 GB of RAM, and the "offload" setting kept the 11 GB text model and the 10 GB video
+model in RAM. Cost: ₹27.69, no clip.
+
+**Fix:** `clips_worker.py` now encodes all 20 prompts first, frees the text model completely, then keeps the video
+model and the VAE on the graphics card (RAM use less than half); it also writes a progress note at steps 1, 10 and
+20 of each clip, so a stall shows at once. Try 2 started straight away on the same RTX 3090.
