@@ -3,7 +3,10 @@
     python3 imagegen.py IMAGES_JSON OUT_DIR [--only s1,s3] [--engine cloudflare|qwen|qwen-fast]
 
 IMAGES_JSON: {"style": "...", "aspect": "16:9", "style_ref": "s2",
-              "images": [{"name": "s1", "prompt": "...", "seed": 7}]}
+              "images": [{"name": "s1", "prompt": "...", "seed": 7, "edit": "path/to/picture.png"?}]}
+An image with "edit" is a correction of an existing picture (cloudflare engine only): that picture is sent as
+image 0 and the prompt is used as written (no shared style), e.g. "The same photo, but the tea seller's left
+hand holds ...". The model redraws the picture with the change, keeping the rest as close as it can.
 Each image is generated from its prompt plus the shared style (so a video's pictures match) and
 saved as OUT_DIR/NAME.png. Images that already exist are skipped, so a rerun only makes the
 missing ones; delete a file (or use --only) to make it again, with a new seed if it had mistakes.
@@ -116,8 +119,16 @@ def cloudflare(prompt, seed, ref):
     raise RuntimeError("Workers AI refused the request")
 
 
+def small_copy(src, tag):
+    # a reference must be smaller than 512x512
+    small = os.path.join(a.out_dir, f".{tag}_ref.png")
+    ffmpeg("-i", src, "-vf", "scale='min(504,iw)':'min(504,ih)':force_original_aspect_ratio=decrease", small)
+    data = open(small, "rb").read()
+    os.remove(small)
+    return data
+
+
 def style_reference():
-    # the reference must be smaller than 512x512
     name = spec.get("style_ref")
     src = os.path.join(a.out_dir, f"{name}.png") if name else None
     if a.engine != "cloudflare" or not src or not os.path.exists(src):
@@ -136,7 +147,10 @@ for im in spec["images"]:
     if (only and im["name"] not in only) or (not only and os.path.exists(out)):
         continue
     prompt = f"{im['prompt']} {spec.get('style', '')}".strip()
-    if ref is not None and im["name"] != spec.get("style_ref"):
+    this_ref = ref
+    if im.get("edit"):
+        prompt, this_ref = im["prompt"], small_copy(im["edit"], im["name"])
+    elif ref is not None and im["name"] != spec.get("style_ref"):
         prompt = ("Draw in exactly the same art style as image 0: the same black ink outlines, flat colours, "
                   "warm cream paper background and soft shadows. " + prompt)
     data = None
@@ -145,7 +159,7 @@ for im in spec["images"]:
             started = time.time()
             # the safety filter sometimes flags a harmless picture; another seed usually passes
             seed = im.get("seed", 7) + 1000 * attempt
-            data = cloudflare(prompt, seed, ref) if a.engine == "cloudflare" else qwen(prompt, seed)
+            data = cloudflare(prompt, seed, this_ref) if a.engine == "cloudflare" else qwen(prompt, seed)
             break
         except QuotaUsedUp as e:
             sys.exit(f"{im['name']}: the free daily quota is used up ({str(e)[:200]}); run again after it resets")

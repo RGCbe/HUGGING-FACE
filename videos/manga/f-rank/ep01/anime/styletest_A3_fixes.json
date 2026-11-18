@@ -1,0 +1,53 @@
+{
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "s08_arjun_pour_fix1",
+   "seed": 11,
+   "prompt": "The same photo of the same 18-year-old boy at the same street tea stall, but now he is pouring: the steel kettle in his raised right hand is tilted forward with its spout pointing down toward the glass, and one thin continuous stream of milky light-brown tea falls from the kettle spout straight down through the air into the glass he holds in his left hand at waist height. The shop signs behind him are plain coloured boards with no writing. Photorealistic movie still.",
+   "edit": "out/styletest/A2/s08_arjun_pour_2.png"
+  },
+  {
+   "name": "s08_arjun_pour_fix2",
+   "seed": 22,
+   "prompt": "The same photo of the same 18-year-old boy at the same street tea stall, but now he is pouring: the steel kettle in his raised right hand is tilted forward with its spout pointing down toward the glass, and one thin continuous stream of milky light-brown tea falls from the kettle spout straight down through the air into the glass he holds in his left hand at waist height. The shop signs behind him are plain coloured boards with no writing. Photorealistic movie still.",
+   "edit": "out/styletest/A2/s08_arjun_pour_2.png"
+  },
+  {
+   "name": "s17_meera_coins_fix1",
+   "seed": 11,
+   "prompt": "The same photo of the same young woman with the same staff at the same tea stall, but her right hand now holds three silver coins and is placing them on the wooden counter beside the three glasses of chai; her fingers do not touch the glasses. Everything else stays the same. Photorealistic movie still.",
+   "edit": "out/styletest/A2/s17_meera_coins_3.png"
+  },
+  {
+   "name": "s17_meera_coins_fix2",
+   "seed": 22,
+   "prompt": "The same photo of the same young woman with the same staff at the same tea stall, but her right hand now holds three silver coins and is placing them on the wooden counter beside the three glasses of chai; her fingers do not touch the glasses. Everything else stays the same. Photorealistic movie still.",
+   "edit": "out/styletest/A2/s17_meera_coins_3.png"
+  },
+  {
+   "name": "s26_viktor_aura_fix1",
+   "seed": 11,
+   "prompt": "The same photo of the same armored man in the same cave, but his eyes now glow bright golden yellow with light, matching the golden aura around him. Everything else stays the same. Photorealistic movie still.",
+   "edit": "out/styletest/A2/s26_viktor_aura_3.png"
+  },
+  {
+   "name": "s26_viktor_aura_fix2",
+   "seed": 22,
+   "prompt": "The same photo of the same armored man in the same cave, but his eyes now glow bright golden yellow with light, matching the golden aura around him. Everything else stays the same. Photorealistic movie still.",
+   "edit": "out/styletest/A2/s26_viktor_aura_3.png"
+  },
+  {
+   "name": "s05_mumbai_gate_fix1",
+   "seed": 11,
+   "prompt": "The same photo of the Mumbai seafront at sunset, but the traffic follows Indian rules: all cars drive on the left side of the road. The black-and-yellow taxis are seen from behind, driving away from the camera in the left lanes, and their doors have no writing and no logos. Everything else stays the same: the palm trees, the old buildings, the skyscrapers, the sea, the people on the promenade and the glowing ring portal in the sky. Photorealistic movie still.",
+   "edit": "out/styletest/A2/s05_mumbai_gate_2.png"
+  },
+  {
+   "name": "s05_mumbai_gate_fix2",
+   "seed": 22,
+   "prompt": "The same photo of the Mumbai seafront at sunset, but the traffic follows Indian rules: all cars drive on the left side of the road. The black-and-yellow taxis are seen from behind, driving away from the camera in the left lanes, and their doors have no writing and no logos. Everything else stays the same: the palm trees, the old buildings, the skyscrapers, the sea, the people on the promenade and the glowing ring portal in the sky. Photorealistic movie still.",
+   "edit": "out/styletest/A2/s05_mumbai_gate_2.png"
+  }
+ ]
+}
