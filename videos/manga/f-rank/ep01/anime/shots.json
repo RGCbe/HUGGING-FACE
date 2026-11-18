@@ -60,7 +60,8 @@
     "viktor",
     "This power... where is it coming from?!"
    ],
-   "sfx": "aura roar, whoosh to white"
+   "sfx": "aura roar, whoosh to white",
+   "tag": "[stunned]"
   },
   {
    "id": "S03",
@@ -157,7 +158,8 @@
     "arjun",
     "Chai! Hot chai! Ten rupees a glass!"
    ],
-   "sfx": "pour, street noise"
+   "sfx": "pour, street noise",
+   "tag": "[cheerfully]"
   },
   {
    "id": "S10",
@@ -185,7 +187,8 @@
     "arjun",
     "Business is... a little slow today."
    ],
-   "sfx": "wind"
+   "sfx": "wind",
+   "tag": "[sheepishly]"
   },
   {
    "id": "S12",
@@ -255,7 +258,8 @@
     "viktor",
     "Ha! Look, everyone! It's the F-Rank tea boy!"
    ],
-   "sfx": "crowd laughter"
+   "sfx": "crowd laughter",
+   "tag": "[laughs]"
   },
   {
    "id": "S16",
@@ -283,7 +287,8 @@
     "arjun",
     "Tea, sir? Good for the nerves before a dungeon."
    ],
-   "sfx": "steam"
+   "sfx": "steam",
+   "tag": "[politely]"
   },
   {
    "id": "S18",
@@ -300,7 +305,8 @@
     "viktor",
     "Tea from an F-Rank? Is it poisoned with weakness?"
    ],
-   "sfx": "sniff"
+   "sfx": "sniff",
+   "tag": "[sarcastically]"
   },
   {
    "id": "S19",
@@ -317,7 +323,8 @@
     "meera",
     "Viktor, be nice. Three teas, please."
    ],
-   "sfx": "coins"
+   "sfx": "coins",
+   "tag": "[warmly]"
   },
   {
    "id": "S20",
@@ -383,7 +390,8 @@
     "arjun",
     "Good luck in there."
    ],
-   "sfx": "whoosh, soft catch"
+   "sfx": "whoosh, soft catch",
+   "tag": "[calmly]"
   },
   {
    "id": "S24",
@@ -436,7 +444,8 @@
     "viktor",
     "Level 9. Easy content, chat."
    ],
-   "sfx": "cave drips, drone hum"
+   "sfx": "cave drips, drone hum",
+   "tag": "[confidently]"
   },
   {
    "id": "S27",
@@ -464,7 +473,8 @@
     "raghu",
     "Ghhk...!"
    ],
-   "sfx": "KRASH metal"
+   "sfx": "KRASH metal",
+   "tag": "[grunts]"
   },
   {
    "id": "S29",
@@ -481,7 +491,8 @@
     "viktor",
     "Tch! Since when are Level 9 ogres this strong?!"
    ],
-   "sfx": "heavy breathing"
+   "sfx": "heavy breathing",
+   "tag": "[angrily]"
   },
   {
    "id": "S30",
@@ -498,7 +509,8 @@
     "meera",
     "Viktor! We have to retreat!"
    ],
-   "sfx": "magic chime"
+   "sfx": "magic chime",
+   "tag": "[shouting]"
   },
   {
    "id": "S31",
@@ -515,7 +527,8 @@
     "viktor",
     "(thinking) What... is this power?!"
    ],
-   "sfx": "BA-DUMP, rising hum"
+   "sfx": "BA-DUMP, rising hum",
+   "tag": "[stunned]"
   },
   {
    "id": "S32",
@@ -560,7 +573,8 @@
     "meera",
     "Did he just... one-shot it?!"
    ],
-   "sfx": "dust settling"
+   "sfx": "dust settling",
+   "tag": "[shocked]"
   },
   {
    "id": "S35",
@@ -577,7 +591,8 @@
     "viktor",
     "Heh. Guess I just... awakened."
    ],
-   "sfx": "sparkle"
+   "sfx": "sparkle",
+   "tag": "[smugly]"
   },
   {
    "id": "S36",
@@ -652,7 +667,8 @@
     "viktor",
     "Boss time."
    ],
-   "sfx": "hum"
+   "sfx": "hum",
+   "tag": "[confidently]"
   },
   {
    "id": "S41",
@@ -669,7 +685,8 @@
     "viktor",
     "HYAAAH!!"
    ],
-   "sfx": "battle cry"
+   "sfx": "battle cry",
+   "tag": "[shouting]"
   },
   {
    "id": "S42",
@@ -714,7 +731,8 @@
     "viktor",
     "...Oh no."
    ],
-   "sfx": "silence, monster breath"
+   "sfx": "silence, monster breath",
+   "tag": "[nervously]"
   },
   {
    "id": "S45",
@@ -732,7 +750,8 @@
     "viktor",
     "RUN!!!"
    ],
-   "sfx": "cloth tug"
+   "sfx": "cloth tug",
+   "tag": "[shouting]"
   },
   {
    "id": "S46",
@@ -795,7 +814,8 @@
     "viktor",
     "YOU! What did you put in that tea?!"
    ],
-   "sfx": "counter slam"
+   "sfx": "counter slam",
+   "tag": "[shouting]"
   },
   {
    "id": "S50",
@@ -812,7 +832,8 @@
     "arjun",
     "...Cardamom."
    ],
-   "sfx": "one beat of silence"
+   "sfx": "one beat of silence",
+   "tag": "[deadpan]"
   },
   {
    "id": "S51",
@@ -829,7 +850,8 @@
     "meera",
     "Can I get one to go?"
    ],
-   "sfx": "comedy sparkle"
+   "sfx": "comedy sparkle",
+   "tag": "[hopefully]"
   },
   {
    "id": "S52",
@@ -876,7 +898,8 @@
     "arjun",
     "(thinking) Ten rupees for an hour of power... I'm undercharging."
    ],
-   "sfx": "system chime"
+   "sfx": "system chime",
+   "tag": "[amused]"
   },
   {
    "id": "S55",

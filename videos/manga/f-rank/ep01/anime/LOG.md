@@ -358,3 +358,31 @@ name cards) are made in the edit; S26 comes next session.
 
 **GridShare spending on 18 Nov:** ₹64.41 in total (balance ₹494.93 → ₹430.52). Keyframes runs: ₹21.52 + ₹18.24 + ₹14.14;
 the rest was the tests and the failed first try.
+
+---
+
+# Day 3, continued: the voices (before ElevenLabs ends on 2 Dec)
+
+**Casting (director's pick; `videos/manga/voices.py`, model Eleven v4):**
+| Character | Voice | Backup tested |
+|---|---|---|
+| Narrator | Manoj kumar T (the owner's clone) | - |
+| Arjun | Bunty - Warm and Clear (young, Indian, relaxed) | Manav - Friendly, Calm and Natural |
+| Meera | Tara - Conversational and Expressive (young, Indian, an actress) | Anika - Sweet and Lively |
+| Viktor | Liam - Energetic, Social Media Creator (young, American) | - |
+| Raghu | Viraj - Deep, Resonant and Lyrical (Indian) | - |
+
+The casting test (`out/casting.m4a`, sent to Manoj) was checked with Whisper: every line heard right, and the acting
+tags ("[laughs]", "[shouting]") were performed, not spoken.
+
+**All 39 lines** (`voice/SNN.wav`, not in git; 2 min 16 s in total) were made with an acting direction per line
+(`"tag"` in `shots.json`, e.g. S15 "[laughs]", S50 "[deadpan]", "(quietly)" becomes a whisper).
+
+**Mistake on the way:** the first acting directions were put on the wrong shot numbers (the narrator got "[smugly]",
+"Boss time." got "[shouting]"). Fixed by printing every line with its direction and correcting them before recording.
+
+**Listening check (Whisper, small model):** 26 lines exact. The 13 flagged were checked one by one: numbers written as
+digits (10, 18, 58, 60), "tea" written as "T", "Meera" as "Mira", and battle cries that are not words ("Tch",
+"HYAAAH") are all fine. One to listen to: S14 "Zero manners" is heard as "manors" in all 3 takes; it is the Indian
+"maa" sound of the narrator's clone, not a wrong word. A bigger listening model could not be downloaded (the disk is
+almost full), so this one is for Manoj's ear.
