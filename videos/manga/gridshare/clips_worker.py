@@ -68,22 +68,45 @@ try:
     path = snapshot_download(job["model"], local_dir=local)
     downloading = False
     note(f"model ready in {time.time() - t:.0f} s")
+    import gc
     import diffusers
     from diffusers import AutoencoderKLWan, WanImageToVideoPipeline
     from diffusers.utils import export_to_video
+    # Memory: these home PCs have only ~21 GB of RAM. Offloading kept the 11 GB text model AND the 10 GB video model in
+    # RAM and the process was killed. So: encode every prompt first, free the text model completely, then keep the
+    # video model and the VAE on the graphics card for the whole run.
+    enc = WanImageToVideoPipeline.from_pretrained(path, transformer=None, vae=None, torch_dtype=torch.bfloat16)
+    enc.text_encoder.to("cuda")
+    embeds = {}
+    with torch.no_grad():
+        for c in job["clips"]:
+            pe, ne = enc.encode_prompt(prompt=c["prompt"], negative_prompt=job.get("negative", ""),
+                                       do_classifier_free_guidance=True, device="cuda")
+            embeds[c["name"]] = (pe.to("cpu"), ne.to("cpu"))
+    del enc
+    gc.collect(); torch.cuda.empty_cache()
+    note(f"{len(embeds)} prompts encoded; text model freed")
     vae = AutoencoderKLWan.from_pretrained(path, subfolder="vae", torch_dtype=torch.float32)
-    pipe = WanImageToVideoPipeline.from_pretrained(path, vae=vae, torch_dtype=torch.bfloat16)
-    pipe.enable_model_cpu_offload()  # 5B transformer + 11 GB text encoder do not fit in 24 GB together
-    note(f"diffusers {diffusers.__version__}: pipeline loaded")
+    pipe = WanImageToVideoPipeline.from_pretrained(path, vae=vae, text_encoder=None, tokenizer=None,
+                                                   torch_dtype=torch.bfloat16).to("cuda")
+    if hasattr(pipe.vae, "enable_tiling"):
+        pipe.vae.enable_tiling()
+    note(f"diffusers {diffusers.__version__}: video model on the GPU, {torch.cuda.memory_allocated() / 1e9:.1f} GB used")
+
+    def step_note(p, i, t, kw):  # progress inside a clip, so a stall shows at once
+        if i in (0, 9) or i == job.get("steps", 30) - 1:
+            note(f"   step {i + 1}/{job.get('steps', 30)}")
+        return kw
     done = 0
     for c in job["clips"]:
         t = time.time()
         try:
             w, h = c.get("width", job["width"]), c.get("height", job["height"])
             img = fit(Image.open(io.BytesIO(get(c["image"]))).convert("RGB"), w, h)
-            frames = pipe(image=img, prompt=c["prompt"], negative_prompt=job.get("negative", ""), height=h,
+            pe, ne = embeds[c["name"]]
+            frames = pipe(image=img, prompt_embeds=pe.to("cuda"), negative_prompt_embeds=ne.to("cuda"), height=h,
                           width=w, num_frames=c.get("frames", 81), guidance_scale=job.get("guidance", 5.0),
-                          num_inference_steps=job.get("steps", 30),
+                          num_inference_steps=job.get("steps", 30), callback_on_step_end=step_note,
                           generator=torch.Generator("cuda").manual_seed(c.get("seed", 1))).frames[0]
             out = f"/root/{c['name']}.mp4"
             export_to_video(frames, out, fps=job.get("fps", 24))
