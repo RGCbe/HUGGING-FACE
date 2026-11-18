@@ -304,3 +304,32 @@ kept is in `keyframes_review_r1.json`, full size in `out/keyframes_ok/`).
   `cast/minotaur.jpg`), used like the faces.
 - Viktor's description now says "no glasses".
 - Round 2: 25 shots x 2 versions = 50 pictures on the RTX 3090.
+
+## Round 2: 25 shots again, 2 versions each (16 broken + 9 too bright), on GridShare
+
+![r2 sheet 1](log/d3_r2_sheet_1.jpg) ![r2 sheet 2](log/d3_r2_sheet_2.jpg) ![r2 sheet 3](log/d3_r2_sheet_3.jpg)
+![r2 sheet 4](log/d3_r2_sheet_4.jpg) ![r2 sheet 5](log/d3_r2_sheet_5.jpg)
+
+Cost: ₹18.24 (36 minutes: setup, a fresh model download into `/workspace/models`, 50 pictures).
+
+**Solved (22 shots kept, `keyframes_review_r2.json`):** the street shots are now evening (deep blue sky, lamps lit)
+and the stall scenes at the end are night; S01 shows only red eyes in the dark; S02's eyes glow gold; the hunters in
+S06 are people; S28 Raghu braces behind his shield; S31 golden light on his hands; S33 a real golden slash at the
+ogre (the ogre now matches its reference); S40 the minotaur on its throne far behind (and the drone); S45 Raghu's hand
+on Viktor's shoulder and cape; S46 exactly three runners and the minotaur; S49 no glasses; S51 Meera alone with one
+staff; S52 two fingers; S53 the empty square, wiping a glass; S54 a floating blue panel. S24 is still a medium shot,
+not a tight close-up: it will be cropped tighter in the edit.
+
+**Still wrong (3 shots):**
+| Shot | Mistake | Cause | Fix |
+|---|---|---|---|
+| S19 | Meera holds two staffs | her description says "carrying a staff" and the shot says "staff in her other hand" | the shot now says "only ONE staff, in her left hand ... exactly one staff in the picture" |
+| S26 | Meera appears twice (and an extra man in b) | three people from three face pictures; the model repeats one | "exactly two companions, one woman and one huge bald man ... each person appears only once" |
+| S50 | two Arjuns | the shot text said "steam drifting between them", which asks for two people | "Arjun alone ... steam in front of him ... only one person" |
+
+**Lesson:** read every shot description for words that imply more people ("them", "they", "between") and remove them.
+
+**Model saving:** GridShare's status after the stop: the 3 big model files are listed as "not saved" (public model
+files are not stored; GridShare says they are re-downloaded free on restore) and the backup was still uploading when
+the machine stopped. Round 3 starts from this machine's files (`restore_from_instance_id`) to see whether the model
+comes back without a paid download.
