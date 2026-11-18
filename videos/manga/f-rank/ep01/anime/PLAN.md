@@ -1,6 +1,7 @@
 # The F-Rank Tea Seller, Episode 1 "Hunter's Chai": the movie version (director's plan)
 
-Status: PLAN ONLY, nothing made yet (18 Nov 2026). The shot list is `shots.json` next to this file.
+Status (18 Nov 2026): style test, cast faces done; the screenplay is `SCRIPT.md` and the shot list `shots.json`
+(rebuilt from the script: 56 shots, 48 by AI, 11 of them new shots that connect the webtoon panels).
 Changed on 18 Nov: Manoj wants **real humans, like Marvel movies** (live-action look), not anime.
 
 ## The idea
@@ -11,7 +12,7 @@ golden aura, the portal and the monsters, and the same comedy timing as the webt
 Everything is OUR OWN: our characters, our story, our music. We do not copy any film's characters, costumes,
 logos or shots, and **no face is a real actor or a real person**.
 
-- Length: about **3 to 3.5 minutes**, 44 shots (36 made by AI, 8 cards and freeze frames made in the edit).
+- Length: about **3.5 to 4 minutes**, 56 shots (48 made by AI, 8 cards and freeze frames made in the edit).
 - Format: 16:9, 1920x1080, 24 fps, for YouTube. Later: 3 Shorts cut from it, and a Tamil version.
 
 ## The look (decided after a style test, see step 1)
