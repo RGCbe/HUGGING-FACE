@@ -11,49 +11,516 @@
   "narrator": "Manoj (owner's own voice clone)"
  },
  "shots": [
-  {"id": "S01", "panel": "p01", "seconds": 5, "see": "Viktor in a dark cave, golden aura, glowing sword, blood on his cheek, a giant monster shadow behind", "motion": "golden aura flickers and rises like flames, sparks drift up, cape moves, slow camera push in to his face", "line": ["viktor", "This power... where is it coming from?!"], "sfx": "aura hum, distant roar"},
-  {"id": "S02", "panel": "p01", "seconds": 3, "see": "extreme close-up of Viktor's glowing yellow eyes", "motion": "pupils shrink, light flares across the eyes, tiny camera shake", "sfx": "heartbeat"},
-  {"id": "S03", "panel": "title", "seconds": 5, "see": "title card over the glowing Gate: THE F-RANK TEA SELLER, Episode 1: Hunter's Chai", "motion": "made in the edit (not AI)", "sfx": "title sting"},
-  {"id": "S04", "panel": "p02", "seconds": 2, "see": "card: One hour earlier...", "motion": "made in the edit", "sfx": "clock tick"},
-  {"id": "S05", "panel": "p03", "seconds": 6, "see": "Mumbai 2031 at dusk, skyscrapers, a giant glowing portal with a magic circle in a purple sky", "motion": "slow pan right across the skyline, clouds swirl around the portal, birds fly past", "line": ["narrator", "Mumbai, 2031. Gates to monster dungeons have opened in every city on Earth."], "sfx": "city hum, portal drone"},
-  {"id": "S06", "panel": "new", "seconds": 4, "see": "hunters walking out of a gate carrying glowing blue monster cores, a crowd cheering", "motion": "hunters walk toward camera, cores glow and pulse, camera tracks back", "line": ["narrator", "Hunters go in. Monster cores come out. Hunters get rich."], "sfx": "crowd, coins"},
-  {"id": "S07", "panel": "p04", "seconds": 6, "see": "wide plaza from above, a stone archway Gate, a queue of armored hunters, lanterns, a tiny tea stall at the side", "motion": "camera cranes down from high above toward the small tea stall, lanterns sway, crowd moves", "line": ["narrator", "And right next to the biggest Gate in the city... stands a tiny tea stall."], "sfx": "crowd murmur"},
-  {"id": "S08", "panel": "p05", "seconds": 5, "see": "Arjun pouring tea from a height into a glass, a long stream of tea, steam, lanterns", "motion": "tea stream pours from the raised pot into the glass, steam rises, his arm lifts higher, he shouts happily", "line": ["arjun", "Chai! Hot chai! Ten rupees a glass!"], "sfx": "tea pour, street noise"},
-  {"id": "S09", "panel": "p05", "seconds": 3, "see": "close-up of the tea stream landing in a glass, foam, steam", "motion": "slow motion tea splash and foam, steam curls", "sfx": "pour, glass clink"},
-  {"id": "S10", "panel": "p06", "seconds": 4, "see": "Arjun (realistic, not chibi) holding a glass, embarrassed smile, a bead of sweat, empty counter", "motion": "he scratches the back of his head, small sigh, wind blows a paper cup past", "line": ["arjun", "Business is... a little slow today."], "sfx": "wind, cricket chirp"},
-  {"id": "S11", "panel": "p06", "seconds": 3, "see": "freeze frame of Arjun with a hunter status card: ARJUN, 18, RANK F", "motion": "made in the edit (status card slides in)", "line": ["narrator", "Arjun. Eighteen years old. Hunter rank: F, the weakest."], "sfx": "UI blip"},
-  {"id": "S12", "panel": "p07", "seconds": 5, "see": "Viktor, Meera and Raghu walking through the crowd, people filming them on phones", "motion": "the three walk toward camera in slow motion, cape flows, phone flashes go off", "line": ["narrator", "Then the real hunters arrived."], "sfx": "crowd gasps, camera clicks"},
-  {"id": "S13", "panel": "p07", "seconds": 3, "see": "freeze on Viktor with a name card: VIKTOR HALE, B-RANK, 2M FOLLOWERS", "motion": "made in the edit", "line": ["narrator", "Viktor Hale. B-Rank. Two million followers. Zero manners."], "sfx": "UI blip"},
-  {"id": "S14", "panel": "p08", "seconds": 4, "see": "Viktor pointing and laughing, arrogant", "motion": "he throws his head back laughing and points at the camera", "line": ["viktor", "Ha! Look, everyone! It's the F-Rank tea boy!"], "sfx": "crowd laughter"},
-  {"id": "S15", "panel": "p09", "seconds": 4, "see": "Arjun offering a glass of tea with a calm smile", "motion": "he holds the glass out toward camera, steam rises, lantern light flickers on his face", "line": ["arjun", "Tea, sir? Good for the nerves before a dungeon."], "sfx": "steam"},
-  {"id": "S16", "panel": "p10", "seconds": 4, "see": "Viktor holding the glass, raised eyebrow, disgust", "motion": "he sniffs the tea and pulls a face, eyebrow rises", "line": ["viktor", "Tea from an F-Rank? Is it poisoned with weakness?"], "sfx": "sniff"},
-  {"id": "S17", "panel": "p11", "seconds": 4, "see": "Meera placing coins on the counter, smiling", "motion": "coins slide onto the counter, she smiles and tilts her head, braid swings", "line": ["meera", "Viktor, be nice. Three teas, please."], "sfx": "coins"},
-  {"id": "S18", "panel": "p11", "seconds": 2, "see": "freeze on Meera with a name card: MEERA, HEALER", "motion": "made in the edit", "line": ["narrator", "Meera. Healer. The only nice one in the party."], "sfx": "UI blip"},
-  {"id": "S19", "panel": "p12", "seconds": 3, "see": "Viktor gulping the tea, head back", "motion": "he downs the tea in one gulp, throat moves, puts the glass down", "line": ["viktor", "...Hmph. Nothing special."], "sfx": "gulp, glass on wood"},
-  {"id": "S20", "panel": "p13", "seconds": 5, "see": "close-up of Arjun in lantern light, half-closed eyes, a small knowing smile, dark background", "motion": "very slow push in, lantern light flickers, one corner of his mouth lifts", "line": ["arjun", "Good luck in there. ...One hour. That's all you get."], "sfx": "music drops to silence"},
-  {"id": "S21", "panel": "p14", "seconds": 5, "see": "from behind: the three hunters walking into the giant glowing portal, blue light", "motion": "they walk into the portal, blue light swallows them, wind pulls the cape", "line": ["narrator", "Dungeon Gate. Level 9."], "sfx": "portal whoosh"},
-  {"id": "S22", "panel": "p15", "seconds": 4, "see": "a giant ogre with a cleaver and monster wolves with red eyes in a cave, from below", "motion": "the ogre roars at the camera, wolves lunge forward, dust shakes from the ceiling", "sfx": "GRRAAAH roar"},
-  {"id": "S23", "panel": "p16", "seconds": 3, "see": "Raghu knocked flying backwards, his shield cracking", "motion": "impact: he flies back, shield cracks, fragments and dust burst", "line": ["raghu", "GHHK-!"], "sfx": "KRASH metal impact"},
-  {"id": "S24", "panel": "p17", "seconds": 3, "see": "Viktor wounded, cut on his arm, clenched teeth, holding his sword", "motion": "he staggers, grips his sword tighter, sweat drips", "line": ["viktor", "Tch! Since when are Level 9 ogres this strong?!"], "sfx": "heavy breathing"},
-  {"id": "S25", "panel": "p18", "seconds": 3, "see": "Meera casting green healing magic, scared, shouting", "motion": "green light spirals from her staff, her braid whips, she shouts", "line": ["meera", "Viktor! We have to retreat!"], "sfx": "magic chime"},
-  {"id": "S26", "panel": "p19", "seconds": 4, "see": "Viktor looking at his own glowing hands, golden aura, eyes turning yellow", "motion": "a golden aura bursts out from his body, light particles rise, his eyes light up", "line": ["viktor", "(thinking) What... is this power?!"], "sfx": "BA-DUMP heartbeat, power-up roar"},
-  {"id": "S27", "panel": "p20", "seconds": 3, "see": "Viktor's golden sword slash cutting through the ogre", "motion": "one fast golden slash across the screen, white impact flash, the ogre splits", "sfx": "KRAAACK slash"},
-  {"id": "S28", "panel": "p21", "seconds": 3, "see": "Meera and Raghu, jaws dropped, shocked", "motion": "both stare, Raghu's jaw drops further, dust settles", "line": ["meera", "Did he just... one-shot it?!"], "sfx": "silence then dust"},
-  {"id": "S29", "panel": "p22", "seconds": 3, "see": "Viktor grinning, sword on his shoulder, golden sparkles", "motion": "he rests the sword on his shoulder and smirks, sparkles drift", "line": ["viktor", "Heh. Guess I just... awakened."], "sfx": "sparkle"},
-  {"id": "S30", "panel": "p23", "seconds": 4, "see": "Viktor slashing through a pack of monster wolves, golden trails", "motion": "fast slashes, wolves thrown aside, camera whips with the swing", "line": ["narrator", "For the next fifty-eight minutes, Viktor was unstoppable."], "sfx": "SLASH x3"},
-  {"id": "S31", "panel": "p23", "seconds": 2, "see": "a clock-style timer on screen counting 02:00 to 58:00 over battle flashes", "motion": "made in the edit (quick montage)", "sfx": "ticking"},
-  {"id": "S32", "panel": "p24", "seconds": 5, "see": "a giant minotaur boss in black armor with a huge axe, throne room, fire, from below", "motion": "the minotaur rises from its throne, eyes flare red, flames surge, camera tilts up", "line": ["narrator", "Then they reached the boss."], "sfx": "GRRRMMM, fire"},
-  {"id": "S33", "panel": "p25", "seconds": 4, "see": "Viktor jumping midair with his sword raised, the golden aura fading", "motion": "he leaps toward the boss, aura flickers and starts to fade mid-jump", "line": ["viktor", "HYAAAH!!"], "sfx": "battle cry"},
-  {"id": "S34", "panel": "p25", "seconds": 2, "see": "timer hits 60:00 and turns red", "motion": "made in the edit", "line": ["narrator", "Minute sixty."], "sfx": "alarm beep"},
-  {"id": "S35", "panel": "p26", "seconds": 3, "see": "Viktor (realistic, not chibi) pale, sweating, nervous smile as his aura fizzles out", "motion": "the last golden sparks fizzle away, he trembles, sweat drop", "line": ["viktor", "...Oh no."], "sfx": "fsshh fizzle"},
-  {"id": "S36", "panel": "p27", "seconds": 5, "see": "the three hunters running away down a corridor, the minotaur chasing, dust", "motion": "they sprint toward camera in panic, the minotaur charges behind, floor shakes", "line": ["viktor", "RUN!!!"], "sfx": "DOOM DOOM footsteps"},
-  {"id": "S37", "panel": "p28", "seconds": 4, "see": "Viktor lying on his back on the stone outside the Gate, injured, torn cape, portal light", "motion": "camera slowly lowers above him, he breathes heavily, portal light pulses", "line": ["narrator", "Outside the Gate. Barely alive."], "sfx": "night ambience"},
-  {"id": "S38", "panel": "p29", "seconds": 4, "see": "Viktor slamming his hands on the tea stall counter, shouting, bandages", "motion": "he lunges at the counter and grabs it, glasses rattle", "line": ["viktor", "YOU! What did you put in that tea?!"], "sfx": "counter slam"},
-  {"id": "S39", "panel": "p30", "seconds": 3, "see": "Arjun deadpan close-up, half-closed eyes", "motion": "almost still: one slow blink, steam drifts across", "line": ["arjun", "...Cardamom."], "sfx": "one beat of silence"},
-  {"id": "S40", "panel": "p31", "seconds": 3, "see": "Meera holding coins, hopeful sparkle", "motion": "she holds up the coins with a hopeful smile, sparkles", "line": ["meera", "Can I get one to go?"], "sfx": "comedy sparkle"},
-  {"id": "S41", "panel": "p32", "seconds": 5, "see": "night, the tea stall with an oil lamp, Arjun wiping glasses alone, empty plaza, the portal behind", "motion": "very slow pull back, lamp flame flickers, he wipes a glass", "line": ["narrator", "That night. Nobody knew the truth about his tea."], "sfx": "quiet night, crickets"},
-  {"id": "S42", "panel": "p33", "seconds": 5, "see": "Arjun looking up at a floating blue status window, blue light on his face", "motion": "the blue window flickers open, light washes over his surprised face", "line": ["narrator", "(status window) Hidden skill: Hunter's Chai. Anyone who drinks it borrows great strength... for one hour."], "sfx": "system chime"},
-  {"id": "S43", "panel": "p34", "seconds": 5, "see": "a giant red eye opening inside the portal above the city, the tiny tea stall below", "motion": "the eye opens slowly, the slit pupil narrows toward the stall, red light spreads", "line": ["narrator", "And deep inside the Gate... something had noticed."], "sfx": "low drone"},
-  {"id": "S44", "panel": "end", "seconds": 5, "see": "To be continued + Subscribe", "motion": "made in the edit", "sfx": "end sting"}
+  {
+   "id": "S01",
+   "panel": "p01",
+   "seconds": 5,
+   "see": "Viktor in a dark cave, golden aura, glowing sword, blood on his cheek, a giant monster shadow behind",
+   "motion": "golden aura flickers and rises like flames, sparks drift up, cape moves, slow camera push in to his face",
+   "line": [
+    "viktor",
+    "This power... where is it coming from?!"
+   ],
+   "sfx": "aura hum, distant roar"
+  },
+  {
+   "id": "S02",
+   "panel": "p01",
+   "seconds": 3,
+   "see": "extreme close-up of Viktor's glowing yellow eyes",
+   "motion": "pupils shrink, light flares across the eyes, tiny camera shake",
+   "sfx": "heartbeat"
+  },
+  {
+   "id": "S03",
+   "panel": "title",
+   "seconds": 5,
+   "see": "title card over the glowing Gate: THE F-RANK TEA SELLER, Episode 1: Hunter's Chai",
+   "motion": "made in the edit (not AI)",
+   "sfx": "title sting"
+  },
+  {
+   "id": "S04",
+   "panel": "p02",
+   "seconds": 2,
+   "see": "card: One hour earlier...",
+   "motion": "made in the edit",
+   "sfx": "clock tick"
+  },
+  {
+   "id": "S05",
+   "panel": "p03",
+   "seconds": 6,
+   "see": "Mumbai 2031 at dusk, skyscrapers, a giant glowing portal with a magic circle in a purple sky",
+   "motion": "slow pan right across the skyline, clouds swirl around the portal, birds fly past",
+   "line": [
+    "narrator",
+    "Mumbai, 2031. Gates to monster dungeons have opened in every city on Earth."
+   ],
+   "sfx": "city hum, portal drone"
+  },
+  {
+   "id": "S06",
+   "panel": "new",
+   "seconds": 4,
+   "see": "hunters walking out of a gate carrying glowing blue monster cores, a crowd cheering",
+   "motion": "hunters walk toward camera, cores glow and pulse, camera tracks back",
+   "line": [
+    "narrator",
+    "Hunters go in. Monster cores come out. Hunters get rich."
+   ],
+   "sfx": "crowd, coins"
+  },
+  {
+   "id": "S07",
+   "panel": "p04",
+   "seconds": 6,
+   "see": "wide plaza from above, a stone archway Gate, a queue of armored hunters, lanterns, a tiny tea stall at the side",
+   "motion": "camera cranes down from high above toward the small tea stall, lanterns sway, crowd moves",
+   "line": [
+    "narrator",
+    "And right next to the biggest Gate in the city... stands a tiny tea stall."
+   ],
+   "sfx": "crowd murmur"
+  },
+  {
+   "id": "S08",
+   "panel": "p05",
+   "seconds": 5,
+   "see": "Arjun pouring tea from a height into a glass, a long stream of tea, steam, lanterns",
+   "motion": "tea stream pours from the raised pot into the glass, steam rises, his arm lifts higher, he shouts happily",
+   "line": [
+    "arjun",
+    "Chai! Hot chai! Ten rupees a glass!"
+   ],
+   "sfx": "tea pour, street noise"
+  },
+  {
+   "id": "S09",
+   "panel": "p05",
+   "seconds": 3,
+   "see": "close-up of the tea stream landing in a glass, foam, steam",
+   "motion": "slow motion tea splash and foam, steam curls",
+   "sfx": "pour, glass clink"
+  },
+  {
+   "id": "S10",
+   "panel": "p06",
+   "seconds": 4,
+   "see": "Arjun (realistic, not chibi) holding a glass, embarrassed smile, a bead of sweat, empty counter",
+   "motion": "he scratches the back of his head, small sigh, wind blows a paper cup past",
+   "line": [
+    "arjun",
+    "Business is... a little slow today."
+   ],
+   "sfx": "wind, cricket chirp"
+  },
+  {
+   "id": "S11",
+   "panel": "p06",
+   "seconds": 3,
+   "see": "freeze frame of Arjun with a hunter status card: ARJUN, 18, RANK F",
+   "motion": "made in the edit (status card slides in)",
+   "line": [
+    "narrator",
+    "Arjun. Eighteen years old. Hunter rank: F, the weakest."
+   ],
+   "sfx": "UI blip"
+  },
+  {
+   "id": "S12",
+   "panel": "p07",
+   "seconds": 5,
+   "see": "Viktor, Meera and Raghu walking through the crowd, people filming them on phones",
+   "motion": "the three walk toward camera in slow motion, cape flows, phone flashes go off",
+   "line": [
+    "narrator",
+    "Then the real hunters arrived."
+   ],
+   "sfx": "crowd gasps, camera clicks"
+  },
+  {
+   "id": "S13",
+   "panel": "p07",
+   "seconds": 3,
+   "see": "freeze on Viktor with a name card: VIKTOR HALE, B-RANK, 2M FOLLOWERS",
+   "motion": "made in the edit",
+   "line": [
+    "narrator",
+    "Viktor Hale. B-Rank. Two million followers. Zero manners."
+   ],
+   "sfx": "UI blip"
+  },
+  {
+   "id": "S14",
+   "panel": "p08",
+   "seconds": 4,
+   "see": "Viktor pointing and laughing, arrogant",
+   "motion": "he throws his head back laughing and points at the camera",
+   "line": [
+    "viktor",
+    "Ha! Look, everyone! It's the F-Rank tea boy!"
+   ],
+   "sfx": "crowd laughter"
+  },
+  {
+   "id": "S15",
+   "panel": "p09",
+   "seconds": 4,
+   "see": "Arjun offering a glass of tea with a calm smile",
+   "motion": "he holds the glass out toward camera, steam rises, lantern light flickers on his face",
+   "line": [
+    "arjun",
+    "Tea, sir? Good for the nerves before a dungeon."
+   ],
+   "sfx": "steam"
+  },
+  {
+   "id": "S16",
+   "panel": "p10",
+   "seconds": 4,
+   "see": "Viktor holding the glass, raised eyebrow, disgust",
+   "motion": "he sniffs the tea and pulls a face, eyebrow rises",
+   "line": [
+    "viktor",
+    "Tea from an F-Rank? Is it poisoned with weakness?"
+   ],
+   "sfx": "sniff"
+  },
+  {
+   "id": "S17",
+   "panel": "p11",
+   "seconds": 4,
+   "see": "Meera placing coins on the counter, smiling",
+   "motion": "coins slide onto the counter, she smiles and tilts her head, braid swings",
+   "line": [
+    "meera",
+    "Viktor, be nice. Three teas, please."
+   ],
+   "sfx": "coins"
+  },
+  {
+   "id": "S18",
+   "panel": "p11",
+   "seconds": 2,
+   "see": "freeze on Meera with a name card: MEERA, HEALER",
+   "motion": "made in the edit",
+   "line": [
+    "narrator",
+    "Meera. Healer. The only nice one in the party."
+   ],
+   "sfx": "UI blip"
+  },
+  {
+   "id": "S19",
+   "panel": "p12",
+   "seconds": 3,
+   "see": "Viktor gulping the tea, head back",
+   "motion": "he downs the tea in one gulp, throat moves, puts the glass down",
+   "line": [
+    "viktor",
+    "...Hmph. Nothing special."
+   ],
+   "sfx": "gulp, glass on wood"
+  },
+  {
+   "id": "S20",
+   "panel": "p13",
+   "seconds": 5,
+   "see": "close-up of Arjun in lantern light, half-closed eyes, a small knowing smile, dark background",
+   "motion": "very slow push in, lantern light flickers, one corner of his mouth lifts",
+   "line": [
+    "arjun",
+    "Good luck in there. ...One hour. That's all you get."
+   ],
+   "sfx": "music drops to silence"
+  },
+  {
+   "id": "S21",
+   "panel": "p14",
+   "seconds": 5,
+   "see": "from behind: the three hunters walking into the giant glowing portal, blue light",
+   "motion": "they walk into the portal, blue light swallows them, wind pulls the cape",
+   "line": [
+    "narrator",
+    "Dungeon Gate. Level 9."
+   ],
+   "sfx": "portal whoosh"
+  },
+  {
+   "id": "S22",
+   "panel": "p15",
+   "seconds": 4,
+   "see": "a giant ogre with a cleaver and monster wolves with red eyes in a cave, from below",
+   "motion": "the ogre roars at the camera, wolves lunge forward, dust shakes from the ceiling",
+   "sfx": "GRRAAAH roar"
+  },
+  {
+   "id": "S23",
+   "panel": "p16",
+   "seconds": 3,
+   "see": "Raghu knocked flying backwards, his shield cracking",
+   "motion": "impact: he flies back, shield cracks, fragments and dust burst",
+   "line": [
+    "raghu",
+    "GHHK-!"
+   ],
+   "sfx": "KRASH metal impact"
+  },
+  {
+   "id": "S24",
+   "panel": "p17",
+   "seconds": 3,
+   "see": "Viktor wounded, cut on his arm, clenched teeth, holding his sword",
+   "motion": "he staggers, grips his sword tighter, sweat drips",
+   "line": [
+    "viktor",
+    "Tch! Since when are Level 9 ogres this strong?!"
+   ],
+   "sfx": "heavy breathing"
+  },
+  {
+   "id": "S25",
+   "panel": "p18",
+   "seconds": 3,
+   "see": "Meera casting green healing magic, scared, shouting",
+   "motion": "green light spirals from her staff, her braid whips, she shouts",
+   "line": [
+    "meera",
+    "Viktor! We have to retreat!"
+   ],
+   "sfx": "magic chime"
+  },
+  {
+   "id": "S26",
+   "panel": "p19",
+   "seconds": 4,
+   "see": "Viktor looking at his own glowing hands, golden aura, eyes turning yellow",
+   "motion": "a golden aura bursts out from his body, light particles rise, his eyes light up",
+   "line": [
+    "viktor",
+    "(thinking) What... is this power?!"
+   ],
+   "sfx": "BA-DUMP heartbeat, power-up roar"
+  },
+  {
+   "id": "S27",
+   "panel": "p20",
+   "seconds": 3,
+   "see": "Viktor's golden sword slash cutting through the ogre",
+   "motion": "one fast golden slash across the screen, white impact flash, the ogre splits",
+   "sfx": "KRAAACK slash"
+  },
+  {
+   "id": "S28",
+   "panel": "p21",
+   "seconds": 3,
+   "see": "Meera and Raghu, jaws dropped, shocked",
+   "motion": "both stare, Raghu's jaw drops further, dust settles",
+   "line": [
+    "meera",
+    "Did he just... one-shot it?!"
+   ],
+   "sfx": "silence then dust"
+  },
+  {
+   "id": "S29",
+   "panel": "p22",
+   "seconds": 3,
+   "see": "Viktor grinning, sword on his shoulder, golden sparkles",
+   "motion": "he rests the sword on his shoulder and smirks, sparkles drift",
+   "line": [
+    "viktor",
+    "Heh. Guess I just... awakened."
+   ],
+   "sfx": "sparkle"
+  },
+  {
+   "id": "S30",
+   "panel": "p23",
+   "seconds": 4,
+   "see": "Viktor slashing through a pack of monster wolves, golden trails",
+   "motion": "fast slashes, wolves thrown aside, camera whips with the swing",
+   "line": [
+    "narrator",
+    "For the next fifty-eight minutes, Viktor was unstoppable."
+   ],
+   "sfx": "SLASH x3"
+  },
+  {
+   "id": "S31",
+   "panel": "p23",
+   "seconds": 2,
+   "see": "a clock-style timer on screen counting 02:00 to 58:00 over battle flashes",
+   "motion": "made in the edit (quick montage)",
+   "sfx": "ticking"
+  },
+  {
+   "id": "S32",
+   "panel": "p24",
+   "seconds": 5,
+   "see": "a giant minotaur boss in black armor with a huge axe, throne room, fire, from below",
+   "motion": "the minotaur rises from its throne, eyes flare red, flames surge, camera tilts up",
+   "line": [
+    "narrator",
+    "Then they reached the boss."
+   ],
+   "sfx": "GRRRMMM, fire"
+  },
+  {
+   "id": "S33",
+   "panel": "p25",
+   "seconds": 4,
+   "see": "Viktor jumping midair with his sword raised, the golden aura fading",
+   "motion": "he leaps toward the boss, aura flickers and starts to fade mid-jump",
+   "line": [
+    "viktor",
+    "HYAAAH!!"
+   ],
+   "sfx": "battle cry"
+  },
+  {
+   "id": "S34",
+   "panel": "p25",
+   "seconds": 2,
+   "see": "timer hits 60:00 and turns red",
+   "motion": "made in the edit",
+   "line": [
+    "narrator",
+    "Minute sixty."
+   ],
+   "sfx": "alarm beep"
+  },
+  {
+   "id": "S35",
+   "panel": "p26",
+   "seconds": 3,
+   "see": "Viktor (realistic, not chibi) pale, sweating, nervous smile as his aura fizzles out",
+   "motion": "the last golden sparks fizzle away, he trembles, sweat drop",
+   "line": [
+    "viktor",
+    "...Oh no."
+   ],
+   "sfx": "fsshh fizzle"
+  },
+  {
+   "id": "S36",
+   "panel": "p27",
+   "seconds": 5,
+   "see": "the three hunters running away down a corridor, the minotaur chasing, dust",
+   "motion": "they sprint toward camera in panic, the minotaur charges behind, floor shakes",
+   "line": [
+    "viktor",
+    "RUN!!!"
+   ],
+   "sfx": "DOOM DOOM footsteps"
+  },
+  {
+   "id": "S37",
+   "panel": "p28",
+   "seconds": 4,
+   "see": "Viktor lying on his back on the stone outside the Gate, injured, torn cape, portal light",
+   "motion": "camera slowly lowers above him, he breathes heavily, portal light pulses",
+   "line": [
+    "narrator",
+    "Outside the Gate. Barely alive."
+   ],
+   "sfx": "night ambience"
+  },
+  {
+   "id": "S38",
+   "panel": "p29",
+   "seconds": 4,
+   "see": "Viktor slamming his hands on the tea stall counter, shouting, bandages",
+   "motion": "he lunges at the counter and grabs it, glasses rattle",
+   "line": [
+    "viktor",
+    "YOU! What did you put in that tea?!"
+   ],
+   "sfx": "counter slam"
+  },
+  {
+   "id": "S39",
+   "panel": "p30",
+   "seconds": 3,
+   "see": "Arjun deadpan close-up, half-closed eyes",
+   "motion": "almost still: one slow blink, steam drifts across",
+   "line": [
+    "arjun",
+    "...Cardamom."
+   ],
+   "sfx": "one beat of silence"
+  },
+  {
+   "id": "S40",
+   "panel": "p31",
+   "seconds": 3,
+   "see": "Meera holding coins, hopeful sparkle",
+   "motion": "she holds up the coins with a hopeful smile, sparkles",
+   "line": [
+    "meera",
+    "Can I get one to go?"
+   ],
+   "sfx": "comedy sparkle"
+  },
+  {
+   "id": "S41",
+   "panel": "p32",
+   "seconds": 5,
+   "see": "night, the tea stall with an oil lamp, Arjun wiping glasses alone, empty plaza, the portal behind",
+   "motion": "very slow pull back, lamp flame flickers, he wipes a glass",
+   "line": [
+    "narrator",
+    "That night. Nobody knew the truth about his tea."
+   ],
+   "sfx": "quiet night, crickets"
+  },
+  {
+   "id": "S42",
+   "panel": "p33",
+   "seconds": 5,
+   "see": "Arjun looking up at a floating blue status window, blue light on his face",
+   "motion": "the blue window flickers open, light washes over his surprised face",
+   "line": [
+    "narrator",
+    "(status window) Hidden skill: Hunter's Chai. Anyone who drinks it borrows great strength... for one hour."
+   ],
+   "sfx": "system chime"
+  },
+  {
+   "id": "S43",
+   "panel": "p34",
+   "seconds": 5,
+   "see": "a giant red eye opening inside the portal above the city, the tiny tea stall below",
+   "motion": "the eye opens slowly, the slit pupil narrows toward the stall, red light spreads",
+   "line": [
+    "narrator",
+    "And deep inside the Gate... something had noticed."
+   ],
+   "sfx": "low drone"
+  },
+  {
+   "id": "S44",
+   "panel": "end",
+   "seconds": 5,
+   "see": "To be continued + Subscribe",
+   "motion": "made in the edit",
+   "sfx": "end sting"
+  }
+ ],
+ "cast_faces": {
+  "arjun": "../../cast/arjun.jpg",
+  "viktor": "../../cast/viktor.jpg",
+  "meera": "../../cast/meera.jpg",
+  "raghu": "../../cast/raghu.jpg"
+ },
+ "rules": [
+  "a character's keyframe is made with their face file as image 0 and 'the same person, with exactly the same face'",
+  "write ages as 'a young man of 18' (never 'boy'); state clean-shaven when needed",
+  "stills show calm moments; violence and impacts come from the motion step (the safety filter refuses violent stills)",
+  "Mumbai streets: name Indian details (marigold strings, oil lamps, Indian shop fronts with plain boards), never just 'lanterns'",
+  "signs: keep backgrounds dark or blurred so no fake letters can be read; frame tighter if needed",
+  "Raghu's shield is a separate tall rectangular steel tower shield held by a handle on his left arm",
+  "a correction of a picture is only for small changes; age and big changes need a fresh picture"
  ]
 }

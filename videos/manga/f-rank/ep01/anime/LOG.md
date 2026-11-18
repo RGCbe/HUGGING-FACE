@@ -148,3 +148,84 @@ Full-size copies: `out/keyframes_ok/`.
 
 **Known issues left for the next step:** the background signs (see round 6); each character's face is different in
 every new picture, which the face sheets (next step, day 2) fix by giving every shot the same face reference.
+
+---
+
+# Day 2 (18 Nov): face sheets, so every character keeps the same face
+
+Decided by the director (Manoj: "it's up to you"): **look A** (bright blockbuster; dungeon scenes a little darker),
+and the tank is called **Raghu**.
+
+## Round 1: a portrait of each character (`faces_r1.json`)
+
+**What we gave:** a casting-sheet portrait (front view, plain grey background, studio light) of each character, made by
+correcting their approved test picture (Arjun from S08, Meera from S17, Viktor from S26 "with normal blue eyes, no
+aura"); Raghu is new: "huge Indian man, mid-thirties, bald, thick black beard, kind but tough face, heavy dark armor".
+
+![faces round 1](log/d2_r1_faces.jpg)
+
+**Mistakes:**
+- Arjun: v1 copied the tea-pouring pose instead of a portrait; v2 looks about 25 with stubble and a moustache.
+- Meera: v1 looks about 15 and waves a hand; v2 is right (about 22, one braid, robe).
+- Viktor and Raghu: both versions are right (Viktor about 28-30 with blue eyes, armor, cape and clasps; Raghu bald
+  and bearded in dark armor).
+
+**How we solve it:** Arjun's age got lost again in a correction (the same lesson as day 1, round 5), so his portrait
+is drawn from scratch: "a young man of 18 ... completely clean-shaven, no moustache, no beard, no stubble".
+
+## Round 2: Arjun's portrait from scratch (`faces_r2.json`)
+
+![Arjun round 2](log/d2_r2_arjun_face.jpg)
+
+**Result:** both are right: 18, smooth clean-shaven face, messy black hair, white kurta. Version 1 is kept.
+
+## Round 3: the face test, each character in a new scene from their portrait (`faces_test_r1.json`)
+
+**What we gave:** the portrait as image 0 + "the same person, with exactly the same face, in a new scene: ...":
+Arjun offering a glass of chai (S15), Viktor laughing and pointing (S14), Meera casting green healing magic in the
+cave (S25), Raghu bracing behind his shield as a heavy blow hits it (S23).
+
+![face tests](log/d2_r3_face_tests.jpg)
+
+**Result:** the face stays the same for Arjun, Viktor and Meera. The method works.
+
+**Mistakes:**
+- Raghu: refused 3 times by Cloudflare's safety filter ("heavy blow", "strained face", sparks and cracks).
+- Viktor: he opens his hand instead of pointing a finger; the street behind him has Chinese-style paper lanterns,
+  which do not look like Mumbai.
+- Arjun: short sleeves instead of rolled-up long sleeves (small).
+
+**How we solve it:**
+- Pictures are still frames, so they show calm moments; the violence (the blow, the crack) comes from the motion
+  step, where the video model animates it. Raghu's test was re-written as "he stands firm behind his shield".
+- Every Mumbai street prompt now names Indian details: "strings of marigold flowers, small oil lamps, Indian shop
+  fronts with plain boards", never just "lanterns".
+- Gestures that matter (pointing) get 2 tries in the real keyframes.
+
+## Round 4: Raghu again, gentler words (`faces_test_r2.json`)
+
+![Raghu test](log/d2_r4_raghu_test.jpg)
+
+**Result:** the same face, accepted by the filter. **Mistake:** the shield melted into his armor (it looks like a
+big chest plate). **How we solve it:** in the real keyframe the shield is described as a separate object: "a tall
+rectangular steel tower shield held by a handle on his left arm, standing on the ground in front of him".
+
+## The cast: approved faces (series files in `videos/manga/f-rank/cast/`)
+
+![cast](log/d2_cast_sheet.jpg)
+
+| Character | Face file | From |
+|---|---|---|
+| Arjun, 18 | `cast/arjun.jpg` | day 2 round 2, v1 |
+| Viktor Hale, 28 | `cast/viktor.jpg` | day 2 round 1, v2 |
+| Meera, 22 | `cast/meera.jpg` | day 2 round 1, v2 |
+| Raghu, 35 | `cast/raghu.jpg` | day 2 round 1, v1 |
+
+Every keyframe with a character from now on is made with that character's face file as image 0. Every face is
+invented by the AI; none is meant to look like a real person.
+
+**Used today:** about 59 pictures of the free Cloudflare allowance (the daily limit is reached; it resets at
+00:00 UTC, 5:30 am in India). Money spent: ₹0.
+
+**Next (day 3):** the 36 keyframes, made with the face files and the rules learned above, checked one by one and
+logged the same way. About 36-70 pictures with retries, so 1-2 days of the free allowance.

@@ -1,0 +1,51 @@
+{
+ "aspect": "1:1",
+ "images": [
+  {
+   "name": "face_arjun_1",
+   "seed": 5,
+   "prompt": "The same young Indian man as in image 0: about 18, college-student age, slim, youthful clean-shaven face, dark brown skin, messy short black hair, brown eyes, wearing the same white collarless cotton kurta. Photorealistic studio portrait photo for a film's character casting sheet, head and shoulders, the person faces the camera straight on with a calm neutral expression, eyes looking into the lens, soft even studio light, plain light grey background, sharp focus on the face, realistic skin texture, natural colours.",
+   "edit": "out/keyframes_ok/S08_test.png"
+  },
+  {
+   "name": "face_arjun_2",
+   "seed": 6,
+   "prompt": "The same young Indian man as in image 0: about 18, college-student age, slim, youthful clean-shaven face, dark brown skin, messy short black hair, brown eyes, wearing the same white collarless cotton kurta. Photorealistic studio portrait photo for a film's character casting sheet, head and shoulders, the person faces the camera straight on with a calm neutral expression, eyes looking into the lens, soft even studio light, plain light grey background, sharp focus on the face, realistic skin texture, natural colours.",
+   "edit": "out/keyframes_ok/S08_test.png"
+  },
+  {
+   "name": "face_meera_1",
+   "seed": 5,
+   "prompt": "The same young Indian woman as in image 0: about 22, brown skin, one long black braid over her shoulder, small gold chain necklace, wearing the same white robe with gold trim. Photorealistic studio portrait photo for a film's character casting sheet, head and shoulders, the person faces the camera straight on with a calm neutral expression, eyes looking into the lens, soft even studio light, plain light grey background, sharp focus on the face, realistic skin texture, natural colours.",
+   "edit": "out/keyframes_ok/S17_test.png"
+  },
+  {
+   "name": "face_meera_2",
+   "seed": 6,
+   "prompt": "The same young Indian woman as in image 0: about 22, brown skin, one long black braid over her shoulder, small gold chain necklace, wearing the same white robe with gold trim. Photorealistic studio portrait photo for a film's character casting sheet, head and shoulders, the person faces the camera straight on with a calm neutral expression, eyes looking into the lens, soft even studio light, plain light grey background, sharp focus on the face, realistic skin texture, natural colours.",
+   "edit": "out/keyframes_ok/S17_test.png"
+  },
+  {
+   "name": "face_viktor_1",
+   "seed": 5,
+   "prompt": "The same man as in image 0, but with normal clear blue eyes and no glow and no aura: about 28, young handsome Western face, short slicked-back blonde hair, wearing the same silver plate armor with the black cape and round silver clasps. Photorealistic studio portrait photo for a film's character casting sheet, head and shoulders, the person faces the camera straight on with a calm neutral expression, eyes looking into the lens, soft even studio light, plain light grey background, sharp focus on the face, realistic skin texture, natural colours.",
+   "edit": "out/keyframes_ok/S26_test.png"
+  },
+  {
+   "name": "face_viktor_2",
+   "seed": 6,
+   "prompt": "The same man as in image 0, but with normal clear blue eyes and no glow and no aura: about 28, young handsome Western face, short slicked-back blonde hair, wearing the same silver plate armor with the black cape and round silver clasps. Photorealistic studio portrait photo for a film's character casting sheet, head and shoulders, the person faces the camera straight on with a calm neutral expression, eyes looking into the lens, soft even studio light, plain light grey background, sharp focus on the face, realistic skin texture, natural colours.",
+   "edit": "out/keyframes_ok/S26_test.png"
+  },
+  {
+   "name": "face_raghu_1",
+   "seed": 7,
+   "prompt": "A huge Indian man in his mid-thirties, very tall and broad, bald head, thick full black beard, kind but tough face, brown skin, wearing heavy dark steel armor with a big round shoulder plate. Photorealistic studio portrait photo for a film's character casting sheet, head and shoulders, the person faces the camera straight on with a calm neutral expression, eyes looking into the lens, soft even studio light, plain light grey background, sharp focus on the face, realistic skin texture, natural colours."
+  },
+  {
+   "name": "face_raghu_2",
+   "seed": 8,
+   "prompt": "A huge Indian man in his mid-thirties, very tall and broad, bald head, thick full black beard, kind but tough face, brown skin, wearing heavy dark steel armor with a big round shoulder plate. Photorealistic studio portrait photo for a film's character casting sheet, head and shoulders, the person faces the camera straight on with a calm neutral expression, eyes looking into the lens, soft even studio light, plain light grey background, sharp focus on the face, realistic skin texture, natural colours."
+  }
+ ]
+}
