@@ -140,14 +140,14 @@ def run(a):
     watch(iid, run_id, a.out_dir, a.max_min)
 
 
-def watch(iid, run_id, out_dir, max_min):
+def watch(iid, run_id, out_dir, max_min, stall_min=25):
     """Follow a running machine: print its progress, save its pictures, and ALWAYS delete it at the end."""
     os.makedirs(out_dir, exist_ok=True)
     t0 = last_change = time.time()
     seen = {f for f in os.listdir(out_dir) if f.endswith((".jpg", ".mp4"))}
     last_status, finished = "", False
     try:
-        while time.time() - t0 < max_min * 60 and time.time() - last_change < 25 * 60:
+        while time.time() - t0 < max_min * 60 and time.time() - last_change < stall_min * 60:
             time.sleep(30)
             status = (dropbox.get(f"{run_id}/out/status.txt") or b"").decode("utf-8", "replace")
             if status != last_status:
@@ -167,7 +167,7 @@ def watch(iid, run_id, out_dir, max_min):
                 print("the machine stopped by itself:", st.get("status"), st.get("error_msg") or st.get("display_message"))
                 break
         if not finished:
-            print("stopping: " + ("time limit" if time.time() - t0 >= max_min * 60 else "no progress for 25 minutes"))
+            print("stopping: " + ("time limit" if time.time() - t0 >= max_min * 60 else f"no progress for {stall_min} minutes"))
     finally:
         delete(iid, run_id, out_dir, seen)
 
@@ -208,6 +208,7 @@ if __name__ == "__main__":
     ap.add_argument("--max-rate", type=float, default=35)
     ap.add_argument("--max-min", type=float, default=90)
     ap.add_argument("--run", help="attach: the run id")
+    ap.add_argument("--stall", type=float, default=25, help="end the machine after this many minutes without progress")
     ap.add_argument("--restore", help="start from this stopped machine's saved files (the model)")
     a = ap.parse_args()
     signal.signal(signal.SIGTERM, lambda *_: sys.exit("terminated"))  # so the machine is still deleted (finally)
@@ -217,6 +218,6 @@ if __name__ == "__main__":
         json.dump(job, open(out, "w"), indent=1, ensure_ascii=False)
         print(f"{len(job['images'])} pictures, cast {job['cast']} -> {out}\n\nexample:\n{job['images'][0]['prompt']}")
     elif a.cmd == "attach":  # keyframes.py attach INSTANCE_ID OUT_DIR --run RUN_ID
-        watch(a.shots, a.run, a.out_dir, a.max_min)
+        watch(a.shots, a.run, a.out_dir, a.max_min, a.stall)
     else:
         run(a)

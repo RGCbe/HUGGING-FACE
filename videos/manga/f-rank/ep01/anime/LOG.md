@@ -404,3 +404,26 @@ voice id, model, stability, similarity, tempo per character); `voices.py` reads 
   "manners" heard "manors") and the battle cries are flagged.
 
 The first take is kept in `out/voice_v1/` for comparison. New preview: `out/dialogue_preview_v2.m4a` (2 min 27 s).
+
+---
+
+# Day 3, continued: the first animation test on GridShare (failed)
+
+**What we gave:** 2 shots (S09 tea pour, S31 golden power-up), Wan 2.2 TI2V-5B image-to-video (Apache-2.0), each at
+1280x704 (5 s, 121 frames, 30 steps) and at 832x480 (`videos/manga/gridshare/clips.py`, `clips_worker.py`).
+
+**What happened:**
+| Try | Machine | Result | Cost |
+|---|---|---|---|
+| 1 | RTX 3090 | refused: rented by someone else ("fully rented") | ₹0 |
+| 2 | 2x RTX 4000 Ada | refused: "on this Windows machine the GPUs are rented together" (double price) | ₹0 |
+| 3 | RTX 4090, ₹48/hour | the 31 GB model took 31 minutes to download; the first 5-second clip at 1280x704 was still not done after 25 minutes at 100% GPU; then the home PC's container crashed ("exited unexpectedly") at 58 minutes | ₹46.76 |
+
+No clip came back. **What we learned:**
+1. Wan 2.2 TI2V-5B at full 720p is too slow for us: more than 25 minutes per 5-second clip on an RTX 4090, so 48
+   clips would be about 20 hours (about ₹950).
+2. Each GridShare session pays 30 minutes just to download the 31 GB video model.
+3. Home-PC machines can crash in the middle of a job; the money for the time it ran is not refunded.
+4. The runner now shows GridShare's refusal reason, and the "no progress" limit can be set per run (`--stall`).
+
+**GridShare total for 18 Nov:** ₹111.17 (balance ₹494.93 -> about ₹383.76).
