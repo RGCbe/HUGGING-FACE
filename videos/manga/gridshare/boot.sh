@@ -14,10 +14,10 @@ python3 -m uv venv -q -p 3.12 /root/venv >> setup.log 2>&1 || say "venv failed: 
 # 'python3 -m uv pip' installs into the Python that runs uv unless --python names the venv
 python3 -m uv pip install -q --python /root/venv/bin/python torch --index-url https://download.pytorch.org/whl/cu128 >> setup.log 2>&1 \
   || say "torch install failed: $(tail -c 1500 setup.log)"
-python3 -m uv pip install -q --python /root/venv/bin/python "diffusers>=0.37" "transformers>=4.56" accelerate safetensors "huggingface_hub[hf_xet]" pillow \
+python3 -m uv pip install -q --python /root/venv/bin/python "diffusers>=0.37" "transformers>=4.56" accelerate safetensors "huggingface_hub[hf_xet]" pillow ftfy imageio imageio-ffmpeg \
   >> setup.log 2>&1 || say "tools install failed: $(tail -c 1500 setup.log)"
 say "installed: $(/root/venv/bin/python -c 'import sys, torch, diffusers; print(sys.version.split()[0], torch.__version__, torch.cuda.is_available(), diffusers.__version__)' 2>&1 | tail -1)"
-curl -sS -m 120 -A gs-machine -o kw.py "$D/keyframes_worker.py"
+curl -sS -m 120 -A gs-machine -o kw.py "$D/${WORKER:-keyframes_worker.py}"
 /root/venv/bin/python -u kw.py > run.log 2>&1
 cat setup.log >> run.log
 curl -sS -m 120 -A gs-machine -X PUT --data-binary @run.log "$D/out/run.log" >/dev/null

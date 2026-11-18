@@ -141,7 +141,7 @@ def watch(iid, run_id, out_dir, max_min):
     """Follow a running machine: print its progress, save its pictures, and ALWAYS delete it at the end."""
     os.makedirs(out_dir, exist_ok=True)
     t0 = last_change = time.time()
-    seen = {f for f in os.listdir(out_dir) if f.endswith(".jpg")}
+    seen = {f for f in os.listdir(out_dir) if f.endswith((".jpg", ".mp4"))}
     last_status, finished = "", False
     try:
         while time.time() - t0 < max_min * 60 and time.time() - last_change < 25 * 60:
@@ -153,7 +153,7 @@ def watch(iid, run_id, out_dir, max_min):
                 last_status, last_change = status, time.time()
             for name in dropbox.names(f"{run_id}/out/"):
                 short = name.split("/out/", 1)[1]
-                if short.endswith(".jpg") and short not in seen:
+                if short.endswith((".jpg", ".mp4")) and short not in seen:
                     open(os.path.join(out_dir, short), "wb").write(dropbox.get(name))
                     seen.add(short)
             if dropbox.get(f"{run_id}/out/DONE") or "ALL DONE" in status or "STOPPED WITH AN ERROR" in status:
@@ -191,7 +191,7 @@ def delete(iid, run_id, out_dir, seen):
     log = dropbox.get(f"{run_id}/out/run.log")
     if log:
         open(os.path.join(out_dir, f"run_{run_id}.log"), "wb").write(log)
-    print(f"{len(seen)} pictures in {out_dir}")
+    print(f"{len(seen)} files in {out_dir}")
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
