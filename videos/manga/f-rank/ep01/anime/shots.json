@@ -427,12 +427,10 @@
    "panel": "new",
    "seconds": 4,
    "cast": [
-    "viktor",
-    "meera",
-    "raghu"
+    "viktor"
    ],
    "kind": "ai",
-   "see": "a huge cave lit by glowing blue mushrooms: Viktor walks in front with a small camera drone floating beside his head; behind him walk exactly two companions, one woman (Meera, with her glowing staff) and one huge bald man (Raghu, with his tower shield); exactly three people in total, each person appears only once",
+   "see": "a huge cave lit by glowing blue mushrooms: Viktor alone in the frame walks toward the camera, talking with a grin to a small camera drone floating beside his head; footsteps of his companions somewhere behind him, out of sight",
    "motion": "they walk forward, the drone light sweeps the cave, Viktor talks to the drone",
    "line": [
     "viktor",

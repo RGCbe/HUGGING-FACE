@@ -333,3 +333,28 @@ not a tight close-up: it will be cropped tighter in the edit.
 files are not stored; GridShare says they are re-downloaded free on restore) and the backup was still uploading when
 the machine stopped. Round 3 starts from this machine's files (`restore_from_instance_id`) to see whether the model
 comes back without a paid download.
+
+## Round 3: the last 3 shots, 3 versions each, starting from the saved machine (`--restore`)
+
+![round 3](log/d3_r3_sheet.jpg)
+
+Cost: ₹14.14. **The model was NOT restored**: GridShare does not store public model files (it lists them as "not
+saved") and did not bring them back, so it was downloaded again (15 minutes). Keeping it as our own file would cost
+about ₹96 a month plus a one-time upload (about ₹38): only worth it with 12+ sessions a month, so we download each
+session and do the work in big batches instead.
+
+**Solved:** S19 (b): one staff, coins on her palm, evening. S50 (b): Arjun alone, deadpan, night.
+
+**Still wrong:** S26: all three versions add extra people (4 to 7) when three face pictures are given in one shot.
+**Director's decision:** S26 becomes "Viktor alone with his camera drone, talking to chat"; Meera and Raghu are heard
+behind him and seen in the next shots. It is made in the next GridShare session with the video clips.
+
+## The storyboard after day 3
+
+![storyboard](log/d3_storyboard.jpg)
+
+47 of 48 AI keyframes approved (full size in `out/keyframes_ok/`); the 8 grey "made in the edit" cards (title, clock,
+name cards) are made in the edit; S26 comes next session.
+
+**GridShare spending on 18 Nov:** ₹64.41 in total (balance ₹494.93 → ₹430.52). Keyframes runs: ₹21.52 + ₹18.24 + ₹14.14;
+the rest was the tests and the failed first try.
