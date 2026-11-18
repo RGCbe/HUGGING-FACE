@@ -452,3 +452,44 @@ model in RAM. Cost: ₹27.69, no clip.
 **Fix:** `clips_worker.py` now encodes all 20 prompts first, frees the text model completely, then keeps the video
 model and the VAE on the graphics card (RAM use less than half); it also writes a progress note at steps 1, 10 and
 20 of each clip, so a stall shows at once. Try 2 started straight away on the same RTX 3090.
+
+## AI clips, try 2 (stopped by Manoj's choice: Google Flow)
+
+Try 2 ran on the same RTX 3090 with the memory fix, but Manoj chose Google Flow (Veo 3.1) for the AI shots, so it was
+stopped. Lesson: stopping the watcher's shell did not stop its Python program, and the machine kept billing; it was
+stopped by hand with `POST /instances/{id}/stop` (₹21.73). From now on: stop the Python program itself and check that
+the machine shows "stopped". **GridShare total for 18 Nov: ₹160.59** (balance ₹494.93 -> ₹334.34). Nothing runs there.
+
+## Google Flow pack, then automation (Manoj: "use google flow", then "lets find way to automate it")
+
+- **What we gave:** `flow_shots.json` / `FLOW_SHOTS.txt`: the 20 AI shots, each with its start picture, a prompt (the
+  shot's motion + one fixed live-action style line), the length (4 or 6 s) and 2 takes for the 5 hardest shots (S23,
+  S33, S43, S45, S46): 25 clips. Drive folder "F-Rank Ep1 - Google Flow" with the 20 start pictures in "keyframes".
+- **Automating Flow:** the Flow website has no official API; unofficial tools that drive it break Google's rules and
+  need the Google login, so we did not use them. Veo 3.1 itself is sold through the Gemini API (`veo_clips.py`, about
+  $6 with Lite or $12 with Fast for all 25 clips, money limit built in), but it has no free use and needs a key with
+  billing. Manoj asked for free sources instead.
+- **Free sources checked:** Hugging Face ZeroGPU (works now on his free account, a few minutes a day), Modal ($30 free
+  a month: all clips in about an hour), Kaggle (about 30 GPU hours a week, older GPUs), Alibaba Cloud Model Studio
+  (some free seconds per Wan model for new users). Not free: Veo/Gemini API (Google's $300 trial does not cover it),
+  Kling/Hailuo/Runway (free credits only on their websites, not for commercial use).
+
+## Free AI clips, round 1: Wan 2.2 on Hugging Face ZeroGPU (`videos/manga/zerogpu_clips.py`)
+
+- **What we gave:** each start picture + its Flow prompt to the public Space `zerogpu-aoti/wan2-2-fp8da-aoti-faster`
+  (Wan 2.2 14B, Apache-2.0, run by Hugging Face's own ZeroGPU team), 6 steps, at most 5 s (the Space's limit), seed 7.
+  It comes back at 832x480, 16 fps; the script keeps that raw clip and makes a 24 fps copy (smooth in-between frames)
+  stretched to the shot length, at `out/clips/SNN_a.mp4`, where the edit looks first.
+- **How it came out** (`log/clips_free_round1.jpg`), 4 clips, 49-92 s each, free:
+  - **S09, the pour: good.** Real-looking, the tea stream falls into the glass, steam, he turns and smiles; the face
+    stays the same.
+  - **S02, the eyes: good.** The eyes light up yellow, the light flares to white, as written.
+  - **S08, the cardamom: good motion, one thing missing.** He crushes the pods with his hands in the stone bowl and
+    tips them in; steam rises; the faint golden shimmer did not appear (it can be added in the edit as a light effect).
+  - **S01, the cave: one mistake.** The torches flicker and his face stays the same, but "golden light on his armor"
+    turned the silver chest plate copper-brown, and it stays that way. **Fix:** remake it at the end with "a soft
+    golden glow shines on his silver armor, the armor stays silver".
+- **Mistakes in the run:** a free account has only a few minutes of GPU a day (each 5 s clip asks for about 105 s),
+  so the run stopped after 3 new clips. S15 was made but the download was refused (403) and S17-S22 failed with no
+  reason given (the time was used up and the Space hides the message), so the run kept queuing for nothing.
+  **Fix:** the script now stops after two failures in a row. The next free run is booked for when the time resets.

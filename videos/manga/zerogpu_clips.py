@@ -65,8 +65,11 @@ def main():
         return
     client = Client(SPACE, token=os.environ.get("HF_TOKEN"), verbose=False)
     log = open(os.path.join(a.out_dir, "zerogpu_log.jsonl"), "a")
-    made = 0
+    made = fails = 0
     for name, s, seed in todo:
+        if fails >= 2:  # once the free time is gone the Space often hides the reason: stop rather than queue for nothing
+            print(f"two failures in a row: stopping after {made} clips (most likely the free GPU time is used up)")
+            return
         t = time.time()
         rec = {"name": name, "space": SPACE, "seed": seed, "steps": a.steps, "prompt": s["prompt"]}
         try:
@@ -77,6 +80,7 @@ def main():
             shutil.copy(vid["video"] if isinstance(vid, dict) else vid, raw)
             finish(raw, os.path.join(a.out_dir, name + ".mp4"), s["seconds"] + 0.5)
             made += 1
+            fails = 0
             rec.update(ok=True, took_s=round(time.time() - t))
             print(f"{name}: made in {time.time() - t:.0f} s", flush=True)
         except Exception as e:  # noqa: BLE001
@@ -88,6 +92,7 @@ def main():
                 print(f"free GPU time used up for today after {made} clips ({msg[:200]}). Run again tomorrow.")
                 return
             print(f"{name}: FAILED - {msg[:300]}", flush=True)
+            fails += 1
             continue
         log.write(json.dumps(rec) + "\n")
         log.flush()
