@@ -86,9 +86,12 @@ def job_for(shots_file, only=None, takes=2):
 def gs(method, path, body=None):
     req = urllib.request.Request(GS + path, data=json.dumps(body).encode() if body else None, method=method,
                                  headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=90) as r:
-        b = r.read()
-        return json.loads(b) if b.strip() else {}
+    try:
+        with urllib.request.urlopen(req, timeout=90) as r:
+            b = r.read()
+            return json.loads(b) if b.strip() else {}
+    except urllib.error.HTTPError as e:  # say GridShare's reason (e.g. "the machine is fully rented")
+        sys.exit(f"GridShare {method} {path}: HTTP {e.code} {e.read()[:400].decode('utf-8', 'replace')}")
 
 
 def run(a):

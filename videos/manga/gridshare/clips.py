@@ -40,6 +40,7 @@ def main():
     ap.add_argument("--takes", type=int, default=1)
     ap.add_argument("--steps", type=int, default=30)
     ap.add_argument("--size", default="1280x704")
+    ap.add_argument("--also-size", help="test: also make every clip at this size (named NAME_lo)")
     ap.add_argument("--node")
     ap.add_argument("--max-rate", type=float, default=35)
     ap.add_argument("--max-min", type=float, default=120)
@@ -59,6 +60,9 @@ def main():
         for k in range(a.takes):
             clips.append({"name": f"{s['id']}_{'abc'[k]}", "image": f"keyframes/{s['id']}.jpg", "seed": 1 + k,
                           "frames": frames_for(s["seconds"] + 0.5), "prompt": STYLE + s["motion"] + "."})
+    if a.also_size:
+        w2, h2 = map(int, a.also_size.split("x"))
+        clips += [dict(c, name=c["name"] + "_lo", width=w2, height=h2) for c in clips]
     os.makedirs(a.out_dir, exist_ok=True)
     clips = [c for c in clips if not os.path.exists(os.path.join(a.out_dir, c["name"] + ".mp4"))]
     job = {"model": "Wan-AI/Wan2.2-TI2V-5B-Diffusers", "width": w, "height": h, "fps": 24, "steps": a.steps,

@@ -79,16 +79,17 @@ try:
     for c in job["clips"]:
         t = time.time()
         try:
-            img = fit(Image.open(io.BytesIO(get(c["image"]))).convert("RGB"), job["width"], job["height"])
-            frames = pipe(image=img, prompt=c["prompt"], negative_prompt=job.get("negative", ""), height=job["height"],
-                          width=job["width"], num_frames=c.get("frames", 81), guidance_scale=job.get("guidance", 5.0),
+            w, h = c.get("width", job["width"]), c.get("height", job["height"])
+            img = fit(Image.open(io.BytesIO(get(c["image"]))).convert("RGB"), w, h)
+            frames = pipe(image=img, prompt=c["prompt"], negative_prompt=job.get("negative", ""), height=h,
+                          width=w, num_frames=c.get("frames", 81), guidance_scale=job.get("guidance", 5.0),
                           num_inference_steps=job.get("steps", 30),
                           generator=torch.Generator("cuda").manual_seed(c.get("seed", 1))).frames[0]
             out = f"/root/{c['name']}.mp4"
             export_to_video(frames, out, fps=job.get("fps", 24))
             put(f"out/{c['name']}.mp4", open(out, "rb").read(), "video/mp4")
             done += 1
-            note(f"{c['name']} made in {time.time() - t:.0f} s ({done}/{len(job['clips'])})")
+            note(f"{c['name']} made in {time.time() - t:.0f} s at {w}x{h}, {c.get('frames', 81)} frames ({done}/{len(job['clips'])})")
         except Exception as e:  # noqa: BLE001
             note(f"{c['name']} FAILED: {type(e).__name__}: {str(e)[:500]}")
             if done == 0:
