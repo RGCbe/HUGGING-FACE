@@ -4,9 +4,9 @@ LoRA so 4 steps are enough).
 
     python animate.py SHOTS.json IMG_DIR OUT_DIR
 
-SHOTS.json is a list of {"name", "motion", "seconds"?, "seed"?}: "name" is a panel in IMG_DIR (NAME.png) and
-"motion" says what moves ("her braid and robe blow in the wind, golden light pulses, the camera slowly pushes
-in"). A clip already in OUT_DIR is skipped, so delete one to make it again. Each 2-second clip reserves about
+SHOTS.json is a list of {"name", "motion", "seconds"?, "seed"?, "style"?, "negative"?}: "name" is a panel in
+IMG_DIR (NAME.png) and "motion" says what moves ("her braid and robe blow in the wind, golden light pulses, the
+camera slowly pushes in"). "style" and "negative" replace the anime defaults (e.g. for a photoreal movie look). A clip already in OUT_DIR is skipped, so delete one to make it again. Each 2-second clip reserves about
 120 s of the account's daily ZeroGPU time (300 s free, 40 min with PRO); the script stops cleanly when the day's
 time runs out, and running it again the next day carries on. The model needs the whole GPU ("xlarge"), which
 counts double against the daily time. Needs HF_TOKEN.
@@ -47,7 +47,7 @@ for s in json.load(open(shots_file)):
     width, height = (round(w * scale / 32) * 32, round(h * scale / 32) * 32)
     client = client or Client(SPACE, token=token, verbose=False)
     t = time.time()
-    r = client.predict(handle_file(img), STYLE + s["motion"], height, width, NEGATIVE, secs, 1.0, 4,
+    r = client.predict(handle_file(img), s.get("style", STYLE) + s["motion"], height, width, s.get("negative", NEGATIVE), secs, 1.0, 4,
                        s.get("seed", 7), False, api_name="/generate_video")
     video = r[0]["video"] if isinstance(r[0], dict) else r[0]
     shutil.copy(video, out)
