@@ -100,8 +100,12 @@ def run(a):
     # the machine sees only this run's folder: DROP_URL/NAME is the drop box's file RUN_ID/NAME
     env = {"DROP_URL": f"{dropbox.base()}/files/{run_id}", "NVIDIA_DRIVER_CAPABILITIES": "all",
            "GRIDSHARE_START_CMD": "bash -c 'curl -fsS -A gs-machine \"$DROP_URL/boot.sh\" | bash'"}
-    body = {"image": "gridshare/pytorch:latest", "label": "keyframes", "gpu_count": 1, "disk_gb": 60,
-            "job_type": "ondemand", "exposed_ports": [], "env": env, "reliability_tier": "bronze"}
+    body = {"image": "gridshare/pytorch:latest", "label": "flux-keyframes", "gpu_count": 1, "disk_gb": 60,
+            "job_type": "ondemand", "exposed_ports": [], "env": env, "reliability_tier": "bronze",
+            # keep /workspace (the model is in /workspace/models) so the next machine starts with it
+            "workspace_save": True, "workspace_private_models": True}
+    if a.restore:  # start from the files saved by an earlier machine (its /workspace/models has the model)
+        body["restore_from_instance_id"] = a.restore
     # GridShare picks the machine by size when min_vram_gb is sent, even with a node_id (it once gave us an Apple
     # M3 Max that cannot run CUDA): send only the node_id, like GridShare's own SDK, and check what we got
     if a.node:
@@ -154,11 +158,18 @@ def watch(iid, run_id, out_dir, max_min):
 
 
 def delete(iid, run_id, out_dir, seen):
+    """Stop the machine (billing ends; its saved /workspace, with the model, stays for the next one).
+    If stopping fails, delete it, so it never keeps running."""
     try:
-        gs("DELETE", f"/v1/instances/{iid}")
-        print("machine deleted", flush=True)
+        gs("POST", f"/instances/{iid}/stop")
+        print(f"machine stopped (files kept; next time: --restore {iid})", flush=True)
     except Exception as e:  # noqa: BLE001
-        print("DELETE FAILED, delete it in the GridShare app:", iid, e, flush=True)
+        print("stop failed, deleting instead:", e, flush=True)
+        try:
+            gs("DELETE", f"/v1/instances/{iid}")
+            print("machine deleted", flush=True)
+        except Exception as e2:  # noqa: BLE001
+            print("DELETE FAILED, delete it in the GridShare app:", iid, e2, flush=True)
     time.sleep(15)
     try:
         st = gs("GET", f"/v1/instances/{iid}")
@@ -182,6 +193,7 @@ if __name__ == "__main__":
     ap.add_argument("--max-rate", type=float, default=35)
     ap.add_argument("--max-min", type=float, default=90)
     ap.add_argument("--run", help="attach: the run id")
+    ap.add_argument("--restore", help="start from this stopped machine's saved files (the model)")
     a = ap.parse_args()
     signal.signal(signal.SIGTERM, lambda *_: sys.exit("terminated"))  # so the machine is still deleted (finally)
     if a.cmd == "prompts":

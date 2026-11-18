@@ -50,7 +50,7 @@ try:
     downloading = True
 
     def report():  # the download takes many minutes: say how far it got every minute, so the watcher sees progress
-        cache = os.path.expanduser("~/.cache/huggingface")
+        cache = "/workspace/models"
         while downloading:
             time.sleep(60)
             size = sum(os.path.getsize(os.path.join(r, f)) for r, _, fs in os.walk(cache) for f in fs
@@ -59,10 +59,15 @@ try:
                 note(f"downloading the model: {size / 1e9:.1f} of about 16 GB, {time.time() - t:.0f} s")
 
     threading.Thread(target=report, daemon=True).start()
-    path = snapshot_download(job["model"], allow_patterns=["model_index.json", "scheduler/*", "text_encoder/*", "tokenizer/*",
-                                                            "transformer/*", "vae/*"])
+    # the model lives in /workspace/models/, which GridShare keeps when the machine is stopped with "keep my large
+    # files" on, and restores (public models: re-downloads itself) before billing starts on the next machine
+    local = os.path.join("/workspace/models", job["model"].split("/")[-1])
+    have = os.path.exists(os.path.join(local, "transformer", "diffusion_pytorch_model.safetensors"))
+    note("model found in /workspace/models (restored)" if have else "model not saved yet: downloading it into /workspace/models")
+    path = snapshot_download(job["model"], local_dir=local,
+                             allow_patterns=["model_index.json", "scheduler/*", "text_encoder/*", "tokenizer/*", "transformer/*", "vae/*"])
     downloading = False
-    note(f"model downloaded in {time.time() - t:.0f} s")
+    note(f"model ready in {time.time() - t:.0f} s")
     import diffusers
     from diffusers import Flux2KleinPipeline
     pipe = Flux2KleinPipeline.from_pretrained(path, torch_dtype=torch.bfloat16)
