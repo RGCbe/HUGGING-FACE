@@ -112,10 +112,18 @@ def picture(s, base, work, segs):
         else:
             black_video(out, dur)
         return out
+    def fresh(src):  # reuse a segment already made from the same source at the same length
+        stamp = out + ".src"
+        key = f"{os.path.abspath(src)} {os.path.getmtime(src)} {dur}"
+        ok = os.path.exists(out) and os.path.exists(stamp) and open(stamp).read() == key
+        open(stamp, "w").write(key)
+        return ok
     if os.path.exists(ai):
-        norm_video(ai, out, dur, upscale=True)
+        if not fresh(ai):
+            norm_video(ai, out, dur, upscale=True)
     elif os.path.exists(cam):
-        norm_video(cam, out, dur)
+        if not fresh(cam):
+            norm_video(cam, out, dur)
     elif os.path.exists(kf):  # a stand-in until the AI clip or camera move exists
         tmp = os.path.join(work, f"cam_{sid}.mp4")
         camera.render(kf, tmp, dur, camera.MOVES.get(sid, camera.DEFAULT))
@@ -253,7 +261,7 @@ def main():
     json.dump(sorted(events, key=lambda e: e["t"]), open(ev, "w"))
     music = os.path.join(work, "music.wav")
     run(sys.executable, os.path.join(DOODLE, "score.py"), music, f"{total:.2f}", "--events", ev, "--seed", "3")
-    mixed = os.path.join(work, "mix.wav")
+    mixed = os.path.join(work, "mix.m4a")  # mix.py always writes AAC
     run(sys.executable, os.path.join(DOODLE, "mix.py"), os.path.join(work, "voice.wav"), music, mixed, "--events", ev,
         "--stings", os.path.splitext(music)[0] + "_stings.wav", "--plain-voice", "--music-gain", "0.34")
     audio = os.path.join(work, "audio.wav")
