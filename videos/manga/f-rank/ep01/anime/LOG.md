@@ -531,3 +531,16 @@ the machine shows "stopped". **GridShare total for 18 Nov: ₹160.59** (balance 
   Version 2 kept the old face.
 - The old picture and its clip are kept in `out/retired/`; the S02 clip is made again on the next free run.
 - Lesson: to change only a face, give the scene as image 0 and the face file as image 1.
+
+## Cut 2, and the switch to full animation (Manoj: "it's not like a full animation episode, just moving the photo?")
+
+- **Cut 2** (`out/episode_cut2.mp4`, 3:47): S26 in (no more black screen), the 4 free clips in (S01, S02, S08, S09).
+- **Mistake (the plan, not a render):** the "Mix" plan gave real motion to only 20 of the 48 picture shots and slow
+  camera moves to the other 28, and only 4 clips existed, so the cut still felt like moving photos. Manoj wants
+  every shot to move like a real film (he shared an anime Short as an example of full motion, and chose to keep the
+  live-action look). **Fix:** `all_shots.json`: all 48 picture shots become AI clips (the 20 Flow shots with their
+  prompts and takes, plus the 28 others from their "motion" lines): 53 clips. Still limits: clips are 5 s at most
+  (longer shots are stretched a little), and in the 25 talking shots the lips will not match the words yet.
+- **GPU for 53 clips:** Modal (free $30 a month) was suggested, then dropped: its client talks gRPC, which this cloud
+  session's network does not carry. Manoj subscribed to **Hugging Face PRO** ($9 a month: 40 minutes of ZeroGPU a
+  day, about 22 clips), the same Space and script as the free clips, no new keys.
