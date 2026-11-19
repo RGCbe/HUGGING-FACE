@@ -516,3 +516,18 @@ the machine shows "stopped". **GridShare total for 18 Nov: ₹160.59** (balance 
   "nobody else in the cave"):** version d puts the drone in his hand (wrong); **version e is approved**: alone, young
   cocky grin, waving at the drone floating beside him. Lesson kept: for a new expression or pose, write it into a
   fresh prompt; edits keep the pose but drift the age.
+
+## S02, the face fix (`log/s02_face_fix.jpg`: old left, new right)
+
+- **What we gave, try 1:** a fresh S02 prompt with Viktor's face file as image 0, "a smooth-skinned young 28-year-old".
+  **Came out:** the right age, but all 3 copied the face file's pose (hands clasped at the chest) and lost the extreme
+  close-up.
+- **Try 2:** an edit of the old close-up, "the man is younger, 28, no wrinkles". **Came out:** too young (about 20),
+  soft and boyish, no longer Viktor's face.
+- **Try 3 (new in `imagegen.py`: `"also"` sends more pictures after image 0):** the old close-up as image 0 for the
+  framing, the eyes, torches and armor, plus Viktor's face file as image 1: "only the face changes: exactly the face
+  of the man in image 1". **Came out:** version 1 has his face at the right age, with an odd claw-like shape on the
+  armor at the bottom; cropped to a tighter close-up (the shot is "eyebrows to chin" anyway), it is approved.
+  Version 2 kept the old face.
+- The old picture and its clip are kept in `out/retired/`; the S02 clip is made again on the next free run.
+- Lesson: to change only a face, give the scene as image 0 and the face file as image 1.

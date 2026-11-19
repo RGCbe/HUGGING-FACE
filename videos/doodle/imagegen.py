@@ -7,6 +7,8 @@ IMAGES_JSON: {"style": "...", "aspect": "16:9", "style_ref": "s2",
 An image with "edit" is a correction of an existing picture (cloudflare engine only): that picture is sent as
 image 0 and the prompt is used as written (no shared style), e.g. "The same photo, but the tea seller's left
 hand holds ...". The model redraws the picture with the change, keeping the rest as close as it can.
+An image may also list "also": ["path", ...]: more pictures sent after image 0 (image 1, image 2, ...), e.g. a face
+file, so the prompt can say "... with exactly the face of the man in image 1" (cloudflare engine only).
 Each image is generated from its prompt plus the shared style (so a video's pictures match) and
 saved as OUT_DIR/NAME.png. Images that already exist are skipped, so a rerun only makes the
 missing ones; delete a file (or use --only) to make it again, with a new seed if it had mistakes.
@@ -95,11 +97,11 @@ def multipart(fields):
     return body + f"--{boundary}--\r\n".encode(), f"multipart/form-data; boundary={boundary}"
 
 
-def cloudflare(prompt, seed, ref):
+def cloudflare(prompt, seed, refs):
     w, h = SIZES[aspect]
     fields = {"prompt": prompt, "width": w, "height": h, "seed": seed}
-    if ref:
-        fields["input_image_0"] = ref
+    for i, ref in enumerate(r for r in refs if r):  # image 0, image 1, ... in the order given
+        fields[f"input_image_{i}"] = ref
     url = f"https://api.cloudflare.com/client/v4/accounts/{os.environ['CF_ACCOUNT_ID']}/ai/run/{CF_MODEL}"
     for _ in range(2):
         body, ctype = multipart(fields)
@@ -153,13 +155,15 @@ for im in spec["images"]:
     elif ref is not None and im["name"] != spec.get("style_ref"):
         prompt = ("Draw in exactly the same art style as image 0: the same black ink outlines, flat colours, "
                   "warm cream paper background and soft shadows. " + prompt)
+    # extra pictures sent after image 0 (cloudflare only), e.g. a face file: "... the face of the man in image 1"
+    also = [small_copy(p, f"{im['name']}_{i}") for i, p in enumerate(im.get("also", []))]
     data = None
     for attempt in range(3):
         try:
             started = time.time()
             # the safety filter sometimes flags a harmless picture; another seed usually passes
             seed = im.get("seed", 7) + 1000 * attempt
-            data = cloudflare(prompt, seed, this_ref) if a.engine == "cloudflare" else qwen(prompt, seed)
+            data = cloudflare(prompt, seed, [this_ref] + also) if a.engine == "cloudflare" else qwen(prompt, seed)
             break
         except QuotaUsedUp as e:
             sys.exit(f"{im['name']}: the free daily quota is used up ({str(e)[:200]}); run again after it resets")
