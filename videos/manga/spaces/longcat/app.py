@@ -42,15 +42,22 @@ NEGATIVE = ("Close-up, bright tones, overexposed, static, blurred details, subti
             "still picture, messy background, three legs, many people in the background, walking backwards")
 
 
+def stand_in(name):
+    """An empty module under this name (with a module spec, so importlib's checks do not fail on it)."""
+    import importlib.machinery
+    m = types.ModuleType(name)
+    m.__spec__ = importlib.machinery.ModuleSpec(name, None)
+    sys.modules[name] = m
+    return m
+
+
 def sdpa_shim():
     """The DiT calls xformers' memory_efficient_attention; send it to torch's own SDPA instead (no xformers wheel)."""
     try:
         import xformers.ops as xops
     except Exception:
-        xf = types.ModuleType("xformers")
-        xops = types.ModuleType("xformers.ops")
+        xf, xops = stand_in("xformers"), stand_in("xformers.ops")
         xf.ops = xops
-        sys.modules["xformers"], sys.modules["xformers.ops"] = xf, xops
 
     class BlockDiagonal:
         def __init__(self, q_seqlen, kv_seqlen):
@@ -85,18 +92,15 @@ def sdpa_shim():
     xops.memory_efficient_attention = attention
 
 
-sdpa_shim()
-
-import diffusers  # noqa: E402,F401  (imported before the stand-in below, so its own checks see no torchvision)
+import diffusers  # noqa: E402,F401  (imported before the stand-ins below, so their own checks see the real packages)
 import transformers  # noqa: E402,F401
+
+sdpa_shim()
 try:
     import torchvision  # noqa: F401
 except ImportError:  # only a grid-saving helper in longcat_video imports it, and this app never calls that helper
-    import importlib.machinery
-    _tv = types.ModuleType("torchvision")
-    _tv.__spec__ = importlib.machinery.ModuleSpec("torchvision", None)
+    _tv = stand_in("torchvision")
     _tv.utils = types.SimpleNamespace()
-    sys.modules["torchvision"] = _tv
 
 # 1) weights, once per machine (public models: no token needed)
 if not (BASE_DIR / "vae" / "config.json").exists():

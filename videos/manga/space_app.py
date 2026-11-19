@@ -74,7 +74,7 @@ def use(kind, force=False):
     with tempfile.TemporaryDirectory() as d:
         if kind == "longcat":
             snapshot_download(LONGCAT_CODE[0], repo_type="space", revision=LONGCAT_CODE[1], local_dir=d,
-                              allow_patterns=["longcat_video/**/*.py"])
+                              allow_patterns=["longcat_video/*.py"])  # fnmatch: * also matches "/"
             for p in LEFT_OUT:
                 if os.path.exists(os.path.join(d, p)):
                     os.remove(os.path.join(d, p))
