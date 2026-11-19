@@ -35,8 +35,10 @@ def _req(url, data=None, ctype=None, timeout=120):
     return urllib.request.urlopen(urllib.request.Request(url, data=data, headers=headers), timeout=timeout)
 
 
-def check_token():
-    """Stop unless HF_READ_TOKEN exists and Hugging Face says its role is "read" (no write access of any kind)."""
+def check_token(allow_write=False):
+    """Stop unless HF_READ_TOKEN exists and Hugging Face says its role is "read" (no write access of any kind).
+    allow_write (--allow-write-token): the owner chose, on 19 Nov 2026, to use his 'zerogpu-clips' token as it is,
+    which can also write to his account; it still only ever goes to SPACE_URL (Hugging Face's own ZeroGPU team)."""
     token = (os.environ.get("HF_READ_TOKEN") or "").strip()
     if not token:
         sys.exit("HF_READ_TOKEN is not set: make a Read-Only token on huggingface.co/settings/tokens and save it")
@@ -44,7 +46,10 @@ def check_token():
                                  headers={"Authorization": "Bearer " + token, "User-Agent": "zerogpu-clips/1.0"})
     me = json.load(urllib.request.urlopen(req, timeout=30))
     role = (me.get("auth", {}).get("accessToken") or {}).get("role")
-    if role != "read":
+    if role != "read" and allow_write:
+        print(f"note: HF_READ_TOKEN has role '{role}' (it can write); sent only to {SPACE_URL} as the owner chose",
+              flush=True)
+    elif role != "read":
         sys.exit(f"HF_READ_TOKEN has role '{role}', not 'read': it is not sent to another account's Space. "
                  "Make a token with the Read-Only option and save it as HF_READ_TOKEN.")
     print(f"token ok: read-only, account {me.get('name')}, PRO {me.get('isPro')}", flush=True)
@@ -104,6 +109,8 @@ def main():
     ap.add_argument("--only")
     ap.add_argument("--takes", type=int)
     ap.add_argument("--steps", type=int, default=6)
+    ap.add_argument("--allow-write-token", action="store_true",
+                    help="use HF_READ_TOKEN even if it can write (the owner's choice); only this one Space gets it")
     a = ap.parse_args()
     only = set(a.only.split(",")) if a.only else None
     raw_dir = os.path.join(os.path.dirname(os.path.abspath(a.out_dir)), "clips_raw")
@@ -120,7 +127,7 @@ def main():
     print(f"{len(todo)} clips to make", flush=True)
     if not todo:
         return
-    check_token()
+    check_token(a.allow_write_token)
     log = open(os.path.join(a.out_dir, "zerogpu_log.jsonl"), "a")
     made = fails = 0
     for name, s, seed in todo:
