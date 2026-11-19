@@ -4,7 +4,7 @@
     longcat  LongCat-Video-Avatar 1.6 (the talking shots with lip-sync; lipsync_clips.py)
 
     python3 space_app.py status
-    python3 space_app.py use wan|longcat      # switch (if needed) and wait until it is running
+    python3 space_app.py use wan|longcat [--force]   # switch (if needed; --force: upload again) and wait until running
 
 Both apps come from fixed, already-read sources: the Wan app from the Space's own history (the revision it had
 before the first switch), the LongCat code from a pinned revision of victor/LongCat-Video-Avatar-1.6 plus this
@@ -60,17 +60,17 @@ def wait_running(a, minutes=60):
     raise RuntimeError(f"the Space was not running after {minutes} minutes")
 
 
-def use(kind):
+def use(kind, force=False):
     if kind not in ("wan", "longcat"):
         sys.exit("kind: wan or longcat")
     a = api()
     if not a.space_info(SPACE).private:
         sys.exit(f"{SPACE} is not private: not touching it")
     now = current(a)
-    if now == kind:
+    if now == kind and not force:
         print(f"{SPACE} already runs the {kind} app")
         return wait_running(a)
-    print(f"switching {SPACE}: {now} -> {kind}", flush=True)
+    print(f"switching {SPACE}: {now} -> {kind}" if now != kind else f"uploading the {kind} app again", flush=True)
     with tempfile.TemporaryDirectory() as d:
         if kind == "longcat":
             snapshot_download(LONGCAT_CODE[0], repo_type="space", revision=LONGCAT_CODE[1], local_dir=d,
@@ -107,7 +107,7 @@ def main():
         st, _ = stage(a)
         print(f"{SPACE}: {current(a)} app, {st}")
     else:
-        use(sys.argv[2] if len(sys.argv) > 2 else "")
+        use(sys.argv[2] if len(sys.argv) > 2 else "", force="--force" in sys.argv)
         print("running")
 
 

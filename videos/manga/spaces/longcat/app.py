@@ -87,6 +87,17 @@ def sdpa_shim():
 
 sdpa_shim()
 
+import diffusers  # noqa: E402,F401  (imported before the stand-in below, so its own checks see no torchvision)
+import transformers  # noqa: E402,F401
+try:
+    import torchvision  # noqa: F401
+except ImportError:  # only a grid-saving helper in longcat_video imports it, and this app never calls that helper
+    import importlib.machinery
+    _tv = types.ModuleType("torchvision")
+    _tv.__spec__ = importlib.machinery.ModuleSpec("torchvision", None)
+    _tv.utils = types.SimpleNamespace()
+    sys.modules["torchvision"] = _tv
+
 # 1) weights, once per machine (public models: no token needed)
 if not (BASE_DIR / "vae" / "config.json").exists():
     snapshot_download("meituan-longcat/LongCat-Video", local_dir=str(BASE_DIR),
