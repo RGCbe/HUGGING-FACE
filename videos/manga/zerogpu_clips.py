@@ -12,10 +12,48 @@ the same clip at 24 fps (motion-interpolated) and stretched to the shot's length
 import argparse
 import json
 import os
-import shutil
 import subprocess
 import sys
 import time
+import urllib.request
+import uuid
+
+SPACE_URL = "https://zerogpu-aoti-wan2-2-fp8da-aoti-faster.hf.space"
+
+
+def _req(url, data=None, ctype=None, timeout=120):
+    headers = {"User-Agent": "zerogpu-clips/1.0"}
+    if os.environ.get("HF_TOKEN"):  # PRO GPU time is counted on this account
+        headers["Authorization"] = "Bearer " + os.environ["HF_TOKEN"].strip()
+    if ctype:
+        headers["Content-Type"] = ctype
+    return urllib.request.urlopen(urllib.request.Request(url, data=data, headers=headers), timeout=timeout)
+
+
+def space_video(image_path, prompt, steps, negative, seconds, seed):
+    """One clip through the Space's own web API (upload, call, read the event stream, download).
+    The gradio_client library stopped working with this Space (every job came back cancelled), the plain API works."""
+    boundary = uuid.uuid4().hex
+    body = (f"--{boundary}\r\nContent-Disposition: form-data; name=\"files\"; filename=\"{os.path.basename(image_path)}\"\r\n"
+            f"Content-Type: image/jpeg\r\n\r\n").encode() + open(image_path, "rb").read() + f"\r\n--{boundary}--\r\n".encode()
+    path = json.load(_req(f"{SPACE_URL}/gradio_api/upload", body, f"multipart/form-data; boundary={boundary}"))[0]
+    call = {"data": [{"path": path, "meta": {"_type": "gradio.FileData"}}, prompt, steps, negative, seconds, 1, 1, seed, False]}
+    event_id = json.load(_req(f"{SPACE_URL}/gradio_api/call/generate_video", json.dumps(call).encode(),
+                              "application/json"))["event_id"]
+    event = None
+    with _req(f"{SPACE_URL}/gradio_api/call/generate_video/{event_id}", timeout=900) as stream:
+        for raw in stream:
+            line = raw.decode("utf-8", "replace").strip()
+            if line.startswith("event:"):
+                event = line[6:].strip()
+            elif line.startswith("data:") and event in ("complete", "error"):
+                data = line[5:].strip()
+                if event == "error":
+                    raise RuntimeError(f"the Space said: {data[:400]}")
+                out = json.loads(data)[0]
+                out = out.get("video", out) if isinstance(out, dict) else out
+                return _req(out["url"], timeout=300).read()
+    raise RuntimeError("the Space closed the stream without a video")
 
 SPACE = "zerogpu-aoti/wan2-2-fp8da-aoti-faster"
 MAX_S = 5.0
@@ -47,7 +85,6 @@ def main():
     ap.add_argument("--takes", type=int)
     ap.add_argument("--steps", type=int, default=6)
     a = ap.parse_args()
-    from gradio_client import Client, handle_file
     only = set(a.only.split(",")) if a.only else None
     raw_dir = os.path.join(os.path.dirname(os.path.abspath(a.out_dir)), "clips_raw")
     os.makedirs(a.out_dir, exist_ok=True)
@@ -63,7 +100,6 @@ def main():
     print(f"{len(todo)} clips to make", flush=True)
     if not todo:
         return
-    client = Client(SPACE, token=os.environ.get("HF_TOKEN"), verbose=False)
     log = open(os.path.join(a.out_dir, "zerogpu_log.jsonl"), "a")
     made = fails = 0
     for name, s, seed in todo:
@@ -73,11 +109,10 @@ def main():
         t = time.time()
         rec = {"name": name, "space": SPACE, "seed": seed, "steps": a.steps, "prompt": s["prompt"]}
         try:
-            vid, _ = client.predict(handle_file(os.path.join(a.keyframes_dir, s["image"])), s["prompt"], a.steps,
-                                    NEGATIVE, min(MAX_S, float(s["seconds"])), 1, 1, seed, False,
-                                    api_name="/generate_video")
+            data = space_video(os.path.join(a.keyframes_dir, s["image"]), s["prompt"], a.steps, NEGATIVE,
+                               min(MAX_S, float(s["seconds"])), seed)
             raw = os.path.join(raw_dir, name + ".mp4")
-            shutil.copy(vid["video"] if isinstance(vid, dict) else vid, raw)
+            open(raw, "wb").write(data)
             finish(raw, os.path.join(a.out_dir, name + ".mp4"), s["seconds"] + 0.5)
             made += 1
             fails = 0
