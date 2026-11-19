@@ -275,6 +275,10 @@ def main():
             x[len(x) - fade:] *= np.linspace(1, 0, fade)[:, None]
             i = int(s["start"] * SR)
             fx[i:i + len(x)] += 0.32 * x[: n - i]
+    amb = os.path.join(BASE, "out", "score", "ambience.wav")  # film_score.py: one background bed per scene
+    if os.path.exists(amb):
+        x = load_audio(amb, 2)[:n]
+        fx[: len(x)] += x
     write_wav(os.path.join(work, "voice.wav"), voice)
     write_wav(os.path.join(work, "sfx.wav"), fx)
     # the score and the mix (ducking under the voice, silence before the punchlines)
@@ -286,6 +290,9 @@ def main():
     json.dump(sorted(events, key=lambda e: e["t"]), open(ev, "w"))
     music = os.path.join(work, "music.wav")
     run(sys.executable, os.path.join(DOODLE, "score.py"), music, f"{total:.2f}", "--events", ev, "--seed", "3")
+    film = os.path.join(BASE, "out", "score", "score.wav")  # film_score.py: the orchestral score replaces the synth
+    if os.path.exists(film):
+        run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", film, "-ar", str(SR), "-ac", "2", music)
     mixed = os.path.join(work, "mix.m4a")  # mix.py always writes AAC
     run(sys.executable, os.path.join(DOODLE, "mix.py"), os.path.join(work, "voice.wav"), music, mixed, "--events", ev,
         "--stings", os.path.splitext(music)[0] + "_stings.wav", "--plain-voice", "--music-gain", "0.34")
