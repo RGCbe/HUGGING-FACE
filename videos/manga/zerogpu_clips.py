@@ -35,6 +35,20 @@ def _req(url, data=None, ctype=None, timeout=120):
     return urllib.request.urlopen(urllib.request.Request(url, data=data, headers=headers), timeout=timeout)
 
 
+OWN_SPACE = "Rggroups/anime-motion"  # the owner's own private ZeroGPU Space (Wan 2.1 14B image-to-video, 4 steps)
+OWN_MAX_S = 3.4
+
+
+def own_video(client, image_path, prompt, negative, seconds, seed):
+    """One clip on the owner's own Space: a single machine (no 403/404 from requests landing on another machine),
+    and his own token only goes to his own Space. 832x480, 24 fps, at most 3.4 s."""
+    from gradio_client import handle_file
+    r = client.predict(handle_file(image_path), prompt, 480, 832, negative, min(OWN_MAX_S, float(seconds)), 1.0, 4,
+                       seed, False, api_name="/generate_video")
+    video = r[0]["video"] if isinstance(r[0], dict) else r[0]
+    return open(video, "rb").read()
+
+
 def check_token(allow_write=False):
     """Stop unless HF_READ_TOKEN exists and Hugging Face says its role is "read" (no write access of any kind).
     allow_write (--allow-write-token): the owner chose, on 19 Nov 2026, to use his 'zerogpu-clips' token as it is,
@@ -115,6 +129,8 @@ def main():
     ap.add_argument("--only")
     ap.add_argument("--takes", type=int)
     ap.add_argument("--steps", type=int, default=6)
+    ap.add_argument("--space", choices=["own", "wan22"], default="own",
+                    help="own: the owner's private Space Rggroups/anime-motion (default); wan22: the public Wan 2.2 Space")
     ap.add_argument("--allow-write-token", action="store_true",
                     help="use HF_READ_TOKEN even if it can write (the owner's choice); only this one Space gets it")
     a = ap.parse_args()
@@ -133,7 +149,13 @@ def main():
     print(f"{len(todo)} clips to make", flush=True)
     if not todo:
         return
-    check_token(a.allow_write_token)
+    client = None
+    if a.space == "own":
+        from gradio_client import Client
+        from huggingface_hub import get_zero_gpu_quota
+        client = Client(OWN_SPACE, token=os.environ["HF_TOKEN"], verbose=False)
+    else:
+        check_token(a.allow_write_token)
     log = open(os.path.join(a.out_dir, "zerogpu_log.jsonl"), "a")
     made = fails = 0
     for name, s, seed in todo:
@@ -141,10 +163,18 @@ def main():
             print(f"two failures in a row: stopping after {made} clips (most likely the free GPU time is used up)")
             return
         t = time.time()
-        rec = {"name": name, "space": SPACE, "seed": seed, "steps": a.steps, "prompt": s["prompt"]}
+        rec = {"name": name, "space": OWN_SPACE if client else SPACE, "seed": seed, "steps": a.steps, "prompt": s["prompt"]}
         try:
-            data = space_video(os.path.join(a.keyframes_dir, s["image"]), s["prompt"], a.steps, NEGATIVE,
-                               min(MAX_S, float(s["seconds"])), seed)
+            if client:
+                left = get_zero_gpu_quota(token=os.environ["HF_TOKEN"]).remaining
+                if left < 90:
+                    print(f"free GPU time used up for today after {made} clips ({left:.0f} s left). Run again tomorrow.")
+                    return
+                data = own_video(client, os.path.join(a.keyframes_dir, s["image"]), s["prompt"], NEGATIVE,
+                                 s["seconds"], seed)
+            else:
+                data = space_video(os.path.join(a.keyframes_dir, s["image"]), s["prompt"], a.steps, NEGATIVE,
+                                   min(MAX_S, float(s["seconds"])), seed)
             raw = os.path.join(raw_dir, name + ".mp4")
             open(raw, "wb").write(data)
             finish(raw, os.path.join(a.out_dir, name + ".mp4"), s["seconds"] + 0.5)
