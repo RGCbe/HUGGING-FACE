@@ -1,0 +1,386 @@
+[
+ {
+  "id": "S01",
+  "image": "S01.jpg",
+  "seconds": 6,
+  "use_seconds": 4,
+  "prompt": "Torchlight flickers, his chest rises and falls, golden light starts to glow on his armor, slow push in. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S02",
+  "image": "S02.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "His eyes ignite bright yellow, light flares and fills the screen to white. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S05",
+  "image": "S05.jpg",
+  "seconds": 6,
+  "use_seconds": 6,
+  "prompt": "slow aerial glide along the curve, the ring of light slowly turns, clouds spiral into it. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S06",
+  "image": "S06.jpg",
+  "seconds": 6,
+  "use_seconds": 5,
+  "prompt": "hunters walk toward camera, the crystals pulse, phones held up, camera tracks back. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S07",
+  "image": "S07.jpg",
+  "seconds": 6,
+  "use_seconds": 6,
+  "prompt": "camera floats down from high above toward the tiny tea stall, crowd moves, lamps flicker. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S08",
+  "image": "S08.jpg",
+  "seconds": 6,
+  "use_seconds": 4,
+  "prompt": "The pestle crushes the pods, for a moment a faint golden shimmer rises from the seeds and fades, he tips them into the boiling tea. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S09",
+  "image": "S09.jpg",
+  "seconds": 6,
+  "use_seconds": 5,
+  "prompt": "The stream of tea falls from the kettle into the glass, steam rises, he calls out with a smile. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S10",
+  "image": "S10.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "they walk past, the paper cup tumbles across the stones. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S11",
+  "image": "S11.jpg",
+  "seconds": 4,
+  "use_seconds": 4,
+  "prompt": "he looks at the glass, scratches the back of his head, small sigh. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S12",
+  "image": "S12.jpg",
+  "seconds": 4,
+  "use_seconds": 4,
+  "prompt": "slow push in to the card, then freeze; a clean card graphic appears: ARJUN / 18 / HUNTER RANK: F. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S13",
+  "image": "S13.jpg",
+  "seconds": 6,
+  "use_seconds": 5,
+  "prompt": "the three walk toward camera in slow motion, cape flows, the drone circles Viktor, phone flashes. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S15",
+  "image": "S15.jpg",
+  "seconds": 6,
+  "use_seconds": 4,
+  "prompt": "He points and laughs, the drone swings round to film the stall. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S16",
+  "image": "S16.jpg",
+  "seconds": 4,
+  "use_seconds": 2,
+  "prompt": "phones turn, people laugh. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S17",
+  "image": "S17.jpg",
+  "seconds": 6,
+  "use_seconds": 4,
+  "prompt": "He holds the glass out, steady, calm smile. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S18",
+  "image": "S18.jpg",
+  "seconds": 6,
+  "use_seconds": 4,
+  "prompt": "He sniffs, wrinkles his nose, glances at the drone. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S19",
+  "image": "S19.jpg",
+  "seconds": 6,
+  "use_seconds": 4,
+  "prompt": "She offers the coins with a small apologetic smile, braid swings. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S21",
+  "image": "S21.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "he takes the glass carefully and gives a small nod, Arjun nods back. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S22",
+  "image": "S22.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "He downs it in one gulp, wipes his mouth with his gauntlet. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S23",
+  "image": "S23.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "The glass flies, Arjun's hand catches it calmly while he keeps wiping the counter. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 2
+ },
+ {
+  "id": "S24",
+  "image": "S24.jpg",
+  "seconds": 6,
+  "use_seconds": 5,
+  "prompt": "very slow push in, lamp flickers, his eyes follow them. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S25",
+  "image": "S25.jpg",
+  "seconds": 6,
+  "use_seconds": 5,
+  "prompt": "they step into the light, it swallows them, wind pulls the cape. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S26",
+  "image": "S26.jpg",
+  "seconds": 4,
+  "use_seconds": 4,
+  "prompt": "they walk forward, the drone light sweeps the cave, Viktor talks to the drone. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S27",
+  "image": "S27.jpg",
+  "seconds": 4,
+  "use_seconds": 4,
+  "prompt": "the ogre roars at the camera, dust falls from the ceiling, wolves step forward. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S28",
+  "image": "S28.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "Impact: the shield cracks, Raghu is thrown backwards, dust bursts. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S29",
+  "image": "S29.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "he pushes off the wall, grips his sword, sweat drips. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S30",
+  "image": "S30.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "Green light swirls toward Raghu, her braid whips, she shouts. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S31",
+  "image": "S31.jpg",
+  "seconds": 6,
+  "use_seconds": 4,
+  "prompt": "Golden light spreads over his armor, light particles rise, his hands tremble. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S33",
+  "image": "S33.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "One fast golden slash across the screen, white flash, the ogre falls in two. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 2
+ },
+ {
+  "id": "S34",
+  "image": "S34.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "they stare, Raghu's jaw drops further. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S35",
+  "image": "S35.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "he rests the sword on his shoulder and grins, sparks drift down. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S36",
+  "image": "S36.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "Fast slashes, wolves fly aside, camera whips with the swing. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S37",
+  "image": "S37.jpg",
+  "seconds": 4,
+  "use_seconds": 2,
+  "prompt": "they run past the camera, out of breath. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S39",
+  "image": "S39.jpg",
+  "seconds": 6,
+  "use_seconds": 5,
+  "prompt": "the doors open, the minotaur stands up, flames surge, camera tilts up. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S40",
+  "image": "S40.jpg",
+  "seconds": 4,
+  "use_seconds": 2,
+  "prompt": "he grins and cracks his neck. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S41",
+  "image": "S41.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "He leaps, cape flaring, sword raised. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S43",
+  "image": "S43.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "The last golden sparks fizzle away mid-jump, he starts to fall. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 2
+ },
+ {
+  "id": "S44",
+  "image": "S44.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "he looks up slowly, swallows, sweat drop. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S45",
+  "image": "S45.jpg",
+  "seconds": 4,
+  "use_seconds": 2,
+  "prompt": "Raghu yanks Viktor backwards by the cape. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 2
+ },
+ {
+  "id": "S46",
+  "image": "S46.jpg",
+  "seconds": 6,
+  "use_seconds": 4,
+  "prompt": "They run toward camera and dive into the light, the floor shakes. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 2
+ },
+ {
+  "id": "S47",
+  "image": "S47.jpg",
+  "seconds": 4,
+  "use_seconds": 4,
+  "prompt": "camera lowers above him, he gasps, the drone's light blinks. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S48",
+  "image": "S48.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "he pushes himself up and stares toward the stall, his face turns angry. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S49",
+  "image": "S49.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "He slams the counter, the glasses jump. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S50",
+  "image": "S50.jpg",
+  "seconds": 4,
+  "use_seconds": 4,
+  "prompt": "almost still: one slow blink, steam drifts. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S51",
+  "image": "S51.jpg",
+  "seconds": 4,
+  "use_seconds": 3,
+  "prompt": "she leans in hopefully, holding out the coins. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S52",
+  "image": "S52.jpg",
+  "seconds": 4,
+  "use_seconds": 2,
+  "prompt": "he raises two fingers, deadpan. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S53",
+  "image": "S53.jpg",
+  "seconds": 6,
+  "use_seconds": 5,
+  "prompt": "very slow pull back, the lamp flame flickers, he wipes a glass. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S54",
+  "image": "S54.jpg",
+  "seconds": 6,
+  "use_seconds": 6,
+  "prompt": "the blue window flickers open (text added in the edit), the light washes over his face, he smiles. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ },
+ {
+  "id": "S55",
+  "image": "S55.jpg",
+  "seconds": 6,
+  "use_seconds": 6,
+  "prompt": "camera rises from the stall to the Gate, the red eye opens slowly and its pupil narrows, looking down. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.",
+  "takes": 1
+ }
+]
