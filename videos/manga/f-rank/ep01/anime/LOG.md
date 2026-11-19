@@ -577,3 +577,29 @@ the machine shows "stopped". **GridShare total for 18 Nov: ₹160.59** (balance 
     Arjun drinks instead of scratching his head (both talking shots, replaced by LongCat); S06 the lead hunter's
     face goes a little cartoonish in the last second (kept).
 - **Left:** 13 motion clips for tomorrow's automatic run (10:10 UTC), then 16 LongCat clips.
+
+## Cut 3, checked shot by shot (Manoj: "check the full video, everything is correct, find all mistakes")
+
+- **How we checked:** 3 frames of every one of the 56 shots (start, middle, end) with its line; the whole soundtrack
+  through Whisper and compared word by word with the script, shot by shot; every subtitle and on-screen text; the
+  sound levels (loudness, true peak, voice against music).
+- **Correct:** 3:47, 1080p, 24 fps, -14.8 LUFS; all 39 lines present, in the right shot, the right words, the
+  right voice; all subtitles, the title, the name cards, the clock cards and the end card.
+- **Mistakes and fixes:**
+  | # | Shot | Mistake | Fix |
+  |---|---|---|---|
+  | 1 | S01 | armor turns copper | remake the clip |
+  | 2 | S05 | a small flying figure in the sky | remake the clip |
+  | 3 | S06 | the lead hunter's face turns doll-like in the last second | `"clip_cut_end": 0.8` (done) |
+  | 4 | S07 | colours drift to a strong cyan | `"grade": "tame"` (done) |
+  | 5 | S11 | Arjun drinks while saying the line | LongCat lip-sync |
+  | 6 | S28 | the shield-crack moment was cut off: the edit took only the first 3 s of a 3.5 s clip | the edit now fits the whole clip into the shot (slightly faster) instead of cutting its end (done) |
+  | 7 | S29 | Viktor's face turns older | LongCat lip-sync |
+  | 8 | S33 | the ogre does not fall, the shot ends in a blue flash | second take |
+  | 9 | S23 | the glass toss and catch is not clear | minor |
+  | 10 | S08-S10, S13, S15 | bright afternoon inside an evening scene | `"grade": "evening"` (done) |
+  | 11 | S49 | red stains on the armor look like blood | stains turned to steel grey in the picture, face untouched (done; old one in `out/retired/`) |
+  | 12 | S54 | the HIDDEN SKILL window: ragged boxes per line, beside the hologram | one dark-blue panel with a cyan frame, text left-aligned (done) |
+  | 13 | sound | true peak +0.8 dBFS (over the limit) | loudnorm TP -2 plus a limiter at -2 dBFS (done) |
+- **The cloud machine was replaced** during the fixes: the working files came back in one command from the private
+  dataset (`work_backup.py pull`), as planned; the unsaved edit-script changes were redone and are now in git.
