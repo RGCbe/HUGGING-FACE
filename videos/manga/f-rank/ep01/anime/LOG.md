@@ -493,3 +493,26 @@ the machine shows "stopped". **GridShare total for 18 Nov: ₹160.59** (balance 
   so the run stopped after 3 new clips. S15 was made but the download was refused (403) and S17-S22 failed with no
   reason given (the time was used up and the Space hides the message), so the run kept queuing for nothing.
   **Fix:** the script now stops after two failures in a row. The next free run is booked for when the time resets.
+
+## The first cut, checked (`out/episode_cut1.mp4`, 3:47)
+
+- **How it came out:** the whole story plays with the voices, sound effects, music and cards; loudness -14.8 LUFS
+  (YouTube's level); the 20 AI shots are still pictures with slow camera moves, as planned until the clips exist.
+- **Mistakes:**
+  - **S26 is a black screen for 4 seconds** (1:55, "Level 9. Easy content, chat."): the shot never got its picture.
+  - **S02 (the cold open close-up): Viktor looks about 15 years older** than in every other shot. The approved picture
+    has the older face; its free clip was made from it. To fix: a new S02 picture from his face file, then a new clip.
+  - The 1.5 s of black before "TO BE CONTINUED" is kept on purpose (a beat after the eye).
+
+## S26, round 4: Viktor alone with his drone, free on Cloudflare (`log/s26_round4.jpg`)
+
+- **What we gave:** the S26 prompt from the shot list ("Viktor alone ... talking with a grin to a small camera drone")
+  with his face file as image 0; 3 versions.
+- **How it came out:** all three have his face, the glowing mushrooms, the drone and torches, but they copied the pose
+  of the face picture (hands clasped at the chest) and none grins; version a also has two strangers behind him.
+- **Correction 1 (edit of version b, "he grins and waves at the drone"):** the grin and wave worked, but his face
+  aged to about 40, the same age drift we saw on day 1 with small-copy edits. Not used.
+- **Correction 2 (a fresh picture, the grin and the wave written into the prompt, "a smooth-skinned young man of 28",
+  "nobody else in the cave"):** version d puts the drone in his hand (wrong); **version e is approved**: alone, young
+  cocky grin, waving at the drone floating beside him. Lesson kept: for a new expression or pose, write it into a
+  fresh prompt; edits keep the pose but drift the age.
