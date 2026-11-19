@@ -23,9 +23,9 @@ SPACE_URL = "https://zerogpu-aoti-wan2-2-fp8da-aoti-faster.hf.space"
 
 def _req(url, data=None, ctype=None, timeout=120):
     headers = {"User-Agent": "zerogpu-clips/1.0"}
-    # A "Read" token (HF_READ_TOKEN) is preferred: the HF_TOKEN fine-grained token only covers the account's own
-    # repos, and with it this Space (another account's) answers "404" (the forum's "InvalidRepoToken").
-    token = (os.environ.get("HF_READ_TOKEN") or os.environ.get("HF_TOKEN") or "").strip()
+    # Only a read-only token ever goes to the Space: it belongs to another account and its code sees the header.
+    # check_token() has made sure HF_READ_TOKEN is a "read" token before any call; HF_TOKEN (it can write) is never sent.
+    token = (os.environ.get("HF_READ_TOKEN") or "").strip()
     if token:
         # The account's (PRO) GPU time is only used when the token comes in X-HF-Authorization, as the official
         # gradio_client sends it to *.hf.space; with a plain Authorization header the call counted as anonymous.
@@ -33,6 +33,21 @@ def _req(url, data=None, ctype=None, timeout=120):
     if ctype:
         headers["Content-Type"] = ctype
     return urllib.request.urlopen(urllib.request.Request(url, data=data, headers=headers), timeout=timeout)
+
+
+def check_token():
+    """Stop unless HF_READ_TOKEN exists and Hugging Face says its role is "read" (no write access of any kind)."""
+    token = (os.environ.get("HF_READ_TOKEN") or "").strip()
+    if not token:
+        sys.exit("HF_READ_TOKEN is not set: make a Read-Only token on huggingface.co/settings/tokens and save it")
+    req = urllib.request.Request("https://huggingface.co/api/whoami-v2",
+                                 headers={"Authorization": "Bearer " + token, "User-Agent": "zerogpu-clips/1.0"})
+    me = json.load(urllib.request.urlopen(req, timeout=30))
+    role = (me.get("auth", {}).get("accessToken") or {}).get("role")
+    if role != "read":
+        sys.exit(f"HF_READ_TOKEN has role '{role}', not 'read': it is not sent to another account's Space. "
+                 "Make a token with the Read-Only option and save it as HF_READ_TOKEN.")
+    print(f"token ok: read-only, account {me.get('name')}, PRO {me.get('isPro')}", flush=True)
 
 
 def space_video(image_path, prompt, steps, negative, seconds, seed):
@@ -105,6 +120,7 @@ def main():
     print(f"{len(todo)} clips to make", flush=True)
     if not todo:
         return
+    check_token()
     log = open(os.path.join(a.out_dir, "zerogpu_log.jsonl"), "a")
     made = fails = 0
     for name, s, seed in todo:
