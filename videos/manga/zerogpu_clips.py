@@ -156,6 +156,8 @@ def main():
     if a.space == "own":
         from gradio_client import Client
         from huggingface_hub import get_zero_gpu_quota
+        import space_app  # the Space takes turns with the talking-shot app: make sure it runs the Wan app
+        space_app.use("wan")
         client = Client(OWN_SPACE, token=os.environ["HF_TOKEN"], verbose=False)
     else:
         check_token(a.allow_write_token)

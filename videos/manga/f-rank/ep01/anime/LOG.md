@@ -603,3 +603,26 @@ the machine shows "stopped". **GridShare total for 18 Nov: ₹160.59** (balance 
   | 13 | sound | true peak +0.8 dBFS (over the limit) | loudnorm TP -2 plus a limiter at -2 dBFS (done) |
 - **The cloud machine was replaced** during the fixes: the working files came back in one command from the private
   dataset (`work_backup.py pull`), as planned; the unsaved edit-script changes were redone and are now in git.
+
+## Talking shots move to Manoj's own Space (19 Nov, evening)
+
+- **MiniMax-H3 checked and dropped.** It is stronger (15 s, sound, 768p), but its licence (MiniMax H3 Community
+  License, 2 Aug 2026) does not allow using or *showing* its videos in the USA, the EU, the UK or South Korea
+  (sections II, V.4 and Exhibit A item 1). A YouTube video is shown there, and Hugging Face's GPUs are in the USA.
+  So it is not safe for the channel. We stay with Wan (Apache-2.0) and LongCat (MIT).
+- **LongCat on his own Space.** Manoj chose LongCat for lip-sync and wants one Space, so `Rggroups/anime-motion`
+  now takes turns between two apps:
+  - **wan:** Wan 2.1 image-to-video, the motion shots (`zerogpu_clips.py`).
+  - **longcat:** LongCat-Video-Avatar 1.6, the talking shots (`lipsync_clips.py`).
+  - Each script switches the Space to its app first (`space_app.py use wan|longcat`; a rebuild of 10-25 min, no
+    GPU time).
+  - The Wan app comes back from the Space's own history (revision `f4bf337`).
+  - The LongCat code is copied from a pinned, read revision of `victor/LongCat-Video-Avatar-1.6`, without its
+    prompt enhancer (it calls an outside API) and vocal separator (not needed: the voices are clean). The app file
+    is new: `spaces/longcat/app.py`. It runs on half a GPU and falls back to a full one (which costs double) only
+    if memory runs out.
+- **Lip-sync timing:** the voice line goes into the clip 0.3 s after its start, the same place the edit puts it in
+  the shot. The edit uses `SNN_lip.mp4` before `SNN_a.mp4` and never changes its speed (only trims it), so the
+  lips stay on the words.
+- **Daily run:** the run first does the job for the app the Space has now, then the other: the 16 talking shots
+  and the 17 motion clips that are left (13 shots, plus second takes of S33, S43, S45 and S46).

@@ -1,0 +1,4 @@
+longcat_video/ is Meituan's LongCat-Video code (MIT licence, https://github.com/meituan-longcat/LongCat-Video),
+as ported to ZeroGPU in the Hugging Face Space victor/LongCat-Video-Avatar-1.6, copied unchanged except that
+the vocal separator and the prompt enhancer files are left out. Model weights: meituan-longcat/LongCat-Video and
+meituan-longcat/LongCat-Video-Avatar-1.6 (MIT licence), downloaded at start-up.

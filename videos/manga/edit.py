@@ -113,6 +113,7 @@ def picture(s, base, work, segs):
     out = os.path.join(work, f"seg_{s['id']}.mp4")
     sid, dur = s["id"], s["dur"]
     ai = os.path.join(base, "out", "clips", f"{sid}_a.mp4")
+    lip = os.path.join(base, "out", "clips", f"{sid}_lip.mp4")  # a talking shot made by lipsync_clips.py
     cam = os.path.join(base, "out", "camera", f"{sid}.mp4")
     kf = os.path.join(base, "out", "keyframes_ok", f"{sid}.jpg")
     if s["kind"] == "edit":
@@ -138,7 +139,10 @@ def picture(s, base, work, segs):
         ok = os.path.exists(out) and os.path.exists(stamp) and open(stamp).read() == key
         open(stamp, "w").write(key)
         return ok
-    if os.path.exists(ai):
+    if os.path.exists(lip):  # the lips follow the voice line from the shot's start: no speed change, only a trim
+        if not fresh(lip):
+            norm_video(lip, out, dur, upscale=True, grade=grade)
+    elif os.path.exists(ai):
         if not fresh(ai):
             norm_video(ai, out, dur, upscale=True, fit=True, cut_end=cut_end, grade=grade)
     elif os.path.exists(cam):
