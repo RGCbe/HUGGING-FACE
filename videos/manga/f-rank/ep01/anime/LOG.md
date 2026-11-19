@@ -558,3 +558,22 @@ the machine shows "stopped". **GridShare total for 18 Nov: ₹160.59** (balance 
   enable a permission on the access token.
 - **Fix in the script:** the token now goes in `X-HF-Authorization`, as the official client does (a plain
   `Authorization` header made the calls count as anonymous). Next try right after the 24-hour reset (15:33 UTC).
+
+## Clips, day 1 on PRO: the fix that worked (one Space, our own)
+
+- **The real cause of the 403/404 errors:** the public Wan 2.2 Space runs on several machines (each answer named a
+  different `x-proxied-replica`), and the official client sticks to one machine with a cookie. Our direct calls did
+  not, so the picture was uploaded to one machine and the request landed on another. PRO itself was fine (billing
+  page: ZeroGPU 6.2 / 40 minutes).
+- **Fix (Manoj: "can we use one?"):** use only **his own private Space, Rggroups/anime-motion** (Wan 2.1 14B, 4 steps,
+  480p, at most 3.4 s). It runs on one machine, his own token goes only to his own Space, and the script checks the
+  day's GPU time before each clip (`get_zero_gpu_quota`). `zerogpu_clips.py --space own` is now the default.
+- **Lip-sync:** tests of LongCat-Video-Avatar 1.6 (talking photo + voice line) and Wan 2.2 S2V (timed out in the
+  demo queue). Manoj liked **LongCat**: Arjun's S17 line came out with natural lips, head and hand. 16 talking shots go
+  to LongCat (marked `"lipsync": true` in `all_shots.json`); the motion run skips them.
+- **Day-1 result:** 24 clips on PRO (29 in all with the earlier free ones). Sheets: `log/clips_own_day1_1..4.jpg`.
+  - Good: S02 (new face, eyes ignite), S06-S10, S12, S13, S15-S19, S21, S22, S23 a/b, S24-S28, S30, S31, S33.
+  - Mistakes: S01 copper armor and S05 the flying figure (remake at the end); S29 Viktor's face turns older and S11
+    Arjun drinks instead of scratching his head (both talking shots, replaced by LongCat); S06 the lead hunter's
+    face goes a little cartoonish in the last second (kept).
+- **Left:** 13 motion clips for tomorrow's automatic run (10:10 UTC), then 16 LongCat clips.
