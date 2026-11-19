@@ -23,10 +23,13 @@ SPACE_URL = "https://zerogpu-aoti-wan2-2-fp8da-aoti-faster.hf.space"
 
 def _req(url, data=None, ctype=None, timeout=120):
     headers = {"User-Agent": "zerogpu-clips/1.0"}
-    if os.environ.get("HF_TOKEN"):
+    # A "Read" token (HF_READ_TOKEN) is preferred: the HF_TOKEN fine-grained token only covers the account's own
+    # repos, and with it this Space (another account's) answers "404" (the forum's "InvalidRepoToken").
+    token = (os.environ.get("HF_READ_TOKEN") or os.environ.get("HF_TOKEN") or "").strip()
+    if token:
         # The account's (PRO) GPU time is only used when the token comes in X-HF-Authorization, as the official
         # gradio_client sends it to *.hf.space; with a plain Authorization header the call counted as anonymous.
-        headers["X-HF-Authorization"] = "Bearer " + os.environ["HF_TOKEN"].strip()
+        headers["X-HF-Authorization"] = "Bearer " + token
     if ctype:
         headers["Content-Type"] = ctype
     return urllib.request.urlopen(urllib.request.Request(url, data=data, headers=headers), timeout=timeout)
