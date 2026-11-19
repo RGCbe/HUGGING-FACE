@@ -30,7 +30,8 @@ def main():
                           commit_message="working files")
         print(f"pushed to {repo}")
     else:
-        snapshot_download(repo, repo_type="dataset", local_dir=ep, token=os.environ["HF_TOKEN"])
+        # only the working files (not the dataset's own .gitattributes, which would land in the git checkout)
+        snapshot_download(repo, repo_type="dataset", local_dir=ep, token=os.environ["HF_TOKEN"], allow_patterns=PATTERNS)
         print(f"restored {repo} into {ep}")
 
 
