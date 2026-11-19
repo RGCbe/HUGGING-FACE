@@ -544,3 +544,17 @@ the machine shows "stopped". **GridShare total for 18 Nov: ₹160.59** (balance 
 - **GPU for 53 clips:** Modal (free $30 a month) was suggested, then dropped: its client talks gRPC, which this cloud
   session's network does not carry. Manoj subscribed to **Hugging Face PRO** ($9 a month: 40 minutes of ZeroGPU a
   day, about 22 clips), the same Space and script as the free clips, no new keys.
+
+## PRO clips, first try (refused), and what the official docs say
+
+- **What happened:** with PRO active (`isPro: true`), every call failed: the gradio_client library got "cancelled",
+  a direct web call (token in `Authorization`) made one clip and then got "error: null", and with the token in
+  `X-HF-Authorization` (the header the official gradio_client sends to `*.hf.space`) the Space answered "404".
+- **Official docs (huggingface.co/docs/hub/spaces-zerogpu):** PRO = 40 minutes a day (free = 5); the daily quota
+  "resets exactly 24 hours after your first GPU usage"; PRO can go past it with pre-paid credits ($1 per 10 min).
+  Nothing there about a delay after subscribing. Gradio's client source: the token is sent as `X-HF-Authorization`.
+- **Hugging Face forum (same symptom, Mar-Jul 2026):** new PRO accounts often keep the free quota until their 24-hour
+  window resets; "Falling back to IP-based quotas (InvalidRepoToken)" when the token is not taken; one fix was to
+  enable a permission on the access token.
+- **Fix in the script:** the token now goes in `X-HF-Authorization`, as the official client does (a plain
+  `Authorization` header made the calls count as anonymous). Next try right after the 24-hour reset (15:33 UTC).

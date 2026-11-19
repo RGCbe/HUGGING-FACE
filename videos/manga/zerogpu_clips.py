@@ -23,8 +23,10 @@ SPACE_URL = "https://zerogpu-aoti-wan2-2-fp8da-aoti-faster.hf.space"
 
 def _req(url, data=None, ctype=None, timeout=120):
     headers = {"User-Agent": "zerogpu-clips/1.0"}
-    if os.environ.get("HF_TOKEN"):  # PRO GPU time is counted on this account
-        headers["Authorization"] = "Bearer " + os.environ["HF_TOKEN"].strip()
+    if os.environ.get("HF_TOKEN"):
+        # The account's (PRO) GPU time is only used when the token comes in X-HF-Authorization, as the official
+        # gradio_client sends it to *.hf.space; with a plain Authorization header the call counted as anonymous.
+        headers["X-HF-Authorization"] = "Bearer " + os.environ["HF_TOKEN"].strip()
     if ctype:
         headers["Content-Type"] = ctype
     return urllib.request.urlopen(urllib.request.Request(url, data=data, headers=headers), timeout=timeout)
