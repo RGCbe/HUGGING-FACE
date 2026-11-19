@@ -63,11 +63,30 @@ def plan(shots, base):
     return out, t
 
 
-def norm_video(src, out, dur, upscale=False, freeze_from_end=False):
-    """Any clip -> 1920x1080, 24 fps, exactly dur seconds (the last frame is held if the clip is shorter)."""
+GRADES = {  # per-shot colour corrections ("grade" in the shot list)
+    "evening": "eq=brightness=-0.07:contrast=1.03:saturation=0.92,colorbalance=rs=-0.05:gs=-0.02:bs=0.08:rm=-0.03:bm=0.05",
+    "tame": "eq=saturation=0.8,colorbalance=rs=0.04:bs=-0.06:rm=0.03:bm=-0.05",  # pulls back an over-cyan drift
+}
+
+
+def clip_seconds(path):
+    out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],
+                         capture_output=True, text=True).stdout.strip()
+    return float(out or 0)
+
+
+def norm_video(src, out, dur, upscale=False, freeze_from_end=False, fit=False, cut_end=0.0, grade=None):
+    """Any clip -> 1920x1080, 24 fps, exactly dur seconds (the last frame is held if the clip is shorter).
+    fit: a longer clip is sped up to fit the shot instead of losing its ending (where the action often is);
+    cut_end: seconds dropped from the clip's end first (a bad last moment); grade: a GRADES colour correction."""
     n = int(round(dur * FPS))
-    vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H}"
-          + (",unsharp=5:5:0.6" if upscale else "") + f",fps={FPS},tpad=stop_mode=clone:stop_duration={dur},format=yuv420p")
+    pre = ""
+    if fit:
+        usable = max(0.5, clip_seconds(src) - cut_end)
+        pre = f"trim=end={usable:.3f}," + (f"setpts=(PTS-STARTPTS)*{dur / usable:.4f}," if usable > dur else "")
+    vf = (pre + f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H}"
+          + (",unsharp=5:5:0.6" if upscale else "") + (f",{GRADES[grade]}" if grade else "")
+          + f",fps={FPS},tpad=stop_mode=clone:stop_duration={dur},format=yuv420p")
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", src, "-vf", vf, "-frames:v", n, "-an", "-c:v", "libx264",
         "-crf", "17", "-preset", "medium", out)
 
@@ -112,22 +131,23 @@ def picture(s, base, work, segs):
         else:
             black_video(out, dur)
         return out
+    grade, cut_end = s.get("grade"), float(s.get("clip_cut_end", 0))
     def fresh(src):  # reuse a segment already made from the same source at the same length
         stamp = out + ".src"
-        key = f"{os.path.abspath(src)} {os.path.getmtime(src)} {dur}"
+        key = f"{os.path.abspath(src)} {os.path.getmtime(src)} {dur} {grade} {cut_end} fit2"
         ok = os.path.exists(out) and os.path.exists(stamp) and open(stamp).read() == key
         open(stamp, "w").write(key)
         return ok
     if os.path.exists(ai):
         if not fresh(ai):
-            norm_video(ai, out, dur, upscale=True)
+            norm_video(ai, out, dur, upscale=True, fit=True, cut_end=cut_end, grade=grade)
     elif os.path.exists(cam):
         if not fresh(cam):
-            norm_video(cam, out, dur)
+            norm_video(cam, out, dur, grade=grade)
     elif os.path.exists(kf):  # a stand-in until the AI clip or camera move exists
         tmp = os.path.join(work, f"cam_{sid}.mp4")
         camera.render(kf, tmp, dur, camera.MOVES.get(sid, camera.DEFAULT))
-        norm_video(tmp, out, dur)
+        norm_video(tmp, out, dur, grade=grade)
     else:
         black_video(out, dur)
         print(f"   {sid}: no picture yet (black)")
@@ -190,8 +210,13 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         a = t["start"] + t["dur"] * k / 3
         add("Clock", a, t["start"] + t["dur"] if k == 2 else a + t["dur"] / 3, f"{{\\c{col}}}{txt}", 1)
     t = by["S54"]
-    add("Skill", t["start"] + 0.6, t["start"] + t["dur"], "{\\fad(400,300)}[ HIDDEN SKILL ]\\N\\NName: Hunter's Chai\\NRank: ???\\N"
-        "Effect: Anyone who drinks it\\Nborrows great strength.\\NDuration: exactly 1 hour.", 1)
+    a, b = t["start"] + 0.6, t["start"] + t["dur"]
+    # the window: a dark-blue panel with a cyan frame (an ASS drawing), the text inside it, left-aligned
+    add("Skill", a, b, "{\\an7\\pos(1150,250)\\fad(400,300)\\p1\\bord4\\shad0\\1c&H401808&\\1a&H30&\\3c&HFFE84C&}"
+        "m 0 0 l 660 0 660 330 0 330{\\p0}", 0)
+    add("Skill", a, b, "{\\an7\\pos(1185,275)\\fad(400,300)\\bord0\\shad0\\fs40\\c&HFFE84C&}[ HIDDEN SKILL ]"
+        "{\\fs34\\c&HFFF2E6&}\\N\\NName: Hunter's Chai\\NRank: ???\\NEffect: Anyone who drinks it\\N"
+        "             borrows great strength.\\NDuration: exactly 1 hour.", 1)
     t = by["S56"]
     add("Title", t["start"] + 0.3, t["start"] + t["dur"], "{\\fad(500,0)\\fs90}TO BE CONTINUED", 1)
     add("Small", t["start"] + 1.4, t["start"] + t["dur"], "{\\fad(400,0)\\pos(960,690)}Subscribe so you don't miss Episode 2", 1)
@@ -266,7 +291,7 @@ def main():
         "--stings", os.path.splitext(music)[0] + "_stings.wav", "--plain-voice", "--music-gain", "0.34")
     audio = os.path.join(work, "audio.wav")
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", mixed, "-i", os.path.join(work, "sfx.wav"), "-filter_complex",
-        "[0:a][1:a]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", str(SR), audio)
+        "[0:a][1:a]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-2:LRA=11,alimiter=limit=0.79:level=false", "-ar", str(SR), audio)
     # subtitles and cards, a light film look, fade in and out
     subs = os.path.join(work, "subs.ass")
     ass_file(timeline, subs)

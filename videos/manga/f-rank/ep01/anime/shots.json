@@ -119,7 +119,8 @@
    ],
    "sfx": "cheers, camera clicks",
    "tag": "[dramatically]",
-   "anim": "camera"
+   "anim": "camera",
+   "clip_cut_end": 0.8
   },
   {
    "id": "S07",
@@ -136,7 +137,8 @@
    ],
    "sfx": "crowd murmur",
    "tag": "[with a hint of humor]",
-   "anim": "camera"
+   "anim": "camera",
+   "grade": "tame"
   },
   {
    "id": "S08",
@@ -150,7 +152,8 @@
    "see": "close-up of Arjun's hands crushing green cardamom pods in a small stone mortar on the stall counter, a pot of milk tea boiling behind",
    "motion": "the pestle crushes the pods, for a moment a faint golden shimmer rises from the seeds and fades, he tips them into the boiling tea",
    "sfx": "crushing, bubbling, tiny chime",
-   "anim": "ai"
+   "anim": "ai",
+   "grade": "evening"
   },
   {
    "id": "S09",
@@ -169,7 +172,8 @@
    ],
    "sfx": "pour, street noise",
    "tag": "[cheerfully]",
-   "anim": "ai"
+   "anim": "ai",
+   "grade": "evening"
   },
   {
    "id": "S10",
@@ -181,7 +185,8 @@
    "see": "hunters in armor walking past the tea stall without looking, one kicks a paper cup along the ground",
    "motion": "they walk past, the paper cup tumbles across the stones",
    "sfx": "footsteps, paper cup",
-   "anim": "camera"
+   "anim": "camera",
+   "grade": "evening"
   },
   {
    "id": "S11",
@@ -239,7 +244,8 @@
     "Then the real hunters arrived."
    ],
    "sfx": "crowd gasps, drone hum",
-   "anim": "camera"
+   "anim": "camera",
+   "grade": "evening"
   },
   {
    "id": "S14",
@@ -276,7 +282,8 @@
    ],
    "sfx": "crowd laughter",
    "tag": "[laughs arrogantly]",
-   "anim": "ai"
+   "anim": "ai",
+   "grade": "evening"
   },
   {
    "id": "S16",
