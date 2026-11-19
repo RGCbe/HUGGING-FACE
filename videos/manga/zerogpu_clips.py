@@ -45,7 +45,13 @@ def check_token(allow_write=False):
     req = urllib.request.Request("https://huggingface.co/api/whoami-v2",
                                  headers={"Authorization": "Bearer " + token, "User-Agent": "zerogpu-clips/1.0"})
     me = json.load(urllib.request.urlopen(req, timeout=30))
-    role = (me.get("auth", {}).get("accessToken") or {}).get("role")
+    at = me.get("auth", {}).get("accessToken") or {}
+    role = at.get("role")
+    if role == "fineGrained":  # Hugging Face's "Read-Only" option makes a fine-grained token with only *.read rights
+        fg = at.get("fineGrained") or {}
+        perms = list(fg.get("global") or []) + [p for s in fg.get("scoped") or [] for p in s.get("permissions") or []]
+        if perms and all(p.endswith(".read") for p in perms):
+            role = "read"
     if role != "read" and allow_write:
         print(f"note: HF_READ_TOKEN has role '{role}' (it can write); sent only to {SPACE_URL} as the owner chose",
               flush=True)
