@@ -129,6 +129,7 @@ def main():
     ap.add_argument("--only")
     ap.add_argument("--takes", type=int)
     ap.add_argument("--steps", type=int, default=6)
+    ap.add_argument("--include-lipsync", action="store_true", help="also make the talking (lip-sync) shots here")
     ap.add_argument("--space", choices=["own", "wan22"], default="own",
                     help="own: the owner's private Space Rggroups/anime-motion (default); wan22: the public Wan 2.2 Space")
     ap.add_argument("--allow-write-token", action="store_true",
@@ -142,6 +143,8 @@ def main():
     for s in json.load(open(a.shots)):
         if only and s["id"] not in only:
             continue
+        if s.get("lipsync") and not a.include_lipsync:
+            continue  # a talking shot: made with the lip-sync model (lipsync_clips.py), not here
         for k in range(a.takes or s.get("takes", 1)):
             name = f"{s['id']}_{'abc'[k]}"
             if not os.path.exists(os.path.join(a.out_dir, name + ".mp4")):
