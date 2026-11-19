@@ -33,3 +33,24 @@ month, and v4 uses about 0.45 credits a character.
 A fresh container needs the voice tools for the listening check:
 `KURAL_HOME=$HOME/.cache/tea-break VOICE_ENGINE=eleven FIXED_CLIPS=0 bash videos/kural/setup.sh`
 (see `.claude/skills/tea-break-weekly/SKILL.md`).
+
+## Update 19 Nov 2026: where things stand
+
+### Episode 1 movie version (live-action look, every shot moving)
+- Folder: `ep01/anime/` (plan `PLAN.md`, screenplay `SCRIPT.md`, full log of every round `LOG.md`).
+- 48 approved pictures, 39 voices, 55 sound effects, cut 2 and cut 3 made. Big files are not in git: they are in
+  the private Hugging Face dataset `Rggroups/frank-ep01-work` (`videos/manga/work_backup.py pull|push`).
+- Clips: `all_shots.json` lists 53. 37 motion clips with Wan on the owner's own Space `Rggroups/anime-motion`
+  (`videos/manga/zerogpu_clips.py`, 24 made on 19 Nov, 13 left); 16 talking shots (`"lipsync": true`) get
+  LongCat-Video-Avatar lip-sync next (the owner liked the test: `out/clips_test/S17_longcat16.mp4`).
+- Remakes still to do: S01 (armor turns copper), S05 (a stray flying figure).
+- Automatic: a cloud scheduled task makes clips every day at 10:10 UTC on the PRO GPU time (40 min a day).
+
+### Episode 4 webtoon ("The Night Shift")
+- Script and lettering: `ep04/episode.json` (made by `ep04/make_episode.py`), 31 panels.
+- To do: draw (`python draw.py f-rank/ep04/episode.json f-rank/ep04/out/img`, about 3 GPU minutes), check every
+  panel, letter (`python letter.py f-rank/ep04/episode.json f-rank/ep04/out/img f-rank/ep04/out/webtoon`), upload
+  pack like `ep03/upload/`.
+
+### Working on the owner's computer
+See `videos/manga/LOCAL_SETUP.md`.
