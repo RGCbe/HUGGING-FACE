@@ -14,9 +14,10 @@
  },
  "topics_per_run": 1,
  "playlists": {
-  "en": "",
-  "ta": "",
-  "doomsday": ""
+  "en": "Marvel Lore Explained",
+  "ta": "Marvel Lore in Tamil | மார்வெல் கதைகள் தமிழில்",
+  "doomsday": "Before Avengers: Doomsday",
+  "note": "playlist titles; the run finds their ids with playlists.list mine=true"
  },
  "eleven": {
   "voice": "Manoj kumar T",

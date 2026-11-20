@@ -75,7 +75,9 @@ nothing half-done public, and the report says why; the next run carries on.
 - Channel made by Manoj on his new email; its own upload app and key saved; key tested: scopes `youtube` and
   `youtube.upload`, channel UC7m2wBWnP-KLyfrtXcYKyjQ.
 - Scheduled tasks (fresh cloud session each time, no computer needed; no connectors needed):
-  - "Manoj Explains: next two lore videos (EN + TA)": Monday and Thursday 9:53 am India time.
+  - "Manoj Explains: daily lore video (EN + TA)": every day 9:53 am India time.
   - "Manoj Explains: Saturday report": Saturday 6:47 pm India time.
   - The fortnightly compilation is added once there are 10-15 videos.
-- First videos: "Who is Doctor Doom?", English Sat 21 Nov 7 pm, Tamil 8 pm (private until then).
+- First videos: "Who is Doctor Doom?", English https://youtu.be/_cmNok1vVhg (public 20 Nov, 7 pm India time) and
+  Tamil https://youtu.be/AddGAaSefUs (8 pm); channel description, keywords, banner and three playlists set up.
+- Daily from 21 Nov: one question a day, English 5:30 am India time, Tamil 8 pm; the daily run is at 9:53 am.

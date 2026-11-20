@@ -125,7 +125,9 @@ Upload `$WORK` (pictures, voices, shots.json, scripts, out/*/video.mp4) to the P
 - Description: two lines on what the video answers; "Sources:" and the sources; "Pictures, music and voice made with
   AI tools. Fan channel: not made by, linked to or endorsed by Marvel, Disney or any studio."; 3 hashtags.
 - Tags: config.json `tags_always` (`tags_always_ta` for Tamil) plus the topic's names.
-- Playlists: config.json `playlists` ids for `en`/`ta` and the topic's `playlists` names (skip empty ids).
+- Playlists: find their ids with playlists.list (part=snippet, mine=true) by title: "Marvel Lore Explained" for
+  English, "Marvel Lore in Tamil | மார்வெல் கதைகள் தமிழில்" for Tamil, and "Before Avengers: Doomsday" when the
+  topic's `playlists` has "doomsday" (both languages).
 
 - English video: English only in its title, description and tags (no Tamil); global hashtags (#Marvel #MCU and
   the topic's). Add `"localizations"` with a translated title (under 100 characters, keep `#shorts`) and description
