@@ -3,16 +3,31 @@
 Hollywood movies and series, starting with Marvel, explained in our own words, plus theories, timelines and
 watch order. Every video in English and in Tamil.
 
-## The rule that shapes everything: no film footage
+## The method: no copyrighted content at all (Manoj, 20 Nov: "our method without copyright content")
 
-No clips, trailers, posters, stills, actors' photos, logos or film music. Studios claim them (Content ID): the
-money goes to them or the video gets a strike. Instead:
-- **Pictures:** our own illustrations in a bold comic style: places, objects (a glowing stone, a shield-shaped
-  hint never the real design), silhouettes, timelines, maps, text cards. Never an actor's face, never a costume
-  copied exactly.
-- **Words:** the story retold in our own words with commentary (what it means, why it matters, what comes next).
-- **Music:** our own.
-- Film and character names in titles are fine (they describe what the video is about).
+**Never used:** film or series clips, trailers, stills, posters, comic panels, Marvel/Disney logos or title
+fonts, actors' photos or likeness, AI pictures of Marvel characters or their costumes (Disney and Marvel sued
+Midjourney over exactly such pictures in 2025), film music or sound.
+
+**What every picture comes from instead:**
+
+| Source | What for | Rules |
+|---|---|---|
+| Our own AI pictures (free picture service; Manoj's own Spaces) | places, objects, moods: a castle in snowy mountains, a burning lab, six coloured gems, a meteor, an iron mask on a table | generic designs only: nothing that copies a Marvel character, costume, weapon or logo |
+| Our own AI motion (Wan on Manoj's Space) | a few moving shots per video from those pictures | shares the daily GPU time with the films |
+| NASA images and video | space, planets, nebulae, galaxies (Infinity Stones, cosmic beings, the multiverse) | public domain; no NASA logos, no people, no hint that NASA endorses us |
+| ESA/Webb images and video | deep-space pictures | CC BY 4.0: credit "ESA/Webb" in the description |
+| Pexels and Pixabay (stock video, sound effects) | cities, storms, labs, explosions, sound effects | free for commercial use, no credit needed; no identifiable faces or brands as a subject; always part of our own edit, never on its own |
+| Our own motion graphics | character name cards (the name as text with a colour and a simple symbol), timelines, "power level" bars, maps, big captions | made by our board renderer |
+| Our own music (score.py) and voice (Manoj's AI voice) | everything you hear | |
+
+**How the characters appear without their pictures:** each one gets a name card in its own colour and a simple
+symbol of our own (Doom: dark green and a plain iron mask shape; Thanos: purple and a gem), and the scenes show
+where they are and what they do (the castle, the lab, the battlefield), never the character's face or costume.
+Names in titles and narration are fine: the video is about them.
+
+Facts about the films are free to tell in our own words; the video is commentary and explanation, so it is our
+own work. YouTube's "reused content" rule is met because every video is our own script, voice and edit.
 
 ## Honesty
 
