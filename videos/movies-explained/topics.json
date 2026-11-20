@@ -1,0 +1,17 @@
+{"note": "In order. A topic is done when a video on the channel has its 'match' words in the title. 'look' lists our own picture ideas (no Marvel designs). Facts are researched fresh each run.",
+ "topics": [
+  {"slug": "doctor-doom", "match": "Doctor Doom", "question": "Who is Doctor Doom, and why is Marvel scared of him?", "playlists": ["doomsday"], "made": "videos/01-doctor-doom"},
+  {"slug": "multiverse-saga", "match": "Multiverse Saga", "question": "What is the Multiverse Saga, in two minutes?", "playlists": ["doomsday"], "look": "branching timelines of light, many Earths, a clock, a crack in space"},
+  {"slug": "avengers-broke-up", "match": "Avengers Break Up", "question": "Why did the Avengers break up after Endgame?", "playlists": ["doomsday"], "look": "an empty round table, a dusty headquarters, scattered chairs, a city skyline at dusk"},
+  {"slug": "stones-after-endgame", "match": "Infinity Stone After Endgame", "question": "What happened to every Infinity Stone after Endgame?", "playlists": ["doomsday"], "look": "six coloured lights fading in space one by one, a time machine of light, vaults"},
+  {"slug": "fantastic-four-doom", "match": "Fantastic Four", "question": "Who are the Fantastic Four, and why does Doom hate Reed Richards?", "playlists": ["doomsday"], "look": "a 1960s rocket launch, cosmic rays, a university lab, four silhouettes, a castle"},
+  {"slug": "doomsday-biggest", "match": "Biggest Avengers", "question": "Why is Avengers: Doomsday the biggest Avengers film since Endgame?", "playlists": ["doomsday"], "look": "a packed cinema, storm over a city, many silhouettes facing one cloaked figure"},
+  {"slug": "secret-wars-comic", "match": "Secret Wars", "question": "What happened in Secret Wars (2015), the comic Doomsday leads to?", "playlists": ["doomsday"], "look": "a patchwork world, a throne above clouds, colliding planets"},
+  {"slug": "x-men-mcu", "match": "X-Men", "question": "How are the X-Men coming into the MCU?", "playlists": [], "look": "a school mansion at night, a helix of light, a jet in clouds"},
+  {"slug": "galactus", "match": "Galactus", "question": "Who is Galactus, the giant who eats planets?", "playlists": [], "look": "a planet-sized silhouette in space, a planet glowing as it is drained"},
+  {"slug": "sentry", "match": "Sentry", "question": "Who is the Sentry, and why is he so dangerous?", "playlists": [], "look": "a golden light in the sky, a dark shadow behind it, an empty city street"},
+  {"slug": "tva", "match": "TVA", "question": "What is the TVA, and who runs time in the MCU?", "playlists": [], "look": "an endless retro office, clocks, glowing timeline branches"},
+  {"slug": "god-of-stories", "match": "God of Stories", "question": "Why did Loki become the God of Stories?", "playlists": [], "look": "a lone throne at the end of time, branches of green light, a tree of timelines"},
+  {"slug": "sam-captain-america", "match": "Sam Wilson", "question": "How did Sam Wilson become the new Captain America?", "playlists": [], "look": "a round shield on a table (plain, no star), wings of metal in the sky, a city"},
+  {"slug": "nexus-being", "match": "Nexus", "question": "What is a Nexus Being, and why does it matter for Wanda?", "playlists": [], "look": "red mist swirling, many reflections of a dark castle, a mountain temple"}
+ ]}
