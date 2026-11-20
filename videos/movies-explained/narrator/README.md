@@ -1,7 +1,7 @@
 # Kavi, the channel's narrator (3D anime, future tech)
 
-One original character (invented, not based on any real person or existing character), with one face
-(`kavi_face.png`) and four outfits, one for each kind of video. Picture model: FLUX.2 [klein] (Apache-2.0).
+A 3D anime version of Manoj himself (made from his own photo at his request, 20 Nov 2026; the photo is kept
+private, never in this repository), with one face (`kavi_face.png`) and four outfits, one for each kind of video. Picture model: FLUX.2 [klein] (Apache-2.0).
 New pictures of him are made from `kavi_face.png` plus the outfit picture as references, so he always looks the same.
 
 | Outfit | Picture | Used for |
