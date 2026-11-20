@@ -3,7 +3,7 @@
 Last updated: 20 November 2026
 
 "Manoj Explains uploader" is a private app used only by the owner of the YouTube channel Manoj Explains
-(@ManojExplainsMovies) to manage his own channel.
+(@manoj-d-explains) to manage his own channel.
 
 **What it accesses.** With the owner's permission (Google OAuth), it uses the YouTube Data API to upload the owner's
 videos, set their titles, descriptions, thumbnails, privacy and publishing times, manage the channel's playlists and

@@ -1,6 +1,6 @@
 # Manoj Explains
 
-**Manoj Explains** is a YouTube channel (@ManojExplainsMovies) that explains the stories behind movies and series,
+**Manoj Explains** is a YouTube channel (@manoj-d-explains) that explains the stories behind movies and series,
 starting with Marvel lore, in English and in Tamil. Its narrator is a 3D anime version of its creator, Manoj.
 
 ## The "Manoj Explains uploader" app

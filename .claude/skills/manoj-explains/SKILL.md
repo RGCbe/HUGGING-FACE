@@ -8,7 +8,7 @@ description: Make and schedule the next Manoj Explains videos - Marvel and movie
 Each run makes the next `topics_per_run` questions (`videos/movies-explained/config.json`, normally 2) from
 `videos/movies-explained/topics.json`. Every question becomes TWO videos: English and Tamil, 2-3 minutes, 1080x1920,
 uploaded private and scheduled (English 7 pm, Tamil 8 pm India time) on the channel Manoj Explains
-(@ManojExplainsMovies). The finished example is "Who is Doctor Doom?": `videos/movies-explained/videos/01-doctor-doom/`
+(@manoj-d-explains). The finished example is "Who is Doctor Doom?": `videos/movies-explained/videos/01-doctor-doom/`
 (`script_en.txt`, `script_ta.txt`, `shots.json`, `sources.md`). Read `videos/movies-explained/PLAN.md` and
 `PROCESS.md` once.
 

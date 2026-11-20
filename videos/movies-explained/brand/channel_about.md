@@ -26,4 +26,4 @@ Manoj Explains, movies explained, series explained, Marvel explained, MCU lore, 
 
 - Country: India. Channel language: English (each Tamil video is set to Tamil when it is uploaded).
 - Audience: not made for kids.
-- Handle: @ManojExplainsMovies (@ManojExplains belongs to another channel)
+- Handle: @manoj-d-explains (channel id UC7m2wBWnP-KLyfrtXcYKyjQ)

@@ -4,7 +4,7 @@
 
 | Step | Who | What |
 |---|---|---|
-| 1 | Manoj | Create the channel on YouTube (a separate channel under his Google account): **Manoj Explains** (Manoj's choice, 20 Nov 2026), handle **@ManojExplainsMovies** (free on 20 Nov; @ManojExplains belongs to another channel). Never "Marvel" or "MCU" in the name, handle or logo (their trademarks). |
+| 1 | Manoj | Create the channel on YouTube (a separate channel under his Google account): **Manoj Explains** (Manoj's choice, 20 Nov 2026), handle **@manoj-d-explains** (the one Manoj chose; channel id UC7m2wBWnP-KLyfrtXcYKyjQ). Never "Marvel" or "MCU" in the name, handle or logo (their trademarks). |
 | 2 | Manoj | Give upload permission once, the same way as for Tea Break; the key is saved in the cloud environment's settings as `YT_REFRESH_TOKEN_MOVIES`, never in chat. |
 | 3 | Manoj | Put the profile picture on the channel (YouTube's API cannot set it): the logo, made by Claude (`brand/manoj_explains_logo.png`). |
 | 4 | Claude | Banner (Manoj's 3D anime face and the channel name, `brand/manoj_explains_banner.jpg`), channel description, keywords, links, playlists ("Marvel lore", "Marvel lore in Tamil", "Before Avengers: Doomsday", later "Long explainers"). |
