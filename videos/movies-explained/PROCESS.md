@@ -4,7 +4,7 @@
 
 | Step | Who | What |
 |---|---|---|
-| 1 | Manoj | Create the channel on YouTube (a separate channel under his Google account). Name ideas: "Kavi Explains", "Lore Tea with Kavi", "Kavi's Lore Lab". Never "Marvel" or "MCU" in the name, handle or logo (their trademarks). |
+| 1 | Manoj | Create the channel on YouTube (a separate channel under his Google account): **Kavi Explains**, handle **@KaviExplains** (free on 20 Nov 2026). Never "Marvel" or "MCU" in the name, handle or logo (their trademarks). |
 | 2 | Manoj | Give upload permission once, the same way as for Tea Break; the key is saved in the cloud environment's settings as `YT_REFRESH_TOKEN_MOVIES`, never in chat. |
 | 3 | Manoj | Put the profile picture on the channel (YouTube's API cannot set it): Kavi's face, made by Claude (`narrator/kavi_face.png`). |
 | 4 | Claude | Banner (Kavi and the channel name), channel description, keywords, links, playlists ("Marvel lore", "Marvel lore in Tamil", "Before Avengers: Doomsday", later "Long explainers"). |
