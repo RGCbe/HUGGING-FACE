@@ -44,7 +44,8 @@
    "see": "dark wet cave lit by one torch, Viktor in silver armor and black cape stands with his sword in his hand, a cut on his cheek; behind him only darkness, where two faint red eyes and the outline of something huge can just be seen; a first faint golden glow on the edges of his armor; no mushrooms",
    "motion": "torchlight flickers, his chest rises and falls, golden light starts to glow on his armor, slow push in",
    "sfx": "heartbeat BA-DUMP, heavy breathing",
-   "anim": "ai"
+   "anim": "ai",
+   "take": "b"
   },
   {
    "id": "S02",
@@ -102,7 +103,8 @@
    ],
    "sfx": "city hum, deep portal drone",
    "tag": "[dramatically]",
-   "anim": "camera"
+   "anim": "camera",
+   "take": "b"
   },
   {
    "id": "S06",

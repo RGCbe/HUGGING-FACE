@@ -112,7 +112,9 @@ def picture(s, base, work, segs):
     """The shot's picture as a normalized segment; returns its path."""
     out = os.path.join(work, f"seg_{s['id']}.mp4")
     sid, dur = s["id"], s["dur"]
-    ai = os.path.join(base, "out", "clips", f"{sid}_a.mp4")
+    ai = os.path.join(base, "out", "clips", f"{sid}_{s.get('take', 'a')}.mp4")  # "take": the chosen take, once it exists
+    if not os.path.exists(ai):
+        ai = os.path.join(base, "out", "clips", f"{sid}_a.mp4")
     lip = os.path.join(base, "out", "clips", f"{sid}_lip.mp4")  # a talking shot made by lipsync_clips.py
     cam = os.path.join(base, "out", "camera", f"{sid}.mp4")
     kf = os.path.join(base, "out", "keyframes_ok", f"{sid}.jpg")

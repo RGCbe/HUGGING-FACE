@@ -626,3 +626,7 @@ the machine shows "stopped". **GridShare total for 18 Nov: ₹160.59** (balance 
   lips stay on the words.
 - **Daily run:** the run first does the job for the app the Space has now, then the other: the 16 talking shots
   and the 17 motion clips that are left (13 shots, plus second takes of S33, S43, S45 and S46).
+- **S01 and S05 remakes queued (20 Nov).** S01's armor turned copper because the prompt asked for "golden light on
+  his armor"; S05's "clouds spiral into it" turned the clouds into teal blobs and let a flying figure in. New prompts
+  keep the armor silver and the sky empty. They run as second takes (`S01_b`, `S05_b`), so nothing is deleted;
+  `"take": "b"` in `shots.json` makes the edit use them once they exist (until then it keeps the first take).
