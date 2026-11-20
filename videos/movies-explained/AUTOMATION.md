@@ -3,7 +3,7 @@
 ## Part 1: what Manoj does, once (about 20 minutes)
 
 1. **Create the channel** on the **new Google email** (Manoj, 20 Nov: "new channel with new mail"): sign in to
-   YouTube with that email, "Create a channel", name **Manoj Explains**, handle **@ManojExplainsMovies**.
+   YouTube with that email, "Create a channel", name **Manoj Explains**, handle **@manoj-d-explains** (done 20 Nov 2026: channel id UC7m2wBWnP-KLyfrtXcYKyjQ).
 2. **Profile picture and banner.** YouTube Studio, Customisation, Branding: upload `brand/manoj_explains_logo.png`
    as the picture and `brand/manoj_explains_banner.jpg` as the banner. Basic info: paste the description from
    `brand/channel_about.md`.
@@ -69,3 +69,13 @@ nothing half-done public, and the report says why; the next run carries on.
 - **Pictures:** the free picture service allows about 60 a day; a topic needs about 22, so a run makes two topics.
 - **Nothing copyrighted, ever:** no clips, stills, posters, comic panels, logos, film music, actors' faces, or AI
   pictures of Marvel characters.
+
+## Status (20 Nov 2026)
+
+- Channel made by Manoj on his new email; its own upload app and key saved; key tested: scopes `youtube` and
+  `youtube.upload`, channel UC7m2wBWnP-KLyfrtXcYKyjQ.
+- Scheduled tasks (fresh cloud session each time, no computer needed; no connectors needed):
+  - "Manoj Explains: next two lore videos (EN + TA)": Monday and Thursday 9:53 am India time.
+  - "Manoj Explains: Saturday report": Saturday 6:47 pm India time.
+  - The fortnightly compilation is added once there are 10-15 videos.
+- First videos: "Who is Doctor Doom?", English Sat 21 Nov 7 pm, Tamil 8 pm (private until then).
