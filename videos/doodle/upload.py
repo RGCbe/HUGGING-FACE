@@ -49,7 +49,7 @@ def metadata(v, defaults):
     if d.get("publish_at"):  # scheduled: must be private until then
         status["privacyStatus"] = "private"
         status["publishAt"] = d["publish_at"]
-    return {
+    meta = {
         "snippet": {
             "title": d["title"],
             "description": d.get("description", ""),
@@ -60,12 +60,16 @@ def metadata(v, defaults):
         },
         "status": status,
     }
+    if v.get("localizations"):  # {"es": {"title": ..., "description": ...}, ...}: shown to viewers in those languages
+        meta["localizations"] = v["localizations"]
+    return meta
 
 
 def start_upload(token, meta, path):
     size = os.path.getsize(path)
+    parts = "snippet,status" + (",localizations" if meta.get("localizations") else "")
     req = urllib.request.Request(
-        f"{API}/videos?uploadType=resumable&part=snippet,status",
+        f"{API}/videos?uploadType=resumable&part={parts}",
         data=json.dumps(meta).encode(), method="POST",
         headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json; charset=UTF-8",
                  "X-Upload-Content-Type": "video/mp4", "X-Upload-Content-Length": str(size)})

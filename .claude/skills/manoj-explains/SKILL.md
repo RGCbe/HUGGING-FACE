@@ -7,7 +7,7 @@ description: Make and schedule the next Manoj Explains videos - Marvel and movie
 
 Each run makes the next `topics_per_run` questions (`videos/movies-explained/config.json`: 1, one a day, Manoj's choice) from
 `videos/movies-explained/topics.json`. Every question becomes TWO videos: English and Tamil, 2-3 minutes, 1080x1920,
-uploaded private and scheduled (English 7 pm, Tamil 8 pm India time) on the channel Manoj Explains
+uploaded private and scheduled (English 5:30 am India time for viewers abroad, Tamil 8 pm) on the channel Manoj Explains
 (@manoj-d-explains). The finished example is "Who is Doctor Doom?": `videos/movies-explained/videos/01-doctor-doom/`
 (`script_en.txt`, `script_ta.txt`, `shots.json`, `sources.md`). Read `videos/movies-explained/PLAN.md` and
 `PROCESS.md` once.
@@ -126,6 +126,13 @@ Upload `$WORK` (pictures, voices, shots.json, scripts, out/*/video.mp4) to the P
   AI tools. Fan channel: not made by, linked to or endorsed by Marvel, Disney or any studio."; 3 hashtags.
 - Tags: config.json `tags_always` (`tags_always_ta` for Tamil) plus the topic's names.
 - Playlists: config.json `playlists` ids for `en`/`ta` and the topic's `playlists` names (skip empty ids).
+
+- English video: English only in its title, description and tags (no Tamil); global hashtags (#Marvel #MCU and
+  the topic's). Add `"localizations"` with a translated title (under 100 characters, keep `#shorts`) and description
+  for every language in config.json `localize_to` (Spanish, Portuguese, Hindi, Indonesian, Arabic, French, German),
+  so viewers abroad see it in their own language. The Tamil video gets no localizations.
+- Times: `en_at` and `ta_at` from next_topic.py (English 5:30 am India time = 7 pm New York, for viewers abroad; Tamil
+  8 pm India time).
 
 `python3 videos/doodle/upload.py $WORK/upload.json`
 

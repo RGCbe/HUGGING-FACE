@@ -9,7 +9,7 @@
  },
  "timezone": "Asia/Kolkata",
  "publish_time": {
-  "en": "19:00",
+  "en": "05:30",
   "ta": "20:00"
  },
  "topics_per_run": 1,
@@ -38,5 +38,15 @@
   "movie explained in Tamil",
   "Hollywood explained Tamil",
   "MCU Tamil"
+ ],
+ "publish_time_note": "English at 5:30 am India time = 7 pm New York, midnight London (foreign viewers); Tamil at 8 pm India time (Manoj, 20 Nov 2026)",
+ "localize_to": [
+  "es",
+  "pt",
+  "hi",
+  "id",
+  "ar",
+  "fr",
+  "de"
  ]
 }
