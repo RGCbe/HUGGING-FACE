@@ -75,12 +75,15 @@ def clip_seconds(path):
     return float(out or 0)
 
 
-def norm_video(src, out, dur, upscale=False, freeze_from_end=False, fit=False, cut_end=0.0, grade=None):
+def norm_video(src, out, dur, upscale=False, freeze_from_end=False, fit=False, cut_end=0.0, grade=None, crop_bottom=0.0):
     """Any clip -> 1920x1080, 24 fps, exactly dur seconds (the last frame is held if the clip is shorter).
     fit: a longer clip is sped up to fit the shot instead of losing its ending (where the action often is);
     cut_end: seconds dropped from the clip's end first (a bad last moment); grade: a GRADES colour correction."""
     n = int(round(dur * FPS))
     pre = ""
+    if crop_bottom:  # drop a bad strip at the bottom (made-up subtitles), keeping the picture's shape
+        k = 1 - crop_bottom
+        pre += f"crop=iw*{k:.3f}:ih*{k:.3f}:iw*{crop_bottom / 2:.3f}:0,"
     if fit:
         usable = max(0.5, clip_seconds(src) - cut_end)
         pre = f"trim=end={usable:.3f}," + (f"setpts=(PTS-STARTPTS)*{dur / usable:.4f}," if usable > dur else "")
@@ -137,13 +140,13 @@ def picture(s, base, work, segs):
     grade, cut_end = s.get("grade"), float(s.get("clip_cut_end", 0))
     def fresh(src):  # reuse a segment already made from the same source at the same length
         stamp = out + ".src"
-        key = f"{os.path.abspath(src)} {os.path.getmtime(src)} {dur} {grade} {cut_end} fit2"
+        key = f"{os.path.abspath(src)} {os.path.getmtime(src)} {dur} {grade} {cut_end} {s.get('lip_crop', 0)} fit2"
         ok = os.path.exists(out) and os.path.exists(stamp) and open(stamp).read() == key
         open(stamp, "w").write(key)
         return ok
     if os.path.exists(lip):  # the lips follow the voice line from the shot's start: no speed change, only a trim
         if not fresh(lip):
-            norm_video(lip, out, dur, upscale=True, grade=grade)
+            norm_video(lip, out, dur, upscale=True, grade=grade, crop_bottom=float(s.get("lip_crop", 0)))
     elif os.path.exists(ai):
         if not fresh(ai):
             norm_video(ai, out, dur, upscale=True, fit=True, cut_end=cut_end, grade=grade)

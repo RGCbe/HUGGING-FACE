@@ -483,7 +483,8 @@
    ],
    "sfx": "cave drips, drone hum",
    "tag": "[arrogantly]",
-   "anim": "camera"
+   "anim": "camera",
+   "lip_crop": 0.16
   },
   {
    "id": "S27",
@@ -533,7 +534,8 @@
    ],
    "sfx": "heavy breathing",
    "tag": "[in pain, angry]",
-   "anim": "camera"
+   "anim": "camera",
+   "lip_crop": 0.16
   },
   {
    "id": "S30",
@@ -619,7 +621,8 @@
    ],
    "sfx": "dust settling",
    "tag": "[shocked, breathless]",
-   "anim": "camera"
+   "anim": "camera",
+   "lip_crop": 0.16
   },
   {
    "id": "S35",

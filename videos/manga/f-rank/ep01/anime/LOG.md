@@ -630,3 +630,17 @@ the machine shows "stopped". **GridShare total for 18 Nov: ₹160.59** (balance 
   his armor"; S05's "clouds spiral into it" turned the clouds into teal blobs and let a flying figure in. New prompts
   keep the armor silver and the sky empty. They run as second takes (`S01_b`, `S05_b`), so nothing is deleted;
   `"take": "b"` in `shots.json` makes the edit use them once they exist (until then it keeps the first take).
+
+## Talking shots, day 1 (20 Nov)
+
+- **11 of 16 made** on Manoj's own Space (LongCat-Video-Avatar 1.6, half a GPU): S11, S15, S17, S18, S19, S24,
+  S26, S29, S30, S34, S35. Each took about 206 s of GPU time (so about 11 a day); S40, S44, S49, S50 and S51 come
+  with the next GPU time. Backed up to the private dataset.
+- **Lips:** checked on S17 frame by frame against the voice: mouth closed before the line, open on the words,
+  closed after it; face and costume kept.
+- **Made-up subtitles:** S26, S29 and S34 (the dark cave shots) grew lines of fake Chinese-looking subtitles at the
+  bottom, from what the model was trained on (the distilled model ignores the negative prompt, so "subtitles"
+  there does not help). Fixed in the edit at no GPU cost: `"lip_crop": 0.16` in `shots.json` drops that strip and
+  keeps the picture's shape (edit.py `crop_bottom`). Every new talking clip gets the same bottom-strip check.
+- **To look at again:** S29, Viktor's face looks older by the end of the clip; S34, Raghu's mouth moves too (his
+  mouth is open in the start picture). Both are candidates for a second take with another seed.
