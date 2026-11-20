@@ -4,10 +4,10 @@
 
 | Step | Who | What |
 |---|---|---|
-| 1 | Manoj | Create the channel on YouTube (a separate channel under his Google account): **Kavi Explains**, handle **@KaviExplains** (free on 20 Nov 2026). Never "Marvel" or "MCU" in the name, handle or logo (their trademarks). |
+| 1 | Manoj | Create the channel on YouTube (a separate channel under his Google account): **Manoj Explains** (Manoj's choice, 20 Nov 2026), handle **@ManojExplainsMovies** (free on 20 Nov; @ManojExplains belongs to another channel). Never "Marvel" or "MCU" in the name, handle or logo (their trademarks). |
 | 2 | Manoj | Give upload permission once, the same way as for Tea Break; the key is saved in the cloud environment's settings as `YT_REFRESH_TOKEN_MOVIES`, never in chat. |
-| 3 | Manoj | Put the profile picture on the channel (YouTube's API cannot set it): Kavi's face, made by Claude (`narrator/kavi_face.png`). |
-| 4 | Claude | Banner (Kavi and the channel name), channel description, keywords, links, playlists ("Marvel lore", "Marvel lore in Tamil", "Before Avengers: Doomsday", later "Long explainers"). |
+| 3 | Manoj | Put the profile picture on the channel (YouTube's API cannot set it): the logo, made by Claude (`brand/manoj_explains_logo.png`). |
+| 4 | Claude | Banner (Manoj's 3D anime face and the channel name, `brand/manoj_explains_banner.jpg`), channel description, keywords, links, playlists ("Marvel lore", "Marvel lore in Tamil", "Before Avengers: Doomsday", later "Long explainers"). |
 | 5 | Claude | Upload defaults: not made for kids; AI-content label ticked ("altered or synthetic content": AI pictures and AI voice); English or Tamil as the video language; comments on. |
 
 ## B. Every video (Claude, automatic)
@@ -20,7 +20,7 @@
 4. **Script, Tamil:** the same story in spoken Tamil, numbers shown as digits in the captions.
 5. **Voice:** Manoj's AI voice in both languages; every English word checked with speech recognition, every Tamil
    section checked to be heard as Tamil.
-6. **Pictures:** our own 3D anime pictures (no Marvel characters, costumes, logos or actors), Kavi at the start and
+6. **Pictures:** our own 3D anime pictures (no Marvel characters, costumes, logos or actors), Manoj's 3D anime self at the start and
    the end in the outfit for that kind of video; every picture looked at (wrong counts, stray text, anything that
    copies a design is redrawn).
 7. **Video:** `lore_video.py`: moving pictures, big captions, ONE/TWO/THREE cards, name cards, our own music and
