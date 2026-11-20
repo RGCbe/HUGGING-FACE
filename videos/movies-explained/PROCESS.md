@@ -38,9 +38,9 @@
 | Tamil lore video | 8:00 pm |
 | Long compilation (10-15 videos joined, 30-40 min) | Sunday, every two weeks |
 
-**How many a week:** each video in both languages uses about 3,800 of the 161,000 ElevenLabs voice credits a month
-(Tea Break and the devotional channel use the same credits). So **four topics a week** (eight videos) fit; a video
-every day needs a free voice model first.
+**How many a week:** each question in both languages uses about 2,000 of the 161,000 ElevenLabs voice credits a month (measured on
+"Who is Doctor Doom?": 3,788 characters cost 2,014 credits). So a question every day (about 60,000 a month) fits next
+to Tea Break and the devotional channel.
 
 ## D. Launch: before Avengers: Doomsday (in cinemas 18 Dec 2026)
 

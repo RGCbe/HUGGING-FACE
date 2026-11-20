@@ -62,8 +62,8 @@ nothing half-done public, and the report says why; the next run carries on.
 
 ## Part 4: limits to know
 
-- **Voice credits:** about 3,800 per topic (English and Tamil); four topics a week fit the ElevenLabs plan next to
-  Tea Break and the devotional channel. More needs a free voice model.
+- **Voice credits:** about 2,000 per question (English and Tamil; measured on Doctor Doom: 3,788 characters, 2,014
+  credits), so a question a day is about 60,000 of the 161,000 a month, next to Tea Break and the devotional channel.
 - **YouTube upload allowance:** the channel has its own upload app (10,000 units a day; an upload uses about
   1,600), so a run uploads at most four videos, well inside it.
 - **Pictures:** the free picture service allows about 60 a day; a topic needs about 22, so a run makes two topics.
