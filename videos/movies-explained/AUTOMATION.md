@@ -1,27 +1,35 @@
 # Manoj Explains: how the automation works, step by step
 
-## Part 1: what Manoj does, once (about 15 minutes)
+## Part 1: what Manoj does, once (about 20 minutes)
 
 1. **Create the channel** on the **new Google email** (Manoj, 20 Nov: "new channel with new mail"): sign in to
    YouTube with that email, "Create a channel", name **Manoj Explains**, handle **@ManojExplainsMovies**.
 2. **Profile picture and banner.** YouTube Studio, Customisation, Branding: upload `brand/manoj_explains_logo.png`
    as the picture and `brand/manoj_explains_banner.jpg` as the banner. Basic info: paste the description from
    `brand/channel_about.md`.
-3. **Let the new email use the upload app.** The upload app (the Google Cloud project whose Client ID and secret the
-   Tea Break uploads use) belongs to the **old** email. Sign in to console.cloud.google.com with the old email,
-   open that project, "Google Auth Platform" (or "APIs & Services", "OAuth consent screen"):
-   - if its status is **Testing**: add the new email under "Audience", "Test users". Better still, press
-     "Publish app" (In production): in Testing, Google cancels the key after 7 days;
-   - if it is already **In production**: nothing to do here.
-4. **Upload permission (the key).** In Google's OAuth Playground (developers.google.com/oauthplayground): gear icon,
-   "Use your own OAuth credentials" with the same Client ID and Client secret as Tea Break; scopes
-   `https://www.googleapis.com/auth/youtube.upload` and `https://www.googleapis.com/auth/youtube`; "Authorize APIs";
-   sign in with the **new email** and choose **Manoj Explains**; if Google says the app is not verified, "Advanced",
-   "Go to ..." (it is your own app); "Exchange authorization code for tokens"; copy the **refresh token**.
-   (If Google says `redirect_uri_mismatch`, tell Claude: there is another way.)
-5. **Save the key.** Claude's cloud environment settings (the environment menu in the session title, Edit): add an
-   environment variable named `YT_REFRESH_TOKEN_MOVIES` with the refresh token as its value. Never paste it in
-   the chat.
+3. **Its own upload app, on the new email** (Manoj opened the Google Cloud console with the new email, 20 Nov; this
+   also gives the channel its own YouTube upload allowance, separate from Tea Break). At console.cloud.google.com,
+   signed in with the new email:
+   1. Project picker at the top, "New project", name `Manoj Explains`, Create, then select it.
+   2. Search "YouTube Data API v3", open it, Enable.
+   3. Menu, "Google Auth Platform" (older menus: "APIs & Services", "OAuth consent screen"), "Get started":
+      app name `Manoj Explains uploader`, support email the new email, Audience **External**, contact email the new
+      email, agree, Create.
+   4. "Audience": **Publish app**, Confirm (status "In production"; in "Testing" Google cancels the key after 7 days).
+   5. "Clients", "Create client": type **Web application**, name `Manoj Explains uploader`, under "Authorized
+      redirect URIs" add `https://developers.google.com/oauthplayground`, Create. Copy the **Client ID** and the
+      **Client secret** at once (the secret is shown only now; "Download JSON" keeps both).
+4. **Upload permission (the key).** developers.google.com/oauthplayground: gear icon, tick "Use your own OAuth
+   credentials", paste the **new** Client ID and Client secret; in "Input your own scopes" type
+   `https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube`; "Authorize APIs"; sign in
+   with the new email and choose **Manoj Explains**; if Google says the app is not verified: "Advanced", "Go to
+   Manoj Explains uploader (unsafe)" (it is his own app); "Exchange authorization code for tokens"; copy the
+   **Refresh token**.
+5. **Save the three values** in Claude's cloud environment settings (the environment menu in the session title, Edit),
+   as environment variables, never in the chat:
+   - `YT_CLIENT_ID_MOVIES`: the Client ID
+   - `YT_CLIENT_SECRET_MOVIES`: the Client secret
+   - `YT_REFRESH_TOKEN_MOVIES`: the Refresh token
 6. **Tell Claude "channel ready".** That is the last thing you need to do.
 
 ## Part 2: what Claude sets up, once
@@ -56,8 +64,8 @@ nothing half-done public, and the report says why; the next run carries on.
 
 - **Voice credits:** about 3,800 per topic (English and Tamil); four topics a week fit the ElevenLabs plan next to
   Tea Break and the devotional channel. More needs a free voice model.
-- **YouTube upload allowance:** the upload app is shared by all the channels (10,000 units a day; an upload uses
-  about 1,600), so a run uploads at most four videos and never on the same day as another channel's big upload.
+- **YouTube upload allowance:** the channel has its own upload app (10,000 units a day; an upload uses about
+  1,600), so a run uploads at most four videos, well inside it.
 - **Pictures:** the free picture service allows about 60 a day; a topic needs about 22, so a run makes two topics.
 - **Nothing copyrighted, ever:** no clips, stills, posters, comic panels, logos, film music, actors' faces, or AI
   pictures of Marvel characters.
