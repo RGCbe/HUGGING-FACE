@@ -21,30 +21,37 @@ money goes to them or the video gets a strike. Instead:
 - A theory is always called a theory ("my theory", "fans think"), never news.
 - Spoilers: the title says "spoilers" or "no spoilers"; an ending-explained waits until the full plot is published.
 
-## Formats
+## Format (Manoj, 20 Nov: "like Vericade")
 
-| Format | Length | How often |
-|---|---|---|
-| **Explained:** one movie or series season, the whole story and what it means | 8-12 min | weekly |
-| **Theories and explainers:** "Who is Doctor Doom?", "Every Avenger before Doomsday" | 5-8 min | weekly |
-| **Shorts:** one theory, fact or "did you notice?" each | under 60 s | daily (English and Tamil) |
-| **Watch order and timelines** | 5-10 min | now and then (people search for these all year) |
+Modelled on the channel Vericade (74.6K subscribers and 81M views in 17 months; its top videos are 2-3 minute
+"Why/How" questions such as "Why Thanos REALLY Needed All 6 Infinity Stones?", 7.8M views). We copy the FORMAT,
+never their scripts, topics word for word, or footage.
 
-## Launch: the four weeks before Avengers: Doomsday (in cinemas 18 Dec 2026)
+- **2-3 minute vertical videos (9:16), daily**, one Marvel lore question each, in English and in Tamil.
+- **Script shape (about 300-400 words):** the question in the first line ("Why did...?"), why it is strange
+  ("Think about it..."), "here's the thing", then three points or three theories with the best one last, and a
+  final line that lands the answer. Fast, friendly, sure of itself; theories called theories.
+- **Look:** big captions (a few words at a time, key words in yellow), our own pictures changing every 2-3 seconds,
+  slow pushes and shakes, punchy sound effects, our own music.
+- **Weekly compilation:** every 10-15 short videos joined into a 30-40 minute long video ("Marvel lore explained,
+  part 1"), for watch time.
 
-1. **What happened before Avengers: Doomsday:** the MCU's Multiverse Saga so far, in about 12 minutes.
-2. **Who is Doctor Doom?** Marvel's biggest villain, explained.
-3. **The Fantastic Four: First Steps and Thunderbolts\* explained** (both lead into Doomsday).
-4. **Avengers: Doomsday, everything to know before you watch (no spoilers).** Theory Shorts every day that week.
-5. After release: **Avengers: Doomsday ending explained** (spoilers), once the full plot is published.
+## First videos: the run-up to Avengers: Doomsday (in cinemas 18 Dec 2026)
 
-Then: Spider-Man: Brand New Day explained; the Infinity Saga in order, one film a week (from Iron Man, 2008);
-Secret Wars theories through 2027 (Avengers: Secret Wars, 17 Dec 2027); later other Hollywood films and series.
+1. Who is Doctor Doom, and why is Marvel scared of him?
+2. What is the Multiverse Saga, in two minutes?
+3. Why did the Avengers break up after Endgame?
+4. What happened to every Infinity Stone after Endgame?
+5. Who are the Fantastic Four, and why does Doom hate Reed Richards?
+6. Why is Doomsday the biggest Avengers film since Endgame?
+
+After release: Doomsday questions (with spoiler warnings, once the plot is published), then Spider-Man and the
+X-Men, and Secret Wars theories through 2027.
 
 ## Making it
 
-The Tea Break pipeline (script -> Manoj's AI voice in English and Tamil -> pictures -> boards -> music -> video
--> captions -> upload private and scheduled), with a comic-style look instead of doodles. No Hugging Face GPU time
+The Tea Break Shorts tools (script -> Manoj's AI voice in English and Tamil -> pictures -> captions -> music
+-> vertical video -> upload private and scheduled), with a cinematic comic look instead of doodles. No Hugging Face GPU time
 needed (pictures come from the free picture service), so it runs alongside the films.
 
 ## Channel
