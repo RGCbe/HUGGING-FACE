@@ -644,3 +644,13 @@ the machine shows "stopped". **GridShare total for 18 Nov: ₹160.59** (balance 
   keeps the picture's shape (edit.py `crop_bottom`). Every new talking clip gets the same bottom-strip check.
 - **To look at again:** S29, Viktor's face looks older by the end of the clip; S34, Raghu's mouth moves too (his
   mouth is open in the start picture). Both are candidates for a second take with another seed.
+
+## Paused (21 Nov)
+
+Manoj watched cut 5 and said it feels like moving pictures, not real animation. Why: 18 of the 48 shots (S36-S55,
+the second half) were still pictures with a camera move because their clips were not made yet, and every AI clip
+starts from a still picture and moves only 3-4 s. Offered: every shot moving (about 2 more GPU days), or Wan 2.2 with
+chained 8-10 s shots (about 2 weeks), with a test scene first; paid models (Kling, Veo) are out (no extra money).
+Manoj chose to **pause the movie**. The daily clip run is switched off (scheduled task "F-Rank Ep1: daily AI clips
+on HF PRO", disabled, not deleted). Everything made so far is in the private dataset `Rggroups/frank-ep01-work`:
+30 moving shots (19 motion, 11 lip-synced), cut 5. The F-Rank webtoon recaps carry on, on Manoj Explains.
