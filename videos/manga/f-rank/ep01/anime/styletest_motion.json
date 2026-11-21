@@ -1,0 +1,18 @@
+[
+ {
+  "name": "s08_arjun_pour",
+  "seconds": 2,
+  "seed": 7,
+  "style": "photorealistic live-action movie scene, real people, natural human motion, cinematic lighting, ",
+  "negative": "cartoon, anime, illustration, drawing, 3d render, cgi look, static, still picture, blurred details, worst quality, low quality, deformed, disfigured, extra fingers, poorly drawn hands, poorly drawn face, morphing face, flicker, watermark, text, subtitles",
+  "motion": "the young tea seller pours chai from the raised steel kettle into a glass below, a long stream of tea falls through the air, steam rises, he laughs and calls out, people walk past behind him, the blue portal glows, slow camera push in"
+ },
+ {
+  "name": "s26_viktor_aura",
+  "seconds": 2,
+  "seed": 7,
+  "style": "photorealistic live-action movie scene, real people, natural human motion, cinematic lighting, ",
+  "negative": "cartoon, anime, illustration, drawing, 3d render, cgi look, static, still picture, blurred details, worst quality, low quality, deformed, disfigured, extra fingers, poorly drawn hands, poorly drawn face, morphing face, flicker, watermark, text, subtitles",
+  "motion": "a golden aura flares up around the armored man like flames, sparks and glowing particles rise, his cape moves, he stares at his trembling glowing hands in shock, slow camera push in"
+ }
+]

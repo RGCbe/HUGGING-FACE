@@ -1,0 +1,58 @@
+{
+ "series": "The F-Rank Tea Seller",
+ "engine": "ElevenLabs",
+ "note": "the same voices for every episode; voices.py reads this file",
+ "cast": {
+  "narrator": {
+   "voice": "Manoj kumar T",
+   "voice_id": "OrxreCRC3TciicPaBPp7",
+   "model": "eleven_v4",
+   "stability": 0.25,
+   "similarity": 0.9,
+   "style": 0.0,
+   "source": "owner's own voice clone",
+   "tempo": 0.92
+  },
+  "arjun": {
+   "voice": "Bunty - Warm and Clear",
+   "voice_id": "omLr0bN17lYIC1JWLSYV",
+   "model": "eleven_v4",
+   "stability": 0.35,
+   "similarity": 0.8,
+   "style": 0.0,
+   "source": "ElevenLabs voice library (added to the account)",
+   "tempo": 0.92
+  },
+  "meera": {
+   "voice": "Tara - Conversational and Expressive",
+   "voice_id": "P7vsEyTOpZ6YUTulin8m",
+   "model": "eleven_v4",
+   "stability": 0.3,
+   "similarity": 0.8,
+   "style": 0.0,
+   "source": "ElevenLabs voice library (added to the account)",
+   "tempo": 0.92
+  },
+  "viktor": {
+   "voice": "Liam - Energetic, Social Media Creator",
+   "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+   "model": "eleven_v4",
+   "stability": 0.2,
+   "similarity": 0.8,
+   "style": 0.0,
+   "source": "ElevenLabs premade voice",
+   "tempo": 0.92
+  },
+  "raghu": {
+   "voice": "Viraj - Deep, Resonant and Lyrical",
+   "voice_id": "tSVwqkJGEKjLklhiN0Nx",
+   "model": "eleven_v4",
+   "stability": 0.3,
+   "similarity": 0.8,
+   "style": 0.0,
+   "source": "ElevenLabs voice library (added to the account)",
+   "tempo": 0.92
+  }
+ },
+ "adjusted": "18 Nov 2026 (Manoj: slower, clearer pace + more emotion): tempo 0.92 (8% slower, pitch kept, applied after recording because Eleven v4 ignores its speed setting) and lower stability (more expressive)"
+}

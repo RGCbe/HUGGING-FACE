@@ -1,0 +1,21 @@
+{
+ "style": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field.",
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "s08_arjun_pour_r6_1",
+   "seed": 707,
+   "prompt": "Seen from the side, a young Indian man of 18, college-student age, slim, with a youthful clean-shaven face, dark brown skin and messy short black hair, wearing a long plain white collarless cotton kurta with sleeves rolled up, a red cloth sash tied at his waist and a red string bracelet on his wrist. He pours chai the traditional way at his roadside tea stall: his right hand lifts a steel kettle high, directly above a small glass tumbler held in his left hand in front of his chest, and a thin stream of milky light-brown tea falls from the kettle spout into the glass and stops there; the glass is half full of chai with foam on top. Steam rises. He smiles proudly. Behind him an evening street in Mumbai, out of focus, the shop signs are plain coloured boards with no writing, and a giant blue portal glows in the sky. Medium shot."
+  },
+  {
+   "name": "s08_arjun_pour_r6_2",
+   "seed": 808,
+   "prompt": "Seen from the side, a young Indian man of 18, college-student age, slim, with a youthful clean-shaven face, dark brown skin and messy short black hair, wearing a long plain white collarless cotton kurta with sleeves rolled up, a red cloth sash tied at his waist and a red string bracelet on his wrist. He pours chai the traditional way at his roadside tea stall: his right hand lifts a steel kettle high, directly above a small glass tumbler held in his left hand in front of his chest, and a thin stream of milky light-brown tea falls from the kettle spout into the glass and stops there; the glass is half full of chai with foam on top. Steam rises. He smiles proudly. Behind him an evening street in Mumbai, out of focus, the shop signs are plain coloured boards with no writing, and a giant blue portal glows in the sky. Medium shot."
+  },
+  {
+   "name": "s08_arjun_pour_r6_3",
+   "seed": 909,
+   "prompt": "Seen from the side, a young Indian man of 18, college-student age, slim, with a youthful clean-shaven face, dark brown skin and messy short black hair, wearing a long plain white collarless cotton kurta with sleeves rolled up, a red cloth sash tied at his waist and a red string bracelet on his wrist. He pours chai the traditional way at his roadside tea stall: his right hand lifts a steel kettle high, directly above a small glass tumbler held in his left hand in front of his chest, and a thin stream of milky light-brown tea falls from the kettle spout into the glass and stops there; the glass is half full of chai with foam on top. Steam rises. He smiles proudly. Behind him an evening street in Mumbai, out of focus, the shop signs are plain coloured boards with no writing, and a giant blue portal glows in the sky. Medium shot."
+  }
+ ]
+}

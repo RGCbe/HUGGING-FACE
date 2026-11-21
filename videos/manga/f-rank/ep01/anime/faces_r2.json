@@ -1,0 +1,15 @@
+{
+ "aspect": "1:1",
+ "images": [
+  {
+   "name": "face_arjun_new_1",
+   "seed": 15,
+   "prompt": "A young Indian man of 18, college-student age, slim, with a smooth youthful face: completely clean-shaven, no moustache, no beard, no stubble. Dark brown skin, messy short black hair, warm brown eyes, a small gentle smile. He wears a white collarless cotton kurta and a red string bracelet. Photorealistic studio portrait photo for a film's character casting sheet, head and shoulders, the person faces the camera straight on with a calm friendly expression, eyes looking into the lens, soft even studio light, plain light grey background, sharp focus on the face, realistic skin texture, natural colours."
+  },
+  {
+   "name": "face_arjun_new_2",
+   "seed": 16,
+   "prompt": "A young Indian man of 18, college-student age, slim, with a smooth youthful face: completely clean-shaven, no moustache, no beard, no stubble. Dark brown skin, messy short black hair, warm brown eyes, a small gentle smile. He wears a white collarless cotton kurta and a red string bracelet. Photorealistic studio portrait photo for a film's character casting sheet, head and shoulders, the person faces the camera straight on with a calm friendly expression, eyes looking into the lens, soft even studio light, plain light grey background, sharp focus on the face, realistic skin texture, natural colours."
+  }
+ ]
+}

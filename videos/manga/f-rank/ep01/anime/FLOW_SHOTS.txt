@@ -1,0 +1,73 @@
+F-RANK TEA SELLER, EPISODE 1: GOOGLE FLOW SHOT LIST
+
+HOW TO MAKE EACH SHOT (about 1 minute per shot)
+1. Open labs.google/flow and start a new project called 'F-Rank Ep1'.
+2. Choose 'Frames to Video'. Upload the start frame (the picture named in the list, from the 'keyframes' folder next to this document).
+3. Paste the prompt. Model: Veo 3.1 Fast (best). If credits run low, use Veo 3.1 Lite. Aspect ratio 16:9. Length as listed.
+4. Generate. If the face changes or the action is wrong, generate once more.
+5. Download the video (720p is enough) and name it with the shot number, e.g. S09.mp4. For a second take: S09b.mp4.
+6. Upload the downloaded videos on the private upload page Claude sends you (or put them in the 'clips' folder next to this document).
+
+Credits: about 20 per shot with Veo 3.1 Fast (10 with Lite). 20 shots plus a few retakes = about 500 credits.
+
+THE 20 SHOTS
+
+S01  |  start frame: S01.jpg  |  length: 6 s
+PROMPT: Torchlight flickers, his chest rises and falls, golden light starts to glow on his armor, slow push in. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S02  |  start frame: S02.jpg  |  length: 4 s
+PROMPT: His eyes ignite bright yellow, light flares and fills the screen to white. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S08  |  start frame: S08.jpg  |  length: 6 s
+PROMPT: The pestle crushes the pods, for a moment a faint golden shimmer rises from the seeds and fades, he tips them into the boiling tea. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S09  |  start frame: S09.jpg  |  length: 6 s
+PROMPT: The stream of tea falls from the kettle into the glass, steam rises, he calls out with a smile. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S15  |  start frame: S15.jpg  |  length: 6 s
+PROMPT: He points and laughs, the drone swings round to film the stall. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S17  |  start frame: S17.jpg  |  length: 6 s
+PROMPT: He holds the glass out, steady, calm smile. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S18  |  start frame: S18.jpg  |  length: 6 s
+PROMPT: He sniffs, wrinkles his nose, glances at the drone. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S19  |  start frame: S19.jpg  |  length: 6 s
+PROMPT: She offers the coins with a small apologetic smile, braid swings. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S22  |  start frame: S22.jpg  |  length: 4 s
+PROMPT: He downs it in one gulp, wipes his mouth with his gauntlet. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S23  |  start frame: S23.jpg  |  length: 4 s  |  make 2 takes
+PROMPT: The glass flies, Arjun's hand catches it calmly while he keeps wiping the counter. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S28  |  start frame: S28.jpg  |  length: 4 s
+PROMPT: Impact: the shield cracks, Raghu is thrown backwards, dust bursts. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S30  |  start frame: S30.jpg  |  length: 4 s
+PROMPT: Green light swirls toward Raghu, her braid whips, she shouts. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S31  |  start frame: S31.jpg  |  length: 6 s
+PROMPT: Golden light spreads over his armor, light particles rise, his hands tremble. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S33  |  start frame: S33.jpg  |  length: 4 s  |  make 2 takes
+PROMPT: One fast golden slash across the screen, white flash, the ogre falls in two. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S36  |  start frame: S36.jpg  |  length: 4 s
+PROMPT: Fast slashes, wolves fly aside, camera whips with the swing. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S41  |  start frame: S41.jpg  |  length: 4 s
+PROMPT: He leaps, cape flaring, sword raised. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S43  |  start frame: S43.jpg  |  length: 4 s  |  make 2 takes
+PROMPT: The last golden sparks fizzle away mid-jump, he starts to fall. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S45  |  start frame: S45.jpg  |  length: 4 s  |  make 2 takes
+PROMPT: Raghu yanks Viktor backwards by the cape. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S46  |  start frame: S46.jpg  |  length: 6 s  |  make 2 takes
+PROMPT: They run toward camera and dive into the light, the floor shakes. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.
+
+S49  |  start frame: S49.jpg  |  length: 4 s
+PROMPT: He slams the counter, the glasses jump. Photorealistic live-action superhero blockbuster, real actors, natural human motion, cinematic lighting, anamorphic film look. Keep every face, costume and the setting exactly as in the starting image. No speech, no music, no on-screen text.

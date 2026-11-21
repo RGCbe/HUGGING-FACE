@@ -1,0 +1,11 @@
+[
+ {"title": "THE PIG WAR (1859)", "subtitle": "One pig. Two countries.", "hook": 1,
+  "segments": [{"from": 61.76, "to": 77.66, "visual_to": 77.2},
+               {"from": 83.3, "to": 93.4},
+               {"from": 103.2, "to": 127.8}]},
+ {"title": "THE PIG WAR (1859)", "subtitle": "Who backed down?", "hook": 2,
+  "hook_visual_from": 129.0, "hook_visual_to": 135.6,
+  "segments": [{"from": 135.96, "to": 149.2, "visual_to": 149.0},
+               {"from": 150.04, "to": 165.3},
+               {"from": 242.44, "to": 249.85}]}
+]

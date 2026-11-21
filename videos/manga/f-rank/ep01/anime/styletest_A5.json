@@ -1,0 +1,23 @@
+{
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "s08_arjun_pour_r5_1",
+   "seed": 71,
+   "prompt": "The same photo, but: the boy looks 18 years old, a young adult rather than a child, still clean-shaven; the stream of tea from the kettle spout ends inside the glass he holds, and nothing falls below the glass; the shop signs in the background are plain coloured boards with no writing on them. Everything else stays the same. Photorealistic movie still.",
+   "edit": "out/styletest/A4/s08_arjun_pour_r4_2.png"
+  },
+  {
+   "name": "s08_arjun_pour_r5_2",
+   "seed": 82,
+   "prompt": "The same photo, but: the boy looks 18 years old, a young adult rather than a child, still clean-shaven; the stream of tea from the kettle spout ends inside the glass he holds, and nothing falls below the glass; the shop signs in the background are plain coloured boards with no writing on them. Everything else stays the same. Photorealistic movie still.",
+   "edit": "out/styletest/A4/s08_arjun_pour_r4_2.png"
+  },
+  {
+   "name": "s08_arjun_pour_r5_3",
+   "seed": 93,
+   "prompt": "The same photo, but: the boy looks 18 years old, a young adult rather than a child, still clean-shaven; the stream of tea from the kettle spout ends inside the glass he holds, and nothing falls below the glass; the shop signs in the background are plain coloured boards with no writing on them. Everything else stays the same. Photorealistic movie still.",
+   "edit": "out/styletest/A4/s08_arjun_pour_r4_2.png"
+  }
+ ]
+}

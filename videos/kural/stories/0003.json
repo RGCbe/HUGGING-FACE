@@ -1,0 +1,169 @@
+{
+  "kural": 3,
+  "title": "Why Is Grandma Always Smiling?",
+  "names": [
+    "Meena"
+  ],
+  "kid": "girl",
+  "lines": [
+    {
+      "say": "Can you guess why Grandma always smiles? Even on hard days!",
+      "board": [
+        {
+          "text": "Why?",
+          "at": "middle",
+          "color": "red",
+          "size": 120,
+          "cue": "Why"
+        },
+        {
+          "draw": "grandma",
+          "at": "left",
+          "mood": "happy",
+          "cue": "Grandma"
+        },
+        {
+          "draw": "cloud",
+          "rain": true,
+          "at": "top-right",
+          "cue": "hard days"
+        },
+        {
+          "draw": "girl",
+          "at": "right",
+          "mood": "surprised",
+          "flip": true,
+          "cue": "guess"
+        }
+      ]
+    },
+    {
+      "say": "One morning, Meena found Grandma near the pond, looking at a pink lotus flower.",
+      "board": [
+        {
+          "draw": "sun",
+          "at": "top-right",
+          "cue": "morning"
+        },
+        {
+          "draw": "grandma",
+          "at": "left",
+          "mood": "calm",
+          "cue": "Grandma"
+        },
+        {
+          "draw": "lotus",
+          "at": "center",
+          "scale": 1.3,
+          "cue": "lotus"
+        },
+        {
+          "draw": "girl",
+          "at": "right",
+          "flip": true,
+          "cue": "found"
+        }
+      ]
+    },
+    {
+      "say": "Grandma said, a good heart is like this flower. Keep it clean, and God comes to stay in it.",
+      "board": [
+        {
+          "draw": "grandma",
+          "at": "left",
+          "mood": "happy",
+          "arms": "point",
+          "cue": "Grandma said"
+        },
+        {
+          "bubble": "A good heart!",
+          "at": "left",
+          "cue": "good heart"
+        },
+        {
+          "draw": "lotus",
+          "at": "right",
+          "scale": 1.3,
+          "cue": "flower"
+        },
+        {
+          "draw": "heart",
+          "at": "middle-right",
+          "cue": "Keep it clean"
+        }
+      ]
+    },
+    {
+      "say": "Meena asked, is that why you are always happy? Grandma laughed and said, yes!",
+      "board": [
+        {
+          "draw": "girl",
+          "at": "right",
+          "mood": "surprised",
+          "flip": true,
+          "cue": "Meena asked"
+        },
+        {
+          "bubble": "Is that why?",
+          "at": "right",
+          "cue": "is that why"
+        },
+        {
+          "draw": "grandma",
+          "at": "left",
+          "mood": "laugh",
+          "cue": "Grandma laughed"
+        },
+        {
+          "stamp": "YES!",
+          "at": "top-left",
+          "color": "green",
+          "cue": "yes"
+        }
+      ]
+    },
+    {
+      "say": "From that day, Meena kept her heart clean. No anger, no lies, only kind thoughts.",
+      "board": [
+        {
+          "draw": "heart",
+          "at": "top",
+          "cue": "From that day"
+        },
+        {
+          "draw": "girl",
+          "at": "center",
+          "mood": "happy",
+          "arms": "up",
+          "cue": "Meena kept"
+        },
+        {
+          "text": "no anger",
+          "at": "middle-left",
+          "color": "red",
+          "cue": "No anger"
+        },
+        {
+          "text": "no lies",
+          "at": "middle-right",
+          "color": "red",
+          "cue": "no lies"
+        },
+        {
+          "text": "only kind thoughts",
+          "at": "bottom",
+          "color": "green",
+          "cue": "only kind thoughts"
+        }
+      ]
+    }
+  ],
+  "meaning": "People who hold God close, in a heart as pure as a flower, live a long and happy life.",
+  "lesson": "Keep your heart clean like a flower, and you will smile like Grandma.",
+  "lesson_short": "Keep your heart clean like a flower",
+  "lesson_draw": "lotus",
+  "tags": [
+    "kural 3",
+    "malarmisai ekinan"
+  ]
+}

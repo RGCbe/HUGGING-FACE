@@ -1,0 +1,60 @@
+{
+ "channel": {
+  "name": "ManojExplains",
+  "handle": "@manoj-d-explains",
+  "channel_id": "UC7m2wBWnP-KLyfrtXcYKyjQ",
+  "refresh_token_env": "YT_REFRESH_TOKEN_MOVIES",
+  "client_id_env": "YT_CLIENT_ID_MOVIES",
+  "client_secret_env": "YT_CLIENT_SECRET_MOVIES"
+ },
+ "timezone": "Asia/Kolkata",
+ "publish_time": {
+  "en": "05:30",
+  "ta": "20:00"
+ },
+ "topics_per_run": 1,
+ "playlists": {
+  "en": "Marvel Lore Explained",
+  "ta": "Marvel Lore in Tamil | மார்வெல் கதைகள் தமிழில்",
+  "doomsday": "Before Avengers: Doomsday",
+  "note": "playlist titles; the run finds their ids with playlists.list mine=true"
+ },
+ "eleven": {
+  "voice": "Manoj kumar T",
+  "model": "eleven_v4",
+  "stability": 0.5,
+  "similarity": 0.9
+ },
+ "category_id": 24,
+ "tags_always": [
+  "Manoj Explains",
+  "Marvel explained",
+  "MCU lore",
+  "Marvel theories",
+  "movie explained"
+ ],
+ "tags_always_ta": [
+  "Manoj Explains",
+  "Marvel Tamil",
+  "movie explained in Tamil",
+  "Hollywood explained Tamil",
+  "MCU Tamil"
+ ],
+ "publish_time_note": "English at 5:30 am India time = 7 pm New York, midnight London (foreign viewers); Tamil at 8 pm India time (Manoj, 20 Nov 2026)",
+ "localize_to": [
+  "es",
+  "pt",
+  "hi",
+  "id",
+  "ar",
+  "fr",
+  "de"
+ ],
+ "playlist_ids": {
+  "en": "PLVcnrChzcOeQ",
+  "ta": "PLO1p8_rvXDSs",
+  "doomsday": "PLZRvSHPm-ZK4",
+  "frank": "PLexbf0R8l7fg"
+ },
+ "music_style": "beat"
+}
