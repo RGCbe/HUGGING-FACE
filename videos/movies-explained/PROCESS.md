@@ -15,7 +15,9 @@
 1. **Question:** the next one from the topic list (`topics.json`), checked against what the channel already has.
 2. **Research:** official pages (Marvel, Disney), Wikipedia, the trade press; every fact in `sources.md`;
    theories marked as theories; spoilers only after the plot is published.
-3. **Script, English:** 300-400 words (2-3 minutes); the question first, "here's the thing", three points, the
+3. **Script, English (from 22 Nov 2026):** 80-120 words, a 30-50 second Short: ONE Why/How question about something
+   viewers remember, the answer in 2-3 short beats, an open question at the end (`videos/SCRIPT_STYLE.md`, "Shorts that
+   travel"). Before 22 Nov: 300-400 words (2-3 minutes); the question first, "here's the thing", three points, the
    answer, a question for the comments. The first line scored with the hook checker (at least 60).
 4. **Script, Tamil:** the same story in spoken Tamil, numbers shown as digits in the captions.
 5. **Voice:** Manoj's AI voice in both languages; every English word checked with speech recognition, every Tamil

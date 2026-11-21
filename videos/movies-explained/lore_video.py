@@ -1,4 +1,4 @@
-"""A vertical lore video (1080x1920, 2-3 minutes) from a script's voice pieces, our own pictures and our own sound:
+"""A vertical lore video (1080x1920, a 30-second Short up to 3 minutes) from a script's voice pieces, our own pictures and our own sound:
 pictures that move (slow zooms and pans, a small punch-in on every cut), big captions a few words at a time,
 "ONE / TWO / THREE" cards, name cards, original music (doodle/score.py), whooshes and booms made here, loudness
 -14 LUFS. Nothing in it comes from a film, a comic or anyone else's video.

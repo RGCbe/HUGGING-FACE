@@ -6,7 +6,7 @@ description: Make and schedule the next Manoj Explains videos - Marvel and movie
 # Manoj Explains: one run
 
 Each run makes the next `topics_per_run` questions (`videos/movies-explained/config.json`: 1, one a day, Manoj's choice) from
-`videos/movies-explained/topics.json`. Every question becomes TWO videos: English and Tamil, 2-3 minutes, 1080x1920,
+`videos/movies-explained/topics.json`. Every question becomes TWO videos: English and Tamil, 30-50 second Shorts, 1080x1920,
 uploaded private and scheduled (English 5:30 am India time for viewers abroad, Tamil 8 pm) on the channel Manoj Explains
 (@manoj-d-explains). The finished example is "Who is Doctor Doom?": `videos/movies-explained/videos/01-doctor-doom/`
 (`script_en.txt`, `script_ta.txt`, `shots.json`, `sources.md`). Read `videos/movies-explained/PLAN.md` and
@@ -53,11 +53,17 @@ Wikipedia's API may refuse direct requests from this machine). Write every fact 
 
 ## 4. Script
 
-- `script_en.txt`: 7 to 9 lines, 300 to 400 words in all, each line starting with an emotion tag (`[curious]`,
-  `[mysterious]`, `[excited]`, `[serious]`, `[shocked]`, `[sad]`, `[warm]`). Shape: the question first ("You think
-  ...? ... But how?"), "here's the thing", three points (or three theories, the best last), the answer, and a last
-  line asking the viewers something for the comments. Write numbers as digits only where a person reads them that way
-  (years: 2015). No greeting; Manoj's anime self says it all.
+- **The format (the owner's choice, 21 Nov 2026, after studying the Tamil Marvel Shorts channels Tharamana Talks,
+  583,000 subscribers, and Comic Kathai, 83,500, whose Shorts get about 200,000 views each at 30 to 60 seconds):**
+  ONE sharp Why/How question about something viewers remember, answered in 30 to 50 seconds. Not a lore lecture.
+  Read "Shorts that travel" in `videos/SCRIPT_STYLE.md` first.
+- `script_en.txt`: 4 to 6 lines, 80 to 120 words in all, each line starting with an emotion tag (`[curious]`,
+  `[mysterious]`, `[excited]`, `[serious]`, `[shocked]`, `[sad]`, `[warm]`). Line 1: the question turned into a
+  claim with a concrete detail (a number, a name, a scene everyone remembers), so the first 3 seconds promise the
+  answer. Then the answer in 2 or 3 short beats, each with a fact from `sources.md` (a theory is called a theory).
+  The last line: an open question with two answers, for the comments ("Worthy? Or did Thor let him? Tell me.").
+  Short sentences. No greeting, no "in this video", no channel name: Manoj's anime self says it all. Write numbers
+  as digits only where a person reads them that way (years: 2015).
 - Score the first line: `python3 .claude/skills/yt-script/hookscore.py hooks.txt` with 3-4 tries; use one scoring
   60 or more. Never start two videos the same way.
 - `script_ta.txt`: the same lines in spoken Tamil (like the Doctor Doom example), same tags, numbers written as
@@ -72,12 +78,12 @@ python3 -I videos/kural/eleven.py $WORK/script_ta.txt $WORK/voice_ta --sections 
 
 Check with faster-whisper ("small", CPU, int8): every English section's words against the script (only spelling of
 numbers and names may differ; anything else: reword or `--seed 8` and voice that section again); every Tamil section
-must be heard as Tamil (probability 0.8 or more). The English video should come out 1:45 to 2:45.
+must be heard as Tamil (probability 0.8 or more). The English video should come out 30 to 50 seconds (Tamil may run to 60).
 
 ## 6. Pictures
 
-`$WORK/pics/images.json` for `videos/doodle/imagegen.py --engine auto` (9:16), one picture per 4-6 seconds
-(about 20-24), style string exactly as in `$WORK`'s Doctor Doom example: "3D anime style, like a high-end 3D anime
+`$WORK/pics/images.json` for `videos/doodle/imagegen.py --engine auto` (9:16), one picture per 3-4 seconds
+(about 9-12), style string exactly as in `$WORK`'s Doctor Doom example: "3D anime style, like a high-end 3D anime
 series or anime game cinematic: cel-shaded 3D render, ... No text, no letters, no logos, no symbols, no recognisable
 people, no superhero costumes, no armour." Use the topic's `look` ideas. Manoj's anime self opens and closes every
 video: `k_intro` and `k_outro` made with `"edit": "videos/movies-explained/narrator/kavi_1.jpg"` and

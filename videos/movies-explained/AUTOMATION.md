@@ -62,8 +62,9 @@ nothing half-done public, and the report says why; the next run carries on.
 
 ## Part 4: limits to know
 
-- **Voice credits:** about 2,000 per question (English and Tamil; measured on Doctor Doom: 3,788 characters, 2,014
-  credits), so a question a day is about 60,000 of the 161,000 a month, next to Tea Break and the devotional channel.
+- **Voice credits:** from 22 Nov 2026 each question is a 30-50 second Short, about 700 credits for English and Tamil
+  (the 2-3 minute videos before used about 2,000: Doctor Doom, 3,788 characters, 2,014 credits), so a question a day
+  is about 21,000 of the 161,000 a month.
 - **YouTube upload allowance:** the channel has its own upload app (10,000 units a day; an upload uses about
   1,600), so a run uploads at most four videos, well inside it.
 - **Pictures:** made on Manoj's own private Hugging Face Space `Rggroups/pictures` with his PRO account's GPU time
@@ -83,5 +84,7 @@ nothing half-done public, and the report says why; the next run carries on.
 - First videos: "Who is Doctor Doom?", English https://youtu.be/_cmNok1vVhg (public 20 Nov, 7 pm India time) and
   Tamil https://youtu.be/AddGAaSefUs (8 pm); channel description, keywords, banner and three playlists set up.
 - Daily from 21 Nov: one question a day, English 5:30 am India time, Tamil 8 pm; the daily run is at 9:53 am.
+- 21 Nov: the format changed to 30-50 second Why/How Shorts (the owner's choice, after studying Tharamana Talks and
+  Comic Kathai, Tamil Marvel Shorts channels at about 200,000 views a Short); topics.json rewritten as sharp questions.
 - 21 Nov: the free Cloudflare picture allowance ran out during the morning run, so pictures now come from Manoj's own
   PRO Space first (`imagegen.py --engine auto`), with Cloudflare only as the fallback.
