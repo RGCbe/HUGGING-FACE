@@ -375,7 +375,7 @@ def step_upload(ep):
     videos = [{"file": os.path.join(out, "recap.mp4"), "thumbnail": os.path.join(out, "recap_thumbnail.jpg"),
                "title": m["title"], "description": m["description"] + chapters + note, "tags": m["tags"], "publish_at": m["long_at"],
                "playlists": m.get("playlists", [])},
-              {"file": os.path.join(out, "short.mp4"), "title": m["short"]["title"], "description": m["short"]["description"] + note,
+              {"file": os.path.join(out, "short.mp4"), "title": m["short"]["title"], "description": m["short"]["description"] + "\n\nWatch the full recap: {FULL_VIDEO}" + note,
                "tags": m["tags"][:5] + ["shorts"], "publish_at": m["short_at"], "playlists": m.get("playlists", [])}]
     defaults = {"privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 24, "language": "en",
                 "refresh_token_env": tb.cfg["channel"]["refresh_token_env"]}

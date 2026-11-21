@@ -455,7 +455,9 @@ def step_upload(d):
                "publish_at": meta["long_at"], "playlists": long_lists}]
     for k, (s, when) in enumerate(zip(meta["shorts"], meta["shorts_at"]), 1):
         videos.append({"file": os.path.join(out, f"{slug}_short{k}.mp4"), "title": s["title"],
-                       "description": s["description"] + note, "tags": meta["tags"][:5] + ["shorts"], "publish_at": when,
+                       # upload.py puts the long video's link in place of {FULL_VIDEO}
+                       "description": s["description"] + "\n\nWatch the full story: {FULL_VIDEO}" + note,
+                       "tags": meta["tags"][:5] + ["shorts"], "publish_at": when,
                        "playlists": [p for p in [playlist("shorts")] if p]})
     upload = {"defaults": {"privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 27,
                            "language": "en", "refresh_token_env": cfg["channel"]["refresh_token_env"]}, "videos": videos}

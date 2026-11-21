@@ -148,8 +148,16 @@ def main():
     dry = "--dry-run" in sys.argv or not all(os.environ.get(k) for k in (id_env, secret_env, token_env))
     token = None if dry else access_token(token_env, id_env, secret_env)
     results = []
+    full_url = None  # "{FULL_VIDEO}" in a later video's description becomes the link to the first video uploaded here
     for v in spec["videos"]:
         path = os.path.expandvars(v["file"])
+        if full_url:
+            v = dict(v, description=v.get("description", "").replace("{FULL_VIDEO}", full_url))
+            if v.get("localizations"):
+                v["localizations"] = {k: dict(l, description=l.get("description", "").replace("{FULL_VIDEO}", full_url))
+                                      for k, l in v["localizations"].items()}
+        elif "{FULL_VIDEO}" in v.get("description", "") and not dry:
+            sys.exit(f"{v['title']}: '{{FULL_VIDEO}}' needs the full video listed (and uploaded) before it")
         meta = metadata(v, defaults)
         print(f"\n{v['title']}\n  file: {path} ({os.path.getsize(path) / 1e6:.1f} MB)")
         print(f"  {meta['status']['privacyStatus']}, made for kids: {meta['status']['selfDeclaredMadeForKids']}, "
@@ -158,6 +166,7 @@ def main():
             continue
         video = upload_video(token, meta, path)
         url = f"https://youtu.be/{video['id']}"
+        full_url = full_url or url
         print(f"  uploaded: {url}")
         thumb = os.path.expandvars(v["thumbnail"]) if v.get("thumbnail") else None
         if thumb:

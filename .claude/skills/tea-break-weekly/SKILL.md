@@ -247,7 +247,9 @@ f.png`) and check the lengths with ffprobe (long video 2-5 minutes; Shorts under
   true story like this? Tell me in the comments." (build.py adds the AI note.)
 - `tags`: 10 to 12, from what people search ("pig war", "pig war 1859", "funny history", ...).
 - `long_at`, `shorts_at`: from next.py.
-- `shorts`: a title (under 60 characters, ending in "#shorts") and a two-line description for each.
+- `shorts`: a title (under 60 characters, ending in "#shorts") and a two-line description for each
+  (build.py adds "Watch the full story: <link>" and upload.py fills in the long video's link, so do
+  not write a link yourself).
 - `tiktok`: `title` (the story and year in capitals, "THE PIG WAR (1859)"), `subtitle` (at most
   five words, "One pig. Two countries."), and `caption`: one or two sentences that tease the story,
   an emoji, and 5 or 6 hashtags (#history #funnyhistory #truestory, the story's own, #learnontiktok).
