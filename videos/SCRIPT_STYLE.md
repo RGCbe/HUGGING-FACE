@@ -121,6 +121,45 @@ The bubbles are on screen; the voice adds the attitude, not a second reading.
 > pig, and America and the British Empire getting ready for war. Over one pig. And yes, it really
 > happened.
 
+## Shorts that travel: what a fast-growing channel does (studied 21 Nov 2026)
+
+Stories Unarchived (@storiesunarchived, Indian mythology and temples, English, started 22 Oct 2026) reached 1.74
+million views and 3,330 subscribers with 11 Shorts in its first month. We read all 11 scripts. What its winners do,
+and its losers don't:
+
+| Their video | Views | Kind |
+|---|---|---|
+| Is This the World's First Shiva Temple? | 1,360,091 | a real place + a mystery question |
+| This Temple Tells the Time of Year With Sunlight | 153,354 | a real place + a surprising fact |
+| Was Krishna Right to Break the Rules of War? | 123,813 | a debate: three cases, then the question |
+| 8 Shiva Temples. One Straight Line? | 119,366 | a claim the viewer checks ("Open Google Maps") |
+| The Lakshmana Rekha Isn't in Valmiki's Ramayana | 13,877 | a myth-buster |
+| 5 Deadliest Astras | 11,190 | a countdown |
+| Jatayu vs Ravana / Ravana's Worst Mistake / The Bow No King Could Lift | 2,647 to 8,733 | a famous story retold |
+
+1. **Length: 100 to 185 words, 40 to 63 seconds.** Nothing longer.
+2. **Line 1 is the whole promise, with a concrete detail:** a number, a place, a name, and something that goes
+   against what people believe. "A 700-year-old temple in India can reveal the time of year using nothing but
+   sunlight." "Even Krishna's own brother called it a foul." "The famous Lakshmana Rekha isn't actually in Valmiki's
+   Ramayana." "What if I told you there's a Shiva idol carved from a single emerald? And you can only see it once a
+   year." Or an instruction the viewer can follow: "Open Google Maps. Find Kedarnath Temple."
+3. **Real and checkable beats retold.** A real place, a real text, a real number the viewer can look up, or a
+   question with two sides. A famous story told again ("Rama lifted the bow... CRACK!") gets a hundred times fewer
+   views: everyone already knows the ending.
+4. **Short sentences and fragments.** "No line drawn in the dirt. No magical boundary." "Below the waist."
+5. **One turn in the middle:** "But here's what makes this truly fascinating", "And here's the surprising part".
+6. **Honest words for what is not proven:** "Some believe", "According to legend", "According to local tradition".
+   (Our rule anyway: a theory is called a theory.)
+7. **The last line is an open question with two answers**, so people comment: "Could this really be the first
+   Shiva temple in the world? Or is it a legend that has survived for thousands of years?" "So was it dharma? Or
+   cheating?" "Think another astra deserves No. 1? Comment below." Their four biggest end with a question; their
+   retellings end with a moral or "Jai Shri Ram", and get the fewest comments.
+8. **No greeting, no channel name, no "subscribe"** inside the script.
+9. **The title is the question; line 1 is the claim.** Title "Is This the World's First Shiva Temple?", line 1 "What
+   if I told you there's a Shiva idol carved from a single emerald?".
+10. **Tags are the place and the thing people search:** "uthirakosamangai temple", "emerald nataraja", "first shiva
+    temple".
+
 ## Check before voicing
 
 - Contractions everywhere they would be said.
