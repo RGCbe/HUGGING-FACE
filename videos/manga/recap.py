@@ -377,8 +377,11 @@ def step_upload(ep):
                "playlists": m.get("playlists", [])},
               {"file": os.path.join(out, "short.mp4"), "title": m["short"]["title"], "description": m["short"]["description"] + note,
                "tags": m["tags"][:5] + ["shorts"], "publish_at": m["short_at"], "playlists": m.get("playlists", [])}]
-    upload = {"defaults": {"privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 24, "language": "en",
-                           "refresh_token_env": tb.cfg["channel"]["refresh_token_env"]}, "videos": videos}
+    defaults = {"privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 24, "language": "en",
+                "refresh_token_env": tb.cfg["channel"]["refresh_token_env"]}
+    # another channel (Manoj Explains, on its own Google account) names its own keys in meta "upload_defaults"
+    defaults.update(m.get("upload_defaults", {}))
+    upload = {"defaults": defaults, "videos": videos}
     path = os.path.join(r, "upload.json")
     json.dump(upload, open(path, "w"), indent=2, ensure_ascii=False)
     print(f"wrote {path}: upload with python3 {os.path.join(DOODLE, 'upload.py')} {path}")
