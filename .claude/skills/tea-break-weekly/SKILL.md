@@ -266,6 +266,40 @@ topic's playlists in topics.json (war stories to "Weird Wars in History"), each 
 History Shorts". A custom thumbnail fails with 403 until
 the channel's phone number is verified; that is not an error to fix, just report it.
 
+## 9b. Tamil: the same story in Tamil, and its Shorts as 3 parts
+
+Tamil does better than English on this channel (21 Nov 2026: Tamil Shorts 560 to 1,355 views, English 139 to 1,211;
+Tamil full videos beat English ones too), so every story also goes out in Tamil on the same channel. Read the
+docstrings of `videos/teabreak/tamil.py` and `videos/teabreak/tamil_shorts.py` once. Write in
+`$KURAL_WORK/SLUG/tamil/`:
+
+- `voiceover_ta.txt`: one line for each line of `voiceover_en.txt`, the same emotion tags, in spoken Tamil the way
+  Manoj tells a friend (names stay names; numbers in words, with their digits in `caption_replace_ta.json`). Keep
+  each line about as short as the English one: it must fit the English line's time (tamil.py speeds a line up by at
+  most 1.15 times and stops if it would need more).
+- `onscreen_ta.json`: the Tamil for every text on the boards (scenes.js write, big, stamp and calendar texts).
+- `thumbnail_ta.js` (like `thumbnail.js`, Tamil words) and `meta_ta.json`: `{"title": "<Tamil title> | <English
+  name> (<year>) | Tea Break தமிழ்", "description", "tags", "publish_at": the English long video's long_at}`.
+- `shorts_ta.json`: `{"title": "<the story and year in Tamil>", "shorts": [], "parts": [three of {"yt_title":
+  "<a Tamil hook> | பகுதி K/3 #shorts", "yt_text": "<one or two Tamil lines>", "publish_at": ...}]}`. Part 1 the
+  day after the long videos, parts 2 and 3 the two days after that, all at 20:00 India time (14:30 UTC).
+
+```bash
+python3 videos/teabreak/tamil.py voice "$KURAL_WORK/SLUG"        # checked: every line heard as Tamil
+python3 videos/teabreak/tamil.py video "$KURAL_WORK/SLUG"
+python3 videos/teabreak/tamil.py upload "$KURAL_WORK/SLUG"
+python3 videos/teabreak/tamil_shorts.py parts "$KURAL_WORK/SLUG"
+python3 videos/teabreak/tamil_shorts.py parts_upload "$KURAL_WORK/SLUG"
+```
+
+The parts (the owner's choice, 21 Nov 2026: "full story, 3 parts", tested first on one story) are the whole Tamil
+video in 3 Shorts of about a minute each, cut between sentences, each with "பகுதி K/3" under the title and Manoj's
+voice at the end: "அடுத்த பகுதி சீக்கிரமே வருது, காத்திருங்க!" after parts 1 and 2 (the owner: "we need to tell
+at end like stay tune for next part"), a subscribe-and-comment line after part 3. They replace the two Tamil
+moment Shorts. Look at a frame of each part before uploading (title, "பகுதி K/3", Tamil letters joined, the end
+line); each part's description links the parts before it and the full Tamil video, and parts_upload then adds
+"அடுத்த பகுதி: <link>" to parts 1 and 2. In the report, list the Tamil links and times too.
+
 ## 10. Report
 
 Send the owner the TikTok video (`out/SLUG_tiktok.mp4`) with SendUserFile, and the two Shorts

@@ -10,7 +10,11 @@ layout. A title sits above the drawing and big captions below it. SPEC_JSON keys
   replace (caption replacements JSON), title, subtitle,
   hook: {wav, timing, section, visual_from?, visual_to}   timing is timing.py output for the hook
                                                line; the picture under it is the long video's
-                                               visual_from..visual_to
+                                               visual_from..visual_to. Optional: a part of a story told
+                                               in parts starts straight with the story
+  outro (optional): {wav, timing, section, visual_at?}   a line after the last stretch ("the next part
+                                               is coming, stay tuned"), over the picture at visual_at
+                                               (default: just before the end of the last stretch), held still
   music (optional): background music WAV, mixed under the voice with doodle/mix.py
   music_gain (optional): music level before ducking (default 0.30; Shorts on phone speakers need less)
   music_follows (optional): true when music is the long video's own track (a score.py mood score):
@@ -83,17 +87,19 @@ def probe(path):
                                 check=True, capture_output=True, text=True).stdout)
 
 
-# 1. Audio: hook line, a short pause, then each stretch of the long voiceover.
-hook = spec["hook"]
-hook_dur = probe(hook["wav"]) + PAUSE
+# 1. Audio: hook line (if any), a short pause, then each stretch of the long voiceover, then the outro (if any).
+hook = spec.get("hook")
+hook_dur = probe(hook["wav"]) + PAUSE if hook else 0.0
 parts, words, clock = [], [], 0.0
-hook_words = json.load(open(hook["timing"]))["sections"][hook["section"] - 1]
-words += [{"w": w["w"], "t0": w["t0"] - hook_words["offset"], "t1": w["t1"] - hook_words["offset"]} for w in hook_words["words"]]
-hook_audio = os.path.join(work, "a0.wav")
-run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", hook["wav"], "-af", f"apad=pad_dur={PAUSE}",
-    "-ar", "24000", "-ac", "1", hook_audio)
-parts.append(hook_audio)
-clock = hook_dur
+if hook:
+    hook_words = json.load(open(hook["timing"]))["sections"][hook["section"] - 1]
+    words += [{"w": w["w"], "t0": w["t0"] - hook_words["offset"], "t1": w["t1"] - hook_words["offset"]}
+              for w in hook_words["words"]]
+    hook_audio = os.path.join(work, "a0.wav")
+    run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", hook["wav"], "-af", f"apad=pad_dur={PAUSE}",
+        "-ar", "24000", "-ac", "1", hook_audio)
+    parts.append(hook_audio)
+    clock = hook_dur
 long_words = [w for s in json.load(open(spec.get("caption_timing", spec["timing"])))["sections"] for w in s["words"]]
 for k, seg in enumerate(spec["segments"], 1):
     a = os.path.join(work, f"a{k}.wav")
@@ -104,6 +110,20 @@ for k, seg in enumerate(spec["segments"], 1):
     words += [{"w": w["w"], "t0": w["t0"] - seg["from"] + clock, "t1": w["t1"] - seg["from"] + clock}
               for w in long_words if w["t0"] >= seg["from"] - 0.01 and w["t1"] <= seg["to"] + 0.05]
     clock += dur
+outro = spec.get("outro")
+OUTRO_AIR = 0.8  # still picture after the outro line
+out_dur = PAUSE + probe(outro["wav"]) + OUTRO_AIR if outro else 0.0
+if outro:
+    out_words = json.load(open(outro["timing"]))["sections"][outro["section"] - 1]
+    words += [{"w": w["w"], "t0": w["t0"] - out_words["offset"] + clock + PAUSE, "t1": w["t1"] - out_words["offset"] + clock + PAUSE}
+              for w in out_words["words"]]
+    out_audio = os.path.join(work, "a_outro.wav")
+    run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", outro["wav"], "-af",
+        f"adelay={round(PAUSE * 1000)}:all=1,apad=pad_dur={OUTRO_AIR}", "-ar", "24000", "-ac", "1", out_audio)
+    parts.append(out_audio)
+    clock += out_dur
+last_to = spec["segments"][-1]["to"]
+outro_at = outro.get("visual_at", last_to - 0.5) if outro else last_to
 total = clock
 lst = os.path.join(work, "audio.txt")
 open(lst, "w").write("".join(f"file '{p}'\n" for p in parts))
@@ -115,7 +135,8 @@ audio = os.path.join(work, "audio.m4a")
 def follow(track, out):
     """track cut at the Short's moments of the long video: under the hook its pictures' stretch,
     then each segment, joined with short fades."""
-    spans = [(hook.get("visual_from", 0.0), hook_dur)] + [(s["from"], s["to"] - s["from"]) for s in spec["segments"]]
+    spans = ([(hook.get("visual_from", 0.0), hook_dur)] if hook else []) + \
+        [(s["from"], s["to"] - s["from"]) for s in spec["segments"]] + ([(last_to, out_dur)] if outro else [])
     graph = "".join(f"[0:a]atrim=start={t0}:duration={dur},asetpts=PTS-STARTPTS,"
                     f"afade=t=in:d=0.15,afade=t=out:st={max(0, dur - 0.15)}:d=0.15[m{k}];" for k, (t0, dur) in enumerate(spans))
     graph += "".join(f"[m{k}]" for k in range(len(spans))) + f"concat=n={len(spans)}:v=0:a=1[out]"
@@ -145,8 +166,10 @@ run(*cap_cmd)
 
 # 3. Pictures: the long video's opening under the hook, then each stretch, frozen where asked.
 clips = []
-pieces = [(hook.get("visual_from", 0.0), hook["visual_to"], hook_dur)] + [
+pieces = ([(hook.get("visual_from", 0.0), hook["visual_to"], hook_dur)] if hook else []) + [
     (s["from"], s.get("visual_to", s["to"]), s["to"] - s["from"]) for s in spec["segments"]]
+if outro:  # a moment of the picture at outro_at, held still under the outro line
+    pieces.append((max(0.0, outro_at - 0.2), outro_at, out_dur))
 # a piece already rendered from the same scenes, timing and stretch is kept (a re-run that only changes the title
 # or the captions takes seconds instead of minutes)
 made_file = os.path.join(work, "pieces.json")
