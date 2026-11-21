@@ -62,7 +62,7 @@
  },
  {
   "name": "p04",
-  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, wooden walking stick, sitting on a low wooden stool in the dark next to a tea stall, sipping from a small steel cup, calm, one eye open, moonlight, mysterious, night",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, sitting on a low wooden stool in the dark next to a tea stall, sipping from a small steel cup, calm, one eye open, moonlight, mysterious, night",
   "seed": 7,
   "w": 1024,
   "h": 1024,
@@ -122,7 +122,7 @@
  },
  {
   "name": "p07",
-  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, wooden walking stick, standing in the open doorway of a small tea stall in moonlight, tiny old woman in front of giant shadows of big men, calm, kind smile, full body, night",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, standing in the open doorway of a small tea stall in moonlight, tiny old woman in front of giant shadows of big men, calm, kind smile, full body, night",
   "seed": 7,
   "w": 832,
   "h": 1216,
@@ -164,7 +164,7 @@
  },
  {
   "name": "p09",
-  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, wooden walking stick, close-up, drinking the last sip of tea from a small steel cup, eyes closed, calm, steam, moonlight, face focus",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, close-up, drinking the last sip of tea from a small steel cup, eyes closed, calm, steam, moonlight, face focus",
   "seed": 7,
   "w": 1024,
   "h": 1024,
@@ -194,7 +194,7 @@
  },
  {
   "name": "p10",
-  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, wooden walking stick, a huge golden aura bursting around her, grey hair glowing gold, eyes glowing gold, wind, light rays, sari fluttering, power up, dramatic, night street, from below",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, a huge golden aura bursting around her, grey hair glowing gold, eyes glowing gold, wind, light rays, sari fluttering, power up, dramatic, night street, from below",
   "seed": 7,
   "w": 832,
   "h": 1216,
@@ -231,7 +231,7 @@
  },
  {
   "name": "p12",
-  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, wooden walking stick, spinning a wooden walking stick, knocking three big men in red armor flying through the air, speed lines, golden glow, comedy action, dynamic angle, night street",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, spinning a wooden walking stick, knocking three big men in red armor flying through the air, speed lines, golden glow, comedy action, dynamic angle, night street",
   "seed": 7,
   "w": 1216,
   "h": 832,
@@ -241,30 +241,30 @@
    {
     "text": "THWACK!",
     "x": 0.2,
-    "y": 0.2,
-    "size": 110,
+    "y": 0.12,
+    "size": 92,
     "rotate": -8
    },
    {
     "text": "THWACK!",
-    "x": 0.5,
-    "y": 0.12,
-    "size": 110,
+    "x": 0.27,
+    "y": 0.62,
+    "size": 92,
     "rotate": 6
    },
    {
     "text": "THWACK!",
     "x": 0.8,
-    "y": 0.22,
-    "size": 110,
+    "y": 0.14,
+    "size": 92,
     "rotate": -4
    }
   ]
  },
  {
   "name": "p13",
-  "prompt": "a big man in red armor stuck head first in a large steel milk can, legs kicking in the air, comedy, night street, tea stall in the background",
-  "seed": 7,
+  "prompt": "no humans visible, a big round steel milk can lying on its side on a night street, two legs in heavy red metal armor boots sticking out of the open end of the can and kicking in the air, comedy, motion lines, tea stall in the background",
+  "seed": 31,
   "w": 1024,
   "h": 1024,
   "sfx": [
@@ -300,8 +300,8 @@
  },
  {
   "name": "p15",
-  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, wooden walking stick, sitting on top of a neat pile of six unconscious big men in red armor in the middle of a street, calmly sipping tea from a small steel cup, comedy, moonlight, wide shot",
-  "seed": 7,
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, sitting cross-legged on top of a heap of knocked-out big men in red armor lying on top of each other in the middle of a street, swirly eyes, calmly sipping tea from a small steel cup, comedy, moonlight, wide shot",
+  "seed": 23,
   "w": 1216,
   "h": 832,
   "ref": "../ep03/out/img/p29.png",
@@ -343,7 +343,7 @@
  },
  {
   "name": "p17",
-  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, wooden walking stick, close-up, face focus, kind smile, eyes glowing faint gold, holding a small steel cup, steam, warm lamp light, mysterious",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, close-up, face focus, kind smile, eyes glowing faint gold, holding a small steel cup, steam, warm lamp light, mysterious",
   "seed": 7,
   "w": 1024,
   "h": 1024,
@@ -527,7 +527,7 @@
  },
  {
   "name": "p25",
-  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, wooden walking stick, sharp stern look, pointing her walking stick at a phone on a selfie stick held by a blonde man in silver armor, comedy, night street",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, sharp stern look, pointing her walking stick at a phone on a selfie stick held by a blonde man in silver armor, comedy, night street",
   "seed": 7,
   "w": 1216,
   "h": 832,
@@ -583,7 +583,7 @@
  },
  {
   "name": "p27",
-  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, wooden walking stick, smiling at the sunrise, holding a small steel cup, gentle, peaceful, soft orange light, upper body",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, smiling at the sunrise, holding a small steel cup, gentle, peaceful, soft orange light, upper body",
   "seed": 7,
   "w": 1024,
   "h": 1024,
@@ -604,7 +604,7 @@
  },
  {
   "name": "p28",
-  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, wooden walking stick, close-up, face focus, serious, wise eyes, dawn light",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, close-up, face focus, serious, wise eyes, dawn light",
   "seed": 7,
   "w": 1024,
   "h": 1024,
@@ -648,7 +648,7 @@
  },
  {
   "name": "p30",
-  "prompt": "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, wooden walking stick, holding up two fingers, mischievous smile, wink, dawn, upper body",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, holding up two fingers, mischievous smile, wink, dawn, upper body",
   "seed": 7,
   "w": 1024,
   "h": 1024,

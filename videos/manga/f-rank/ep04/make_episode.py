@@ -6,7 +6,8 @@ ARJUN = ("1boy, male focus, solo, young man, dark-skinned male, dark skin, brown
 VIKTOR = "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape"
 MEERA = ("1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, "
          "brown eyes, white robe, gold trim, holding staff with crystal, healer")
-PAATI = "1girl, solo, old woman, grandmother, grey hair in a bun, white cotton sari, wrinkles, wooden walking stick"
+PAATI = ("1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, "
+         "grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick")
 LIEUT = ("1boy, solo, adult man in a black suit and black sunglasses, slicked back black hair, red lotus pin on his "
          "chest, black tie")
 GOONS = "several big men in red armor with red lotus symbols on their chests"
@@ -18,8 +19,8 @@ LIEUT_REF = "../ep03/out/img/p12.png"
 
 
 def panel(name, prompt, size, before=None, after=None, bubbles=None, sfx=None, status=None, ref=None, ref_scale=None,
-          gap=None):
-    p = {"name": name, "prompt": prompt, "seed": 7, "w": size[0], "h": size[1]}
+          gap=None, seed=7):
+    p = {"name": name, "prompt": prompt, "seed": seed, "w": size[0], "h": size[1]}
     if ref:
         p["ref"], p["ref_scale"] = ref, ref_scale or 0.5
     for key, val in (("before", before), ("after", after), ("bubbles", bubbles), ("sfx", sfx), ("status", status),
@@ -88,15 +89,17 @@ eps = [
           bubbles=[b("Since when do grandmothers GLOW?!", *LEFT, 0.32, [0.42, 0.3])]),
     panel("p12", f"{PAATI}, spinning a wooden walking stick, knocking three big men in red armor flying through the "
           "air, speed lines, golden glow, comedy action, dynamic angle, night street", L, ref=PAATI_REF,
-          ref_scale=0.35, sfx=[fx("THWACK!", 0.2, 0.2, 110, -8), fx("THWACK!", 0.5, 0.12, 110, 6),
-                               fx("THWACK!", 0.8, 0.22, 110, -4)]),
-    panel("p13", "a big man in red armor stuck head first in a large steel milk can, legs kicking in the air, comedy, "
-          "night street, tea stall in the background", S, sfx=[fx("KLANG!", 0.74, 0.18, 120, 8)]),
+          ref_scale=0.35, sfx=[fx("THWACK!", 0.2, 0.12, 92, -8), fx("THWACK!", 0.27, 0.62, 92, 6),
+                               fx("THWACK!", 0.8, 0.14, 92, -4)]),
+    panel("p13", "no humans visible, a big round steel milk can lying on its side on a night street, two legs in heavy "
+          "red metal armor boots sticking out of the open end of the can and kicking in the air, comedy, motion lines, "
+          "tea stall in the background", S, sfx=[fx("KLANG!", 0.74, 0.18, 120, 8)], seed=31),
     panel("p14", f"{ARJUN}, waking up, sitting up on a thin mat, rubbing his eyes, messy hair, sleepy, confused, night, "
           "upper body", S, ref="../ref/arjun_face.jpg", ref_scale=0.55,
           bubbles=[b("Paati...? What's all the noise?", *RIGHT, 0.3, [0.58, 0.3])]),
-    panel("p15", f"{PAATI}, sitting on top of a neat pile of six unconscious big men in red armor in the middle of a "
-          "street, calmly sipping tea from a small steel cup, comedy, moonlight, wide shot", L, ref=PAATI_REF,
+    panel("p15", f"{PAATI}, sitting cross-legged on top of a heap of knocked-out big men in red armor lying on top of "
+          "each other in the middle of a street, swirly eyes, calmly sipping tea from a small steel cup, comedy, "
+          "moonlight, wide shot", L, ref=PAATI_REF, seed=23,
           ref_scale=0.35, bubbles=[b("Nothing, beta. Go back to sleep.", *RIGHT, 0.32, [0.6, 0.32])]),
     panel("p16", f"{ARJUN}, extremely shocked, jaw drop, wide-eyed, pointing, comedy, night, upper body", S,
           ref="../ref/arjun.jpg", ref_scale=0.5,
