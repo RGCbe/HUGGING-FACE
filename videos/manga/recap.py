@@ -179,9 +179,10 @@ def sound(work, lines, timing, voice, total, seed):
     return mix
 
 
-def render(ep, work, lines, timing, layout):
-    strip = Image.open(os.path.join(ep, "out", "webtoon", "strip.png")).convert("RGB")
-    panels = {p["img"]: p for p in json.load(open(os.path.join(ep, "out", "webtoon", "panels.json")))}
+def render(ep, work, lines, timing, layout, webtoon="out/webtoon"):
+    # webtoon: the lettered strip's folder in the episode (recap_ta.py: the Tamil one, "out_ta/webtoon")
+    strip = Image.open(os.path.join(ep, webtoon, "strip.png")).convert("RGB")
+    panels = {p["img"]: p for p in json.load(open(os.path.join(ep, webtoon, "panels.json")))}
     vw, vh, sw = (1920, 1080, 1000) if layout == "landscape" else (1080, 1920, 1080)
     k = sw / strip.width
     fg = strip.resize((sw, round(strip.height * k)), Image.LANCZOS)

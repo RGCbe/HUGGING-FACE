@@ -1,6 +1,8 @@
 out/
+out_ta/
 voice/
 *.log
 **/recap/*
 !**/recap/recap.json
+!**/recap/short_ta.json
 clips/

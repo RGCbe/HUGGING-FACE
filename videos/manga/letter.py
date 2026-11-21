@@ -9,6 +9,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 W, GAP, MARGIN = 800, 150, 80
 DIALOGUE = os.path.join(HERE, "fonts", "ComicNeue-Bold.ttf")
 SFX = os.path.join(HERE, "fonts", "Bangers-Regular.ttf")
+# another language's lettering (recap_ta.py: Tamil) sets LETTER_FONT for the bubbles, boxes and status lines and
+# LETTER_TITLE_FONT for the cards and status titles; sound effects stay in Bangers
+DIALOGUE = os.environ.get("LETTER_FONT", DIALOGUE)
+TITLE = os.environ.get("LETTER_TITLE_FONT", SFX)
+LINE = float(os.environ.get("LETTER_LINE", "1.18"))  # line height in font sizes (Tamil needs more room)
 
 
 def wrap(text, font, width):
@@ -24,7 +29,7 @@ def wrap(text, font, width):
 
 
 def text_block(draw, lines, font, cx, top, fill):
-    h = font.size * 1.18
+    h = font.size * LINE
     for i, line in enumerate(lines):
         draw.text((cx - font.getlength(line) / 2, top + i * h), line, font=font, fill=fill)
 
@@ -36,7 +41,7 @@ def bubble(img, b, box):
     font = ImageFont.truetype(DIALOGUE, b.get("size", 27))
     lines = wrap(b["text"].upper(), font, b.get("w", 0.4) * pw)
     tw = max(font.getlength(l) for l in lines)
-    th = len(lines) * font.size * 1.18
+    th = len(lines) * font.size * LINE
     cx, cy = x0 + b["x"] * pw, y0 + b["y"] * ph  # the bubble's centre
     rx, ry = tw / 2 * 1.32 + 14, th / 2 * 1.45 + 12
     cx = min(max(cx, x0 + rx + 10), x0 + pw - rx - 10)  # never cut off by the page edge
@@ -64,7 +69,7 @@ def narration(img, n, top):
     font = ImageFont.truetype(DIALOGUE, n.get("size", 26))
     lines = wrap(n["text"], font, W * 0.72)
     tw = max(font.getlength(l) for l in lines)
-    th = len(lines) * font.size * 1.18
+    th = len(lines) * font.size * LINE
     x0 = W / 2 - tw / 2 - 22
     draw.rounded_rectangle([x0, top, W - x0, top + th + 28], radius=10, fill="#1d1d1f")
     text_block(draw, lines, font, W / 2, top + 12, "white")
@@ -73,13 +78,13 @@ def narration(img, n, top):
 
 def narration_height(n):
     font = ImageFont.truetype(DIALOGUE, n.get("size", 26))
-    return len(wrap(n["text"], font, W * 0.72)) * font.size * 1.18 + 28
+    return len(wrap(n["text"], font, W * 0.72)) * font.size * LINE + 28
 
 
 def status(img, s, box):
     """A game-style status window (glowing blue box) over the panel, as in system manhwa."""
     x0, y0, pw, ph = box
-    title = ImageFont.truetype(SFX, s.get("title_size", 38))
+    title = ImageFont.truetype(TITLE, s.get("title_size", 38))
     font = ImageFont.truetype(DIALOGUE, s.get("size", 25))
     w = s.get("w", 0.8) * pw
     lines = [l for t in s["lines"] for l in (wrap(t, font, w - 48) if t else [""])]
@@ -104,7 +109,7 @@ def status(img, s, box):
 def card(text, h):
     """A black caption panel, as for "One hour earlier..."."""
     im = Image.new("RGB", (W, h), "#0d0d0f")
-    font = ImageFont.truetype(SFX, 64)
+    font = ImageFont.truetype(TITLE, 64)
     d = ImageDraw.Draw(im)
     d.text((W / 2 - font.getlength(text) / 2, h / 2 - font.size * 0.6), text, font=font, fill="white")
     return im

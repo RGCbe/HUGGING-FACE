@@ -16,7 +16,7 @@ Every fact comes from a source listed under the video. The pictures, music and v
 
 தமிழில்: உங்களுக்குப் பிடித்த படங்கள், சீரிஸ்களின் கதைகள், ரகசியங்கள், தியரிகள் எல்லாத்தையும் ரெண்டு நிமிஷத்துல விளக்குறேன். ஒவ்வொரு வீடியோவும் தமிழிலும் ஆங்கிலத்திலும்.
 
-Tell me in the comments which question I should answer next.
+Also here: recaps of my webtoon, The F-Rank Tea Seller. Read free: https://www.webtoons.com/en/canvas/the-f-rank-tea-seller/list?title_no=1182633
 
 ## Keywords (Customisation > Basic info is for the description; keywords go in Settings > Channel > Keywords)
 
