@@ -28,7 +28,7 @@ uploaded private and scheduled (English 5:30 am India time for viewers abroad, T
 ## 1. Ready the container
 
 ```bash
-for v in YT_CLIENT_ID_MOVIES YT_CLIENT_SECRET_MOVIES YT_REFRESH_TOKEN_MOVIES ELEVENLABS_API_KEY CF_ACCOUNT_ID CF_API_TOKEN; do
+for v in YT_CLIENT_ID_MOVIES YT_CLIENT_SECRET_MOVIES YT_REFRESH_TOKEN_MOVIES ELEVENLABS_API_KEY HF_TOKEN CF_ACCOUNT_ID CF_API_TOKEN; do
   [ -n "${!v:-}" ] || echo "missing $v"; done
 sudo apt-get install -y -q ffmpeg fluidsynth fluid-soundfont-gm >/dev/null 2>&1 || apt-get install -y -q ffmpeg fluidsynth fluid-soundfont-gm
 pip install -q numpy soundfile pillow -r videos/kural/requirements-whisper.txt
@@ -76,13 +76,19 @@ must be heard as Tamil (probability 0.8 or more). The English video should come 
 
 ## 6. Pictures
 
-`$WORK/pics/images.json` for `videos/doodle/imagegen.py --engine cloudflare` (9:16), one picture per 4-6 seconds
+`$WORK/pics/images.json` for `videos/doodle/imagegen.py --engine auto` (9:16), one picture per 4-6 seconds
 (about 20-24), style string exactly as in `$WORK`'s Doctor Doom example: "3D anime style, like a high-end 3D anime
 series or anime game cinematic: cel-shaded 3D render, ... No text, no letters, no logos, no symbols, no recognisable
 people, no superhero costumes, no armour." Use the topic's `look` ideas. Manoj's anime self opens and closes every
 video: `k_intro` and `k_outro` made with `"edit": "videos/movies-explained/narrator/kavi_1.jpg"` and
 `"also": ["videos/movies-explained/narrator/kavi_face.png"]` (outfit 1 for questions, 2 for theories, 3 for news and
 timelines, 4 for cosmic lore; see `narrator/README.md`).
+
+`--engine auto` makes the pictures on Manoj's own private Hugging Face Space `Rggroups/pictures` (FLUX.2 [klein]
+4B, the same model as Cloudflare, on his PRO account's ZeroGPU time: about 7 seconds a picture, 40 GPU minutes a
+day, so a topic's 25 pictures use about 3) and switches to Cloudflare by itself only if that Space is down or its
+GPU time is used up. The first picture may wait a few minutes while the Space wakes up. HF_TOKEN goes only to
+Manoj's own Spaces and private datasets, never to anyone else's Space.
 
 Look at every picture (contact sheets with ffmpeg, open with Read). Redo (delete, new seed, sharper prompt) any with
 text, a copied Marvel design, extra limbs, wrong counts (the model cannot count objects: never let the script depend

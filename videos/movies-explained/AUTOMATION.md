@@ -66,7 +66,9 @@ nothing half-done public, and the report says why; the next run carries on.
   credits), so a question a day is about 60,000 of the 161,000 a month, next to Tea Break and the devotional channel.
 - **YouTube upload allowance:** the channel has its own upload app (10,000 units a day; an upload uses about
   1,600), so a run uploads at most four videos, well inside it.
-- **Pictures:** the free picture service allows about 60 a day; a topic needs about 22, so a run makes two topics.
+- **Pictures:** made on Manoj's own private Hugging Face Space `Rggroups/pictures` with his PRO account's GPU time
+  (40 minutes a day; a picture takes about 7 seconds, a topic's 25 pictures about 3 minutes). If that Space is down or
+  its time is used up, the free Cloudflare service (about 60 pictures a day) takes over by itself.
 - **Nothing copyrighted, ever:** no clips, stills, posters, comic panels, logos, film music, actors' faces, or AI
   pictures of Marvel characters.
 
@@ -81,3 +83,5 @@ nothing half-done public, and the report says why; the next run carries on.
 - First videos: "Who is Doctor Doom?", English https://youtu.be/_cmNok1vVhg (public 20 Nov, 7 pm India time) and
   Tamil https://youtu.be/AddGAaSefUs (8 pm); channel description, keywords, banner and three playlists set up.
 - Daily from 21 Nov: one question a day, English 5:30 am India time, Tamil 8 pm; the daily run is at 9:53 am.
+- 21 Nov: the free Cloudflare picture allowance ran out during the morning run, so pictures now come from Manoj's own
+  PRO Space first (`imagegen.py --engine auto`), with Cloudflare only as the fallback.
