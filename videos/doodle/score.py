@@ -11,7 +11,10 @@ lays over the voice without ducking, so a punchline can land on a drum hit or a 
 Without mood events the whole video is "playful". Everything is generated, so there is nothing
 for a copyright claim to match. Needs fluidsynth, the FluidR3_GM sound font, numpy and soundfile.
 
-Moods: playful, curious, sneaky, suspense, dramatic, triumphant, sad, warm, silence.
+Moods: playful, curious, sneaky, suspense, dramatic, triumphant, sad, warm, silence, and two beds for Shorts with
+no tune at all, so nothing competes with the voice: beat (a steady 96 bpm kick, clap, hi-hats, bass and a dark pad)
+and beat_warm (90 bpm, softer, a shaker and a warm pad). The owner's choice of 21 Nov 2026, after the Tamil Marvel
+Shorts channels whose audio sounded clearer turned out to sit on an even beat under the whole video.
 Stings: rimshot, wahwah, tada, hit.
 """
 import argparse
@@ -27,7 +30,8 @@ import soundfile as sf
 SR = 44100
 FADE = 1.2  # seconds each side of a mood change
 SHORTEST = 3.0  # a mood that would last less than this is folded into the one before
-MOODS = ["playful", "curious", "sneaky", "suspense", "dramatic", "triumphant", "sad", "warm", "silence"]
+MOODS = ["playful", "curious", "sneaky", "suspense", "dramatic", "triumphant", "sad", "warm", "silence", "beat",
+         "beat_warm"]
 STINGS = ["rimshot", "wahwah", "tada", "hit"]
 
 # ---- a minimal MIDI file writer ------------------------------------------------------------------
@@ -75,6 +79,7 @@ QUALITY = {"maj": [0, 4, 7], "min": [0, 3, 7], "dim": [0, 3, 6], "7": [0, 4, 7, 
 SCALE = {"major": [0, 2, 4, 5, 7, 9, 11], "minor": [0, 2, 3, 5, 7, 8, 10], "dorian": [0, 2, 3, 5, 7, 9, 10]}
 DRUMS = 9
 KICK, SNARE, HAT, CRASH, TRIANGLE, WOOD_HI, WOOD_LO, SHAKER, TOM_HI, TOM_LO = 36, 38, 42, 49, 81, 76, 77, 82, 50, 45
+CLAP, OPEN_HAT = 39, 46
 
 
 def chord(key, root, quality, octave=0):
@@ -259,6 +264,51 @@ def warm(m, bars, rng):
     melody(m, 1, rng, key, "major", prog, bars, 67, 84, 60,
            [[(0, 1), (1, 1), (2, 2)], [(0, 2), (2, 1), (3, 1)], [(1, 1), (2, 1), (3, 1)]])
     return 92
+
+
+def beat(m, bars, rng):
+    """A steady bed for a Short: drums, bass and a quiet pad, no tune (the voice is the tune)."""
+    key, prog = 50, [(0, "min"), (-4, "maj"), (5, "min"), (7, "maj")]
+    for ch, p, v in ((0, 38, 100), (1, 89, 70)):  # synth bass, warm pad
+        m.program(ch, p, v)
+    for b in range(bars):
+        root, q = prog[b % 4]
+        for p in chord(key, root, q, 0):
+            m.note(1, b * 4, 4, p, 34)
+        for beat_, d, v in ((0, 0.9, 92), (1.75, 0.25, 70), (2, 0.9, 86), (3.5, 0.4, 72)):
+            m.note(0, b * 4 + beat_, d, key + root - 24, v)
+        for beat_, v in ((0, 96), (1.75, 70), (2, 92)):
+            m.note(DRUMS, b * 4 + beat_, 0.1, KICK, v)
+        for beat_ in (1, 3):
+            m.note(DRUMS, b * 4 + beat_, 0.1, CLAP, 72)
+        for i in range(8):
+            m.note(DRUMS, b * 4 + i * 0.5, 0.1, HAT, 46 if i % 2 else 58)
+        if b % 4 == 3:  # a small hi-hat run into the next phrase
+            for i in range(4):
+                m.note(DRUMS, b * 4 + 3 + i * 0.25, 0.1, HAT, 40 + i * 6)
+            m.note(DRUMS, b * 4 + 3.5, 0.4, OPEN_HAT, 50)
+        if b % 8 == 0:
+            m.note(DRUMS, b * 4, 1, CRASH, 50)
+    return 96
+
+
+def beat_warm(m, bars, rng):
+    """The softer bed for a warm or sad stretch of a Short: no clap on every beat, a shaker, a warm pad."""
+    key, prog = 55, [(0, "maj"), (9, "min"), (5, "maj"), (7, "maj")]
+    for ch, p, v in ((0, 33, 95), (1, 89, 75)):  # electric bass, warm pad
+        m.program(ch, p, v)
+    for b in range(bars):
+        root, q = prog[b % 4]
+        for p in chord(key, root, q, 0):
+            m.note(1, b * 4, 4, p, 36)
+        for beat_, d, v in ((0, 1.4, 80), (2.5, 1.2, 66)):
+            m.note(0, b * 4 + beat_, d, key + root - 24, v)
+        for beat_, v in ((0, 78), (2.5, 62)):
+            m.note(DRUMS, b * 4 + beat_, 0.1, KICK, v)
+        m.note(DRUMS, b * 4 + 3, 0.1, CLAP, 50)
+        for i in range(8):
+            m.note(DRUMS, b * 4 + i * 0.5, 0.1, SHAKER, 30 if i % 2 else 40)
+    return 90
 
 
 def silence(m, bars, rng):

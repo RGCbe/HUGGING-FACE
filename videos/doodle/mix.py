@@ -3,12 +3,12 @@
     python3 mix.py VOICE MUSIC OUT [--music-gain 0.30] [--lufs -14] [--events EVENTS.json] [--sfx-gain 0.5]
                    [--stings STINGS.wav] [--sting-gain 0.35] [--plain-voice]
 
-The voice is first cleaned up for phone speakers (VOICE_POLISH: a gentle noise reduction, less boom,
-more of the 3-5 kHz clarity the cloned voice lacks, compression so it sounds louder and closer, and a
-soft gate so the room hiss in the pauses drops away; --plain-voice skips it), then brought to -16
+The voice is first cleaned up for phone speakers (VOICE_POLISH: a gentle noise reduction, voicefx.py's VOICE_CLEAR,
+the owner's pick of 21 Nov 2026: much less boom, the 1.2 kHz speech range up, compression; and a soft gate so the
+room hiss in the pauses drops away; --plain-voice skips it), then brought to -16
 LUFS, so --music-gain means the same thing whatever level the voice was recorded or generated at
-(with the default, the music sits about 18-20 dB under the voice). The music gets quieter by itself
-under speech (sidechain compression keyed on the voice) and comes back up in the pauses. The result
+(with the default, the music sits about 18-20 dB under the voice). The music dips a little under speech (a gentle,
+slow sidechain compression keyed on the voice) and stays an even bed instead of jumping up in every pause. The result
 is stereo, loudness-normalised (YouTube plays at about -14 LUFS), and as long as the voice.
 
 --events takes render.mjs --events output: the sound effects (pops, stamps, whooshes, dings; see
@@ -25,11 +25,11 @@ import tempfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import sfx  # noqa: E402
+from voicefx import VOICE_CLEAR  # noqa: E402
 
 PUNCH_BEFORE, PUNCH_AFTER, RAMP = 0.9, 0.5, 0.12  # seconds of silence around a punchline, and the fade
-VOICE_POLISH = ("afftdn=nr=10:nf=-50:tn=1,highpass=f=90,lowshelf=f=180:g=-4,equalizer=f=3000:t=q:w=1.2:g=8,"
-                "highshelf=f=5000:g=4,acompressor=threshold=-24dB:ratio=4:attack=4:release=60:makeup=3,"
-                "agate=threshold=0.02:ratio=3:attack=5:release=150:range=0.1")  # owner's pick, 30 Oct 2026
+# the owner's pick of 21 Nov 2026 ("B", voicefx.py), with the noise reduction and soft gate of the 30 Oct one
+VOICE_POLISH = ("afftdn=nr=10:nf=-50:tn=1," + VOICE_CLEAR + ",agate=threshold=0.02:ratio=3:attack=5:release=150:range=0.1")
 
 ap = argparse.ArgumentParser()
 ap.add_argument("voice")
@@ -61,7 +61,8 @@ graph = (
     "loudnorm=I=-16:TP=-2:LRA=11,"
     "aformat=sample_rates=44100,asplit=2[v][key];"
     f"[1:a]aformat=sample_rates=44100:channel_layouts=stereo,{music}[m];"
-    "[m][key]sidechaincompress=threshold=0.02:ratio=6:attack=20:release=450[duck];"
+    # a gentle, slow duck: the music stays an even bed under the voice instead of jumping up in every short pause
+    "[m][key]sidechaincompress=threshold=0.03:ratio=3:attack=30:release=900[duck];"
 )
 with tempfile.TemporaryDirectory() as tmp:
     layers = ["[v]", "[duck]"]

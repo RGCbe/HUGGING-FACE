@@ -29,6 +29,14 @@ import sys
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, "..", "doodle"))
+from voicefx import VOICE_CLEAR, shorten_pauses  # noqa: E402  (the owner's pick of 21 Nov 2026: "B ok")
+
+CFG = json.load(open(os.path.join(HERE, "config.json")))
+# the music bed: "beat" (a steady beat with no tune under the whole Short, the owner's choice of 21 Nov 2026) or
+# "score" (the story moods of doodle/score.py); with "beat", a warm or sad section gets the softer beat
+BEAT_FOR = {"warm": "beat_warm", "sad": "beat_warm"}
+MUSIC_UNDER_VOICE_DB = 9  # the bed 9 dB under the voice's average: about 20 dB under it in the gaps between words (theirs: 15)
 W, H, FPS = 1080, 1920, 30
 SR = 44100
 GAP = 0.18  # silence between sections
@@ -255,7 +263,8 @@ def main():
     voice, t, plan, words_all = [np.zeros(int(LEAD * SR), np.float32)], LEAD, [], []
     table = spec.get("caption_replace", {}).get(lang, [])
     for i, line in enumerate(lines):
-        piece = load(os.path.join(work, f"voice_{lang}", f"sec_{i + 1:02d}.wav"))
+        # long pauses inside a line shortened, so the voice keeps moving (the pictures follow this timing)
+        piece = shorten_pauses(load(os.path.join(work, f"voice_{lang}", f"sec_{i + 1:02d}.wav")), SR)
         dur = len(piece) / SR
         text = re.sub(r"^\[[a-z]+\]\s*", "", line)
         ws = word_times(text.split(), speech_spans(piece))
@@ -319,18 +328,33 @@ def main():
     run("ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", picture)
 
     # 4) sound: voice, our own music in the sections' moods, a whoosh on every cut, a boom on every card
-    events = [{"kind": "mood", "t": round(p["t0"] if i else 0.0, 2), "mood": s.get("mood", "suspense")}
+    beat = CFG.get("music_style", "score") == "beat"
+    mood = lambda s: (BEAT_FOR.get(s.get("mood"), "beat") if beat else s.get("mood", "suspense"))
+    events = [{"kind": "mood", "t": round(p["t0"] if i else 0.0, 2), "mood": mood(s)}
               for i, (s, p) in enumerate(zip(secs, plan))]
     ev_path = os.path.join(out, "events.json")
     json.dump(events, open(ev_path, "w"))
     music_path = os.path.join(out, "music.wav")
     run("python3", os.path.join(HERE, "..", "doodle", "score.py"), music_path, f"{total:.2f}", "--events", ev_path,
         "--seed", "11")
-    music = load(music_path)[: len(voice)]
+    # the voice made clear for phone speakers (voicefx.py), then the music: an even bed under the whole Short,
+    # MUSIC_UNDER_VOICE_DB below the voice, its sub-bass and its 1-4 kHz (where the words are) turned down, and only a
+    # slow, gentle dip under speech, so it never jumps up in the pauses
+    raw_voice, clear_voice = os.path.join(out, "voice_raw.wav"), os.path.join(out, "voice_clear.wav")
+    save(raw_voice, voice)
+    run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", raw_voice, "-af", VOICE_CLEAR, clear_voice)
+    voice = load(clear_voice)[: len(voice)]
+    bed = os.path.join(out, "music_bed.wav")
+    run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", music_path, "-af",
+        "highpass=f=60,equalizer=f=2000:t=q:w=1.5:g=-5", bed)
+    music = load(bed)[: len(voice)]
     music = np.pad(music, (0, max(0, len(voice) - len(music))))
-    # duck the music under the voice
-    env = np.convolve(np.abs(voice), np.ones(int(0.25 * SR)) / int(0.25 * SR), mode="same")
-    duck = 1.0 - 0.55 * np.clip(env / (env.max() * 0.25 + 1e-9), 0, 1)
+    talking = np.abs(voice) > 1e-3
+    v_rms = np.sqrt(np.mean(voice[talking] ** 2)) if talking.any() else 0.1
+    m_rms = np.sqrt(np.mean(music ** 2)) + 1e-9
+    music *= v_rms * 10 ** (-MUSIC_UNDER_VOICE_DB / 20) / m_rms / 0.55
+    env = np.convolve(np.abs(voice), np.ones(int(0.6 * SR)) / int(0.6 * SR), mode="same")
+    duck = 1.0 - 0.2 * np.clip(env / (env.max() * 0.25 + 1e-9), 0, 1)
     fx = np.zeros_like(voice)
     sw = whoosh()
     for k, s in enumerate(shots[1:], 1):

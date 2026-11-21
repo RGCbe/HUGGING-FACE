@@ -66,14 +66,18 @@ Wikipedia's API may refuse direct requests from this machine). Write every fact 
   as digits only where a person reads them that way (years: 2015).
 - Score the first line: `python3 .claude/skills/yt-script/hookscore.py hooks.txt` with 3-4 tries; use one scoring
   60 or more. Never start two videos the same way.
-- `script_ta.txt`: the same lines in spoken Tamil (like the Doctor Doom example), same tags, numbers written as
-  words; their digits go in `shots.json` `caption_replace.ta`.
+- `script_ta.txt`: the same lines in spoken Tamil, the way Tamil Marvel fans talk, same tags. Clear to the ear
+  (21 Nov 2026: the owner's friend found a Tamil Marvel channel's audio easier to follow, and it talks like this):
+  Marvel words stay English ("power", "suit", "multiverse", "time travel", "revenge"); short numbers ("number 3",
+  "5 second", "60 நிமிஷம்"); never a long Tamil year such as "ஆயிரத்துத் தொள்ளாயிரத்து அறுபத்திரெண்டுல": say "நைன்டீன்
+  சிக்ஸ்டி டூல" or leave the year out. Numbers in words in the script, their digits in `shots.json`
+  `caption_replace.ta`. No "..." (each one makes the voice stop).
 
 ## 5. Voice and the listening check
 
 ```bash
-python3 -I videos/kural/eleven.py $WORK/script_en.txt $WORK/voice_en --sections 1,2,...
-python3 -I videos/kural/eleven.py $WORK/script_ta.txt $WORK/voice_ta --sections 1,2,...
+python3 -I videos/kural/eleven.py $WORK/script_en.txt $WORK/voice_en --sections 1,2,... --stability 0.5 --similarity 0.9
+python3 -I videos/kural/eleven.py $WORK/script_ta.txt $WORK/voice_ta --sections 1,2,... --stability 0.5 --similarity 0.9
 ```
 
 Check with faster-whisper ("small", CPU, int8): every English section's words against the script (only spelling of
@@ -111,6 +115,9 @@ python3 videos/movies-explained/lore_video.py $WORK ta
 ```
 
 Check: frames at every card and name card (Tamil letters must be joined correctly), loudness about -14 LUFS, length.
+The sound is set by `lore_video.py` and `config.json` (the owner's pick, 21 Nov 2026): the voice made clear for phone
+speakers (`doodle/voicefx.py`: less boom, more speech range, pauses over 0.32 s cut to 0.22 s) and, with
+`"music_style": "beat"`, our own steady beat with no tune under the whole Short, from the first second to the last.
 
 ## 8. Keep the work files
 

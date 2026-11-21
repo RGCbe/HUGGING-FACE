@@ -22,7 +22,7 @@
  "eleven": {
   "voice": "Manoj kumar T",
   "model": "eleven_v4",
-  "stability": 0.3,
+  "stability": 0.5,
   "similarity": 0.9
  },
  "category_id": 24,
@@ -55,5 +55,6 @@
   "ta": "PLO1p8_rvXDSs",
   "doomsday": "PLZRvSHPm-ZK4",
   "frank": "PLexbf0R8l7fg"
- }
+ },
+ "music_style": "beat"
 }
