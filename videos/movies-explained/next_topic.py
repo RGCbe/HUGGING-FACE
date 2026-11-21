@@ -55,8 +55,9 @@ def uploads(tok):
         for v in get("videos", tok, part="snippet,status", id=",".join(dict.fromkeys(ids[k:k + 50])))["items"]:
             titles.append(v["snippet"]["title"])
             if v["status"].get("publishAt"):
-                scheduled.append(datetime.datetime.fromisoformat(v["status"]["publishAt"].replace("Z", "+00:00")))
-    return me, titles, max(scheduled, default=None)
+                scheduled.append((v["snippet"]["title"],
+                                  datetime.datetime.fromisoformat(v["status"]["publishAt"].replace("Z", "+00:00"))))
+    return me, titles, scheduled
 
 
 def main():
@@ -64,8 +65,11 @@ def main():
     ap.add_argument("--count", type=int, default=cfg.get("topics_per_run", 2))
     a = ap.parse_args()
     tok = token()
-    me, titles, last = uploads(tok)
+    me, titles, scheduled = uploads(tok)
     topics = json.load(open(os.path.join(HERE, "topics.json")))["topics"]
+    # only the lore videos keep the daily slot taken (the F-Rank recaps and other uploads have their own times)
+    lore = [at for title, at in scheduled if any(t["match"].lower() in title.lower() for t in topics)]
+    last = max(lore, default=None)
     low = [t.lower() for t in titles]
     todo = [t for t in topics if not any(t["match"].lower() in x for x in low)]
     if not todo:
