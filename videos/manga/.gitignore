@@ -5,4 +5,5 @@ voice/
 **/recap/*
 !**/recap/recap.json
 !**/recap/short_ta.json
+!**/recap/recap_ta.json
 clips/

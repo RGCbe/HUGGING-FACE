@@ -2,6 +2,7 @@
 owner's voice speaking Tamil and Tamil captions. A separate video on the same channel, Tamil as its language.
 
     python3 recap_ta.py STEP EPISODE_DIR        STEP: letter | voice | short | upload
+                                                      | recap_voice | recap_video | recap_upload
 
 EPISODE_DIR/recap/short_ta.json is written by a person (the owner checks the Tamil):
   "letter"   {"English text in episode.json": "Tamil text", ...}: bubbles, narration boxes, the status window and
@@ -18,6 +19,16 @@ EPISODE_DIR/recap/short_ta.json is written by a person (the owner checks the Tam
           caption word times spread over the speech
   short   the 1080x1920 Short over the Tamil strip, the recap's music moods and stings: recap/out/short_ta.mp4
   upload  recap/upload_ta.json, private and scheduled at publish_at, uploaded with ../doodle/upload.py
+
+The whole recap in Tamil (the owner's choice, 22 Nov 2026), from EPISODE_DIR/recap/recap_ta.json: "lines" (one Tamil
+line per recap.json line, emotion tags as in English), "chapters" ({English chapter: Tamil name}), "caption_replace",
+"meta" ({"title", "description" ("{EN_RECAP}" becomes the English recap's link), "tags", "publish_at",
+"thumbnail_text": [[words, colour], ...]}):
+  recap_voice   every line in the owner's voice at Manoj Explains' steadier setting, checked as Tamil, long pauses
+                shortened (voicefx.py), timed: recap/recap_ta/
+  recap_video   the 1920x1080 recap over the Tamil strip, the same music moods and stings, Tamil captions, and a Tamil
+                thumbnail: recap/out/recap_ta.mp4, recap_ta_thumbnail.jpg
+  recap_upload  private and scheduled, Tamil chapters in the description, in the series playlist
 """
 import json
 import os
@@ -138,6 +149,115 @@ def step_short(ep):
     print(f"Tamil Short: {out} ({TB.duration(out):.1f}s)")
 
 
+def recap_setup(ep):
+    r, spec = recap.load(ep)
+    conf = json.load(open(os.path.join(r, "recap_ta.json"), encoding="utf-8"))
+    if len(conf["lines"]) != len(spec["lines"]):
+        sys.exit(f"recap_ta.json needs {len(spec['lines'])} lines, one for each line of recap.json")
+    lines = [dict(l, text=t) for l, t in zip(spec["lines"], conf["lines"])]
+    return r, spec, conf, lines, os.path.join(r, "recap_ta")
+
+
+def step_recap_voice(ep):
+    sys.path.insert(0, DOODLE)
+    from voicefx import shorten_pauses
+    r, spec, conf, lines, work = recap_setup(ep)
+    tts = os.path.join(work, "tts")
+    os.makedirs(tts, exist_ok=True)
+    text = os.path.join(work, "voiceover_ta.txt")
+    open(text, "w", encoding="utf-8").write("\n".join(l["text"] for l in lines) + "\n")
+    e = json.load(open(os.path.join(VIDEOS, "movies-explained", "config.json")))["eleven"]  # the channel's voice setting
+    todo = [k for k in range(1, len(lines) + 1) if not os.path.exists(os.path.join(tts, f"sec_{k:02d}.wav"))]
+    if todo:
+        tamil.run("python3", "-I", os.path.join(KURAL, "eleven.py"), text, tts, "--sections", ",".join(map(str, todo)),
+                  "--voice", e["voice"], "--model", e["model"], "--stability", e["stability"], "--similarity", e["similarity"])
+    wavs = [os.path.join(tts, f"sec_{k:02d}.wav") for k in range(1, len(lines) + 1)]
+    tamil.run(os.environ.get("WHISPER_PY", "python3"), "-c", CHECK, *wavs)
+    table = conf.get("caption_replace", [])
+    gap = np.zeros(int(TB.GAP * SR), np.float32)
+    parts, sections, t = [], [], 0.0
+    for k, (l, w) in enumerate(zip(lines, wavs), 1):
+        # a storyteller's pause stays (0.35 s), only the long ones go
+        a = shorten_pauses(tamil.trim(tamil.load(w)), SR, keep=0.35, longer=0.6)
+        spans = [[t + x, t + y] for x, y in tamil.speech_spans(a)]
+        words = re.sub(r"^\[[a-z]+\]\s*", "", l["text"]).split()
+        sections.append({"n": k, "offset": round(t, 3), "duration": round(len(a) / SR, 3),
+                         "words": tamil.shown(tamil.word_times(words, spans), table)})
+        parts += [a, gap]
+        t += len(a) / SR + TB.GAP
+    voice = np.concatenate(parts[:-1])
+    tamil.save(os.path.join(work, "voice.wav"), voice)
+    total = round(len(voice) / SR, 3)
+    json.dump({"total": total, "sections": sections}, open(os.path.join(work, "timing.json"), "w", encoding="utf-8"),
+              ensure_ascii=False, indent=1)
+    print(f"Tamil recap voice: {total:.1f}s ({total / 60:.1f} min)")
+
+
+def thumbnail_ta(ep, out, spec, words):
+    """The English recap's thumbnail layout (recap.thumbnail) with Tamil words, in Mukta Malar (Bangers has no Tamil)."""
+    import copy
+    from PIL import Image, ImageDraw, ImageFont
+    bare = copy.deepcopy(spec)
+    bare.setdefault("meta", {}).setdefault("thumbnail", {})["text"] = []  # the panels and the dark band, no words
+    recap.thumbnail(ep, out, bare)
+    t = Image.open(out).convert("RGB")
+    size = 100
+    font = ImageFont.truetype(FONT, size)
+    while sum(font.getlength(w) for w, _ in words) > 1220 and size > 50:
+        size -= 4
+        font = ImageFont.truetype(FONT, size)
+    d = ImageDraw.Draw(t)
+    x = (1280 - sum(font.getlength(w) for w, _ in words)) / 2
+    for w, fill in words:
+        d.text((x, 590), w, font=font, fill=fill, stroke_width=7, stroke_fill="black")
+        x += font.getlength(w)
+    t.save(out, quality=90)
+
+
+def step_recap_video(ep):
+    r, spec, conf, lines, work = recap_setup(ep)
+    timing = json.load(open(os.path.join(work, "timing.json"), encoding="utf-8"))
+    silent, total = recap.render(ep, work, lines, timing, "landscape", webtoon=os.path.join("out_ta", "webtoon"))
+    mix = recap.sound(work, lines, timing, os.path.join(work, "voice.wav"), total, 17)
+    ass = os.path.join(work, "captions.ass")
+    TB.run("python3", os.path.join(DOODLE, "captions.py"), os.path.join(work, "timing.json"), ass, "--layout", "landscape",
+           "--font", "Kavivanar")
+    os.makedirs(os.path.join(r, "out"), exist_ok=True)
+    out = os.path.join(r, "out", "recap_ta.mp4")
+    TB.run("ffmpeg", "-nostdin", "-v", "error", "-y", "-i", silent, "-i", mix, "-vf",
+           f"ass={ass}:fontsdir={os.path.join(DOODLE, 'fonts')}:shaping=complex", "-af",
+           f"afade=t=out:st={total - 1.5}:d=1.5", "-shortest", "-c:v", "libx264", "-preset", "medium", "-crf", "21",
+           "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", out)
+    thumbnail_ta(ep, os.path.join(r, "out", "recap_ta_thumbnail.jpg"), spec, conf["meta"]["thumbnail_text"])
+    print(f"Tamil recap: {out} ({TB.duration(out):.1f}s)")
+
+
+def step_recap_upload(ep):
+    r, spec, conf, lines, work = recap_setup(ep)
+    m = dict(conf["meta"])
+    timing = json.load(open(os.path.join(work, "timing.json"), encoding="utf-8"))
+    marks = [(0 if not k else s["offset"], conf["chapters"].get(l["chapter"], l["chapter"])) for k, (l, s) in
+             enumerate((l, s) for l, s in zip(lines, timing["sections"]) if l.get("chapter"))]
+    chapters = ("\n\nChapters\n" + "\n".join(f"{int(t // 60)}:{int(t % 60):02d} {name}" for t, name in marks)
+                if len(marks) >= 3 else "")
+    if "{EN_RECAP}" in m["description"]:
+        done = os.path.join(r, "upload.results.json")
+        m["description"] = m["description"].replace("{EN_RECAP}", json.load(open(done))[0]["url"]) if os.path.exists(done) \
+            else m["description"].replace("\n\nEnglish recap: {EN_RECAP}", "")
+    note = "\n\nகுரல்: என் சொந்தக் குரலின் AI நகல். படங்கள் AI மூலம் வரையப்பட்டவை, இசை எங்களுடையது."
+    defaults = {"privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 24,
+                "refresh_token_env": TB.cfg["channel"]["refresh_token_env"]}
+    defaults.update(spec["meta"].get("upload_defaults", {}))
+    defaults["language"] = "ta"
+    upload = {"defaults": defaults,
+              "videos": [{"file": os.path.join(r, "out", "recap_ta.mp4"), "thumbnail": os.path.join(r, "out", "recap_ta_thumbnail.jpg"),
+                          "title": m["title"], "description": m["description"] + chapters + note, "tags": m["tags"],
+                          "publish_at": m["publish_at"], "playlists": spec["meta"].get("playlists", [])}]}
+    path = os.path.join(r, "upload_recap_ta.json")
+    json.dump(upload, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    TB.run("python3", os.path.join(DOODLE, "upload.py"), path)
+
+
 def step_upload(ep):
     r, spec, conf, _, _ = setup(ep)
     m = dict(conf["meta"])
@@ -159,7 +279,8 @@ def step_upload(ep):
 
 
 if __name__ == "__main__":
-    steps = {"letter": step_letter, "voice": step_voice, "short": step_short, "upload": step_upload}
+    steps = {"letter": step_letter, "voice": step_voice, "short": step_short, "upload": step_upload,
+             "recap_voice": step_recap_voice, "recap_video": step_recap_video, "recap_upload": step_recap_upload}
     if len(sys.argv) != 3 or sys.argv[1] not in steps:
         sys.exit(__doc__)
     steps[sys.argv[1]](sys.argv[2])
