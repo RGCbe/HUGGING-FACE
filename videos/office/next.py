@@ -4,7 +4,8 @@
 
 Reads every upload of the channel (public, private and scheduled) with its own key (config.json "channel"), finds the
 last scheduled one, and gives the next free day after today at publish_time (India time). "theme" is read from the
-"Theme:" line every description carries, so a run does not tell the same theme two days running or repeat a story.
+"Theme:" line every description carries, and "used_points" from its "Point:" line (points.json ids), so a run does
+not tell the same theme two days running or use a point twice.
 """
 import datetime
 import json
@@ -47,8 +48,9 @@ def main():
             when = datetime.datetime.fromisoformat(at.replace("Z", "+00:00"))
             last = max(last, when) if last else when
             m = re.search(r"^Theme: (.+)$", v["snippet"]["description"], re.M)
+            pt = re.search(r"^Point: (p\d+)$", v["snippet"]["description"], re.M)
             recent.append({"title": v["snippet"]["title"], "theme": m.group(1).strip() if m else None,
-                           "date": when.date().isoformat()})
+                           "point": pt.group(1) if pt else None, "date": when.date().isoformat()})
     tz = ZoneInfo(cfg["timezone"])
     day = datetime.datetime.now(tz).date() + datetime.timedelta(days=1)
     if last:
@@ -56,8 +58,9 @@ def main():
     hh, mm = map(int, cfg["publish_time"].split(":"))
     at = datetime.datetime(day.year, day.month, day.day, hh, mm, tzinfo=tz).astimezone(datetime.timezone.utc)
     recent.sort(key=lambda r: r["date"], reverse=True)
+    used = sorted({r["point"] for r in recent if r["point"]})
     print(json.dumps({"channel": me["snippet"]["title"], "publish_at": at.strftime("%Y-%m-%dT%H:%M:%SZ"),
-                      "recent": recent[:30], "count": len(recent)}, ensure_ascii=False, indent=1))
+                      "recent": recent[:30], "count": len(recent), "used_points": used}, ensure_ascii=False, indent=1))
 
 
 if __name__ == "__main__":

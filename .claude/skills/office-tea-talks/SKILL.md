@@ -37,15 +37,18 @@ https://api.elevenlabs.io/v1/user/subscription): under 3,000 characters left, st
 
 `python3 videos/office/next.py` gives `publish_at` and the channel's recent titles and themes.
 
-## 3. The theme and its points
+## 3. The theme and its point
 
-1. `python3 videos/office/trends.py --out $WORK/trends.json`: themes ranked by median views, each with its top videos.
-2. Take the highest theme not told in the last 3 days (next.py "recent").
-3. Read the spoken text of its top 3 to 5 videos with the video-transcript connector (the `videos_transcript` tool; the
-   cloud machine cannot download from YouTube itself). Write `$WORK/points.md`: 4 to 6 POINTS in your own words (what
-   worries or helps viewers), each with the video it came from. No quotes. If the connector is not there, use the
-   titles alone and say so in the report.
-4. Pick ONE point that has not been a lesson on the channel yet (next.py titles) and invent a story for it.
+1. `python3 videos/office/trends.py --out $WORK/trends.json`: the office themes ranked by median views right now.
+2. `videos/office/points.json` is the points bank: what the top Tamil office videos are saying, in our own words, each
+   with its theme. (It is refreshed every week in the owner's main session, where the video-transcript tool works; a
+   scheduled run cannot read transcripts.)
+3. Choose the highest-ranked theme that was not told in the last 3 days (next.py "recent") and has a point not yet used
+   (next.py "used_points"). If the `videos_transcript` tool happens to be available in this run, you may read the top
+   2-3 videos of that theme and note a fresher point in `$WORK/points.md` (our words only); otherwise use the bank.
+4. Invent a story that carries that point as its lesson. Write the point id in `$WORK/point.txt` (it goes in the
+   description, so next.py knows it is used). All points used: invent a fresh angle on the hottest theme from its
+   trends.py titles, and say so in the report.
 
 ## 4. Script: `$WORK/script_ta.txt`
 
@@ -110,7 +113,8 @@ private if missing; refuse if not private).
   `#shorts` ("6 AM Layoff Mail 😨 கார்த்திக் என்ன பண்ணான்? #shorts").
 - Description: two Tamil lines with the lesson; "இது ஒரு கற்பனைக் கதை. கதாபாத்திரங்கள் கற்பனையானவை." (a story,
   invented characters); "குரல்: என் சொந்தக் குரலின் AI நகல். படங்கள் AI மூலம் வரையப்பட்டவை, இசை எங்களுடையது.";
-  a line `Theme: <the trends.py theme>` (next.py reads it); 3 hashtags (#officelife #tamil #shorts).
+  a line `Theme: <the trends.py theme>` and a line `Point: <the point id>` (next.py reads both); 3 hashtags
+  (#officelife #tamil #shorts).
 - Tags: config.json "tags_always" plus the theme's words.
 
 `python3 videos/doodle/upload.py $WORK/upload.json`
