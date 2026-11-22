@@ -232,6 +232,11 @@ python3 videos/teabreak/build.py tiktok "$KURAL_WORK/SLUG"
 Watch for problems: open a few frames of each output (`ffmpeg -ss T -i out/X.mp4 -frames:v 1
 f.png`) and check the lengths with ffprobe (long video 2-5 minutes; Shorts under 60 seconds).
 
+Before uploading, every finished video (the long one, both Shorts, the TikTok one, and the Tamil ones in 9b)
+must pass `python3 videos/doodle/clarity.py <video> ...` (CLEAR on every line): the owner's rule, 22 Nov 2026, "my video
+have good voice and crystal clear". UNCLEAR means the voice is muddy or the loudness is off: fix it (mix.py's
+VOICE_POLISH must be on) and never upload it.
+
 ## 9. Upload
 
 `meta.json`:

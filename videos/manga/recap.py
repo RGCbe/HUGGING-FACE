@@ -233,6 +233,7 @@ def step_video(ep):
     os.makedirs(os.path.join(r, "out"), exist_ok=True)
     out = os.path.join(r, "out", "recap.mp4")
     finish(r, silent, mix, os.path.join(r, "timing.json"), total, "landscape", out)
+    tb.run("python3", os.path.join(DOODLE, "clarity.py"), out)  # the owner's rule: a clear voice, or no upload
     thumbnail(ep, os.path.join(r, "out", "recap_thumbnail.jpg"), spec)
     print(f"recap: {out} ({tb.duration(out):.1f}s)")
 
@@ -246,6 +247,7 @@ def step_short(ep):
     mix = sound(sdir, lines, timing, os.path.join(sdir, "voice.wav"), total, 29)
     out = os.path.join(r, "out", "short.mp4")
     finish(sdir, silent, mix, os.path.join(sdir, "timing.json"), total, "vertical", out)
+    tb.run("python3", os.path.join(DOODLE, "clarity.py"), out)
     print(f"short: {out} ({tb.duration(out):.1f}s)")
 
 

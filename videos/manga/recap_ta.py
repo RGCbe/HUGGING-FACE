@@ -146,6 +146,7 @@ def step_short(ep):
            f"ass={ass}:fontsdir={os.path.join(DOODLE, 'fonts')}:shaping=complex", "-af",
            f"afade=t=out:st={total - 1.5}:d=1.5", "-shortest", "-c:v", "libx264", "-preset", "medium", "-crf", "21",
            "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", out)
+    TB.run("python3", os.path.join(DOODLE, "clarity.py"), out)
     print(f"Tamil Short: {out} ({TB.duration(out):.1f}s)")
 
 
@@ -229,6 +230,7 @@ def step_recap_video(ep):
            f"afade=t=out:st={total - 1.5}:d=1.5", "-shortest", "-c:v", "libx264", "-preset", "medium", "-crf", "21",
            "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", out)
     thumbnail_ta(ep, os.path.join(r, "out", "recap_ta_thumbnail.jpg"), spec, conf["meta"]["thumbnail_text"])
+    TB.run("python3", os.path.join(DOODLE, "clarity.py"), out)  # the owner's rule: a clear voice, or no upload
     print(f"Tamil recap: {out} ({TB.duration(out):.1f}s)")
 
 

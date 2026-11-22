@@ -114,7 +114,9 @@ python3 videos/movies-explained/lore_video.py $WORK en
 python3 videos/movies-explained/lore_video.py $WORK ta
 ```
 
-Check: frames at every card and name card (Tamil letters must be joined correctly), loudness about -14 LUFS, length.
+Check: frames at every card and name card (Tamil letters must be joined correctly), loudness about -14 LUFS, length,
+and the voice: `python3 videos/doodle/clarity.py $WORK/out/en/video.mp4 $WORK/out/ta/video.mp4` must say CLEAR for
+both (the owner's rule, 22 Nov 2026: "my video have good voice and crystal clear"); UNCLEAR stops the run before upload.
 The sound is set by `lore_video.py` and `config.json` (the owner's pick, 21 Nov 2026): the voice made clear for phone
 speakers (`doodle/voicefx.py`: less boom, more speech range, pauses over 0.32 s cut to 0.22 s) and, with
 `"music_style": "beat"`, our own steady beat with no tune under the whole Short, from the first second to the last.
