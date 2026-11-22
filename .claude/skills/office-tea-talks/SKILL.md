@@ -1,6 +1,6 @@
 ---
 name: office-tea-talks
-description: Make and schedule the next Office Tea Talks Short on the Tea Break channel - a 40-60 second, slightly funny Tamil office / IT life lesson told as our own story with invented characters, in the owner's AI voice, our own doodles, Tamil captions and beat, built from what the top Tamil work videos are talking about (their points, never their words), checked for a clear voice, uploaded private and scheduled. Use for "run Office Tea Talks", "make today's office short", or when a scheduled task asks for an Office Tea Talks run.
+description: Make and schedule the next Office Tea Talks Short on the Tea Break channel - a 40-60 second, slightly funny office / IT life lesson in Tamil AND in English (the same story, two Shorts the same day), told as our own story with invented characters, in the owner's AI voice, our own doodles, captions and beat, built from what the top Tamil work videos are talking about (their points, never their words), checked for a clear voice, uploaded private and scheduled. Use for "run Office Tea Talks", "make today's office short", or when a scheduled task asks for an Office Tea Talks run.
 ---
 
 # Office Tea Talks: one run
@@ -9,9 +9,11 @@ Tamil office / IT life lessons, posted on the owner's **Tea Break with Manoj** c
 choice, 22 Nov 2026: "make it little funny and post in tea break channel"; videos/office/README.md: why, and what is
 never done). Each run
 makes `config.json` "per_run" Shorts (1): the hottest office theme right now, what the top videos on it are saying,
-and a NEW, slightly funny story of ours that carries one of those points as its lesson. The worked example is
-`videos/office/example/` ("6 மணிக்கு Layoff Mail 😅", 53 s, https://youtu.be/kP8JfuFd2P0): read its `script_ta.txt`,
-`shots.json`, `images.json` first.
+and a NEW, slightly funny story of ours that carries one of those points as its lesson, **in Tamil and in English**
+(the owner, 22 Nov 2026: "We use both English and Tamil also"): two Shorts from one story, one set of pictures, Tamil
+at config.json "publish_time" and English at "publish_time_en" the same day. The worked example is
+`videos/office/example/`: read its `script_ta.txt`, `script_en.txt`, `shots.json` and `images.json` first. The English
+Short made from it: "Fired by Email at 6 AM. Why Wasn't He Scared?", 55 s, https://youtu.be/UkbznmtHYdA.
 
 **Do not commit or push. Never print a key.** Work in `$WORK=$HOME/office/SLUG/`, outside the repository.
 
@@ -97,14 +99,30 @@ humour that lands"):**
 
 Numbers as Tamil words in the script, their digits in `shots.json` `caption_replace.ta`. No "..." (the voice stops).
 
+**The English script, `$WORK/script_en.txt`:**
+- **Shape.** The same story, the same number of lines and the same emotion tags, so each line sits on the same
+  pictures. Aim for 110 to 140 words.
+- **Language.** Simple Indian office English, the way IT people talk ("revoked, effective today", "auto-debit",
+  "work calls on Sunday"). Write it again, not word for word: the running phrase ("We're one big family") and the jokes
+  have to work in English.
+- **Hook check.** Score line 1 as the captions show it (digits) with hookscore.py. It must be 60 or more.
+- **Numbers.** Write them as words, and put their digits in `caption_replace.en`.
+
 ## 5. Voice
 
 ```bash
 python3 -I videos/kural/eleven.py $WORK/script_ta.txt $WORK/voice_ta --sections 1,2,... --stability 0.5 --similarity 0.9
 ```
 
-Check with faster-whisper ("medium", CPU, int8) that every section is heard as Tamil (0.8 or more); otherwise reword or
-`--seed 8` and voice that section again.
+Then the same for `script_en.txt` into `$WORK/voice_en`.
+
+Check with faster-whisper ("medium", CPU, int8):
+- every Tamil section is heard as Tamil, and every English section as English, with a language probability of 0.8 or
+  more;
+- each section's first and last words are there (for example, the English example's "His manager…" first came back
+  without "His").
+
+If a check fails, reword or use `--seed 8`, and voice that section again.
 
 ## 6. Pictures: `$WORK/pics/images.json`
 
@@ -133,7 +151,8 @@ Don't use `host_hello` in the opening. He is the host who tells the story, never
 
 ```bash
 python3 videos/movies-explained/lore_video.py $WORK ta
-python3 videos/doodle/clarity.py $WORK/out/ta/video.mp4      # must say CLEAR, or nothing is uploaded
+python3 videos/movies-explained/lore_video.py $WORK en
+python3 videos/doodle/clarity.py $WORK/out/ta/video.mp4 $WORK/out/en/video.mp4   # both CLEAR, or nothing is uploaded
 ```
 
 Check frames (Tamil letters joined, captions readable) and the length (35-60 seconds).
@@ -150,9 +169,11 @@ private if missing; refuse if not private).
 ```json
 {"defaults": {"refresh_token_env": "YT_REFRESH_TOKEN_ADULT", "client_id_env": "YT_CLIENT_ID",
               "client_secret_env": "YT_CLIENT_SECRET", "made_for_kids": false, "ai_content": true,
-              "category_id": 27, "privacy": "private", "language": "ta"},
- "videos": [{"file": "...out/ta/video.mp4", "title": "...", "description": "...", "tags": [...],
-             "publish_at": "<publish_at>", "playlists": ["<config.json playlist_id>"]}]}
+              "category_id": 27, "privacy": "private"},
+ "videos": [{"file": "...out/ta/video.mp4", "language": "ta", "title": "...", "description": "...", "tags": [...],
+             "publish_at": "<next.py publish_at>", "playlists": ["<config.json playlist_id>"]},
+            {"file": "...out/en/video.mp4", "language": "en", "title": "...", "description": "...", "tags": [...],
+             "publish_at": "<next.py publish_at_en>", "playlists": ["<config.json playlist_id>"]}]}
 ```
 
 - Title: under 60 characters, the moment as a hook with English office words and an emoji, ending `#shorts`
@@ -164,10 +185,22 @@ private if missing; refuse if not private).
   a line `Theme: <the trends.py theme>` and a line `Point: <the point id>` (next.py reads both); 3 hashtags
   (#officelife #tamil #shorts).
 - Tags: config.json "tags_always" plus the theme's words.
+- **English title:** under 60 characters, the question the story answers, ending `#shorts` ("Fired by Email at 6 AM.
+  Why Wasn't He Scared? #shorts"). Run it through `.claude/skills/yt-package/title.py`.
+- **English description:**
+  - the question and the lesson, in two lines;
+  - "This is a fictional story. All characters are invented.";
+  - "Voice: an AI copy of my own voice. Pictures drawn with AI, music is ours.";
+  - the same `Theme:` and `Point:` lines as the Tamil Short;
+  - three hashtags: #officelife #corporatelife #shorts.
+- **English tags:** config.json "tags_always_en", plus the theme's words.
 
 `python3 videos/doodle/upload.py $WORK/upload.json`
 
 ## 10. Report
 
-A few lines: the theme and the point used, the title, the link and when it goes public (India time), the clarity
-numbers, what was redone, anything that failed.
+A few lines:
+- the theme and the point used;
+- for each language, the title, the link, and when it goes public (India time);
+- the clarity numbers;
+- what was redone, and anything that failed.

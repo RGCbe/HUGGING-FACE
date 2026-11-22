@@ -8,6 +8,8 @@
  },
  "timezone": "Asia/Kolkata",
  "publish_time": "08:30",
+ "publish_time_en": "19:30",
+ "languages_note": "The owner's wish (22 Nov 2026: 'We use both English and Tamil also'): every office story goes out twice on the same day, Tamil at publish_time and English at publish_time_en (India time).",
  "per_run": 1,
  "category_id": 27,
  "eleven": {
@@ -26,6 +28,16 @@
   "corporate life tamil",
   "tamil shorts",
   "office comedy tamil"
+ ],
+ "tags_always_en": [
+  "office tea talks",
+  "tea break with manoj",
+  "office life",
+  "corporate life india",
+  "IT life",
+  "IT employee life",
+  "office comedy",
+  "shorts"
  ],
  "playlist_id": "PLPWFuIoAlFcs",
  "queue": [

@@ -1,6 +1,7 @@
 """When the next Office Tea Talks Short goes public, and which office stories the channel already told.
 
-    python3 next.py      prints {"publish_at": ISO-UTC, "recent": [{"title", "theme", "date"}], "count": N}
+    python3 next.py      prints {"publish_at": ISO-UTC (Tamil), "publish_at_en": ISO-UTC (English, same day),
+                         "recent": [{"title", "theme", "point", "date", "lang"}], "count": N, "used_points": [...]}
 
 Reads every upload of the channel (Tea Break; public, private and scheduled) with its key (config.json "channel"),
 keeps only the office stories (their descriptions carry a "Theme:" line), finds the last scheduled one, and gives the
@@ -53,16 +54,20 @@ def main():
             last = max(last, when) if last else when
             pt = re.search(r"^Point: (p\d+)$", v["snippet"]["description"], re.M)
             recent.append({"title": v["snippet"]["title"], "theme": m.group(1).strip() if m else None,
-                           "point": pt.group(1) if pt else None, "date": when.date().isoformat()})
+                           "point": pt.group(1) if pt else None, "date": when.date().isoformat(),
+                           "lang": "ta" if re.search(r"[\u0B80-\u0BFF]", v["snippet"]["title"]) else "en"})
     tz = ZoneInfo(cfg["timezone"])
     day = datetime.datetime.now(tz).date() + datetime.timedelta(days=1)
     if last:
         day = max(day, last.astimezone(tz).date() + datetime.timedelta(days=1))
     hh, mm = map(int, cfg["publish_time"].split(":"))
     at = datetime.datetime(day.year, day.month, day.day, hh, mm, tzinfo=tz).astimezone(datetime.timezone.utc)
+    hh, mm = map(int, cfg.get("publish_time_en", cfg["publish_time"]).split(":"))
+    at_en = datetime.datetime(day.year, day.month, day.day, hh, mm, tzinfo=tz).astimezone(datetime.timezone.utc)
     recent.sort(key=lambda r: r["date"], reverse=True)
     used = sorted({r["point"] for r in recent if r["point"]})
     print(json.dumps({"channel": me["snippet"]["title"], "publish_at": at.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                      "publish_at_en": at_en.strftime("%Y-%m-%dT%H:%M:%SZ"),
                       "recent": recent[:30], "count": len(recent), "used_points": used}, ensure_ascii=False, indent=1))
 
 
