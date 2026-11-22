@@ -180,20 +180,33 @@ private if missing; refuse if not private).
   ("6 மணிக்கு Layoff Mail 😅 நாம ஒரு Family-யா? #shorts").
 - Only the Office Tea Talks playlist (config.json "playlist_id"): never Tea Break's history playlists, which promise
   every word is true.
-- Description: two Tamil lines with the lesson; "இது ஒரு கற்பனைக் கதை. கதாபாத்திரங்கள் கற்பனையானவை." (a story,
-  invented characters); "குரல்: என் சொந்தக் குரலின் AI நகல். படங்கள் AI மூலம் வரையப்பட்டவை, இசை எங்களுடையது.";
-  a line `Theme: <the trends.py theme>` and a line `Point: <the point id>` (next.py reads both); 3 hashtags
-  (#officelife #tamil #shorts).
-- Tags: config.json "tags_always" plus the theme's words.
+- **First, the search check** (the owner approved this pattern on 22 Nov 2026). Write the three searches each Short
+  should show up for, such as "layoff tamil", "IT layoff tamil" and "கம்பெனி ஃபேமிலி இல்ல". Their words must appear
+  in the title or the description's first two lines, which are the only lines people see.
+- **Tamil description:**
+  - Line 1: the moment with the theme's search word, ending in the question ("7 வருஷம், 'நாம ஒரு ஃபேமிலி', அப்புறம்
+    காலை 6 மணிக்கு ஒரு layoff மெயில். ஆனா கார்த்திக் ஏன் பயப்படல?").
+  - Line 2: "பாடம்: …".
+  - A blank line, then "Office Tea Talks: ஒவ்வொரு கதையிலும் ஒரு ஆபீஸ் பாடம், தமிழிலும் English-லும்."
+  - "இது ஒரு கற்பனைக் கதை. கதாபாத்திரங்கள் கற்பனையானவை."
+  - "குரல்: என் சொந்தக் குரலின் AI நகல். படங்கள் AI மூலம் வரையப்பட்டவை, இசை எங்களுடையது."
+  - A line `Theme: <the trends.py theme>` and a line `Point: <the point id>`. next.py reads both.
+  - Three hashtags: the theme's word, #officelife, #tamil (#layoff #officelife #tamil).
+- **Tamil tags:** 10 to 15. Start with the searches ("layoff tamil", "IT layoff tamil", "layoff story tamil"), add
+  config.json "tags_always", and stop. Tags only help with spellings and variants.
 - **English title:** under 60 characters, the question the story answers, ending `#shorts` ("Fired by Email at 6 AM.
   Why Wasn't He Scared? #shorts"). Run it through `.claude/skills/yt-package/title.py`.
 - **English description:**
-  - the question and the lesson, in two lines;
-  - "This is a fictional story. All characters are invented.";
-  - "Voice: an AI copy of my own voice. Pictures drawn with AI, music is ours.";
-  - the same `Theme:` and `Point:` lines as the Tamil Short;
-  - three hashtags: #officelife #corporatelife #shorts.
-- **English tags:** config.json "tags_always_en", plus the theme's words.
+  - Line 1: the moment with the theme's search word, ending in the question ("Seven years at one company, "we're one
+    big family", then a 6 a.m. layoff email. So why wasn't Karthik scared?").
+  - Line 2: the lesson, worded the way people search it ("The lesson: your company is not your family. …").
+  - A blank line, then "Office Tea Talks: short office stories with one lesson each, in English and Tamil."
+  - "This is a fictional story. All characters are invented."
+  - "Voice: an AI copy of my own voice. Pictures drawn with AI, music is ours."
+  - The same `Theme:` and `Point:` lines as the Tamil Short.
+  - Three hashtags: the theme's word, #officelife, #corporatelife.
+- **English tags:** 10 to 15. Start with the searches ("fired by email", "laid off", "layoff story", "company is not
+  your family"), add config.json "tags_always_en", and stop.
 
 `python3 videos/doodle/upload.py $WORK/upload.json`
 
