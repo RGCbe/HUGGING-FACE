@@ -4,10 +4,16 @@
    "mood": "suspense",
    "items": [
     {
-     "pic": "p01"
+     "pic": "host_hello",
+     "w": 0.7
     },
     {
-     "pic": "p02"
+     "pic": "p01",
+     "w": 1
+    },
+    {
+     "pic": "p02",
+     "w": 1
     }
    ]
   },
@@ -15,13 +21,16 @@
    "mood": "playful",
    "items": [
     {
-     "pic": "p03"
+     "pic": "p03",
+     "w": 1
     },
     {
-     "pic": "p11"
+     "pic": "p11",
+     "w": 1
     },
     {
-     "pic": "p04"
+     "pic": "p04",
+     "w": 1
     }
    ]
   },
@@ -29,7 +38,12 @@
    "mood": "playful",
    "items": [
     {
-     "pic": "p05"
+     "pic": "p05",
+     "w": 1.2
+    },
+    {
+     "pic": "host_laugh",
+     "w": 0.8
     }
    ]
   },
@@ -37,10 +51,12 @@
    "mood": "curious",
    "items": [
     {
-     "pic": "p06"
+     "pic": "p06",
+     "w": 1
     },
     {
-     "pic": "p07"
+     "pic": "p07",
+     "w": 1
     }
    ]
   },
@@ -48,10 +64,12 @@
    "mood": "warm",
    "items": [
     {
-     "pic": "p08"
+     "pic": "p08",
+     "w": 1
     },
     {
-     "pic": "p12"
+     "pic": "p12",
+     "w": 1
     }
    ]
   },
@@ -59,7 +77,8 @@
    "mood": "warm",
    "items": [
     {
-     "pic": "p09"
+     "pic": "p09",
+     "w": 1
     }
    ]
   },
@@ -67,7 +86,8 @@
    "mood": "curious",
    "items": [
     {
-     "pic": "p10"
+     "pic": "host_comment",
+     "w": 1
     }
    ]
   }

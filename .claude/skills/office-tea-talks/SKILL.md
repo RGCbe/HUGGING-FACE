@@ -10,7 +10,7 @@ choice, 22 Nov 2026: "make it little funny and post in tea break channel"; video
 never done). Each run
 makes `config.json` "per_run" Shorts (1): the hottest office theme right now, what the top videos on it are saying,
 and a NEW, slightly funny story of ours that carries one of those points as its lesson. The worked example is
-`videos/office/example/` ("6 மணிக்கு Layoff Mail 😅", 53 s, https://youtu.be/FPmuHDordXY): read its `script_ta.txt`,
+`videos/office/example/` ("6 மணிக்கு Layoff Mail 😅", 53 s, https://youtu.be/kP8JfuFd2P0): read its `script_ta.txt`,
 `shots.json`, `images.json` first.
 
 **Do not commit or push. Never print a key.** Work in `$WORK=$HOME/office/SLUG/`, outside the repository.
@@ -89,6 +89,12 @@ same way in every prompt (the example: "Karthik, a 30-year-old South Indian man 
 moustache, a light blue formal shirt and a blank ID card on a lanyard"); invent a new one for each story (vary age,
 gender, job). Look at every picture (a contact sheet, opened with Read); redo any with text, a logo, extra limbs, a
 different-looking main character, or anything that does not match its line.
+
+**The host (the owner's wish, 22 Nov 2026: "use my photo also"):** copy `videos/office/host/*.png` into `$WORK/pics/` and
+use them as in the example's `shots.json`: `host_hello` as a short first shot (weight about 0.7) before the story's
+first picture, `host_laugh` right after the funniest line (or `host_think` before the twist), and `host_comment` for
+the last line, the comments question. He is the host who tells the story, never a character in it
+(videos/office/host/README.md).
 
 ## 7. The video and the clarity check
 
