@@ -1,13 +1,31 @@
 {
- "channel": {"name": "Office Tea Talks", "refresh_token_env": "YT_REFRESH_TOKEN_OFFICE",
-             "client_id_env": "YT_CLIENT_ID_MOVIES", "client_secret_env": "YT_CLIENT_SECRET_MOVIES",
-             "note": "Created by the owner on the same Google account as Manoj Explains, so it uses that account's upload app; its own key is YT_REFRESH_TOKEN_OFFICE."},
+ "channel": {
+  "name": "Tea Break with Manoj",
+  "refresh_token_env": "YT_REFRESH_TOKEN_ADULT",
+  "client_id_env": "YT_CLIENT_ID",
+  "client_secret_env": "YT_CLIENT_SECRET",
+  "note": "The owner's choice (22 Nov 2026): the office stories go on the Tea Break channel, in their own playlist, a little funny."
+ },
  "timezone": "Asia/Kolkata",
- "publish_time": "19:00",
+ "publish_time": "08:30",
  "per_run": 1,
- "category_id": 22,
- "eleven": {"voice": "Manoj kumar T", "model": "eleven_v4", "stability": 0.5, "similarity": 0.9},
+ "category_id": 27,
+ "eleven": {
+  "voice": "Manoj kumar T",
+  "model": "eleven_v4",
+  "stability": 0.5,
+  "similarity": 0.9
+ },
  "style": "Hand-drawn doodle cartoon illustration, flat colours, clean black ink outlines, warm cream paper background, soft shadows, relatable and a little funny, Indian office life in Chennai. No text, no letters, no numbers, no logos anywhere.",
  "dataset": "Rggroups/office-tea-talks-work",
- "tags_always": ["office tea talks", "office life tamil", "IT life tamil", "corporate life tamil", "tamil shorts", "life lessons tamil"]
+ "tags_always": [
+  "office tea talks",
+  "tea break with manoj",
+  "office life tamil",
+  "IT life tamil",
+  "corporate life tamil",
+  "tamil shorts",
+  "office comedy tamil"
+ ],
+ "playlist_id": "PLPWFuIoAlFcs"
 }

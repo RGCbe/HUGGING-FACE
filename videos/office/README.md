@@ -1,4 +1,4 @@
-# Office Life Lessons (Tamil): plan
+# Office Tea Talks (Tamil office life lessons, on the Tea Break channel): plan
 
 The owner's idea (22 Nov 2026): a fully automated channel of Tamil office / IT life lessons, as doodle Shorts.
 
@@ -23,4 +23,6 @@ its lesson. First analysis (layoffs / freshers): loyal seniors quietly sidelined
 "what can you do?" not "what degree?"; "AI" often an excuse for lost projects; people over 35 accepting pay cuts.
 
 Status (22 Nov 2026): the trend finder works; sample 1 ("காலை 6 மணி layoff mail", 43 s) made end to end and passes the
-clarity check. Next: the owner watches it; creates the channel; then the daily scheduled run.
+clarity check. The owner watched it and chose the Tea Break channel (below).
+
+22 Nov 2026 (later): the owner chose to post these on the **Tea Break with Manoj** channel instead of a new one, "a little funny", in their own playlist "Office Tea Talks | ஆபீஸ் கதைகள்" (PLPWFuIoAlFcs), at 8:30 am India time. First Short: "6 மணிக்கு Layoff Mail 😅" (https://youtu.be/FPmuHDordXY), public 23 Nov 8:30 am. Daily run: trig_018qgSscwyimgCxBLkMt6xLU, 11:17 am; the points bank is refreshed every Sunday in the main session.

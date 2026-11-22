@@ -52,6 +52,16 @@
    "name": "p10",
    "prompt": "A cup of tea steaming on an office desk next to a phone showing many speech bubbles icons (no words), cosy warm light",
    "seed": 20
+  },
+  {
+   "name": "p11",
+   "seed": 21,
+   "prompt": "Karthik, a 30-year-old South Indian man with short black hair, a neat moustache, a light blue formal shirt and a blank ID card on a lanyard, in an office pantry, happily hugging a big office coffee machine like an old friend, the coffee machine has a cute smiling face, a colleague in the background looks puzzled, funny"
+  },
+  {
+   "name": "p12",
+   "seed": 22,
+   "prompt": "Karthik, a 30-year-old South Indian man with short black hair, a neat moustache, a light blue formal shirt and a blank ID card on a lanyard, on his first day at a new office, proudly holding up a small bank passbook in one hand while the office coffee machine beside him has a sad face, he winks, funny"
   }
  ]
 }

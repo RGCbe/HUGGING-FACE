@@ -1,14 +1,17 @@
 ---
 name: office-tea-talks
-description: Make and schedule the next Office Tea Talks Short - a 40-60 second Tamil office / IT life lesson told as our own story with invented characters, in the owner's AI voice, our own doodles, Tamil captions and beat, built from what the top Tamil work videos are talking about (their points, never their words), checked for a clear voice, uploaded private and scheduled. Use for "run Office Tea Talks", "make today's office short", or when a scheduled task asks for an Office Tea Talks run.
+description: Make and schedule the next Office Tea Talks Short on the Tea Break channel - a 40-60 second, slightly funny Tamil office / IT life lesson told as our own story with invented characters, in the owner's AI voice, our own doodles, Tamil captions and beat, built from what the top Tamil work videos are talking about (their points, never their words), checked for a clear voice, uploaded private and scheduled. Use for "run Office Tea Talks", "make today's office short", or when a scheduled task asks for an Office Tea Talks run.
 ---
 
 # Office Tea Talks: one run
 
-The owner's channel of Tamil office / IT life lessons (videos/office/README.md: why, and what is never done). Each run
+Tamil office / IT life lessons, posted on the owner's **Tea Break with Manoj** channel in their own playlist (the owner's
+choice, 22 Nov 2026: "make it little funny and post in tea break channel"; videos/office/README.md: why, and what is
+never done). Each run
 makes `config.json` "per_run" Shorts (1): the hottest office theme right now, what the top videos on it are saying,
-and a NEW story of ours that carries one of those points as its lesson. The worked example is `videos/office/example/`
-("காலை 6 மணி layoff mail", 43 s): read its `script_ta.txt`, `shots.json`, `images.json` first.
+and a NEW, slightly funny story of ours that carries one of those points as its lesson. The worked example is
+`videos/office/example/` ("6 மணிக்கு Layoff Mail 😅", 53 s, https://youtu.be/FPmuHDordXY): read its `script_ta.txt`,
+`shots.json`, `images.json` first.
 
 **Do not commit or push. Never print a key.** Work in `$WORK=$HOME/office/SLUG/`, outside the repository.
 
@@ -24,7 +27,7 @@ and a NEW story of ours that carries one of those points as its lesson. The work
 ## 1. Ready the container
 
 ```bash
-for v in YT_CLIENT_ID_MOVIES YT_CLIENT_SECRET_MOVIES YT_REFRESH_TOKEN_OFFICE YT_CLIENT_ID YT_CLIENT_SECRET YT_REFRESH_TOKEN_ADULT ELEVENLABS_API_KEY HF_TOKEN; do
+for v in YT_CLIENT_ID YT_CLIENT_SECRET YT_REFRESH_TOKEN_ADULT ELEVENLABS_API_KEY HF_TOKEN; do
   [ -n "${!v:-}" ] || echo "missing $v"; done
 sudo apt-get install -y -q ffmpeg fluidsynth fluid-soundfont-gm >/dev/null 2>&1 || apt-get install -y -q ffmpeg fluidsynth fluid-soundfont-gm
 pip install -q numpy soundfile pillow -r videos/kural/requirements-whisper.txt
@@ -60,6 +63,12 @@ manager, appraisal, layoff, skill, meeting). Every line starts with an emotion t
 2-4. What happened, short sentences, one small surprise or a little humour.
 5. The lesson in one line ("பாடம் இதுதான்…").
 6. A question for the comments ("உங்க ஆபீஸ்ல இப்படி நடந்திருக்கா? கமெண்ட்ல சொல்லுங்க.").
+
+**A little funny (the owner's wish):** two or three light, relatable office jokes per story, Tea Break style: the office
+coffee machine, the canteen, the "quick 5-minute call", the WhatsApp group, the manager's "we are a family", the laptop
+that sees you more than your family does. Laugh at office absurdities, never at someone's pain, never at a real person
+or company; the lesson line stays sincere. One or two pictures carry a visual joke (the example's smiling coffee machine
+that is sad when he leaves). Tag those lines `[funny]`.
 
 Numbers as Tamil words in the script, their digits in `shots.json` `caption_replace.ta`. No "..." (the voice stops).
 
@@ -102,15 +111,17 @@ private if missing; refuse if not private).
 `$WORK/upload.json` for `videos/doodle/upload.py`:
 
 ```json
-{"defaults": {"refresh_token_env": "YT_REFRESH_TOKEN_OFFICE", "client_id_env": "YT_CLIENT_ID_MOVIES",
-              "client_secret_env": "YT_CLIENT_SECRET_MOVIES", "made_for_kids": false, "ai_content": true,
-              "category_id": 22, "privacy": "private", "language": "ta"},
+{"defaults": {"refresh_token_env": "YT_REFRESH_TOKEN_ADULT", "client_id_env": "YT_CLIENT_ID",
+              "client_secret_env": "YT_CLIENT_SECRET", "made_for_kids": false, "ai_content": true,
+              "category_id": 27, "privacy": "private", "language": "ta"},
  "videos": [{"file": "...out/ta/video.mp4", "title": "...", "description": "...", "tags": [...],
-             "publish_at": "<publish_at>"}]}
+             "publish_at": "<publish_at>", "playlists": ["<config.json playlist_id>"]}]}
 ```
 
-- Title: under 60 characters, the moment as a hook with English office words, an emoji first is fine, ending
-  `#shorts` ("6 AM Layoff Mail 😨 கார்த்திக் என்ன பண்ணான்? #shorts").
+- Title: under 60 characters, the moment as a hook with English office words and an emoji, ending `#shorts`
+  ("6 மணிக்கு Layoff Mail 😅 நாம ஒரு Family-யா? #shorts").
+- Only the Office Tea Talks playlist (config.json "playlist_id"): never Tea Break's history playlists, which promise
+  every word is true.
 - Description: two Tamil lines with the lesson; "இது ஒரு கற்பனைக் கதை. கதாபாத்திரங்கள் கற்பனையானவை." (a story,
   invented characters); "குரல்: என் சொந்தக் குரலின் AI நகல். படங்கள் AI மூலம் வரையப்பட்டவை, இசை எங்களுடையது.";
   a line `Theme: <the trends.py theme>` and a line `Point: <the point id>` (next.py reads both); 3 hashtags

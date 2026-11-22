@@ -1,9 +1,10 @@
-"""When the next Office Tea Talks Short goes public, and what the channel already told.
+"""When the next Office Tea Talks Short goes public, and which office stories the channel already told.
 
     python3 next.py      prints {"publish_at": ISO-UTC, "recent": [{"title", "theme", "date"}], "count": N}
 
-Reads every upload of the channel (public, private and scheduled) with its own key (config.json "channel"), finds the
-last scheduled one, and gives the next free day after today at publish_time (India time). "theme" is read from the
+Reads every upload of the channel (Tea Break; public, private and scheduled) with its key (config.json "channel"),
+keeps only the office stories (their descriptions carry a "Theme:" line), finds the last scheduled one, and gives the
+next free day after today at publish_time (India time). "theme" is read from the
 "Theme:" line every description carries, and "used_points" from its "Point:" line (points.json ids), so a run does
 not tell the same theme two days running or use a point twice.
 """
@@ -44,10 +45,12 @@ def main():
     recent, last = [], None
     for k in range(0, len(ids), 50):
         for v in get("videos", part="snippet,status", id=",".join(ids[k:k + 50]))["items"]:
+            m = re.search(r"^Theme: (.+)$", v["snippet"]["description"], re.M)
+            if not m:  # the channel's other videos (Tea Break's history stories) keep their own times
+                continue
             at = v["status"].get("publishAt") or v["snippet"]["publishedAt"]
             when = datetime.datetime.fromisoformat(at.replace("Z", "+00:00"))
             last = max(last, when) if last else when
-            m = re.search(r"^Theme: (.+)$", v["snippet"]["description"], re.M)
             pt = re.search(r"^Point: (p\d+)$", v["snippet"]["description"], re.M)
             recent.append({"title": v["snippet"]["title"], "theme": m.group(1).strip() if m else None,
                            "point": pt.group(1) if pt else None, "date": when.date().isoformat()})
