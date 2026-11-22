@@ -14,3 +14,8 @@ comments at the end. The story's characters stay invented.
 
 New poses: `videos/doodle/imagegen.py` with `"edit"` = a story picture (for the style) and `"also"` = one of these
 pictures (for his face), and a prompt that says "the man in image 1"; check that he has two hands.
+
+**Talking mouth (22 Nov 2026):** `host_comment.open.png` and `host_comment.closed.png`, and `host_think.closed.png` and
+`host_think.open.png`, are the same pictures with only the mouth changed. The mouth was edited on the owner's own Space,
+and only the mouth area was copied back into the original. The renderer (doodle/depthmove.py, used by
+movies-explained/lore_video.py) switches between the two while the voice speaks, so the host talks.

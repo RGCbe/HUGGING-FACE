@@ -1,5 +1,6 @@
 """A vertical lore video (1080x1920, a 30-second Short up to 3 minutes) from a script's voice pieces, our own pictures and our own sound:
-pictures that move (slow zooms and pans, a small punch-in on every cut), big captions a few words at a time,
+pictures that move (a camera moving through each picture in 3D, doodle/depthmove.py, or with --motion flat slow
+zooms and pans; a small punch-in on every cut), big captions a few words at a time,
 "ONE / TWO / THREE" cards, name cards, original music (doodle/score.py), whooshes and booms made here, loudness
 -14 LUFS. Nothing in it comes from a film, a comic or anyone else's video.
 
@@ -249,7 +250,15 @@ def main():
     ap.add_argument("work")
     ap.add_argument("lang")
     ap.add_argument("--only-plan", action="store_true")
+    ap.add_argument("--motion", choices=["flat", "depth"], default=os.environ.get("LORE_MOTION", "depth"),
+                    help="depth: the camera moves through each picture in 3D (doodle/depthmove.py); flat: zooms and pans")
     a = ap.parse_args()
+    if a.motion == "depth":
+        try:
+            import cv2, onnxruntime  # noqa: F401
+        except ImportError:
+            print("depth motion needs: pip install -r videos/doodle/requirements-motion.txt; using flat motion")
+            a.motion = "flat"
     work, lang = os.path.abspath(a.work), a.lang
     spec = json.load(open(os.path.join(work, "shots.json")))
     lines = [l.strip() for l in open(os.path.join(work, f"script_{lang}.txt"), encoding="utf-8") if l.strip()]
@@ -316,10 +325,16 @@ def main():
     for k, s in enumerate(shots):
         part = os.path.join(out, f"shot_{k:02d}.mp4")
         img = os.path.join(work, "pics", s["pic"] + ".png")
-        key = f"{img} {os.path.getmtime(img)} {frames[k + 1] - frames[k]} {k % 4}"
+        key = f"{img} {os.path.getmtime(img)} {frames[k]} {frames[k + 1] - frames[k]} {k % 4} {a.motion} {len(voice)}"
         stamp = part + ".src"
         if not (os.path.exists(part) and os.path.exists(stamp) and open(stamp).read() == key):  # unchanged shots are kept
-            still(img, part, (frames[k + 1] - frames[k]) / FPS, k)
+            if a.motion == "depth":
+                from depthmove import mouth_flags, shot as depth_shot
+                op, cl = (os.path.join(work, "pics", f"{s['pic']}.{m}.png") for m in ("open", "closed"))
+                talk = (op, cl, mouth_flags(voice, SR, frames[k], frames[k + 1], FPS)) if os.path.exists(op) and os.path.exists(cl) else None
+                depth_shot(img, part, (frames[k + 1] - frames[k]) / FPS, k, (W, H), FPS, talk=talk)
+            else:
+                still(img, part, (frames[k + 1] - frames[k]) / FPS, k)
             open(stamp, "w").write(key)
         parts.append(part)
     lst = os.path.join(out, "shots.txt")
