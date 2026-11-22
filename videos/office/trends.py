@@ -76,11 +76,12 @@ def main():
         if g:
             themes.append({"theme": t, "videos": len(g), "total_views": sum(v["views"] for v in g),
                            "median_views": int(statistics.median(v["views"] for v in g)),
-                           "examples": [{"title": v["title"], "views": v["views"], "channel": v["channel"]}
-                                        for v in sorted(g, key=lambda v: -v["views"])[:3]]})
+                           "examples": [{"id": v["id"], "title": v["title"], "views": v["views"], "channel": v["channel"]}
+                                        for v in sorted(g, key=lambda v: -v["views"])[:5]]})
     themes.sort(key=lambda t: -t["median_views"])
     out = {"checked": datetime.date.today().isoformat(), "days": a.days, "videos": len(videos), "themes": themes,
-           "top_titles": [{"title": v["title"], "views": v["views"]} for v in sorted(videos, key=lambda v: -v["views"])[:25]]}
+           "top_titles": [{"id": v["id"], "title": v["title"], "views": v["views"]}
+                          for v in sorted(videos, key=lambda v: -v["views"])[:25]]}
     json.dump(out, open(a.out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     for t in themes:
         print(f"{t['theme']:30s} {t['videos']:3d} videos | median {t['median_views']:>9,} | total {t['total_views']:>12,} | "

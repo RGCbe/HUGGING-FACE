@@ -14,5 +14,13 @@ The owner's idea (22 Nov 2026): a fully automated channel of Tamil office / IT l
 - **The format:** 40-60 seconds. Line 1, the moment ("காலை 6 மணி. ஒரு மெயில்…"); the story in 3-4 short lines; the lesson in
   one line; a question for the comments. Office words stay English (mail, manager, appraisal, layoff, skill).
 
+**How a story is made (the owner's rule, 22 Nov 2026):** "we only analyse their videos, take what is important and the
+main things, and from that create our own story". Each run: `trends.py` picks the hottest theme and its top videos; the
+spoken text of the top 3-5 is read (the video-transcript connector; YouTube refuses direct downloads from the cloud
+machine); the run writes down the main POINTS viewers care about (never sentences, never anyone's personal story, never
+their course or sponsor pitches); then writes a NEW story with invented characters that carries one of those points as
+its lesson. First analysis (layoffs / freshers): loyal seniors quietly sidelined; "company is not family"; companies ask
+"what can you do?" not "what degree?"; "AI" often an excuse for lost projects; people over 35 accepting pay cuts.
+
 Status (22 Nov 2026): the trend finder works; sample 1 ("காலை 6 மணி layoff mail", 43 s) made end to end and passes the
 clarity check. Next: the owner watches it; creates the channel; then the daily scheduled run.
