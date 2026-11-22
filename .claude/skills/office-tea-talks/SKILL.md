@@ -46,8 +46,9 @@ https://api.elevenlabs.io/v1/user/subscription): under 3,000 characters left, st
 2. `videos/office/points.json` is the points bank: what the top Tamil office videos are saying, in our own words, each
    with its theme. (It is refreshed every week in the owner's main session, where the video-transcript tool works; a
    scheduled run cannot read transcripts.)
-3. Choose the highest-ranked theme that was not told in the last 3 days (next.py "recent") and has a point not yet used
-   (next.py "used_points"). If the `videos_transcript` tool happens to be available in this run, you may read the top
+3. If `videos/office/config.json` "queue" has a point id not yet used (next.py "used_points"), take the first such point
+   (the owner's plan). Otherwise choose the highest-ranked theme that was not told in the last 3 days (next.py "recent")
+   and has a point not yet used. If the `videos_transcript` tool happens to be available in this run, you may read the top
    2-3 videos of that theme and note a fresher point in `$WORK/points.md` (our words only); otherwise use the bank.
 4. Invent a story that carries that point as its lesson. Write the point id in `$WORK/point.txt` (it goes in the
    description, so next.py knows it is used). All points used: invent a fresh angle on the hottest theme from its

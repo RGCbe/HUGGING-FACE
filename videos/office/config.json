@@ -27,5 +27,14 @@
   "tamil shorts",
   "office comedy tamil"
  ],
- "playlist_id": "PLPWFuIoAlFcs"
+ "playlist_id": "PLPWFuIoAlFcs",
+ "queue": [
+  "p006",
+  "p014",
+  "p011",
+  "p017",
+  "p004",
+  "p018"
+ ],
+ "queue_note": "The owner's first-week plan (22 Nov 2026): one worry a day - freshers (24 Nov), credit-stealing (25), appraisal budget (26), the 'quick call' (27), quiet-exit signs (28), Diwali on a US calendar (29). A run takes the first point here not yet used; when all are used it picks by trends.py and points.json."
 }
