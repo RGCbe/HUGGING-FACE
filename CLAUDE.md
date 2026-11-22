@@ -30,4 +30,6 @@ Report what was verified in the code apart from what was not run.
 - Never print a key's value.
 
 **Our own libraries**: when a pinned version gets a known vulnerability, say so, and update it after testing.
-- Example: the picture Space `videos/manga/spaces/flux2` runs Gradio 5.50.0, which has 14 known issues.
+- Example: the picture Space `videos/manga/spaces/flux2` moved from Gradio 5.50.0, which had 14 known issues, to 6.32.0 with Pillow 13.0.0 on 22 Nov 2026.
+  - Both versions had no known issues then.
+  - Tested with one plain picture and one made from a reference picture.

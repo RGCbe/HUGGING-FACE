@@ -60,10 +60,20 @@ https://api.elevenlabs.io/v1/user/subscription): under 3,000 characters left, st
 manager, appraisal, layoff, skill, meeting). Every line starts with an emotion tag (`[serious]`, `[sad]`, `[warm]`,
 `[curious]`, `[funny]`, `[excited]`, `[shocked]`). The shape (videos/SCRIPT_STYLE.md, "Shorts that travel"):
 
-1. The moment, with a concrete detail ("காலை ஆறு மணி. கார்த்திக் போனைப் பார்க்கிறான்…").
-2-4. What happened, short sentences, one small surprise or a little humour.
+1. **The shock and an open question, all in line 1**, because viewers decide to swipe in the first two seconds. Start on
+   the shock itself, with a concrete detail and what it costs, then ask the question that the rest of the video answers.
+   Example: "காலை ஆறு மணிக்கு ஒரு மெயில்: இன்று முதல் உங்கள் access நிறுத்தப்படுகிறது. ஏழு வருஷ வேலை, ஒரே மெயில்ல
+   போச்சு. ஆனா கார்த்திக் பயப்படல. ஏன்?" Don't warm up first ("காலை ஆறு மணி. கார்த்திக் போனைப் பார்க்கிறான்." held the shock
+   back to second five, and scored WEAK).
+2-4. What happened, short sentences, one small surprise or a little humour. The answer to line 1's question comes as the
+   turn ("ஏன்னா, …").
 5. The lesson in one line ("பாடம் இதுதான்…").
 6. A question for the comments ("உங்க ஆபீஸ்ல இப்படி நடந்திருக்கா? கமெண்ட்ல சொல்லுங்க.").
+
+**Check the hook before voicing.** Write line 1 in plain English and score it:
+`python3 -I .claude/skills/yt-script/hookscore.py --hook "..."`. It must be 60 or more. The scorer reads English only,
+so treat the score as a warning, not proof. Then read the script once for logic: every callback must agree with what was
+already said. Example: someone who already had savings can't "open a savings account" as if for the first time.
 
 **A little funny (the owner's wish):** two or three light, relatable office jokes per story, Tea Break style: the office
 coffee machine, the canteen, the "quick 5-minute call", the WhatsApp group, the manager's "we are a family", the laptop
@@ -92,9 +102,15 @@ gender, job). Look at every picture (a contact sheet, opened with Read); redo an
 different-looking main character, or anything that does not match its line.
 
 **The host (the owner's wish, 22 Nov 2026: "use my photo also"):** copy `videos/office/host/*.png` into `$WORK/pics/` and
-use them as in the example's `shots.json`: `host_hello` as a short first shot (weight about 0.7) before the story's
-first picture, `host_laugh` right after the funniest line (or `host_think` before the twist), and `host_comment` for
-the last line, the comments question. He is the host who tells the story, never a character in it
+use them as in the example's `shots.json`:
+
+- **First shot:** always the story's most shocking picture (the example opens on the locked laptop), never the host. A
+  hello wave in the first second reads as a greeting, and viewers swipe.
+- **`host_think`:** on line 1's question, weight about 0.7.
+- **`host_laugh`:** right after the funniest line.
+- **`host_comment`:** the last line, the comments question.
+
+Don't use `host_hello` in the opening. He is the host who tells the story, never a character in it
 (videos/office/host/README.md).
 
 ## 7. The video and the clarity check
