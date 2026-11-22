@@ -14,11 +14,6 @@
    "seed": 12
   },
   {
-   "name": "p03",
-   "prompt": "Karthik, a 30-year-old South Indian man with short black hair, a neat moustache, a light blue formal shirt and a blank ID card on a lanyard, working late at night alone at a desk in an empty dark office, city lights through the window, tired eyes",
-   "seed": 13
-  },
-  {
    "name": "p04",
    "prompt": "Karthik, a 30-year-old South Indian man with short black hair, a neat moustache, a light blue formal shirt and a blank ID card on a lanyard, on a weekend at home on a laptop on the sofa while his small daughter tugs at his sleeve wanting to play",
    "seed": 14
@@ -49,19 +44,19 @@
    "seed": 19
   },
   {
-   "name": "p10",
-   "prompt": "A cup of tea steaming on an office desk next to a phone showing many speech bubbles icons (no words), cosy warm light",
-   "seed": 20
+   "name": "p13",
+   "seed": 23,
+   "prompt": "A smiling office manager with glasses and a tie cutting a big birthday cake for his team in an office meeting room, holding out a colourful sweet box with his other hand, the team clapping politely, funny"
   },
   {
-   "name": "p11",
-   "seed": 21,
-   "prompt": "Karthik, a 30-year-old South Indian man with short black hair, a neat moustache, a light blue formal shirt and a blank ID card on a lanyard, in an office pantry, happily hugging a big office coffee machine like an old friend, the coffee machine has a cute smiling face, a colleague in the background looks puzzled, funny"
+   "name": "p14",
+   "seed": 24,
+   "prompt": "Karthik, a 30-year-old South Indian man with short black hair, a neat moustache, a light blue formal shirt and a blank ID card on a lanyard, on his first day in a bright new office, a new smiling manager beside him opens his arms wide in a big family hug gesture, Karthik smiles knowingly while tapping his phone, which shows a big green upward arrow icon, funny"
   },
   {
-   "name": "p12",
-   "seed": 22,
-   "prompt": "Karthik, a 30-year-old South Indian man with short black hair, a neat moustache, a light blue formal shirt and a blank ID card on a lanyard, on his first day at a new office, proudly holding up a small bank passbook in one hand while the office coffee machine beside him has a sad face, he winks, funny"
+   "name": "p15",
+   "seed": 25,
+   "prompt": "Karthik, a 30-year-old South Indian man with short black hair, a neat moustache, a light blue formal shirt and a blank ID card on a lanyard, standing at the front door of his own small house at dawn, swiping his office ID card on a card reader fixed to the door that glows red, his wife inside the doorway looks at him puzzled, funny"
   }
  ]
 }

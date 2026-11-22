@@ -65,21 +65,35 @@ manager, appraisal, layoff, skill, meeting). Every line starts with an emotion t
    Example: "காலை ஆறு மணிக்கு ஒரு மெயில்: இன்று முதல் உங்கள் access நிறுத்தப்படுகிறது. ஏழு வருஷ வேலை, ஒரே மெயில்ல
    போச்சு. ஆனா கார்த்திக் பயப்படல. ஏன்?" Don't warm up first ("காலை ஆறு மணி. கார்த்திக் போனைப் பார்க்கிறான்." held the shock
    back to second five, and scored WEAK).
-2-4. What happened, short sentences, one small surprise or a little humour. The answer to line 1's question comes as the
-   turn ("ஏன்னா, …").
-5. The lesson in one line ("பாடம் இதுதான்…").
-6. A question for the comments ("உங்க ஆபீஸ்ல இப்படி நடந்திருக்கா? கமெண்ட்ல சொல்லுங்க.").
+2-4. What happened, in short sentences, built on one running joke (below). The answer to line 1's question comes as
+   the turn ("ஏன்னா, …").
+5. The lesson as one short line someone could quote, in two halves, not a lecture. The example: "வேலை கம்பெனியோடது.
+   ஆனா ஸ்கில்லும், சேமிப்பும், உங்களோடது." Don't open it with "பாடம் இதுதான்".
+6. A question about the viewer's own office, with a one-word reply to type. The example: "…சொல்லியிருந்தா, கமெண்ட்ல
+   ஃபேமிலின்னு ஒரு வார்த்தை போடுங்க." Or let viewers sort themselves into one of three kinds.
 
 **Check the hook before voicing.** Write line 1 in plain English and score it:
 `python3 -I .claude/skills/yt-script/hookscore.py --hook "..."`. It must be 60 or more. The scorer reads English only,
 so treat the score as a warning, not proof. Then read the script once for logic: every callback must agree with what was
 already said. Example: someone who already had savings can't "open a savings account" as if for the first time.
 
-**A little funny (the owner's wish):** two or three light, relatable office jokes per story, Tea Break style: the office
-coffee machine, the canteen, the "quick 5-minute call", the WhatsApp group, the manager's "we are a family", the laptop
-that sees you more than your family does. Laugh at office absurdities, never at someone's pain, never at a real person
-or company; the lesson line stays sincere. One or two pictures carry a visual joke (the example's smiling coffee machine
-that is sad when he leaves). Tag those lines `[funny]`.
+**Funny the way Tamil office videos are funny (the owner's wish; studied 22 Nov 2026 in videos/SCRIPT_STYLE.md, "Office
+humour that lands"):**
+
+- **One running joke, not scattered gags.** Pick one office phrase or word everyone knows and keep coming back to it.
+  - The 4.9-million-view sketch did this with "சொம்பு". The example does it with the manager's "நாம ஒரு ஃபேமிலி".
+  - Use it at least three times: the setup, a twist, and a callback at the end, where the new manager says it on day one.
+- **Use at least two of these:**
+  - **A list of three that escalates.** "பர்த்டேக்கு கேக், தீபாவளிக்கு ஸ்வீட் பாக்ஸ், சண்டே கூட மீட்டிங் கால்."
+  - **Take the office phrase literally.** "Access stopped" read as "you can't come into the house": "எந்த ஃபேமிலியில…
+    இனிமே நீ வீட்டுக்குள்ள வரக்கூடாதுன்னு மெயில் அனுப்புவாங்க?"
+  - **The same line in a rhythm three or four times, then a flip.**
+  - **A real price or brand.** For example ₹20,000, a food app, or a famous song.
+- **Picture jokes.** Each funny line gets a picture that shows the joke. In the example, Karthik swipes his office ID at
+  his own front door and it glows red.
+- **What not to laugh at.** Laugh at office absurdities. Never laugh at someone's pain, a real person or a real company.
+  The lesson line stays sincere.
+- **Tags.** Tag the funny lines `[funny]`.
 
 Numbers as Tamil words in the script, their digits in `shots.json` `caption_replace.ta`. No "..." (the voice stops).
 

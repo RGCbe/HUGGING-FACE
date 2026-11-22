@@ -160,6 +160,37 @@ and its losers don't:
 10. **Tags are the place and the thing people search:** "uthirakosamangai temple", "emerald nataraja", "first shiva
     temple".
 
+## Office humour that lands: what Tamil office videos do (studied 22 Nov 2026)
+
+We read the scripts of 17 popular Tamil office videos from the last year: sketches, stand-up, narrated stories and micro-dramas. We also took their public numbers through the YouTube API (videos/office/audience.py). Likes per 1,000 views shows how much people enjoyed a video. Comments per 1,000 views shows how much it made them reply. Comment text could not be read: that needs a YouTube API key, which we don't have.
+
+| Kind | Example (views) | Likes / 1k | Comments / 1k |
+|---|---|---|---|
+| Sketch built on one slang word | Mallesh Kannan, "நீயும் ஒரு சொம்புடா" (4.9 M) | 54.9 | 0.33 |
+| Sketch with Chennai slang and a rhyme | Mallesh Kannan, "IT Pullingo" (1.8 M) | 62.6 | 0.22 |
+| Literal-answer wordplay | "Office time … twist comedy" (1.8 M) | 43.3 | 0.15 |
+| Repeated line, then a flip | Roll the Script, "Editor Pressure 2" (1.9 M) | 35.8 | 0.09 |
+| Narrated story with clever, real know-how | Parithi, "தீர்வு" (0.8 M) | 38.1 | 0.47 |
+| Story where viewers sort themselves | APPLEBOX, "நீங்க புத்திசாலியா?" (0.5 M) | 27.9 | 0.45 |
+| Title asks about the viewer's office | Tech SuperStar, "உங்க Office'ல என்ன Game…" (2.3 M) | 59.2 | 2.80 |
+| Undercover-owner micro-drama | "Office-ல அவனை அசிங்கப்படுத்தினாங்க… OWNER" (0.5 M) | 8.5 | 0.02 |
+| "Fired, then promoted" story | Nenjil Unarvu, "Boss ஏன் அவரை…" (0.4 M) | 18.4 | 0.13 |
+
+What the liked ones do with words:
+
+1. **One local word or office phrase is the engine.** "சொம்பு" (sucking up) comes back more than ten times and ends as a new name: "இனிமேல் என் பேரு பாலா இல்ல, சொம்பு பாலா". The hearer waits for it each time.
+2. **A list that escalates to the absurd.** The list of who must suck up to whom goes rich man, god, politician, husband, influencer, then countries. Three to six items, with the last one the most absurd.
+3. **Taking an everyday question literally**, the classic Tamil comedy pair. "எப்படி போகுது?" gets "லிட்டருக்கு 20 கொடுக்குது", and "வீட்ல எப்படி?" gets "ஒரு ரூம், ஒரு ஹால், ஒரு பாத்ரூம்". A pun lands in the same way: "கால்நடையா போறீங்களே" means both "on foot" and "cattle". The question comes back three times and the asker gets angrier each time.
+4. **The same line in a rhythm, then a flip.** The manager asks "முடிச்சியா? பண்ணியா? செஞ்சியா?" while the editor answers "அப்பதான … சொன்னீங்க" four times. Then the flip: "நான் முதல்ல எந்த வேலையும் செய்யல".
+5. **Callbacks and revenge.** A small detail planted early pays off at the end: the manager's height, 5.5, returns as "அரசம்பளமா? உங்க ஹைட் பை…".
+6. **A fake-sad flip.** A long sad speech about the family suddenly turns honest and selfish: "எனக்காக அடிச்சேன்டா".
+7. **Real prices and brands.** Meesho, Ajio and Zomato; an Anirudh song; ₹2 lakh against ₹20,000; 840 students; 10 pm.
+8. **The lesson as a quotable two-half line or a rhyme, not a lecture.** "நான் பேசல சார், மெயில் பேசுது." "தப்பு பண்றது ஒரு விஷயம். மத்தவங்கள மிதிக்கிறது வேற விஷயம்." A gana rhyme: "அங்க பாரு காரு. காருக்குள்ள யாரு?" Turned back on the viewer: "கண்ணாடிய பாரு".
+9. **Stories that teach something real** get liked more than plain twists. A tea seller frees a stuck iron box with hot water, the way stuck tumblers are freed at a tea stall, and it ends with an அறநெறிச்சாரம் verse: 38 likes per 1,000. The undercover-owner and framed-guard twists get millions of views but 8 to 26 likes per 1,000. People watch those to the end but don't love them.
+10. **Make it easy to comment.** The most-commented video asks about the viewer's own office in its title. Another story asks viewers to place themselves among three kinds of people. A one-word reply works too ("கமெண்ட்ல சூப்பர்னு கமெண்ட் பண்ணுங்க").
+
+What does not work: a scattered set of unrelated jokes, a lesson that starts "பாடம் இதுதான்", a hello in the first second, or a story everyone can guess.
+
 ## Check before voicing
 
 - Contractions everywhere they would be said.
