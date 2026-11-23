@@ -167,10 +167,15 @@ def read_entry(api, repo, yid):
         return None
 
 
+def entry_id(e):
+    """The entry's name: its YouTube id, or "id" for a video that is not on YouTube (youtube_id null)."""
+    return e.get("youtube_id") or e["id"]
+
+
 def write_entry(api, repo, e, msg):
     e["updated_at"] = iso(now())
     api.upload_file(path_or_fileobj=json.dumps(e, indent=1, ensure_ascii=False).encode(),
-                    path_in_repo=f"entries/{e['youtube_id']}.json", repo_id=repo, repo_type="dataset",
+                    path_in_repo=f"entries/{entry_id(e)}.json", repo_id=repo, repo_type="dataset",
                     commit_message=msg)
 
 
@@ -238,6 +243,8 @@ def clean_text(title, description):
 
 
 def fb_caption(e):
+    if e.get("fb_caption"):  # set for a video that is not on YouTube
+        return e["fb_caption"]
     title, body = clean_text(e["title"], e["description"])
     link = f"https://youtu.be/{e['youtube_id']}"
     parts = [title, body] if body else [title]
@@ -249,7 +256,10 @@ def fb_caption(e):
 
 def ig_caption(e):
     import re
-    title, body = clean_text(e["title"], e["description"])
+    if e.get("ig_caption"):  # set for a video that is not on YouTube
+        title, body = e["ig_caption"], ""
+    else:
+        title, body = clean_text(e["title"], e["description"])
     body = re.sub(r"\S*(https?://|youtu\.be/|www\.)\S*", "", body)
     body = "\n".join(l.rstrip() for l in body.splitlines()).strip()
     text = "\n\n".join(p for p in (title, body) if p)
@@ -479,6 +489,8 @@ def cmd_queue(a):
 
 def refresh_from_youtube(e):
     yc = CFG["youtube"]
+    if not e.get("youtube_id"):
+        return False
     if not all(os.environ.get(yc[k]) for k in ("refresh_token_env", "client_id_env", "client_secret_env")):
         return False
     try:
@@ -497,14 +509,14 @@ def cmd_run(a):
     ensure_private(api, repo)
     ptok = None
     failed = 0
-    entries = [e for e in list_entries(api, repo) if e and (not a.only or e["youtube_id"] in a.only)]
+    entries = [e for e in list_entries(api, repo) if e and (not a.only or entry_id(e) in a.only)]
     for e in entries:
-        yid = e["youtube_id"]
+        yid = entry_id(e)
         fb, ig = e.get("facebook", {}), e.get("instagram", {})
         if fb.get("status") in ("published", "scheduled") and ig.get("status") == "published":
             continue
         refresh_from_youtube(e)
-        pub = yt_publish_state(e)
+        pub = yt_publish_state(e) if e.get("youtube_id") else parse_time(e.get("publish_at"))
         print(f"\n{yid} ({e['kind']}, {e.get('language')}): {e['title']}")
         if pub is None:
             print(f"  not set to go public on YouTube ({e.get('privacy')}): waiting")
@@ -599,7 +611,7 @@ def cmd_status(_):
         if not e:
             continue
         fb, ig = e.get("facebook", {}), e.get("instagram", {})
-        print(f"{e['youtube_id']} {e['kind']:5} {e.get('language', ''):3} public {e.get('publish_at')} | "
+        print(f"{entry_id(e)} {e['kind']:5} {e.get('language', ''):3} public {e.get('publish_at')} | "
               f"FB {fb.get('status')} {fb.get('permalink') or fb.get('video_id') or ''} | "
               f"IG {ig.get('status')} {ig.get('permalink') or ig.get('media_id') or ''} | {e['title'][:50]}")
 
