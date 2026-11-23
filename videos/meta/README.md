@@ -28,6 +28,12 @@ python3 videos/meta/meta.py run --dry-run      # what would be posted now
 python3 videos/meta/meta.py run                # post (what a scheduled task runs)
 ```
 
+**Videos that are not on YouTube** (23 Nov 2026: remakes of old Shorts whose files were not kept, made fresh for
+Facebook and Instagram only): `meta.py queue-file FILE.mp4 --id remake-SLUG-LANG --title T --description D
+--publish-at 2026-11-24T18:00:00+05:30 --lang ta|en [--kind short]` stores the same kind of entry, with the
+title, description and time from the arguments instead of YouTube. `run` posts it like the others (Facebook
+scheduled for its time, Instagram on the first run after it); its captions have no youtu.be link.
+
 Captions: the YouTube title without `#shorts`, a blank line, and the description without its `Theme:`, `Point:`
 and `OLD COPY` lines. Facebook keeps the YouTube link `https://youtu.be/ID` at the end. Instagram has no link, at
 most 2,200 characters and 30 hashtags.

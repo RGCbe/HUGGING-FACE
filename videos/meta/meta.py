@@ -3,7 +3,9 @@
     python3 videos/meta/meta.py check
     python3 videos/meta/meta.py queue YOUTUBE_ID FILE.mp4 [--kind short|long] [--token-env NAME]
                                       [--client-id-env NAME] [--client-secret-env NAME]
-    python3 videos/meta/meta.py run [--dry-run] [--only YOUTUBE_ID]
+    python3 videos/meta/meta.py queue-file FILE.mp4 --id ENTRY_ID --title T --description D
+                                      --publish-at ISO --lang ta|en [--kind short|long]
+    python3 videos/meta/meta.py run [--dry-run] [--only ID]
     python3 videos/meta/meta.py status
 
 check   read-only: the token's user, the Page, the Instagram link, Instagram's publishing quota and
@@ -17,6 +19,11 @@ run     posts every queued video that is not done yet:
         Instagram  a Reel, only once the YouTube publish time has passed (Instagram cannot schedule).
         Each platform is marked done in the entry, with its id, so nothing is posted twice; a
         failure is recorded and retried on the next run.
+queue-file  the same for a video that is NOT on YouTube (e.g. a remake made only for Facebook and
+        Instagram): the title, description, language and publish time come from the arguments, the
+        entry id from --id (lower-case letters, digits and hyphens, at least 12 characters, e.g.
+        "remake-emu-war-ta"). The entry has youtube_id null and its own fb_caption and ig_caption
+        (title, a blank line, the description; no YouTube link), and run posts it at publish_at.
 status  prints the queue.
 
 Keys (environment only, never printed, logged or stored):
@@ -30,6 +37,7 @@ import argparse
 import datetime as dt
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -487,6 +495,54 @@ def cmd_queue(a):
           f"{info['privacy']}, public at {info['publish_at']}): {info['title']}")
 
 
+ENTRY_ID = re.compile(r"^[a-z0-9][a-z0-9-]{11,80}$")
+
+
+def cmd_queue_file(a):
+    """Queue a video that is not on YouTube: what YouTube would give comes from the arguments."""
+    if not os.path.isfile(a.file):
+        sys.exit(f"no such file: {a.file}")
+    if not ENTRY_ID.match(a.id):
+        sys.exit("--id: lower-case letters, digits and hyphens, 12 to 81 characters (e.g. remake-emu-war-ta)")
+    try:
+        pub = dt.datetime.fromisoformat(a.publish_at.replace("Z", "+00:00"))
+    except ValueError:
+        sys.exit(f"--publish-at is not an ISO time: {a.publish_at}")
+    if pub.tzinfo is None:
+        sys.exit("--publish-at needs a time zone, e.g. 2026-11-24T18:00:00+05:30")
+    pub = pub.astimezone(dt.timezone.utc)
+    if pub < now():
+        print("  note: the publish time has passed: Facebook posts it now and Instagram on the next run")
+    p = probe(a.file)
+    kind = a.kind or ("short" if p["height"] > p["width"] and p["duration"] <= CFG["short_max_seconds"] else "long")
+    if p["duration"] > 900:
+        print("  note: longer than 15 minutes: Instagram will refuse it as a Reel")
+    api, repo = hf()
+    ensure_private(api, repo, create=True)
+    old = read_entry(api, repo, a.id) or {}
+    if old.get("youtube_id"):
+        sys.exit(f"refusing: entry {a.id} is a YouTube entry")
+    title = " ".join(w for w in a.title.split() if w.lower() != "#shorts").strip()
+    caption = f"{title}\n\n{a.description.strip()}" if a.description.strip() else title
+    if len(caption) > CFG["ig_caption_max"]:
+        sys.exit(f"caption is {len(caption)} characters; Instagram allows {CFG['ig_caption_max']}")
+    e = {"id": a.id, "youtube_id": None, "url": None, "kind": kind, "video": f"videos/{a.id}.mp4",
+         "title": title, "description": a.description, "language": a.lang, "privacy": "scheduled",
+         "publish_at": iso(pub), "channel": CFG["page_name"], "fb_caption": caption, "ig_caption": caption, **p,
+         "queued_at": old.get("queued_at", iso(now())),
+         "facebook": old.get("facebook", {"status": "pending"}),
+         "instagram": old.get("instagram", {"status": "pending"})}
+    if old.get("video") == e["video"] and old.get("size") == os.path.getsize(a.file):
+        print("  video already stored")
+    else:
+        api.upload_file(path_or_fileobj=a.file, path_in_repo=e["video"], repo_id=repo, repo_type="dataset",
+                        commit_message=f"video for {a.id}")
+    e["size"] = os.path.getsize(a.file)
+    write_entry(api, repo, e, f"queue {a.id}")
+    print(f"queued {a.id} ({kind}, {p['width']}x{p['height']}, {p['duration']:.0f} s, {a.lang}, "
+          f"publish at {iso(pub)}): {title}")
+
+
 def refresh_from_youtube(e):
     yc = CFG["youtube"]
     if not e.get("youtube_id"):
@@ -627,12 +683,21 @@ def main():
     q.add_argument("--token-env")
     q.add_argument("--client-id-env")
     q.add_argument("--client-secret-env")
+    f = sub.add_parser("queue-file")
+    f.add_argument("file")
+    f.add_argument("--id", required=True)
+    f.add_argument("--title", required=True)
+    f.add_argument("--description", required=True)
+    f.add_argument("--publish-at", required=True)
+    f.add_argument("--lang", required=True, choices=["ta", "en"])
+    f.add_argument("--kind", choices=["short", "long"])
     r = sub.add_parser("run")
     r.add_argument("--dry-run", action="store_true")
     r.add_argument("--only", nargs="*")
     sub.add_parser("status")
     a = p.parse_args()
-    {"check": cmd_check, "queue": cmd_queue, "run": cmd_run, "status": cmd_status}[a.cmd](a)
+    {"check": cmd_check, "queue": cmd_queue, "queue-file": cmd_queue_file, "run": cmd_run,
+     "status": cmd_status}[a.cmd](a)
 
 
 if __name__ == "__main__":
