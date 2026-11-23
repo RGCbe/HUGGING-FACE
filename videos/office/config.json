@@ -6,7 +6,10 @@
   "client_secret_env": "YT_CLIENT_SECRET",
   "note": "The owner's choice (22 Nov 2026): the office stories go on the Tea Break channel, in their own playlist, a little funny.",
   "facebook_page": "https://www.facebook.com/profile.php?id=61596627190720",
-  "facebook_page_id": "61596627190720"
+  "facebook_page_id": "61596627190720",
+  "facebook_page_api_id": "1454609281069084",
+  "meta_app_id": "1476202361138315",
+  "meta_token_env": "META_PAGE_TOKEN"
  },
  "timezone": "Asia/Kolkata",
  "publish_time": "08:30",
