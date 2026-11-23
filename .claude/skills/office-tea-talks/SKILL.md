@@ -13,7 +13,7 @@ and a NEW, slightly funny story of ours that carries one of those points as its 
 (the owner, 22 Nov 2026: "We use both English and Tamil also"): two Shorts from one story, one set of pictures, Tamil
 at config.json "publish_time" and English at "publish_time_en" the same day. The worked example is
 `videos/office/example/`: read its `script_ta.txt`, `script_en.txt`, `shots.json` and `images.json` first. The English
-Short made from it: "Fired by Email at 6 AM. Why Wasn't He Scared?", 55 s, https://youtu.be/UkbznmtHYdA.
+Short made from it: "Fired by Email at 6 AM. Why Wasn't He Scared?", 55 s, https://youtu.be/t1B3j_aoA6s (with the 3D moves and the talking host).
 
 **Do not commit or push. Never print a key.** Work in `$WORK=$HOME/office/SLUG/`, outside the repository.
 
@@ -32,8 +32,14 @@ Short made from it: "Fired by Email at 6 AM. Why Wasn't He Scared?", 55 s, https
 for v in YT_CLIENT_ID YT_CLIENT_SECRET YT_REFRESH_TOKEN_ADULT ELEVENLABS_API_KEY HF_TOKEN; do
   [ -n "${!v:-}" ] || echo "missing $v"; done
 sudo apt-get install -y -q ffmpeg fluidsynth fluid-soundfont-gm >/dev/null 2>&1 || apt-get install -y -q ffmpeg fluidsynth fluid-soundfont-gm
-pip install -q numpy soundfile pillow -r videos/kural/requirements-whisper.txt
+pip install -q numpy soundfile pillow -r videos/kural/requirements-whisper.txt -r videos/doodle/requirements-motion.txt
 ```
+
+The pictures move in 3D, and the host talks: `lore_video.py` does this by default when the motion libraries are
+installed (`videos/doodle/requirements-motion.txt`, line above; the owner's "ok", 23 Nov 2026). Copy the host's
+`*.open.png` and `*.closed.png` pictures too (`cp videos/office/host/*.png`), so his mouth opens and closes with the
+voice on `host_think` and `host_comment`. If the libraries are missing, the video falls back to plain zooms: say so in
+the report.
 
 A missing variable: stop and report it in one line. Check the ElevenLabs balance (GET
 https://api.elevenlabs.io/v1/user/subscription): under 3,000 characters left, stop and report.

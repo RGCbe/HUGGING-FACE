@@ -31,8 +31,12 @@ uploaded private and scheduled (English 5:30 am India time for viewers abroad, T
 for v in YT_CLIENT_ID_MOVIES YT_CLIENT_SECRET_MOVIES YT_REFRESH_TOKEN_MOVIES ELEVENLABS_API_KEY HF_TOKEN CF_ACCOUNT_ID CF_API_TOKEN; do
   [ -n "${!v:-}" ] || echo "missing $v"; done
 sudo apt-get install -y -q ffmpeg fluidsynth fluid-soundfont-gm >/dev/null 2>&1 || apt-get install -y -q ffmpeg fluidsynth fluid-soundfont-gm
-pip install -q numpy soundfile pillow -r videos/kural/requirements-whisper.txt
+pip install -q numpy soundfile pillow -r videos/kural/requirements-whisper.txt -r videos/doodle/requirements-motion.txt
 ```
+
+The pictures move in 3D (`videos/doodle/depthmove.py`, the owner's "ok", 23 Nov 2026): `lore_video.py` does this by
+default when the libraries in `videos/doodle/requirements-motion.txt` are installed (line above). Otherwise it falls
+back to plain zooms: say so in the report.
 
 A missing variable: stop and report it in one line (Manoj adds it in the environment settings).
 
