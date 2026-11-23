@@ -268,7 +268,7 @@ def step_upload(d):
             "\nEnglish version on the channel.")
     out = os.path.abspath(os.path.join(d, "out"))
     long_list = cfg.get("playlists", {}).get("tamil", {}).get("id")
-    spec = {"defaults": {"privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 27,
+    spec = {"defaults": {"meta": "tea-break", "privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 27,
                          "language": "ta", "refresh_token_env": cfg["channel"]["refresh_token_env"]},
             "videos": [{"file": os.path.join(out, f"{slug}_ta.mp4"), "thumbnail": os.path.join(out, f"{slug}_ta_thumbnail.jpg"),
                         "title": meta["title"], "description": meta["description"] + note, "tags": meta["tags"],

@@ -15,10 +15,13 @@ Credentials come from environment variables, never from the repo:
                                    channel on another Google account's own client in defaults.client_id_env
                                    and defaults.client_secret_env)
 Without them (or with --dry-run) nothing is sent; it prints what it would upload.
+With "meta": "tea-break" in defaults, each uploaded video is also queued for the Tea Break Facebook Page
+and Instagram (videos/meta/meta.py queue); a queueing failure only prints a warning.
 File paths in UPLOAD_JSON may use environment variables, e.g. "$OUT_DIR/video.mp4".
 """
 import json
 import os
+import subprocess
 import sys
 import urllib.error
 import urllib.parse
@@ -137,6 +140,25 @@ def add_to_playlist(token, playlist_id, video_id):
         return False
 
 
+def queue_for_meta(video_id, path, token_env, id_env, secret_env):
+    """Queue the video for Facebook and Instagram (videos/meta/meta.py). Never fails the YouTube upload."""
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "meta", "meta.py")
+    try:
+        r = subprocess.run([sys.executable, script, "queue", video_id, path, "--token-env", token_env,
+                            "--client-id-env", id_env, "--client-secret-env", secret_env],
+                           capture_output=True, text=True, timeout=1800)
+        out = (r.stdout.strip().splitlines() or [""])[-1]
+        if r.returncode == 0:
+            print(f"  queued for Facebook and Instagram: {out}")
+        else:
+            err = (r.stderr.strip().splitlines() or [out])[-1]
+            print(f"  WARNING: not queued for Facebook and Instagram ({err[:300]}). Run: "
+                  f"python3 videos/meta/meta.py queue {video_id} {path}")
+    except Exception as e:  # the YouTube upload already worked: only warn
+        print(f"  WARNING: not queued for Facebook and Instagram ({type(e).__name__}: {e}). Run: "
+              f"python3 videos/meta/meta.py queue {video_id} {path}")
+
+
 def main():
     spec_path = sys.argv[1]
     spec = json.load(open(spec_path))
@@ -176,6 +198,8 @@ def main():
                 print(f"  added to playlist {playlist}")
         results.append({"title": v["title"], "id": video["id"], "url": url, "privacy": meta["status"]["privacyStatus"],
                         "publish_at": meta["status"].get("publishAt")})
+        if defaults.get("meta") == "tea-break":
+            queue_for_meta(video["id"], path, token_env, id_env, secret_env)
     if dry:
         print("\nDry run: nothing was uploaded." + ("" if "--dry-run" in sys.argv else
               f" Set {id_env}, {secret_env} and {token_env} to upload."))

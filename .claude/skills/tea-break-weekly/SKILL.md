@@ -264,6 +264,10 @@ python3 videos/teabreak/build.py upload "$KURAL_WORK/SLUG"
 python3 videos/doodle/upload.py "$KURAL_WORK/SLUG/upload.json"
 ```
 
+build.py, tamil.py and tamil_shorts.py write `"meta": "tea-break"` in the upload defaults, so every
+video uploaded is also queued for the Tea Break Facebook Page and Instagram (`videos/meta/README.md`) and a
+scheduled `meta.py run` posts it there at its YouTube time. A queueing warning does not stop the run; report it.
+
 Everything goes up private, with YouTube's AI-content label, and goes public by itself at its
 time, so the owner can watch it in YouTube Studio first. Each video is also added to the channel's
 playlists (config.json `playlists`): the long video to "Funny True History Stories" and to its

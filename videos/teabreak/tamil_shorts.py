@@ -227,7 +227,7 @@ def step_parts_upload(d):
         done = os.path.join(t, f"upload_ta_part{k}.results.json")
         if not os.path.exists(done):
             before = "".join(f"\nபகுதி {j}: {u}" for j, u in enumerate(urls, 1))
-            spec = {"defaults": {"privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 27,
+            spec = {"defaults": {"meta": "tea-break", "privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 27,
                                  "language": "ta", "refresh_token_env": tamil.cfg["channel"]["refresh_token_env"]},
                     "videos": [{"file": os.path.join(d, "out", f"{slug}_ta_part{k}.mp4"), "title": p["yt_title"],
                                 "description": p["yt_text"] + before + f"\nமுழு வீடியோ: {long_ta}" + note,
@@ -271,7 +271,7 @@ def step_upload(d):
         done = os.path.join(t, f"upload_ta_short{k}.results.json")
         if os.path.exists(done):
             continue
-        spec = {"defaults": {"privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 27, "language": "ta",
+        spec = {"defaults": {"meta": "tea-break", "privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 27, "language": "ta",
                              "refresh_token_env": tamil.cfg["channel"]["refresh_token_env"]},
                 "videos": [{"file": os.path.join(d, "out", f"{slug}_ta_short{k}.mp4"), "title": s["yt_title"],
                             "description": s["yt_text"] + f"\nமுழு வீடியோ: {long_ta}" + note,

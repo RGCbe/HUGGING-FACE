@@ -175,7 +175,7 @@ private if missing; refuse if not private).
 ```json
 {"defaults": {"refresh_token_env": "YT_REFRESH_TOKEN_ADULT", "client_id_env": "YT_CLIENT_ID",
               "client_secret_env": "YT_CLIENT_SECRET", "made_for_kids": false, "ai_content": true,
-              "category_id": 27, "privacy": "private"},
+              "category_id": 27, "privacy": "private", "meta": "tea-break"},
  "videos": [{"file": "...out/ta/video.mp4", "language": "ta", "title": "...", "description": "...", "tags": [...],
              "publish_at": "<next.py publish_at>", "playlists": ["<config.json playlist_id>"]},
             {"file": "...out/en/video.mp4", "language": "en", "title": "...", "description": "...", "tags": [...],
@@ -215,6 +215,10 @@ private if missing; refuse if not private).
   your family"), add config.json "tags_always_en", and stop.
 
 `python3 videos/doodle/upload.py $WORK/upload.json`
+
+`"meta": "tea-break"` queues each uploaded Short for the Tea Break Facebook Page and Instagram
+(`videos/meta/README.md`): a scheduled `meta.py run` posts it there at its YouTube time. A queueing warning does
+not stop the run; report it, with the `meta.py queue` command it prints.
 
 ## 10. Report
 
