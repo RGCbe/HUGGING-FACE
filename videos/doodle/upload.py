@@ -65,6 +65,18 @@ def metadata(v, defaults):
     }
     if v.get("localizations"):  # {"es": {"title": ..., "description": ...}, ...}: shown to viewers in those languages
         meta["localizations"] = v["localizations"]
+    elif "--localize" in sys.argv or defaults.get("localize"):
+        try:
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            import localize
+            lang = d.get("language", "en")
+            print(f"  generating Indian language localizations (hi, te, ta, kn, ml, mr, bn, gu, pa)...")
+            loc = localize.build_localizations(d["title"], d.get("description", ""), default_lang=lang)
+            if loc:
+                meta["localizations"] = loc
+                print(f"  added {len(loc)} Indian language localizations")
+        except Exception as e:
+            print(f"  Warning: auto-localization failed ({e})")
     return meta
 
 
