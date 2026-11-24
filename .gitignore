@@ -2,7 +2,6 @@ __pycache__/
 *.pyc
 # Local secrets written by `elevenlabs onboard`
 /.env.local
-
 # Keys never go in this public repository (owner's rule, 22 Nov 2026: "Always check for security")
 .env
 .env.*
@@ -16,3 +15,4 @@ client_secret*.json
 # The owner's real photo stays private; only the doodle host pictures are committed
 **/face_crop.*
 **/manoj/real*
+.venv/
