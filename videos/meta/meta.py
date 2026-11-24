@@ -50,6 +50,19 @@ import uuid
 os.environ.setdefault("HF_HUB_DISABLE_TELEMETRY", "1")
 os.environ.setdefault("HF_HUB_DISABLE_PROGRESS_BARS", "1")
 HERE = os.path.dirname(os.path.abspath(__file__))
+env_candidates = [
+    os.path.join(HERE, ".env.local"),
+    os.path.join(os.path.dirname(os.path.dirname(HERE)), ".env.local")
+]
+for env_path in env_candidates:
+    if os.path.exists(env_path):
+        with open(env_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    k, v = line.split("=", 1)
+                    os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+        break
 CFG = json.load(open(os.path.join(HERE, "config.json")))
 GV = CFG["graph_version"]
 GRAPH = f"https://graph.facebook.com/{GV}"
@@ -289,7 +302,8 @@ def ig_caption(e):
 # ---------------------------------------------------------------- Facebook
 
 def fb_when(e):
-    pub = parse_time(e["publish_at"])
+    target = e.get("meta_publish_at") or e.get("publish_at")
+    pub = parse_time(target)
     if pub and pub > now() + dt.timedelta(minutes=CFG["schedule_min_minutes"]):
         return int(pub.timestamp())
     return None
@@ -485,6 +499,8 @@ def cmd_queue(a):
     yc = CFG["youtube"]
     info = youtube_video(a.youtube_id, a.token_env or yc["refresh_token_env"],
                          a.client_id_env or yc["client_id_env"], a.client_secret_env or yc["client_secret_env"])
+    if getattr(a, "publish_at", None):
+        info["publish_at"] = a.publish_at
     p = probe(a.file)
     kind = a.kind or ("short" if p["height"] > p["width"] and p["duration"] <= CFG["short_max_seconds"] else "long")
     if p["duration"] > 900:
@@ -494,6 +510,7 @@ def cmd_queue(a):
     old = read_entry(api, repo, a.youtube_id) or {}
     e = {"youtube_id": a.youtube_id, "url": f"https://youtu.be/{a.youtube_id}", "kind": kind,
          "video": f"videos/{a.youtube_id}.mp4", **info, **p,
+         "meta_publish_at": getattr(a, "publish_at", None),
          "queued_at": old.get("queued_at", iso(now())),
          "facebook": old.get("facebook", {"status": "pending"}),
          "instagram": old.get("instagram", {"status": "pending"})}
@@ -585,7 +602,7 @@ def cmd_run(a):
         if fb.get("status") in ("published", "scheduled") and ig.get("status") == "published":
             continue
         refresh_from_youtube(e)
-        pub = yt_publish_state(e) if e.get("youtube_id") else parse_time(e.get("publish_at"))
+        pub = parse_time(e["meta_publish_at"]) if e.get("meta_publish_at") else (yt_publish_state(e) if e.get("youtube_id") else parse_time(e.get("publish_at")))
         print(f"\n{yid} ({e['kind']}, {e.get('language')}): {e['title']}")
         if pub is None:
             print(f"  not set to go public on YouTube ({e.get('privacy')}): waiting")
@@ -684,6 +701,7 @@ def main():
     q.add_argument("youtube_id")
     q.add_argument("file")
     q.add_argument("--kind", choices=["short", "long"])
+    q.add_argument("--publish-at")
     q.add_argument("--token-env")
     q.add_argument("--client-id-env")
     q.add_argument("--client-secret-env")
