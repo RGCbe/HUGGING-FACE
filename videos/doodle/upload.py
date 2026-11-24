@@ -58,19 +58,19 @@ def metadata(v, defaults):
             "description": d.get("description", ""),
             "tags": d.get("tags", []),
             "categoryId": str(d.get("category_id", 27)),
-            "defaultLanguage": d.get("language", "en"),
-            "defaultAudioLanguage": d.get("language", "en"),
+            "defaultLanguage": d.get("language", "ta"),
+            "defaultAudioLanguage": d.get("language", "ta"),
         },
         "status": status,
     }
     if v.get("localizations"):  # {"es": {"title": ..., "description": ...}, ...}: shown to viewers in those languages
         meta["localizations"] = v["localizations"]
-    elif "--localize" in sys.argv or defaults.get("localize"):
+    elif "--no-localize" not in sys.argv and not d.get("no_localize"):
         try:
             sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
             import localize
-            lang = d.get("language", "en")
-            print(f"  generating Indian language localizations (hi, te, ta, kn, ml, mr, bn, gu, pa)...")
+            lang = d.get("language", "ta")
+            print(f"  generating Indian language localizations (hi, te, ta, kn, ml, mr, bn, gu, pa, en)...")
             loc = localize.build_localizations(d["title"], d.get("description", ""), default_lang=lang)
             if loc:
                 meta["localizations"] = loc
