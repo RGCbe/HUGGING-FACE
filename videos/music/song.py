@@ -5,7 +5,8 @@
     python3 song.py SONG.json check          # how clearly each take sings the lyrics (faster-whisper), ranked
     python3 song.py SONG.json voice [N]      # the best N takes (default 2): vocals re-voiced with the owner's voice
     python3 song.py SONG.json spoken         # the spoken intro and outro in the owner's ElevenLabs voice
-    python3 song.py SONG.json check-voice    # the same check on the re-voiced vocals
+    python3 song.py SONG.json voice-eleven [N]   # the same, by ElevenLabs' voice changer (the owner's clone)
+    python3 song.py SONG.json check-voice [manoj|eleven]   # the lyric check on the re-voiced vocals
     python3 song.py SONG.json mix            # the finals: re-voiced vocal + band + spoken parts, mastered
     python3 song.py SONG.json save           # everything to the private dataset Rggroups/music-work/SLUG/
 
@@ -135,10 +136,10 @@ def check(song, stem="vocals"):
     want = norm_text(song.get("check_lyrics", song["lyrics"]))
     rows = []
     for seed in song["seeds"]:
-        voc = os.path.join(d, f"take_{seed}.vocals.wav" if stem == "vocals" else f"take_{seed}.vocals.manoj.wav")
+        voc = os.path.join(d, f"take_{seed}.vocals.wav" if stem == "vocals" else f"take_{seed}.vocals.{stem}.wav")
         if not os.path.exists(voc):
             continue
-        cache = os.path.join(d, f"take_{seed}.heard.txt" if stem == "vocals" else f"take_{seed}.manoj.heard.txt")
+        cache = os.path.join(d, f"take_{seed}.heard.txt" if stem == "vocals" else f"take_{seed}.{stem}.heard.txt")
         if not os.path.exists(cache):
             segs, _ = model.transcribe(load(voc, 16000, mono=True), language=song["language"], beam_size=5,
                                        vad_filter=True, condition_on_previous_text=False)
@@ -154,7 +155,7 @@ def check(song, stem="vocals"):
         rows.append({"seed": seed, "lyrics_heard": round(matched / max(1, len(want)), 3), "peak": round(peak, 3),
                      "seconds": round(len(full) / SR, 1), "bpm": info.get("bpm"), "key": info.get("keyscale")})
     rows.sort(key=lambda r: -r["lyrics_heard"])
-    with open(os.path.join(d, "check.json" if stem == "vocals" else "check_manoj.json"), "w") as f:
+    with open(os.path.join(d, "check.json" if stem == "vocals" else f"check_{stem}.json"), "w") as f:
         json.dump(rows, f, indent=1, ensure_ascii=False)
     for r in rows:
         print(r)
@@ -194,6 +195,42 @@ def voice(song, n=2):
                          api_name="/voice")
         ffmpeg("-i", path, "-ar", str(SR), "-ac", "1", out)
         print(f"take {seed}: re-voiced")
+
+
+def voice_eleven(song, n=2):
+    """The same vocals re-voiced by ElevenLabs' voice changer with the owner's own clone ("Manoj kumar T"), which keeps
+    the words clearer than Seed-VC on crowded or rapped vocals. The vocal goes only to ElevenLabs' own API."""
+    import requests
+    sys.path.insert(0, os.path.join(HERE, "..", "kural"))
+    import eleven
+    key = eleven.api_key()
+    cfg = json.load(open(os.path.join(HERE, "..", "teabreak", "config.json")))["eleven"]
+    vid = eleven.voice_id(cfg["voice"], key)
+    d = work(song)
+    for r in json.load(open(os.path.join(d, "check.json")))[:n]:
+        seed = r["seed"]
+        out = os.path.join(d, f"take_{seed}.vocals.eleven.wav")
+        if os.path.exists(out):
+            continue
+        src = os.path.join(d, f"take_{seed}.vocals.send.mp3")
+        ffmpeg("-i", os.path.join(d, f"take_{seed}.vocals.wav"), "-ac", "1", "-b:a", "192k", src)
+        settings = {"stability": song.get("sts_stability", 0.5), "similarity_boost": song.get("sts_similarity", 0.9)}
+        for fmt, rate in (("pcm_44100", 44100), ("pcm_24000", 24000)):
+            resp = requests.post(f"{eleven.API}/speech-to-speech/{vid}?output_format={fmt}", headers={"xi-api-key": key},
+                                 files={"audio": open(src, "rb")}, timeout=600,
+                                 data={"model_id": "eleven_multilingual_sts_v2", "seed": str(song.get("sts_seed", 7)),
+                                       "voice_settings": json.dumps(settings), "remove_background_noise": "false"})
+            if resp.status_code == 200:
+                break
+            if resp.status_code not in (400, 403, 422) or fmt == "pcm_24000":
+                raise SystemExit(f"ElevenLabs voice changer: HTTP {resp.status_code} {resp.text[:300]}")
+        raw = np.frombuffer(resp.content, np.int16).astype(np.float32) / 32768
+        tmp = out + ".tmp.wav"
+        sf.write(tmp, raw, rate)
+        ffmpeg("-i", tmp, "-ar", str(SR), "-ac", "1", out)
+        os.remove(tmp)
+        os.remove(src)
+        print(f"take {seed}: re-voiced by ElevenLabs ({fmt})")
 
 
 def spoken(song):
@@ -240,7 +277,7 @@ def mix(song):
         intro, outro = (load(os.path.join(d, f"spoken_{p}.wav"), mono=True) for p in ("intro", "outro"))
     for r in rows:
         seed = r["seed"]
-        conv = os.path.join(d, f"take_{seed}.vocals.manoj.wav")
+        conv = os.path.join(d, f"take_{seed}.vocals.{song.get('voice_engine', 'manoj')}.wav")
         if not os.path.exists(conv):
             continue
         band = load(os.path.join(d, f"take_{seed}.band.wav"))
@@ -313,8 +350,10 @@ def main():
     step = sys.argv[2]
     if step == "voice":
         voice(song, int(sys.argv[3]) if len(sys.argv) > 3 else 2)
+    elif step == "voice-eleven":
+        voice_eleven(song, int(sys.argv[3]) if len(sys.argv) > 3 else 2)
     elif step == "check-voice":
-        check(song, stem="manoj")
+        check(song, stem=sys.argv[3] if len(sys.argv) > 3 else "manoj")
     elif step in ("takes", "stems", "check", "spoken", "mix", "save"):
         globals()[step](song)
     else:
