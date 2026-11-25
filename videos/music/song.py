@@ -5,6 +5,7 @@
     python3 song.py SONG.json check          # how clearly each take sings the lyrics (faster-whisper), ranked
     python3 song.py SONG.json voice [N]      # the best N takes (default 2): vocals re-voiced with the owner's voice
     python3 song.py SONG.json spoken         # the spoken intro and outro in the owner's ElevenLabs voice
+    python3 song.py SONG.json check-voice    # the same check on the re-voiced vocals
     python3 song.py SONG.json mix            # the finals: re-voiced vocal + band + spoken parts, mastered
     python3 song.py SONG.json save           # everything to the private dataset Rggroups/music-work/SLUG/
 
@@ -125,17 +126,19 @@ def norm_text(s):
     return re.sub(r"\s+", "", s)
 
 
-def check(song):
+def check(song, stem="vocals"):
+    """stem "vocals": the generated singing (ranks the takes, check.json); "manoj": the re-voiced singing
+    (check_manoj.json). Romanised lyrics are scored against the Tamil-script words in check_lyrics."""
     from faster_whisper import WhisperModel
     d = work(song)
     model = WhisperModel(song.get("check_model", "medium"), device="cpu", compute_type="int8")
-    want = norm_text(song["lyrics"])
+    want = norm_text(song.get("check_lyrics", song["lyrics"]))
     rows = []
     for seed in song["seeds"]:
-        voc = os.path.join(d, f"take_{seed}.vocals.wav")
+        voc = os.path.join(d, f"take_{seed}.vocals.wav" if stem == "vocals" else f"take_{seed}.vocals.manoj.wav")
         if not os.path.exists(voc):
             continue
-        cache = os.path.join(d, f"take_{seed}.heard.txt")
+        cache = os.path.join(d, f"take_{seed}.heard.txt" if stem == "vocals" else f"take_{seed}.manoj.heard.txt")
         if not os.path.exists(cache):
             segs, _ = model.transcribe(load(voc, 16000, mono=True), language=song["language"], beam_size=5,
                                        vad_filter=True, condition_on_previous_text=False)
@@ -151,7 +154,7 @@ def check(song):
         rows.append({"seed": seed, "lyrics_heard": round(matched / max(1, len(want)), 3), "peak": round(peak, 3),
                      "seconds": round(len(full) / SR, 1), "bpm": info.get("bpm"), "key": info.get("keyscale")})
     rows.sort(key=lambda r: -r["lyrics_heard"])
-    with open(os.path.join(d, "check.json"), "w") as f:
+    with open(os.path.join(d, "check.json" if stem == "vocals" else "check_manoj.json"), "w") as f:
         json.dump(rows, f, indent=1, ensure_ascii=False)
     for r in rows:
         print(r)
@@ -232,7 +235,9 @@ def master(src, out):
 def mix(song):
     d = work(song)
     rows = json.load(open(os.path.join(d, "check.json")))
-    intro, outro = (load(os.path.join(d, f"spoken_{p}.wav"), mono=True) for p in ("intro", "outro"))
+    spoken = song.get("spoken", True)  # samples have no spoken parts
+    if spoken:
+        intro, outro = (load(os.path.join(d, f"spoken_{p}.wav"), mono=True) for p in ("intro", "outro"))
     for r in rows:
         seed = r["seed"]
         conv = os.path.join(d, f"take_{seed}.vocals.manoj.wav")
@@ -248,22 +253,11 @@ def mix(song):
         level = np.sqrt(np.mean(orig.mean(1) ** 2)) / max(1e-6, np.sqrt(np.mean(new ** 2)))  # as loud as the original
         lead = (new * level * song.get("lead_gain", 1.0))[:, None] * np.ones(2, np.float32)
         body = band + lead + orig * song.get("orig_under", 0.25)
-        # the spoken intro first, over a muffled preview of the opening (as if outside the stadium); after
-        # "here he comes" the song bursts in at full size from its first beat
-        pre_len = len(intro) + int(SR * 0.9)
-        bed = muffled(band[:pre_len]) * 0.5
-        bed *= np.minimum(1, np.arange(pre_len) / (SR * 1.5))[:, None]  # fade in
-        pre = bed.copy()
-        pre[int(SR * 0.3): int(SR * 0.3) + len(intro)] += intro[:, None] * 0.9
-        # the spoken outro after the music ends, over a muffled, fading echo of the last bars
-        gap, tail = int(SR * 0.4), SR * 2
-        post_len = gap + len(outro) + tail
-        echo = muffled(body[-min(len(body), post_len):]) * 0.25
-        echo = np.pad(echo, ((post_len - len(echo), 0), (0, 0)))
-        echo *= np.linspace(1, 0, post_len)[:, None]
-        post = echo
-        post[gap: gap + len(outro)] += outro[:, None] * 0.9
-        total = np.concatenate([pre, body, post]).astype(np.float32)
+        if not spoken:
+            total = body.astype(np.float32)
+            pre_len = 0
+        else:
+            total, pre_len = with_spoken(body, band, intro, outro)
         pre_master = os.path.join(d, f"final_{seed}.premaster.wav")
         sf.write(pre_master, total, SR)
         out = os.path.join(d, f"final_{seed}.wav")
@@ -273,6 +267,26 @@ def mix(song):
         a = load(out)
         print(f"final {seed}: {len(a) / SR:.1f} s, peak {np.abs(a).max():.3f}, the song bursts in at "
               f"{pre_len / SR:.1f} s")
+
+
+def with_spoken(body, band, intro, outro):
+    """The spoken intro before the song and the spoken outro after it; returns (audio, where the song starts)."""
+    # the spoken intro first, over a muffled preview of the opening (as if outside the stadium); after
+    # "here he comes" the song bursts in at full size from its first beat
+    pre_len = len(intro) + int(SR * 0.9)
+    bed = muffled(band[:pre_len]) * 0.5
+    bed *= np.minimum(1, np.arange(pre_len) / (SR * 1.5))[:, None]  # fade in
+    pre = bed.copy()
+    pre[int(SR * 0.3): int(SR * 0.3) + len(intro)] += intro[:, None] * 0.9
+    # the spoken outro after the music ends, over a muffled, fading echo of the last bars
+    gap, tail = int(SR * 0.4), SR * 2
+    post_len = gap + len(outro) + tail
+    echo = muffled(body[-min(len(body), post_len):]) * 0.25
+    echo = np.pad(echo, ((post_len - len(echo), 0), (0, 0)))
+    echo *= np.linspace(1, 0, post_len)[:, None]
+    post = echo
+    post[gap: gap + len(outro)] += outro[:, None] * 0.9
+    return np.concatenate([pre, body, post]).astype(np.float32), pre_len
 
 
 def save(song):
@@ -299,6 +313,8 @@ def main():
     step = sys.argv[2]
     if step == "voice":
         voice(song, int(sys.argv[3]) if len(sys.argv) > 3 else 2)
+    elif step == "check-voice":
+        check(song, stem="manoj")
     elif step in ("takes", "stems", "check", "spoken", "mix", "save"):
         globals()[step](song)
     else:
