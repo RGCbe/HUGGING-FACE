@@ -212,15 +212,21 @@ def spoken(song):
         print(f"spoken {part}: {sf.info(out).duration:.1f} s")
 
 
-def first_voice(v, thr=0.06):
-    """Seconds until the vocal stem first stays loud for half a second (the singing starts)."""
-    e = np.sqrt(np.convolve(v ** 2, np.ones(SR // 10) / (SR // 10), mode="same"))
-    loud = e > thr * e.max()
-    run = SR // 2
-    for i in range(0, len(loud) - run, SR // 20):
-        if loud[i:i + run].mean() > 0.8:
-            return i / SR
-    return 0.0
+def muffled(x, hz=450):
+    """Low-passed, as if heard from outside the stadium."""
+    from scipy.signal import butter, sosfilt
+    return sosfilt(butter(4, hz, fs=SR, output="sos"), x, axis=0).astype(np.float32)
+
+
+def master(src, out):
+    """Two-pass loudness to -14 LUFS (YouTube's level), true peak at most -1 dB."""
+    r = subprocess.run(["ffmpeg", "-nostdin", "-hide_banner", "-i", src, "-af",
+                        "loudnorm=I=-14:TP=-1.0:LRA=11:print_format=json", "-f", "null", "-"],
+                       capture_output=True, text=True, check=True).stderr
+    m = json.loads(r[r.rindex("{"): r.rindex("}") + 1])
+    ffmpeg("-i", src, "-af", f"loudnorm=I=-14:TP=-1.0:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
+           f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true",
+           "-ar", str(SR), out)
 
 
 def mix(song):
@@ -242,34 +248,31 @@ def mix(song):
         level = np.sqrt(np.mean(orig.mean(1) ** 2)) / max(1e-6, np.sqrt(np.mean(new ** 2)))  # as loud as the original
         lead = (new * level * song.get("lead_gain", 1.0))[:, None] * np.ones(2, np.float32)
         body = band + lead + orig * song.get("orig_under", 0.25)
-        # the spoken intro over the instrumental opening, before the first sung line; the music dips under it
-        start = first_voice(orig.mean(1))
-        pre = max(0.0, len(intro) / SR + 0.8 - start)  # seconds of opening to add if the intro is longer
-        if pre > 0:
-            loop = body[: int(SR * max(1.0, min(start, 4.0)))]
-            reps = int(np.ceil(pre * SR / len(loop)))
-            body = np.concatenate([np.tile(loop, (reps, 1))[: int(pre * SR)], body])
-        duck = np.ones(len(body))
-        il = len(intro) + SR // 2
-        duck[:il] = 0.45
-        duck[il:il + SR] = np.linspace(0.45, 1, min(SR, len(duck) - il))
-        body = body * duck[:, None]
-        body[SR // 4: SR // 4 + len(intro)] += intro[:, None] * 0.9
-        # the spoken outro after the music ends, over its tail
-        tail = SR * 2
-        total = np.zeros((len(body) + len(outro) + tail, 2), np.float32)
-        total[: len(body)] = body
-        at = len(body) - SR // 2
-        total[at: at + len(outro)] += outro[:, None] * 0.9
+        # the spoken intro first, over a muffled preview of the opening (as if outside the stadium); after
+        # "here he comes" the song bursts in at full size from its first beat
+        pre_len = len(intro) + int(SR * 0.9)
+        bed = muffled(band[:pre_len]) * 0.5
+        bed *= np.minimum(1, np.arange(pre_len) / (SR * 1.5))[:, None]  # fade in
+        pre = bed.copy()
+        pre[int(SR * 0.3): int(SR * 0.3) + len(intro)] += intro[:, None] * 0.9
+        # the spoken outro after the music ends, over a muffled, fading echo of the last bars
+        gap, tail = int(SR * 0.4), SR * 2
+        post_len = gap + len(outro) + tail
+        echo = muffled(body[-min(len(body), post_len):]) * 0.25
+        echo = np.pad(echo, ((post_len - len(echo), 0), (0, 0)))
+        echo *= np.linspace(1, 0, post_len)[:, None]
+        post = echo
+        post[gap: gap + len(outro)] += outro[:, None] * 0.9
+        total = np.concatenate([pre, body, post]).astype(np.float32)
         pre_master = os.path.join(d, f"final_{seed}.premaster.wav")
         sf.write(pre_master, total, SR)
         out = os.path.join(d, f"final_{seed}.wav")
-        ffmpeg("-i", pre_master, "-af", "loudnorm=I=-14:TP=-1.0:LRA=11", "-ar", str(SR), out)
+        master(pre_master, out)
         os.remove(pre_master)
         ffmpeg("-i", out, "-c:a", "libmp3lame", "-b:a", "320k", os.path.join(d, f"final_{seed}.mp3"))
         a = load(out)
-        print(f"final {seed}: {len(a) / SR:.1f} s, peak {np.abs(a).max():.3f}, intro starts the singing at "
-              f"{start + pre:.1f} s")
+        print(f"final {seed}: {len(a) / SR:.1f} s, peak {np.abs(a).max():.3f}, the song bursts in at "
+              f"{pre_len / SR:.1f} s")
 
 
 def save(song):
