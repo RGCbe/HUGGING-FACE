@@ -7,7 +7,8 @@ What goes in (read 25 Nov 2026; see the safety notes at the top of space/app.py)
 - space/ from this repo: app.py, requirements.txt, README.md, and the dac/ stub.
 - ACE-Step 1.5 code (MIT): the acestep/ package of the official Space ACE-Step/Ace-Step-v1.5 at a pinned revision,
   without its UI, training, API-server and nano-vllm files (we run the plain PyTorch path).
-- Seed-VC code (GPL-3.0): modules/ of github.com/Plachtaa/seed-vc at a pinned commit (git checks the content).
+- Seed-VC code (GPL-3.0): modules/ and the fine-tuning code (train.py, optimizers.py, hf_utils.py,
+  data/ft_dataset.py) of github.com/Plachtaa/seed-vc at a pinned commit (git checks the content).
 The Space is refused if it exists and is not private. Uses HF_TOKEN (the owner's own Space only).
 """
 import os
@@ -63,6 +64,10 @@ def assemble(d):
         raise SystemExit(f"Seed-VC commit mismatch: {got}")
     os.makedirs(os.path.join(d, "seedvc"))
     shutil.move(os.path.join(sv, "modules"), os.path.join(d, "seedvc", "modules"))
+    for f in ("train.py", "optimizers.py", "hf_utils.py"):  # the fine-tuning code (read 26 Nov 2026), for /learn
+        shutil.move(os.path.join(sv, f), os.path.join(d, "seedvc", f))
+    os.makedirs(os.path.join(d, "seedvc", "data"))
+    shutil.move(os.path.join(sv, "data", "ft_dataset.py"), os.path.join(d, "seedvc", "data", "ft_dataset.py"))
     shutil.move(os.path.join(sv, "LICENSE"), os.path.join(d, "LICENSE-Seed-VC"))
     shutil.rmtree(sv)
     shutil.copytree(os.path.join(HERE, "space", "dac"), os.path.join(d, "seedvc", "dac"))

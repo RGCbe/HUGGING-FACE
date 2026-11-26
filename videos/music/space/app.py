@@ -5,7 +5,8 @@ Two API endpoints, called from videos/music/song.py with the owner's HF_TOKEN (G
     /song   ACE-Step 1.5: a full song (music + sung vocals) from a style caption and lyrics.
             The XL turbo DiT (4B) composes the audio; the 4B "5Hz" language model plans it first.
     /voice  Seed-VC (singing model, 44.1 kHz, pitch-aware): a sung vocal re-voiced with the timbre of a short
-            reference recording, keeping the melody.
+            reference recording, keeping the melody; optionally with a voice model learned by /learn.
+    /learn  Seed-VC fine-tuning on one person's voice from short clips (speech is enough), saved by name.
 
 Every model is downloaded at a pinned revision and read before use (CLAUDE.md, 25 Nov 2026):
 - ACE-Step code (MIT) is the official Space's code at a pinned revision, minus its UI, training and API-server files.
@@ -63,6 +64,7 @@ RMVPE = ("lj1995/VoiceConversionWebUI", "e6d0c1a17da07c33557852f9dfa2bd44cc75737
 CAMPPLUS = ("funasr/campplus", "e4b6ede7ce16997aff4ae69fbca1f0175e2afede")
 BIGVGAN = ("nvidia/bigvgan_v2_44khz_128band_512x", "95a9d1dcb12906c03edd938d77b9333d6ded7dfb")
 WHISPER = ("openai/whisper-small", "973afd24965f72e36ca33b3055d56a652f456b4d")
+OPENVOICE = ("myshell-ai/OpenVoiceV2", "f36e7edfe1684461a8343844af60babc2efbb727")  # MIT; varies the voice in training
 
 
 def fetch(repo_rev, local_dir, allow=None):
@@ -76,7 +78,10 @@ if SONGS:
     fetch(ACE_DIT, os.path.join(CK, "acestep-v15-xl-turbo"))
     fetch(ACE_LM, os.path.join(CK, "acestep-5Hz-lm-4B"))
 SV = os.path.join(STORE, "seedvc")
-fetch(SVC, SV, [SVC_DIT, SVC_CFG])
+fetch(SVC, SV, [SVC_DIT, SVC_CFG, "se_db.pt"])
+fetch(OPENVOICE, os.path.join(SV, "openvoice"), ["converter/checkpoint.pth", "converter/config.json"])
+VOICES = os.path.join(STORE, "voices")  # voice models learned here (/learn), by name
+os.makedirs(VOICES, exist_ok=True)
 fetch(RMVPE, SV, ["rmvpe.pt"])
 fetch(CAMPPLUS, SV, ["campplus_cn_common.bin"])
 fetch(BIGVGAN, os.path.join(SV, "bigvgan"), ["config.json", "bigvgan_generator.pt"])
@@ -204,7 +209,23 @@ def crossfade(a, b, n):
     return b
 
 
-def voice_seconds(source, reference, steps, cfg_rate, semitones):
+def voice_model(name):
+    """The base singing model, or one fine-tuned on a person's voice by /learn (VOICES/NAME.pth)."""
+    path = os.path.join(VOICES, f"{name}.pth") if name and name != "base" else None
+    if not path:
+        return vc
+    if not os.path.exists(path):
+        raise gr.Error(f"no voice model named {name}: run /learn first")
+    m = build_model(mp, stage="DiT")
+    m, _, _, _ = load_checkpoint(m, None, path, load_only_params=True, ignore_modules=[], is_distributed=False)
+    for k in m:
+        m[k].eval()
+        m[k].to(DEV)
+    m.cfm.estimator.setup_caches(max_batch_size=1, max_seq_length=8192)
+    return m
+
+
+def voice_seconds(source, reference, steps, cfg_rate, semitones, model="base"):
     try:
         secs = sf.info(source).duration
     except Exception:
@@ -214,9 +235,11 @@ def voice_seconds(source, reference, steps, cfg_rate, semitones):
 
 @spaces.GPU(duration=voice_seconds)
 @torch.no_grad()
-def voice(source, reference, steps, cfg_rate, semitones):
+def voice(source, reference, steps, cfg_rate, semitones, model="base"):
     """Re-voice a sung vocal (source) with the timbre of a reference voice (5-25 s of clean speech or singing).
-    The melody is kept (no automatic pitch matching); semitones moves it up or down."""
+    The melody is kept (no automatic pitch matching); semitones moves it up or down. model: "base", or the name of a
+    voice model learned with /learn."""
+    vcm = voice_model(model)
     sr, hop = 44100, 512
     src = torch.tensor(librosa.load(source, sr=sr)[0]).unsqueeze(0).float().to(DEV)
     ref = torch.tensor(librosa.load(reference, sr=sr)[0][:sr * 25]).unsqueeze(0).float().to(DEV)
@@ -231,9 +254,9 @@ def voice(source, reference, steps, cfg_rate, semitones):
     f0_shift = f0_alt.clone()
     if int(semitones):
         f0_shift[f0_alt > 1] = f0_alt[f0_alt > 1] * 2 ** (int(semitones) / 12)
-    cond, *_ = vc.length_regulator(s_alt, ylens=torch.LongTensor([mel.size(2)]).to(DEV), n_quantizers=3,
+    cond, *_ = vcm.length_regulator(s_alt, ylens=torch.LongTensor([mel.size(2)]).to(DEV), n_quantizers=3,
                                    f0=f0_shift)
-    prompt, *_ = vc.length_regulator(s_ori, ylens=torch.LongTensor([mel2.size(2)]).to(DEV), n_quantizers=3,
+    prompt, *_ = vcm.length_regulator(s_ori, ylens=torch.LongTensor([mel2.size(2)]).to(DEV), n_quantizers=3,
                                      f0=f0_ori)
     window = sr // hop * 30 - mel2.size(2)
     ov_f, ov_w = 16, 16 * hop
@@ -241,7 +264,7 @@ def voice(source, reference, steps, cfg_rate, semitones):
     while done < cond.size(1):
         c = torch.cat([prompt, cond[:, done:done + window]], dim=1)
         last = done + window >= cond.size(1)
-        tgt = vc.cfm.inference(c, torch.LongTensor([c.size(1)]).to(DEV), mel2, style2, None, int(steps),
+        tgt = vcm.cfm.inference(c, torch.LongTensor([c.size(1)]).to(DEV), mel2, style2, None, int(steps),
                                inference_cfg_rate=float(cfg_rate))[:, :, mel2.size(-1):]
         w = vocoder(tgt.float()).squeeze().cpu().numpy()
         if prev is None:
@@ -259,6 +282,55 @@ def voice(source, reference, steps, cfg_rate, semitones):
     path = os.path.join(tempfile.mkdtemp(), "voice.wav")
     sf.write(path, np.concatenate(chunks), sr)
     return path
+
+
+# ---- /learn: fine-tune the singing model on one person's voice ----
+def learn_seconds(files, steps, name):
+    return int(min(290, 80 + int(steps) * 0.8))
+
+
+@spaces.GPU(duration=learn_seconds)
+def learn(files, steps, name):
+    """Fine-tune the singing model on one person's voice from 1-30 s clips (speech is enough). Saves VOICES/NAME.pth
+    for /voice and returns it. Seed-VC's own training code (train.py) with every checkpoint pinned and loaded
+    weights-only; OpenVoice V2 varies the voice during training so the model learns timbre, not words."""
+    import importlib
+    import re
+    import shutil
+    name = re.sub(r"[^a-z0-9_-]", "", str(name).lower()) or "voice"
+    data = tempfile.mkdtemp()
+    for i, f in enumerate(files or []):
+        a = librosa.load(f if isinstance(f, str) else f.name, sr=44100)[0]
+        if 44100 <= len(a) <= 44100 * 30:
+            sf.write(os.path.join(data, f"{i:03d}.wav"), a, 44100)
+    if not os.listdir(data):
+        raise gr.Error("no clips between 1 and 30 seconds")
+    c = yaml.safe_load(open(os.path.join(SV, SVC_CFG)))
+    c["log_dir"] = tempfile.mkdtemp()
+    c["model_params"]["vocoder"]["name"] = os.path.join(SV, "bigvgan")
+    c["model_params"]["speech_tokenizer"]["name"] = os.path.join(SV, "whisper-small")
+    cpath = os.path.join(data, "..", f"cfg_{name}.yml")
+    yaml.safe_dump(c, open(cpath, "w"))
+    local = {"se_db.pt": os.path.join(SV, "se_db.pt"), "campplus_cn_common.bin": os.path.join(SV, "campplus_cn_common.bin"),
+             "rmvpe.pt": os.path.join(SV, "rmvpe.pt")}
+
+    def pinned(repo, model_filename="pytorch_model.bin", config_filename=None):
+        if repo == OPENVOICE[0]:
+            return (os.path.join(SV, "openvoice", "converter", "checkpoint.pth"),
+                    os.path.join(SV, "openvoice", "converter", "config.json"))
+        return local[model_filename]  # anything not pinned fails instead of downloading
+    import hf_utils
+    hf_utils.load_custom_model_from_hf = pinned
+    sv_train = importlib.import_module("train")
+    sv_train.load_custom_model_from_hf = pinned
+    t = time.time()
+    tr = sv_train.Trainer(config_path=cpath, pretrained_ckpt_path=os.path.join(SV, SVC_DIT), data_dir=data, run_name=name,
+                          batch_size=2, steps=int(steps), save_interval=10 ** 9, max_epochs=100000, device="cuda")
+    tr.train()
+    out = os.path.join(VOICES, f"{name}.pth")
+    shutil.copy(os.path.join(c["log_dir"], name, "ft_model.pth"), out)
+    print(f"learned {name}: {len(os.listdir(data))} clips, {int(steps)} steps, {time.time() - t:.0f} s", flush=True)
+    return out
 
 
 with gr.Blocks(title="Music (private)") as demo:
@@ -281,9 +353,18 @@ with gr.Blocks(title="Music (private)") as demo:
             st = gr.Number(label="Diffusion steps", value=30, precision=0)
             cr = gr.Number(label="CFG rate", value=0.7)
             semi = gr.Number(label="Semitones", value=0, precision=0)
+            vm = gr.Textbox(label="Voice model (base, or a learned name)", value="base")
         go2 = gr.Button("Convert")
         v_out = gr.Audio(type="filepath", label="Converted vocal")
-        go2.click(voice, [s_in, r_in, st, cr, semi], v_out, api_name="voice")
+        go2.click(voice, [s_in, r_in, st, cr, semi, vm], v_out, api_name="voice")
+    with gr.Tab("Learn a voice"):
+        clips = gr.File(label="Clips of the voice (1-30 s each)", file_count="multiple")
+        with gr.Row():
+            lsteps = gr.Number(label="Steps", value=200, precision=0)
+            lname = gr.Textbox(label="Name", value="manoj")
+        go3 = gr.Button("Learn")
+        l_out = gr.File(label="Voice model")
+        go3.click(learn, [clips, lsteps, lname], l_out, api_name="learn")
 
 if os.environ.get("MUSIC_TEST") is None:
     demo.queue(max_size=8).launch()

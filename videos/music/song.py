@@ -192,7 +192,7 @@ def voice(song, n=2):
         print(f"take {seed}: re-voicing ...", flush=True)
         path = c.predict(handle_file(os.path.join(d, f"take_{seed}.vocals.wav")), handle_file(ref),
                          song.get("vc_steps", 30), song.get("vc_cfg", 0.7), song.get("vc_semitones", 0),
-                         api_name="/voice")
+                         song.get("vc_model", "base"), api_name="/voice")
         ffmpeg("-i", path, "-ar", str(SR), "-ac", "1", out)
         print(f"take {seed}: re-voiced")
 
