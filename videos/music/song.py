@@ -252,6 +252,42 @@ def spoken(song):
         print(f"spoken {part}: {sf.info(out).duration:.1f} s")
 
 
+def his_gang(v, heard, words):
+    """The owner's own voice, doubled (every voice his: 26 Nov 2026): two copies a few cents off and a few ms late,
+    left and right, all the way through; in the lines that hold a gang word (the hook) two more copies and one an
+    octave down, so the chorus sounds like a crowd of him."""
+    sys.path.insert(0, HERE)
+    import rap
+    n = len(v)
+    out = np.zeros((n, 2), np.float32)
+
+    def late(x, ms):
+        k = int(SR * ms / 1000)
+        return np.concatenate([np.zeros(k, np.float32), x[:n - k]])
+    for cents, ms, l, r in ((12, 18, 0.42, 0.12), (-12, 31, 0.12, 0.42)):
+        x = late(rap.pitch(v, cents / 100), ms)
+        out[:, 0] += x * l
+        out[:, 1] += x * r
+    spans = []
+    if words and os.path.exists(heard):
+        for row in open(heard).read().splitlines():
+            t0, t1, text = row.split("\t", 2)
+            if any(w in text for w in words):
+                spans.append((int(float(t0) * SR), min(n, int(float(t1) * SR))))
+    if spans:
+        crowd = np.zeros((n, 2), np.float32)
+        for semis, ms, l, r in ((0.2, 45, 0.35, 0.2), (-0.25, 60, 0.2, 0.35), (-12, 25, 0.22, 0.22)):
+            x = late(rap.pitch(v, semis), ms)
+            crowd[:, 0] += x * l
+            crowd[:, 1] += x * r
+        mask = np.zeros(n, np.float32)
+        for a, b in spans:
+            mask[a:b] = 1
+        mask = np.convolve(mask, np.ones(SR // 10) / (SR // 10), mode="same")[:, None]
+        out += crowd * mask
+    return out
+
+
 def muffled(x, hz=450):
     """Low-passed, as if heard from outside the stadium."""
     from scipy.signal import butter, sosfilt
@@ -289,6 +325,8 @@ def mix(song):
         # keep their size (Seed-VC turns a crowd into one voice)
         level = np.sqrt(np.mean(orig.mean(1) ** 2)) / max(1e-6, np.sqrt(np.mean(new ** 2)))  # as loud as the original
         lead = (new * level * song.get("lead_gain", 1.0))[:, None] * np.ones(2, np.float32)
+        if song.get("doubles"):
+            lead = lead + his_gang(new * level, os.path.join(d, f"take_{seed}.heard.txt"), song.get("gang_words", []))
         body = band + lead + orig * song.get("orig_under", 0.25)
         if not spoken:
             total = body.astype(np.float32)
