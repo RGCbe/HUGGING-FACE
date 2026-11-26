@@ -99,23 +99,22 @@
  },
  {
   "id": "i01",
-  "shots": ["S12"],
+  "shots": [
+   "S12"
+  ],
   "ok": false,
   "severity": "major",
-  "checked": "animeA/i01.png on 26 Nov 2026 at full size (the v2 remake plus the fix2 drum edit; sha256 49a2b7bd...). Compared with i01.v2.png and i01.v1.png.",
+  "checked": "animeA/i01.png on 26 Nov 2026 at full size (round 4: take i01_b plus the fix3 stick and scribble edit; sha256 348b1091...). Crops of every drummer's hands and sticks, the drum skins and rims, the faces, and the left, centre and right crowd; compared with takes/i01_b.png.",
   "problems": [
-   "the heavy-set drummer on the right has three hands: the edit added a fist that grips a stick at the right rim of his drum, halfway along his forearm, and the old small hand from v2 is still at the end of the same forearm",
-   "too many sticks: the grey-haired drummer holds two crossed sticks in one fist (left of the picture) and one in the other (3); the young drummer holds two in one fist, one in the other, and a fourth long stick leans on the top of his drum with no hand on it (4); a parai player holds one stick in each hand",
-   "at least three people in the crowd hold up thin sticks: one behind the grey-haired drummer is drawn over the front of his shirt, one is behind the young drummer, and a short yellow baton is on the right; the prompt asked for open empty hands, and the S12 negative bans clubs",
-   "minor: the new drum on the right is the same peach as his shirt and skin, and its lower rim is the old belt band from v2, so it still half-reads as his belly and may melt into him once he moves"
+   "each drummer now holds only one stick: the edit removed the stick from all three drummers' hands on the left of the picture, not only the heavy-set drummer's extra stick. Grey-haired: an empty fist with the thumb up; young: an empty fist; heavy-set: an empty fist. Stick count 1 + 1 + 1 (characters.json: a parai is struck with two thin sticks). In the S12 'beat their drums hard' clip the empty hands will slap the skin or grow sticks mid-clip",
+   "minor: the scribbled mark on the heavy-set drummer's drum is still there, smaller: a dotted letter-like 'i.i' at the lower right of the skin",
+   "minor: the young drummer's red tilak dot has faded to a faint speck, so he (black side-swept hair, teen face, front and centre) is a little closer to the hero's look than in i01_b"
   ],
   "notes": [
-   "fixed since the last check: flat round frame drums with one skin (no barrel drums); no clubs or bats in the crowd; the three drummers clearly differ in face, age and build (grey-haired with a moustache, young and thin, heavy-set), so no twins; they now stand in an aisle between railings",
-   "the young drummer (black hair, slim) is not a copy of the hero (rounder face, straight fringe, older, white shirt), but he is front and centre: check in the clip that he does not read as Vaibhav",
-   "the crowd faces are varied; no signs, flags, logos or readable text (the mark on the young drummer's pocket is a button); stylised painted anime, not photo-real",
-   "as a start picture for S12 the pose is right: drums at the chest, sticks up, the crowd's hands raised, so the beating and clapping can start at once. But the third hand and the doubled and loose sticks will tangle or float as soon as the arms move"
+   "fixed: the heavy-set drummer's fist on the right of the picture holds one stick, and the short crossing stick is gone; the long shadow line across the grey-haired drummer's drum is gone too",
+   "still fine: flat round frame drums with a cream skin and cord-bound wooden rims, on shoulder straps; three clearly different drummers (no twins); five fingers where visible; no sticks, bats or balls in the crowd (open, raised or clapping hands); plain olive shirts; no logos or readable text apart from the drum mark; stylised painted anime"
   ],
-  "fix": "edit (the faces and layout are good; do not remake): 'The same picture, but each of the three drummers holds exactly two thin sticks, one in each hand. The heavy-set drummer on the right has only two hands: the arm at the right edge of the picture ends in the fist that holds a stick at the rim of his drum; remove the small extra hand beyond that fist. His drum has a pale cream skin and a plain wooden rim all the way round, clearly in front of his peach shirt. Remove the second stick from the grey-haired drummer's fist on the left of the picture; remove the young drummer's second stick in his fist on the left of the picture and the loose stick leaning on the top of his drum. The people in the crowd raise open, empty hands; remove every stick in the crowd. Everything else stays exactly the same.' If one edit does not fix it all, do the hands first and then the sticks, and check each result. This is a 3-clip test shot: re-check it before the test."
+  "fix": "Do not edit i01.png again (edits on edits add faults). Redo the edit from takes/i01_b.png with 2-3 seeds and let the checker pick: 'The same picture, but remove only the short extra stick that crosses the long stick in the heavy-set drummer's fist on the right of the picture, and the small scribbled mark at the bottom of his drum skin. All three drummers keep exactly two thin sticks each, one in each hand; the stick in each drummer's hand on the left of the picture stays. Everything else stays exactly the same.' Then re-check all six hands and count six sticks."
  },
  {
   "id": "i02",
@@ -173,24 +172,23 @@
  },
  {
   "id": "p04",
-  "shots": ["S06"],
-  "ok": false,
-  "severity": "major",
-  "checked": "animeA/p04.png on 26 Nov 2026 at full size (the v2 remake plus the fix2 grille edit; sha256 09c8a6ba...). Compared with p04.v2.png, p04.v1.png and ref/char_A2.png.",
-  "problems": [
-   "the bat is still not one straight piece: the black taped handle crosses the face of the blade at about 60 degrees, its collar sits on the middle of the blade, and the blade carries on behind the helmet down to his shoulder. The handle does not run into the blade (characters.json never: 'a bat in two pieces'). This was already in p04.v2.png; the edit did not touch it",
-   "the edit drew a full cage, not a cricket grille: one bar runs from the helmet peak down over his forehead between his eyes, and the top cross-bar lies on his lower eyelids. A cricket grille leaves the eyes open under the peak",
-   "as a start picture for S06 the swing is already over: the bat is cocked up at his shoulder (it reads like a baseball ready stance) and the ball is already far away in the top-right corner. The clip can only hold, or invent a second swing at a ball that has gone, and there is no contact frame for the S06 hit effect (ANIME_CRAFT.md section 10)",
-   "the grille bars cover most of his face, so the 3-clip test cannot fairly answer its first question (does Wan keep his face), and thin bars over a face tend to shimmer in motion",
-   "minor: the ball is a plain glossy red sphere with no seam, and has no motion trail behind it (the prompt asked for one)",
-   "minor: a small dark label with letter-like marks on the back of the lower glove",
-   "minor: the edit changed his face (the v2 smile is now a tight, serious mouth), though fix2 said the face stays the same; a mole by his right eye is not on the cast sheet"
+  "shots": [
+   "S06"
   ],
+  "ok": true,
+  "checked": "animeA/p04.png on 26 Nov 2026 at full size (round 4: take p04_c plus the fix3 glove edit, then mirrored left to right; sha256 09b52860...; pixel-identical to the mirror of takes/p04_edit.png). Crops of the bat (with a toe-to-knob guide line), both hands and gloves, both forearms, face and grille, chin, ball, shirt, boards and grass; compared with the mirrored p04_c and ref/char_A2.png.",
+  "problems": [],
   "notes": [
-   "fixed since the last check: both hands are in white cricket gloves with finger rolls (no pink lump); no straight streak in the sky (only curved swing lines behind the bat); the helmet is dark blue with a peak and a metal grille, as characters.json asks",
-   "one bat and one ball; a plain blue shirt; the boundary boards are blurred, with no readable text; stylised painted anime, not photo-real"
+   "fixed: both hands wear matching plain white gloves with finger rolls; the logo-like marks (the Y or trident emblem, the red patch with letter-like squiggles, the blue wrist label) and the bare hand are gone. Two forearms and two hands: the front fist with its cuff, and the back hand's glove showing below that cuff; five digits on the visible fist; no extra hand",
+   "left-handed, as the lock says: we see his chest and the left side of his face (his left ear is on the right of the picture); his right shoulder (left of the picture) points at the bowler and the incoming ball on the left, and the bat is lifted over his left shoulder (right of the picture)",
+   "the bat is still one straight piece: the edit redrew the figure a few pixels off, but a line from the toe (peeking above the helmet) to the knob runs along the blade and down the handle exactly as in p04_c; a brown taped grip between the blade and the gloves",
+   "the grille is at the nose bridge, both eyes are open under the peak and his face is visible; he reads about 16, brown skin, short black hair, a slight smile; the dark area under the chin is the chin strap; no badge on the helmet",
+   "one red ball at the lower left, about hip height, coming in; plain blue shirt and trousers; the boards are blurred with no readable text; nobody else in frame; stylised painted anime, not photo-real",
+   "screen direction: S05 (he walks towards the camera) and S07 (the ball rises in the centre of the frame) have no left-right direction, so the mirror does not cross the line",
+   "minor, not blocking: the ball is plain glossy red with no seam; the front glove's cuff has a plain pale-blue band (no letters or marks); a faint blurred pale patch on the grass left of his hip, not readable; the knob end shows only wood rings",
+   "as a start picture for S06 it is right: the bat is up behind his head and the ball is coming in, so the downswing, contact and follow-through fit in 4.3 s"
   ],
-  "fix": "First decide what S06 shows (storyboard, cards 18 and 02). (a) The hit, as ANIME_CRAFT.md section 10 and the S06 impact effect say: remake with a new seed and ref/char_A2.png: 'Vaibhav, a slim 15-year-old Indian boy with brown skin and short black hair, a LEFT-handed batter, side-on with his right shoulder towards the bowler, in the downswing just before he hits the ball: both gloved hands together at the top of the straight taped handle, the handle and the wide flat blade in one straight line, the blade coming down and through beside his front leg, a red cricket ball with a white seam just in front of the blade at knee height, a dark blue cricket helmet with a peak and a metal grille below his eyes, his eyes open under the peak, stadium floodlights behind, with exactly the face of the boy in the reference picture'. (b) The moment after the hit: keep this picture, change the S06 motion prompt to a follow-through only, drop the impact, and edit: 'The same picture, but the bat is one straight piece: the black taped handle in his gloves runs on in one straight line into the wide flat blade, with no wood behind his helmet; the grille bars are all below his eyes, with no bar over his forehead or eyes. Everything else stays exactly the same.' This is a 3-clip test shot: re-check it before the test."
+  "fix": ""
  },
  {
   "id": "p05",
