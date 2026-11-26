@@ -33,7 +33,14 @@ model: inherit
    Switching the Space's app rebuilds it (10-25 minutes), so group the shots by app.
 4. **Continuous action across a cut:** `python3 videos/manga/anime_v2.py chain --prev A.mp4 --prompt "..." --out B.mp4 --seconds 1.5`. It uses the Hugging Face ZeroGPU team's Wan 2.2 Space, and only `HF_READ_TOKEN` goes there.
 5. **Faceless bursts** (dashes, slashes, explosions): `python3 videos/manga/anime_v2.py t2v --prompt "..." --out S.mp4 --seconds 1.2`. This is another person's Space, so it gets no token and runs on anonymous free GPU time. It does not keep faces.
-6. **Thin props held in hands** (drumsticks, a flag pole, a bat held still): SkyReels-V2 fast on the owner's private
+6. **Fast action and props held in hands** (a cricket hit, drumsticks): SkyReels-V2 IMAGE-TO-VIDEO with the lightx2v
+   speed LoRA (the Space's default since round 2), at its native 960x544, 2-3 seeds, prompts in its own style
+   (`videos/music/vaibhav/video/skyreels_prompts.json`):
+   `python3 videos/manga/skyreels_clips.py clip START.png OUT.mp4 --prompt "..." --mode fast --steps 4 --seconds 3.04 --size 960x544 --seed N`.
+   On 26 Nov it made the first real hit of any model (S06 seed 21, contact at 1.19 s) and the best drummers. Seed 7
+   failed in both shots, so never trust a single seed. About 44 s of GPU per clip on the full card (2x quota).
+   (Round 1, the diffusion-forcing model with the text-to-video CausVid LoRA at 832x480: worse than Wan at the hit.)
+**Thin props held in hands**, older note: SkyReels-V2 fast on the owner's private
    Space: `python3 videos/manga/skyreels_clips.py clip START.png OUT.mp4 --prompt "..." --mode fast --steps 6 --seconds 3`.
    In the 26 Nov test it kept the drummers' sticks solid where Wan dissolved them. It was worse than Wan at the
    cricket hit, in both modes. Its clips are 2.9 s, about 41 s of GPU on the full card (2x quota). Copy a chosen clip to

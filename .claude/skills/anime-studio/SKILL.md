@@ -161,6 +161,13 @@ Each of these cards says what to do instead.
   - The start-and-end key-pose mode is untested: our picture tool could not draw the end pose (6 tries kept the
     start pose).
   - Use Wan by default, and SkyReels fast for thin props held in hands.
+  - **Round 2, same day:** the image-to-video model, its own image-to-video speed LoRA (lightx2v), the native 960x544
+    and SkyReels-style prompts, 2 seeds each.
+    - Seed 21 gave the first real hit of any model (S06, contact 1.19 s, one flat bat, left-handed) and the best
+      drummers (S12, solid sticks, both hands), and both are sharper.
+    - Seed 7 failed in both shots.
+    - It is the clip model for action and held props now; the walk (S01) is not tested on it yet.
+    - New fault to watch: a red maker's label with pseudo-letters appeared on the bat (a logo-like mark).
 - **A cheaper picture check is possible.** The checker on 1-2 pictures took about 1.5-3 minutes; the full 21 took about 15.
   The 5-hour usage limit was hit once during these checks (09:15-11:50 UTC), so keep checks to the pictures that changed.
 
