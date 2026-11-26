@@ -153,6 +153,14 @@ Each of these cards says what to do instead.
   the plan.
 - **The clip checker caught what pictures can't show:** a ball frozen in the air for 2.3 s, sticks dissolving
   into straw, hands melting into mittens. Make 2-3 takes per shot with better prompts and let 24 choose.
+- **Model test, SkyReels-V2 DF 14B against Wan 2.1** (26 Nov: same 3 start pictures and prompts, one seed, judged by
+  card 24; `review_skyreels.json`):
+  - Wan wins the walk and the hit.
+  - SkyReels fast (speed LoRA, 6 steps) wins the drummers: sticks solid, hands whole.
+  - SkyReels full (16 steps, guidance on) took 4.7x the GPU time and was worse: lost ball, extra balls, broken bat.
+  - The start-and-end key-pose mode is untested: our picture tool could not draw the end pose (6 tries kept the
+    start pose).
+  - Use Wan by default, and SkyReels fast for thin props held in hands.
 - **A cheaper picture check is possible.** The checker on 1-2 pictures took about 1.5-3 minutes; the full 21 took about 15.
   The 5-hour usage limit was hit once during these checks (09:15-11:50 UTC), so keep checks to the pictures that changed.
 

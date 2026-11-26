@@ -7,7 +7,8 @@ PLAN.json (see vaibhav/video/plan.json): audio, pictures dir, work dir, size, fp
 optional clips dir (animated shots from manga/zerogpu_clips.py; a shot without one moves in 3D instead; the raw clip in
 clips_raw/ is used at its own speed, never the stretched copy, whose invented in-between frames tore the bat),
 optional takes {"S06": "b"} (the take the clip checker chose; default a), optional fx {"S06": [anime_fx args]}
-(the compositing spec: drawings on twos, impact, lines, shake; times in the raw clip),
+(the compositing spec: drawings on twos, impact, lines, shake; times in the raw clip), optional cut_end
+{"S06": 0.75} (seconds dropped from a clip's end, where the clip checker found a bad ending),
 captions [{text, start, end}], optional photo {path, start, end, credit} and intro_note {text, start, end}.
 Captions use Mukta Malar ExtraBold (OFL, videos/movies-explained/fonts). Nothing is sent anywhere: all local.
 The craft rules the animated shots follow (timing on twos, impact frames, holds): ANIME_CRAFT.md.
@@ -94,7 +95,13 @@ def main():
                 # freeze), cut to the shot's exact length so the cuts stay on the lines
                 n = int(round(seconds * fps))
                 up = os.path.join(work, f"{tag}_{i:02d}_up.mp4")
-                ffmpeg("-i", clip, "-vf", f"fps={fps},scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,"
+                cut = float(plan.get("cut_end", {}).get(sid, 0))
+                keep = []
+                if cut > 0:
+                    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of",
+                                                "csv=p=0", clip], capture_output=True, text=True).stdout.strip())
+                    keep = ["-t", f"{max(0.5, dur - cut):.3f}"]
+                ffmpeg(*keep, "-i", clip, "-vf", f"fps={fps},scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,"
                        f"crop={w}:{h},unsharp=5:5:0.6", "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "16", up)
                 fx = plan.get("fx", {}).get(sid)
                 if fx is not None:

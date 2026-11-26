@@ -33,7 +33,12 @@ model: inherit
    Switching the Space's app rebuilds it (10-25 minutes), so group the shots by app.
 4. **Continuous action across a cut:** `python3 videos/manga/anime_v2.py chain --prev A.mp4 --prompt "..." --out B.mp4 --seconds 1.5`. It uses the Hugging Face ZeroGPU team's Wan 2.2 Space, and only `HF_READ_TOKEN` goes there.
 5. **Faceless bursts** (dashes, slashes, explosions): `python3 videos/manga/anime_v2.py t2v --prompt "..." --out S.mp4 --seconds 1.2`. This is another person's Space, so it gets no token and runs on anonymous free GPU time. It does not keep faces.
-6. **Paid tools** (`videos/manga/veo_clips.py`, `videos/manga/gridshare/`): only after the owner says yes.
+6. **Thin props held in hands** (drumsticks, a flag pole, a bat held still): SkyReels-V2 fast on the owner's private
+   Space: `python3 videos/manga/skyreels_clips.py clip START.png OUT.mp4 --prompt "..." --mode fast --steps 6 --seconds 3`.
+   In the 26 Nov test it kept the drummers' sticks solid where Wan dissolved them. It was worse than Wan at the
+   cricket hit, in both modes. Its clips are 2.9 s, about 41 s of GPU on the full card (2x quota). Copy a chosen clip to
+   `clips_raw/SNN_<take>.mp4` and name that take in the plan.
+**Paid tools** (`videos/manga/veo_clips.py`, `videos/manga/gridshare/`): only after the owner says yes.
 7. **The motion prompt:**
    - the action with its anticipation and follow-through;
    - the scene's env line;
