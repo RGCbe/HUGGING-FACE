@@ -1,0 +1,4 @@
+{"style": "", "aspect": "16:9", "images": [
+ {"name": "p04_edit", "edit": "/root/.cache/music/vaibhav-video/takes/p04_c.png", "seed": 7, "prompt": "The same picture, but both of his hands wear matching plain white cricket batting gloves with no logos, letters, patches or coloured labels. Everything else stays exactly the same: the bat, his grip, the helmet, his face and the ball."},
+ {"name": "i01", "edit": "/root/.cache/music/vaibhav-video/takes/i01_b.png", "seed": 7, "prompt": "The same picture, but the heavy-set drummer on the right holds exactly one stick in each hand: remove the short extra stick that crosses through his fist on the right of the picture, and remove the small scribbled mark at the bottom of his drum skin. Everything else stays exactly the same."}
+]}
