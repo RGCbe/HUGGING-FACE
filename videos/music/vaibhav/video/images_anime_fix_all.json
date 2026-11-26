@@ -330,6 +330,102 @@
    "also": [
     "/root/.cache/music/vaibhav-video/ref/char_A2.png"
    ]
+  },
+  {
+   "name": "c03_onehand_a",
+   "seed": 4401,
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin in a plain blue cricket kit and a dark blue helmet with a metal grille below his eyes, at the end of a big lofted shot: his top hand holds the handle of one cricket bat with a wide flat wooden blade high over his right shoulder, his bottom hand has let go and is open by his side, the way batters finish a huge hit, his eyes on exactly one red cricket ball sailing up into the night sky; a floodlit stadium at night, the boundary boards plain single colours with no writing, with exactly the face of the boy in the reference picture.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c03_onehand_b",
+   "seed": 5502,
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin in a plain blue cricket kit and a dark blue helmet with a metal grille below his eyes, at the end of a big lofted shot: his top hand holds the handle of one cricket bat with a wide flat wooden blade high over his right shoulder, his bottom hand has let go and is open by his side, the way batters finish a huge hit, his eyes on exactly one red cricket ball sailing up into the night sky; a floodlit stadium at night, the boundary boards plain single colours with no writing, with exactly the face of the boy in the reference picture.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c03_onehand_c",
+   "seed": 6603,
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin in a plain blue cricket kit and a dark blue helmet with a metal grille below his eyes, at the end of a big lofted shot: his top hand holds the handle of one cricket bat with a wide flat wooden blade high over his right shoulder, his bottom hand has let go and is open by his side, the way batters finish a huge hit, his eyes on exactly one red cricket ball sailing up into the night sky; a floodlit stadium at night, the boundary boards plain single colours with no writing, with exactly the face of the boy in the reference picture.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c01_ra",
+   "seed": 7101,
+   "prompt": "In a village courtyard in warm evening light, a lean Indian father of about 40 with a moustache, in a plain off-white kurta, holds out a cricket bat with both of his hands on its black rubber handle, offering it to his son; the bat has a long, wide, flat rectangular wooden blade with square shoulders. His son Vaibhav, a 10-year-old village boy with short black hair, round cheeks and child proportions, in a plain blue shirt, with the same face as the boy in the reference picture but younger, reaches out with both open hands towards the blade, not yet touching it, looking up at his father with wonder.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t02_ra",
+   "seed": 7101,
+   "prompt": "Close-up in a dusty Indian village at dawn (not a stadium): Vaibhav as a 10-year-old Indian village boy with brown skin, round cheeks and short black hair parted to the side, in a plain light-blue collared shirt with no badge, with the same face as the boy in the reference picture but younger, his fist around the short round handle of an old cricket bat whose blade is a long, narrow, rectangular plank of flat wood with square shoulders and a square end, standing upright beside his face; he looks ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c01_rb",
+   "seed": 8202,
+   "prompt": "In a village courtyard in warm evening light, a lean Indian father of about 40 with a moustache, in a plain off-white kurta, holds out a cricket bat with both of his hands on its black rubber handle, offering it to his son; the bat has a long, wide, flat rectangular wooden blade with square shoulders. His son Vaibhav, a 10-year-old village boy with short black hair, round cheeks and child proportions, in a plain blue shirt, with the same face as the boy in the reference picture but younger, reaches out with both open hands towards the blade, not yet touching it, looking up at his father with wonder.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t02_rb",
+   "seed": 8202,
+   "prompt": "Close-up in a dusty Indian village at dawn (not a stadium): Vaibhav as a 10-year-old Indian village boy with brown skin, round cheeks and short black hair parted to the side, in a plain light-blue collared shirt with no badge, with the same face as the boy in the reference picture but younger, his fist around the short round handle of an old cricket bat whose blade is a long, narrow, rectangular plank of flat wood with square shoulders and a square end, standing upright beside his face; he looks ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c01_rc",
+   "seed": 9303,
+   "prompt": "In a village courtyard in warm evening light, a lean Indian father of about 40 with a moustache, in a plain off-white kurta, holds out a cricket bat with both of his hands on its black rubber handle, offering it to his son; the bat has a long, wide, flat rectangular wooden blade with square shoulders. His son Vaibhav, a 10-year-old village boy with short black hair, round cheeks and child proportions, in a plain blue shirt, with the same face as the boy in the reference picture but younger, reaches out with both open hands towards the blade, not yet touching it, looking up at his father with wonder.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t02_rc",
+   "seed": 9303,
+   "prompt": "Close-up in a dusty Indian village at dawn (not a stadium): Vaibhav as a 10-year-old Indian village boy with brown skin, round cheeks and short black hair parted to the side, in a plain light-blue collared shirt with no badge, with the same face as the boy in the reference picture but younger, his fist around the short round handle of an old cricket bat whose blade is a long, narrow, rectangular plank of flat wood with square shoulders and a square end, standing upright beside his face; he looks ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t02_t01a",
+   "seed": 1212,
+   "prompt": "Close-up in the same dusty Indian village at dawn: the same 10-year-old boy as in the reference picture (the same face, the same short black hair and the same blue polo shirt), his fist around the short round handle of an old cricket bat whose blade is a long, narrow, rectangular plank of flat wood with square shoulders and a square end, standing upright beside his face; he looks ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t02_t01b",
+   "seed": 2323,
+   "prompt": "Close-up in the same dusty Indian village at dawn: the same 10-year-old boy as in the reference picture (the same face, the same short black hair and the same blue polo shirt), his fist around the short round handle of an old cricket bat whose blade is a long, narrow, rectangular plank of flat wood with square shoulders and a square end, standing upright beside his face; he looks ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t02_t01c",
+   "seed": 3434,
+   "prompt": "Close-up in the same dusty Indian village at dawn: the same 10-year-old boy as in the reference picture (the same face, the same short black hair and the same blue polo shirt), his fist around the short round handle of an old cricket bat whose blade is a long, narrow, rectangular plank of flat wood with square shoulders and a square end, standing upright beside his face; he looks ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
   }
  ]
 }

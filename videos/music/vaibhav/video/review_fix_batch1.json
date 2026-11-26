@@ -1,0 +1,206 @@
+[
+ {
+  "id": "c01",
+  "shots": [
+   "S16"
+  ],
+  "takes": [
+   {
+    "take": "a",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "two separate pieces of wood cross in an X: the father holds a black handle with a blade that tapers to a machete-like point, and the boy holds a second, separate plank (a bat in two pieces / two bats)",
+     "(good: father lean, moustache, plain off-white kurta, clearly not the hero; boy about 10 in a blue polo like t01, looking up with wonder; village courtyard, warm light; no text; painted anime)"
+    ]
+   },
+   {
+    "take": "b",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "two pieces: the father holds a short paddle with round shoulders on a black handle, and the boy holds a separate curved flat board",
+     "(good: father off-white kurta, moustache; boy about 10 in blue)"
+    ]
+   },
+   {
+    "take": "c",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the curved bite is still cut out of the blade's left edge near the toe (same fault as the old picture)",
+     "the handle runs flat to the left and the blade rises at about 60 degrees from it: the bat bends at the joint",
+     "the boy points with one index finger; his other hand is lost behind the father's hand at the shoulder of the blade, so he does not hold it with both hands (S16)",
+     "minor: the edit turned the boy's shirt off-white too, so father and son wear the same shirt and the same black hair; from behind the father still reads like a grown-up double",
+     "minor: the boy reads about 12"
+    ]
+   }
+  ],
+  "choice": null,
+  "why": "All three fail on the bat. a is closest: the only fault is the bat itself, and everything else (father design, boy's age, blue polo matching t01, framing) is right. c keeps the old faults (bite, merged hands) and adds a bent joint and matching shirts.",
+  "fix_if_none": "Masked local repaint of the bat area only in c01_a (card 22 step 5): 'one straight cricket bat: the father holds the black rubber handle, which runs in a straight line into a wide flat wooden blade with square shoulders and a square toe; the boy holds the lower end of the same blade with both hands, five fingers each; no second piece of wood'."
+ },
+ {
+  "id": "c02",
+  "shots": [
+   "S17"
+  ],
+  "takes": [
+   {
+    "take": "a",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the hero holds no bat: his hands are empty and he wears only pads; he stands beside the stumps, not at the crease in a stance",
+     "the bowler wears batting pads (characters.json never) and a small vertical mark on his chest",
+     "two balls by the bowler's raised hand (a glowing white one and a yellow-green tennis-type one); neither is a red cricket ball",
+     "the bowler has the hero's short side-swept black hair and slim teenage face: a lookalike",
+     "minor: letter-like squiggles on the stumps",
+     "(good: boundary boards plain single colours, no writing)"
+    ]
+   },
+   {
+    "take": "b",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the far figure is a bearded batter in a helmet and grille swinging a thin stick with a crossbar (a second bat, the wrong shape), with a crest on his chest; S17 needs a bowler running in",
+     "three balls: a green one and an orange one in the air, and a multicoloured one on the grass (S17: the ball hidden in the bowler's hand, none on the grass)",
+     "a brand-like sticker with letter shapes on the hero's blade",
+     "minor: the hero walks in, front-on, rather than standing settled side-on; acceptable as the start of 'settles into his stance'",
+     "(good: hero alone in front, one flat cricket bat in his hands, plain blue kit, about 15, eyes to the far end; boards plain colours with no writing)"
+    ]
+   },
+   {
+    "take": "c",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the edit turned the hero into a bowler in white kit with no bat; there is no batter at the crease",
+     "the far figure is also in white, with the same face and hair: twins"
+    ]
+   }
+  ],
+  "choice": null,
+  "why": "All three fail. b is closest: the hero (the subject of the shot) is right, and every fault is in the background or is a small patch. a needs a bat and a stance added and the bowler redrawn. c lost the hero.",
+  "fix_if_none": "Masked local repaint of c02_b (card 22 step 5): far figure -> 'a fast bowler in a plain white shirt and trousers, no helmet, no pads, no gloves, no bat, running in, the ball hidden in his hand', with both balls in the air removed in the same mask; paint the ball on the grass out to grass, and the sticker on the blade to plain wood."
+ },
+ {
+  "id": "c03",
+  "shots": [
+   "S18",
+   "S24"
+  ],
+  "takes": [
+   {
+    "take": "a",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the bat is a narrow tapered club with a rounded toe, held level over the shoulder in a baseball-style waiting stance: not a follow-through",
+     "a readable '8' on the white glove",
+     "his eyes look to the right; the ball is at the upper left"
+    ]
+   },
+   {
+    "take": "b",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "at 3x zoom the lower (near) glove is off the handle line, about 130 px to the left of it, closed round a separate short navy stub; the real handle runs on past the top glove to its end cap. That makes a second handle piece in the hand. In a hit shot Wan is likely to grow it into a stick",
+     "minor: the blade's shoulders slope into the handle rather than being square; it still reads as a cricket bat",
+     "(good: one straight bat, flat blade with straight edges and a square toe, finishing high over his RIGHT shoulder (left-hander); both hands in matching white gloves; the top glove wraps the handle with fingers and thumb; dark blue helmet with a metal grille below the eyes; face on model at about 15, brown skin; eyes on the one red ball (seam) at the upper right; boards plain colours; crowd blurred; no text or logos; painted anime)"
+    ]
+   },
+   {
+    "take": "c",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the bat forks into a V near the top (two pieces)",
+     "one bare hand on the bat; the other hand, in a single white glove, still reaches up to the ball (the old fault)"
+    ]
+   }
+  ],
+  "choice": null,
+  "why": "b is one small patch from passing; everything except the lower glove is right. a reads as baseball, and c has a broken bat. Start-picture note for the clip team: c03 is already past contact (the ball is high in the sky), so the S18/S24 motion prompt 'steps forward and lofts the ball' and the section-10 contact-frame --impact have no contact to land on. Prompt the follow-through and the ball rising instead, or start from an earlier pose.",
+  "fix_if_none": "Masked local patch of the lower glove only in c03_b (card 22 step 5): 'his second white batting glove wraps the same taped handle just below the top glove, between it and the end cap; no other stick'."
+ },
+ {
+  "id": "p05",
+  "shots": [
+   "S10"
+  ],
+  "takes": [
+   {
+    "take": "a",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the blade kinks into a V where the taped handle joins: two boards meeting at an angle"
+    ]
+   },
+   {
+    "take": "b",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "a round black dowel with yellow tape and a sawn-off round end (baseball-like) butts into the face of a separate flat plank: two pieces"
+    ]
+   },
+   {
+    "take": "c",
+    "ok": true,
+    "severity": null,
+    "problems": [
+     "note: one straight, flat blade runs corner to corner with the handle out of frame on the left; the curved dark shape at the left end is a cast shadow, not a bite",
+     "note: one red ball with a stitched seam on the middle of the face, in a ring of chalk dust with chips flying; grass and night sky; nothing else in the frame; no text (the grain scratches near the toe are not letters); painted anime",
+     "minor: with no handle in frame the blade reads a little like a plank (an even edge, and a dot like a nail hole on the toe's edge); the dust is a soft puff, not an explosion (the clip and --impact add the burst)",
+     "for the clip checker: watch that no handle or second piece grows in from the left if the camera drifts"
+    ]
+   }
+  ],
+  "choice": "c",
+  "why": "c is the only take with one unbroken flat blade; a and b both show two pieces. It works as a start picture: ball on the blade at contact, ready for 'the ball shoots off'.",
+  "fix_if_none": null
+ },
+ {
+  "id": "t02",
+  "shots": [
+   "S02"
+  ],
+  "takes": [
+   {
+    "take": "a",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "a different child: a rounder, chubbier face, a broader nose, darker skin and a straight fringe with no side part (compared side by side with ref/char_A2.png and the old t02); reads about 8-9",
+     "the shirt is stained off-white, while S01 (t01, the shot directly before: 0-5.5 s, cut at 5.5 s) shows him in a blue polo. Together with the face change, it reads as another boy on the straight cut in an emotion close-up where the face is the shot",
+     "(good: one long flat weathered blade with a square toe, upright beside his face, no letters; right hand has four fingers and a thumb, and the other hand's fingertips show behind the blade; handle below the frame; no badge; village at dawn, painted anime)"
+    ]
+   },
+   {
+    "take": "b",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "two bats: one in his fist with a frayed handle, and a second plank over his shoulder behind him"
+    ]
+   },
+   {
+    "take": "c",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the bat is an oar or paddle: a narrow blade with a rounded top that tapers into the handle, with no shoulders; not a wide flat blade with square shoulders",
+     "minor: the shirt is plain but turned grey-green; S01, directly before, is blue",
+     "(good: face on model, the same as the approved old t02, about 10; fist with fingers and thumb; badge gone; village at dawn)"
+    ]
+   }
+  ],
+  "choice": null,
+  "why": "All three fail. c is the closest take, because the face is the hardest thing to get right and c has it. Better still, patch the old animeA/t02.png rather than c: its face is on model and its blue shirt already matches t01, so only the bat and the small crest need patching. That avoids stacking a second edit on c.",
+  "fix_if_none": "Masked local patches on the OLD animeA/t02.png (card 22 step 5): bat area -> 'his fist on a taped rubber handle that runs straight into a long, wide, flat wooden blade with square shoulders, the old blade upright beside his face'; the gold leaf crest -> plain blue shirt. (Same bat patch on t02_c also works if its shirt is recoloured to t01's blue.)"
+ }
+]

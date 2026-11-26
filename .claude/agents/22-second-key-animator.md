@@ -33,7 +33,17 @@ model: inherit
    - draw a mask over the object and its shadow;
    - fill it with `cv2.inpaint(img, mask, 4, cv2.INPAINT_NS)`;
    - keep the mask tight. A box that crosses an edge smears it.
-6. **Copy a fix prompt whole.** Never cut it out of a review with string splits: on 26 Nov a split at the apostrophe
+6. **Repaint one area and keep the rest exactly as it was:**
+   `python3 videos/doodle/patch_edit.py SRC.png OUT.png --box X0 Y0 X1 Y1 --prompt "..." [--paintout X0 Y0 X1 Y1 ...]`.
+   - It sends a square crop around the box to the picture model and pastes back only the box, with a soft edge.
+   - `--paintout` removes small things locally.
+   - To find a box, draw a 100 px grid on the picture and read it off.
+   - **Works:** changing small things, such as a figure's clothes, a sticker or a crest.
+   - **Does not work:** changing a shape or pose. A skittle bat stayed a skittle; a glove stayed off the handle.
+     For those, make fresh takes with a prompt that avoids the hard part (26 Nov: a one-hand finish instead of two
+     gloves on one handle; only the father holds the bat).
+   - For continuity, use the neighbouring shot's picture as the reference (t02 made from t01: the same boy, lane and cow).
+7. **Copy a fix prompt whole.** Never cut it out of a review with string splits: on 26 Nov a split at the apostrophe
    in "drummer's" sent half a prompt.
 
 ## Done when
