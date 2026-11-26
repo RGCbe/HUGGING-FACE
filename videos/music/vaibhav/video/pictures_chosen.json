@@ -1,0 +1,50 @@
+{
+ "_note": "Which take each start picture (animeA/NAME.png) is, how it was made, and which review passed it. Takes are in ~/.cache/music/vaibhav-video/takes/fix/ (not in git).",
+ "pictures": {
+  "c01": {
+   "take": "c01_ra",
+   "how": "fresh, only the father holds the bat (images_anime_fix_all.json)",
+   "passed_in": "review_fix_batch1b.json"
+  },
+  "c02": {
+   "take": "c02_fixed",
+   "how": "c02_b + patch_edit.py (far batter -> bowler, sticker) + paint-out (3 balls, stick) + background softened",
+   "passed_in": "review_fix_batch1b.json (minor faults left)"
+  },
+  "c03": {
+   "take": "c03_onehand_a",
+   "how": "fresh, one-hand finish",
+   "passed_in": "review_fix_batch1b.json"
+  },
+  "p05": {
+   "take": "p05_c",
+   "how": "fresh (the checker's remake prompt)",
+   "passed_in": "review_fix_batch1.json"
+  },
+  "t02": {
+   "take": "t02_t01a",
+   "how": "fresh with animeA/t01.png as the reference (same boy, lane, cow)",
+   "passed_in": "review_fix_batch1b.json"
+  },
+  "t01": {
+   "take": "original",
+   "how": "passed in the first check",
+   "passed_in": "review_pictures.json"
+  },
+  "e01": {
+   "take": "original",
+   "how": "passed in the first check",
+   "passed_in": "review_pictures.json"
+  },
+  "p04": {
+   "take": "p04_c edited, mirrored (left-handed)",
+   "how": "round 4",
+   "passed_in": "review_pictures.json"
+  },
+  "i01": {
+   "take": "i01_b masked paint-out (i01_mask_ns)",
+   "how": "round 6",
+   "passed_in": "review_pictures.json"
+  }
+ }
+}

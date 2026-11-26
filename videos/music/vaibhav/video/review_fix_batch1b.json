@@ -1,0 +1,142 @@
+[
+ {
+  "id": "c01",
+  "shots": [
+   "S16"
+  ],
+  "candidates": [
+   {
+    "file": "c01_ra.png",
+    "ok": true,
+    "severity": null,
+    "problems": [
+     "note: one straight bat - black taped handle with an end cap below the father's two hands runs straight into a flat blade (edge thickness shown, slightly sloped shoulders, square toe); no sticker, no text",
+     "note: only the father holds it; the boy (about 9-10, blue polo like t01, black hair) reaches up with open palms, front hand thumb and four fingers, back hand thumb showing; father has a moustache and an off-white kurta, clearly a grown-up, not a lookalike; village courtyard, warm light, painted anime",
+     "minor: the boy's skin is lighter and peachier than t01's brown (profile, rosy cheeks)",
+     "minor: two bright lamp glows in the top corners",
+     "for the clip checker: S16 says 'the boy takes it with both hands'; the picture starts with his hands empty, so watch the hand-over for a second bat or merged hands"
+    ]
+   },
+   {
+    "file": "c01_rb.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "two handles: the main handle ends with its cap just under the father's fist, and a second black taped stick with its own cap runs out from behind his sleeve towards his hip",
+     "a wide black collar wraps the blade above the handle",
+     "(good: boy about 10 in blue with open hands; father design)"
+    ]
+   }
+  ],
+  "choice": "c01_ra.png",
+  "why": "ra is the only candidate with one unbroken bat; only the father holds it by the handle, and the boy reaches with open hands, which is exactly the new composition. rb grows a second handle."
+ },
+ {
+  "id": "c02",
+  "shots": [
+   "S17"
+  ],
+  "candidates": [
+   {
+    "file": "c02_fixed.png",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "minor (characters.json 'never', softened by the blur): the bowler is the old batter's exact pose and outline repainted; his front shin still shows the batting-pad slab outline from knee to ankle, and the chest crest survives as a blurred dark mark",
+     "minor (paint-out smear): where the grass ball was painted out, the crease line breaks under a soft, light, cone-shaped smudge, mid-frame right of the bat toe",
+     "minor (paint-out smear): faint dark streaks along the blade's upper edge (reads as motion lines)",
+     "minor: the bowler's ground shadow is sharp while he is blurred; his pose reads as a delivery stride more than 'runs in'",
+     "(fixed and good: the hero untouched by the patch (pixel diff), blue kit, about 15, one flat bat with a plain blade, the sticker gone; the bearded batter, his helmet, the crossbar stick and all three stray balls gone; no ball anywhere; far figure in white with brown hair, no helmet, no bat, not a lookalike; boards plain colours; no text; no hard blur seam in the crowd)",
+     "for the clip checker: watch that the blurred far figure does not sharpen back into a padded batter or grow a bat"
+    ]
+   }
+  ],
+  "choice": "c02_fixed.png",
+  "why": "No major fault is left: the hero, the subject of S17, is right, and every remaining fault is small, softened and in the far background or a smear. Usable as is. If a cheap patch is wanted first: clean the crease-line smudge, and paint the bowler's shin and chest plain white."
+ },
+ {
+  "id": "c03",
+  "shots": [
+   "S18",
+   "S24"
+  ],
+  "candidates": [
+   {
+    "file": "c03_onehand_a.png",
+    "ok": true,
+    "severity": null,
+    "problems": [
+     "note: one bat - taped black handle with an end cap straight into a flat blade with a square toe, held in the top (right) hand high over his RIGHT shoulder (left-hander finish), four fingers and a thumb on the handle; the bottom hand has let go, open and low",
+     "note: one red ball with a seam just off the toe; dark blue helmet with a metal grille; face on model at about 15, brown skin, brown eyes; plain blue shirt with no emblem; bare hands (matches the bare-handed hero in c02/S17); painted anime",
+     "minor: the boundary boards carry blurred pseudo-letters (a white board with red letter-shapes left of centre, a dark board with pale letter-shapes on the right) and a small gold emblem; none is readable",
+     "minor: a small scratched mark on the blade near the shoulder (not a label)",
+     "minor: his eyes look ahead, not up at the ball",
+     "for the clip team: the ball is at the toe in the finish pose, so prompt the ball rising away (no fresh contact); watch the boards for letters sharpening"
+    ]
+   },
+   {
+    "file": "c03_onehand_b.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "two red balls in the sky",
+     "a red, white and blue maker's band with an M-like letter-mark on the blade",
+     "a white swoosh-star emblem on the chest"
+    ]
+   },
+   {
+    "file": "c03_onehand_c.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "a white four-point star emblem on the chest (a crest on his kit)",
+     "a small C-shaped stamp and a drilled hole on the blade near the shoulder",
+     "(good: one bat, one ball, face on model)"
+    ]
+   }
+  ],
+  "choice": "c03_onehand_a.png",
+  "why": "a is the only one-hand take with a plain shirt, one ball and a clean bat; its faults are blurred, unreadable board marks and the eye line. b has two balls and two logos; c has a chest emblem and a stamped blade."
+ },
+ {
+  "id": "t02",
+  "shots": [
+   "S02"
+  ],
+  "candidates": [
+   {
+    "file": "t02_t01a.png",
+    "ok": true,
+    "severity": null,
+    "problems": [
+     "note: one bat - a weathered plank blade (square toe, sloped dark shoulders) straight into a short round wooden handle in his fist (four fingers and a thumb), round sawn end below the fist; reads as an old home-made village bat, upright beside him",
+     "note: the same boy as animeA/t01.png: same blue polo with pocket, same black hair with fringe and side part, same brown skin; same brick lane at dawn, sun upper right, the cow soft behind him; bat on screen left in his right hand as in t01; no text",
+     "minor: the irises are a lighter grey than t01's dark charcoal-brown (and the cast sheet's brown)",
+     "minor: the face is a little longer and reads about 11-12 against t01's about 10; faint freckle dots on the cheeks",
+     "note: he already looks up with a neutral mouth; the clip adds the smile",
+     "optional polish before the clip: darken the irises to t01's brown (colour-only mask)"
+    ]
+   },
+   {
+    "file": "t02_t01b.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the 'bat' is a plain straight plank or post, the same width from the bottom of the frame to above his head, with no handle and no shoulders, gripped halfway up",
+     "minor: grey-brown eyes, frowning brows, a little older"
+    ]
+   },
+   {
+    "file": "t02_t01c.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "two pieces at an angle: a short plank lies at about 45 degrees across the top of his fist on a long, thin pole wrapped in black tape (like a hoe or a broom handle)",
+     "(good: the face is the closest to t01, brown eyes)"
+    ]
+   }
+  ],
+  "choice": "t02_t01a.png",
+  "why": "a is the only candidate with one plank-like bat that reads as a bat; the boy matches t01 in hair, skin, shirt, lane and cow, so the straight cut from S01 holds. Its iris colour is the one thing worth a colour-only touch. b is a plain post; c's blade sits at an angle on a pole."
+ }
+]
