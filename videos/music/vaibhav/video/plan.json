@@ -306,5 +306,6 @@
    "end": 104.0
   }
  ],
- "note": "The owner's ElevenLabs Music track (26 Nov 2026), our v4 lyrics; line times from faster-whisper on the Mel-Band RoFormer vocal (the choruses with the lyrics as a hint). Pictures: painted anime (style A), his face from the official GODL-India photo; the real photo itself only at the end, with its credit."
+ "note": "The owner's ElevenLabs Music track (26 Nov 2026), our v4 lyrics; line times from faster-whisper on the Mel-Band RoFormer vocal (the choruses with the lyrics as a hint). Pictures: painted anime (style A), his face from the official GODL-India photo; the real photo itself only at the end, with its credit.",
+ "clips": "~/.cache/music/vaibhav-video/clips"
 }

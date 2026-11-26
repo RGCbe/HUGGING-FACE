@@ -4,6 +4,7 @@ near things moving more than far ones), cut on the song's lines, big Tamil capti
     python3 lyric_video.py PLAN.json [--short]        # WORK/video.mp4 (16:9), or WORK/short.mp4 (9:16) with --short
 
 PLAN.json (see vaibhav/video/plan.json): audio, pictures dir, work dir, size, fps, shots [{pic, start, end, move}],
+optional clips dir (animated shots SNN_a.mp4 from manga/zerogpu_clips.py; a shot without one moves in 3D instead),
 captions [{text, start, end}], optional photo {path, start, end, credit} and intro_note {text, start, end}.
 Captions use Mukta Malar ExtraBold (OFL, videos/movies-explained/fonts). Nothing is sent anywhere: all local.
 """
@@ -69,12 +70,24 @@ def main():
     w, h = (1080, 1920) if a.short else tuple(plan["size"])
     fps = plan.get("fps", 30)
     tag = "short" if a.short else "video"
+    clips = os.path.expanduser(plan["clips"]) if plan.get("clips") else None
     parts = []
     for i, s in enumerate(plan["shots"]):
-        out = os.path.join(work, f"{tag}_{i:02d}_{s['pic']}.mp4")
+        seconds = s["end"] - s["start"]
+        clip = os.path.join(clips, f"S{i + 1:02d}_a.mp4") if clips else None
+        animated = bool(clip and os.path.exists(clip))
+        out = os.path.join(work, f"{tag}_{i:02d}_{s['pic']}{'_anim' if animated else ''}.mp4")
         if not os.path.exists(out):
-            depthmove.shot(os.path.join(pics, s["pic"] + ".png"), out, s["end"] - s["start"], s.get("move", 0),
-                           size=(w, h), fps=fps, punch=i > 0)
+            if animated:
+                # the animated clip (Wan 2.1 on the owner's Space, 832x480): upscaled and cropped to the frame, at the
+                # video's frame rate, cut or held to the shot's exact length so the cuts stay on the lines
+                n = int(round(seconds * fps))
+                ffmpeg("-i", clip, "-vf", f"fps={fps},scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,"
+                       f"crop={w}:{h},unsharp=5:5:0.6,tpad=stop_mode=clone:stop_duration=3,format=yuv420p",
+                       "-frames:v", str(n), "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", out)
+            else:
+                depthmove.shot(os.path.join(pics, s["pic"] + ".png"), out, seconds, s.get("move", 0),
+                               size=(w, h), fps=fps, punch=i > 0)
         parts.append(out)
         print(f"shot {i + 1}/{len(plan['shots'])}: {s['pic']} {s['start']}-{s['end']}", flush=True)
     if plan.get("photo"):
