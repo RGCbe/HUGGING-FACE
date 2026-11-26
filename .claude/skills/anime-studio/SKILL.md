@@ -168,6 +168,8 @@ Each of these cards says what to do instead.
     - Seed 7 failed in both shots.
     - It is the clip model for action and held props now; the walk (S01) is not tested on it yet.
     - New fault to watch: a red maker's label with pseudo-letters appeared on the bat (a logo-like mark).
+  - **Decision (26 Nov):** the improved SkyReels is the main clip model: 2-3 seeds a shot, card 24 picks, and Wan is
+    the fallback. Its licence allows our commercial use (card 23 has the terms), and the owner asked to use it.
 - **A cheaper picture check is possible.** The checker on 1-2 pictures took about 1.5-3 minutes; the full 21 took about 15.
   The 5-hour usage limit was hit once during these checks (09:15-11:50 UTC), so keep checks to the pictures that changed.
 

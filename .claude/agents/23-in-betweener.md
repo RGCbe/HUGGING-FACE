@@ -40,6 +40,13 @@ model: inherit
    On 26 Nov it made the first real hit of any model (S06 seed 21, contact at 1.19 s) and the best drummers. Seed 7
    failed in both shots, so never trust a single seed. About 44 s of GPU per clip on the full card (2x quota).
    (Round 1, the diffusion-forcing model with the text-to-video CausVid LoRA at 832x480: worse than Wan at the hit.)
+   **Licence** (the Skywork Community License, read in full on 26 Nov 2026):
+   - commercial use is allowed, royalty-free, without applying, and Skywork claims no rights in the output;
+   - no military or unlawful use, and the output must not infringe anyone's rights, including image and personality
+     rights (real people: stylised only, no implied endorsement);
+   - the licence can be revoked and is governed by PRC law, so keep Wan ready as the fallback;
+   - "Skywork Inside" labelling applies only to published model derivatives, not to our videos;
+   - the lightx2v LoRA is Apache-2.0.
 **Thin props held in hands**, older note: SkyReels-V2 fast on the owner's private
    Space: `python3 videos/manga/skyreels_clips.py clip START.png OUT.mp4 --prompt "..." --mode fast --steps 6 --seconds 3`.
    In the 26 Nov test it kept the drummers' sticks solid where Wan dissolved them. It was worse than Wan at the
