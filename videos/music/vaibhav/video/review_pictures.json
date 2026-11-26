@@ -1,0 +1,258 @@
+[
+ {
+  "id": "c01",
+  "shots": ["S16"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the bat blade has a big curved bite cut out of its left edge near the toe",
+   "the end of the bat handle is drawn as a red stitched ball (a ball fused into the handle)",
+   "the hands are tangled at the shoulder of the blade: the father's right hand and the boy's hand merge, and the boy reaches with only one hand (S16: he takes it with both hands)",
+   "minor: the father wears the same blue shirt and has the same black hair as the boy, so from behind he reads like the grown-up hero"
+  ],
+  "fix": "edit: The same picture, but the cricket bat has a complete wide flat wooden blade with straight edges and no piece missing; the handle ends in a plain black rubber grip with no red cap; the father holds the handle, and the boy holds the blade with both of his own hands, clearly apart from the father's hands, five fingers on each hand; the father wears a plain off-white kurta instead of the blue shirt."
+ },
+ {
+  "id": "c02",
+  "shots": ["S17"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "a second batter in white (helmet, pads, gloves and his own bat) runs in the background: two bats, two batters, and no fast bowler",
+   "four red balls: one on the grass by the hero's bat, two on the grass by the white figure, one in the air",
+   "the white kit has a swoosh-like brand mark and a crest on the chest",
+   "letter-like sponsor writing on the boundary boards",
+   "the hero stands holding the bat across his body, not in a left-handed stance at the crease with his eyes on the bowler"
+  ],
+  "fix": "edit: The same picture, but the far figure is a fast bowler in a plain white shirt and trousers with no helmet, no pads, no gloves and no bat, running in to bowl; remove all four red balls; the boundary boards are plain single colours with no writing and no logos; the boy stands side-on at the crease in a left-handed batting stance (right shoulder towards the bowler), the bat grounded behind his back foot, eyes on the bowler. (If edit mode cannot do all of this, remake with a new seed.)"
+ },
+ {
+  "id": "c03",
+  "shots": ["S18", "S24"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the bat is held in one bare hand; the other hand, in a single white glove, reaches up to the ball as if to catch it, so this is not a lofted shot with both hands (S18 and S24 are hit shots)",
+   "the bat is narrow, tapered and round-topped, and the handle runs on below his fist, so it reads close to a baseball bat",
+   "letter-like writing on the boundary boards ('ld' and a 'REKAN'-like word on the right)"
+  ],
+  "fix": "edit: The same picture, but both his hands, in matching white batting gloves, grip the handle of one cricket bat with a wide flat wooden blade and square shoulders, the bat finishing high over his right shoulder in a left-hander's follow-through, his eyes on the one red ball in the sky; the boundary boards are plain single colours with no writing."
+ },
+ {
+  "id": "c04",
+  "shots": ["S11"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "tangled limbs in the middle of the crowd: legs kicking up out of the crowd with no body they belong to",
+   "an upside-down figure in the centre of the crowd",
+   "(one ball, as asked: fine)"
+  ],
+  "fix": "edit: The same picture, but every fan in the stands is upright, with their own two arms and two legs; remove the loose legs kicking up in the middle of the crowd and the upside-down figure; keep the one red ball dropping into the stands."
+ },
+ {
+  "id": "c05",
+  "shots": ["S20"],
+  "ok": false,
+  "severity": "minor",
+  "problems": [
+   "a white football goal stands at the lower left: a prop from the wrong sport in a cricket ground"
+  ],
+  "fix": "edit: The same picture, but remove the white football goal at the lower left; the ground behind him is a plain cricket outfield."
+ },
+ {
+  "id": "c06",
+  "shots": ["S21"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the white baseball cap on the right man has a letter-like logo",
+   "a red emblem on the chest of the left man's shirt",
+   "the left man (young, black side-swept fringe, same jaw) looks close to the hero's cast-sheet face"
+  ],
+  "fix": "edit: The same picture, but the cap is plain white with no logo; the left man's shirt is plain white with no badge; the left man is an older fast bowler, about 30, with a short beard and close-cropped hair, so he does not look like the hero."
+ },
+ {
+  "id": "c07",
+  "shots": ["S14", "S28"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "three red balls held up by fans (left, centre-right in a V-sign hand, right)",
+   "a flat bat floats in the crowd with no hand on it and no handle showing",
+   "minor: the crowd reads as Western and East Asian (several blonde fans), not an Indian cricket crowd"
+  ],
+  "fix": "edit: The same picture, but remove all three red balls (those hands are open or hold glowing phones) and remove the cricket bat in the crowd; the fans are Indian fans of many ages, men and women."
+ },
+ {
+  "id": "e01",
+  "shots": ["S19", "S26"],
+  "ok": true,
+  "problems": [],
+  "fix": "",
+  "notes": [
+   "on model, the closest of all to the cast sheet; plain blue kit, no logos",
+   "one flat bat with clear shoulders and a blank yellow-and-black label (no letters); five fingers on the bat hand",
+   "one red ball in the other hand (the prompt said both hands on the bat; acceptable for the celebration)",
+   "boundary boards are plain colours with no text; varied Indian crowd"
+  ]
+ },
+ {
+  "id": "i01",
+  "shots": ["S12"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the drums are double-headed barrel drums (dhol/chenda-like) worn at the waist, not parai (a flat round frame drum struck with two thin sticks)",
+   "three long round wooden clubs raised in the middle of the crowd read as round baseball bats",
+   "the two front drummers (left in a white vest, right in a white shirt) have the same face, hair and grin: twins",
+   "minor: they stand on the grass, not in a stadium aisle"
+  ],
+  "fix": "remake with a new seed and a sharper prompt: 'Tamil folk drummers playing parai, a wide flat round frame drum with one skin, hung from the shoulder and struck with two thin bamboo sticks, in a stadium aisle between the seats at night, energetic, the crowd dancing behind; each drummer has a different face, age and build; no barrel drums, no clubs, no bats'. This is a 3-clip test shot: fix it before the test."
+ },
+ {
+  "id": "i02",
+  "shots": ["S13", "S27"],
+  "ok": false,
+  "severity": "minor",
+  "problems": [
+   "a fan silhouette at the lower left holds up a flat cricket bat and another fan holds up a red ball; the prompt says no bat and no ball",
+   "a white football-style goal (two posts and a crossbar) stands on the field"
+  ],
+  "fix": "edit: The same picture, but the fans' raised hands are empty or hold glowing phones (no bat, no ball); remove the white goal frame from the field."
+ },
+ {
+  "id": "i03",
+  "shots": ["S08", "S25"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "two red balls: one stuck to the toe of the bat, one inside the helmet",
+   "a black sticker with letter-like writing on the shoulder of the bat",
+   "(face on model, eyes closed, big smile, plain blue kit, five fingers: fine)"
+  ],
+  "fix": "edit: The same picture, but there is no ball anywhere: remove the red ball at the top of the bat and the red ball inside the helmet; the bat is plain wood with no sticker."
+ },
+ {
+  "id": "p01",
+  "shots": ["S04"],
+  "ok": false,
+  "severity": "minor",
+  "problems": [
+   "the field has football markings (a white centre line and side lines) and no cricket pitch strip; the crowd and boards are clean, with no text"
+  ],
+  "fix": "edit: The same picture, but the field is a cricket ground: remove the white centre line and side lines, and put a light-brown cricket pitch strip with white crease lines in the middle of the field and a boundary rope in front of the boards."
+ },
+ {
+  "id": "p02",
+  "shots": ["S05", "S23"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "three signs on the stands carry letter-like writing",
+   "a red ball is wedged between his hand and the shoulder of the bat"
+  ],
+  "fix": "edit: The same picture, but the signs on the stands are plain colours with no writing; remove the red ball at the bat handle, so his hand holds only the rubber grip of the bat."
+ },
+ {
+  "id": "p03",
+  "shots": ["S07", "S22"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the ball has the curved figure-of-eight stitching of a baseball, not the single straight seam of a cricket ball (one ball and no bat, as asked: fine)"
+  ],
+  "fix": "edit: The same picture, but the ball is a red leather cricket ball with one straight raised seam of white stitching running around its middle; no curved stitching."
+ },
+ {
+  "id": "p04",
+  "shots": ["S06"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the bat is in two pieces: his hands at the upper left hold a round handle with a baseball-style knob on its end, and a separate flat blade floats level in front of his chest; the two do not join",
+   "the top hand is a shapeless pink lump",
+   "a thin straight streak in the sky reads like a thrown stick",
+   "(face on model under a plain helmet; one red ball with a straight seam: fine)"
+  ],
+  "fix": "remake with a new seed and the reference picture, same prompt plus: 'both gloved hands at the top of one straight cricket bat; the taped round handle runs straight into the wide flat blade; no knob on the handle; the bat finishes high over his right shoulder; the only streak is behind the ball'. This is a 3-clip test shot: fix it before the test."
+ },
+ {
+  "id": "p05",
+  "shots": ["S10"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the bat bends at a right angle at the ball: a long round club like a baseball bat comes in from the upper left and meets a flat blade going to the upper right, so it reads as two bats or a broken bat",
+   "(one red ball with a cricket seam: fine)"
+  ],
+  "fix": "remake with a new seed: 'Extreme close-up from the side: one straight cricket bat, a short taped round handle running in a straight line into a long, wide, flat wooden blade with square shoulders, hits one red leather cricket ball (straight seam) in the middle of the blade; dust and chalk explode; nothing else in the frame'."
+ },
+ {
+  "id": "p06",
+  "shots": ["S09"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "a red brand-like patch with white glyphs on a fan's white T-shirt (right of centre), and an orange tag on a fan's shirt (left)",
+   "the centre fan, the focal figure (young, dark swept hair, navy-blue shirt), reads like the hero",
+   "several men in the front row share one face",
+   "(one red ball in a fan's hand: allowed)"
+  ],
+  "fix": "edit: The same picture, but every shirt is plain with no patches or tags; the centre fan is an older man with a grey moustache in a yellow shirt; the front-row fans have clearly different faces, ages and hair, men and women."
+ },
+ {
+  "id": "t01",
+  "shots": ["S01"],
+  "ok": true,
+  "problems": [],
+  "fix": "",
+  "notes": [
+   "the boy looks about 11-12, a younger version of the cast sheet: short black hair, brown skin, a plain blue shirt with no logo",
+   "one bat on his right shoulder, seen edge-on; the blade widens past the grip; a tiny mark on it cannot be read",
+   "misty brick lane, dawn light, a cow: as the prompt asks",
+   "watch: the bat is edge-on, so check in the S01 test clip that it stays one flat-bladed bat; his free left hand is small and slightly clawed"
+  ]
+ },
+ {
+  "id": "t02",
+  "shots": ["S02"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the 'bat' is a short, tapered club shaped like a skittle, not a cricket bat with a wide flat blade",
+   "a gold leaf crest on the shirt",
+   "(face good, younger version of the cast sheet; five fingers: fine)"
+  ],
+  "fix": "edit: The same picture, but he grips the rubber handle of an old cricket bat with a long, wide, flat wooden blade and square shoulders, the blade standing upright beside his face; his shirt is plain with no badge."
+ },
+ {
+  "id": "t03",
+  "shots": ["S15"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the hero looks about 14, not 10, and the fielders look like older teenagers",
+   "a friend at the back right wears the same blue polo and has the same dark hair and face: a double of the hero",
+   "no red ball in the frame, though S15 has him swinging at the ball",
+   "a triangle logo mark on the bat blade",
+   "letter-like writing on the shop signs; a crest on the red-shirt fielder's chest",
+   "minor: lit stadium floodlights on poles in a village ground",
+   "unsure: the stance reads right-handed (left shoulder towards the right of the frame), and he bats left-handed"
+  ],
+  "fix": "edit: The same picture, but the batter is a 10-year-old boy (smaller, with a rounder face, like the boy in t02) in a left-handed stance; the friend at the back right wears a yellow vest and has close-cropped hair; the fielders are boys of about 10-12 with different faces; one red cricket ball in the air coming towards the bat; the bat is plain wood with no mark; the shop signs and shirts are plain, with no writing or badges; no floodlights, only the low golden sun. (If the age will not change in edit mode, remake with a new seed.)"
+ },
+ {
+  "id": "t04",
+  "shots": ["S03"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "he looks 17-20 (adult jaw and build), not a 10-year-old",
+   "the bat handle runs from behind his head (a black round grip with a knob, against the wall) to in front of his jaw: it reads as a second round bat or as a bat through his head",
+   "minor: the window shows a real stadium at ground level, not a dreamy stadium glowing in the sky",
+   "(one red ball; blurred boards in the window cannot be read: fine)"
+  ],
+  "fix": "remake with a new seed and the reference picture, with a stronger age cue: 'a small 10-year-old boy with child proportions and round cheeks asleep on a mat, hugging one cricket bat with a wide flat blade; the whole bat, handle and blade, lies in front of him, nothing behind his head; through the window a soft dreamlike stadium glows among the stars'."
+ }
+]

@@ -102,6 +102,8 @@ def space_video(image_path, prompt, steps, negative, seconds, seed):
 
 SPACE = "zerogpu-aoti/wan2-2-fp8da-aoti-faster"
 MAX_S = 5.0
+# The default suits a live-action look (F-Rank Ep 1). An anime video gives each shot its own "negative" (it must not
+# say "anime": that pushes the model towards a photo-real face, which a real person must never get).
 NEGATIVE = ("cartoon, anime, illustration, 3d render, blurry, low quality, deformed face, changing face, extra fingers, "
             "extra people, text, subtitles, watermark, static picture")
 
@@ -175,10 +177,10 @@ def main():
                 if left < 90:
                     print(f"free GPU time used up for today after {made} clips ({left:.0f} s left). Run again tomorrow.")
                     return
-                data = own_video(client, os.path.join(a.keyframes_dir, s["image"]), s["prompt"], NEGATIVE,
+                data = own_video(client, os.path.join(a.keyframes_dir, s["image"]), s["prompt"], s.get("negative", NEGATIVE),
                                  s["seconds"], seed)
             else:
-                data = space_video(os.path.join(a.keyframes_dir, s["image"]), s["prompt"], a.steps, NEGATIVE,
+                data = space_video(os.path.join(a.keyframes_dir, s["image"]), s["prompt"], a.steps, s.get("negative", NEGATIVE),
                                    min(MAX_S, float(s["seconds"])), seed)
             raw = os.path.join(raw_dir, name + ".mp4")
             open(raw, "wb").write(data)

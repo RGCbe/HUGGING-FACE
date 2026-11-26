@@ -54,8 +54,8 @@
   },
   {
    "name": "p04",
-   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin and short black hair, a LEFT-handed batter (his right shoulder points towards the bowler, his right hand at the top of the handle), helmet on, finishing a huge swing with a cricket bat with a wide flat wooden blade, the red ball flying away, stadium floodlights behind, with exactly the face of the boy in the reference picture",
-   "seed": 424,
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin and short black hair, a LEFT-handed batter (his right shoulder points towards the bowler), helmet on, finishing a huge swing: both gloved hands close together at the top of the straight taped handle of a cricket bat with a wide flat wooden blade, the handle running straight into the blade, the bat finishing high over his shoulder, the red ball flying away with a short motion trail behind it, stadium floodlights behind, with exactly the face of the boy in the reference picture",
+   "seed": 4242,
    "also": [
     "/root/.cache/music/vaibhav-video/ref/char_A2.png"
    ]
@@ -72,8 +72,8 @@
   },
   {
    "name": "i01",
-   "prompt": "Tamil folk drummers playing parai drums in a stadium aisle at night, energetic, crowd dancing behind",
-   "seed": 31
+   "prompt": "Tamil folk drummers playing parai, a wide flat round frame drum with one skin, hung from the shoulder and struck with two thin bamboo sticks, in a stadium aisle between the seats at night, energetic, each drummer with a different face, age and build (one grey-haired with a moustache, one young and thin, one heavy-set), the crowd behind dancing and clapping with open empty hands raised",
+   "seed": 3131
   },
   {
    "name": "i02",

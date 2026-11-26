@@ -119,6 +119,20 @@ The song is finished first and does not change. Every shot follows it.
 
 Each of these cards says what to do instead.
 
+## What the runs taught (keep adding)
+
+**26 Nov 2026, the first run (the Vaibhav video, 21 start pictures):**
+- **Checker 08 failed 19 of 21 pictures,** including the ones in the video already sent to the owner. Earlier checks by eye had missed:
+  - a bat in two pieces;
+  - four balls in one shot;
+  - a swoosh-style logo;
+  - twin drummers;
+  - baseball-like clubs.
+  I spot-checked 3 of its findings, and all 3 were right. It took about 15 minutes. The run showed that a separate checker that looks at every picture at full size is worth what it costs.
+- **Remakes fix one thing and can break another.** Check every remake, and fix the new problem with a short edit.
+- **The clip tool's default negative said "cartoon, anime".** For anime that pushes the model towards a photo-real face. Each shot now carries its own negative (card 23).
+- **Every motion prompt asked for "one cricket bat, one red ball",** even the drummers. Props now go only in the shots that have them.
+
 ## A run is done when
 
 - The owner has seen the cut.

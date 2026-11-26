@@ -25,6 +25,7 @@ tools: Read, Write, Edit, Glob, Grep, Bash
    - a new seed, for a remake.
 2. Run `python3 videos/doodle/imagegen.py FIX.json <WORK>/keyframes --only S05 --engine auto`.
 3. Look at the result. If anything else changed, send it back to 08.
+4. A remake can fix one thing and break another (26 Nov 2026: the remade p04 had a whole bat but a baseball helmet; the remade i01 had parai drums but one drummer's drum became his belly). Fix the new problem with one short edit, not another full remake.
 
 ## Done when
 Every picture 08 failed is fixed or remade, and has passed 08 again.

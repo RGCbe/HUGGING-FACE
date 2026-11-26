@@ -26,7 +26,9 @@ tools: Read, Write, Edit, Glob, Grep, Bash
    - the VISION style line;
    - for each shot: the cast lock line, what we see, and the scene's env line;
    - `"also"`: the cast sheet, for the face;
-   - each prop mentioned once (two mentions gave two bats).
+   - each prop mentioned once (two mentions gave two bats);
+   - only what should be there. "No clubs" can bring clubs in, so write "the crowd claps with open empty hands" instead.
+   - the gear, named fully: "a cricket batting helmet with a metal face grille" (without the grille it came out a baseball helmet).
 2. Run `python3 videos/doodle/imagegen.py SPEC.json <WORK>/keyframes --engine auto`.
 3. Draw the START of the move (the anticipation), so the clip has somewhere to go.
 

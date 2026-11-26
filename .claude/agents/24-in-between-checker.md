@@ -31,6 +31,7 @@ tools: Read, Write, Glob, Grep, Bash
    - the action is the one asked for;
    - the last second is usable (a bad ending can be cut with `"clip_cut_end"`).
 3. Run `ffprobe` on each clip: the duration, size and frame rate are as expected.
+4. **Long runs:** with more than about 8 clips, write a short note to `<WORK>/review_notes.txt` after each one, or check in batches of 8. Add `"severity": "major"` or `"minor"` to each failed clip.
 
 ## Done when
 Every clip is marked ok or has a fix, and the summary says how many clips were looked at.

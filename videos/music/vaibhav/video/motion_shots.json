@@ -3,168 +3,196 @@
   "id": "S01",
   "image": "t01.png",
   "seconds": 5.5,
-  "prompt": "The boy walks forward along the misty village lane with the bat on his shoulder, the cow turns its head, dust drifts through the sunbeams. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The boy walks forward along the misty village lane with the bat on his shoulder, the cow turns its head, dust drifts through the sunbeams. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, ball"
  },
  {
   "id": "S02",
   "image": "t02.png",
   "seconds": 4.2,
-  "prompt": "The boy tightens his grip on the bat and looks up with a slow, determined smile, dust floats in the sunlight. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The boy tightens his grip on the bat and looks up with a slow, determined smile, dust floats in the sunlight. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, ball"
  },
  {
   "id": "S03",
   "image": "t04.png",
   "seconds": 4.0,
-  "prompt": "The boy sleeps peacefully hugging his bat, the stadium in the window glows and flickers like a dream, the bulb light shimmers. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The boy sleeps peacefully hugging his bat, the stadium in the window glows and flickers like a dream, the bulb light shimmers. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, ball"
  },
  {
   "id": "S04",
   "image": "p01.png",
   "seconds": 5.9,
-  "prompt": "The camera rises slowly over the packed stadium, floodlights flare, the crowd waves flags and cheers. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The camera rises slowly over the packed stadium, floodlights flare, the crowd waves their arms and cheers. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; only the people and things already in the picture.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, cricket bat, baseball bat, club, ball"
  },
  {
   "id": "S05",
   "image": "p02.png",
   "seconds": 5.7,
-  "prompt": "The young batter walks out towards the camera, helmet in hand, smiling, the crowd behind him cheers and waves. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The young batter walks out towards the camera, helmet in hand, smiling, the crowd behind him cheers and waves. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, ball"
  },
  {
   "id": "S06",
   "image": "p04.png",
   "seconds": 4.3,
-  "prompt": "The batter swings hard and follows through, the red ball flies away fast towards the stands, the bat finishes high. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The batter swings hard and follows through, the red ball flies away fast towards the stands, the bat finishes high. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade and one red cricket ball.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, second ball"
  },
  {
   "id": "S07",
   "image": "p03.png",
   "seconds": 2.7,
-  "prompt": "The red ball flies up into the night sky, spinning, the floodlights flare as it passes. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The red ball flies up into the night sky, spinning, the floodlights flare as it passes. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one red cricket ball.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, bat, baseball bat, second ball"
  },
  {
   "id": "S08",
   "image": "i03.png",
   "seconds": 3.1,
-  "prompt": "He lifts his bat to the sky and laughs, confetti falls around him, the crowd cheers. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "He lifts his bat to the sky and laughs, confetti falls around him, the crowd cheers. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, ball"
  },
  {
   "id": "S09",
   "image": "p06.png",
   "seconds": 3.3,
-  "prompt": "The crowd jumps and cheers with arms in the air, confetti falls through the floodlights. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The crowd jumps and cheers with arms in the air, confetti falls through the floodlights. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; only the people and things already in the picture.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, cricket bat, baseball bat, club, ball"
  },
  {
   "id": "S10",
   "image": "p05.png",
   "seconds": 2.1,
-  "prompt": "The bat smashes the ball in slow motion, dust and chalk burst outwards, the ball shoots off. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The bat smashes the ball in slow motion, dust and chalk burst outwards, the ball shoots off. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade and one red cricket ball.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, second ball"
  },
  {
   "id": "S11",
   "image": "c04.png",
   "seconds": 2.1,
-  "prompt": "The ball drops into the stands, fans leap and stretch to catch it, they cheer wildly. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The ball drops into the stands, fans leap and stretch to catch it, they cheer wildly. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one red cricket ball.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, bat, baseball bat, second ball"
  },
  {
   "id": "S12",
   "image": "i01.png",
   "seconds": 3.7,
-  "prompt": "The drummers beat their drums hard and dance, the crowd behind claps and jumps to the rhythm. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The drummers beat their drums hard and dance, the crowd behind claps and jumps to the rhythm. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; only the people and things already in the picture.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, cricket bat, baseball bat, club, ball"
  },
  {
   "id": "S13",
   "image": "i02.png",
   "seconds": 3.7,
-  "prompt": "Fireworks burst and bloom over the stadium in gold and blue, the crowd silhouettes cheer. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "Fireworks burst and bloom over the stadium in gold and blue, the crowd silhouettes cheer. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; only the people and things already in the picture.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, cricket bat, baseball bat, club, ball"
  },
  {
   "id": "S14",
   "image": "c07.png",
   "seconds": 3.6,
-  "prompt": "The whole crowd rises and cheers, arms waving, phone lights swaying. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The whole crowd rises and cheers, arms waving, phone lights swaying. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; only the people and things already in the picture.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, cricket bat, baseball bat, club, ball"
  },
  {
   "id": "S15",
   "image": "t03.png",
   "seconds": 6.4,
-  "prompt": "The boy swings at the ball on the dusty village ground, his friends shout and run, dust kicks up. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The boy swings at the ball on the dusty village ground, his friends shout and run, dust kicks up. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade and one red cricket ball.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, second ball"
  },
  {
   "id": "S16",
   "image": "c01.png",
   "seconds": 4.0,
-  "prompt": "The father slowly hands the bat to his son, the boy takes it with both hands and looks up at him. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The father slowly hands the bat to his son, the boy takes it with both hands and looks up at him. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, ball"
  },
  {
   "id": "S17",
   "image": "c02.png",
   "seconds": 1.7,
-  "prompt": "The batter taps his bat and settles into his stance, the bowler runs in far away. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The batter taps his bat and settles into his stance, the bowler runs in far away. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade and one red cricket ball.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, second ball"
  },
  {
   "id": "S18",
   "image": "c03.png",
   "seconds": 1.6,
-  "prompt": "He steps forward and lofts the ball high, follows through, the red ball sails up into the night. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "He steps forward and lofts the ball high, follows through, the red ball sails up into the night. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade and one red cricket ball.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, second ball"
  },
  {
   "id": "S19",
   "image": "e01.png",
   "seconds": 3.8,
-  "prompt": "He raises his bat high to the roaring crowd and smiles, confetti swirls around him. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "He raises his bat high to the roaring crowd and smiles, confetti swirls around him. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, ball"
  },
  {
   "id": "S20",
   "image": "c05.png",
   "seconds": 3.7,
-  "prompt": "The bowler scratches his head with both hands, frowns and shakes his head in disbelief. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The bowler scratches his head with both hands, frowns and shakes his head in disbelief. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; only the people and things already in the picture.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, cricket bat, baseball bat, club, ball"
  },
  {
   "id": "S21",
   "image": "c06.png",
   "seconds": 4.4,
-  "prompt": "The bowler and the captain look at each other, shrug and shake their heads, confused. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The bowler and the captain look at each other, shrug and shake their heads, confused. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; only the people and things already in the picture.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, cricket bat, baseball bat, club, ball"
  },
  {
   "id": "S22",
   "image": "p03.png",
   "seconds": 1.7,
-  "prompt": "The red ball flies up into the night sky, spinning, the floodlights flare as it passes. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The red ball flies up into the night sky, spinning, the floodlights flare as it passes. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one red cricket ball.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, bat, baseball bat, second ball"
  },
  {
   "id": "S23",
   "image": "p02.png",
   "seconds": 4.0,
-  "prompt": "The young batter walks out towards the camera, helmet in hand, smiling, the crowd behind him cheers and waves. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The young batter walks out towards the camera, helmet in hand, smiling, the crowd behind him cheers and waves. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, ball"
  },
  {
   "id": "S24",
   "image": "c03.png",
   "seconds": 3.6,
-  "prompt": "He steps forward and lofts the ball high, follows through, the red ball sails up into the night. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "He steps forward and lofts the ball high, follows through, the red ball sails up into the night. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade and one red cricket ball.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, second ball"
  },
  {
   "id": "S25",
   "image": "i03.png",
   "seconds": 3.4,
-  "prompt": "He lifts his bat to the sky and laughs, confetti falls around him, the crowd cheers. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "He lifts his bat to the sky and laughs, confetti falls around him, the crowd cheers. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, ball"
  },
  {
   "id": "S26",
   "image": "e01.png",
   "seconds": 3.8,
-  "prompt": "He raises his bat high to the roaring crowd and smiles, confetti swirls around him. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "He raises his bat high to the roaring crowd and smiles, confetti swirls around him. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, ball"
  },
  {
   "id": "S27",
   "image": "i02.png",
   "seconds": 3.2,
-  "prompt": "Fireworks burst and bloom over the stadium in gold and blue, the crowd silhouettes cheer. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "Fireworks burst and bloom over the stadium in gold and blue, the crowd silhouettes cheer. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; only the people and things already in the picture.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, cricket bat, baseball bat, club, ball"
  },
  {
   "id": "S28",
   "image": "c07.png",
   "seconds": 2.3,
-  "prompt": "The whole crowd rises and cheers, arms waving, phone lights swaying. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat, one red ball."
+  "prompt": "The whole crowd rises and cheers, arms waving, phone lights swaying. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; only the people and things already in the picture.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, cricket bat, baseball bat, club, ball"
  }
 ]

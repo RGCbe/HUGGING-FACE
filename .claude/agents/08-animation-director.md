@@ -33,6 +33,8 @@ tools: Read, Write, Glob, Grep, Bash
    - **Not allowed:** logos, readable text, anything copied from another show's characters.
    - **Real people:** stylised, never photo-realistic; no team kits or league logos.
 3. Pass a picture only after you have looked at it yourself.
+4. **Long runs:** with more than about 8 pictures, write a short note to `<WORK>/review_notes.txt` after each one. On long runs, earlier pictures drop out of memory (the first run, 26 Nov 2026: 21 pictures). Or check in batches of 8.
+5. Add `"severity": "major"` or `"minor"` to each failed picture. A major one must be fixed before its clip is made.
 
 ## Done when
 Every picture is marked ok or has a concrete fix, and the summary says how many pictures were looked at.

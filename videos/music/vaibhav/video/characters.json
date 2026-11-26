@@ -1,0 +1,13 @@
+{
+ "_note": "Lock lines for the Vaibhav fan-song video (the anime studio's settei, card 04). Taken from the prompts the owner approved (style A, 26 Nov 2026). He is a real 15-year-old: stylised painted anime only, never photo-realistic. Cast sheet: ~/.cache/music/vaibhav-video/ref/char_A2.png (not in git).",
+ "vaibhav": {
+  "lock": "Vaibhav, a slim 15-year-old Indian boy with brown skin and short black hair, a LEFT-handed batter",
+  "match": "blue cricket shirt and trousers, a dark blue cricket helmet with a metal face grille when batting",
+  "child": "the same boy at about 10 in the village shots (t01-t04, c01), plain clothes",
+  "props": "one cricket bat with a wide flat wooden blade and a straight taped handle; one red cricket ball",
+  "never": ["photo-realistic face", "baseball bat", "baseball helmet without a grille", "a bat in two pieces", "team kit or league logo", "another person who looks like him"]
+ },
+ "bowlers": {"lock": "cricket bowlers in plain white kit", "never": ["logos or crests on the kit", "batting pads on the bowler"]},
+ "drummers": {"lock": "Tamil folk drummers with parai, a wide flat round frame drum with one skin, struck with two thin sticks; each a different face, age and build", "never": ["barrel drums", "clubs", "twins"]},
+ "crowd": {"lock": "an Indian cricket crowd, many different faces", "never": ["readable signs", "flags with symbols", "bats or balls in the crowd"]}
+}
