@@ -40,7 +40,9 @@ model: inherit
    - "keep every face, the clothes and the colours exactly as in the picture";
    - each prop mentioned once.
 8. **GPU time:** make what the day's GPU time allows. The scripts stop and carry on.
-9. **The negative (what to avoid):** give every shot its own `"negative"` in the clip list. `zerogpu_clips.py`'s default is for a live-action look ("cartoon, anime, illustration"), and it pushes an anime video towards photo-real faces. A real person must never get one. For anime, use "photorealistic, photo, live action, real person, ..." plus the props that must not appear (`videos/music/vaibhav/video/motion_shots.json` shows how).
+9. **The negative (what to avoid)** works only with guidance on. Our Wan Space's fast mode (4 steps, `guidance_scale` 1)
+   ignores it completely; so does SkyReels' fast mode. In fast mode, steer with the prompt and the start picture.
+   For a model run with guidance on, give every shot its own `"negative"` in the clip list. `zerogpu_clips.py`'s default is for a live-action look ("cartoon, anime, illustration"), and it pushes an anime video towards photo-real faces. A real person must never get one. For anime, use "photorealistic, photo, live action, real person, ..." plus the props that must not appear (`videos/music/vaibhav/video/motion_shots.json` shows how).
 10. **Props:** name a prop in the prompt only in shots that have it. Never write "no X" in a prompt, because it can bring X in; put X in the negative instead.
 
 ## Done when

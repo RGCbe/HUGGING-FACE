@@ -135,7 +135,10 @@ Each of these cards says what to do instead.
   - baseball-like clubs.
   I spot-checked 3 of its findings, and all 3 were right. It took about 15 minutes. The run showed that a separate checker that looks at every picture at full size is worth what it costs.
 - **Remakes fix one thing and can break another.** Check every remake, and fix the new problem with a short edit.
-- **The clip tool's default negative said "cartoon, anime".** For anime that pushes the model towards a photo-real face. Each shot now carries its own negative (card 23).
+- **The clip tool's default negative said "cartoon, anime", so each shot now carries its own negative (card 23).** Correction,
+  same day: our Wan Space runs with guidance off (4 steps, `guidance_scale` 1), and then the negative is ignored entirely.
+  The old one never pushed faces towards photo-real, and the new ones do nothing there either. A negative only counts
+  with guidance on (SkyReels "full" mode).
 - **Every motion prompt asked for "one cricket bat, one red ball",** even the drummers. Props now go only in the shots that have them.
 - **The maker's own quick look is not a check.** I passed the two fixed test pictures by eye. The checker then
   found a bat bent into a "V" at its joint and a drummer with three hands, and I confirmed both close up.

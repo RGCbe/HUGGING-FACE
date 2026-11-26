@@ -1,0 +1,24 @@
+{
+ "style": "",
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "p04_end_a",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p04.png",
+   "seed": 101,
+   "prompt": "The same picture, a moment later at the end of his swing: he has hit the ball, and his bat has swung through and finishes high over his right shoulder, his chest turned towards the bowler, his eyes following the red ball flying away high into the night sky. He is still left-handed. Everything else stays exactly the same: his face, the helmet with its grille, the plain white gloves, the blue shirt and the stadium."
+  },
+  {
+   "name": "p04_end_b",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p04.png",
+   "seed": 202,
+   "prompt": "The same picture, a moment later at the end of his swing: he has hit the ball, and his bat has swung through and finishes high over his right shoulder, his chest turned towards the bowler, his eyes following the red ball flying away high into the night sky. He is still left-handed. Everything else stays exactly the same: his face, the helmet with its grille, the plain white gloves, the blue shirt and the stadium."
+  },
+  {
+   "name": "p04_end_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p04.png",
+   "seed": 303,
+   "prompt": "The same picture, a moment later at the end of his swing: he has hit the ball, and his bat has swung through and finishes high over his right shoulder, his chest turned towards the bowler, his eyes following the red ball flying away high into the night sky. He is still left-handed. Everything else stays exactly the same: his face, the helmet with its grille, the plain white gloves, the blue shirt and the stadium."
+  }
+ ]
+}
