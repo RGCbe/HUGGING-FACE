@@ -151,10 +151,17 @@ def main():
                             "stopped": True})
                 json.dump(log, open(os.path.join(d, f"take_{a.seed}.fixlog.json"), "w"), ensure_ascii=False, indent=1)
                 return
+            # splice ONLY the re-sung stretch into the take (with 60 ms cross-fades): the model returns the whole song
+            # re-encoded, and keeping all of it, line after line, wore the whole song down (26 Nov 2026: 12 punch-ins
+            # dropped the re-voiced vocal from 62% to 17% of the words heard)
             y = S.load(p).T.copy()
-            n = min(x.shape[1], y.shape[1])
             cand = x.copy()
-            cand[:, :n] = y[:, :n]
+            i0, i1 = int(s0 * SR), min(x.shape[1], y.shape[1], int(s1 * SR))
+            fade = int(0.06 * SR)
+            w = np.ones(i1 - i0, np.float32)
+            w[:fade] = np.linspace(0, 1, fade)
+            w[-fade:] = np.linspace(1, 0, fade)
+            cand[:, i0:i1] = x[:, i0:i1] * (1 - w) + y[:, i0:i1] * w
             r = heard(cand)
             if r > best:
                 best, best_path = r, cand
