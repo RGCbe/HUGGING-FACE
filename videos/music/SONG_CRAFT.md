@@ -98,3 +98,21 @@ Earlier, still true: a slower beat (100 BPM) and short lines help the AI singer 
 not singing. A real sung take in his voice is what step 5 needs:
 his own singing (best), Suno Voices (his app; his voice data goes to Suno, which reportedly may train on it; check
 their privacy terms with him first), or a singing model trained on 10-30 minutes of his singing.
+
+## What made v4 the clearest (26 Nov 2026)
+
+| Step | Words heard on his vocal | On the full mix |
+|---|---|---|
+| v3: 22 s intro, rapped verse; the take ran out before the last pallavi | 62% | 7-13% |
+| v3 + Mel-Band RoFormer separation (no AI voice left in the beat) | 64% | 32% |
+| v4: 6 s intro, SUNG verse, 130 s, best of 6 takes (71% for the AI singer) | 65% | 57% |
+| v4 + 4 weak lines re-sung (`fixlines.py`, spliced) | **68%** | **63%** |
+
+- Ask for a short intro and give the lyrics the time they need: check that the last pallavi and the ending are sung.
+- Sing the verse: the rapped Tamil verse was the least clear part (6-19% of its words heard; sung lines 45-80%).
+- Separate with Mel-Band RoFormer (`"separator": "melroformer"`): HDemucs leaves the AI singer's voice in the beat,
+  where it sings the same words a little off under his and smears them.
+- Re-sing weak lines by splicing only the re-sung stretch: keeping the whole re-encoded song after each punch-in wore
+  it down (12 punch-ins: his vocal fell to 17%).
+- The AI singer is now the limit: re-singing adds a few points per line; a line it cannot pronounce (பந்து பறக்குது
+  வானத்துல, 5-10%) is better rewritten in easier words than re-sung again.
