@@ -141,8 +141,11 @@ def check(song, stem="vocals"):
             continue
         cache = os.path.join(d, f"take_{seed}.heard.txt" if stem == "vocals" else f"take_{seed}.{stem}.heard.txt")
         if not os.path.exists(cache):
+            # whisper's "no speech" filters throw sung lines away (26 Nov 2026: even the AI singer's own vocal came back
+            # empty on a 30 s window), so they are off: the score then measures the words, not whisper's confidence
             segs, _ = model.transcribe(load(voc, 16000, mono=True), language=song["language"], beam_size=5,
-                                       vad_filter=True, condition_on_previous_text=False)
+                                       vad_filter=True, condition_on_previous_text=False, no_speech_threshold=None,
+                                       log_prob_threshold=None, compression_ratio_threshold=None)
             with open(cache, "w") as f:
                 f.write("\n".join(f"{s.start:.1f}\t{s.end:.1f}\t{s.text.strip()}" for s in segs))
         heard = open(cache).read()

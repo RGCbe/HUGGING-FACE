@@ -79,7 +79,22 @@ measured (faster-whisper medium, share of the lyric letters heard; sample D = ra
 | His ElevenLabs voice speaking each line on the beat, gang of his takes (rap.py) | 84-86% | "voices are good", "like he speaks or reading" |
 | His ElevenLabs voice asked to sing, tuned to the key (rap.py, sing) | 74% | still not a song |
 
-So: a slower beat (100 BPM) and short lines help the AI singer most; re-voicing an AI singer from a speech sample
-destroys fast Tamil words; text-to-speech is clear but not singing. A real sung take in his voice is what step 5 needs:
+These numbers were measured with whisper's no-speech filters on, which throw sung lines away; the low re-voiced scores
+are partly that. With the filters off (song.py check, from 26 Nov 2026), the full v3 song (`vaibhav/guide_v3.json`,
+one SOLO AI singer, no gang, Tamil script, 100 BPM, 4 seeds; take 11 the clearest):
+
+| Take 11 vocal | Words heard | Sounds like his real voice (CAMPPlus cosine) |
+|---|---|---|
+| ACE-Step solo singer | 53% | 0.30 |
+| Re-voiced by Seed-VC, zero-shot from 15 s of his real speech | 52% | 0.73 |
+| Re-voiced by Seed-VC fine-tuned on 74 s of his real speech, 200 steps (`/learn`) | 41% | 0.71 |
+| (his ElevenLabs clone, for comparison) | - | 0.37 |
+
+So the automatic route that meets "sung" and "his voice only": a SOLO AI guide singer (no gang: a crowd cannot be
+re-voiced), re-voiced zero-shot from his real speech, and every other voice made from his re-voiced take (doubles, and
+a crowd of him in the hook: `song.py mix` with `"doubles": true` and `"orig_under": 0`). The fine-tuned model is not
+better yet; more of his real speech (a few minutes of talking, no singing) may change that.
+Earlier, still true: a slower beat (100 BPM) and short lines help the AI singer most; text-to-speech is clear but is
+not singing. A real sung take in his voice is what step 5 needs:
 his own singing (best), Suno Voices (his app; his voice data goes to Suno, which reportedly may train on it; check
 their privacy terms with him first), or a singing model trained on 10-30 minutes of his singing.
