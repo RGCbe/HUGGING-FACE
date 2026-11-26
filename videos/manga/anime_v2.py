@@ -5,7 +5,11 @@ Supports Claude Code and local workflows for 'The F-Rank Tea Seller':
   python anime_v2.py chain --prev shot1.mp4 --prompt "..." --out shot2.mp4 [--seconds 2.5] [--seed 302]
   python anime_v2.py fx --in shot.mp4 --out shot_fx.mp4 [--flash-at 1.2] [--shake 12]
 
-Requires HF_READ_TOKEN (or HF_TOKEN) in the environment or .env.local.
+Tokens (CLAUDE.md: HF_TOKEN goes only to the owner's own Spaces and datasets, never to third-party Spaces):
+  - chain: HF_READ_TOKEN only, and only to zerogpu-aoti/wan2-2-fp8da-aoti-faster (Hugging Face's own ZeroGPU team;
+    the owner chose on 19 Nov 2026 to give that one Space his read token for his GPU time). HF_TOKEN is never sent.
+  - t2v: mastaP/wan22-remix-sfw-t2v belongs to another person, so it gets NO token at all (token=False: gradio_client
+    would otherwise send the saved or HF_TOKEN token by itself). It runs on the anonymous free GPU time.
 Never prints or logs tokens.
 """
 import argparse
@@ -21,18 +25,24 @@ DEFAULT_NEG = (
 )
 
 
-def _load_token():
-    for key in ("HF_READ_TOKEN", "HF_TOKEN"):
-        val = (os.environ.get(key) or "").strip()
-        if val:
-            return val
-    raise RuntimeError("Set HF_READ_TOKEN or HF_TOKEN in the environment before running.")
+TRUSTED_SPACE = "zerogpu-aoti/wan2-2-fp8da-aoti-faster"  # the one non-owner Space the owner allowed his read token
+
+
+def _load_token(space):
+    """The token for this Space: the read-only token for TRUSTED_SPACE, and False (send nothing, not even a saved
+    token) for any other Space that is not the owner's. HF_TOKEN (it can write) is never sent from here."""
+    if space != TRUSTED_SPACE:
+        return False
+    val = (os.environ.get("HF_READ_TOKEN") or "").strip()
+    if not val:
+        raise RuntimeError("Set HF_READ_TOKEN (a Read-Only token) before running chain; HF_TOKEN is never sent.")
+    return val
 
 
 def cmd_t2v(args):
     """Generate a pure Text-to-Video 2D anime action shot (no static image anchor)."""
-    token = _load_token()
-    client = Client("mastaP/wan22-remix-sfw-t2v", token=token)
+    space = "mastaP/wan22-remix-sfw-t2v"
+    client = Client(space, token=_load_token(space))
     res = client.predict(
         prompt=args.prompt,
         negative_prompt=args.negative or DEFAULT_NEG,
@@ -51,14 +61,14 @@ def cmd_t2v(args):
 
 def cmd_chain(args):
     """Extract the exact last frame of --prev and chain the next continuous shot."""
-    token = _load_token()
+    token = _load_token(TRUSTED_SPACE)
     with tempfile.TemporaryDirectory() as tmp:
         anchor = os.path.join(tmp, "anchor.png")
         subprocess.run(
             ["ffmpeg", "-y", "-sseof", "-0.1", "-i", args.prev, "-update", "1", "-frames:v", "1", anchor],
             check=True,
         )
-        client = Client("zerogpu-aoti/wan2-2-fp8da-aoti-faster", token=token)
+        client = Client(TRUSTED_SPACE, token=token)
         res = client.predict(
             input_image=handle_file(anchor),
             prompt=args.prompt,
