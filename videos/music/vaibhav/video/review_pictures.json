@@ -99,22 +99,24 @@
  },
  {
   "id": "i01",
-  "shots": [
-   "S12"
-  ],
+  "shots": ["S12"],
   "ok": false,
   "severity": "major",
-  "checked": "animeA/i01.png on 26 Nov 2026 at full size (round 4: take i01_b plus the fix3 stick and scribble edit; sha256 348b1091...). Crops of every drummer's hands and sticks, the drum skins and rims, the faces, and the left, centre and right crowd; compared with takes/i01_b.png.",
+  "closest": "takes/i01_e2.png",
+  "checked": "Round 5, 26 Nov 2026: takes/i01_e1.png (seed 11, sha256 87744163...), i01_e2.png (seed 22, e09a9db5...) and i01_e3.png (seed 33, 716e72d3...), the fix4 edits of takes/i01_b.png. Each was checked at full size and compared with i01_b, with crops of all six hands, closer zooms of the doubtful fists, the drum mark, the three faces, and the left, centre and right crowd.",
   "problems": [
-   "each drummer now holds only one stick: the edit removed the stick from all three drummers' hands on the left of the picture, not only the heavy-set drummer's extra stick. Grey-haired: an empty fist with the thumb up; young: an empty fist; heavy-set: an empty fist. Stick count 1 + 1 + 1 (characters.json: a parai is struck with two thin sticks). In the S12 'beat their drums hard' clip the empty hands will slap the skin or grow sticks mid-clip",
-   "minor: the scribbled mark on the heavy-set drummer's drum is still there, smaller: a dotted letter-like 'i.i' at the lower right of the skin",
-   "minor: the young drummer's red tilak dot has faded to a faint speck, so he (black side-swept hair, teen face, front and centre) is a little closer to the hero's look than in i01_b"
+   "No take keeps two sticks per drummer. e1: the grey-haired drummer has 1 (his fist on the left of the picture holds only a stub), the young drummer 0 (two empty fists), and the heavy-set drummer 1 (the short crossing stick is gone, but so is the long stick in his other fist). That is 2 of 6 sticks.",
+   "e2: the grey-haired drummer has 2 (correct) and the young drummer 0 (two empty fists). The heavy-set drummer has 0: his fist on the left of the picture keeps only a faded, shirt-coloured ghost of the stick, and his other fist is empty, with a faint shadow line where the stick was. That is 2 of 6 clear sticks.",
+   "e3: the grey-haired drummer's fist on the right of the picture holds his own stick plus a second, diagonal one. A third, long loose stick rises from behind it into the crowd, between him and the young drummer, and his other fist holds only a stub. The young drummer has 1 (left of the picture) and an empty fist. The heavy-set drummer has 2 (correct; the one on the right is short). That is 5 held sticks plus a loose one in the crowd.",
+   "All three: the letter-like scribble on the heavy-set drummer's drum skin is still there, at the lower right. The fix4 prompt was cut short: it leaves out the round-4 instructions to remove the mark and to keep two sticks for every drummer.",
+   "Minor, all three: the young drummer's red tilak dot is still only a faint brown speck (as in round 4)."
   ],
   "notes": [
-   "fixed: the heavy-set drummer's fist on the right of the picture holds one stick, and the short crossing stick is gone; the long shadow line across the grey-haired drummer's drum is gone too",
-   "still fine: flat round frame drums with a cream skin and cord-bound wooden rims, on shoulder straps; three clearly different drummers (no twins); five fingers where visible; no sticks, bats or balls in the crowd (open, raised or clapping hands); plain olive shirts; no logos or readable text apart from the drum mark; stylised painted anime"
+   "Still fine in all three: flat round frame drums with a cream skin and a cord-bound wooden rim, on shoulder straps. The three faces, ages and builds stay clearly different (no twins), and the young drummer does not read as the hero apart from the tilak note. Plain olive shirts; no logos and no readable text apart from the drum mark. The crowd has open or clapping hands and no sticks, bats or balls (except e3's loose stick). Stylised painted anime.",
+   "e2 is the closest only because nothing in it is extra or loose and the grey-haired drummer is complete. It still needs 3 or 4 sticks drawn back in. takes/i01_b.png (5 of 6 sticks right, plus one extra) is still a better base than any of the edits.",
+   "The edit model redraws the whole frame: the face areas differ from i01_b by about 40/255 on average, so pasting a region from an edit into i01_b would show seams."
   ],
-  "fix": "Do not edit i01.png again (edits on edits add faults). Redo the edit from takes/i01_b.png with 2-3 seeds and let the checker pick: 'The same picture, but remove only the short extra stick that crosses the long stick in the heavy-set drummer's fist on the right of the picture, and the small scribbled mark at the bottom of his drum skin. All three drummers keep exactly two thin sticks each, one in each hand; the stick in each drummer's hand on the left of the picture stays. Everything else stays exactly the same.' Then re-check all six hands and count six sticks."
+  "fix": "Stop editing without a mask. i01 has failed three rounds in a row (i01_b, the fix3 edit and the three fix4 edits), and every 'remove one stick' edit also strips sticks from the other drummers. (a) If the picture tool takes a mask: inpaint only on takes/i01_b.png. Mask only the short crossing stick in the heavy-set drummer's fist on the right of the picture (about x 1345-1465, y 545-665) and the drum mark (about x 1320-1360, y 770-805), so the other five sticks stay pixel for pixel. (b) Otherwise, make 3 fresh takes from the i01 prompt in images_anime.json with new seeds (RULES: after two fails, make 3 fresh takes), adding: 'each of the three drummers holds exactly two thin bamboo sticks, one in each hand, six sticks in all; plain drum skins with no marks; the young drummer has a red tilak dot'. Then count all six hands again."
  },
  {
   "id": "i02",
