@@ -21,5 +21,11 @@
   "பந்து",
   "ஆட்ட"
  ],
- "separator": "melroformer"
+ "separator": "melroformer",
+ "voice_engine": "base",
+ "clear_lead": true,
+ "gang_gain": 0.6,
+ "lead_gain": 1.6,
+ "duck": 0.55,
+ "acapella": true
 }
