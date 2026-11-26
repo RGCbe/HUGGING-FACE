@@ -8,7 +8,8 @@ PLAN.json:
     {"work": "~/.cache/music/SLUG", "instrumental": "take_202.band.wav", "bpm": 100, "first_beat": 0.12,
      "lines": [{"bar": 0, "bars": 2, "who": "lead", "tag": "excited", "text": "..."},
                {"bar": 1.5, "bars": 0.5, "who": "gang", "text": "..."}, ...]}
-    who: "lead" (the owner), "gang" (four other takes of the owner), "all" (both together).  bar: where the line starts (0 = first_beat);
+    who: "lead" (the owner), "gang" (four other takes of the owner), "all" (both together).
+    sing: true = sung, not spoken: the owner's voice asked to sing, then tuned to the plan's "notes" (the beat's key).  bar: where the line starts (0 = first_beat);
     bars: the room it has (a line that is longer is sped up, at most 1.35x, never pitched).
 
 Where data goes: the line texts go only to ElevenLabs' own API with its key; everything else stays on this machine.
@@ -92,6 +93,57 @@ def pitch(a, semitones):
     return out
 
 
+NOTE = {n: i for i, n in enumerate("C C# D D# E F F# G G# A A# B".split())}
+
+
+def autotune(a, notes):
+    """Sing in the beat's key: the whole line moves to the key, then every held note (>= 90 ms of steady pitch) is
+    pulled to the nearest allowed note (rubberband, formants kept). Glides and consonants are left alone, so the
+    words stay as clear as they were."""
+    import librosa
+    pcs = sorted(NOTE[n] for n in notes)
+    hop = 256
+    y = librosa.resample(a, orig_sr=SR, target_sr=16000)
+    f0, voiced, _ = librosa.pyin(y, fmin=70, fmax=700, sr=16000, frame_length=1024, hop_length=hop)
+    midi = librosa.hz_to_midi(np.where(voiced, f0, np.nan))
+    # held notes: runs of steady pitch
+    runs, start = [], None
+    for i in range(len(midi)):
+        steady = voiced[i] and i > 0 and voiced[i - 1] and abs(midi[i] - midi[i - 1]) < 0.4
+        if steady and start is None:
+            start = i - 1
+        if (not steady or i == len(midi) - 1) and start is not None:
+            if (i - start) * hop / 16000 >= 0.09:
+                runs.append((start, i, float(np.nanmedian(midi[start:i]))))
+            start = None
+    if not runs:
+        return a
+
+    def dist(m):
+        d = [(m - p) % 12 for p in pcs]
+        return min(min(x, 12 - x) for x in d)
+    # the whole line moves by the semitones that need the least pulling
+    shift = min(range(-6, 6), key=lambda k: sum(dist(m + k) * (e - s0) for s0, e, m in runs))
+    out = pitch(a, shift) if shift else a.copy()
+    for s0, e, m in runs:
+        m = m + shift
+        target = min((round(m) + k for k in range(-6, 7) if (round(m) + k) % 12 in pcs), key=lambda t: abs(t - m))
+        semis = target - m
+        if abs(semis) < 0.15:
+            continue
+        i0, i1 = int(s0 * hop / 16000 * SR), int(e * hop / 16000 * SR)
+        seg = out[i0:i1]
+        if len(seg) < SR // 20:
+            continue
+        moved = pitch(seg, semis)[:len(seg)]
+        x = min(len(seg) // 4, SR // 100)  # 10 ms cross-fades
+        ramp = np.ones(len(moved), np.float32)
+        ramp[:x] = np.linspace(0, 1, x)
+        ramp[len(moved) - x:] = np.linspace(1, 0, x)
+        out[i0:i0 + len(moved)] = seg[:len(moved)] * (1 - ramp) + moved * ramp
+    return out
+
+
 def fit(a, seconds, most=1.35):
     """Speed a line up (pitch kept) when it is longer than its room."""
     if len(a) <= seconds * SR * 0.97:
@@ -132,6 +184,20 @@ def main():
         at = plan["first_beat"] + line["bar"] * bar
         room = line.get("bars", 1) * bar
         who, tag = line.get("who", "lead"), line.get("tag", "")
+        if line.get("sing"):
+            # sung: the owner's voice asked to sing, then tuned to the beat's key; an "all" line is doubled from the
+            # same take (two delayed copies left and right and one an octave down), so it stays one melody
+            a = fit(autotune(v.say(v.lead, "\u266a " + line["text"] + " \u266a", tag or "singing melodically",
+                                   seed=line.get("seed", 7)), plan.get("notes", ["E", "F#", "G", "A", "B", "C", "D"])),
+                    room)
+            place(lead, a, at)
+            if who == "all":
+                for delay, semis, gl, gr in ((0.022, 0, 0.55, 0.15), (0.037, 0, 0.15, 0.55), (0.0, -12, 0.3, 0.3)):
+                    d2 = pitch(a, semis)
+                    place(gang[:, 0], d2, at + delay, gl)
+                    place(gang[:, 1], d2, at + delay, gr)
+            print(f"{n + 1:2d}. bar {line['bar']:>5} {who:4s} sung  {line['text']}", flush=True)
+            continue
         if who in ("lead", "all"):
             a = fit(v.say(v.lead, line["text"], tag or "excited", seed=line.get("seed", 7)), room)
             place(lead, a, at)

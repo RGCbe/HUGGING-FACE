@@ -1,0 +1,22 @@
+{
+ "note": "45 s sung demo on sample D's beat (E minor, 100 BPM): the owner's ElevenLabs voice sings each line (owner, 26 Nov 2026: 'I want like songs'), tuned to the notes the AI singer used; the gang shouts are takes of the owner too.",
+ "work": "~/.cache/music/vaibhav-sample-d",
+ "instrumental": "take_202.band.wav",
+ "bpm": 100,
+ "first_beat": 0.12,
+ "notes": ["E", "F#", "A", "C", "D"],
+ "lines": [
+  {"bar": 0, "bars": 1.8, "who": "lead", "sing": true, "text": "ஆஃப் சைடு போட்டா, கவர் மேல போகும்!"},
+  {"bar": 2, "bars": 1.8, "who": "lead", "sing": true, "text": "லெக் சைடு போட்டா, ஸ்டாண்டுல விழும்!"},
+  {"bar": 4, "bars": 1.8, "who": "lead", "sing": true, "text": "பவுலர் தலைய சொறிஞ்சு நிக்கிறான்!"},
+  {"bar": 5.75, "bars": 0.25, "who": "gang", "text": "ஐயோ!"},
+  {"bar": 6, "bars": 2, "who": "lead", "sing": true, "text": "எங்க போடுறதுன்னு, கேப்டன பாக்குறான்!"},
+  {"bar": 8, "bars": 2, "who": "all", "sing": true, "text": "வைபவ் வந்தா வெறித்தனம்!"},
+  {"bar": 10, "bars": 2, "who": "lead", "sing": true, "text": "பந்து பறக்குது வானத்துல!"},
+  {"bar": 12, "bars": 2, "who": "lead", "sing": true, "text": "பதினைஞ்சு வயசு தான் டா, ஆட்டத்த பாரு சிங்கம் டா!"},
+  {"bar": 14, "bars": 2, "who": "all", "sing": true, "text": "வைபவ்! வைபவ்! இவன் இந்தியாவோட பையன் டா!"},
+  {"bar": 16, "bars": 0.5, "who": "gang", "text": "வைபவ்!"},
+  {"bar": 16.5, "bars": 0.5, "who": "gang", "text": "வைபவ்!"},
+  {"bar": 17, "bars": 1, "who": "gang", "text": "சிக்ஸ் தான்!"}
+ ]
+}
