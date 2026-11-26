@@ -1,4 +1,4 @@
-"""Crystal-clear vocals on a beat: the owner's ElevenLabs voice raps and shouts each line, and a gang of voices answers,
+"""Crystal-clear vocals on a beat: the owner's ElevenLabs voice raps and shouts each line, and a gang of him answers,
 every line placed on its bar. For songs where re-voicing an AI singer blurs the words (25 Nov 2026: the converted
 Tamil rap was not understandable).
 
@@ -8,7 +8,7 @@ PLAN.json:
     {"work": "~/.cache/music/SLUG", "instrumental": "take_202.band.wav", "bpm": 100, "first_beat": 0.12,
      "lines": [{"bar": 0, "bars": 2, "who": "lead", "tag": "excited", "text": "..."},
                {"bar": 1.5, "bars": 0.5, "who": "gang", "text": "..."}, ...]}
-    who: "lead" (the owner), "gang" (the gang), "all" (both together).  bar: where the line starts (0 = first_beat);
+    who: "lead" (the owner), "gang" (four other takes of the owner), "all" (both together).  bar: where the line starts (0 = first_beat);
     bars: the room it has (a line that is longer is sped up, at most 1.35x, never pitched).
 
 Where data goes: the line texts go only to ElevenLabs' own API with its key; everything else stays on this machine.
@@ -27,7 +27,9 @@ sys.path.insert(0, os.path.join(HERE, "..", "kural"))
 import eleven  # noqa: E402
 
 SR = 44100
-GANG = ["Manav - Friendly, Calm and Natural", "Viraj - Deep, Resonant and Lyrical", "Bunty - Warm and Clear"]
+# the gang is the owner too (26 Nov 2026: "use my voice only"): other takes of his clone, each a little higher or
+# lower, so it sounds like a crowd of him
+GANG_TAKES = [(11, 0.0), (12, -1.5), (13, 1.2), (14, -0.7)]  # (seed, semitones)
 
 
 def ffmpeg(*args):
@@ -56,7 +58,6 @@ class Voices:
         self.cache = cache
         cfg = json.load(open(os.path.join(HERE, "..", "teabreak", "config.json")))["eleven"]
         self.lead = (eleven.voice_id(cfg["voice"], self.key), cfg["stability"], cfg["similarity"], cfg["model"])
-        self.gang = [(eleven.voice_id(n, self.key), 0.35, 0.8, cfg["model"]) for n in GANG]
 
     def say(self, voice, text, tag, seed):
         vid, stab, sim, model = voice
@@ -73,6 +74,22 @@ class Voices:
             ffmpeg("-f", "s16le", "-ar", "24000", "-ac", "1", "-i", raw, "-ar", str(SR), path)
             os.remove(raw)
         return trim(load(path))
+
+
+def pitch(a, semitones):
+    """Shift the pitch without changing the length (rubberband), for the gang's doubles."""
+    if not semitones:
+        return a
+    import tempfile
+    d = tempfile.mkdtemp()
+    i, o = os.path.join(d, "in.wav"), os.path.join(d, "out.wav")
+    sf.write(i, a, SR)
+    ffmpeg("-i", i, "-af", f"rubberband=pitch={2 ** (semitones / 12):.5f}:formant=preserved", o)
+    out = load(o)
+    os.remove(i)
+    os.remove(o)
+    os.rmdir(d)
+    return out
 
 
 def fit(a, seconds, most=1.35):
@@ -119,8 +136,8 @@ def main():
             a = fit(v.say(v.lead, line["text"], tag or "excited", seed=line.get("seed", 7)), room)
             place(lead, a, at)
         if who in ("gang", "all"):
-            for k, voice in enumerate(v.gang + [v.lead]):  # the owner shouts with the gang too
-                a = fit(v.say(voice, line["text"], "shouting", seed=11 + k), room)
+            for k, (seed, semi) in enumerate(GANG_TAKES):
+                a = fit(pitch(v.say(v.lead, line["text"], "shouting", seed=seed), semi), room)
                 off = at + rng.uniform(0, 0.03)
                 place(gang[:, 0], a, off, 0.8 * pans[k][0])
                 place(gang[:, 1], a, off, 0.8 * pans[k][1])
