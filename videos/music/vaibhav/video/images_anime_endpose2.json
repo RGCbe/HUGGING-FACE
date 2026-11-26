@@ -1,0 +1,33 @@
+{
+ "style": "Hyper-detailed semi-realistic anime digital painting in the look of a high-budget anime feature film key visual: clean outlines, realistic anatomy and faces, realistic skin, fabric and grass textures, volumetric lighting with glowing floodlights, depth of field, cinematic composition, rich warm gold and deep blue grade. A painting, not a photograph. No text, no letters, no numbers, no logos, no watermark.",
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "p04_end2_a",
+   "prompt": "A painted anime picture in the same night stadium, with the same floodlights and the same camera framing as image 0. The same boy as image 0 and image 1: Vaibhav, a slim 15-year-old Indian boy with a smooth, beardless young face, a dark blue cricket helmet with a metal grille below his eyes, a plain blue shirt and plain white gloves. The moment after a big hit, a left-handed batter's follow-through: his chest and hips have turned to face the left of the picture, both gloved hands are high up beside his helmet, and the one straight cricket bat goes back over his shoulder behind his head, its blade pointing to the upper right of the picture. His chin is lifted, and his eyes look up to the upper left, where one small red cricket ball flies high in the night sky. No ball on the grass.",
+   "seed": 411,
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/p04.png",
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "p04_end2_b",
+   "prompt": "A painted anime picture in the same night stadium, with the same floodlights and the same camera framing as image 0. The same boy as image 0 and image 1: Vaibhav, a slim 15-year-old Indian boy with a smooth, beardless young face, a dark blue cricket helmet with a metal grille below his eyes, a plain blue shirt and plain white gloves. The moment after a big hit, a left-handed batter's follow-through: his chest and hips have turned to face the left of the picture, both gloved hands are high up beside his helmet, and the one straight cricket bat goes back over his shoulder behind his head, its blade pointing to the upper right of the picture. His chin is lifted, and his eyes look up to the upper left, where one small red cricket ball flies high in the night sky. No ball on the grass.",
+   "seed": 522,
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/p04.png",
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "p04_end2_c",
+   "prompt": "A painted anime picture in the same night stadium, with the same floodlights and the same camera framing as image 0. The same boy as image 0 and image 1: Vaibhav, a slim 15-year-old Indian boy with a smooth, beardless young face, a dark blue cricket helmet with a metal grille below his eyes, a plain blue shirt and plain white gloves. The moment after a big hit, a left-handed batter's follow-through: his chest and hips have turned to face the left of the picture, both gloved hands are high up beside his helmet, and the one straight cricket bat goes back over his shoulder behind his head, its blade pointing to the upper right of the picture. His chin is lifted, and his eyes look up to the upper left, where one small red cricket ball flies high in the night sky. No ball on the grass.",
+   "seed": 633,
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/p04.png",
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  }
+ ]
+}

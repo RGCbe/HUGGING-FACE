@@ -1,0 +1,44 @@
+[
+ {
+  "take": "p04_end_a",
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "not an end pose: the pose is the start pose again. The bat is still lifted in the backlift over his left shoulder (right of the picture), his hands are still beside his right ear, and his chest is not turned to the bowler",
+   "the ball is not in the air: it is still low on the left just above the grass, moved only about 16 px from where it is in p04 (centre 512,828 in the start, 496,837 here), so the clip would have no hit and no ball flying away",
+   "his face looks older: dark stubble on the chin and along the jaw that p04 does not have; he reads about 18-20, not 15-16",
+   "a few small stray white specks in the sky near the helmet and bat (minor)"
+  ],
+  "passed": "one straight bat, as in p04 (its toe is now hidden behind the helmet); plain white gloves with the light blue cuff, two hands; grille below the eyes; same framing, stadium, floodlights and blue shirt; no logos or readable text; stylised, not photo-real",
+  "fix": "Do not edit this take again. Make fresh takes with the prompt rewritten as given under 'choice' below."
+ },
+ {
+  "take": "p04_end_b",
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "not an end pose: same backlift as p04, with the bat over his left shoulder (right of the picture) and its toe above the helmet exactly as in the start. No swing-through and no chest turn",
+   "the ball is still low on the left just above the grass (centre 504,837 against 512,828 in p04), not flying away high",
+   "his face looks older: stubble on the chin and jaw; he reads about 18-20, not 15-16"
+  ],
+  "passed": "one straight bat; plain white gloves, two hands; grille below the eyes; same framing, background and clothes; no logos or text; stylised",
+  "fix": "Do not edit this take again. Make fresh takes with the prompt rewritten as given under 'choice' below."
+ },
+ {
+  "take": "p04_end_c",
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "not an end pose: same backlift as p04, with the bat over his left shoulder (right of the picture) and his hands by his right ear. No follow-through and no chest turn",
+   "the ball is still low on the left just above the grass (centre 505,835 against 512,828 in p04), not in the air",
+   "his face looks older: the clearest beard of the three, dark stubble along the jaw and chin; he reads about 18-20, not 15-16"
+  ],
+  "passed": "one straight bat; plain white gloves, two hands; grille below the eyes; same framing, background and clothes; no logos or text; stylised",
+  "fix": "Do not edit this take again. Make fresh takes with the prompt rewritten as given under 'choice' below."
+ },
+ {
+  "choice": null,
+  "why": "None of the three shows the moment after the hit. Each is p04 redrawn in the same backlift, with the ball still low on the left; only about 5-6.5% of pixels changed by more than 40 levels (mean difference 11-12.5 of 255), and that is redraw noise around the figure, not a new pose. Given any of these as the END picture, SkyReels would get two almost identical keys: the clip would be near-static, or it would swing and snap back to the backlift, with the ball sitting on the grass (the 'frozen ball' fault the clip checker found earlier). All three also aged his face with stubble. The edit prompt itself is the likely cause: 'The same picture ... Everything else stays exactly the same' anchors the pose, and with 4 steps the edit keeps the layout of image 0. Suggested remake: 3 fresh takes with new seeds from p04 as image 0 and ref/char_A2.png as image 1, the pose described in picture directions and no 'same picture' wording, for example: 'A painted anime picture in the same night stadium, with the same floodlights and the same camera framing as image 0. The same boy as image 0 and image 1: Vaibhav, a slim 15-year-old Indian boy with a smooth, beardless young face, a dark blue cricket helmet with a metal grille below his eyes, a plain blue shirt and plain white gloves. The moment after a big hit, a left-handed batter's follow-through: his chest and hips have turned to face the left of the picture, both gloved hands are high up beside his helmet, and the one straight cricket bat goes back over his shoulder behind his head, its blade pointing to the upper right of the picture. His chin is lifted, and his eyes look up to the upper left, where one small red cricket ball flies high in the night sky. No ball on the grass.' Honest: this edit model may keep the start pose whatever the prompt says. If the new takes still come back in the backlift, run the SkyReels test with the start picture only and tell the owner the end key could not be made with this tool. A picture made from the face reference alone would change the stadium and framing, and that breaks the start-and-end pairing.",
+  "checked": "4 pictures looked at on 26 Nov 2026: the start animeA/p04.png and takes/p04_end_a.png, p04_end_b.png and p04_end_c.png, each at full size (1664x928), plus a 2x2 side-by-side sheet. I also looked at 2x face crops of all four side by side, crops of the bat and gloves, the cast sheet ref/char_A2.png, and a pixel diff and red-ball position against the start. Not checked: nothing was generated or run; no clip was made."
+ }
+]
