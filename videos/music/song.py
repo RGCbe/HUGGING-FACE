@@ -78,7 +78,70 @@ def takes(song):
         print(f"take {seed}: {i.get('duration')} s, {i.get('bpm')} BPM, {i.get('keyscale')}, made in {i['seconds']} s")
 
 
+MELROFORMER = ("smank/mel-band-roformer-vocals-onnx", "60cb6b4b97e41b42f7ff16c2e386f47a8cc7e50a",
+               "melband_roformer_vocals.onnx", "64a4f3bee48fbe7d971b23875adc924ed004c3533f49672592641dddc0f6f561")
+
+
+def melroformer_vocals(x):
+    """Vocals of a stereo mix (2, n) at 44.1 kHz with Kimberley Jensen's Mel-Band RoFormer (MIT; SDR 10.98 on
+    MUSDB18-HQ), as an ONNX graph with its own STFT (smank's conversion, pinned and SHA-256 checked; ONNX holds no
+    pickle). Cleaner than HDemucs, so the re-voiced singing has less music in it (26 Nov 2026: "Voice is not clear")."""
+    import hashlib
+    import onnxruntime as ort
+    from huggingface_hub import hf_hub_download
+    repo, rev, name, sha = MELROFORMER
+    path = hf_hub_download(repo, name, revision=rev, token=False,
+                           local_dir=os.path.expanduser("~/.cache/music/weights/melroformer"))
+    ok = path + ".sha256-ok"
+    if not os.path.exists(ok):
+        h = hashlib.sha256()
+        with open(path, "rb") as f:
+            for b in iter(lambda: f.read(1 << 24), b""):
+                h.update(b)
+        if h.hexdigest() != sha:
+            raise SystemExit("separator checksum mismatch; refusing to use it")
+        open(ok, "w").close()
+    so = ort.SessionOptions()
+    so.intra_op_num_threads = os.cpu_count() or 4
+    sess = ort.InferenceSession(path, so, providers=["CPUExecutionProvider"])
+    seg, hop = 352800, 352800 - SR  # 8 s windows, 1 s overlap
+    n = x.shape[1]
+    out = np.zeros_like(x, dtype=np.float32)
+    weight = np.zeros(n, np.float32)
+    win = np.ones(seg, np.float32)
+    win[:SR] = np.linspace(0, 1, SR)
+    win[-SR:] = np.linspace(1, 0, SR)
+    for start in range(0, n, hop):
+        chunk = x[:, start:start + seg]
+        m = chunk.shape[1]
+        pad = np.pad(chunk, ((0, 0), (0, seg - m)))[None].astype(np.float32)
+        voc = sess.run(None, {"mix": pad})[0][0, 0, :, :m]
+        w = win[:m].copy()
+        if start == 0:
+            w[:SR] = 1
+        if start + seg >= n:
+            w[-min(SR, m):] = 1
+        out[:, start:start + m] += voc * w
+        weight[start:start + m] += w
+        if start + seg >= n:
+            break
+    return out / np.maximum(weight, 1e-6)
+
+
 def stems(song):
+    if song.get("separator") == "melroformer":
+        d = work(song)
+        for seed in song["seeds"]:
+            src = os.path.join(d, f"take_{seed}.flac")
+            voc, band = os.path.join(d, f"take_{seed}.vocals.wav"), os.path.join(d, f"take_{seed}.band.wav")
+            if not os.path.exists(src) or os.path.exists(voc):
+                continue
+            x = load(src).T.copy()
+            v = melroformer_vocals(x)
+            sf.write(voc, v.T, SR)
+            sf.write(band, (x - v).T, SR)
+            print(f"take {seed}: split (Mel-Band RoFormer)")
+        return
     import torch
     import torchaudio
     from torchaudio.pipelines import HDEMUCS_HIGH_MUSDB_PLUS as bundle
