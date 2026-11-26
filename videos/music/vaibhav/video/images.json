@@ -1,0 +1,121 @@
+{
+ "style": "Realistic cinematic film still, shot on a full-frame cinema camera, 35mm lens, dramatic natural and stadium light, rich colour grade with warm gold and deep blue, shallow depth of field, light film grain, India. No text, no letters, no numbers, no logos, no brand marks, no watermark.",
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "t01",
+   "prompt": "A narrow village lane in Samastipur, Bihar, at dawn, mist and golden sunlight; a 13-year-old boy walking away from the camera with an old cricket bat on his shoulder, seen from behind, simple houses, a cow, dust in the light",
+   "seed": 11
+  },
+  {
+   "name": "t02",
+   "prompt": "Extreme close-up of a boy's small hands gripping the taped handle of an old wooden cricket bat, dust particles glowing in morning sunlight",
+   "seed": 12
+  },
+  {
+   "name": "t03",
+   "prompt": "A dusty village cricket ground at golden hour, a boy batting left-handed seen from behind the stumps, friends fielding in the distance as silhouettes, long shadows",
+   "seed": 13
+  },
+  {
+   "name": "t04",
+   "prompt": "At night in a small house, an old cricket bat leaning against a whitewashed wall under a single warm bulb, a window showing a distant glow like stadium lights, dreamy mood",
+   "seed": 14
+  },
+  {
+   "name": "p01",
+   "prompt": "A huge floodlit cricket stadium at night seen from the pitch, packed crowd, floodlights flaring, haze, electric atmosphere",
+   "seed": 21
+  },
+  {
+   "name": "p02",
+   "prompt": "A young left-handed batter in a plain blue kit and helmet walking out to bat towards the pitch in a giant floodlit stadium, the young left-handed batter is seen only from behind or in silhouette, his face never visible, crowd roaring",
+   "seed": 22
+  },
+  {
+   "name": "p03",
+   "prompt": "Low angle: a red cricket ball flying high into the night sky against blazing stadium floodlights, motion blur, sparks of light",
+   "seed": 23
+  },
+  {
+   "name": "p04",
+   "prompt": "Backlit silhouette of a young left-handed batter finishing a huge swing, bat high over the shoulder, stadium floodlights behind, the young left-handed batter is seen only from behind or in silhouette, his face never visible",
+   "seed": 24
+  },
+  {
+   "name": "p05",
+   "prompt": "Extreme close-up of a cricket bat smashing a red ball, dust and chalk exploding, frozen high-speed moment",
+   "seed": 25
+  },
+  {
+   "name": "p06",
+   "prompt": "A stadium crowd on its feet, thousands of fans with arms raised, cheering, whistles, confetti in the floodlights, faces blurred by motion",
+   "seed": 26
+  },
+  {
+   "name": "p07",
+   "prompt": "Young fans in the stands blowing whistles and waving blue and orange scarves, joyful, night stadium, motion blur",
+   "seed": 27
+  },
+  {
+   "name": "i01",
+   "prompt": "Tamil folk drummers playing parai drums in a stadium aisle at night, energetic, sticks blurred, crowd dancing behind",
+   "seed": 31
+  },
+  {
+   "name": "i02",
+   "prompt": "Fireworks bursting over a cricket stadium at night, gold and blue sparks, crowd silhouettes in the foreground",
+   "seed": 32
+  },
+  {
+   "name": "i03",
+   "prompt": "The red cricket ball landing in the crowd, fans jumping to catch it, joyful chaos, night stadium",
+   "seed": 33
+  },
+  {
+   "name": "c01",
+   "prompt": "Close-up of a father's rough hands giving a cricket bat to his son's small hands, warm evening light in a village courtyard, only hands visible",
+   "seed": 41
+  },
+  {
+   "name": "c02",
+   "prompt": "A young left-handed batter in a plain blue kit facing a fast bowler in a big stadium, seen from behind the batter, the young left-handed batter is seen only from behind or in silhouette, his face never visible, the bowler running in",
+   "seed": 42
+  },
+  {
+   "name": "c03",
+   "prompt": "Wide shot of a floodlit cricket field at night: a red ball sailing in a high arc over the cover fielders towards the boundary, crowd rising",
+   "seed": 43
+  },
+  {
+   "name": "c04",
+   "prompt": "A cricket ball dropping into the upper stands of a stadium, fans leaping from their seats, night",
+   "seed": 44
+  },
+  {
+   "name": "c05",
+   "prompt": "A frustrated adult fast bowler in a plain kit standing on the pitch scratching his head, puzzled and annoyed, funny moment, night stadium",
+   "seed": 45
+  },
+  {
+   "name": "c06",
+   "prompt": "A fast bowler and the team captain in plain kits talking mid-pitch with hands on hips, confused, looking at each other, stadium lights, light comic mood",
+   "seed": 46
+  },
+  {
+   "name": "c07",
+   "prompt": "A whole stadium crowd rising as one in a standing ovation, arms up, phones' lights glowing, night",
+   "seed": 47
+  },
+  {
+   "name": "e01",
+   "prompt": "A young left-handed batter raising his bat to a roaring crowd under floodlights, confetti falling, the young left-handed batter is seen only from behind or in silhouette, his face never visible",
+   "seed": 51
+  },
+  {
+   "name": "e02",
+   "prompt": "Sunrise over an empty cricket stadium, a single cricket bat leaning against the stumps on the pitch, golden light, hopeful, the start of a journey",
+   "seed": 52
+  }
+ ]
+}
