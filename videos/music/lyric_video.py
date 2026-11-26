@@ -4,7 +4,10 @@ near things moving more than far ones), cut on the song's lines, big Tamil capti
     python3 lyric_video.py PLAN.json [--short]        # WORK/video.mp4 (16:9), or WORK/short.mp4 (9:16) with --short
 
 PLAN.json (see vaibhav/video/plan.json): audio, pictures dir, work dir, size, fps, shots [{pic, start, end, move}],
-optional clips dir (animated shots SNN_a.mp4 from manga/zerogpu_clips.py; a shot without one moves in 3D instead),
+optional clips dir (animated shots from manga/zerogpu_clips.py; a shot without one moves in 3D instead; the raw clip in
+clips_raw/ is used at its own speed, never the stretched copy, whose invented in-between frames tore the bat),
+optional takes {"S06": "b"} (the take the clip checker chose; default a), optional fx {"S06": [anime_fx args]}
+(the compositing spec: drawings on twos, impact, lines, shake; times in the raw clip),
 captions [{text, start, end}], optional photo {path, start, end, credit} and intro_note {text, start, end}.
 Captions use Mukta Malar ExtraBold (OFL, videos/movies-explained/fonts). Nothing is sent anywhere: all local.
 The craft rules the animated shots follow (timing on twos, impact frames, holds): ANIME_CRAFT.md.
@@ -75,16 +78,33 @@ def main():
     parts = []
     for i, s in enumerate(plan["shots"]):
         seconds = s["end"] - s["start"]
-        clip = os.path.join(clips, f"S{i + 1:02d}_a.mp4") if clips else None
+        sid = f"S{i + 1:02d}"
+        take = plan.get("takes", {}).get(sid, "a")
+        clip = None
+        if clips:
+            raw = os.path.join(os.path.dirname(clips.rstrip("/")), "clips_raw", f"{sid}_{take}.mp4")
+            clip = raw if os.path.exists(raw) else os.path.join(clips, f"{sid}_{take}.mp4")
         animated = bool(clip and os.path.exists(clip))
         out = os.path.join(work, f"{tag}_{i:02d}_{s['pic']}{'_anim' if animated else ''}.mp4")
         if not os.path.exists(out):
             if animated:
-                # the animated clip (Wan 2.1 on the owner's Space, 832x480): upscaled and cropped to the frame, at the
-                # video's frame rate, cut or held to the shot's exact length so the cuts stay on the lines
+                # the animated clip (Wan 2.1 on the owner's Space, 832x480) the ANIME_CRAFT.md way: at its own speed,
+                # upscaled; then the compositing spec (anime_fx.py: drawings on twos, impact, lines, shake); then a smooth
+                # camera push over the whole shot at the full frame rate, which also holds the end (a moving hold, no
+                # freeze), cut to the shot's exact length so the cuts stay on the lines
                 n = int(round(seconds * fps))
+                up = os.path.join(work, f"{tag}_{i:02d}_up.mp4")
                 ffmpeg("-i", clip, "-vf", f"fps={fps},scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,"
-                       f"crop={w}:{h},unsharp=5:5:0.6,tpad=stop_mode=clone:stop_duration=3,format=yuv420p",
+                       f"crop={w}:{h},unsharp=5:5:0.6", "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "16", up)
+                fx = plan.get("fx", {}).get(sid)
+                if fx is not None:
+                    done = os.path.join(work, f"{tag}_{i:02d}_fx.mp4")
+                    subprocess.run([sys.executable, os.path.join(HERE, "anime_fx.py"), up, done, "--fps", str(fps), *fx],
+                                   check=True)
+                    up = done
+                push = f"1+0.06*t/{seconds:.3f}"
+                ffmpeg("-i", up, "-vf", f"tpad=stop_mode=clone:stop_duration=4,scale=w='trunc({w}*({push})/2)*2':h=-2:"
+                       f"eval=frame:flags=bicubic,crop={w}:{h},format=yuv420p",
                        "-frames:v", str(n), "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", out)
             else:
                 depthmove.shot(os.path.join(pics, s["pic"] + ".png"), out, seconds, s.get("move", 0),

@@ -144,6 +144,12 @@ Each of these cards says what to do instead.
   prompt) and let the checker pick the best, as with song takes.
 - **To remove one small thing, paint out a masked patch locally (card 22, step 5).** A full edit stripped sticks from every
   drummer in two rounds.
+- **Never stretch a clip with invented in-between frames.** In the S06 test, `minterpolate` tore the bat apart.
+  Instead, play the raw clip at its own speed, put the drawings on twos, and let a smooth camera push at the full
+  frame rate fill the rest of the shot (a moving hold). `lyric_video.py` now does this, with `takes` and `fx` in
+  the plan.
+- **The clip checker caught what pictures can't show:** a ball frozen in the air for 2.3 s, sticks dissolving
+  into straw, hands melting into mittens. Make 2-3 takes per shot with better prompts and let 24 choose.
 - **A cheaper picture check is possible.** The checker on 1-2 pictures took about 1.5-3 minutes; the full 21 took about 15.
   The 5-hour usage limit was hit once during these checks (09:15-11:50 UTC), so keep checks to the pictures that changed.
 

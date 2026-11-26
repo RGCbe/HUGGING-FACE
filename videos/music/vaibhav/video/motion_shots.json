@@ -38,7 +38,7 @@
   "id": "S06",
   "image": "p04.png",
   "seconds": 4.3,
-  "prompt": "The batter swings hard and follows through, the red ball flies away fast towards the stands, the bat finishes high. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade and one red cricket ball.",
+  "prompt": "The left-handed batter, side-on, keeps his eyes on the red ball as it flies in fast towards him, then swings the bat down and through the line of the ball, hits it cleanly and follows through high over his shoulder, the ball flying away fast towards the stands. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; one cricket bat with a flat blade and one red cricket ball.",
   "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, baseball bat, second bat, second ball"
  },
  {
@@ -80,8 +80,8 @@
   "id": "S12",
   "image": "i01.png",
   "seconds": 3.7,
-  "prompt": "The drummers beat their drums hard and dance, the crowd behind claps and jumps to the rhythm. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; only the people and things already in the picture.",
-  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, cricket bat, baseball bat, club, ball"
+  "prompt": "The three drummers beat their flat parai drums in a steady fast rhythm, each striking the drum skin with the two thin bamboo sticks held in his hands, their shoulders bouncing to the beat, the crowd behind clapping and jumping. Smooth natural anime motion, the camera moves gently. Keep the painted anime look, every face, the clothes and the colours exactly as in the picture; only the people and things already in the picture.",
+  "negative": "photorealistic, photo, live action, real person, 3d render, blurry, low quality, deformed face, changing face, extra fingers, extra people, twins, text, subtitles, watermark, logo, flags with symbols, static picture, cricket bat, baseball bat, ball, melting hands, dissolving sticks"
  },
  {
   "id": "S13",

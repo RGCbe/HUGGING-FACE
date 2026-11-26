@@ -1,0 +1,60 @@
+[
+ {
+  "id": "S01",
+  "clip": "clips_raw/S01_a.mp4 (judged), clips/S01_a.mp4 (stretch check)",
+  "ok": true,
+  "checked": "26 Nov 2026, 3-clip test (Wan 2.1 i2v, seed 7, 6 steps). Raw: sha256 17f9ccfd..., 832x480, 24 fps, 81 frames, 3.375 s. Contact sheet at 5 fps; full frames at 0, 1.0, 2.0 and 3.33 s; 8-step crops of the face, bat, cow and free hand; a 12-frame crop of the cow's tail; mean brightness per frame. Frame 0 matches t01.png. Stretched: 141 frames, 5.875 s (1.74x); the sheet plus the worst in-between frame (f105) cropped on the cow's legs, the hand and the bat next to its raw neighbours.",
+  "problems": [],
+  "notes": [
+   "Face: the same boy, about 10-12, all through, painted anime, no drift towards a photo-real face.",
+   "Bat: one piece on his right shoulder all through, the same grip and black band; the blade keeps its flat edge.",
+   "Free left hand: whole, the same curled fingers.",
+   "Cow: the same pattern, horns and four legs; it walks towards the camera. The lane and houses hold as the camera pulls back gently.",
+   "No flicker: brightness falls evenly from 116 to 103 as the shaded house front comes into view. No text or logos. The last second is usable.",
+   "Minor, no fix needed: the cow's thin tail beside its flank fades out over frames 0-3 (0.00-0.125 s), in the haze at the very start of the shot.",
+   "Minor: the cow does not clearly turn its head (it just walks), and the drifting dust is hard to see.",
+   "Stretch: no ghosting or warping. At 0.57x speed the walk plays slowly."
+  ],
+  "fix": ""
+ },
+ {
+  "id": "S06",
+  "clip": "clips_raw/S06_a.mp4 (judged), clips/S06_a.mp4 (stretch check)",
+  "ok": false,
+  "severity": "major",
+  "contact_time": 2.31,
+  "contact_note": "Raw clip: the bat meets the ball between frame 55 (2.292 s; ball at x~250, the blade just under his gloves) and frame 56 (2.333 s; the blade has swept left under that spot and the ball is ~130 px further left). The ball has left the frame on the left at 2.375 s. In the stretched clip the hit falls at ~3.27 s (ball last seen 3.25 s).",
+  "checked": "26 Nov 2026. Raw: sha256 bf1545e4..., 832x480, 24 fps, 81 frames, 3.375 s. Contact sheet at 5 fps; every frame from 1.54 to 2.75 s in grids; full frames at 2.083, 2.292, 2.333, 2.375 and 3.333 s; a face strip (start picture plus 7 times) compared with p04.png and ref/char_A2.png; red-blob tracking on all 81 frames, with crops of every red blob (they were skin and lips, not balls). Frame 0 matches p04.png. Stretched: 113 frames, 4.708 s (1.395x); the swing frames in grids, zooms of the bat beside the nearest raw frame, the ball traced through the hit.",
+  "problems": [
+   "major (stretched clip, the one the edit uses): the motion interpolation breaks the bat during the fast swing. The blade is torn and doubled at 2.625-2.75 s, nearly gone with block debris at 2.875 s, pixelated and broken at 2.917 s, in two pieces at 3.0-3.04 s, a see-through ghost at 3.29-3.33 s, and double-edged with smeared gloves at 3.42-3.46 s. Its toe looks chipped and jagged at 3.58-3.92 s; in the raw clip it is clean and rounded.",
+   "major (stretched clip): the ball never shows in flight. It is last seen whole at 3.25 s, then is only a faint red smear at 3.29-3.33 s.",
+   "major (raw clip): the ball hangs motionless in mid-air at (255,430) from 0 to 2.29 s and never comes in, even while he swings (1.6-2.29 s). In the stretched clip that is 0-3.2 s of a 4.3 s shot.",
+   "minor (raw clip): 0-1.6 s is nearly a still picture (frame-to-frame change ~1 against ~8-15 later), with only slight breathing.",
+   "minor-to-major (raw clip): from ~2.17 s he turns square to the camera. Front-on (2.67-3.33 s) the face is harder and older: a frown, heavy brows, a square jaw and a dark chin that reads like stubble. He reads about 17-19, not the soft ~15-16 face of p04 or the smiling cast sheet. It stays painted anime and the skin tone holds.",
+   "minor (raw clip): the swing is a flat, hip-height sweep. The bat drops behind him to the right at 2.0-2.08 s and sweeps low to the left at 2.33-2.38 s, which reads more like a slog or baseball swing than a cricket drive. The bat finishes up-left at mid height, not high."
+  ],
+  "notes": [
+   "Held in the raw clip: the bat is ONE straight piece in every frame, with no V bend. There is one ball only. The swing happens, with a left-handed path (backlift over his left shoulder, through towards the bowler on the left). Painted anime all through, no text, boards blurred, no flicker."
+  ],
+  "fix": "Two parts. (1) Re-time S06 without motion-compensated interpolation (repeat frames, on twos, instead of minterpolate mci) and check it again. That removes the broken bat and the lost ball, keeps this take's clean hit, and lands the contact at about 3.2 s of the 4.3 s shot. (2) For the frozen ball and the face turning to camera, make 2-3 new seeds with a prompt in which the red ball flies in from the left and he keeps his eyes on the ball, side-on, through the follow-through."
+ },
+ {
+  "id": "S12",
+  "clip": "clips_raw/S12_a.mp4 (judged), clips/S12_a.mp4 (stretch check)",
+  "ok": false,
+  "severity": "major",
+  "checked": "26 Nov 2026. Raw: sha256 1348c72b..., 832x480, 24 fps, 81 frames, 3.375 s. Contact sheet at 5 fps; full frames at 0, 0.667, 1.667 and 3.333 s; a 15-frame grid of each drummer's hands and sticks; 2.4x zooms of 12 hands; a face strip of all three drummers at 6 times; the crowd (left, right and centre) at 5 times. Frame 0 matches i01.png, with two sticks per drummer. Stretched: 99 frames, 4.125 s (1.22x); the sheet plus zooms of the worst in-between frames next to the raw ones.",
+  "problems": [
+   "major: the sticks dissolve. From 0.17 s every stick turns into frayed, straw-like wisps or short stubs. At 0.667 s all six hands are empty fists, with no stick at all. Thin sticks come and go after that: frayed at 1.25-1.75 s, upright again at ~2.0-2.67 s, frayed at 3.0 s, and at 3.333 s the hands hold only frayed bits. The lock asks for two thin sticks per drummer.",
+   "major: the hands melt into mitten-like blobs with smeared fingers once the sticks go: the heavy-set drummer's right fist at 0.38, 0.67 and 1.75 s, the grey-haired drummer's at 0.67 and 1.75 s, the young drummer's at 0.38 and 1.75 s. Some merge into the drum rim.",
+   "minor: faint scratch-like streaks appear on the drum skins where the sticks smear (for example the grey-haired drummer's drum at 0.667 s).",
+   "minor: the drummers do not dance; their bodies stay still and only the hands move. The crowd does clap and wave.",
+   "major (stretched clip): ghosting. Doubled, see-through fists are blended over the drum skins, with square block patches on the heavy-set drummer's skin, at 1.167 s stretched; the clapping hands in the right crowd are doubled at the same time; fists are smeared at 2.0 s."
+  ],
+  "notes": [
+   "Held: the heavy-set drummer's painted-out extra stick does NOT grow back. The three faces stay different all through (grey moustache, young man with a tilak, heavy-set round face), with no morphing and no twins. No sticks, clubs, bats, balls, signs or text appear in the crowd. Painted anime, no drift towards a photo-real face. No flicker (brightness 108.9-112.8).",
+   "Possible cause, not tested: the S12 negative lists \"club\", which may push thin drum sticks out of the picture as well."
+  ],
+  "fix": "New seeds (2-3 takes) with \"club\" taken out of the negative and a prompt that names the sticks and slows the beat, for example: each drummer keeps two thin wooden sticks in his hands and strikes the drum skin in a steady rhythm. Re-time without motion interpolation (repeat frames). If the sticks still dissolve, use the still picture with a camera move (lyric_video.py's path for a shot with no clip) and add the drum hits as effects in compositing."
+ }
+]
