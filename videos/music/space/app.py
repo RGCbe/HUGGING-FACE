@@ -7,6 +7,7 @@ Two API endpoints, called from videos/music/song.py with the owner's HF_TOKEN (G
     /voice  Seed-VC (singing model, 44.1 kHz, pitch-aware): a sung vocal re-voiced with the timbre of a short
             reference recording, keeping the melody; optionally with a voice model learned by /learn.
     /learn  Seed-VC fine-tuning on one person's voice from short clips (speech is enough), saved by name.
+    /repaint ACE-Step sings one part of a song again (a punch-in for a line whose words came out wrong).
 
 Every model is downloaded at a pinned revision and read before use (CLAUDE.md, 25 Nov 2026):
 - ACE-Step code (MIT) is the official Space's code at a pinned revision, minus its UI, training and API-server files.
@@ -178,6 +179,33 @@ def song(caption, lyrics, duration, seed, bpm, keyscale, language, lm_temperatur
     return path, json.dumps(info, ensure_ascii=False, default=str)
 
 
+# ---- /repaint: sing one part again ----
+def repaint_seconds(src, caption, lyrics, start, end, seed, language, bpm):
+    return int(min(200, 45 + max(1.0, float(end) - float(start)) * 1.5))
+
+
+@spaces.GPU(duration=repaint_seconds)
+def repaint(src, caption, lyrics, start, end, seed, language, bpm):
+    """Sing start..end seconds of a song again (the rest stays as it was): a studio punch-in for a line whose words
+    came out wrong. The same caption and lyrics as the song; returns the whole song with the new part."""
+    from acestep.constants import TASK_INSTRUCTIONS
+    seed = int(seed)
+    torch.manual_seed(seed)
+    params = GenerationParams(task_type="repaint", instruction=TASK_INSTRUCTIONS["repaint"], src_audio=src,
+                              repainting_start=float(start), repainting_end=float(end), caption=caption,
+                              lyrics=lyrics, seed=seed, bpm=int(bpm) if bpm else None, timesignature="4",
+                              vocal_language=language or "unknown", inference_steps=8, shift=3.0, thinking=False)
+    config = GenerationConfig(batch_size=1, use_random_seed=False, seeds=[seed], audio_format="flac")
+    out = tempfile.mkdtemp()
+    res = generate_music(dit, lm, params, config, save_dir=out)
+    if not res.success:
+        raise gr.Error(f"repaint failed: {res.error}")
+    a = res.audios[0]
+    path = os.path.join(out, f"repaint_{seed}.flac")
+    sf.write(path, a["tensor"].numpy().T, a["sample_rate"])
+    return path
+
+
 # ---- /voice ----
 def semantic(w16):
     x = whisper_fx([w16.squeeze(0).cpu().numpy()], return_tensors="pt", return_attention_mask=True)
@@ -347,6 +375,18 @@ with gr.Blocks(title="Music (private)") as demo:
         go = gr.Button("Make the song")
         a_out, i_out = gr.Audio(type="filepath", label="Song"), gr.Textbox(label="Info")
         go.click(song, [cap, lyr, dur, sd, bp, ks, lang, temp], [a_out, i_out], api_name="song")
+    with gr.Tab("Repaint"):
+        rp_src = gr.Audio(type="filepath", label="Song")
+        rp_cap, rp_lyr = gr.Textbox(label="Style caption", lines=2), gr.Textbox(label="Lyrics", lines=6)
+        with gr.Row():
+            rp_s = gr.Number(label="From (s)", value=0)
+            rp_e = gr.Number(label="To (s)", value=10)
+            rp_seed = gr.Number(label="Seed", value=1, precision=0)
+            rp_lang = gr.Textbox(label="Vocal language code", value="ta")
+            rp_bpm = gr.Number(label="BPM", value=0, precision=0)
+        rp_go = gr.Button("Sing this part again")
+        rp_out = gr.Audio(type="filepath", label="Song with the new part")
+        rp_go.click(repaint, [rp_src, rp_cap, rp_lyr, rp_s, rp_e, rp_seed, rp_lang, rp_bpm], rp_out, api_name="repaint")
     with gr.Tab("Voice"):
         s_in, r_in = gr.Audio(type="filepath", label="Sung vocal"), gr.Audio(type="filepath", label="Reference voice")
         with gr.Row():

@@ -103,6 +103,8 @@ def melroformer_vocals(x):
         open(ok, "w").close()
     so = ort.SessionOptions()
     so.intra_op_num_threads = os.cpu_count() or 4
+    so.enable_mem_pattern = False  # without these the session needs more than this machine's ~9 GB (one 8 s window
+    so.enable_cpu_mem_arena = False  # peaks at 8.7 GB with them), about 37 s per window on 4 CPU cores
     sess = ort.InferenceSession(path, so, providers=["CPUExecutionProvider"])
     seg, hop = 352800, 352800 - SR  # 8 s windows, 1 s overlap
     n = x.shape[1]
@@ -409,6 +411,16 @@ def mix(song):
             env = np.convolve(np.abs(v), np.ones(SR // 10) / (SR // 10), mode="same")
             on = np.clip(env / (0.2 * env.max() + 1e-9), 0, 1)
             duck = 1 - song.get("duck", 0.45) * np.convolve(on, np.ones(SR // 5) / (SR // 5), mode="same")
+            if song.get("band_carve", True):
+                # make room for the words: the beat loses a little of 1-4 kHz, where Tamil consonants live
+                braw, bout = os.path.join(d, "band_raw.wav"), os.path.join(d, "band_carved.wav")
+                sf.write(braw, band, SR)
+                ffmpeg("-i", braw, "-af", "equalizer=f=2500:t=q:w=1.2:g=-5,equalizer=f=1200:t=q:w=1:g=-2.5",
+                       "-ar", str(SR), bout)
+                band = load(bout)[:n]
+                band = np.pad(band, ((0, n - len(band)), (0, 0)))
+                os.remove(braw)
+                os.remove(bout)
             band = band * duck[:, None]
             os.remove(raw)
             os.remove(clean)
