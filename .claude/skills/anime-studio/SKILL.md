@@ -142,6 +142,10 @@ Each of these cards says what to do instead.
   Only a checker's pass counts.
 - **Edits on top of edits add new faults.** When a picture fails twice, make 3 fresh takes (new seeds, better
   prompt) and let the checker pick the best, as with song takes.
+- **To remove one small thing, paint out a masked patch locally (card 22, step 5).** A full edit stripped sticks from every
+  drummer in two rounds.
+- **A cheaper picture check is possible.** The checker on 1-2 pictures took about 1.5-3 minutes; the full 21 took about 15.
+  The 5-hour usage limit was hit once during these checks (09:15-11:50 UTC), so keep checks to the pictures that changed.
 
 ## A run is done when
 
