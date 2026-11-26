@@ -1,0 +1,130 @@
+[
+ {
+  "take": "p04_a",
+  "shot": "S06",
+  "ok": false,
+  "severity": "major",
+  "checked": "takes/p04_a.png (seed 511, sha256 d6b04eaa...) on 26 Nov 2026 at full size, with crops of the bat, gloves, face and grille, helmet badge, ball, body and boards; compared with ref/char_A2.png",
+  "problems": [
+   "the bat goes through his helmet: the taped handle and its gold collar pass behind the grille at his ear, and the blade comes out on top of the helmet peak, drawn in front of the dome and about 20 px off the handle's line. In motion the bat and the helmet will melt into each other",
+   "the blade lies forward over the top of the helmet, pointing up towards the bowler. It is not lifted high behind his head, so the downswing has to start by pulling the blade back through his head",
+   "minor: a tiny white crest-like badge on the helmet above the grille",
+   "minor: the ball is a plain glossy red sphere with no seam",
+   "minor, unsure: the stance reads right-handed: we see his chest, his front arm crosses in front of his chin, and his left shoulder points at the ball (characters.json: LEFT-handed)",
+   "minor: the face reads about 17 (strong jaw, thick neck), older than the cast sheet"
+  ],
+  "notes": [
+   "good: the grille is below his eyes, his eyes are open and his face is visible; two white gloves and two arms; the glove panels are padding with no letters; one bat and one ball (lower right, about hip height, coming in); plain blue shirt; the boards are blurred with no readable text; stylised painted anime, not photo-real"
+  ],
+  "fix": "Not worth fixing: use p04_c. Mending this bat would mean redrawing the whole bat behind his head, which is a remake, not a short edit."
+ },
+ {
+  "take": "p04_b",
+  "shot": "S06",
+  "ok": false,
+  "severity": "major",
+  "checked": "takes/p04_b.png (seed 622, sha256 60f3f5a0...) on 26 Nov 2026 at full size, with crops of the bat, gloves, bat label, face and grille, arms and ball",
+  "problems": [
+   "the bat is bent and too long: a long bare light-wood pole sticks out about 200 px past the brown-taped grip on the left (an extra stick). The pole and grip run down to his gloves, and the blade runs up from them, so the bat makes a V of about 35-40 degrees at his hands (characters.json never: a bat in two pieces)",
+   "a big black swirl logo (a circle with a hook, swoosh-like) on the back of the lower glove, with letter-like marks above it",
+   "a white label with letter-like marks ('SNG'-like) on the shoulder of the bat",
+   "minor: the top bar of the grille sits on the lower lid of his near eye and crosses his far eye",
+   "minor: the ball is plain red with no seam"
+  ],
+  "notes": [
+   "good: his face reads about 15, the closest age of the three (brown skin, black hair, soft face); the blade passes behind the helmet; two gloves and two arms; one ball, lower right; plain blue shirt; no readable text on the boards"
+  ],
+  "fix": "Not worth fixing: it has three separate faults (the bat, the glove logo and the bat label). Use p04_c."
+ },
+ {
+  "take": "p04_c",
+  "shot": "S06",
+  "ok": false,
+  "severity": "major",
+  "checked": "takes/p04_c.png (seed 733, sha256 fd99b984...) on 26 Nov 2026 at full size, with crops of the bat (with a grid and an edge measurement), both hands, face and grille, chin, ball, body and boards; compared with ref/char_A2.png",
+  "problems": [
+   "logo-like marks on the white glove: a black square emblem with a Y or trident shape, a red patch with white letter-like squiggles, and a blue panel with white marks on the wrist strap. They sit centre-left, on the hero's hands, for the whole clip",
+   "only one glove: his other hand is bare. Four brown fingers wrap the handle above the glove, and that hand's forearm comes down from behind the glove (two hands in all, no extra hand)",
+   "minor: the knob end of the handle is bare wood with a tiny carved mark, and the handle has no rubber grip",
+   "minor: the ball is plain red with no clear seam",
+   "minor, unsure: the stance reads right-handed: we see his chest, his front arm crosses his chest, and his left shoulder points at the ball (characters.json: LEFT-handed)"
+  ],
+  "notes": [
+   "the bat is one straight piece: extending the blade's edge line reaches within about 8 px of the knob, and the toe showing above the helmet sits on the same line; it passes behind the helmet, lifted high behind his head as the brief asks",
+   "the grille is at the level of his nose bridge: both eyes are open under the peak and his face is visible. The dark area under his chin is the chin strap, not stubble",
+   "his face reads about 16, with brown skin and short black hair; plain blue shirt; one red ball at the lower right, coming in at about hip height in front of him; the boards are blurred with no readable text; stylised painted anime, not photo-real",
+   "as a start picture for S06 it is the right moment: the bat is up and the ball is coming in, so the downswing, contact and follow-through can all happen in the clip, and the clip will have a contact frame for --impact",
+   "if the owner wants the left-handed stance shown, mirror the picture left to right after the edit (a flip redraws nothing), but first check the screen direction against S05 and S07"
+  ],
+  "fix": "edit: 'The same picture, but both of his hands wear matching plain white cricket batting gloves with no logos, letters, patches or coloured labels. Everything else stays exactly the same: the bat, his grip, the helmet, his face and the ball.' Then re-check the bat and both hands, because an edit can bend the bat. S06 is a 3-clip test shot."
+ },
+ {
+  "take": "i01_a",
+  "shot": "S12",
+  "ok": false,
+  "severity": "major",
+  "checked": "takes/i01_a.png (seed 512, sha256 f8184a17...) on 26 Nov 2026 at full size, with crops of each drummer, every hand, the left and right crowd, the faces, the scoreboard and the pocket",
+  "problems": [
+   "the grey-haired drummer has three sticks: one in his left fist (left of the picture), and in his right fist a long bamboo stick plus a thin round-tipped beater lying across his drum skin",
+   "the young drummer's right-hand stick runs up his chest into his shoulder strap. The stick and the strap merge, so it may stretch like a strap when his arm moves",
+   "a fan behind and to the left of the young drummer's head holds up a thin stick (a stick in the crowd)",
+   "minor: a red embroidered squiggle like a logo on the heavy-set drummer's chest pocket, and a tiny dark mark on the young drummer's shirt",
+   "minor: the young drummer, front and centre with black side-swept hair and a teen face, is close to the hero's look",
+   "minor: the drummers and most of the crowd read East Asian or Western rather than Tamil and Indian, and two brown-haired women clapping at the left look alike"
+  ],
+  "notes": [
+   "good: flat round frame drums with a cream skin and a wooden rim, hung on straps; the three drummers clearly differ (grey moustache, young and thin, heavy-set); the heavy-set drummer holds two sticks, one per hand; the scoreboard behind is a blank light panel; no readable text"
+  ],
+  "fix": "Not worth fixing: it has three separate stick faults. Use i01_b."
+ },
+ {
+  "take": "i01_b",
+  "shot": "S12",
+  "ok": false,
+  "severity": "major",
+  "checked": "takes/i01_b.png (seed 623, sha256 828a2411...) on 26 Nov 2026 at full size, with crops of each drummer, the heavy-set drummer's right hand, the left, centre and right crowd, the faces and the drum mark",
+  "problems": [
+   "the heavy-set drummer (right) has three sticks: his right fist (right of the picture) holds a long stick that ends in the fist and a second, shorter stick through it at a different angle",
+   "minor: a letter-like scrawl ('M' or 'Ni') painted on the lower skin of the heavy-set drummer's drum",
+   "minor: the grey-haired drummer's left stick casts a long dark line, with a dot at its end, across his drum skin. It is longer than the stick and could animate as a third stick",
+   "minor: the young drummer, front and centre with black side-swept hair and a teen face, is close to the hero's look. His red tilak dot and olive troupe shirt set him apart; watch for this in the clip",
+   "minor: part of the crowd reads East Asian"
+  ],
+  "notes": [
+   "stick count: grey-haired 2 and young 2, one in each hand; heavy-set 3 (above). No sticks, bats or balls in the crowd: the fans' hands are open, raised or clapping",
+   "flat round frame drums with a cream skin and a cord-bound wooden rim (the rim is a little deep, but they still read as frame drums), with leather straps over both shoulders; plain olive shirts with no logos",
+   "the three drummers clearly differ in face, age and build (no twins), and I saw no twins in the crowd; five fingers where visible; no text or logos apart from the drum scrawl; stylised painted anime",
+   "as a start picture for S12 the pose is right: the drums are at their chests, the sticks are ready and the crowd's hands are up, so the beating and clapping can start at once"
+  ],
+  "fix": "edit: 'The same picture, but the heavy-set drummer on the right holds exactly one stick in each hand: remove the short extra stick that crosses through his fist on the right of the picture, and remove the small scribbled mark at the bottom of his drum skin. Everything else stays exactly the same.' Then re-check all six hands and count the sticks. S12 is a 3-clip test shot."
+ },
+ {
+  "take": "i01_c",
+  "shot": "S12",
+  "ok": false,
+  "severity": "major",
+  "checked": "takes/i01_c.png (seed 734, sha256 79705198...) on 26 Nov 2026 at full size, with crops of each drummer, the faces, the left and right crowd, the red shapes and the shirt mark",
+  "problems": [
+   "the heavy-set drummer (right) holds no sticks: both his hands grip the rim of his drum",
+   "twins: the left and right drummers are both grey-haired with the same grey moustache and the same older face, so the 'heavy-set' one is a heavier copy of the grey-haired one (characters.json never: twins)",
+   "several young men in the crowd share one face (black wavy hair, stubble, the same open smile): the red-shirt man at the left, and the men at the right including the bearded one",
+   "minor: the grey-haired drummer's left hand is open, with the stick poking out between splayed fingers",
+   "minor: a tiny red bow-like mark at the heavy-set drummer's collar"
+  ],
+  "notes": [
+   "good: the crowd reads South Asian (better than a and b); flat frame drums with studded rims; the young drummer holds two sticks, one per hand; no sticks in the crowd; the blurred red pennants far back show no symbols"
+  ],
+  "fix": "Not worth fixing: two of the faults (no sticks, twins) need a whole drummer redrawn. Use i01_b."
+ },
+ {
+  "choice": {
+   "S06": "p04_c",
+   "S12": "i01_b"
+  },
+  "passing": {
+   "S06": false,
+   "S12": false
+  },
+  "why": "No take passes yet; these are the closest. S06: p04_c is the only take with one straight bat lifted high behind his head and the ball coming in (p04_a has the bat going through the helmet; p04_b has a bat bent into a V with an extra stick, plus logos). All of its faults are on the gloves, so one edit fixes them: plain white gloves on both hands. S12: i01_b is the only take with no sticks in the crowd, three clearly different drummers and two of the three holding exactly two sticks (i01_a has three stick faults; i01_c has a drummer with no sticks and grey-haired twins). Its one hard fault is an extra stick in the heavy-set drummer's right fist, so one edit fixes it: remove that stick and the scrawl on his drum. Re-check both edited pictures before the 3-clip test (S01, S06, S12)."
+ }
+]
