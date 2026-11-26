@@ -132,6 +132,11 @@ Each of these cards says what to do instead.
 - **Remakes fix one thing and can break another.** Check every remake, and fix the new problem with a short edit.
 - **The clip tool's default negative said "cartoon, anime".** For anime that pushes the model towards a photo-real face. Each shot now carries its own negative (card 23).
 - **Every motion prompt asked for "one cricket bat, one red ball",** even the drummers. Props now go only in the shots that have them.
+- **The maker's own quick look is not a check.** I passed the two fixed test pictures by eye. The checker then
+  found a bat bent into a "V" at its joint and a drummer with three hands, and I confirmed both close up.
+  Only a checker's pass counts.
+- **Edits on top of edits add new faults.** When a picture fails twice, make 3 fresh takes (new seeds, better
+  prompt) and let the checker pick the best, as with song takes.
 
 ## A run is done when
 

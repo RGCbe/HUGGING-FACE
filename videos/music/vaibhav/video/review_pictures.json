@@ -102,13 +102,20 @@
   "shots": ["S12"],
   "ok": false,
   "severity": "major",
+  "checked": "animeA/i01.png on 26 Nov 2026 at full size (the v2 remake plus the fix2 drum edit; sha256 49a2b7bd...). Compared with i01.v2.png and i01.v1.png.",
   "problems": [
-   "the drums are double-headed barrel drums (dhol/chenda-like) worn at the waist, not parai (a flat round frame drum struck with two thin sticks)",
-   "three long round wooden clubs raised in the middle of the crowd read as round baseball bats",
-   "the two front drummers (left in a white vest, right in a white shirt) have the same face, hair and grin: twins",
-   "minor: they stand on the grass, not in a stadium aisle"
+   "the heavy-set drummer on the right has three hands: the edit added a fist that grips a stick at the right rim of his drum, halfway along his forearm, and the old small hand from v2 is still at the end of the same forearm",
+   "too many sticks: the grey-haired drummer holds two crossed sticks in one fist (left of the picture) and one in the other (3); the young drummer holds two in one fist, one in the other, and a fourth long stick leans on the top of his drum with no hand on it (4); a parai player holds one stick in each hand",
+   "at least three people in the crowd hold up thin sticks: one behind the grey-haired drummer is drawn over the front of his shirt, one is behind the young drummer, and a short yellow baton is on the right; the prompt asked for open empty hands, and the S12 negative bans clubs",
+   "minor: the new drum on the right is the same peach as his shirt and skin, and its lower rim is the old belt band from v2, so it still half-reads as his belly and may melt into him once he moves"
   ],
-  "fix": "remake with a new seed and a sharper prompt: 'Tamil folk drummers playing parai, a wide flat round frame drum with one skin, hung from the shoulder and struck with two thin bamboo sticks, in a stadium aisle between the seats at night, energetic, the crowd dancing behind; each drummer has a different face, age and build; no barrel drums, no clubs, no bats'. This is a 3-clip test shot: fix it before the test."
+  "notes": [
+   "fixed since the last check: flat round frame drums with one skin (no barrel drums); no clubs or bats in the crowd; the three drummers clearly differ in face, age and build (grey-haired with a moustache, young and thin, heavy-set), so no twins; they now stand in an aisle between railings",
+   "the young drummer (black hair, slim) is not a copy of the hero (rounder face, straight fringe, older, white shirt), but he is front and centre: check in the clip that he does not read as Vaibhav",
+   "the crowd faces are varied; no signs, flags, logos or readable text (the mark on the young drummer's pocket is a button); stylised painted anime, not photo-real",
+   "as a start picture for S12 the pose is right: drums at the chest, sticks up, the crowd's hands raised, so the beating and clapping can start at once. But the third hand and the doubled and loose sticks will tangle or float as soon as the arms move"
+  ],
+  "fix": "edit (the faces and layout are good; do not remake): 'The same picture, but each of the three drummers holds exactly two thin sticks, one in each hand. The heavy-set drummer on the right has only two hands: the arm at the right edge of the picture ends in the fist that holds a stick at the rim of his drum; remove the small extra hand beyond that fist. His drum has a pale cream skin and a plain wooden rim all the way round, clearly in front of his peach shirt. Remove the second stick from the grey-haired drummer's fist on the left of the picture; remove the young drummer's second stick in his fist on the left of the picture and the loose stick leaning on the top of his drum. The people in the crowd raise open, empty hands; remove every stick in the crowd. Everything else stays exactly the same.' If one edit does not fix it all, do the hands first and then the sticks, and check each result. This is a 3-clip test shot: re-check it before the test."
  },
  {
   "id": "i02",
@@ -169,13 +176,21 @@
   "shots": ["S06"],
   "ok": false,
   "severity": "major",
+  "checked": "animeA/p04.png on 26 Nov 2026 at full size (the v2 remake plus the fix2 grille edit; sha256 09c8a6ba...). Compared with p04.v2.png, p04.v1.png and ref/char_A2.png.",
   "problems": [
-   "the bat is in two pieces: his hands at the upper left hold a round handle with a baseball-style knob on its end, and a separate flat blade floats level in front of his chest; the two do not join",
-   "the top hand is a shapeless pink lump",
-   "a thin straight streak in the sky reads like a thrown stick",
-   "(face on model under a plain helmet; one red ball with a straight seam: fine)"
+   "the bat is still not one straight piece: the black taped handle crosses the face of the blade at about 60 degrees, its collar sits on the middle of the blade, and the blade carries on behind the helmet down to his shoulder. The handle does not run into the blade (characters.json never: 'a bat in two pieces'). This was already in p04.v2.png; the edit did not touch it",
+   "the edit drew a full cage, not a cricket grille: one bar runs from the helmet peak down over his forehead between his eyes, and the top cross-bar lies on his lower eyelids. A cricket grille leaves the eyes open under the peak",
+   "as a start picture for S06 the swing is already over: the bat is cocked up at his shoulder (it reads like a baseball ready stance) and the ball is already far away in the top-right corner. The clip can only hold, or invent a second swing at a ball that has gone, and there is no contact frame for the S06 hit effect (ANIME_CRAFT.md section 10)",
+   "the grille bars cover most of his face, so the 3-clip test cannot fairly answer its first question (does Wan keep his face), and thin bars over a face tend to shimmer in motion",
+   "minor: the ball is a plain glossy red sphere with no seam, and has no motion trail behind it (the prompt asked for one)",
+   "minor: a small dark label with letter-like marks on the back of the lower glove",
+   "minor: the edit changed his face (the v2 smile is now a tight, serious mouth), though fix2 said the face stays the same; a mole by his right eye is not on the cast sheet"
   ],
-  "fix": "remake with a new seed and the reference picture, same prompt plus: 'both gloved hands at the top of one straight cricket bat; the taped round handle runs straight into the wide flat blade; no knob on the handle; the bat finishes high over his right shoulder; the only streak is behind the ball'. This is a 3-clip test shot: fix it before the test."
+  "notes": [
+   "fixed since the last check: both hands are in white cricket gloves with finger rolls (no pink lump); no straight streak in the sky (only curved swing lines behind the bat); the helmet is dark blue with a peak and a metal grille, as characters.json asks",
+   "one bat and one ball; a plain blue shirt; the boundary boards are blurred, with no readable text; stylised painted anime, not photo-real"
+  ],
+  "fix": "First decide what S06 shows (storyboard, cards 18 and 02). (a) The hit, as ANIME_CRAFT.md section 10 and the S06 impact effect say: remake with a new seed and ref/char_A2.png: 'Vaibhav, a slim 15-year-old Indian boy with brown skin and short black hair, a LEFT-handed batter, side-on with his right shoulder towards the bowler, in the downswing just before he hits the ball: both gloved hands together at the top of the straight taped handle, the handle and the wide flat blade in one straight line, the blade coming down and through beside his front leg, a red cricket ball with a white seam just in front of the blade at knee height, a dark blue cricket helmet with a peak and a metal grille below his eyes, his eyes open under the peak, stadium floodlights behind, with exactly the face of the boy in the reference picture'. (b) The moment after the hit: keep this picture, change the S06 motion prompt to a follow-through only, drop the impact, and edit: 'The same picture, but the bat is one straight piece: the black taped handle in his gloves runs on in one straight line into the wide flat blade, with no wood behind his helmet; the grille bars are all below his eyes, with no bar over his forehead or eyes. Everything else stays exactly the same.' This is a 3-clip test shot: re-check it before the test."
  },
  {
   "id": "p05",
