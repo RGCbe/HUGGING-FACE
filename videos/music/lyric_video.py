@@ -7,6 +7,7 @@ PLAN.json (see vaibhav/video/plan.json): audio, pictures dir, work dir, size, fp
 optional clips dir (animated shots SNN_a.mp4 from manga/zerogpu_clips.py; a shot without one moves in 3D instead),
 captions [{text, start, end}], optional photo {path, start, end, credit} and intro_note {text, start, end}.
 Captions use Mukta Malar ExtraBold (OFL, videos/movies-explained/fonts). Nothing is sent anywhere: all local.
+The craft rules the animated shots follow (timing on twos, impact frames, holds): ANIME_CRAFT.md.
 """
 import argparse
 import json
