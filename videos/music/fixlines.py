@@ -47,11 +47,13 @@ class Ears:
     def vocals(self, x):
         """x: (2, n) at 44.1 kHz -> mono vocal, 16 kHz."""
         import librosa
+        n = x.shape[1]
+        x = np.pad(x, ((0, 0), (0, (-n) % 4096)))  # HDemucs wants whole STFT hops
         t = self.torch.from_numpy(x.copy())
         ref = t.mean(0)
         t = (t - ref.mean()) / (ref.std() + 1e-8)
         with self.torch.no_grad():
-            y = self.sep(t[None])[0]
+            y = self.sep(t[None])[0][..., :n]
         v = (y[list(self.sep.sources).index("vocals")] * (ref.std() + 1e-8) + ref.mean()).mean(0).numpy()
         return librosa.resample(v, orig_sr=SR, target_sr=16000)
 
