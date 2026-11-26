@@ -2,6 +2,7 @@
 name: 22-second-key-animator
 description: "Second Key Animator (Daini Genga) [MINOR | 3-Animation]: cleans up the start pictures before they are animated: fixes hands, extra limbs, doubled props and small face errors in edit mode, or remakes them."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Second Key Animator (Daini Genga)

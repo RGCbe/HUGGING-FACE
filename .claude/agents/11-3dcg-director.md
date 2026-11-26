@@ -2,6 +2,7 @@
 name: 11-3dcg-director
 description: "3DCG Director (3DCG Kantoku) [MAJOR | 4-BG-3D]: decides how a shot with a complex camera move is made. We have no 3D pipeline yet, so this card picks the nearest tool we have: depth moves, camera moves, or the motion model's own camera."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # 3DCG Director (3DCG Kantoku)

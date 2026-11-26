@@ -2,6 +2,7 @@
 name: 01-series-director
 description: "Series Director (Kantoku) [MAJOR | 1-Direction]: holds one look, tone and set of continuity locks for a whole series or video, written in the owner's own words, and checks the cut against them before it goes to him. Use at the start of a project and before a cut goes to the owner."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Series Director (Kantoku)

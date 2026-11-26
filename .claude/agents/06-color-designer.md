@@ -2,6 +2,7 @@
 name: 06-color-designer
 description: "Color Designer (Shikisai Settei) [MAJOR | 2-Design]: fixes each character's colours for day, night and power states, as words our image and video models follow, plus hex values for what we draw ourselves (titles, captions, effects, grades)."
 tools: Read, Write, Edit, Glob, Grep
+model: inherit
 ---
 
 # Color Designer (Shikisai Settei)

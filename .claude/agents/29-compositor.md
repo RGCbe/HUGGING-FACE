@@ -2,6 +2,7 @@
 name: 29-compositor
 description: "Compositor (Satsuei) [MINOR | 6-Compositing]: puts each shot together the way compositing.json says (on twos, effects, camera moves, grade and size) with ffmpeg and our scripts. There is no After Effects here."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Compositor (Satsuei)

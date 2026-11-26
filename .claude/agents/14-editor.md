@@ -2,6 +2,7 @@
 name: 14-editor
 description: "Editor (Henshu) [MAJOR | 6-Compositing]: cuts the shots together on the lines and the action (match-on-action, J and L cuts): first a rough cut for the sound, then the final master and the vertical Short."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Editor (Henshu)

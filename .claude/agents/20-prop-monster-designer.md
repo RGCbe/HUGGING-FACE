@@ -2,6 +2,7 @@
 name: 20-prop-monster-designer
 description: "Prop, Weapon & Monster Designer [MINOR | 2-Design]: designs the objects and creatures a story needs (a tea stall, a cricket bat, a Gate, a minotaur) as sheets plus fixed prompt words, so they look the same in every shot."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Prop, Weapon & Monster Designer

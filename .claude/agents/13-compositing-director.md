@@ -2,6 +2,7 @@
 name: 13-compositing-director
 description: "Compositing Director (Satsuei Kantoku) [MAJOR | 6-Compositing]: writes each shot's look after animation, following ANIME_CRAFT.md: on twos or threes, impact frame, speed lines, shake, camera move, glow and grade."
 tools: Read, Write, Edit, Glob, Grep
+model: inherit
 ---
 
 # Compositing Director (Satsuei Kantoku)

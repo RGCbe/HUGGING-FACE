@@ -20,6 +20,11 @@ description: Run the anime studio, the 34 job cards in .claude/agents/01..34, fo
   - `24-in-between-checker`: the clips;
   - `34-production-assistant-qa`: the finished cut.
   Give them the paths. They write a review file and never fix anything themselves.
+- **Models.** The checkers (07, 08, 12, 24, 34) are pinned to `model: opus`, because judging pictures and clips at
+  full size is the job where a weaker model would miss faults (the first run: 19 of 21 pictures had faults that
+  a quick look missed). Every other card says `model: inherit`: it runs in the main session, or takes the
+  session's model if started on its own. Move a checker to a cheaper model only after a side-by-side test on the
+  same pictures shows that it finds the same faults.
 - A card may also run as its own agent when its job is big and separate (a whole season arc or a whole script), or
   when the owner asks.
 - Some jobs are one step for us:

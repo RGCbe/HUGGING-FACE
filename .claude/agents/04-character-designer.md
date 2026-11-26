@@ -2,6 +2,7 @@
 name: 04-character-designer
 description: "Character Designer (Settei) [MAJOR | 2-Design]: makes each character's locked turnaround (front, side, back) and expression sheet, plus the fixed prompt words that describe them, so every picture and clip shows the same person."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Character Designer (Settei)

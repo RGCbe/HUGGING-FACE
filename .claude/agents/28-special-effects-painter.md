@@ -2,6 +2,7 @@
 name: 28-special-effects-painter
 description: "Special Effects Painter (Tokushu Koka) [MINOR | 5-Finishing]: makes a shot's effects (impact flash, speed lines, shake, aura, sparks, steam) with anime_fx.py and the motion prompt, in the Kanada tradition of bold graphic shapes."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Special Effects Painter (Tokushu Koka)

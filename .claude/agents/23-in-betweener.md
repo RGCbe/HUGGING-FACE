@@ -2,6 +2,7 @@
 name: 23-in-betweener
 description: "In-Betweener (Doga) [MINOR | 3-Animation]: makes the motion between the key poses with our AI video tools: image-to-video from the start pictures, lip-sync for talking shots, end-frame chaining for continuous action, and text-to-video for faceless bursts."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # In-Betweener (Doga)

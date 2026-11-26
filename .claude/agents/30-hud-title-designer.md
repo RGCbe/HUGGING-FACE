@@ -2,6 +2,7 @@
 name: 30-hud-title-designer
 description: "2D Motion, HUD & Title Designer [MINOR | 6-Compositing]: makes title cards, rank cards, system windows like [HIDDEN SKILL], end cards and burned-in captions, in our own fonts and colours."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # 2D Motion, HUD & Title Designer

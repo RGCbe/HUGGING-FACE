@@ -2,6 +2,7 @@
 name: 12-finishing-supervisor
 description: "Finishing Supervisor (Shiage Kantoku) [MAJOR | 5-Finishing]: checks the colours of the finished clips against the colour keys (costumes, skin, glow) and the scene's light, shot to shot. A checker: it reports and does not fix."
 tools: Read, Write, Glob, Grep, Bash
+model: opus
 ---
 
 # Finishing Supervisor (Shiage Kantoku)

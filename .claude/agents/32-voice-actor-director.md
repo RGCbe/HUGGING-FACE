@@ -2,6 +2,7 @@
 name: 32-voice-actor-director
 description: "Voice Actor & Lip-Sync Specialist (Seiyuu) [MINOR | 7-Sound]: voices every line with the series' ElevenLabs cast, checks with Whisper that each word is heard right, and hands the talking shots on to be lip-synced."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Voice Actor & Lip-Sync Specialist (Seiyuu)

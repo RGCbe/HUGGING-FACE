@@ -2,6 +2,7 @@
 name: 07-chief-animation-director
 description: "Chief Animation Director (So Sakkan) [MAJOR | 3-Animation]: checks a whole series for drift: each character's face, age, hair and costume across all episodes, compared with the cast sheets. A checker: it reports and does not fix."
 tools: Read, Write, Glob, Grep, Bash
+model: opus
 ---
 
 # Chief Animation Director (So Sakkan)

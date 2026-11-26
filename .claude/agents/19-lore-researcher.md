@@ -2,6 +2,7 @@
 name: 19-lore-researcher
 description: "Lore & Continuity Researcher [MINOR | 1-Direction]: checks a script or plan against the series' own rules (ranks, powers, who knows what, what happened before), and checks every real-world fact in two good sources."
 tools: Read, Write, Glob, Grep, WebSearch, WebFetch
+model: inherit
 ---
 
 # Lore & Continuity Researcher

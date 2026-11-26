@@ -2,6 +2,7 @@
 name: 24-in-between-checker
 description: "In-Between Checker (Doga Kensa) [MINOR | 3-Animation]: checks every motion clip frame by frame for morphing faces, melting hands, flicker, stutter, doubled props, and frozen or broken frames. Run it as its own agent for fresh eyes; it writes a review and does not fix."
 tools: Read, Write, Glob, Grep, Bash
+model: opus
 ---
 
 # In-Between Checker (Doga Kensa)

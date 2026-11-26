@@ -2,6 +2,7 @@
 name: 25-background-painter
 description: "Background Painter (Haikei Bijutsu) [MINOR | 4-BG-3D]: paints empty location backgrounds (no people) from the scene locks, for establishing shots, camera moves, title cards and art boards."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Background Painter (Haikei Bijutsu)

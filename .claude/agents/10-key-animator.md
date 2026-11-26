@@ -2,6 +2,7 @@
 name: 10-key-animator
 description: "Key Animator (Gengaman) [MAJOR | 3-Animation]: makes the start picture (key pose) of every AI shot with the character and scene locks, and writes each shot's timing: its length, the part used, and its effect timing."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Key Animator (Gengaman)

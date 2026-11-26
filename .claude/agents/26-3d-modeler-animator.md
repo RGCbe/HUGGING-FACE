@@ -2,6 +2,7 @@
 name: 26-3d-modeler-animator
 description: "3D Modeler & Layout Animator [MINOR | 4-BG-3D]: makes depth-based camera moves through still pictures, our stand-in for 3D layouts. There are no 3D models or rigs in this repo yet."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # 3D Modeler & Layout Animator

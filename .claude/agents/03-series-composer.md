@@ -2,6 +2,7 @@
 name: 03-series-composer
 description: "Series Composer (Shirizu Kosei) [MAJOR | 1-Direction]: plans a season from our own source story (for example our F-Rank webtoon episodes): each episode's goal, the change in its characters, and its cliffhanger."
 tools: Read, Write, Edit, Glob, Grep
+model: inherit
 ---
 
 # Series Composer (Shirizu Kosei)

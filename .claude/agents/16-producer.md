@@ -2,6 +2,7 @@
 name: 16-producer
 description: "Producer / Production Manager (Seisaku Tanto) [MAJOR | 8-Production]: sets up a project (its card, its folders, its private backup), tracks GPU time and money, splits big batches over days, keeps STATUS.md current and asks the owner for his approvals."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Producer / Production Manager (Seisaku Tanto)

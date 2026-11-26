@@ -2,6 +2,7 @@
 name: 15-sound-director
 description: "Sound Director (Onkyo Kantoku) [MAJOR | 7-Sound]: spots a cut's sound: how each line is acted, where each music cue plays, every effect with its time, the J and L cuts. For a music video, it first marks the finished song's sections and lines, which every shot then follows."
 tools: Read, Write, Edit, Glob, Grep
+model: inherit
 ---
 
 # Sound Director (Onkyo Kantoku)

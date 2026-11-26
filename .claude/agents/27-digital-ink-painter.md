@@ -2,6 +2,7 @@
 name: 27-digital-ink-painter
 description: "Digital Ink & Painter (Shiage) [MINOR | 5-Finishing]: in a studio, paints flat cel colours on every drawing. Our models paint the frames themselves, so this card fixes colour at the source: the start picture's words, or a grade."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Digital Ink & Painter (Shiage)

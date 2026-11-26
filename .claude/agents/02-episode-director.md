@@ -2,6 +2,7 @@
 name: 02-episode-director
 description: "Episode Director (Enshutsu) [MAJOR | 1-Direction]: checks one episode's storyboard shot by shot (the 180-degree rule, match-on-action, scene lighting, shot lengths, end-frame chaining, J and L cuts) and approves it before any picture is made."
 tools: Read, Write, Edit, Glob, Grep
+model: inherit
 ---
 
 # Episode Director (Enshutsu)

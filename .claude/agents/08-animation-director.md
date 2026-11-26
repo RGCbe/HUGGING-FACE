@@ -2,6 +2,7 @@
 name: 08-animation-director
 description: "Episode Animation Director (Sakkan) [MAJOR | 3-Animation]: checks every start picture before any clip is made: face, hands, proportions, costume and props against the cast sheets, plus the people rules. Run it as its own agent for fresh eyes; it writes a review and does not fix."
 tools: Read, Write, Glob, Grep, Bash
+model: opus
 ---
 
 # Episode Animation Director (Sakkan)

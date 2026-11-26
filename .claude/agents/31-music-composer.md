@@ -2,6 +2,7 @@
 name: 31-music-composer
 description: "Music Composer (Ongaku) [MINOR | 7-Sound]: makes the score and ambience for a cut from the sound sheet's moods: Eleven Music within the owner's plan, our own synthesised score, or our own song Space."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Music Composer (Ongaku)

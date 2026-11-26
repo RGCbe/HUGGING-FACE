@@ -2,6 +2,7 @@
 name: 05-art-director
 description: "Art Director (Bijutsu Kantoku) [MAJOR | 2-Design]: sets one fixed environment and lighting line per scene (the place, the time of day, the light's direction, the colour of the shadows) and paints an art board for it, so every shot in a scene matches."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Art Director (Bijutsu Kantoku)

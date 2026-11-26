@@ -2,6 +2,7 @@
 name: 34-production-assistant-qa
 description: "Production Assistant & QA Checker (Seisaku Shinko) [MINOR | 8-Production]: does the last check before the owner sees a cut: file specs, every shot looked at, voice clarity and loudness, captions, the rules (no media or keys in git, the people rules), and a dry-run upload file. Run it as its own agent for fresh eyes; it never uploads."
 tools: Read, Write, Glob, Grep, Bash
+model: opus
 ---
 
 # Production Assistant & QA Checker (Seisaku Shinko)

@@ -2,6 +2,7 @@
 name: 21-color-specifier
 description: "Color Specifier (Iro Shitei) [MINOR | 2-Design]: gives each shot its scene's light and colour (the scene lock it uses, and a grade where needed), so the shots of one scene match."
 tools: Read, Write, Edit, Glob, Grep
+model: inherit
 ---
 
 # Color Specifier (Iro Shitei)

@@ -2,6 +2,7 @@
 name: 33-foley-sfx-artist
 description: "Foley & Sound Effects Artist (Kokaon) [MINOR | 7-Sound]: makes each shot's sound effect from its sfx note (punches, slashes, tea pouring, footsteps, crowd roar) with ElevenLabs sound generation or our own synthesised effects."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Foley & Sound Effects Artist (Kokaon)

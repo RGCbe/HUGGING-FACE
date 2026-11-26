@@ -2,6 +2,7 @@
 name: 18-storyboard-artist
 description: "Storyboard Artist (Ekonte) [MINOR | 1-Direction]: breaks the script, or the finished song, into timed shots with the camera, what we see, what moves, how it is made, the line and the sound notes: the shot list that every later job reads."
 tools: Read, Write, Edit, Glob, Grep
+model: inherit
 ---
 
 # Storyboard Artist (Ekonte)

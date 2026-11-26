@@ -2,6 +2,7 @@
 name: 09-action-director
 description: "Action & Effects Director (Akushon Sakkan) [MAJOR | 3-Animation]: plans each action beat (anticipation, action, follow-through, 0.8-1.5 s), chooses how it is made (chained, image-to-video or text-to-video), and once the clips exist marks the exact contact frame of every hit."
 tools: Read, Write, Edit, Glob, Grep, Bash
+model: inherit
 ---
 
 # Action & Effects Director (Akushon Sakkan)

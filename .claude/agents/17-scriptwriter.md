@@ -2,6 +2,7 @@
 name: 17-scriptwriter
 description: "Scriptwriter (Kyakuhon) [MINOR | 1-Direction]: writes an episode scene by scene: what we see, what moves, who says what and how, acted as new scenes and never copied panel by panel."
 tools: Read, Write, Edit, Glob, Grep
+model: inherit
 ---
 
 # Scriptwriter (Kyakuhon)
