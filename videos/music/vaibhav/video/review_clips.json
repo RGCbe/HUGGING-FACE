@@ -56,5 +56,103 @@
    "Possible cause, not tested: the S12 negative lists \"club\", which may push thin drum sticks out of the picture as well."
   ],
   "fix": "New seeds (2-3 takes) with \"club\" taken out of the negative and a prompt that names the sticks and slows the beat, for example: each drummer keeps two thin wooden sticks in his hands and strikes the drum skin in a steady rhythm. Re-time without motion interpolation (repeat frames). If the sticks still dissolve, use the still picture with a camera move (lyric_video.py's path for a shot with no clip) and add the drum hits as effects in compositing."
+ },
+ {
+  "id": "S06_b",
+  "clip": "clips_raw/S06_b.mp4 (raw, judged at its own speed)",
+  "ok": false,
+  "severity": "major",
+  "contact_time": null,
+  "contact_note": "No contact. The bat sweeps across the ball's spot at 2.458-2.500 s (frames 59-60, where the blade hides the ball). At 2.542 s (frame 61) the ball is back in the same place, untouched, and it never leaves.",
+  "checked": "26 Nov 2026, round 2. sha256 6e790fcf..., 832x480, 24 fps, 81 frames, 3.375 s, h264, no audio. Contact sheet at 5 fps; every frame from 40 to 80 in numbered grids; red-ball tracking on all 81 frames; a face strip (p04 plus 6 times) and 2x face zooms at 3.08 and 3.33 s; 2x crops of the bat at frames 50-55; zooms of the boundary boards at 4 times; brightness and frame-to-frame change for every frame.",
+  "problems": [
+   "major: no hit. The ball never moves. On screen it only drifts with the camera, from (255,429) at 0 s to (194,424) at 3.33 s. The bat passes over it at 2.46-2.50 s, and it stays where it was; nothing flies away.",
+   "minor: at 2.08-2.29 s (frames 50-55) the bat swings towards the camera and is drawn as a short, rounded block, more like a club than a flat blade. It stays one piece.",
+   "minor: as the camera swings round, the boundary boards come into focus. A red board carries garbled pseudo-text (about 1.7 s), and a blue board carries a swoosh-like mark (about 2.6-2.9 s). None of it is readable; it is small and soft."
+  ],
+  "notes": [
+   "Held: the bat is one straight piece in every frame, and there is one ball. Left-handed: the backlift goes over his left shoulder, the bat comes down through the line, and he finishes high over his right shoulder at 3.0-3.33 s. It is the most cricket-like swing of all three takes. His face stays p04's soft 15-16-year-old face all through, side-on, with no stubble (frames 0-80). Painted anime; a smooth camera move round him; no flicker (brightness 95-107, no spikes). The last second is a clean follow-through."
+  ],
+  "fix": "No cut can save this take: the untouched ball sits beside the finished swing. Our tools cannot remove a ball under a moving camera (cards 25 and 27). See S06_choice."
+ },
+ {
+  "id": "S06_c",
+  "clip": "clips_raw/S06_c.mp4 (raw, judged at its own speed)",
+  "ok": false,
+  "severity": "major",
+  "contact_time": null,
+  "contact_note": "No contact. The ball never reaches the bat in this clip.",
+  "checked": "26 Nov 2026, round 2. sha256 f695d24c..., 832x480, 24 fps, 81 frames, 3.375 s, h264, no audio. Contact sheet at 5 fps; every other frame from 50 to 80 in a numbered grid; red-ball tracking on all 81 frames; a face strip (p04 plus 6 times) and 2x face zooms at 3.0 and 3.33 s; brightness and frame-to-frame change for every frame.",
+  "problems": [
+   "major: no hit. The ball floats up like a balloon, from (254,431) at 0 s to (208,226) at 1.0 s. It hangs there from 1.0 to 2.0 s, then sinks slowly to (209,320) by 3.33 s. It never comes towards him, and at the end it is still about 300 px left of the bat.",
+   "major: hardly a swing. He is nearly still from 0 to 2.1 s (frame-to-frame change about 1-2, against about 10 at the end). He lifts the bat upright at 2.4-2.9 s, then brings it down in front of his chest, square to the camera, at 3.0-3.33 s. The clip ends before any downswing, so it is not the action asked for.",
+   "major: his face ages. Front-on at 3.0-3.33 s (frames 72-80), his jaw and chin go dark like stubble and his face turns squarer. He reads about 18-20, not 15-16.",
+   "minor: from about 2.9 s he turns square to the camera instead of staying side-on."
+  ],
+  "notes": [
+   "Held: the bat is one straight piece, and there is one ball. Painted anime; the stands stay soft, with no text; no flicker (brightness 95-104)."
+  ],
+  "fix": "Discard this take. See S06_choice."
+ },
+ {
+  "id": "S12_b",
+  "clip": "clips_raw/S12_b.mp4 (raw, judged at its own speed)",
+  "ok": false,
+  "severity": "major",
+  "checked": "26 Nov 2026, round 2. sha256 e3b9ca6a..., 832x480, 24 fps, 81 frames, 3.375 s, h264, no audio. Contact sheet at 5 fps; full-size crops of the hands and sticks every 5 frames; 2x zooms of all six hands at 0.42, 1.04, 1.25 and 2.5 s; taller crops at 8 times, to catch raised sticks; the painted-out patch (the heavy-set drummer, x 666-725, y 284-410) every 4 frames, beside i01_b.png (before the paint-out) and i01.png; full frames at 0, 1.67 and 3.33 s; the crowd at 1.25 and 2.75 s; brightness and frame-to-frame change for every frame.",
+  "problems": [
+   "major: the sticks dissolve. From 0.21 s (frame 5) the grey-haired and young drummers' sticks are gone, and their fists hold only frayed, red-brown wisps and stubs to the end. The heavy-set drummer keeps one thin raised stick now and then (about 1.5, 2.0-2.17, 2.67 and 3.0 s), while his other hand is empty. Only frame 0 has two sticks per drummer.",
+   "major: the hands go messy. From 0.42 s to the end, all six fists sprout frayed, straw-like bristles, and the fingers look raw and red (worst at 1.0-1.25 s). They keep the shape of fists, not mitten blobs.",
+   "minor: dark, stick-shaped streaks cross the drum skins where there is no stick (for example at 0.25, 1.5, 2.0 and 2.67 s).",
+   "minor: no clear strikes on the skin. The bodies hardly move, and only the fists jiggle."
+  ],
+  "notes": [
+   "Held: the painted-out extra stick does not grow back. The three faces stay different all through (grey moustache, young man, heavy-set round face), with no twins. The crowd claps and waves, with no sticks, clubs, signs or text. Painted anime, with no drift towards photo-real; no flicker (brightness 110-117)."
+  ],
+  "fix": "Discard this take: it fails the same way as S12_a. See S12_choice."
+ },
+ {
+  "id": "S12_c",
+  "clip": "clips_raw/S12_c.mp4 (raw, judged at its own speed)",
+  "ok": false,
+  "severity": "major",
+  "checked": "26 Nov 2026, round 2. sha256 1dc6dd9a..., 832x480, 24 fps, 81 frames, 3.375 s, h264, no audio. Contact sheet at 5 fps; full-size crops of the hands and sticks every 5 frames; a grid of every other frame (0-80) across all six hands; taller crops at 8 up-stroke times, to catch raised sticks; 2x zooms of all six hands at 0.21, 1.96, 2.71 and 2.92 s; the last 8 frames one by one; the painted-out patch every 4 frames, beside i01_b.png and i01.png; full frames at 0, 1.67 and 3.33 s; the crowd at 1.25 and 2.75 s; brightness and frame-to-frame change for every frame.",
+  "problems": [
+   "major: the sticks still break up, but only in short spells. On each down-stroke they are clean, thin sticks: V shapes at about 0.33, 0.58, 0.83, 1.08, 1.25, 1.5, 1.67, 1.96, 2.25-2.33, 2.5, 2.75, 3.0 and 3.17 s, with all six clean at 1.96 s. On the up-stroke they are mostly raised and visible (0.25, 0.5, 1.83, 2.67 and 3.08-3.33 s). Between strokes they shrink to stubs for 1-3 frames at a time (for example 0.08-0.21, 0.92-1.0, 1.33, 2.08, 2.42 and 2.58 s). At full speed this may read as the sticks flickering.",
+   "major: at 2.79-2.96 s (frames 67-71), and briefly at 2.71 s (frame 65), every stick turns into a frayed, straw-like stub, and the fists show reddish smears. The heavy-set drummer's fists blur at 2.71 s. The sticks are back at 3.0 s.",
+   "minor: the drummers' bodies hardly bounce; only their arms move. The prompt asked for bouncing shoulders. The camera pushes in gently."
+  ],
+  "notes": [
+   "Held: a steady strike rhythm, about 4 strikes a second, with all three drummers in time. The painted-out extra stick does not grow back (checked every 4 frames against i01_b.png). The three faces stay different, with no twins. The crowd claps, with no sticks, clubs, signs or text; the red-shirted man and the sandalled legs between the drummers are already in frame 0. Painted anime; no flicker (brightness 109-114). The last second is usable: the sticks are raised at 3.08-3.13 s, and in frame 80 (the frame the edit holds) one fist on the young drummer is empty."
+  ],
+  "fix": "Optional \"clip_cut_end\": 0.21 (end on frame 75, 3.125 s), so the held end frame shows all six sticks raised. The break-up at 2.79-2.96 s cannot be cut out without losing the end. See S12_choice."
+ },
+ {
+  "id": "S06_choice",
+  "shot": "S06",
+  "choice": "a",
+  "clip": "clips_raw/S06_a.mp4",
+  "passes": false,
+  "contact_time": 2.31,
+  "contact_note": "As in round 1, checked again on frames 54-57: the ball sits at x~250 up to frame 55 (2.292 s). At frame 56 (2.333 s) the blade has swept under it and the ball is ~130 px further left. By 2.375 s it has left the frame.",
+  "clip_cut_end": 0.75,
+  "clip_cut_end_note": "Recommended. Ending at 2.625 s (last frame 62) drops the front-on frames where his face looks heaviest and oldest (2.67-3.33 s). The edit then holds the follow-through after the hit (the bat raised up-left) for about 1.7 s under the slow push, like an anime impact hold. The contact time stays 2.31 s. Without the cut, the edit holds frame 80 (front-on, the older face) for about 0.9 s. Frames 58-62 are front-on too, but softer, with no stubble.",
+  "show_owner": true,
+  "why": "S06_a is the only one of the three takes with a real hit; for a batting shot, the hit matters most. S06_b has the best cricket swing and keeps his face, but the bat passes the ball and the ball never moves. S06_c has no hit and hardly a swing, and his face turns stubbly at the end.",
+  "note_for_owner": "A test take, not final. The ball hangs still in the air until he hits it (0-2.29 s), and he barely moves for the first 1.6 s. The swing is flat, more of a slog than a textbook drive. After the hit he turns to face the camera, and his face looks a little older there; we end the clip at 2.6 s to hide most of that.",
+  "next": "Three seeds have now failed on the ball three different ways (frozen until the hit, never touched, floating like a balloon). The clip model will not fly the ball in. Suggestion: remake p04 without the ball (a masked patch, card 22), make the swing without a ball (S06_b's prompt gave the best swing and face), then add the ball flying in and away as a drawn effect, timed to the moment the bat passes. Not checked: whether anime_fx.py can draw a moving ball."
+ },
+ {
+  "id": "S12_choice",
+  "shot": "S12",
+  "choice": "c",
+  "clip": "clips_raw/S12_c.mp4",
+  "passes": false,
+  "clip_cut_end": 0.21,
+  "clip_cut_end_note": "Optional. It ends on frame 75 (3.125 s), where all six sticks are raised, so the held end frame looks clean.",
+  "show_owner": true,
+  "why": "S12_c is the only take that keeps the sticks for most of the clip: thin sticks strike the skins in a steady beat, all three drummers in time, with all six clean at 1.96 s. S12_a and S12_b lose the sticks from about 0.2 s and are left with frayed stubs and messy fists. S12_b and S12_c used the same prompt and negative, so the difference is the seed.",
+  "note_for_owner": "A test take, not final. The sticks are clean on each strike but flick to stubs for a frame or two between strikes. For about 0.2 s near the end (2.8-2.96 s) they turn into frayed stubs with reddish smears on the fists. The drummers' bodies hardly bounce.",
+  "next": "If the owner wants it clean: try 2-3 more seeds with the same prompt (it worked far better on c than on b), or fall back to the still i01 with a camera push and the drum hits as effects (round-1 fallback)."
  }
 ]
