@@ -255,7 +255,7 @@ def spoken(song):
         print(f"spoken {part}: {sf.info(out).duration:.1f} s")
 
 
-def his_gang(v, heard, words):
+def his_gang(v, heard, words, verses=True):
     """The owner's own voice, doubled (every voice his: 26 Nov 2026): two copies a few cents off and a few ms late,
     left and right, all the way through; in the lines that hold a gang word (the hook) two more copies and one an
     octave down, so the chorus sounds like a crowd of him."""
@@ -267,10 +267,11 @@ def his_gang(v, heard, words):
     def late(x, ms):
         k = int(SR * ms / 1000)
         return np.concatenate([np.zeros(k, np.float32), x[:n - k]])
-    for cents, ms, l, r in ((12, 18, 0.42, 0.12), (-12, 31, 0.12, 0.42)):
-        x = late(rap.pitch(v, cents / 100), ms)
-        out[:, 0] += x * l
-        out[:, 1] += x * r
+    if verses:  # doubles all the way through (off when the lead must be clear: they blur the consonants)
+        for cents, ms, l, r in ((12, 18, 0.42, 0.12), (-12, 31, 0.12, 0.42)):
+            x = late(rap.pitch(v, cents / 100), ms)
+            out[:, 0] += x * l
+            out[:, 1] += x * r
     spans = []
     if words and os.path.exists(heard):
         for row in open(heard).read().splitlines():
@@ -328,9 +329,33 @@ def mix(song):
         # keep their size (Seed-VC turns a crowd into one voice)
         level = np.sqrt(np.mean(orig.mean(1) ** 2)) / max(1e-6, np.sqrt(np.mean(new ** 2)))  # as loud as the original
         lead = (new * level * song.get("lead_gain", 1.0))[:, None] * np.ones(2, np.float32)
+        if song.get("clear_lead"):
+            # clarity first (26 Nov 2026, the owner: "Voice is not clear"): the lead cleaned and brought forward
+            # (low cut, less mud at 300 Hz, more presence at 3.5 kHz, steady level), no doubles in the verses, and the
+            # beat dipping under the voice
+            raw = os.path.join(d, "lead_raw.wav")
+            sf.write(raw, new * level, SR)
+            clean = os.path.join(d, "lead_clean.wav")
+            ffmpeg("-i", raw, "-af", "highpass=f=110,equalizer=f=300:t=q:w=1.2:g=-3,equalizer=f=3500:t=q:w=1:g=4,"
+                   "equalizer=f=8000:t=q:w=1:g=1.5,acompressor=threshold=-22dB:ratio=3.5:attack=4:release=80:makeup=3",
+                   "-ar", str(SR), clean)
+            v = load(clean, mono=True)[:n]
+            v = np.pad(v, (0, n - len(v)))
+            v *= np.sqrt(np.mean((new * level) ** 2)) / max(1e-6, np.sqrt(np.mean(v ** 2)))
+            lead = (v * song.get("lead_gain", 1.4))[:, None] * np.ones(2, np.float32)
+            env = np.convolve(np.abs(v), np.ones(SR // 10) / (SR // 10), mode="same")
+            on = np.clip(env / (0.2 * env.max() + 1e-9), 0, 1)
+            duck = 1 - song.get("duck", 0.45) * np.convolve(on, np.ones(SR // 5) / (SR // 5), mode="same")
+            band = band * duck[:, None]
+            os.remove(raw)
+            os.remove(clean)
         if song.get("doubles"):
-            lead = lead + his_gang(new * level, os.path.join(d, f"take_{seed}.heard.txt"), song.get("gang_words", []))
+            g = his_gang(new * level, os.path.join(d, f"take_{seed}.heard.txt"), song.get("gang_words", []),
+                         verses=not song.get("clear_lead"))
+            lead = lead + g * song.get("gang_gain", 1.0)
         body = band + lead + orig * song.get("orig_under", 0.25)
+        if song.get("acapella"):
+            sf.write(os.path.join(d, f"final_{seed}.vocal_only.wav"), lead.astype(np.float32), SR)
         if not spoken:
             total = body.astype(np.float32)
             pre_len = 0
