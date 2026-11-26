@@ -2,7 +2,9 @@
 
 The owner (26 Nov 2026): "first fully decode how the real animation made the anime" (Dragon Ball, One Piece: both
 Toei Animation). This is the study, written as rules for our automation. Sources at the end. `anime_fx.py` and
-`lyric_video.py` apply them; `motion_shots.json` (per video) carries the motion prompts.
+`lyric_video.py` apply them; `motion_shots.json` (per video) carries the motion prompts. The anime studio's job
+cards (`.claude/agents/01..34`, run by the `anime-studio` skill, rules in `.claude/skills/anime-studio/RULES.md`)
+follow this file for timing and effects.
 
 ## 1. The pipeline and who does what
 

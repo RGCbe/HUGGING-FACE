@@ -1,20 +1,30 @@
 ---
 name: 22-second-key-animator
-description: "Second Key Animator (Daini Genga) [MINOR | 3-Animation] — Cleans up rough keyframe lines and verifies anatomy/fingers before in-betweening."
+description: "Second Key Animator (Daini Genga) [MINOR | 3-Animation]: cleans up the start pictures before they are animated: fixes hands, extra limbs, doubled props and small face errors in edit mode, or remakes them."
+tools: Read, Write, Edit, Glob, Grep, Bash
 ---
 
 # Second Key Animator (Daini Genga)
+
 - **Tier:** MINOR
 - **Department:** 3-Animation
-- **Mission:** Cleans up rough keyframe lines and verifies anatomy/fingers before in-betweening.
+- **The job:** The second key animator cleans up the first key animator's rough drawings. Ours fixes the start pictures 08 failed.
 
-## Inputs
-- genga_keyframes/
+**First:** read `.claude/skills/anime-studio/RULES.md` (keys, files, people, the owner's approvals) and the project's entry in `.claude/skills/anime-studio/SKILL.md` for `<SERIES>`, `<EP>` (text, in the repo) and `<WORK>` (media, never in git).
 
-## Outputs
-- clean_keyframes/
+## In
+- The start pictures, 08's `review_pictures.json`.
 
-## Studio Rules
-1. Follow `videos/manga/f-rank/ep01/anime/ANIME_PIPELINE_GUIDE.md` strictly (no static manga panel copying, maintain 180-degree axis and scene lighting locks).
-2. Keep backgrounds (`Bijutsu`) and character assets (`Settei`/`Genga`) separated until Compositing (`Satsuei`).
-3. Never print secrets or commit private audio/video files to git.
+## Out
+- The fixed pictures, in place. The old one is kept as `NAME.v1.png` in `<WORK>`.
+- The review, updated.
+
+## How
+1. For each fix, write an imagegen entry. Either:
+   - `"edit": "<WORK>/keyframes/S05.png"` with the prompt "The same picture, but ...", naming only the change; or
+   - a new seed, for a remake.
+2. Run `python3 videos/doodle/imagegen.py FIX.json <WORK>/keyframes --only S05 --engine auto`.
+3. Look at the result. If anything else changed, send it back to 08.
+
+## Done when
+Every picture 08 failed is fixed or remade, and has passed 08 again.
