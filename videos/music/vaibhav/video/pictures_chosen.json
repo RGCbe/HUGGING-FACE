@@ -45,6 +45,26 @@
    "take": "i01_b masked paint-out (i01_mask_ns)",
    "how": "round 6",
    "passed_in": "review_pictures.json"
+  },
+  "c05": {
+   "take": "c05_a",
+   "how": "edit (goal removed)",
+   "passed_in": "review_fix_batch2.json"
+  },
+  "c06": {
+   "take": "c06_a",
+   "how": "edit (logos, lookalike)",
+   "passed_in": "review_fix_batch2.json"
+  },
+  "c07": {
+   "take": "c07_b",
+   "how": "edit (balls and bat removed); minor: the crowd does not read as Indian fans of many ages",
+   "passed_in": "review_fix_batch2.json"
+  },
+  "c04": {
+   "take": "c04_b + paint-out of 4 letter-like marks (c04_fixed)",
+   "how": "edit, then the checker's 4 boxes painted out",
+   "passed_in": "review_fix_batch2.json; the paint-out goes to the final re-check"
   }
  }
 }

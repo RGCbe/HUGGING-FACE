@@ -426,6 +426,78 @@
    "also": [
     "/root/.cache/music/vaibhav-video/animeA/t01.png"
    ]
+  },
+  {
+   "name": "t03_t01a",
+   "seed": 1515,
+   "prompt": "A dusty village cricket ground at golden hour, no floodlights: the same 10-year-old boy as in the reference picture (the same face, short black hair and blue polo shirt) in a left-handed batting stance, his bat lifted behind him ready to swing, its blade a long, flat rectangular plank of wood with square shoulders; one red cricket ball comes towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; the village walls behind are plain mud and brick with no signboards.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t04_t01a",
+   "seed": 1515,
+   "prompt": "Night in a small village house: the same 10-year-old boy as in the reference picture (the same face and short black hair) asleep on a mat, hugging an old cricket bat upright against his chest: its blade is a long, flat rectangular plank of wood with a square end, and its short round handle rests under his chin; through the window a soft dreamlike stadium glows among the stars; a single bulb gives warm light.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t03_t01b",
+   "seed": 2626,
+   "prompt": "A dusty village cricket ground at golden hour, no floodlights: the same 10-year-old boy as in the reference picture (the same face, short black hair and blue polo shirt) in a left-handed batting stance, his bat lifted behind him ready to swing, its blade a long, flat rectangular plank of wood with square shoulders; one red cricket ball comes towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; the village walls behind are plain mud and brick with no signboards.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t04_t01b",
+   "seed": 2626,
+   "prompt": "Night in a small village house: the same 10-year-old boy as in the reference picture (the same face and short black hair) asleep on a mat, hugging an old cricket bat upright against his chest: its blade is a long, flat rectangular plank of wood with a square end, and its short round handle rests under his chin; through the window a soft dreamlike stadium glows among the stars; a single bulb gives warm light.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t03_t01c",
+   "seed": 3737,
+   "prompt": "A dusty village cricket ground at golden hour, no floodlights: the same 10-year-old boy as in the reference picture (the same face, short black hair and blue polo shirt) in a left-handed batting stance, his bat lifted behind him ready to swing, its blade a long, flat rectangular plank of wood with square shoulders; one red cricket ball comes towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; the village walls behind are plain mud and brick with no signboards.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t04_t01c",
+   "seed": 3737,
+   "prompt": "Night in a small village house: the same 10-year-old boy as in the reference picture (the same face and short black hair) asleep on a mat, hugging an old cricket bat upright against his chest: its blade is a long, flat rectangular plank of wood with a square end, and its short round handle rests under his chin; through the window a soft dreamlike stadium glows among the stars; a single bulb gives warm light.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t03_ra",
+   "seed": 4848,
+   "prompt": "A dusty village cricket ground at golden hour, no floodlights: Vaibhav as a 10-year-old Indian village boy, small with round cheeks and child proportions, brown skin, short black hair, in a plain blue polo shirt, with the same face as the boy in the reference picture but younger, in a left-handed batting stance on the dusty pitch, his bat lifted behind him ready to swing, its blade a long, flat rectangular plank of wood with square shoulders; one red cricket ball comes towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; the village walls behind are plain mud and brick with no signboards.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t03_rb",
+   "seed": 5959,
+   "prompt": "A dusty village cricket ground at golden hour, no floodlights: Vaibhav as a 10-year-old Indian village boy, small with round cheeks and child proportions, brown skin, short black hair, in a plain blue polo shirt, with the same face as the boy in the reference picture but younger, in a left-handed batting stance on the dusty pitch, his bat lifted behind him ready to swing, its blade a long, flat rectangular plank of wood with square shoulders; one red cricket ball comes towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; the village walls behind are plain mud and brick with no signboards.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t03_rc",
+   "seed": 6060,
+   "prompt": "A dusty village cricket ground at golden hour, no floodlights: Vaibhav as a 10-year-old Indian village boy, small with round cheeks and child proportions, brown skin, short black hair, in a plain blue polo shirt, with the same face as the boy in the reference picture but younger, in a left-handed batting stance on the dusty pitch, his bat lifted behind him ready to swing, its blade a long, flat rectangular plank of wood with square shoulders; one red cricket ball comes towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; the village walls behind are plain mud and brick with no signboards.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
   }
  ]
 }
