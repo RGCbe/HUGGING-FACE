@@ -1,9 +1,15 @@
 ---
 name: tea-break-weekly
-description: Make and schedule this week's Tea Break with Manoj videos - the next funny true history story from the topic list as a 2-5 minute illustrated doodle video plus two vertical Shorts, in Manoj's AI voice checked word by word, with original music and sound effects, uploaded private and scheduled. Use for "make this week's Tea Break video", "run the weekly Tea Break", or when a scheduled task asks for the weekly Tea Break run.
+description: Make and schedule this week's Tea Break with Manoj videos - the next funny true history story from the topic list as a 2-5 minute illustrated doodle video in Tamil plus the whole story as 3 Tamil Shorts, in Manoj's AI voice checked word by word, with original music and sound effects, uploaded private and scheduled (Tamil only: the English version is made as the working master and never uploaded). Use for "make this week's Tea Break video", "run the weekly Tea Break", or when a scheduled task asks for the weekly Tea Break run.
 ---
 
 # Tea Break with Manoj, weekly
+
+**Tamil only on YouTube** (the owner, 27 Nov 2026: "Stop posting English only tamil"). The English version is still
+made in steps 4-8, because the Tamil video is built on its timings, boards and music (tamil.py), but it is **never
+uploaded**: no English long video, no English Shorts, no English TikTok version. What goes up is the Tamil long video
+and its 3 Tamil parts (step 9b), the Tamil long video at next.py's `long_at`. YouTube's automatic dubbing gives English
+viewers an English track. Where the steps below talk about uploading or reporting English videos, skip that.
 
 Every week, one long video (2 to 5 minutes, never longer: the channel's promise is a story you
 finish in a tea break) and two Shorts about the next story in
@@ -16,7 +22,7 @@ The finished example is The Pig War: its files are in `videos/teabreak/example/`
 its comments line were written before `videos/SCRIPT_STYLE.md` and are banned now. Every video says
 its own things in fresh words. Work from the repository root.
 
-**This run makes and uploads three videos, no more. Do not commit, push or open pull requests,
+**This run uploads four Tamil videos (the long one and its 3 parts), no more. Do not commit, push or open pull requests,
 and leave the repository's files as they are.** Everything you write goes in
 `$KURAL_WORK/SLUG/`, outside the repository.
 
@@ -222,18 +228,13 @@ python3 videos/teabreak/build.py video "$KURAL_WORK/SLUG"
 python3 videos/teabreak/build.py shorts "$KURAL_WORK/SLUG"
 ```
 
-Then the whole story as one vertical video for TikTok (TikTok pays only for videos over a
-minute), from `meta.json`'s `tiktok` (write it now, see step 9):
-
-```bash
-python3 videos/teabreak/build.py tiktok "$KURAL_WORK/SLUG"
-```
+(No English Shorts or English TikTok version since 27 Nov 2026: skip `build.py shorts` and `build.py tiktok`. The
+3 Tamil parts in step 9b are the Shorts.)
 
 Watch for problems: open a few frames of each output (`ffmpeg -ss T -i out/X.mp4 -frames:v 1
 f.png`) and check the lengths with ffprobe (long video 2-5 minutes; Shorts under 60 seconds).
 
-Before uploading, every finished video (the long one, both Shorts, the TikTok one, and the Tamil ones in 9b)
-must pass `python3 videos/doodle/clarity.py <video> ...` (CLEAR on every line): the owner's rule, 22 Nov 2026, "my video
+Before uploading, every video that goes up (the Tamil long video and its 3 parts in 9b) must pass `python3 videos/doodle/clarity.py <video> ...` (CLEAR on every line): the owner's rule, 22 Nov 2026, "my video
 have good voice and crystal clear". UNCLEAR means the voice is muddy or the loudness is off: fix it (mix.py's
 VOICE_POLISH must be on) and never upload it.
 
@@ -259,10 +260,10 @@ VOICE_POLISH must be on) and never upload it.
   five words, "One pig. Two countries."), and `caption`: one or two sentences that tease the story,
   an emoji, and 5 or 6 hashtags (#history #funnyhistory #truestory, the story's own, #learnontiktok).
 
-```bash
-python3 videos/teabreak/build.py upload "$KURAL_WORK/SLUG"
-python3 videos/doodle/upload.py "$KURAL_WORK/SLUG/upload.json"
-```
+**Do not upload the English video** (Tamil only since 27 Nov 2026): skip `build.py upload` and `upload.py` for
+the English files. Write `meta.json` anyway (title, description and sources in English): its title and description
+become the English title and description of the Tamil long video (`meta_ta.json` "localizations", step 9b), and its
+sources and chapters are checked against the Tamil one.
 
 build.py, tamil.py and tamil_shorts.py write `"meta": "tea-break"` in the upload defaults, so every
 video uploaded is also queued for the Tea Break Facebook Page and Instagram (`videos/meta/README.md`) and a
@@ -290,7 +291,9 @@ docstrings of `videos/teabreak/tamil.py` and `videos/teabreak/tamil_shorts.py` o
   most 1.15 times and stops if it would need more).
 - `onscreen_ta.json`: the Tamil for every text on the boards (scenes.js write, big, stamp and calendar texts).
 - `thumbnail_ta.js` (like `thumbnail.js`, Tamil words) and `meta_ta.json`: `{"title": "<Tamil title> | <English
-  name> (<year>) | Tea Break தமிழ்", "description", "tags", "publish_at": the English long video's long_at}`.
+  name> (<year>) | Tea Break தமிழ்", "description", "tags", "publish_at": next.py's long_at, "localizations":
+  {"en": {"title": meta.json title, "description": meta.json description}}}` (the Saturday 18:00 slot the English video
+  used to take; the English title and description are what viewers whose YouTube is in English see).
 - `shorts_ta.json`: `{"title": "<the story and year in Tamil>", "shorts": [], "parts": [three of {"yt_title":
   "<a Tamil hook> | பகுதி K/3 #shorts", "yt_text": "<one or two Tamil lines>", "publish_at": ...}]}`. Part 1 the
   day after the long videos, parts 2 and 3 the two days after that, all at 20:00 India time (14:30 UTC).
@@ -313,9 +316,7 @@ line); each part's description links the parts before it and the full Tamil vide
 
 ## 10. Report
 
-Send the owner the TikTok video (`out/SLUG_tiktok.mp4`) with SendUserFile, and the two Shorts
-too, which they may also post on TikTok a few days later. Then a few lines: the story, the three
-titles with their YouTube links and when each goes public (India time), the TikTok caption in a
-block to copy (and a reminder to switch on "AI-generated content" under More options when
-posting), anything you had to reword or redo, and anything that failed with what the owner needs
-to do.
+Send the owner the Tamil long video and its 3 parts with SendUserFile (they may post the parts on TikTok). Then a
+few lines: the story, the four Tamil titles with their YouTube links and when each goes public (India time), a
+TikTok caption in Tamil in a block to copy (and a reminder to switch on "AI-generated content" under More options
+when posting), anything you had to reword or redo, and anything that failed with what the owner needs to do.

@@ -10,7 +10,8 @@ writes (the owner checks the Tamil):
   onscreen_ta.json   {"English text on a board": "Tamil text", ...}; every write/big/stamp/calendar text in
                      scenes.js is looked up, and a text with no entry stays English (names, a sale's name)
   thumbnail_ta.js    the Tamil thumbnail (like thumbnail.js)
-  meta_ta.json       {"title", "description", "tags", "publish_at"} (or, for a video whose English one is already
+  meta_ta.json       {"title", "description", "tags", "publish_at", "localizations": {"en": {"title", "description"}}}
+                     (the English title and description, since 27 Nov 2026 the only English; or, for a video whose English one is already
                      out, no publish_at and "privacy": "public")
   caption_replace_ta.json (optional)  [["ஆயிரத்து தொள்ளாயிரத்து எழுபதுல", "1970-ல"], ...]: spoken words shown
                      another way in the captions (numbers as digits)
@@ -265,7 +266,7 @@ def step_upload(d):
     t = os.path.join(d, "tamil")
     meta = json.load(open(os.path.join(t, "meta_ta.json"), encoding="utf-8"))
     note = ("\n\nகுரல்: என் சொந்தக் குரலின் AI நகல். படங்கள் AI மூலம் வரையப்பட்டவை (FLUX.2 klein), இசை எங்களுடையது."
-            "\nEnglish version on the channel.")
+)  # Tamil only since 27 Nov 2026: no English version on the channel
     out = os.path.abspath(os.path.join(d, "out"))
     long_list = cfg.get("playlists", {}).get("history", {}).get("id")  # the one history playlist (27 Nov 2026)
     spec = {"defaults": {"meta": "tea-break", "privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 27,
@@ -273,7 +274,10 @@ def step_upload(d):
             "videos": [{"file": os.path.join(out, f"{slug}_ta.mp4"), "thumbnail": os.path.join(out, f"{slug}_ta_thumbnail.jpg"),
                         "title": meta["title"], "description": meta["description"] + note, "tags": meta["tags"],
                         "publish_at": meta.get("publish_at"), "privacy": meta.get("privacy", "private"),
-                        "playlists": [long_list] if long_list else []}]}
+                        "playlists": [long_list] if long_list else [],
+                        # the English title and description (from meta.json) as the English localization: Tamil only
+                        # since 27 Nov 2026, so viewers whose YouTube is in English see these with the auto-dub
+                        **({"localizations": meta["localizations"]} if meta.get("localizations") else {})}]}
     path = os.path.join(t, "upload_ta.json")
     json.dump(spec, open(path, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
     run("python3", os.path.join(DOODLE, "upload.py"), path)
