@@ -1,0 +1,269 @@
+[
+ {
+  "clip": "skyreels/p02_s7.mp4",
+  "picture": "p02",
+  "seed": 7,
+  "shot": "S05 / S23",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 97 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": false,
+  "severity": "major",
+  "usable": [
+   0.0,
+   2.38
+  ],
+  "clip_cut_end": 1.65,
+  "clip_cut_end_note": "Ends on frame 57 (2.375 s): he is mid-stride, waist-up and smiling, with his hands below the frame. That leaves 2.39 s: a hold of about 1.6 s in S23 (4.0 s), or 3.3 s in S05 (5.7 s).",
+  "checked": "27 Nov 2026, batch 2, by the clip checker (card 24). sha256 381708fa..., h264, 960x544, 24 fps, 97 frames counted, 4.042 s, no audio (ffprobe). p02 was made at 97 frames (skyreels_prompts.json 'seconds': 4.04), not 73. Frame 0 matches p02.png (centre crop, 27.56 dB). Contact sheet at 5 fps (21 frames plus the start picture); a tracked face strip (p02 plus 13 times); a strip of the hands, helmet and bat every 4 frames to 1.67 s; 2x blade zooms at 0-1.25 s; frames 54-73 one by one (the change); full-size crops of the gloves at 2.67-4.0 s and of the blade face at 2.75-4.0 s; the bottom edge at full size on frames 50-59; whole frames at 0, 2.0 and 4.0 s; frames 0-5 and 91-96 one by one. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "major: from frame 59 (2.46 s) white batting gloves appear on his bare hands at the bottom of the frame. A bat swings up from below (2.54-2.83 s) with the helmet stuck to the gloves at the handle (2.62-4.0 s), and he ends in a batting stance with the bat over his right shoulder. p02 and the prompt have him walking out bare-handed, with the helmet in one hand and the bat in the other.",
+   "major: the new gloves carry a red, white and blue logo-like patch (clear at 2.83-4.0 s), and the back of the blade shows a coloured sticker at 2.75 s. Nothing is readable, but it reads as a maker's logo (RULES.md section 4: no logos).",
+   "minor: from 2.9 s the blade face has a small group of letter-like scratches near the shoulder. They are not readable.",
+   "minor: the camera does not track back as asked. It moves in and up (or he out-walks it), so by about 1.5-1.7 s his hands, the helmet and the bat have left the bottom of the frame. From then on it is a waist-up walk.",
+   "minor: he winks at 3.67 s (inside the part the cut removes)."
+  ],
+  "notes": [
+   "Held up to 2.38 s: p02's smiling boy (the same hair, eyes and smile in every face crop; he looks no older and nothing is photo-real). The helmet is in his right hand and one flat bat is in his left. Both hands are whole: four fingers and a thumb round the helmet grille and round the grip. The restored left outline of the blade is whole (2x zooms at 0-1.25 s), and p02's tiny unreadable mark on the blade is still there. The crowd cheers with arms going up and down. There are no signs, flags or readable text in the stands. Painted anime.",
+   "Smooth: brightness goes from 107.8 down to 101.5 and up to 113.6, with a biggest step of 1.57 (frame 68, the bat lift). Frame-to-frame change is 3.2-10.5 and rises to 12-18 on frames 58-68 as the bat comes up. No repeated frames. Sharpness is 907 at the start, dips to 464 on frame 58 (motion) and is 1024 at the end."
+  ],
+  "fix": "Fallback only, with clip_cut_end 1.65 (see picks: S23). Better: remake p02 (see both_failed)."
+ },
+ {
+  "clip": "skyreels/p02_s21.mp4",
+  "picture": "p02",
+  "seed": 21,
+  "shot": "S05 / S23",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 97 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": false,
+  "severity": "major",
+  "usable": [
+   0.0,
+   2.71
+  ],
+  "clip_cut_end": 1.31,
+  "clip_cut_end_note": "Ends on frame 65 (2.708 s): he is waist-up and smiling, with his hands below the frame. This is one frame before the bat's toe shows at the bottom-left on frame 66. That leaves 2.73 s: a hold of about 3.0 s in S05 (5.7 s), or 1.3 s in S23 (4.0 s).",
+  "checked": "27 Nov 2026, batch 2, by the clip checker (card 24). sha256 86881902..., h264, 960x544, 24 fps, 97 frames counted, 4.042 s, no audio (ffprobe). Frame 0 matches p02.png (centre crop, 28.89 dB). Contact sheet at 5 fps (21 frames plus the start picture); a tracked face strip (p02 plus 15 times); a strip of the hands, helmet and bat every 4 frames to 1.83 s; 2x blade zooms at 0-1.25 s; frames 60-79 one by one (the change); full-width crops of the bat and hands at 2.92, 3.33 and 4.0 s; 2x crowd crops at 0.83-1.46 s; the bottom edge at full size on frames 62-66; the whole frame at 2.0 s; frames 0-5 and 91-96 one by one. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "major: from frame 66 (2.75 s) a bat swings up from the bottom-left, across his chest and onto his right shoulder (2.79-3.0 s), held in both bare hands. That is his right side; he carried the bat in his left hand. The helmet he carried is gone. He ends in a batting pose with the bat over his shoulder instead of walking out.",
+   "major: the new bat has a long black handle with a round knob and a red, blue and green maker's sticker at the shoulder of the blade (2.9-4.0 s). It is not readable, but it reads as a logo.",
+   "minor: the camera pushes in instead of tracking back (his face grows from about 94 to 265 px wide). His hands, the helmet and the bat leave the bottom of the frame by about 1.7-1.8 s.",
+   "minor: in the close-up (3.0-4.0 s) the face is drawn larger, with heavier brows. It is still p02's boy. He winks at 2.88 s."
+  ],
+  "notes": [
+   "Held up to 2.71 s: p02's smiling boy. The helmet with its grille is in his right hand and one flat bat is in his left. Both hands are whole and the blade's outline is whole (2x zooms at 0-1.25 s). The crowd really cheers: fists pump from frame to frame in the 2x crops. No signs, flags or readable text. Painted anime; he looks no older.",
+   "Smooth: brightness goes from 110.1 down to 93.0 (frame 65) and back to 110.3, with a biggest step of 3.62 (frame 71, the bat swing). Frame-to-frame change is 3.9-11 during the walk and 12-19 on frames 65-72. No repeated frames."
+  ],
+  "fix": "Fallback only, with clip_cut_end 1.31 (see picks: S05). Better: remake p02 (see both_failed)."
+ },
+ {
+  "clip": "skyreels/p03_s7.mp4",
+  "picture": "p03",
+  "seed": 7,
+  "shot": "S07 / S22",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 73 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": true,
+  "severity": "minor",
+  "usable": [
+   0.0,
+   3.04
+  ],
+  "checked": "27 Nov 2026, batch 2, by the clip checker (card 24). sha256 626225fe..., h264, 960x544, 24 fps, 73 frames counted, 3.042 s, no audio (ffprobe). Frame 0 matches p03.png (centre crop, 34.77 dB). Contact sheet at 5 fps (16 frames plus the start picture); ball zooms of frames 0-15 (every 2nd), 17-44 and 48-72; whole frames at 0.5, 1.25, 2.5 and 3.0 s; red-area tracking on all frames; frames 0-4 and 68-72 one by one. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "minor: the ball first comes at the camera (from about 108 to about 370 px wide by 1.25 s) and only then rises away (back to about 200 px by 3.0 s). The camera tilts up only a little: the stadium ring stays in the lower third all through. The prompt asks for the ball to fly up and the camera to tilt up after it.",
+   "minor: at 0.12-0.54 s, as the ball turns, its seam is drawn as a band of 5-6 ridges wrapped round the lower half. In a still it looks ribbed; at clip speed it reads as the ball turning.",
+   "minor: the ball is redrawn as glossy, fine-grained leather with a wide seam band of 4-6 white stitch rows. That is closer to a 3D render than p03's painted ball; the stadium and floodlights stay painted."
+  ],
+  "notes": [
+   "Held: one red ball in every frame, never a second. One seam band, with no figure-of-eight and no baseball lacing. The seam travels across the ball (a band low down, then the left side, then upright in the centre, then diagonal on the right), so the ball really spins. The floodlights flare as it passes (0.4-1.3 s). No bat, no people, no text or logos.",
+   "Smooth: brightness rises from 73.0 to 85.1 (0.6 s) and falls to 60.4. The biggest step is 2.89 (frame 1), part of a steady ramp, not a pop. Frame-to-frame change is 3.5-9.9. No repeated frames. Sharpness is 94-278 (a soft night sky). The end frame (3.0 s) is clean: the ball high in the centre over the floodlit stands."
+  ],
+  "fix": "None needed. Chosen for S07 (2.7 s, so no hold)."
+ },
+ {
+  "clip": "skyreels/p03_s21.mp4",
+  "picture": "p03",
+  "seed": 21,
+  "shot": "S07 / S22",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 73 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": true,
+  "severity": "minor",
+  "usable": [
+   0.0,
+   3.04
+  ],
+  "checked": "27 Nov 2026, batch 2, by the clip checker (card 24). sha256 46a7a427..., h264, 960x544, 24 fps, 73 frames counted, 3.042 s, no audio (ffprobe). Frame 0 matches p03.png (centre crop, 33.79 dB). Contact sheet at 5 fps (16 frames plus the start picture); ball zooms of frames 0-16, 20-50 and 52-72; whole frames at 0.5, 1.25, 2.0 and 3.0 s; red-area tracking on all frames; frames 0-4 and 68-72 one by one. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "minor: the ball rushes at the camera until it nearly fills the frame: about 480 px across in a 544 px frame, with its top and bottom touching the frame edges at 1.2-2.2 s. Once the camera has tilted up into the stars, the ball recedes only a little (to about 280 px).",
+   "minor: the ball barely spins. The seam band stays on the same part of the ball and only tilts by about 20-30 degrees in 3 s; the prompt asks for spinning.",
+   "minor: the ball is redrawn with heavy, photo-like leather grain and gold, rope-like stitching (p03 has white stitching). The background stays painted.",
+   "minor: dark ending. Brightness falls from 77 to 27 as the camera leaves the floodlights for a starry sky with light streaks (from about 1.4 s). The end frame is clean."
+  ],
+  "notes": [
+   "Held: one ball in every frame; one straight seam band, with no second seam and no figure-of-eight. The floodlights flare as it passes (0.5-1.2 s), and the camera tilts up after it into the night sky, as asked. No bat, no people, no text or logos.",
+   "Smooth: the biggest brightness step is 2.42 (frame 36, the tilt). Frame-to-frame change is 5.6-12.6. No repeated frames. Sharpness rises from 98 to 440 as the ball fills the frame."
+  ],
+  "fix": "None needed. Chosen for S22 (its first 1.7 s)."
+ },
+ {
+  "clip": "skyreels/p04_s7.mp4",
+  "picture": "p04",
+  "seed": 7,
+  "shot": "S06",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 73 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": false,
+  "severity": "major",
+  "usable": [
+   0.0,
+   0.92
+  ],
+  "contact_time": null,
+  "contact_frame": null,
+  "contact_note": "No contact. At 10 fps, the ball sits still at (292,481-492) from 0 to 1.0 s, and the blade sweeps past it at 0.92-1.0 s. At 1.04-1.21 s the ball rides under, then on, his gloves. At 1.29 s it floats up off his hands, then drifts along the top of the frame to the end.",
+  "checked": "27 Nov 2026, batch 2, by the clip checker (card 24). Byte-identical to skyreels/S06_i2v_s7.mp4 (sha256 6e2b4090... for both). The log shows p04_s7 was made again at 12:29 on 27 Nov with the same seed, prompt and picture (p04.png unchanged since 26 Nov, sha256 09b52860...), so the Space gives the same file for the same inputs. h264, 960x544, 24 fps, 73 frames counted, 3.042 s, no audio (ffprobe). Frame 0 matches p04.png (centre crop, 29.46 dB). Contact sheet at 5 fps; a 10 fps sheet (31 frames); frames 22-35 one by one at full size; round-red-blob tracking on all 73 frames. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "major: no hit. The ball hangs still in the air for the first second (tracked to within 1 px), then rides on his gloves (frames 25-30) and lifts off his hands, not off the blade (1.29 s).",
+   "major: the bat doubles: a second, triangular blade behind his gloves at 1.21-1.25 s, and a blade on each side of his body at 1.33-1.46 s.",
+   "major: the bat bends and forks again in the follow-through: bent at 2.21 s, and a boomerang shape at 2.79 s (frame 67).",
+   "minor-to-major: his face turns towards the camera at 0.9-1.2 s instead of staying side-on. When he looks up it sinks into the grille (round 2: 1.92-2.58 s).",
+   "minor: the start is nearly frozen: frame-to-frame change is 0.2-0.6 on frames 2-9.",
+   "minor: a red label with white pseudo-letters on the bat (1.58-2.17 s)."
+  ],
+  "notes": [
+   "Same verdict as review_skyreels.json round 2 (S06_i2v_s7). One ball only. No flicker: brightness falls from 104.4 to 65.5 as the camera tilts up, with a biggest step of 3.06."
+  ],
+  "fix": "Discard. No cut saves it: the fake contact and the doubled bat come at 1.0-1.46 s, in the middle of the shot."
+ },
+ {
+  "clip": "skyreels/p04_s21.mp4",
+  "picture": "p04",
+  "seed": 21,
+  "shot": "S06",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 73 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": false,
+  "severity": "major",
+  "usable": [
+   0.0,
+   2.54
+  ],
+  "clip_cut_end": 0.5,
+  "clip_cut_end_note": "As in round 2. lyric_video.py keeps -t 2.542 s, so the clip ends on frame 61 (2.54 s): the ball is high in the sky, the bat is over his shoulder and his face is clear (frames 57-64 checked one by one). That leaves 2.54 s for the 4.3 s S06: a moving hold of about 1.76 s.",
+  "contact_frame": 28,
+  "contact_time": 1.167,
+  "contact_note": "At 10 fps: at 1.08 s (frame 26) the ball is in front of his waist and the bat is coming down; at 1.21 s (frame 29) the blade has swept low to the left and the ball is gone. Frame by frame: on frame 28 (1.167 s) the blade, seen end-on as a short square block, comes down onto the ball. On frame 29 (1.208 s) it is through and the ball is gone. On frame 31 (1.29 s) the ball shows at the left edge (11,516), level with the bat's toe, hit back to the left at speed. The contact frame is frame 28. The hit falls between frames 28 and 29 (about 1.19 s, the time round 2 gave), so --impact goes on frame 28 (1.167 s of the raw clip).",
+  "checked": "27 Nov 2026, batch 2, by the clip checker (card 24). Byte-identical to skyreels/S06_i2v_s21.mp4 (sha256 17064b90... for both); it was not made again in this batch (the log has no p04_s21 line). h264, 960x544, 24 fps, 73 frames counted, 3.042 s, no audio (ffprobe). Frame 0 matches p04.png (centre crop, 32.26 dB; round 2 measured 29.7 dB another way). Contact sheet at 5 fps; a 10 fps sheet (31 frames); frames 25-32 one by one at full size (the strike); frames 31-48 (the ball's exit and return) and 56-72 (the ending); frames 57-64 one by one (the cut); a tracked helmet-and-face strip (p04 plus 18 times) and full-size face crops at 1.96-2.17 s; round-red-blob tracking on all 73 frames. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "major, removed by clip_cut_end 0.5: from frame 62 (2.58 s) the bat jumps from over his shoulder to behind his head, then flips upright in front of his face (frames 63-65; frame-to-frame change 26.6, the largest in the clip). The ball falls back onto the toe of the bat (frame 63, 2.625 s) and vanishes into it. The camera then tilts into empty dark sky and he sinks to the bottom of the frame.",
+   "minor-to-major: his face melts into the grille as he looks up after the ball (frames 46-53, 1.92-2.21 s). At full size, on frames 49-50 the eyes, nose and mouth smear into the bars. It lasts about 0.3 s, mid-follow-through with the camera tilting, and the face is clear again from 2.25 s. Upscaled to 1080p it may show; the owner should watch it at full speed.",
+   "minor-to-major: the ball's path after the hit is impossible. It leaves the left edge at 1.29-1.33 s, comes back in from the same edge at 1.58 s (24,362), and rises past his helmet to its highest point at 2.12 s (264,44).",
+   "minor: the ball floats in slowly (from x 293 to 477 px in 1.17 s, about 157 px a second): a lob, not a bowled ball.",
+   "minor: a red maker's label with white pseudo-letters on the blade at 1.4-2.6 s (p04's bat is plain wood). It is not readable, but it looks like a logo.",
+   "minor: the camera tilts up a long way after the ball instead of staying steady with a slight pan, as the prompt asks."
+  ],
+  "notes": [
+   "Held: one ball, never two (tracked on all 73 frames). One flat cricket blade in one piece in every frame up to the cut. A left-handed backlift, a downswing through the line of the ball and a high follow-through over his shoulder (1.8-2.5 s). p04's young face, side-on, until 1.9 s. Painted anime; boards and stands blurred, with no readable text.",
+   "No flicker: brightness rises from 96.7 to 102.3, then falls to 42.1 as the camera tilts to the sky, with a biggest step of 4.74 (frame 49). The first 0.5 s is almost still (change 0.5-1.2) while the ball moves in a steady 8 px a frame: a held backlift, not a freeze. No repeated frames.",
+   "Same file and same verdict as round 2 (usable with clip_cut_end 0.5). Here it is marked ok false only because this file's rule marks the whole clip as delivered (see summary: verdict_rule)."
+  ],
+  "fix": "Use it with clip_cut_end 0.5, with --impact on frame 28 (1.167 s). Chosen for S06; it still needs the owner's yes."
+ },
+ {
+  "clip": "skyreels/i03_s7.mp4",
+  "picture": "i03",
+  "seed": 7,
+  "shot": "S08 / S25",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 73 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": false,
+  "severity": "major",
+  "usable": [
+   0.0,
+   2.33
+  ],
+  "clip_cut_end": 0.68,
+  "clip_cut_end_note": "Ends on frame 56 (2.333 s): an open laugh with a clean jaw line. The shading under the jaw starts faintly on frame 57. That leaves 2.36 s: a hold of about 0.74 s in S08 (3.1 s).",
+  "checked": "27 Nov 2026, batch 2, by the clip checker (card 24). sha256 273ab04f..., h264, 960x544, 24 fps, 73 frames counted, 3.042 s, no audio (ffprobe). Frame 0 matches i03.png (centre crop, 31.15 dB). Contact sheet at 5 fps (16 frames plus the start picture); a face strip (i03 plus 13 times) and a second face strip scaled with the push-in (i03 plus 12 times); full-size chin crops of frames 50-72, with frames 54-58 one by one; bat-and-fist crops at 8 times; helmet crops at 6 times; the whole frame at 3.0 s; frames 0-4 and 68-72 one by one; frame-to-frame change of the confetti background. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "major: from frame 58 (2.42 s; faint on frame 57) his face reads older. The laugh closes into a calm closed-mouth smile; a band of short dark hatch strokes appears under the jaw and reads as stubble; the jaw and chin broaden, the brows get heavier, and lines appear at the eye corners. He is a real 15-year-old, and the prompt asks for a smooth young face.",
+   "minor: he does not lift the bat. It stays where i03 has it (raised, on a diagonal) all through; only the camera moves in.",
+   "minor: the confetti stays many-coloured, as in i03, turning yellower over time; the prompt asks for golden confetti."
+  ],
+  "notes": [
+   "Held up to 2.33 s: i03's laughing boy with his eyes shut. One flat bat with a taped handle and a square toe, his fist whole, and the bat in frame all through. The helmet with its grille in his other hand leaves the bottom of the frame. The slow push-in is as asked, and the confetti falls. No ball, no text or logos; the crowd is blurred. Painted anime.",
+   "Very steady: brightness 116.1 to 111.9, with a biggest step of 0.35. Frame-to-frame change 5.6-12.0. No repeated frames. Sharpness 1024-1210."
+  ],
+  "fix": "Use it for S08 only with clip_cut_end 0.68 (see picks). Without the cut, discard."
+ },
+ {
+  "clip": "skyreels/i03_s21.mp4",
+  "picture": "i03",
+  "seed": 21,
+  "shot": "S08 / S25",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 73 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": true,
+  "severity": "minor",
+  "usable": [
+   0.0,
+   3.04
+  ],
+  "checked": "27 Nov 2026, batch 2, by the clip checker (card 24). sha256 4827bba1..., h264, 960x544, 24 fps, 73 frames counted, 3.042 s, no audio (ffprobe). Frame 0 matches i03.png (centre crop, 29.83 dB). Contact sheet at 5 fps (16 frames plus the start picture); a tracked face strip (i03 plus 13 times); full-size face crops at 2.0, 2.5, 2.75 and 3.0 s; the bat as it turns, frames 8-24 one by one; fist crops at 5 times; helmet crops at 7 times; frames 30-37 one by one of the confetti; frames 0-4 and 68-72 one by one; frame-to-frame change of the confetti background. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "minor: the bat leaves the top of the frame as the camera pushes in. From about 2.3 s only the handle and the lower edge of the blade show, and at 2.8-3.0 s a thin strip remains at the top-left corner. The end frame is his laughing face and raised arm.",
+   "minor: the confetti thickens suddenly near his head at 0.54-0.75 s (background change jumps from 4.6 to 9.3 at frames 17-18). It reads as a burst of confetti, not a flicker.",
+   "minor: 3.04 s for a 3.4 s shot (S25): a hold of about 0.36 s."
+  ],
+  "notes": [
+   "Held: he lifts the bat from the diagonal to level over his head (0.3-0.9 s), as asked. It is one piece all through, with a taped handle, a flat blade and a square toe, and his fist stays whole. He laughs with his eyes shut to the end; the face stays young and smooth, with no shading under the jaw (checked at full size at 2.0-3.0 s). Dense golden confetti as asked; pieces carry on from frame to frame, so there is no flicker. A slow push-in as asked. The helmet leaves the bottom of the frame at about 1.5 s. No ball, no text or logos. Painted anime.",
+   "Smooth: brightness from 108.6 up to 114.4 and down to 103.4, with a biggest step of 1.23. Frame-to-frame change 6.7-18.8 (the falling confetti). No repeated frames. The end frame (3.0 s) is clean."
+  ],
+  "fix": "None needed. Chosen for S25."
+ },
+ {
+  "picks": {
+   "p02": "p02_s21",
+   "p03": "p03_s7",
+   "p04": "p04_s21",
+   "i03": "i03_s21"
+  },
+  "shots": {
+   "S05": "p02_s21 (clip_cut_end 1.31; fallback until p02 is made again)",
+   "S23": "p02_s7 (clip_cut_end 1.65; fallback until p02 is made again)",
+   "S06": "p04_s21 (clip_cut_end 0.5; contact on frame 28, 1.167 s)",
+   "S07": "p03_s7",
+   "S22": "p03_s21",
+   "S08": "i03_s7 (clip_cut_end 0.68)",
+   "S25": "i03_s21"
+  },
+  "cut_end": {
+   "S05": 1.31,
+   "S23": 1.65,
+   "S06": 0.5,
+   "S08": 0.68
+  },
+  "contact": {
+   "S06": {
+    "clip": "p04_s21",
+    "frame": 28,
+    "time": 1.167,
+    "note": "Found by eye at 10 fps (1.08 s before, 1.21 s after), then frame by frame. The hit falls between frames 28 and 29 (about 1.19 s, as in round 2). Put --impact on frame 28 of the raw clip."
+   }
+  },
+  "why": {
+   "p02": "Both takes fail. Each is a clean walk for 2.4-2.7 s and then invents a batting pose: seed 7 adds new gloves with a logo-like patch, with the helmet stuck to them; seed 21 brings a new bat in from the other side with a maker's sticker, and the helmet is lost. Seed 21 is the better fallback. Its clean walk is longer (2.71 s against 2.38 s), and its fault, a bat swinging up at 2.75 s, cuts off cleanly on one frame. So seed 21 goes to the longer S05 and seed 7 to S23. Even so, S05 would hold its last frame for about 3.0 s of 5.7 s, so remake p02 before the final cut.",
+   "p03": "Both are clean: one ball, one cricket seam, floodlights flaring, no text. Seed 7 really spins and makes a full arc in 2.7 s: the ball rises at the camera past the flares, then goes away up into the sky over the floodlit stands. That suits S07, the ball after the six, and needs no hold. Seed 21 spins little, but its first 1.7 s are a strong short beat: the ball rushes up at the camera as the camera tilts up off the stadium. That suits S22. If the owner would rather not end S22 on a ball that nearly fills the frame, p03_s7's first 1.7 s also works.",
+   "p04": "p04_s21, the same file as round 2's S06_i2v_s21, is still the only take with a real hit: the contact is on frame 28 (1.167 s), the blade is one flat piece and the follow-through is high. Use it with clip_cut_end 0.5. p04_s7 is byte-identical to S06_i2v_s7 and fails as before: the ball hangs, then rides on his gloves; the bat doubles, then bends and forks.",
+   "i03": "Seed 21 does everything the prompt asks: he lifts the bat overhead, laughs to the end with a young face, golden confetti falls and the camera pushes in. It fills 3.04 of S25's 3.4 s, so S25, the longer shot, gets it. Seed 7 keeps the bat still, and from 2.42 s his face closes into a calm smile and reads older (stubble-like shading under the jaw). Cut to 2.36 s with clip_cut_end 0.68, it is a clean laugh for S08, with a hold of about 0.74 s."
+  },
+  "second_takes": "Three pictures are used by two shots each, so each shot gets a different take, as skyreels_prompts.json asks. p02: S05 gets p02_s21 and S23 gets p02_s7, both cut and both fallbacks. p03: S07 gets p03_s7 and S22 gets p03_s21. i03: S25 gets i03_s21 and S08 gets i03_s7 (cut). p04 has one shot, S06, which gets p04_s21 (cut). Not usable: p04_s7.",
+  "both_failed": {
+   "p02": "Both p02 takes fail; each is usable only as a cut walk (2.38 s and 2.71 s) for shots of 5.7 s (S05) and 4.0 s (S23). Causes, in order of weight: (1) The picture frames him from the knees up, with the helmet and the bat in the bottom quarter of the frame. Neither seed tracks the camera back as asked: the camera moves in, or he out-walks it, so the props leave the bottom of the frame by about 1.5-1.8 s. (2) The prompt says he 'walks out to bat', and the clip is 97 frames (4.04 s). Once he reaches a waist-up framing, about 1.5 s are left, and both seeds fill them with a batting pose. They redraw the props they can no longer see: new gloves with a logo-like patch, a new bat from his other side with a sticker, and the helmet lost or stuck to the gloves. (3) Fast mode has an empty negative, so nothing keeps out gloves, logos or a batting stance. The picture itself is not at fault in the frames it keeps: the face, the helmet, the bat and the restored blade outline all held during the walk. Suggested next try (the checker does not make it): new seeds; a prompt without 'to bat' that says he carries the helmet in his right hand and the bat low in his left the whole way, with the camera tracking back to keep him full-length; and 73 frames, so the clip ends before he reaches the lens. Or start from a wider version of p02 with his feet and the props well inside the frame."
+  },
+  "failures_and_causes": {
+   "p02_s7": "See both_failed.p02. This seed adds batting gloves with a red, white and blue logo-like patch from 2.46 s, and the helmet ends up stuck to the gloves.",
+   "p02_s21": "See both_failed.p02. This seed brings a second bat in from his right side at 2.75 s, with a maker's sticker, and drops the helmet.",
+   "p04_s7": "The seed, not the picture or the prompt: the same inputs gave seed 21 a clean hit. This seed leaves the ball hanging at hip height, right where the blade comes through. Then it glues the ball to the gloves and draws a second blade, which the empty negative cannot exclude ('second bat' is only in the Wan negative). This is the same file as round 2.",
+   "i03_s7": "The seed. With 'laughs' and 'the camera pushes in slowly', the face grows by about 1.3 times, and the model redraws it with more detail: a closed smile, shading under the jaw that reads as stubble, and lines at the eyes. Nothing in fast mode's empty negative keeps out 'older' or 'beard'. The same prompt kept seed 21's face young. It also never lifts the bat, because i03 already has it raised, so 'lifts ... high' gave this seed no clear move."
+  },
+  "timing": "p02 clips are 97 frames (4.04 s), not 73. Cut, p02_s21 gives 2.73 s for S05 (5.7 s), a hold of about 3.0 s, and p02_s7 gives 2.39 s for S23 (4.0 s), a hold of about 1.6 s. Uncut, they would fill S23, but they end on the invented batting pose. p01 (batch 1) is also 4.04 s, against S04's 5.9 s (a hold of about 1.9 s). p03 clips are 3.04 s: S07 (2.7 s) uses the first 2.7 s of p03_s7 and S22 (1.7 s) the first 1.7 s of p03_s21, with no hold. p04_s21 cut to 2.54 s for S06 (4.3 s) leaves a hold of about 1.76 s. i03_s7 cut to 2.36 s for S08 (3.1 s) leaves about 0.74 s, and i03_s21 at 3.04 s for S25 (3.4 s) leaves about 0.36 s. All holds must be moving holds (ANIME_CRAFT.md section 9). The cut_end values above are in lyric_video.py's 'cut_end' form: seconds dropped from the clip's end.",
+  "verdict_rule": "Following batch 1, ok describes the whole clip as delivered. A clip with a major fault anywhere is marked ok false even when a clip_cut_end saves it. Four of the seven shot assignments use such a clip: p02_s21 and p02_s7 (fallbacks only), and p04_s21 and i03_s7 (fine once cut). Use each of them only with its clip_cut_end.",
+  "not_checked": "Playback at full speed by eye; everything was judged from frames, sheets, strips and measurements. The face smear in p04_s21 at 1.92-2.21 s needs a look at full speed. Also not checked: the clips after lyric_video.py (scaling to 1920x1080, timing on twos, the moving hold, the --impact effect); whether the Space really ran the I2V model and the lightx2v LoRA (only the log says so); and the stand signs painted out of p02, which were only seen in whole frames, not zoomed. Nothing was copied into clips_raw or plan.json, nothing was remade, and nothing was committed.",
+  "overall": "8 clips looked at. Two of the four pictures have a clean take (p03: both seeds; i03: seed 21). p04 has its one known hit (p04_s21, contact on frame 28 at 1.167 s, used with clip_cut_end 0.5). p02 failed in both seeds: each walks cleanly for about 2.5 s, then invents a batting pose with new gloves or a new bat carrying logo-like marks. Picks: p02_s21 (fallback), p03_s7, p04_s21, i03_s21. Shots: S05 p02_s21 (cut), S23 p02_s7 (cut), S06 p04_s21 (cut), S07 p03_s7, S22 p03_s21, S08 i03_s7 (cut), S25 i03_s21. Remake p02 before the final cut, above all for S05. All picks still need the owner's yes (the test-batch rule)."
+ }
+]
