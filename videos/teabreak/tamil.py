@@ -267,7 +267,7 @@ def step_upload(d):
     note = ("\n\nகுரல்: என் சொந்தக் குரலின் AI நகல். படங்கள் AI மூலம் வரையப்பட்டவை (FLUX.2 klein), இசை எங்களுடையது."
             "\nEnglish version on the channel.")
     out = os.path.abspath(os.path.join(d, "out"))
-    long_list = cfg.get("playlists", {}).get("tamil", {}).get("id")
+    long_list = cfg.get("playlists", {}).get("history", {}).get("id")  # the one history playlist (27 Nov 2026)
     spec = {"defaults": {"meta": "tea-break", "privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 27,
                          "language": "ta", "refresh_token_env": cfg["channel"]["refresh_token_env"]},
             "videos": [{"file": os.path.join(out, f"{slug}_ta.mp4"), "thumbnail": os.path.join(out, f"{slug}_ta_thumbnail.jpg"),

@@ -15,52 +15,15 @@
   "music_gain": 0.3,
   "end_card": "../00-intro/img/s7.png",
   "playlists": {
-    "long": {
-      "title": "Funny True History Stories",
-      "description": "Every full story from Tea Break with Manoj: funny true history, explained in the time it takes to drink your tea. Every word is true, with the sources in each video's description. A new story every Saturday.",
+    "history": {
+      "title": "Funny True History | வேடிக்கையான உண்மை வரலாறு",
+      "description": "Every Tea Break with Manoj history story in one place: the full stories and the Shorts, in English and in தமிழ். Funny true history, told in the time it takes to drink your tea. Every word is true, with the sources in each video's description.",
       "id": "PLUAmyQAv4d68"
     },
-    "shorts": {
-      "title": "Funny History Shorts",
-      "description": "The funniest moments from the full stories, in under a minute. Every word is true. Watch the whole story in the playlist Funny True History Stories.",
-      "id": "PLNMchGZEVlZw"
-    },
-    "wars": {
-      "title": "Weird Wars in History",
-      "description": "Real wars that sound made up: an army against 20,000 emus, two countries and one pig, and more. The true stories, with sources, from Tea Break with Manoj.",
-      "id": "PLW9zRU1t75yY"
-    },
-    "animals": {
-      "title": "Animals That Made History",
-      "description": "Animals that made real history: an army beaten by emus, two countries nearly at war over a pig, a chicken that lived without its head, a bear that joined the army. Funny true stories, with sources, from Tea Break with Manoj.",
-      "id": "PLNdt13_t8exE"
-    },
-    "crazes": {
-      "title": "History's Craziest Hoaxes and Crazes",
-      "description": "The hoaxes and crazes people fell for: bat-men on the Moon, flower bulbs that cost ten years' wages, a town that could not stop dancing, spaghetti growing on trees. Funny true stories, with sources, from Tea Break with Manoj.",
-      "id": "PLNx3CJ___yNM"
-    },
-    "strange": {
-      "title": "Strange But True History",
-      "description": "Moments from history that sound made up: meat falling from a clear sky, a dead whale blown up with dynamite, a river so smelly that Parliament thought about moving out. Funny true stories, with sources, from Tea Break with Manoj.",
-      "id": "PLCxGCvqyFIG4"
-    },
-    "tamil": {
-      "title": "வேடிக்கையான உண்மை வரலாறு | Tea Break தமிழ்",
-      "description": "Tea Break with Manoj-ஓட முழுக் கதைகள், எளிய தமிழ்ல: ஈமு பறவைகள் ஜெயிச்ச போர், ஒரு பன்னியால வந்த போர், தலை இல்லாத கோழி, இன்னும் நிறைய. எல்லாம் உண்மை, ஆதாரங்கள் ஒவ்வொரு வீடியோவோட டிஸ்கிரிப்ஷன்ல.",
-      "language": "ta",
-      "id": "PLB6q-VVG9itI"
-    },
-    "shorts_ta": {
-      "title": "தமிழ் ஷார்ட்ஸ் | Tea Break தமிழ்",
-      "description": "வேடிக்கையான உண்மை வரலாற்றுக் கதைகளோட சிறந்த தருணங்கள், ஒரு நிமிஷத்துக்குள்ள, தமிழ்ல. முழுக் கதைகள்: வேடிக்கையான உண்மை வரலாறு | Tea Break தமிழ் playlist-ல.",
-      "language": "ta",
-      "id": "PLQ7CXSfdmD90"
-    },
-    "frank": {
-      "title": "The F-Rank Tea Seller | Webtoon Reviews",
-      "description": "Reviews and Shorts of The F-Rank Tea Seller, my own webtoon on WEBTOON CANVAS: Arjun, the weakest hunter in Mumbai, sells chai next to a monster Gate, and anyone who drinks it becomes unstoppable for one hour. Read it free: https://www.webtoons.com/en/canvas/the-f-rank-tea-seller/list?title_no=1182633",
-      "id": "PLcloICv1OYq8"
+    "office": {
+      "title": "Office Tea Talks | ஆபீஸ் கதைகள்",
+      "description": "Slightly funny office and IT life lessons from Tea Break with Manoj, told as short stories in Tamil and English. The characters are invented; the lessons are real.",
+      "id": "PLPWFuIoAlFcs"
     }
   },
   "length_seconds": [
@@ -76,5 +39,48 @@
     "model": "eleven_v4",
     "stability": 0.3,
     "similarity": 0.9
-  }
+  },
+  "retired_playlists_note": "The owner (27 Nov 2026): \"i only need 2 playlist\". These were set PRIVATE (not deleted) by playlists.py retire; make one public again in YouTube Studio to bring it back.",
+  "retired_playlists": [
+    {
+      "key": "shorts",
+      "title": "Funny History Shorts",
+      "id": "PLNMchGZEVlZw"
+    },
+    {
+      "key": "wars",
+      "title": "Weird Wars in History",
+      "id": "PLW9zRU1t75yY"
+    },
+    {
+      "key": "animals",
+      "title": "Animals That Made History",
+      "id": "PLNdt13_t8exE"
+    },
+    {
+      "key": "crazes",
+      "title": "History's Craziest Hoaxes and Crazes",
+      "id": "PLNx3CJ___yNM"
+    },
+    {
+      "key": "strange",
+      "title": "Strange But True History",
+      "id": "PLCxGCvqyFIG4"
+    },
+    {
+      "key": "tamil",
+      "title": "வேடிக்கையான உண்மை வரலாறு | Tea Break தமிழ்",
+      "id": "PLB6q-VVG9itI"
+    },
+    {
+      "key": "shorts_ta",
+      "title": "தமிழ் ஷார்ட்ஸ் | Tea Break தமிழ்",
+      "id": "PLQ7CXSfdmD90"
+    },
+    {
+      "key": "frank",
+      "title": "The F-Rank Tea Seller | Webtoon Reviews",
+      "id": "PLcloICv1OYq8"
+    }
+  ]
 }

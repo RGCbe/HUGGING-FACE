@@ -221,7 +221,7 @@ def step_parts_upload(d):
     meta = json.load(open(os.path.join(t, "meta_ta.json"), encoding="utf-8"))
     long_ta = json.load(open(os.path.join(t, "upload_ta.results.json")))[0]["url"]
     note = "\n\nகுரல்: என் சொந்தக் குரலின் AI நகல். படங்கள் AI மூலம் வரையப்பட்டவை, இசை எங்களுடையது."
-    shorts_list = tamil.cfg.get("playlists", {}).get("shorts_ta", {}).get("id")
+    shorts_list = tamil.cfg.get("playlists", {}).get("history", {}).get("id")
     urls = []
     for k, p in enumerate(conf["parts"], 1):
         done = os.path.join(t, f"upload_ta_part{k}.results.json")
@@ -266,7 +266,7 @@ def step_upload(d):
     meta = json.load(open(os.path.join(t, "meta_ta.json"), encoding="utf-8"))
     long_ta = json.load(open(os.path.join(t, "upload_ta.results.json")))[0]["url"]
     note = "\n\nகுரல்: என் சொந்தக் குரலின் AI நகல். படங்கள் AI மூலம் வரையப்பட்டவை, இசை எங்களுடையது."
-    shorts_list = tamil.cfg.get("playlists", {}).get("shorts_ta", {}).get("id")  # the Tamil Shorts playlist
+    shorts_list = tamil.cfg.get("playlists", {}).get("history", {}).get("id")  # the one history playlist (27 Nov 2026)
     for k, s in enumerate(conf["shorts"], 1):
         done = os.path.join(t, f"upload_ta_short{k}.results.json")
         if os.path.exists(done):

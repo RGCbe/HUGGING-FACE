@@ -5,10 +5,15 @@
     python3 playlists.py add KEY VIDEO_ID ...   add videos to the playlist config.json calls KEY
     python3 playlists.py sync [--apply]         put every video of the channel in the playlists it belongs in
                                                 (see wanted()) and out of the others; without --apply, only list
+    python3 playlists.py update                 set each playlist's title and description from config.json
+    python3 playlists.py retire                 set every playlist in config.json "retired_playlists" PRIVATE
+                                                (hidden from viewers, never deleted; make it public again in Studio)
 
-build.py upload puts a new long video in "long" and in the playlists its topic lists in
-topics.json ("playlists": ["wars"]), and each Short in "shorts". Uses the channel's YouTube key
-(YT_CLIENT_ID, YT_CLIENT_SECRET and the refresh token named in config.json).
+The channel has two playlists (the owner, 27 Nov 2026: "i only need 2 playlist"): "history" (every history story,
+English and Tamil, full videos and Shorts) and "office" (the Office Tea Talks Shorts, whose descriptions carry an
+"Office Tea Talks:" line). build.py, tamil.py and tamil_shorts.py put new history videos in "history"; the office recipe puts
+its Shorts in "office". Uses the channel's YouTube key (YT_CLIENT_ID, YT_CLIENT_SECRET and the refresh token named
+in config.json).
 """
 import json
 import os
@@ -67,7 +72,25 @@ def seconds(iso):
 
 
 def wanted(v):
-    """The playlists a video belongs in: English full stories in "long" and their topics' playlists, English Shorts
+    """The playlist a video belongs in: an Office Tea Talks Short (its description carries the "Office Tea Talks:"
+    line, or its tags "office tea talks") in "office", The F-Rank Tea Seller's reviews in none (their playlist is
+    retired), an old copy kept private ("OLD COPY" opens its description) in none, every other video in "history"."""
+    import re
+    title = v["snippet"]["title"]
+    low = title.lower()
+    desc = v["snippet"].get("description", "")
+    tags = [t.lower() for t in v["snippet"].get("tags", [])]
+    if desc.startswith("OLD COPY"):
+        return set()
+    if re.search(r"(?im)^\s*office tea talks\s*:", desc) or "office tea talks" in tags:
+        return {"office"}
+    if "#webtoon" in low or "webtoon" in low or "f-rank" in low or "weakest hunter" in low:
+        return set()
+    return {"history"}
+
+
+def wanted_before_27_nov(v):
+    """The old rule, kept for reference: English full stories in "long" and their topics' playlists, English Shorts
     in "shorts", Tamil ones in "tamil" or "shorts_ta", The F-Rank Tea Seller's reviews and Shorts in "frank"."""
     import re
     title = v["snippet"]["title"]
@@ -97,6 +120,7 @@ def sync(apply):
     ch = get("channels", part="contentDetails", mine="true")["items"][0]
     ids = [i["contentDetails"]["videoId"] for i in every("playlistItems", part="contentDetails", maxResults=50,
                                                            playlistId=ch["contentDetails"]["relatedPlaylists"]["uploads"])]
+    ids = list(dict.fromkeys(ids))  # the uploads list can name a video twice across its pages (seen 27 Nov 2026)
     videos = []
     for k in range(0, len(ids), 50):
         videos += get("videos", part="snippet,contentDetails,status", id=",".join(ids[k:k + 50]))["items"]
@@ -126,8 +150,30 @@ def sync(apply):
     print(f"{changes} change(s){'' if apply else ' to make (dry run: add --apply)'}")
 
 
+def set_playlist(pid, snippet=None, privacy=None):
+    """Change a playlist's title/description or its privacy (playlists.update needs the whole snippet)."""
+    cur = get("playlists", part="snippet,status", id=pid)["items"][0]
+    body = {"id": pid, "snippet": {"title": cur["snippet"]["title"], "description": cur["snippet"].get("description", ""),
+                                   "defaultLanguage": cur["snippet"].get("defaultLanguage", "en")},
+            "status": {"privacyStatus": cur["status"]["privacyStatus"]}}
+    body["snippet"].update(snippet or {})
+    if privacy:
+        body["status"]["privacyStatus"] = privacy
+    req = urllib.request.Request(f"{API}/playlists?part=snippet,status", data=json.dumps(body).encode(), method="PUT",
+                                 headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"})
+    return json.load(urllib.request.urlopen(req, timeout=60))
+
+
 if sys.argv[1:2] == ["sync"]:
     sync("--apply" in sys.argv)
+elif sys.argv[1:2] == ["update"]:
+    for key, p in cfg["playlists"].items():
+        r = set_playlist(p["id"], {"title": p["title"], "description": p["description"]})
+        print(f"updated {key}: {r['snippet']['title']} ({r['status']['privacyStatus']})")
+elif sys.argv[1:2] == ["retire"]:
+    for p in cfg.get("retired_playlists", []):
+        r = set_playlist(p["id"], privacy="private")
+        print(f"retired (now {r['status']['privacyStatus']}): {p['title']}")
 elif sys.argv[1:2] == ["add"]:
     playlist = cfg["playlists"][sys.argv[2]]
     for video in sys.argv[3:]:

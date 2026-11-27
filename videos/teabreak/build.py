@@ -446,10 +446,9 @@ def step_upload(d):
     out = os.path.abspath(os.path.join(d, "out"))
     note = ("\n\nThe voice is an AI copy of my own voice; the pictures are made with an AI image model "
             "(FLUX.2 klein), and the music is original.")
-    # the long video goes in "long" and in its topic's playlists (topics.json), each Short in "shorts"
-    topic = next((t for t in json.load(open(os.path.join(HERE, "topics.json"))) if t["slug"] == slug), {})
+    # the long video and each Short go into the one history playlist (the owner, 27 Nov 2026: "i only need 2 playlist")
     playlist = lambda key: cfg.get("playlists", {}).get(key, {}).get("id")
-    long_lists = [playlist(k) for k in ["long"] + topic.get("playlists", []) if playlist(k)]
+    long_lists = [p for p in [playlist("history")] if p]
     videos = [{"file": os.path.join(out, f"{slug}.mp4"), "thumbnail": os.path.join(out, f"{slug}_thumbnail.jpg"),
                "title": meta["title"], "description": meta["description"] + note, "tags": meta["tags"],
                "publish_at": meta["long_at"], "playlists": long_lists}]
@@ -458,7 +457,7 @@ def step_upload(d):
                        # upload.py puts the long video's link in place of {FULL_VIDEO}
                        "description": s["description"] + "\n\nWatch the full story: {FULL_VIDEO}" + note,
                        "tags": meta["tags"][:5] + ["shorts"], "publish_at": when,
-                       "playlists": [p for p in [playlist("shorts")] if p]})
+                       "playlists": [p for p in [playlist("history")] if p]})
     upload = {"defaults": {"meta": "tea-break", "privacy": "private", "made_for_kids": False, "ai_content": True, "category_id": 27,
                            "language": "en", "refresh_token_env": cfg["channel"]["refresh_token_env"]}, "videos": videos}
     path = os.path.join(d, "upload.json")
