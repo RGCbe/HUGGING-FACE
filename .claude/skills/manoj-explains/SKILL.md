@@ -1,14 +1,16 @@
 ---
 name: manoj-explains
-description: Make and schedule the next Manoj Explains videos - Marvel and movie lore questions as 2-3 minute vertical videos in English and Tamil, narrated by Manoj's 3D anime self, with only our own pictures, music and voice (no film clips, stills, posters, comic panels, logos or AI pictures of Marvel characters), checked, uploaded private and scheduled on the Manoj Explains channel. Use for "make this week's Manoj Explains videos", "run Manoj Explains", or when a scheduled task asks for a Manoj Explains run.
+description: Make and schedule the next Manoj Explains videos - Marvel and movie lore questions as vertical Tamil Shorts (English viewers get YouTube's automatic dub and translated titles), narrated by Manoj's 3D anime self, with only our own pictures, music and voice (no film clips, stills, posters, comic panels, logos or AI pictures of Marvel characters), checked, uploaded private and scheduled on the Manoj Explains channel. Use for "make this week's Manoj Explains videos", "run Manoj Explains", or when a scheduled task asks for a Manoj Explains run.
 ---
 
 # Manoj Explains: one run
 
 Each run makes the next `topics_per_run` questions (`videos/movies-explained/config.json`: 1, one a day, Manoj's choice) from
-`videos/movies-explained/topics.json`. Every question becomes TWO videos: English and Tamil, 30-50 second Shorts, 1080x1920,
-uploaded private and scheduled (English 5:30 am India time for viewers abroad, Tamil 8 pm) on the channel Manoj Explains
-(@manoj-d-explains). The finished example is "Who is Doctor Doom?": `videos/movies-explained/videos/01-doctor-doom/`
+`videos/movies-explained/topics.json`. Every question becomes ONE Tamil video, a 30-60 second Short, 1080x1920, uploaded
+private and scheduled at 8 pm India time (next_topic.py's `ta_at`) on the channel Manoj Explains (@manoj-d-explains).
+**Tamil only** (the owner, 27 Nov 2026: "Both channel stop English"): no English video is voiced, made or uploaded;
+the Tamil upload carries an English title and description plus the other `localize_to` languages, and YouTube's
+automatic dubbing gives English viewers an English track. Until 27 Nov each question was also an English Short. The finished example is "Who is Doctor Doom?": `videos/movies-explained/videos/01-doctor-doom/`
 (`script_en.txt`, `script_ta.txt`, `shots.json`, `sources.md`). Read `videos/movies-explained/PLAN.md` and
 `PROCESS.md` once.
 
@@ -61,7 +63,8 @@ Wikipedia's API may refuse direct requests from this machine). Write every fact 
   583,000 subscribers, and Comic Kathai, 83,500, whose Shorts get about 200,000 views each at 30 to 60 seconds):**
   ONE sharp Why/How question about something viewers remember, answered in 30 to 50 seconds. Not a lore lecture.
   Read "Shorts that travel" in `videos/SCRIPT_STYLE.md` first.
-- `script_en.txt`: 4 to 6 lines, 80 to 120 words in all, each line starting with an emotion tag (`[curious]`,
+- Plan the lines in English first in `script_en.txt` (never voiced now: it is the outline the Tamil script follows and
+  the source of the English title and description): 4 to 6 lines, 80 to 120 words in all, each line starting with an emotion tag (`[curious]`,
   `[mysterious]`, `[excited]`, `[serious]`, `[shocked]`, `[sad]`, `[warm]`). Line 1: the question turned into a
   claim with a concrete detail (a number, a name, a scene everyone remembers), so the first 3 seconds promise the
   answer. Then the answer in 2 or 3 short beats, each with a fact from `sources.md` (a theory is called a theory).
@@ -80,13 +83,12 @@ Wikipedia's API may refuse direct requests from this machine). Write every fact 
 ## 5. Voice and the listening check
 
 ```bash
-python3 -I videos/kural/eleven.py $WORK/script_en.txt $WORK/voice_en --sections 1,2,... --stability 0.5 --similarity 0.9
 python3 -I videos/kural/eleven.py $WORK/script_ta.txt $WORK/voice_ta --sections 1,2,... --stability 0.5 --similarity 0.9
 ```
 
-Check with faster-whisper ("small", CPU, int8): every English section's words against the script (only spelling of
-numbers and names may differ; anything else: reword or `--seed 8` and voice that section again); every Tamil section
-must be heard as Tamil (probability 0.8 or more). The English video should come out 30 to 50 seconds (Tamil may run to 60).
+Check with faster-whisper ("small", CPU, int8): every section must be heard as Tamil (probability 0.8 or more), with
+its first and last words there; otherwise reword or `--seed 8` and voice that section again. The video should come out
+30 to 60 seconds.
 
 ## 6. Pictures
 
@@ -114,13 +116,11 @@ Write `$WORK/shots.json` like the example (one section per script line: mood, it
 cards with Tamil names, caption replacements), copy the scripts into `$WORK`, then:
 
 ```bash
-python3 videos/movies-explained/lore_video.py $WORK en
 python3 videos/movies-explained/lore_video.py $WORK ta
 ```
 
 Check: frames at every card and name card (Tamil letters must be joined correctly), loudness about -14 LUFS, length,
-and the voice: `python3 videos/doodle/clarity.py $WORK/out/en/video.mp4 $WORK/out/ta/video.mp4` must say CLEAR for
-both (the owner's rule, 22 Nov 2026: "my video have good voice and crystal clear"); UNCLEAR stops the run before upload.
+and the voice: `python3 videos/doodle/clarity.py $WORK/out/ta/video.mp4` must say CLEAR (the owner's rule, 22 Nov 2026: "my video have good voice and crystal clear"); UNCLEAR stops the run before upload.
 The sound is set by `lore_video.py` and `config.json` (the owner's pick, 21 Nov 2026): the voice made clear for phone
 speakers (`doodle/voicefx.py`: less boom, more speech range, pauses over 0.32 s cut to 0.22 s) and, with
 `"music_style": "beat"`, our own steady beat with no tune under the whole Short, from the first second to the last.
@@ -138,10 +138,9 @@ Upload `$WORK` (pictures, voices, shots.json, scripts, out/*/video.mp4) to the P
 {"defaults": {"refresh_token_env": "YT_REFRESH_TOKEN_MOVIES", "client_id_env": "YT_CLIENT_ID_MOVIES",
               "client_secret_env": "YT_CLIENT_SECRET_MOVIES", "made_for_kids": false, "ai_content": true,
               "category_id": 24, "privacy": "private"},
- "videos": [{"file": "...out/en/video.mp4", "title": "...", "description": "...", "tags": [...], "language": "en",
-             "publish_at": "<en_at>", "playlists": [...]},
-            {"file": "...out/ta/video.mp4", "title": "...", "description": "...", "tags": [...], "language": "ta",
-             "publish_at": "<ta_at>", "playlists": [...]}]}
+ "videos": [{"file": "...out/ta/video.mp4", "title": "...", "description": "...", "tags": [...], "language": "ta",
+             "publish_at": "<ta_at>", "playlists": [...],
+             "localizations": {"en": {"title": "...", "description": "..."}, "es": {...}, "...": {...}}}]}
 ```
 
 - Titles: the question, under 60 characters, checked with `.claude/skills/yt-package/title.py`; must contain the
@@ -154,16 +153,17 @@ Upload `$WORK` (pictures, voices, shots.json, scripts, out/*/video.mp4) to the P
   English, "Marvel Lore in Tamil | மார்வெல் கதைகள் தமிழில்" for Tamil, and "Before Avengers: Doomsday" when the
   topic's `playlists` has "doomsday" (both languages).
 
-- English video: English only in its title, description and tags (no Tamil); global hashtags (#Marvel #MCU and
-  the topic's). Add `"localizations"` with a translated title (under 100 characters, keep `#shorts`) and description
-  for every language in config.json `localize_to` (Spanish, Portuguese, Hindi, Indonesian, Arabic, French, German),
-  so viewers abroad see it in their own language. The Tamil video gets no localizations.
-- Times: `en_at` and `ta_at` from next_topic.py (English 5:30 am India time = 7 pm New York, for viewers abroad; Tamil
-  8 pm India time).
+- `"localizations"` on the Tamil video: `"en"` (the English title, under 100 characters with `#shorts`, and the
+  English description with global hashtags #Marvel #MCU and the topic's), and a translated title and description for
+  every language in config.json `localize_to` (Spanish, Portuguese, Hindi, Indonesian, Arabic, French, German), so
+  viewers abroad see it in their own language and hear YouTube's automatic English dub.
+- Time: `ta_at` from next_topic.py (8 pm India time). `en_at` is no longer used.
+- Playlists: the Tamil one (and "Before Avengers: Doomsday" when the topic has it); no English video goes in "Marvel
+  Lore Explained" any more.
 
 `python3 videos/doodle/upload.py $WORK/upload.json`
 
 ## 10. Report
 
-One message with send_message to session_01CysHuPAVRvMwaMX52ZGwXv: the questions made, the video links and when
-each goes public, the hook scores, anything redone and why, anything that failed. Then stop.
+One message with send_message to session_01CysHuPAVRvMwaMX52ZGwXv: the questions made, the Tamil video's link and when
+it goes public, the hook scores, anything redone and why, anything that failed. Then stop.
