@@ -65,6 +65,21 @@
    "take": "c04_b + paint-out of 4 letter-like marks (c04_fixed)",
    "how": "edit, then the checker's 4 boxes painted out",
    "passed_in": "review_fix_batch2.json; the paint-out goes to the final re-check"
+  },
+  "i02": {
+   "take": "i02_a",
+   "how": "edit (bat, ball and goal removed)",
+   "passed_in": "review_fix_batch3.json"
+  },
+  "i03": {
+   "take": "i03_a",
+   "how": "edit (balls and sticker removed)",
+   "passed_in": "review_fix_batch3.json"
+  },
+  "p03": {
+   "take": "p03_c",
+   "how": "edit (cricket seam)",
+   "passed_in": "review_fix_batch3.json"
   }
  }
 }

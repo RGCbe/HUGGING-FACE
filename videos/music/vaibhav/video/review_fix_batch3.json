@@ -1,0 +1,234 @@
+[
+ {
+  "id": "i02",
+  "shots": ["S13", "S27"],
+  "takes": [
+   {
+    "take": "i02_a.png",
+    "ok": true,
+    "severity": null,
+    "problems": [
+     "note: the white goal frame and the old bat at the lower left are gone; raised hands are open or hold glowing phones (6 phones); no bat, no ball anywhere",
+     "note: fans seen from behind as silhouettes, nobody like the hero; the field keeps only a faint curved white ring line (reads as the inner fielding circle)",
+     "note: a far perimeter board (box 1375 680 1410 705) has blurred red/white marks, not readable, same as in the old picture"
+    ]
+   },
+   {
+    "take": "i02_b.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "a NEW brown wooden bat/club is held up by a fan at the right (box 1330 625 1400 705)",
+     "(goal frame and the old bat removed; phones fine)"
+    ]
+   },
+   {
+    "take": "i02_c.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the old red ball is still there, held up in a fist at centre-left (box 650 735 690 775)",
+     "(goal frame and the old bat removed)"
+    ]
+   }
+  ],
+  "choice": "i02_a.png",
+  "why": "a is the only take with no prop in the crowd: phones and open hands only, the goal frame gone. b grew a new bat and c kept the ball.",
+  "fix_if_none": null
+ },
+ {
+  "id": "i03",
+  "shots": ["S08", "S25"],
+  "takes": [
+   {
+    "take": "i03_a.png",
+    "ok": true,
+    "severity": null,
+    "problems": [
+     "note: no ball anywhere (both the bat-toe ball and the helmet ball are gone); the black sticker is gone",
+     "note: one bat - dark taped handle with a round end cap straight into a plain flat wooden blade with edge thickness and a square toe; no letters",
+     "note: grip hand thumb + 4 fingers; the helmet is a dark navy shell with a metal grille, held by the grille (thumb + 3 curled fingers)",
+     "note: face on model (about 15, short black hair, warm brown skin, eyes closed, big laugh); plain blue polo, no emblem; boards behind blurred, no letters; painted anime",
+     "small, not a fault: he grips the bat at the splice with the long handle sticking out to the left (same as the old picture); the grille bars sit a little loose on the shell"
+    ]
+   },
+   {
+    "take": "i03_b.png",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "the helmet reads black, not dark blue, with a small spike-like fin on the shell at top right (box 1255 630 1275 690)",
+     "(balls and sticker removed; bat, hands and face as good as a)"
+    ]
+   },
+   {
+    "take": "i03_c.png",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "the helmet is seen from inside: a black empty bowl with only a stub of grille at its right edge (box 1040 610 1290 790); reads as a black pan, not the dark blue grilled helmet in characters.json",
+     "(balls and sticker removed; bat, hands and face fine)"
+    ]
+   }
+  ],
+  "choice": "i03_a.png",
+  "why": "All three fixed the balls and the sticker; a is the only one whose helmet still matches the lock (dark blue, metal grille).",
+  "fix_if_none": null
+ },
+ {
+  "id": "p01",
+  "shots": ["S04"],
+  "takes": [
+   {
+    "take": "p01_a.png",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "the old white halfway line is still there, running from the bottom edge up through the middle of the new tan pitch strip (box 805 738 862 928; traced x 815-851 at the bottom, 825 at y 745)",
+     "two long white lines on the grass kept (left box 0 755 580 830, right box 1040 755 1664 810); they can pass as a fielding-circle line, so painting them out is optional",
+     "the strip has only faint short lines along its back edge, no clear crease lines",
+     "(good: a tan pitch strip seen side-on, which reads as a cricket square from square leg once the centre line is gone; crowd many different faces, boards clean, the right-side bar is a lamp, no text)"
+    ]
+   },
+   {
+    "take": "p01_b.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "a tennis-style net on two orange posts across the back of the strip (box 550 700 1240 752): a court, not a cricket pitch",
+     "the centre line kept, and the strip outlined in white like a court"
+    ]
+   },
+   {
+    "take": "p01_c.png",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "the centre line kept (box 805 730 835 860)",
+     "T-shaped white lines off both ends of the strip (boxes 320 735 500 815 and 1040 735 1300 820); together they read as a clay tennis court; more to paint out than a"
+    ]
+   }
+  ],
+  "choice": "p01_a.png",
+  "why": "No take removed the white centre line. a is the closest to a cricket ground: one tan strip, no net, no court lines; one local paint-out of the centre line (box 805 738 862 928, refill with the grass and strip around it) finishes the fix. Minor, so it does not block the clip, but the paint-out is cheap and is the fix the owner asked for. b is a tennis court; c has court-style T lines.",
+  "fix_if_none": null
+ },
+ {
+  "id": "p02",
+  "shots": ["S05", "S23"],
+  "takes": [
+   {
+    "take": "p02_a.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the red ball is still wedged at the top of the bat handle (box 1005 645 1055 695)",
+     "the helmet he carries is gone (S05/S23: 'helmet in hand'); a loose black strap cord hangs from his right fist (box 545 630 650 760)",
+     "(signs on the stands now plain colour bands; face on model)"
+    ]
+   },
+   {
+    "take": "p02_b.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the red ball is still at the top of the bat handle (box 1005 645 1055 695)",
+     "the helmet is gone; his right hand is an empty fist with a dark stub in it",
+     "(signs plain colour bands)"
+    ]
+   },
+   {
+    "take": "p02_c.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the helmet is gone (the storyboard and the S05/S23 motion prompts say 'helmet in hand'); a black lump of leftover strap is in his right fist (box 610 635 655 680); with the prompt unchanged, the clip model may grow a helmet out of the lump",
+     "minor (also in the old picture): a small dark letter-like scribble on the blade face (box 1025 755 1065 795)",
+     "(good: no ball - the navy rubber grip runs from his hand into the blade; signs plain colour bands; boards plain; face on model, about 15, black hair, brown eyes, smile; bat one piece; pads; crowd varied adults with no props)"
+    ]
+   }
+  ],
+  "choice": null,
+  "why": "All three takes lost the helmet that the shot is built on. a and b also kept the ball. c is the best of the three (ball gone, signs plain), but it fails the shot as storyboarded.",
+  "fix_if_none": "Route 1 (keeps the storyboard; no new full edit, per the 'edits on top of edits' lesson): start from the OLD picture animeA/p02.png and use local masked patches only. (1) Ball at the handle: paste p02_c's bat top at the same pixels (box 1000 640 1060 700; the hand outline and blade shoulder line up) or repaint it as the navy rubber grip. (2) Paint the three stand signs plain, one flat colour each (boxes 395 390 515 432, 1085 405 1190 450, 1362 365 1482 418). (3) Paint out the blade scribble (box 1025 755 1065 795). Check the patch edges at full size afterwards. Route 2 (only if the storyboard owner agrees): p02_c with the lump painted out to an empty relaxed fist (box 610 635 655 680), and 'helmet in hand' removed from the S05 and S23 prompts."
+ },
+ {
+  "id": "p03",
+  "shots": ["S07", "S22"],
+  "takes": [
+   {
+    "take": "p03_a.png",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "one seam only, but it is a curved arc of baseball-style red V lacing along the lower half of the ball (box 740 200 940 320); the fix asked for no curved stitching, and it still looks a little like a baseball"
+    ]
+   },
+   {
+    "take": "p03_b.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "still the baseball figure-of-eight: two curved seams of V lacing on the left and right sides (box 730 150 940 340); the fix did not take"
+    ]
+   },
+   {
+    "take": "p03_c.png",
+    "ok": true,
+    "severity": null,
+    "problems": [
+     "note: one red leather ball with ONE straight raised seam of white stitching running diagonally across it (upper left to right edge); reads as a cricket ball, no figure-of-eight",
+     "note: one ball, no bat; floodlights flaring, blurred stands, no text; painted anime",
+     "note: a fainter dark stitch line runs parallel in the shadow at the lower left (box 740 235 880 325); at clip size (ball about 92 px) it reads as shading; optional paint-out",
+     "for the clip checker: S07 asks for 'spinning', so watch the seam for a second seam or curved stitching appearing"
+    ]
+   }
+  ],
+  "choice": "p03_c.png",
+  "why": "c is the only take with a straight cricket seam; a keeps a curved baseball-style seam and b keeps the full baseball figure-of-eight.",
+  "fix_if_none": null
+ },
+ {
+  "id": "p06",
+  "shots": ["S09"],
+  "takes": [
+   {
+    "take": "p06_a.png",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "a red ball is still held up in a fan's raised hand at the upper right (box 1505 288 1560 345; ball pixels 1517 297 1552 337). characters.json crowd 'never' lists 'bats or balls in the crowd'. My first review wrongly called this 'allowed'",
+     "the front-row young men at x~260, ~530 and ~1060 share one face (about 20, dark-brown swept hair, freckles, open mouth looking up); faces at boxes 200 465 330 645, 480 495 610 665, 995 465 1125 625. The 'clearly different faces, ages, men and women' part of the edit did not take",
+     "the crowd reads light-skinned rather than clearly an Indian cricket crowd",
+     "tiny: a belt buckle behind the centre fan has dark squiggles (box 955 805 1005 835), about 20 px at clip size, not readable",
+     "(fixed: the red patch and the orange tag are gone, every shirt plain; the centre fan is an older man with white-grey hair and a big grey moustache in a yellow shirt, eyes squeezed shut in joy; the only yellow shirt, so the focal is clear; varied shirt colours; front hands 4-5 fingers, plausible; the fan at ~1060 is the nearest to the hero but older and not in blue)"
+    ]
+   },
+   {
+    "take": "p06_b.png",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "the same red ball in the crowd (ball pixels 1513 295 1544 333)",
+     "the same three matching front-row faces",
+     "shirts mostly olive/khaki, and a second yellow shirt on the woman right of centre dilutes the focal fan",
+     "(patch and tag gone; older moustached centre fan in yellow, eyes open)"
+    ]
+   },
+   {
+    "take": "p06_c.png",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "the same red ball in the crowd (ball pixels 1514 299 1551 338)",
+     "the same three matching front-row faces",
+     "yellow shirts on fans behind him on both sides (boxes 640 690 700 800 and 930 690 1000 800) blur the focal; two khaki shirts",
+     "(patch and tag gone; older moustached centre fan in a yellow collared shirt)"
+    ]
+   }
+  ],
+  "choice": "p06_a.png",
+  "why": "All three fixed the patch, the tag and the hero-like centre fan; all three keep the ball and the matching faces. a has the clearest focal (the only yellow shirt) and the most varied shirts. Paint out the ball before the clip (box 1505 288 1560 345: leave the raised fist or open hand, refill with confetti and crowd), so the clip cannot throw or multiply it. Optional: repaint two of the three matching faces locally (e.g. boxes 200 465 330 645 and 995 465 1125 625: an older bearded man and a woman) with brown Indian skin tones.",
+  "fix_if_none": null
+ }
+]

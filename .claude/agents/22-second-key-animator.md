@@ -38,7 +38,10 @@ model: inherit
    - It sends a square crop around the box to the picture model and pastes back only the box, with a soft edge.
    - `--paintout` removes small things locally.
    - To find a box, draw a 100 px grid on the picture and read it off.
-   - **Works:** changing small things, such as a figure's clothes, a sticker or a crest.
+   - **Works:** changing small things, such as a figure's clothes, a sticker or a crest, and a face (27 Nov: two
+     look-alike fans in p06 became a moustached middle-aged man and a young woman with a bindi).
+   - **Pasting from another take:** where one take has a clean part at the same pixels (the takes share a layout),
+     paste it straight across (p02: the bat top from take c onto the old picture).
    - **Does not work:** changing a shape or pose. A skittle bat stayed a skittle; a glove stayed off the handle.
      For those, make fresh takes with a prompt that avoids the hard part (26 Nov: a one-hand finish instead of two
      gloves on one handle; only the father holds the bat).
