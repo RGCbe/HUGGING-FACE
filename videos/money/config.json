@@ -1,0 +1,22 @@
+{
+  "channel": {
+    "name": "Tea Break with Manoj",
+    "refresh_token_env": "YT_REFRESH_TOKEN_ADULT",
+    "client_id_env": "YT_CLIENT_ID",
+    "client_secret_env": "YT_CLIENT_SECRET"
+  },
+  "timezone": "Asia/Kolkata",
+  "days": ["Tuesday", "Friday"],
+  "publish_time": "13:00",
+  "min_lead_hours": 36,
+  "max_ahead_days": 10,
+  "playlist": "money",
+  "language": "ta",
+  "category_id": 27,
+  "eleven": {"voice": "Manoj kumar T", "model": "eleven_v4", "stability": 0.5, "similarity": 0.9},
+  "eleven_min_chars": 4000,
+  "style": "Flat vector explainer illustration, simple geometric shapes, bold flat colours (sky blue, warm orange, sunny yellow, coral pink, navy), no outlines, soft simple shadows, clean modern look, plain uncluttered background. No text, no letters, no numbers, no logos anywhere.",
+  "dataset": "Rggroups/office-tea-talks-work",
+  "dataset_prefix": "money",
+  "tags_always": ["money tea talks", "personal finance tamil", "financial literacy tamil", "tea break with manoj", "shorts"]
+}
