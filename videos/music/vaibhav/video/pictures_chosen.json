@@ -62,9 +62,9 @@
    "passed_in": "review_fix_batch2.json"
   },
   "c04": {
-   "take": "c04_b + paint-out of 4 letter-like marks (c04_fixed)",
-   "how": "edit, then the checker's 4 boxes painted out",
-   "passed_in": "review_fix_batch2.json; the paint-out goes to the final re-check"
+   "take": "c04_fixed",
+   "how": "c04_b with 4 letter-like marks painted out",
+   "passed_in": "review_fix_final.json"
   },
   "i02": {
    "take": "i02_a",
@@ -80,6 +80,16 @@
    "take": "p03_c",
    "how": "edit (cricket seam)",
    "passed_in": "review_fix_batch3.json"
+  },
+  "p06": {
+   "take": "p06_fixed",
+   "how": "p06_a, the crowd ball painted out, two look-alike faces repainted (patch_edit.py)",
+   "passed_in": "review_fix_final.json"
+  },
+  "t04": {
+   "take": "t04_t01a",
+   "how": "fresh with animeA/t01.png as the reference; one plank-like bat",
+   "passed_in": "review_fix_final.json"
   }
  }
 }
