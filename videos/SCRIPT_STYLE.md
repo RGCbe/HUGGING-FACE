@@ -191,6 +191,33 @@ What the liked ones do with words:
 
 What does not work: a scattered set of unrelated jokes, a lesson that starts "பாடம் இதுதான்", a hello in the first second, or a story everyone can guess.
 
+## The story loop: stakes, one question, a fair twist, the next loop (27 Nov 2026)
+
+The owner asked to try this ("can we try like this"), from a creator's "Story Loop" for Shorts. It is old story craft
+with a new name, and it fits our Shorts and long videos alike:
+
+1. **Stakes in the first 3 seconds.** A person to root for, what they can lose, and a clock. It has to matter to
+   our viewer, an office worker in Chennai or Bengaluru, not a millionaire. "Ravi has 3 days till appraisals, and his
+   wedding is in March" beats "Let's talk about appraisals".
+2. **One big question by second 5.** One, not three: "So who gets the bigger hike?" The viewer stays for the
+   answer.
+3. **A fair head fake.** Set up the answer they expect (A), with real clues, then turn to B. That turn is the
+   twist. The rule that keeps trust: in history the twist must be TRUE, never a fake shock. In an office story it
+   must be FAIR, so that the clues were there when you watch again.
+4. **The re-hook.** Close the loop and open the next one at once. In a long video that is rule 9 (a turn every 30
+   to 40 seconds). In a Short the last line opens the next loop: tomorrow's story, the next part, or a two-sided
+   question for the comments. **Never promise a part 2 we are not making.**
+
+Our limits:
+- the loop serves the story, never the other way round;
+- no invented stakes in true history;
+- no "comment X to get Y" bait;
+- **Kiddo Corner gets none of the re-hook pressure:** a story for children ends warmly, with at most one gentle
+  question.
+
+Example, the first try (an Office Tea Talks Short on point p010, written 27 Nov):
+videos/office/story_loop_example.md.
+
 ## Check before voicing
 
 - Contractions everywhere they would be said.
