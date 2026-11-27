@@ -9,9 +9,10 @@
     python3 playlists.py retire                 set every playlist in config.json "retired_playlists" PRIVATE
                                                 (hidden from viewers, never deleted; make it public again in Studio)
 
-The channel has two playlists (the owner, 27 Nov 2026: "i only need 2 playlist"): "history" (every history story,
-English and Tamil, full videos and Shorts) and "office" (the Office Tea Talks Shorts, whose descriptions carry an
-"Office Tea Talks:" line). build.py, tamil.py and tamil_shorts.py put new history videos in "history"; the office recipe puts
+The channel has three playlists: "history" (every history story, English and Tamil, full videos and Shorts) and
+"office" (the Office Tea Talks Shorts, whose descriptions carry an "Office Tea Talks:" line), the two the owner kept
+(27 Nov 2026: "i only need 2 playlist"), and "money" (the Money Tea Talks finance Shorts, whose descriptions carry a
+"Money Tea Talks:" line), added the same day (the owner: "new playlist"). build.py, tamil.py and tamil_shorts.py put new history videos in "history"; the office recipe puts
 its Shorts in "office". Uses the channel's YouTube key (YT_CLIENT_ID, YT_CLIENT_SECRET and the refresh token named
 in config.json).
 """
@@ -72,7 +73,8 @@ def seconds(iso):
 
 
 def wanted(v):
-    """The playlist a video belongs in: an Office Tea Talks Short (its description carries the "Office Tea Talks:"
+    """The playlist a video belongs in: a Money Tea Talks Short (its description carries the "Money Tea Talks:" line,
+    or its tags "money tea talks") in "money", an Office Tea Talks Short (its description carries the "Office Tea Talks:"
     line, or its tags "office tea talks") in "office", The F-Rank Tea Seller's reviews in none (their playlist is
     retired), an old copy kept private ("OLD COPY" opens its description) in none, every other video in "history"."""
     import re
@@ -82,6 +84,8 @@ def wanted(v):
     tags = [t.lower() for t in v["snippet"].get("tags", [])]
     if desc.startswith("OLD COPY"):
         return set()
+    if re.search(r"(?im)^\s*money tea talks\s*:", desc) or "money tea talks" in tags:
+        return {"money"}
     if re.search(r"(?im)^\s*office tea talks\s*:", desc) or "office tea talks" in tags:
         return {"office"}
     if "#webtoon" in low or "webtoon" in low or "f-rank" in low or "weakest hunter" in low:

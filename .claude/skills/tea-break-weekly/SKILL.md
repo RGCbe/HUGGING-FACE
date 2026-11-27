@@ -269,10 +269,11 @@ video uploaded is also queued for the Tea Break Facebook Page and Instagram (`vi
 scheduled `meta.py run` posts it there at its YouTube time. A queueing warning does not stop the run; report it.
 
 Everything goes up private, with YouTube's AI-content label, and goes public by itself at its
-time, so the owner can watch it in YouTube Studio first. The channel has only two playlists (the owner,
-27 Nov 2026: "i only need 2 playlist"): every history video, English and Tamil, full video and Shorts,
-goes to "history" (config.json `playlists`, "Funny True History | வேடிக்கையான உண்மை வரலாறு"); the
-office Shorts have their own. Never make a new playlist. `python3 playlists.py sync` lists any video in
+time, so the owner can watch it in YouTube Studio first. The channel has three playlists (config.json
+`playlists`; the owner, 27 Nov 2026: "i only need 2 playlist", then "new playlist" for finance): every
+history video, English and Tamil, full video and Shorts, goes to "history" ("Funny True History |
+வேடிக்கையான உண்மை வரலாறு"); the office Shorts and the finance (Money Tea Talks) Shorts have their own.
+Never make another playlist without the owner's yes. `python3 playlists.py sync` lists any video in
 the wrong one. A custom thumbnail fails with 403 until
 the channel's phone number is verified; that is not an error to fix, just report it.
 
