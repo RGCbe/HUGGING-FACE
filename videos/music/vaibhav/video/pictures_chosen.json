@@ -90,6 +90,21 @@
    "take": "t04_t01a",
    "how": "fresh with animeA/t01.png as the reference; one plank-like bat",
    "passed_in": "review_fix_final.json"
+  },
+  "p01": {
+   "take": "p01_fixed3",
+   "how": "p01_a, the centre line filled from the mirrored columns beside it, the seam softened",
+   "passed_in": "review_fix_final.json recheck2"
+  },
+  "p02": {
+   "take": "p02_fixed3",
+   "how": "the old picture (helmet in hand): the ball removed with a round mask from p02_c, the scribble strokes and three signs painted out, then the blade outline (x 1030-1043, y 781-799) copied back from the old picture as recheck2 prescribed",
+   "passed_in": "review_fix_final.json recheck2, plus the prescribed outline restore (checked at a 4x crop by the boss; card 24 sees it again in S05/S23)"
+  },
+  "t03": {
+   "take": "t03_fixed",
+   "how": "fresh from the cast sheet (plank bat), three shirt prints painted out, mirrored for a left-handed batter",
+   "passed_in": "review_fix_final.json recheck2"
   }
  }
 }
