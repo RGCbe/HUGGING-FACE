@@ -11,7 +11,14 @@ also goes on the **Tea Break with Manoj** Facebook Page and on Instagram **@teab
    `meta.py queue` for that video. A queueing failure only prints a warning and the command to run by hand.
 2. `meta.py queue YOUTUBE_ID FILE.mp4` reads the title, description, language, privacy and publish time from
    YouTube and stores the mp4 and `entries/ID.json` in the **private** dataset `Rggroups/meta-queue`.
-3. A scheduled task runs `python3 videos/meta/meta.py run` every hour:
+3. **Since 27 Nov 2026 the posting runs only on the owner's VPS** (Hostinger, set up with Antigravity: the repo cloned
+   there, keys in its `.env.local`, `sync_backlog.py` staggering releases into the 8:30 and 19:30 India-time slots).
+   The owner's words: "stop posting here for instagram and face book i continue in my vps". The two cloud
+   scheduled tasks "Tea Break → Facebook + Instagram (history slots / office slots)" are **paused**. Cloud
+   sessions do not run `meta.py run`. They may still queue: queueing only adds `entries/ID.json` to the shared
+   dataset, which the VPS then posts. They may also read `meta.py status`.
+   Two posters at once could post the same video twice, because the queue has no lock.
+   On the VPS, `python3 videos/meta/meta.py run` does this:
    - **Facebook**: a Short (vertical, at most 90 s) as a Page **Reel**, a full video as a Page **video**. If the
      YouTube time is more than 15 minutes away, Facebook schedules it for that time; otherwise it goes up now.
    - **Instagram**: a **Reel**, posted on the first run after the YouTube time (Instagram cannot schedule). Wide
