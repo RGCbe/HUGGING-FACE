@@ -400,7 +400,10 @@ def normalize_for_instagram(src_path):
 
 
 def ig_post_reel(utok, e, path, fb_source=None):
-    """A Reel by direct resumable upload to rupload.facebook.com."""
+    """A Reel by direct resumable upload to rupload.facebook.com (two tries). If Instagram's upload server refuses the
+    bytes both times, Instagram fetches the already-posted Facebook copy instead (fb_source: a function that returns
+    its fbcdn address). The fallback was lost on 24 Nov 2026 and restored on 27 Nov: two Shorts had failed every run
+    since then with "ProcessingFailedError, retriable: false" from rupload, while their Facebook copies were up."""
     path = normalize_for_instagram(path)
     ig = CFG["ig_user_id"]
     last_err = None
@@ -428,7 +431,17 @@ def ig_post_reel(utok, e, path, fb_source=None):
             print(f"  Instagram upload attempt {attempt} failed ({x})")
             if attempt < 2:
                 time.sleep(5)
-    raise last_err
+    src = fb_source() if fb_source else None
+    if not src or (urllib.parse.urlparse(src).hostname or "").split(".")[-2:] != ["fbcdn", "net"]:
+        raise last_err
+    print("  Instagram upload refused twice; letting Instagram fetch the Facebook copy")
+    c = graph("POST", f"{ig}/media", utok, media_type="REELS", video_url=src, caption=ig_caption(e),
+              share_to_feed="true")
+    cid = c["id"]
+    yield {"container_id": cid, "status": "uploading", "via": "facebook copy"}
+    ig_wait(utok, cid)
+    m = graph("POST", f"{ig}/media_publish", utok, creation_id=cid)
+    yield {"container_id": cid, "media_id": m["id"], "status": "published", "via": "facebook copy"}
 
 
 def ig_wait(utok, cid, limit=900):
@@ -663,7 +676,16 @@ def cmd_run(a):
                                 ig = e["instagram"] = {**ig, "status": "published", "media_id": mid}
                                 print(f"  Instagram: an earlier run already published it ({mid})")
                         if ig.get("status") != "published":
-                            for step in ig_post_reel(utok, e, video_file()):
+                            fbv = e.get("facebook", {}).get("video_id") if e.get("facebook", {}).get(
+                                "status") in ("published", "scheduled") else None
+
+                            def fb_source():
+                                nonlocal ptok
+                                if not fbv:
+                                    return None
+                                ptok = ptok or page_token(utok)
+                                return fb_video_info(ptok, fbv).get("source")
+                            for step in ig_post_reel(utok, e, video_file(), fb_source):
                                 ig = e["instagram"] = {**step, "at": iso(now())}
                                 write_entry(api, repo, e, f"instagram {step['status']} {yid}")
                         if ig.get("media_id") not in (None, "unknown"):
