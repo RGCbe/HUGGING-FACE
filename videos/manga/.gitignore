@@ -1,0 +1,9 @@
+out/
+out_ta/
+voice/
+*.log
+**/recap/*
+!**/recap/recap.json
+!**/recap/short_ta.json
+!**/recap/recap_ta.json
+clips/

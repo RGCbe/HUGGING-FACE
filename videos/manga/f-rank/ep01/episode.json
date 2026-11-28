@@ -1,0 +1,756 @@
+[
+ {
+  "name": "p01",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, holding sword, glowing sword, golden aura, glowing eyes, yellow eyes, blood on face, cut on cheek, battle stance, dark dungeon, cave, dark background, giant monster silhouette, dramatic lighting, sparks, light particles",
+  "seed": 11,
+  "w": 832,
+  "h": 1216,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.35,
+  "bubbles": [
+   {
+    "text": "This power... where is it coming from?!",
+    "x": 0.74,
+    "y": 0.09,
+    "w": 0.4,
+    "to": [
+     0.52,
+     0.14
+    ],
+    "kind": "thought"
+   }
+  ],
+  "sfx": [
+   {
+    "text": "VWOOM",
+    "x": 0.72,
+    "y": 0.8,
+    "size": 120,
+    "rotate": -8
+   }
+  ]
+ },
+ {
+  "name": "p02",
+  "card": "One hour earlier...",
+  "h": 360
+ },
+ {
+  "name": "p03",
+  "prompt": "no humans, scenery, cityscape, skyscraper, indian architecture, dusk, giant glowing portal in the sky, magic circle, purple sky, wide shot",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "Mumbai, 2031. Gates to monster dungeons have opened in every city on Earth."
+   }
+  ],
+  "after": [
+   {
+    "text": "Hunters go in. Monster cores come out. Hunters get rich."
+   }
+  ]
+ },
+ {
+  "name": "p04",
+  "prompt": "scenery, plaza, giant glowing portal, stone archway, crowd, adventurers in armor, queue, small tea stall at the side, street stall, evening, lanterns, wide shot, from above",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "after": [
+   {
+    "text": "And right next to the biggest Gate in the city... stands a tiny tea stall."
+   }
+  ]
+ },
+ {
+  "name": "p05",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, holding teapot, pouring tea from height, glass cup, tea stall, steam, smile, open mouth, shouting, upper body, evening, lanterns, street",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.65,
+  "bubbles": [
+   {
+    "text": "Chai! Hot chai! Ten rupees a glass!",
+    "x": 0.27,
+    "y": 0.1,
+    "w": 0.38,
+    "to": [
+     0.44,
+     0.24
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p06",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, chibi, sweatdrop, embarrassed smile, holding glass cup, tea, simple background, comedy",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "Business is... a little slow today.",
+    "x": 0.8,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.62,
+     0.22
+    ],
+    "size": 24
+   }
+  ],
+  "after": [
+   {
+    "text": "Arjun. Eighteen years old. Hunter rank: F, the weakest rank there is."
+   }
+  ]
+ },
+ {
+  "name": "p07",
+  "prompt": "2boys, 1girl, group of adventurers walking, blonde knight in silver armor and black cape in the center, girl healer with long black braid in white robe, large bald bearded man with tower shield, confident walk, crowd, plaza, evening, giant glowing portal in background",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "Then the real hunters arrived."
+   }
+  ],
+  "after": [
+   {
+    "text": "Viktor Hale. B-Rank. Two million followers. Zero manners."
+   }
+  ]
+ },
+ {
+  "name": "p08",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, smirk, pointing at viewer, laughing, arrogant, upper body, plaza, evening",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "Ha! Look, everyone! It's the F-Rank tea boy!",
+    "x": 0.78,
+    "y": 0.12,
+    "w": 0.36,
+    "to": [
+     0.55,
+     0.28
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p09",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, holding glass cup, offering cup, tea, gentle smile, tea stall, looking at viewer, upper body, evening",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.65,
+  "bubbles": [
+   {
+    "text": "Tea, sir? Good for the nerves before a dungeon.",
+    "x": 0.79,
+    "y": 0.14,
+    "w": 0.34,
+    "to": [
+     0.56,
+     0.22
+    ],
+    "size": 25
+   }
+  ]
+ },
+ {
+  "name": "p10",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, holding glass cup, tea, frown, disgust, raised eyebrow, looking at cup, upper body, evening",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "Tea from an F-Rank? Is it poisoned with weakness?",
+    "x": 0.22,
+    "y": 0.12,
+    "w": 0.36,
+    "to": [
+     0.42,
+     0.26
+    ],
+    "size": 25
+   }
+  ]
+ },
+ {
+  "name": "p11",
+  "prompt": "1girl, solo, young woman, brown skin, long black hair, single braid, white robe, gold trim, holding staff, healer, smile, placing coins on counter, coins, tea stall counter, upper body, evening, lanterns",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "Viktor, be nice. Three teas, please.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.34,
+    "to": [
+     0.45,
+     0.24
+    ]
+   }
+  ],
+  "after": [
+   {
+    "text": "Meera. Healer. The only nice one in the party."
+   }
+  ]
+ },
+ {
+  "name": "p12",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, drinking, glass cup, tea, head back, closed eyes, upper body, comedy, evening",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.55,
+  "sfx": [
+   {
+    "text": "GULP",
+    "x": 0.62,
+    "y": 0.5,
+    "size": 110,
+    "rotate": 10
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "...Hmph. Nothing special.",
+    "x": 0.8,
+    "y": 0.1,
+    "w": 0.3,
+    "to": [
+     0.6,
+     0.2
+    ],
+    "size": 25
+   }
+  ]
+ },
+ {
+  "name": "p13",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, portrait, face focus, looking at viewer, serious, half-closed eyes, slight smile, lantern light, night, dark background",
+  "seed": 11,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "Good luck in there.",
+    "x": 0.82,
+    "y": 0.1,
+    "w": 0.26,
+    "to": [
+     0.66,
+     0.3
+    ],
+    "size": 25
+   },
+   {
+    "text": "One hour. That's all you get.",
+    "x": 0.22,
+    "y": 0.9,
+    "w": 0.34,
+    "to": [
+     0.38,
+     0.62
+    ],
+    "kind": "thought",
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p14",
+  "prompt": "from behind, three adventurers walking into giant glowing portal, silver armor, black cape, white robe, tower shield, blue light, dramatic, wide shot",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "Dungeon Gate. Level 9."
+   }
+  ]
+ },
+ {
+  "name": "p15",
+  "prompt": "no humans, monster, giant ogre, holding cleaver, monster wolves, glowing red eyes, dungeon, cave, ambush, roaring, dark, dramatic lighting, from below",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "sfx": [
+   {
+    "text": "GRRAAAH!!",
+    "x": 0.5,
+    "y": 0.88,
+    "size": 120,
+    "rotate": -6,
+    "color": "#ff5a4f"
+   }
+  ]
+ },
+ {
+  "name": "p16",
+  "prompt": "1boy, male focus, solo, large man, muscular, bald, black beard, heavy armor, tower shield, knocked back, flying backwards, cracked shield, blood, pain, dungeon, cave, motion lines, action",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "sfx": [
+   {
+    "text": "KRASH!",
+    "x": 0.76,
+    "y": 0.16,
+    "size": 110,
+    "rotate": 9
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "GHHK\u2014!",
+    "x": 0.17,
+    "y": 0.12,
+    "w": 0.18,
+    "to": [
+     0.4,
+     0.2
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p17",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, injury, blood, cut on arm, bleeding, grimace, clenched teeth, holding sword, dungeon, cave, action",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "Tch! Since when are Level 9 ogres this strong?!",
+    "x": 0.25,
+    "y": 0.12,
+    "w": 0.36,
+    "to": [
+     0.5,
+     0.2
+    ],
+    "size": 25
+   }
+  ]
+ },
+ {
+  "name": "p18",
+  "prompt": "1girl, solo, young woman, brown skin, long black hair, single braid, white robe, gold trim, holding staff, healer, casting spell, green magic, glowing staff, scared, sweat, open mouth, shouting, dungeon, cave",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "Viktor! We have to retreat!",
+    "x": 0.8,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.55,
+     0.24
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p19",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, golden aura, glowing body, glowing eyes, yellow eyes, surprised, wide-eyed, looking at own hands, power up, light particles, dark background, dungeon",
+  "seed": 11,
+  "w": 832,
+  "h": 1216,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.35,
+  "bubbles": [
+   {
+    "text": "What... is this power?!",
+    "x": 0.2,
+    "y": 0.36,
+    "w": 0.28,
+    "to": [
+     0.45,
+     0.16
+    ],
+    "kind": "thought"
+   }
+  ],
+  "sfx": [
+   {
+    "text": "BA-DUMP",
+    "x": 0.78,
+    "y": 0.62,
+    "size": 90,
+    "rotate": 8
+   }
+  ]
+ },
+ {
+  "name": "p20",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, slashing, sword slash, golden sword trail, giant ogre, cutting, blood splatter, dynamic pose, motion blur, impact, action, dungeon",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.45,
+  "sfx": [
+   {
+    "text": "KRAAACK!!",
+    "x": 0.68,
+    "y": 0.18,
+    "size": 130,
+    "rotate": -7
+   }
+  ]
+ },
+ {
+  "name": "p21",
+  "prompt": "1girl, 1boy, girl with long black hair, single braid, white robe, healer, large bald bearded man in heavy armor, both shocked, open mouth, wide-eyed, jaw drop, comedy, sweatdrop, dungeon",
+  "seed": 11,
+  "w": 1024,
+  "h": 1024,
+  "gap": 40,
+  "bubbles": [
+   {
+    "text": "Did he just... one-shot it?!",
+    "x": 0.3,
+    "y": -0.03,
+    "w": 0.4,
+    "to": [
+     0.28,
+     0.18
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p22",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, smug, grin, sword on shoulder, confident, upper body, golden aura, sparkle, dungeon",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "Heh. Guess I just... awakened.",
+    "x": 0.22,
+    "y": 0.1,
+    "w": 0.32,
+    "to": [
+     0.45,
+     0.25
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p23",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, fighting, monster wolves, sword slash, golden light, blood, action, cave, wide shot, motion lines",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.45,
+  "before": [
+   {
+    "text": "For the next fifty-eight minutes, Viktor was unstoppable."
+   }
+  ],
+  "sfx": [
+   {
+    "text": "SLASH!",
+    "x": 0.76,
+    "y": 0.3,
+    "size": 110,
+    "rotate": 8
+   }
+  ]
+ },
+ {
+  "name": "p24",
+  "prompt": "no humans, giant minotaur, horns, black armor, holding giant axe, glowing red eyes, throne room, dungeon, boss, menacing, from below, dark, fire",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "before": [
+   {
+    "text": "Then they reached the boss."
+   }
+  ],
+  "sfx": [
+   {
+    "text": "GRRRMMM...",
+    "x": 0.5,
+    "y": 0.92,
+    "size": 90,
+    "rotate": -4,
+    "color": "#ff5a4f"
+   }
+  ]
+ },
+ {
+  "name": "p25",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, jumping, midair, raised sword, fading golden aura, surprised, dungeon, dark",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "HYAAAH!!",
+    "x": 0.78,
+    "y": 0.1,
+    "w": 0.24,
+    "to": [
+     0.55,
+     0.2
+    ]
+   }
+  ],
+  "after": [
+   {
+    "text": "Minute sixty."
+   }
+  ]
+ },
+ {
+  "name": "p26",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, pale, sweat, nervous smile, trembling, holding sword, chibi, comedy, dungeon",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.55,
+  "sfx": [
+   {
+    "text": "fsshh...",
+    "x": 0.2,
+    "y": 0.85,
+    "size": 80,
+    "rotate": -5,
+    "color": "#cfd8e3"
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "...Oh no.",
+    "x": 0.82,
+    "y": 0.25,
+    "w": 0.22,
+    "to": [
+     0.64,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p27",
+  "prompt": "2boys, 1girl, three adventurers running away, panicking, blonde knight in silver armor, girl in white robe with long black braid, large bald man with shield, comedy, chased by giant minotaur, dust cloud, dungeon corridor, motion lines",
+  "seed": 11,
+  "w": 1216,
+  "h": 832,
+  "bubbles": [
+   {
+    "text": "RUN!!!",
+    "x": 0.17,
+    "y": 0.16,
+    "w": 0.2,
+    "to": [
+     0.26,
+     0.4
+    ],
+    "size": 34
+   }
+  ],
+  "sfx": [
+   {
+    "text": "DOOM DOOM",
+    "x": 0.7,
+    "y": 0.88,
+    "size": 90,
+    "rotate": 6
+   }
+  ]
+ },
+ {
+  "name": "p28",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, lying on back, on ground, exhausted, injured, blood, torn cape, night, stone floor, from above, glowing portal light",
+  "seed": 11,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.4,
+  "before": [
+   {
+    "text": "Outside the Gate. Barely alive."
+   }
+  ]
+ },
+ {
+  "name": "p29",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, angry, shouting, open mouth, leaning forward, reaching towards viewer, grabbing, gauntlet, injury, blood, bandages, tea stall, night, lantern",
+  "seed": 11,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "YOU! What did you put in that tea?!",
+    "x": 0.21,
+    "y": 0.1,
+    "w": 0.34,
+    "to": [
+     0.42,
+     0.22
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p30",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, deadpan, expressionless, half-closed eyes, looking at viewer, face focus, portrait, night, lantern, tea stall",
+  "seed": 11,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "...Cardamom.",
+    "x": 0.8,
+    "y": 0.12,
+    "w": 0.26,
+    "to": [
+     0.62,
+     0.32
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p31",
+  "prompt": "1girl, solo, young woman, brown skin, long black hair, single braid, white robe, gold trim, holding staff, healer, holding coins, smile, hopeful, sparkle, comedy, tea stall, night",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "Can I get one to go?",
+    "x": 0.82,
+    "y": 0.42,
+    "w": 0.28,
+    "to": [
+     0.62,
+     0.26
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p32",
+  "prompt": "scenery, small tea stall at night, oil lamp, lantern, dark-skinned young man in white kurta wiping glass cups, empty plaza, giant glowing portal in background, quiet, wide shot",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "That night."
+   }
+  ],
+  "after": [
+   {
+    "text": "Nobody knew the truth about his tea."
+   }
+  ]
+ },
+ {
+  "name": "p33",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, looking up, glowing blue light, floating blue hologram, blue light on face, night, surprised, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.6,
+  "status": [
+   {
+    "title": "[ HIDDEN SKILL ]",
+    "x": 0.5,
+    "y": 0.74,
+    "w": 0.86,
+    "lines": [
+     "Name: Hunter's Chai",
+     "Rank: ???",
+     "Effect: Anyone who drinks it borrows great strength.",
+     "Duration: exactly 1 hour."
+    ]
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "Ten rupees for an hour of power... I'm undercharging.",
+    "x": 0.78,
+    "y": 0.1,
+    "w": 0.36,
+    "to": [
+     0.6,
+     0.2
+    ],
+    "kind": "thought",
+    "size": 23
+   }
+  ]
+ },
+ {
+  "name": "p34",
+  "prompt": "no humans, giant glowing portal, giant red eye inside the portal, slit pupil, ominous, night, city, small tea stall below, lantern, horror, dramatic",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "before": [
+   {
+    "text": "And deep inside the Gate..."
+   }
+  ],
+  "after": [
+   {
+    "text": "...something had noticed."
+   }
+  ]
+ },
+ {
+  "name": "end",
+  "card": "To be continued",
+  "h": 360
+ }
+]

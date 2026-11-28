@@ -1,0 +1,29 @@
+{
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "test_arjun_S15",
+   "seed": 9,
+   "prompt": "The same young man as in image 0, with exactly the same face and hair, in a new scene: at his small wooden roadside tea stall in the evening, he holds out a small glass of hot milky chai toward the camera with a calm gentle smile, steam rising, warm lantern light on his face, red cloth sash at his waist, brass pots beside him, a dark street out of focus behind him. Medium shot. Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field.",
+   "edit": "out/faces/face_arjun_new_1.png"
+  },
+  {
+   "name": "test_viktor_S14",
+   "seed": 9,
+   "prompt": "The same man as in image 0, with exactly the same face, hair, armor and black cape, in a new scene: standing in a busy evening plaza in Mumbai, he throws his head back laughing arrogantly and points his gauntleted finger at the camera, lanterns and a crowd out of focus behind him. Medium shot. Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field.",
+   "edit": "out/faces/face_viktor_2.png"
+  },
+  {
+   "name": "test_meera_S25",
+   "seed": 9,
+   "prompt": "The same young woman as in image 0, with exactly the same face, braid and white robe with gold trim, in a new scene: in a dark rocky cave, she holds a tall carved wooden staff with a green crystal that glows with green healing light, green light swirling around it, she looks scared and shouts, sweat on her face. Medium shot. Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field.",
+   "edit": "out/faces/face_meera_2.png"
+  },
+  {
+   "name": "test_raghu_S23",
+   "seed": 9,
+   "prompt": "The same man as in image 0, with exactly the same face, bald head, beard and dark armor, in a new scene: in a dark rocky cave he braces behind a huge steel tower shield as a heavy blow hits it, sparks fly, a crack runs across the shield, dust in the air, his face strained. Medium shot. Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field.",
+   "edit": "out/faces/face_raghu_1.png"
+  }
+ ]
+}

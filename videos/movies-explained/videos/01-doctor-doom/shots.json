@@ -1,0 +1,236 @@
+{
+ "sections": [
+  {
+   "mood": "curious",
+   "items": [
+    {
+     "pic": "k_intro",
+     "w": 1.2
+    },
+    {
+     "pic": "p02",
+     "w": 1.5
+    }
+   ]
+  },
+  {
+   "mood": "suspense",
+   "items": [
+    {
+     "pic": "p03"
+    },
+    {
+     "pic": "d3"
+    },
+    {
+     "pic": "d5"
+    }
+   ],
+   "names": [
+    {
+     "text": {
+      "en": "DOCTOR DOOM",
+      "ta": "டாக்டர் டூம்"
+     },
+     "color": "1F6B35",
+     "f": 0.02
+    }
+   ],
+   "cards": [
+    {
+     "text": {
+      "en": "3 TRICKS",
+      "ta": "3 பலம்"
+     },
+     "f": 0.78,
+     "color": "35D7FF"
+    }
+   ]
+  },
+  {
+   "mood": "dramatic",
+   "items": [
+    {
+     "pic": "p04"
+    },
+    {
+     "pic": "d4"
+    },
+    {
+     "pic": "p05"
+    }
+   ],
+   "cards": [
+    {
+     "text": {
+      "en": "ONE",
+      "ta": "ஒண்ணு"
+     },
+     "f": 0.0,
+     "color": "4CFF6B"
+    }
+   ],
+   "names": [
+    {
+     "text": {
+      "en": "REED RICHARDS",
+      "ta": "ரீட் ரிச்சர்ட்ஸ்"
+     },
+     "color": "1E5BB8",
+     "f": 0.33
+    }
+   ]
+  },
+  {
+   "mood": "suspense",
+   "items": [
+    {
+     "pic": "p06"
+    },
+    {
+     "pic": "p08"
+    },
+    {
+     "pic": "p07"
+    }
+   ],
+   "cards": [
+    {
+     "text": {
+      "en": "TWO",
+      "ta": "ரெண்டு"
+     },
+     "f": 0.0,
+     "color": "4CFF6B"
+    }
+   ],
+   "names": [
+    {
+     "text": {
+      "en": "LATVERIA",
+      "ta": "லாட்வேரியா"
+     },
+     "color": "1F6B35",
+     "f": 0.1
+    }
+   ]
+  },
+  {
+   "mood": "sad",
+   "items": [
+    {
+     "pic": "d2"
+    },
+    {
+     "pic": "p09"
+    },
+    {
+     "pic": "p10"
+    },
+    {
+     "pic": "p11"
+    }
+   ]
+  },
+  {
+   "mood": "dramatic",
+   "items": [
+    {
+     "pic": "d6"
+    },
+    {
+     "pic": "p12"
+    },
+    {
+     "pic": "p13"
+    }
+   ],
+   "cards": [
+    {
+     "text": {
+      "en": "THREE",
+      "ta": "மூணு"
+     },
+     "f": 0.0,
+     "color": "4CFF6B"
+    }
+   ],
+   "names": [
+    {
+     "text": {
+      "en": "SECRET WARS (2015)",
+      "ta": "சீக்ரெட் வார்ஸ் (2015)"
+     },
+     "color": "6B2FA0",
+     "f": 0.15
+    }
+   ]
+  },
+  {
+   "mood": "triumphant",
+   "items": [
+    {
+     "pic": "p14"
+    },
+    {
+     "pic": "p15"
+    },
+    {
+     "pic": "p16"
+    }
+   ],
+   "names": [
+    {
+     "text": {
+      "en": "AVENGERS: DOOMSDAY - DEC 18",
+      "ta": "டூம்ஸ்டே - டிசம்பர் 18"
+     },
+     "color": "B8261E",
+     "f": 0.05
+    }
+   ]
+  },
+  {
+   "mood": "warm",
+   "items": [
+    {
+     "pic": "k_outro"
+    }
+   ]
+  }
+ ],
+ "caption_replace": {
+  "ta": [
+   [
+    "இரண்டாயிரத்துப் பதினைஞ்சு",
+    "2015"
+   ],
+   [
+    "இரண்டாயிரத்துப் பதினைஞ்சுல",
+    "2015-ல"
+   ],
+   [
+    "ஆயிரத்துத் தொள்ளாயிரத்து அறுபத்திரெண்டுல",
+    "1962-ல"
+   ],
+   [
+    "டிசம்பர் பதினெட்டாம் தேதி,",
+    "டிசம்பர் 18"
+   ]
+  ],
+  "en": [
+   [
+    "the eighteenth",
+    "18th"
+   ],
+   [
+    "number five",
+    "#5"
+   ],
+   [
+    "Junior",
+    "Jr"
+   ]
+  ]
+ }
+}

@@ -1,0 +1,784 @@
+{
+ "model": "black-forest-labs/FLUX.2-klein-4B",
+ "width": 1664,
+ "height": 928,
+ "steps": 4,
+ "cast": [
+  "arjun",
+  "meera",
+  "minotaur",
+  "ogre",
+  "raghu",
+  "viktor"
+ ],
+ "images": [
+  {
+   "name": "S01_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: dark wet cave lit by one torch, Viktor in silver armor and black cape stands with his sword in his hand, a cut on his cheek; behind him only darkness, where two faint red eyes and the outline of something huge can just be seen; a first faint golden glow on the edges of his armor; no mushrooms. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S01_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: dark wet cave lit by one torch, Viktor in silver armor and black cape stands with his sword in his hand, a cut on his cheek; behind him only darkness, where two faint red eyes and the outline of something huge can just be seen; a first faint golden glow on the edges of his armor; no mushrooms. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S02_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: extreme close-up of Viktor's face from the eyebrows to the chin, his eyes glowing bright golden yellow with light, golden light reflecting on his skin, dark background. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S02_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: extreme close-up of Viktor's face from the eyebrows to the chin, his eyes glowing bright golden yellow with light, golden light reflecting on his skin, dark background. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S05_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: high aerial view of Marine Drive in Mumbai at dusk, the curved seafront lights like a necklace, a giant ring of blue light turning in the sky over the bay.",
+   "refs": []
+  },
+  {
+   "name": "S05_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: high aerial view of Marine Drive in Mumbai at dusk, the curved seafront lights like a necklace, a giant ring of blue light turning in the sky over the bay.",
+   "refs": []
+  },
+  {
+   "name": "S06_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: street level in Mumbai: human hunters, ordinary Indian and foreign men and women in modern armor, walk out of a smaller glowing blue Gate carrying glowing blue crystals the size of footballs, a cheering crowd of Indian people films them on phones, no signs or writing anywhere.",
+   "refs": []
+  },
+  {
+   "name": "S06_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: street level in Mumbai: human hunters, ordinary Indian and foreign men and women in modern armor, walk out of a smaller glowing blue Gate carrying glowing blue crystals the size of footballs, a cheering crowd of Indian people films them on phones, no signs or writing anywhere.",
+   "refs": []
+  },
+  {
+   "name": "S07_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Gate Plaza at evening from above: a tall stone arch filled with swirling blue light, a queue of armored hunters, police barriers, food carts, marigold strings and oil lamps, a tiny wooden tea stall with brass pots at the edge. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": []
+  },
+  {
+   "name": "S07_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Gate Plaza at evening from above: a tall stone arch filled with swirling blue light, a queue of armored hunters, police barriers, food carts, marigold strings and oil lamps, a tiny wooden tea stall with brass pots at the edge. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": []
+  },
+  {
+   "name": "S08_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: close-up of Arjun's hands crushing green cardamom pods in a small stone mortar on the stall counter, a pot of milk tea boiling behind. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S08_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: close-up of Arjun's hands crushing green cardamom pods in a small stone mortar on the stall counter, a pot of milk tea boiling behind. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S09_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Arjun at his stall pours chai from a steel kettle held high into a small glass held low, a long stream of tea, steam, lamp light. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S09_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Arjun at his stall pours chai from a steel kettle held high into a small glass held low, a long stream of tea, steam, lamp light. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S10_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: hunters in armor walking past the tea stall without looking, one kicks a paper cup along the ground. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": []
+  },
+  {
+   "name": "S10_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: hunters in armor walking past the tea stall without looking, one kicks a paper cup along the ground. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": []
+  },
+  {
+   "name": "S11_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Arjun behind his counter holding a full glass, embarrassed small smile, no customers. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S11_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Arjun behind his counter holding a full glass, embarrassed small smile, no customers. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S12_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: a laminated hunter licence card hanging on a nail on the stall post, Arjun's face photo on it, the lamp behind. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S12_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: a laminated hunter licence card hanging on a nail on the stall post, Arjun's face photo on it, the lamp behind. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S13_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: the crowd parts as Viktor, Meera and Raghu walk through the plaza, phones raised, a small camera drone flies beside Viktor. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 1, with exactly the same face. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 2, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "viktor",
+    "meera",
+    "raghu"
+   ]
+  },
+  {
+   "name": "S13_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: the crowd parts as Viktor, Meera and Raghu walk through the plaza, phones raised, a small camera drone flies beside Viktor. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 1, with exactly the same face. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 2, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "viktor",
+    "meera",
+    "raghu"
+   ]
+  },
+  {
+   "name": "S15_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor turns toward the tea stall, laughing, pointing a finger at it, the drone behind his shoulder. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S15_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor turns toward the tea stall, laughing, pointing a finger at it, the drone behind his shoulder. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S16_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: people in the crowd laughing and turning their phones toward the stall. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": []
+  },
+  {
+   "name": "S16_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: people in the crowd laughing and turning their phones toward the stall. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": []
+  },
+  {
+   "name": "S17_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Arjun holds out a glass of chai with a calm smile, steam rising, lamp light. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S17_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Arjun holds out a glass of chai with a calm smile, steam rising, lamp light. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S18_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor holds the small glass with two fingers, sniffing it, pulling a face, eyebrow raised. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S18_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor holds the small glass with two fingers, sniffing it, pulling a face, eyebrow raised. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S19_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Meera at the counter holds three coins out on her open palm, apologetic smile, staff in her other hand. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "meera"
+   ]
+  },
+  {
+   "name": "S19_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Meera at the counter holds three coins out on her open palm, apologetic smile, staff in her other hand. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "meera"
+   ]
+  },
+  {
+   "name": "S21_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Raghu's huge hand takes a small glass of chai from Arjun across the counter, Raghu nods politely. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 0, with exactly the same face. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 1, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "raghu",
+    "arjun"
+   ]
+  },
+  {
+   "name": "S21_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Raghu's huge hand takes a small glass of chai from Arjun across the counter, Raghu nods politely. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 0, with exactly the same face. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 1, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "raghu",
+    "arjun"
+   ]
+  },
+  {
+   "name": "S22_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor drinking the glass of chai in one gulp, head back, the drone filming. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S22_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor drinking the glass of chai in one gulp, head back, the drone filming. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S23_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor tosses the empty glass over his shoulder without looking; behind the counter Arjun catches it without looking. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 1, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "viktor",
+    "arjun"
+   ]
+  },
+  {
+   "name": "S23_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor tosses the empty glass over his shoulder without looking; behind the counter Arjun catches it without looking. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 1, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "viktor",
+    "arjun"
+   ]
+  },
+  {
+   "name": "S24_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: tight close-up portrait of Arjun alone, only his face and shoulders, lit from one side by the warm flame of his oil lamp, the background completely dark, a small smile but serious, knowing eyes looking past the camera. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S24_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: tight close-up portrait of Arjun alone, only his face and shoulders, lit from one side by the warm flame of his oil lamp, the background completely dark, a small smile but serious, knowing eyes looking past the camera. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: evening after sunset, deep blue sky, all the oil lamps and string lights are lit, warm lamp light on the faces.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S25_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: from behind: the three hunters walk into a tall stone arch filled with blue light. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 1, with exactly the same face. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 2, with exactly the same face.",
+   "refs": [
+    "viktor",
+    "meera",
+    "raghu"
+   ]
+  },
+  {
+   "name": "S25_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: from behind: the three hunters walk into a tall stone arch filled with blue light. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 1, with exactly the same face. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 2, with exactly the same face.",
+   "refs": [
+    "viktor",
+    "meera",
+    "raghu"
+   ]
+  },
+  {
+   "name": "S26_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: a huge cave lit by glowing blue mushrooms, Viktor walks in front with a small camera drone floating beside his head, Meera with her glowing staff and Raghu with his tower shield walk two steps behind him; exactly three people. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 1, with exactly the same face. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 2, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor",
+    "meera",
+    "raghu"
+   ]
+  },
+  {
+   "name": "S26_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: a huge cave lit by glowing blue mushrooms, Viktor walks in front with a small camera drone floating beside his head, Meera with her glowing staff and Raghu with his tower shield walk two steps behind him; exactly three people. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 1, with exactly the same face. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 2, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor",
+    "meera",
+    "raghu"
+   ]
+  },
+  {
+   "name": "S27_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: a huge ogre three times a man's height with a butcher's cleaver steps out of the dark, wolves with red eyes behind it, low angle. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": []
+  },
+  {
+   "name": "S27_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: a huge ogre three times a man's height with a butcher's cleaver steps out of the dark, wolves with red eyes behind it, low angle. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": []
+  },
+  {
+   "name": "S28_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: in a dark cave Raghu crouches behind a tall rectangular steel tower shield held up in front of his body with both arms, bracing as a huge shadow looms over him, dust in the torch light. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "raghu"
+   ]
+  },
+  {
+   "name": "S28_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: in a dark cave Raghu crouches behind a tall rectangular steel tower shield held up in front of his body with both arms, bracing as a huge shadow looms over him, dust in the torch light. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "raghu"
+   ]
+  },
+  {
+   "name": "S29_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor against the rock wall, a cut on his arm, gritting his teeth, sword raised. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S29_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor against the rock wall, a cut on his arm, gritting his teeth, sword raised. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S30_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Meera holds up her staff, green healing light pouring from the crystal, scared, shouting. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "meera"
+   ]
+  },
+  {
+   "name": "S30_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Meera holds up her staff, green healing light pouring from the crystal, scared, shouting. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "meera"
+   ]
+  },
+  {
+   "name": "S31_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor in a dark cave looks down in shock at his own raised gauntleted hands, bright golden light glowing on his gauntlets and climbing up his arms like flames, golden sparks rising, gold light on his face. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S31_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor in a dark cave looks down in shock at his own raised gauntleted hands, bright golden light glowing on his gauntlets and climbing up his arms like flames, golden sparks rising, gold light on his face. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S33_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor in mid-swing, his sword cutting through the air and leaving a bright golden arc of light that slices across the huge ogre in front of him, sparks and dust, motion blur on the sword. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. the ogre, a huge hairy monster three times a man's height with a butcher's cleaver: the same creature as in image 1. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor",
+    "ogre"
+   ]
+  },
+  {
+   "name": "S33_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor in mid-swing, his sword cutting through the air and leaving a bright golden arc of light that slices across the huge ogre in front of him, sparks and dust, motion blur on the sword. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. the ogre, a huge hairy monster three times a man's height with a butcher's cleaver: the same creature as in image 1. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor",
+    "ogre"
+   ]
+  },
+  {
+   "name": "S34_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Meera and Raghu staring, mouths open, dust settling. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 0, with exactly the same face. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 1, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "meera",
+    "raghu"
+   ]
+  },
+  {
+   "name": "S34_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Meera and Raghu staring, mouths open, dust settling. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 0, with exactly the same face. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 1, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "meera",
+    "raghu"
+   ]
+  },
+  {
+   "name": "S35_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor with his sword on his shoulder, golden sparks falling, grinning at his drone. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S35_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor with his sword on his shoulder, golden sparks falling, grinning at his drone. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S36_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor slashing through a pack of red-eyed wolves, golden trails in the dark. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S36_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor slashing through a pack of red-eyed wolves, golden trails in the dark. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S37_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Meera and Raghu running to keep up through a dark tunnel. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 0, with exactly the same face. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 1, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "meera",
+    "raghu"
+   ]
+  },
+  {
+   "name": "S37_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Meera and Raghu running to keep up through a dark tunnel. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 0, with exactly the same face. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 1, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "meera",
+    "raghu"
+   ]
+  },
+  {
+   "name": "S39_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: huge stone doors open on a throne room of fire, a minotaur in black armor rising from a stone throne with a giant axe, red eyes, low angle. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": []
+  },
+  {
+   "name": "S39_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: huge stone doors open on a throne room of fire, a minotaur in black armor rising from a stone throne with a giant axe, red eyes, low angle. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": []
+  },
+  {
+   "name": "S40_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor grinning into a small camera drone floating in front of him, golden aura around him, and far behind him in the shadows the huge minotaur boss on its stone throne; only Viktor and the minotaur. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. the minotaur boss, a giant bull-headed monster in black armor with a huge axe and glowing red eyes: the same creature as in image 1. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor",
+    "minotaur"
+   ]
+  },
+  {
+   "name": "S40_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor grinning into a small camera drone floating in front of him, golden aura around him, and far behind him in the shadows the huge minotaur boss on its stone throne; only Viktor and the minotaur. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. the minotaur boss, a giant bull-headed monster in black armor with a huge axe and glowing red eyes: the same creature as in image 1. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor",
+    "minotaur"
+   ]
+  },
+  {
+   "name": "S41_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor leaping high in the air with his sword raised toward the minotaur. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S41_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor leaping high in the air with his sword raised toward the minotaur. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S43_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor in mid-air as the golden light flickers and goes out. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S43_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor in mid-air as the golden light flickers and goes out. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S44_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor landed clumsily in front of the minotaur, pale, sweating, looking up at it. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S44_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor landed clumsily in front of the minotaur, pale, sweating, looking up at it. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S45_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Raghu, behind Viktor, grabs Viktor's black cape at the shoulder with his big hand and yanks him backwards, Viktor stumbling back with a shocked face, dark cave; exactly two people. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 0, with exactly the same face. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 1, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "raghu",
+    "viktor"
+   ]
+  },
+  {
+   "name": "S45_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Raghu, behind Viktor, grabs Viktor's black cape at the shoulder with his big hand and yanks him backwards, Viktor stumbling back with a shocked face, dark cave; exactly two people. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 0, with exactly the same face. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 1, with exactly the same face. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "raghu",
+    "viktor"
+   ]
+  },
+  {
+   "name": "S46_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor, Meera and Raghu sprinting toward the camera down a stone corridor, a wall of blue light ahead of them, the huge minotaur charging far behind them; exactly three people and the minotaur. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 1, with exactly the same face. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 2, with exactly the same face. the minotaur boss, a giant bull-headed monster in black armor with a huge axe and glowing red eyes: the same creature as in image 3. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor",
+    "meera",
+    "raghu",
+    "minotaur"
+   ]
+  },
+  {
+   "name": "S46_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor, Meera and Raghu sprinting toward the camera down a stone corridor, a wall of blue light ahead of them, the huge minotaur charging far behind them; exactly three people and the minotaur. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 1, with exactly the same face. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 2, with exactly the same face. the minotaur boss, a giant bull-headed monster in black armor with a huge axe and glowing red eyes: the same creature as in image 3. This scene is darker: low-key light, deep shadows, lit only by torches and magic light.",
+   "refs": [
+    "viktor",
+    "meera",
+    "raghu",
+    "minotaur"
+   ]
+  },
+  {
+   "name": "S47_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: night, Gate Plaza: Viktor lying on his back on the stone outside the Gate, torn cape, breathing hard, phones pointed at him, his drone hovering above his face. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S47_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: night, Gate Plaza: Viktor lying on his back on the stone outside the Gate, torn cape, breathing hard, phones pointed at him, his drone hovering above his face. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S48_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor getting up, looking across the square at the little tea stall with its lamp still burning. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S48_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: Viktor getting up, looking across the square at the little tea stall with its lamp still burning. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S49_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: night at the tea stall: Viktor, without glasses, bruised and bandaged, slams both gauntleted hands on the wooden counter and shouts, small glasses of chai jumping on the counter, lamp light. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S49_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: night at the tea stall: Viktor, without glasses, bruised and bandaged, slams both gauntleted hands on the wooden counter and shouts, small glasses of chai jumping on the counter, lamp light. Viktor, a 28-year-old Western man with short slicked-back blonde hair and blue eyes, wearing silver plate armor with steel gauntlets and a black cape fastened with round silver clasps, no glasses; Viktor is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "viktor"
+   ]
+  },
+  {
+   "name": "S50_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: close-up of Arjun behind the counter, calm deadpan face, steam drifting between them. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S50_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: close-up of Arjun behind the counter, calm deadpan face, steam drifting between them. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S51_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: night at the tea stall: Meera alone in the frame, holding three coins out on her open palm, hopeful bright eyes, her staff in her other hand, lamp light. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "meera"
+   ]
+  },
+  {
+   "name": "S51_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: night at the tea stall: Meera alone in the frame, holding three coins out on her open palm, hopeful bright eyes, her staff in her other hand, lamp light. Meera, a young Indian woman of 22 with one long black braid, wearing a white robe with gold trim, carrying a tall carved wooden staff topped with a small green crystal; Meera is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "meera"
+   ]
+  },
+  {
+   "name": "S52_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: night: Raghu, deadpan face, raises one hand holding up exactly two fingers, index and middle finger, like a V sign, lamp light, the tea stall behind him. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "raghu"
+   ]
+  },
+  {
+   "name": "S52_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: night: Raghu, deadpan face, raises one hand holding up exactly two fingers, index and middle finger, like a V sign, lamp light, the tea stall behind him. Raghu, a huge bald Indian man of 35 with a thick black beard, wearing dark steel armor, with a tall rectangular steel tower shield held by a handle on his left arm; Raghu is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "raghu"
+   ]
+  },
+  {
+   "name": "S53_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: late at night, the stone plaza completely empty, one small oil lamp burning on the little tea stall, Arjun alone behind the counter wiping a small glass with a cloth, the giant Gate glowing blue far behind. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S53_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: late at night, the stone plaza completely empty, one small oil lamp burning on the little tea stall, Arjun alone behind the counter wiping a small glass with a cloth, the giant Gate glowing blue far behind. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S54_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: late at night at his tea stall, Arjun looks at a floating translucent blue holographic panel of light hanging in the air in front of his face, blank with no writing, blue light on his face, a small smile; only one person. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S54_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: late at night at his tea stall, Arjun looks at a floating translucent blue holographic panel of light hanging in the air in front of his face, blank with no writing, blue light on his face, a small smile; only one person. Arjun, a young Indian man of 18 with a youthful clean-shaven face, messy short black hair and dark brown skin, wearing a white collarless cotton kurta with the sleeves rolled up, a red cloth sash at his waist and a red string bracelet; Arjun is the person in image 0, with exactly the same face. Indian street details: strings of marigold flowers, small oil lamps, brass pots, Indian shop fronts; any shop signs are dark or out of focus so no writing can be read. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": [
+    "arjun"
+   ]
+  },
+  {
+   "name": "S55_a",
+   "seed": 1,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: from the tiny lit tea stall the view rises up to the giant Gate; inside the blue light a huge red eye opens. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": []
+  },
+  {
+   "name": "S55_b",
+   "seed": 2,
+   "prompt": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field. Film still: from the tiny lit tea stall the view rises up to the giant Gate; inside the blue light a huge red eye opens. Time: late night, black sky, the plaza lit only by small oil lamps and the blue glow of the Gate.",
+   "refs": []
+  }
+ ]
+}

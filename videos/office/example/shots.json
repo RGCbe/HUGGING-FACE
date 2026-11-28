@@ -1,0 +1,145 @@
+{
+ "sections": [
+  {
+   "mood": "suspense",
+   "items": [
+    {
+     "pic": "p02",
+     "w": 1
+    },
+    {
+     "pic": "p01",
+     "w": 1
+    },
+    {
+     "pic": "host_think",
+     "w": 0.7
+    }
+   ]
+  },
+  {
+   "mood": "playful",
+   "items": [
+    {
+     "pic": "p05",
+     "w": 1
+    },
+    {
+     "pic": "p13",
+     "w": 1
+    },
+    {
+     "pic": "p04",
+     "w": 1
+    }
+   ]
+  },
+  {
+   "mood": "playful",
+   "items": [
+    {
+     "pic": "p15",
+     "w": 1.2
+    },
+    {
+     "pic": "host_laugh",
+     "w": 0.8
+    }
+   ]
+  },
+  {
+   "mood": "curious",
+   "items": [
+    {
+     "pic": "p06",
+     "w": 1
+    },
+    {
+     "pic": "p07",
+     "w": 1
+    }
+   ]
+  },
+  {
+   "mood": "warm",
+   "items": [
+    {
+     "pic": "p08",
+     "w": 1
+    },
+    {
+     "pic": "p14",
+     "w": 1
+    }
+   ]
+  },
+  {
+   "mood": "warm",
+   "items": [
+    {
+     "pic": "p09",
+     "w": 1
+    }
+   ]
+  },
+  {
+   "mood": "curious",
+   "items": [
+    {
+     "pic": "host_comment",
+     "w": 1
+    }
+   ]
+  }
+ ],
+ "caption_replace": {
+  "ta": [
+   [
+    "காலை ஆறு மணிக்கு",
+    "காலை 6 மணிக்கு"
+   ],
+   [
+    "ஏழு வருஷ",
+    "7 வருஷ"
+   ],
+   [
+    "மூணு வருஷமா",
+    "3 வருஷமா"
+   ],
+   [
+    "ஆறு மாச",
+    "6 மாச"
+   ],
+   [
+    "மூணு வாரத்துல",
+    "3 வாரத்துல"
+   ]
+  ],
+  "en": [
+   [
+    "Six a.m.",
+    "6 a.m."
+   ],
+   [
+    "Seven years",
+    "7 years"
+   ],
+   [
+    "six in the morning",
+    "6 in the morning"
+   ],
+   [
+    "three years",
+    "3 years"
+   ],
+   [
+    "Six months'",
+    "6 months'"
+   ],
+   [
+    "Three weeks",
+    "3 weeks"
+   ]
+  ]
+ }
+}

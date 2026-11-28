@@ -1,0 +1,259 @@
+[
+ {
+  "id": "t03",
+  "shots": [
+   "S15"
+  ],
+  "takes": [
+   {
+    "take": "a",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "two bats: a flat plank rises up-left behind his head, and a separate round-ended club with a black grip rises up-right from his hands (the round end reads as a baseball bat)",
+     "Devanagari-like letters on three shop signs (readable-looking text)",
+     "minor: a lit lamp in the top-right corner (S15: no floodlights)",
+     "minor: the friends share one round face and one haircut; two yellow vests plus a yellow polo, with small chest marks",
+     "(good: boy about 11-12, one red ball, golden hour, friends running)"
+    ]
+   },
+   {
+    "take": "b",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "two bats: a flat plank rises up-left behind his head (about x 545-800, y 130-345), separate from the bat in his hands, which rises up-right",
+     "he holds the bat with one hand: the lower hand (with the bracelet) is off the bat and points at the ball",
+     "readable text on the shop signs: '& NAGAR', 'AUS', 'RINBA' and Devanagari-like words",
+     "minor: a lit street lamp (about x 395-490, y 80-140)",
+     "minor: two yellow vests; the friend in brown at the far left reads about 17; a small background boy in a blue shirt",
+     "unsure: handedness is unclear; his left shoulder leads towards the ball, which reads right-handed",
+     "(good: boy about 11 with a round face, close to the asked age; one red ball by the bat; dusty village ground at golden hour; no floodlights; friends shouting and running)"
+    ]
+   },
+   {
+    "take": "c",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the hero still looks about 14 with long teenage legs; the edit did not change his age",
+     "the double is still there: the friend at the back right wears the same blue polo and has the same hair and face",
+     "the triangle mark is still on the bat blade (about x 570-605, y 262-292)",
+     "letter-like 'JAJJI RA' sign (about x 950-1030, y 360-405); a crest on the yellow polo (about x 1315-1340, y 430-455)",
+     "right-handed: the bat is up over his right shoulder, with his left shoulder towards the ball",
+     "the friend is in a yellow polo, not a yellow vest; the fielders still look like older teenagers",
+     "(good: one bat, one red ball in the air in front of him, floodlights gone)"
+    ]
+   }
+  ],
+  "choice": null,
+  "why": "All three fail on major points. a and b (fresh) got the age right but both drew two bats, and both have letter-like shop signs. c (an edit) has one bat and one ball, but the age, the double, the bat mark, the sign and the crest are all still there, and the stance reads right-handed. Closest is b: right age, one red ball by the bat, friends in yellow vests, no floodlights. Its faults are local.",
+  "fix_if_none": "Route 1, masked local patches on t03_b (card 22, step 5): (1) paint out the second plank, box 540 125 805 350, and fill it with sky, trees and the shop front (keep the yellow-vest boy's head and the hero's hair); (2) repaint the lower hand so that it grips the same handle just below the top hand, five fingers, box 925 375 1065 485; (3) make every shop sign a plain colour panel with no writing, boxes 55 90 365 285, 485 200 710 350, 1035 145 1255 275, 1245 15 1664 305; (4) optional, minor: unlit or remove the street lamp, box 390 75 495 145. If his stance still reads right-handed, mirror the whole frame left to right (the signs will be blank by then). Route 2, if the hand patch fails: 3 fresh takes with a changed prompt: a held backlift instead of 'swinging' ('one cricket bat held up behind his shoulder in both hands, in one piece, waiting for one red ball'), 'plain mud-plastered shop walls with no signboards at all', and 'no lamps, no poles with lights'."
+ },
+ {
+  "id": "t04",
+  "shots": [
+   "S03"
+  ],
+  "takes": [
+   {
+    "take": "a",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the bat has no flat blade: past the black taped grip, the wood swells into a round cylinder with a dark ring cap at the toe (about x 1490-1515, y 720-800), like a baseball bat or club, with no shoulders and no flat face",
+     "minor: both windows show a real stadium at ground level with floodlights (stars above, soft haze), not a dream stadium glowing among the stars",
+     "(good: a small child of about 9-10 with round cheeks, asleep with his cheek on the bat; the whole bat is in front of him with nothing behind his head; no ball; plain blue T-shirt; woven mat; hand wrapped round the bat with 3-4 fingers showing, forearm and elbow plausible; window boards blurred and unreadable)"
+    ]
+   },
+   {
+    "take": "b",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "two pieces: a pale flat paddle with a round end lies under his head, and a separate darker round log with a round end continues on the right; no handle or grip anywhere",
+     "minor: a real ground-level stadium in the window",
+     "(good: child about 8-10, asleep on a mat, nothing behind his head)"
+    ]
+   },
+   {
+    "take": "c",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the bat reads as a rifle stock or a club: a black grip on top, a second wooden cylinder under it (round end at about x 295-340, y 630-750), a box-like joint with a dark slot (about x 840-940, y 620-750), then a round tapering barrel with a round end",
+     "minor: a real ground-level stadium in the window",
+     "(good: child about 9-10, round cheeks, asleep, hugging the bat with both arms, nothing behind his head)"
+    ]
+   }
+  ],
+  "choice": null,
+  "why": "All three fixed the age and moved the bat in front of him, so the fresh takes solved the old picture's two major faults. Every take then fails on the bat itself: a club, two pieces, a rifle-like stock. a is closest: one piece, a clean handle and grip, a good sleeping pose and face. Only the blade shape is wrong.",
+  "fix_if_none": "Masked local repaint of the bat only in t04_a (card 22, step 5), box 150 610 1545 835, protecting the face (about 455 540 800 715) and the hand and forearm lying on the bat (about 540 680 1070 805). Prompt: 'one cricket bat lying on the mat with its flat face turned towards the viewer: the black taped handle runs straight into a wide, flat wooden blade with square shoulders and a square toe, the blade about three times as wide as the handle; no round end, no cap'. If the patch cannot widen the blade convincingly, make 3 fresh takes with the bat upright against his chest ('he lies on his side facing us, hugging one cricket bat upright against his chest with both arms, the flat face of the blade towards us, the handle under his chin'). Leave the window as it is (minor)."
+ },
+ {
+  "id": "c04",
+  "shots": [
+   "S11"
+  ],
+  "takes": [
+   {
+    "take": "a",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "a fan in light blue leaps up out of the teal-shirt fan's head: two stacked, merged bodies in the centre (about x 450-560, y 410-650)",
+     "a raised arm with a fist and no body under it (about x 540-595, y 500-620)",
+     "(good: one red ball, upside-down figure gone)"
+    ]
+   },
+   {
+    "take": "b",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "minor: letter-like 'DAIT' in navy capitals on the white T-shirt of the upper-tier fan at the left; paint out, box 282 482 334 516",
+     "minor: a small white placard with glyph-like marks held up behind the right-hand fans; paint out or make it blank, box 1180 398 1226 440",
+     "minor: a red bottle-like patch and a leaf print on the cap-wearer's grey polo; paint out, box 325 712 385 750",
+     "minor: a tiny oval badge on the yellow polo; paint out, box 1022 685 1046 708",
+     "note: the loose kicking legs and the upside-down figure are gone; every fan is upright with their own arms and legs (checked left, centre and right at 1:1); one red ball high above the stands; a mixed crowd of men and women, young and older; painted anime",
+     "note: the focal fan at the centre right (light-blue shirt, black hair) is an older, lighter-skinned man, not the hero's design"
+    ]
+   },
+   {
+    "take": "c",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "a grey figure lying sideways on the upper tier next to the red-shirt fan (about x 530-590, y 530-590), like the old upside-down figure",
+     "a floating fist with no arm in the middle of the crowd (about x 918-935, y 592-610)"
+    ]
+   }
+  ],
+  "choice": "b",
+  "why": "b is the only take with no broken bodies. It does the asked fix fully and keeps the frame, the ball and the crowd of the old picture. The four small marks are cheap local paint-outs (an OpenCV-size job, like i01). Do them before the clip, because 'no letters' is a hard rule. After that, b is a good start for 'the ball drops into the stands, fans leap'.",
+  "fix_if_none": null
+ },
+ {
+  "id": "c05",
+  "shots": [
+   "S20"
+  ],
+  "takes": [
+   {
+    "take": "a",
+    "ok": true,
+    "severity": null,
+    "problems": [
+     "note: the football goal is gone; the ground behind him is a plain yellow-green cricket outfield",
+     "note: both hands are on his head, four fingers showing on each (thumbs tucked); plain white shirt, black skull cap, no logos; boards and stand banners are soft blur with nothing readable; same face and frame as the old picture",
+     "note: an adult with an angular face and a frown; does not read as the hero"
+    ]
+   },
+   {
+    "take": "b",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "two long white converging lines across the field, like football touchlines (the p01 fault)",
+     "(goal gone)"
+    ]
+   },
+   {
+    "take": "c",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "at the lower right, a blurred white standing figure and a white board (about x 1440-1520, y 690-850 and x 1300-1390, y 770-830) could read as an extra player or the rest of a goal",
+     "(goal gone)"
+    ]
+   }
+  ],
+  "choice": "a",
+  "why": "a removes the goal cleanly and changes nothing else. It is a good start for 'scratches his head with both hands, frowns', because both hands are already on his head. Continuity watch for the cut: S20 cuts straight to S21. In c06 (choice a), the young clean-shaven man in the white cap will read as this bowler, but his cap is a white baseball cap, where this one is a black skull cap. Minor; just flagging it for the editor.",
+  "fix_if_none": null
+ },
+ {
+  "id": "c06",
+  "shots": [
+   "S21"
+  ],
+  "takes": [
+   {
+    "take": "a",
+    "ok": true,
+    "severity": null,
+    "problems": [
+     "note: the cap is plain white (eyelets and a top button only, no logo); the left man's chest badge is gone; both shirts are plain; the stand banners are plain blurred blocks (checked at 3x)",
+     "note: the left man has close-cropped grey hair and a short salt-and-pepper beard, and he frowns in puzzlement; he no longer looks like the hero",
+     "note: four hands on hips, four fingers showing on each (thumbs behind)",
+     "minor: the left man reads about 50, not the asked 30: more a veteran or coach than a fast bowler (all three takes do this)"
+    ]
+   },
+   {
+    "take": "b",
+    "ok": true,
+    "severity": "minor",
+    "problems": [
+     "minor: the left man is balding and about 55, with a faint smile, which is the wrong mood for 'confused'",
+     "note: cap plain, chest plain, hands fine"
+    ]
+   },
+   {
+    "take": "c",
+    "ok": true,
+    "severity": "minor",
+    "problems": [
+     "minor: the left man is about 60, with a white beard, deep wrinkles and a faint smile, which is the wrong mood for 'confused'",
+     "note: cap plain, chest plain, hands fine"
+    ]
+   }
+  ],
+  "choice": "a",
+  "why": "All three fix the logo, the badge and the hero lookalike. a is closest to the asked look (short beard, close-cropped hair). It is the youngest of the three, and the only one whose face reads puzzled, which suits 'look at each other, shrug, confused'. Continuity: see c05 (white cap vs black skull cap).",
+  "fix_if_none": null
+ },
+ {
+  "id": "c07",
+  "shots": [
+   "S14",
+   "S28"
+  ],
+  "takes": [
+   {
+    "take": "a",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "a forearm with no hand comes down across the blonde woman's face (about x 1325-1390, y 430-580)",
+     "a smooth, pointed arm with no hand rises in front at the left of centre, where the phone hand was (about x 325-390, y 400-560)",
+     "minor: a ghostly blurred hand where the old pointing hand was (about x 635-695, y 335-375); a printed patch on the red shirt at the left (about x 105-195, y 670-765)",
+     "(balls and bat gone)"
+    ]
+   },
+   {
+    "take": "b",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "minor (unchanged from the old picture, in all three takes): the crowd still reads Western or East Asian (light skin; two women with blonde or light-brown hair); everyone looks about 20-35, with no older fans or children; many wear matching green overshirts. The 'Indian fans of many ages' part of the edit did not take",
+     "note: all three red balls and the floating bat are gone; every raised hand is open, a fist, or holds a light (checked the old ball and bat spots at 1:1); a few phone and light-stick glows; nobody holds a prop",
+     "note: the centre-left woman's hand at her chest is soft (curled, fingers faint), which is fine at 832x480; the blonde woman's hand on her face reads as a hand"
+    ]
+   },
+   {
+    "take": "c",
+    "ok": false,
+    "severity": "minor",
+    "problems": [
+     "a V-sign hand and a fist merged on one wrist in the mid-ground, box 1045 295 1135 400",
+     "same minor crowd point as b",
+     "(balls and bat gone; the old phone hand now holds a dark phone)"
+    ]
+   }
+  ],
+  "choice": "b",
+  "why": "b fixes both major faults (three balls, floating bat) and adds no broken hands; a has handless arms and c has a merged hand. The only remaining point is the minor one from the first review: the crowd does not read as Indian. b can go to the clip as it is. If the owner wants an Indian crowd of many ages, edit mode will not get there: three edits changed no faces. It would need 3 fresh takes ('an Indian cricket crowd at night: men and women, grandparents, teenagers and children, many skin tones from wheat to dark brown, saris, kurtas and plain T-shirts, arms up, phone lights; nobody holds a ball or a bat').",
+  "fix_if_none": null
+ }
+]

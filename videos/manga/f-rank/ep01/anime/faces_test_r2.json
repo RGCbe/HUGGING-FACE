@@ -1,0 +1,11 @@
+{
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "test_raghu_S23b",
+   "seed": 21,
+   "prompt": "The same man as in image 0, with exactly the same face, bald head, black beard and dark armor, in a new scene: in a dark rocky cave he stands firm behind a huge round-topped steel tower shield held up in front of him, determined look, dust drifting in torch light. Medium shot. Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field.",
+   "edit": "out/faces/face_raghu_1.png"
+  }
+ ]
+}

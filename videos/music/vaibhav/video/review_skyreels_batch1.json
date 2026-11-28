@@ -1,0 +1,227 @@
+[
+ {
+  "clip": "skyreels/t01_s7.mp4",
+  "picture": "t01",
+  "seed": 7,
+  "shot": "S01",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 97 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": true,
+  "severity": "minor",
+  "usable": [
+   0.0,
+   4.04
+  ],
+  "checked": "27 Nov 2026, batch 1, by the clip checker (card 24). sha256 f151ab4a..., h264, 960x544, 24 fps, 97 frames counted, 4.042 s, no audio (ffprobe). Frame 0 matches t01.png (centre crop, 29.06 dB). Contact sheet at 5 fps (21 frames plus the start picture); a face strip (t01 plus 9 times); a bat-and-hand strip (t01 plus 12 times) and 2x blade zooms at 3.0, 3.58, 3.79 and 4.0 s; a cow strip (t01 plus 13 times); a strip of his free left hand (13 times); whole frames at 0, 2.0 and 4.0 s to judge the camera move; frames 0-7 and 89-96 one by one. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "minor: the cow walks straight at the camera all through and never turns its head, which the prompt asks for (round-1 S01_fast and Wan S01_a did the same).",
+   "minor: from about 2.5 s his eyes grow a little larger and rounder and the brows a little heavier. It stays t01's young painted boy, with nothing older and no drift towards photo-real.",
+   "minor: the tiny mark on the blade that t01 already has (the picture review: 'a tiny mark on it cannot be read') turns into a short row of dark dots at 3.0-4.0 s. Nothing is readable. The round handle end in front of his fist gets a little fatter towards the end.",
+   "minor: the dust drifting in the sunbeams cannot be made out in the frames (the beams themselves hold).",
+   "minor: 4.04 s for a 5.5 s shot, so the edit holds the last frame for about 1.5 s. That frame (4.0 s) is clean: the boy in mid-stride with the bat on his shoulder, the cow behind him."
+  ],
+  "notes": [
+   "Held: the same boy all through (blue polo, black hair, brown skin), painted anime. One bat, seen edge-on as in t01: a flat wooden blade over his right shoulder, a black grip band and his fist round the handle, four fingers and a thumb whole in every frame checked. No baseball bat, no second bat, no ball. His free left hand stays whole until it leaves the bottom of the frame at about 2 s. One cow with four legs, horns and tail; nothing appears or vanishes. No text or logos.",
+   "The camera does what the prompt asks: it trucks back down the lane in front of him, the houses fall away and a new house comes into view behind; he gains a little on the camera, so he grows from about 145 to 170 px head height.",
+   "No pop at the start (the round-1 S01_fast pop at 0.21 s is not here): brightness rises smoothly from 120.8 to 135.9 as the sun opens up, the biggest step is 0.95 (frame 0 to 1), frame-to-frame change 2.1-7.8 and no repeated frames. Sharpness steady (722-819)."
+  ],
+  "fix": "None needed. Chosen for S01 (see picks)."
+ },
+ {
+  "clip": "skyreels/t01_s21.mp4",
+  "picture": "t01",
+  "seed": 21,
+  "shot": "S01",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 97 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": true,
+  "severity": "minor",
+  "usable": [
+   0.0,
+   4.04
+  ],
+  "checked": "27 Nov 2026, batch 1, by the clip checker (card 24). sha256 f160004b..., h264, 960x544, 24 fps, 97 frames counted, 4.042 s, no audio (ffprobe). Frame 0 matches t01.png (centre crop, 28.78 dB). Contact sheet at 5 fps (21 frames plus the start picture); a face strip (t01 plus 11 times, 0.5 s apart and every 4 frames at the end); a bat-and-hand strip (t01 plus 12 times) and 1.75x blade zooms at 0, 2.42, 3.21 and 4.0 s; a cow strip (t01 plus 13 times); whole frames at 0, 2.0 and 4.0 s and phase-correlation of the house areas to judge the camera move; frames 0-5 and 84-96 one by one. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "minor: the camera barely moves. The houses do not shift between 0 and 4 s (measured: 0 px on the right-hand house until the last frames); the boy simply walks up to the lens. The prompt asks for the camera to track back in front of him.",
+   "minor: the cow walks towards the camera and never turns its head.",
+   "minor: from about 2 s his eyes are bigger and his face is rounder, a little more than in seed 7 (clearest at 2.0 and 3.5-4.0 s). Still t01's young painted boy.",
+   "minor: as in t01, small dark unreadable dots on the blade, a little clearer from 2.4 s.",
+   "minor: 4.04 s for a 5.5 s shot (a hold of about 1.5 s)."
+  ],
+  "notes": [
+   "Held: one edge-on flat bat with a black grip band, his fist whole; one cow (its tail fades in and out a little); no text or logos; painted anime. Smooth: brightness 120.4 down to 111.0, biggest step 0.63, no repeated frames. The frame-to-frame change rises from about 3 to 5-8 in the last 0.5 s as he comes close to the lens; the frames there are clean (he sways as he walks)."
+  ],
+  "fix": "None needed. Not chosen: seed 7 makes the camera move the prompt asks for. Keep it as the backup."
+ },
+ {
+  "clip": "skyreels/t02_s7.mp4",
+  "picture": "t02",
+  "seed": 7,
+  "shot": "S02",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 97 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": false,
+  "severity": "major",
+  "usable": [
+   0.0,
+   2.88
+  ],
+  "clip_cut_end": 1.15,
+  "clip_cut_end_note": "Only if it is ever needed as a backup: it ends on frame 69 (2.875 s), his face still t02's with a slight smile, the bat at the left edge. That leaves 2.9 s for a 4.2 s shot (a hold of about 1.3 s).",
+  "checked": "27 Nov 2026, batch 1, by the clip checker (card 24). sha256 b89d5137..., h264, 960x544, 24 fps, 97 frames counted, 4.042 s, no audio (ffprobe). Frame 0 matches t02.png (centre crop, 28.55 dB). Contact sheet at 5 fps (21 frames plus the start picture); a face strip that follows the push-in (t02 plus 12 times); a bat-and-fist strip (t02 plus 18 times); frames 62-80 one by one (the face change); whole frames of both seeds and t02 side by side at 2.83, 3.0, 3.5 and 4.0 s. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "major: the push-in is far faster than 'slowly'. His fist leaves the bottom of the frame at about 2.3-2.5 s and the bat leaves the left edge at about 3.3 s; from about 3.4 s it is an extreme close-up with the top of his head cut off. The grip on the bat, which is what the shot is about, is gone for the last 1.5 s.",
+   "major: as the face grows to fill the frame (2.9-4.0 s), it is redrawn rounder and broader, with heavier brows and bigger, glossier eyes. It reads as a younger, chubbier boy in a slightly different style; no drift towards photo-real.",
+   "minor: the frames soften as the camera closes in (sharpness 778 down to 461 at the end)."
+  ],
+  "notes": [
+   "Held up to 2.88 s: the same boy (grey irises and faint freckles as in t02), one plank bat with sloped dark shoulders and a short handle in a whole fist. He blinks once (0.79 s), looks up, and a slow small smile comes from about 2 s, as asked. No text or logos. Smooth: brightness 124.4 up to 133.3, then down to 116.8 as his face fills the frame; biggest step 1.2; no repeated frames."
+  ],
+  "fix": "Not chosen: seed 21 does the same action with a slow push-in and keeps the bat in frame. Backup only, with clip_cut_end 1.15."
+ },
+ {
+  "clip": "skyreels/t02_s21.mp4",
+  "picture": "t02",
+  "seed": 21,
+  "shot": "S02",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 97 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": true,
+  "severity": "minor",
+  "usable": [
+   0.0,
+   4.04
+  ],
+  "checked": "27 Nov 2026, batch 1, by the clip checker (card 24). sha256 042166b8..., h264, 960x544, 24 fps, 97 frames counted, 4.042 s, no audio (ffprobe). Frame 0 matches t02.png (centre crop, 28.98 dB). Contact sheet at 5 fps (21 frames plus the start picture); a face strip (t02 plus 12 times); a bat strip (t02 plus 15 times), 2x blade zooms at 2.0, 3.33 and 4.0 s and 1.3x fist zooms at 1.5-3.0 s; whole frames of both seeds and t02 side by side; frames 0-4 and 76-96 one by one. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "minor: from about 3.0 s, as the camera closes in, his face is a little rounder with bigger eyes and heavier brows (clearest at 3.67-4.0 s). It is much milder than seed 7 and still reads as t02's boy.",
+   "minor: the fist leaves the bottom of the frame at about 3.3 s; the bat stays in frame, tilted to a diagonal, to the end.",
+   "minor: the bat tilts from upright to about 30 degrees off upright as the camera pushes in (1.5-2.5 s); it reads as the camera moving, not the bat falling.",
+   "minor: 4.04 s for a 4.2 s shot (a hold of about 0.2 s)."
+  ],
+  "notes": [
+   "Held: one weathered plank bat with sloped dark shoulders and a short handle in a whole fist (thumb over four fingers); the fist closes a little tighter between 1.5 and 2.0 s, as asked. The dark marks on the blade are weathering blotches, not letters (checked at 2x). He looks up, smiles with an open mouth at 1.0-2.5 s, then a closed, determined smile. Dust motes float through the light. The push-in is slow and steady. No text or logos. Painted anime, nothing older, nothing photo-real.",
+   "Smooth: brightness falls evenly from 126.5 to 110.0, biggest step 0.54; frame-to-frame change 4.1-9.1 (a steady camera move); no repeated frames; sharpness 821 at the start, 672 at the end. The end frame (4.0 s) is clean."
+  ],
+  "fix": "None needed. Chosen for S02."
+ },
+ {
+  "clip": "skyreels/t04_s7.mp4",
+  "picture": "t04",
+  "seed": 7,
+  "shot": "S03",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 97 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": true,
+  "severity": "minor",
+  "usable": [
+   0.0,
+   4.04
+  ],
+  "checked": "27 Nov 2026, batch 1, by the clip checker (card 24). sha256 bae33951..., h264, 960x544, 24 fps, 97 frames counted, 4.042 s, no audio (ffprobe). Frame 0 matches t04.png (centre crop, 29.24 dB). Contact sheet at 5 fps (21 frames plus the start picture); a strip of the boy and bat (t04 plus 8 times); 1.6x zooms of the sleeping face at 0, 2.0 and 4.0 s; 1.2x zooms of both fists at 0, 1.33, 2.67 and 4.0 s; the window every 4 frames (25 frames) and at 0-4 s; brightness of the window and the bulb area for every frame; frames 0-3 and 89-96 one by one. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "minor: the stadium in the window glows steadily and does not visibly flicker (window brightness 92.9-101.0, biggest step 0.72). The bulb does not shimmer either.",
+   "minor: the window still shows a real ground-level stadium (as in t04, a minor fault noted when the picture passed); as the camera moves in, a green pitch strip comes into view at its bottom from about 2.5 s.",
+   "minor: the flat handle-end disc below his fists (the picture review's optional fix) is still there all through.",
+   "minor: S03 asks for timing on threes; the clip is smooth 24 fps motion (as for every clip; that is done in the edit)."
+  ],
+  "notes": [
+   "Held: the same sleeping child (eyes shut, calm, a light blush), breathing gently; one flat plank bat in one piece, held in two whole fists at about 45 degrees all through; no ball; nothing appears or vanishes in the window (every 4th frame checked). The camera drifts slowly in and up towards the window, as asked. No text or logos. Smooth: brightness 60.8 up to 65.3, biggest step 0.76; frame-to-frame change 0.85-4.4; no repeated frames. The end frame (4.0 s) is clean, and the clip fills the 4.0 s shot with no hold."
+  ],
+  "fix": "None needed. Chosen for S03."
+ },
+ {
+  "clip": "skyreels/t04_s21.mp4",
+  "picture": "t04",
+  "seed": 21,
+  "shot": "S03",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 97 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": false,
+  "severity": "minor",
+  "usable": [
+   0.0,
+   1.54
+  ],
+  "checked": "27 Nov 2026, batch 1, by the clip checker (card 24). sha256 c70f763f..., h264, 960x544, 24 fps, 97 frames counted, 4.042 s, no audio (ffprobe). Frame 0 matches t04.png (centre crop, 29.28 dB). Contact sheet at 5 fps (21 frames plus the start picture); 1.2x fist zooms at 0, 1.33, 2.67 and 4.0 s; 1.4x zooms of the window at 14 times from 1.42 to 4.0 s; a bright-blob tracker on the window for all 97 frames (each frame against the median of its neighbours); brightness of the window and the bulb area for every frame; frames 0-2 and 93-96 one by one. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "minor-to-major: something appears and vanishes. A white, fluffy, ball-sized blob rises across the stands in the window from frame 38 to 57 (1.58-2.38 s), from (699,255) to (701,193), at most about 14x12 px, then shrinks and fades. At clip speed it reads as a white ball flying over the stadium, and S03's rules exclude a ball. Cutting it would leave 1.54 s of a 4.0 s shot, and none of our edit scripts can trim the start of a clip.",
+   "minor: it is almost a still picture. Frame-to-frame change is 0.5-1.75 (seed 7: 0.85-4.4); the camera hardly drifts and only his breathing moves. No flicker or shimmer (window brightness 96.6-99.6, biggest step 0.31)."
+  ],
+  "notes": [
+   "Held: the same sleeping boy, one plank bat in two whole fists, the handle-end disc as in t04. No text or logos. Brightness 59.5-61.1. There are no repeated frames, but the frame-to-frame change is about 0.3 higher every 4th frame (the model's 4-frame rhythm); it cannot be seen on the frames. The end frame is clean."
+  ],
+  "fix": "Not chosen: seed 7 has the camera drift and no blob. Not a good backup; if seed 7 is ever rejected, make a new seed."
+ },
+ {
+  "clip": "skyreels/p01_s7.mp4",
+  "picture": "p01",
+  "seed": 7,
+  "shot": "S04",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 97 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": false,
+  "severity": "major",
+  "usable": [
+   0.0,
+   0.33
+  ],
+  "checked": "27 Nov 2026, batch 1, by the clip checker (card 24). sha256 dc0323c5..., h264, 960x544, 24 fps, 97 frames counted, 4.042 s, no audio (ffprobe). Frame 0 matches p01.png (centre crop, 27.34 dB). Contact sheet at 5 fps (21 frames plus the start picture); whole frames at 1.0, 1.42, 2.42, 3.0 and 4.0 s at 0.75x; frames 0-16 (every 2nd) and 92-96 one by one. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "major: the haze turns into a smoke storm. From 0.33-0.42 s thick tan clouds with cartoon curls billow up over the stands and into the sky, hiding most of the crowd until about 2.2 s. Sharpness falls from 270-400 to 55-62 at 1.1-1.9 s. The prompt asked for haze that drifts.",
+   "major: football markings. From about 1.0 s, sharp white lines are drawn on the ground: two long sidelines, a large rectangle over the strip and a small box at the far end by the fence (clearest at 2.42 s). It reads as a football goal area, not a cricket ground. p01 itself has no lines (its white centre line was painted out before it passed).",
+   "minor: the camera flies forward over the ground into the stands, so the floodlights leave the top of the frame by about 2.4 s and it ends on dim stands under a dark sky (brightness 133.9 at 1.3 s down to 41.2 at 4.0 s). The floodlit look of p01 is gone for the last 1.5 s, and the edit would hold that dark frame for about 1.9 s."
+  ],
+  "notes": [
+   "Held: the crowd itself, many small figures with arms up, with no signs, flags or text seen; painted anime. The brightness changes smoothly (biggest step 3.15, no flash) and there are no repeated frames."
+  ],
+  "fix": "Discard. No cut saves it: the smoke starts at 0.33 s."
+ },
+ {
+  "clip": "skyreels/p01_s21.mp4",
+  "picture": "p01",
+  "seed": 21,
+  "shot": "S04",
+  "model": "SkyReels-V2 I2V 14B 540P with the lightx2v speed LoRA, fast mode (4 steps, guidance 1, empty negative), 960x544, 97 frames at 24 fps, prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked)",
+  "ok": true,
+  "severity": "minor",
+  "usable": [
+   0.0,
+   4.04
+  ],
+  "checked": "27 Nov 2026, batch 1, by the clip checker (card 24). sha256 157fd93f..., h264, 960x544, 24 fps, 97 frames counted, 4.042 s, no audio (ffprobe). Frame 0 matches p01.png (centre crop, 29.82 dB). Contact sheet at 5 fps (21 frames plus the start picture); whole frames at 1.0, 1.58, 2.21, 3.0 and 4.0 s at 0.75x; ground strips at 1.0, 1.42, 1.79 and 2.21 s; full-size crowd crops at 3.0 and 4.0 s; 2x crops of the front-row crowd at six frames from 2.5 to 2.92 s (waving); frames 0-4 and 92-96 one by one. Brightness, frame-to-frame change and sharpness (Laplacian variance) for every frame.",
+  "problems": [
+   "minor: white lines appear on the ground at 1.0-2.4 s: short crease-like marks at the near end of the strip and two long straight sidelines running to the fence, with a line along it. The ground reads as a rectangular field rather than an oval, but there is no goal box. It leaves the bottom of the frame at about 2.8 s.",
+   "minor: the camera moves forward and up over the ground into the stands rather than rising high over the ground. The floodlights flare, then leave the top of the frame by about 2.2 s, and the clip ends on a closer, dimmer view of the stands under a dark sky (brightness 107.7 at 0.9 s down to 48.1 at 4.0 s).",
+   "minor: 4.04 s for a 5.9 s shot, so the edit holds that dimmer stands frame for about 1.9 s.",
+   "minor, only at 2x: the far faces are blank blobs (normal at this distance), and one red shirt in the front row has a tiny white chest mark (about 3 px at clip size, unreadable)."
+  ],
+  "notes": [
+   "Held: no smoke storm; the haze stays soft light beams. The crowd really waves: arms change position from frame to frame in the front rows. No signs, flags, bats, balls or text in the crowd; a few blank grey panels in the stands. Painted anime. Smooth: biggest brightness step 1.91, frame-to-frame change 2.9-12.2 (a steady camera move), no repeated frames, sharpness 339-472. The end frame (4.0 s) is clean."
+  ],
+  "fix": "None needed. Chosen for S04, after the owner has seen it."
+ },
+ {
+  "picks": {
+   "t01": "t01_s7",
+   "t02": "t02_s21",
+   "t04": "t04_s7",
+   "p01": "p01_s21"
+  },
+  "shots": {
+   "S01": "t01_s7",
+   "S02": "t02_s21",
+   "S03": "t04_s7",
+   "S04": "p01_s21"
+  },
+  "why": {
+   "t01": "Both seeds are clean walks with t01's boy and one edge-on flat bat, and in both the cow never turns its head. Seed 7 does the camera move the prompt asks for (it trucks back down the lane in front of him), starts with no pop and is the livelier take. Seed 21's camera stays put while he walks up to the lens, and his face rounds a little more. Seed 21 is a usable backup. The earlier verdict (review_skyreels.json) kept Wan S01_a for S01; t01_s7 has none of the round-1 SkyReels faults (the start pop, the over-coloured cow) and is longer (4.04 s against 3.375 s), so the hold in the 5.5 s shot is shorter. The owner chooses between the two.",
+   "t02": "Seed 21 pushes in slowly as asked, keeps the bat in frame for all 4 s, shows the grip tightening and the slow smile, and keeps t02's face with only mild rounding at the end. Seed 7's push-in overshoots into an extreme close-up: the fist is gone by about 2.4 s, the bat by about 3.3 s, and the face is redrawn rounder and broader from 2.9 s. Seed 7 is a backup only with clip_cut_end 1.15.",
+   "t04": "Seed 7 drifts gently towards the window as asked and nothing in it appears or vanishes. Seed 21 is nearly still and has a white, ball-like blob flying across the stadium in the window at 1.58-2.38 s. Neither shows a visible flicker of the dream stadium or a shimmer of the bulb. Seed 21 is not a good backup.",
+   "p01": "Seed 21 is the only usable take: a forward and upward camera move over the ground to a waving crowd, with soft haze. Seed 7 fails: a smoke storm from 0.33 s and football-like box markings on the ground from 1.0 s."
+  },
+  "second_takes": "Each of the four pictures is used by one shot only (plan.json shots 1-4 and motion_shots.json S01-S04), so no picture needs a second take for a second shot. Usable backups: t01_s21 (whole); t02_s7 (only with clip_cut_end 1.15). Not usable: t04_s21 (the white blob) and p01_s7.",
+  "both_failed": "None. Every picture has at least one usable take.",
+  "failures_and_causes": {
+   "p01_s7": "Likely cause: the prompt's 'haze drifts' and 'floodlights flare', with no negative (fast mode runs with guidance 1 and an empty negative), let this seed draw billowing smoke. 'The camera rises slowly over the ground' brings the plain ground in p01 close to the camera, and the model fills it with the field lines it expects in a stadium; p01 has no creases or boundary to anchor a cricket ground (its centre line was painted out). The same cause, more mildly, gives seed 21's sidelines.",
+   "t02_s7": "The seed, not the picture: the same prompt gave seed 21 a slow push. With 'close-up' and 'the camera pushes in', seed 7 kept pushing, and the face, redrawn at three times its size, lost t02's proportions. Nothing in fast mode limits how far a push goes.",
+   "t04_s21": "Likely cause: 'a dreamlike stadium ... flickers' asks for something to change in the window. This seed made a white ball-like object fly over the stands, and the empty negative cannot exclude 'ball' as S03's Wan negative does."
+  },
+  "timing": "All clips are 4.04 s. S01 is 5.5 s (a hold of about 1.5 s), S02 4.2 s (0.2 s), S03 4.0 s (it fits), S04 5.9 s (about 1.9 s, on p01_s21's dimmer stands frame). Holds must be moving holds (ANIME_CRAFT.md section 9).",
+  "not_checked": "Playback at full speed by eye (judged from frames, sheets, strips and measurements); the clips after lyric_video.py (scaling to 1920x1080, timing on twos or threes, the moving hold); whether the Space really ran the I2V model and the lightx2v LoRA (only the log says so). The cow's head turn and the drifting dust were looked for and not seen; a flicker in t04 was measured and not found. Nothing was copied into clips_raw or plan.json, and nothing was committed.",
+  "overall": "Three of the four pictures got a clean take at the first try, and the fourth (t02) got one good take out of two. Picks: t01_s7, t02_s21, t04_s7, p01_s21, all minor. They still need the owner's yes (test-batch rule). One of the two seeds failed for t02, t04 and p01, so keep making two seeds per picture."
+ }
+]

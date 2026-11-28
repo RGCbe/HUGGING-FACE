@@ -1,0 +1,239 @@
+{
+ "note": "Each topic is ONE sharp Why/How question about something viewers remember, answered in a 30-50 second Short (the owner's choice, 21 Nov 2026, after studying Tamil Marvel Shorts channels: Tharamana Talks, Comic Kathai). 'match' must appear in the video's title (that is how next_topic.py knows a topic is done). A question marked (spoilers) waits until its plot is on Wikipedia. Pictures: only the 'look' ideas, never a character, costume, mask, shield or weapon design.",
+ "topics": [
+  {
+   "slug": "doctor-doom",
+   "match": "Doctor Doom",
+   "question": "Who is Doctor Doom, and why is Marvel scared of him?",
+   "playlists": [
+    "doomsday"
+   ],
+   "made": "videos/01-doctor-doom"
+  },
+  {
+   "slug": "multiverse-saga",
+   "match": "Multiverse Saga",
+   "question": "What is the Multiverse Saga, in two minutes?",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "branching timelines of light, many Earths, a clock, a crack in space"
+  },
+  {
+   "slug": "avengers-broke-up",
+   "match": "Avengers Break Up",
+   "question": "Why did the Avengers break up after Endgame?",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "an empty round table, a dusty headquarters, scattered chairs, a city skyline at dusk"
+  },
+  {
+   "slug": "stones-after-endgame",
+   "question": "Where did the Infinity Stones go after Endgame?",
+   "match": "Infinity Stones",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "six coloured lights fading into the dark one by one, an old man on a bench by a lake at sunset (seen from behind), a glowing doorway in time"
+  },
+  {
+   "slug": "cap-lift-hammer",
+   "question": "How could Captain America lift Thor's hammer?",
+   "match": "Thor's Hammer",
+   "playlists": [],
+   "look": "a storm over a ruined battlefield, a single lightning bolt hitting the ground, a lone soldier's silhouette raising one arm against the sky (no hammer design, no costume)"
+  },
+  {
+   "slug": "why-downey-doom",
+   "question": "Why is Robert Downey Jr. playing Doctor Doom?",
+   "match": "Downey Jr",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "a convention stage in darkness with one spotlight, a plain iron mask on a stand, a crowd's silhouettes gasping, a green cloak on a hook"
+  },
+  {
+   "slug": "strange-14-million",
+   "question": "Why did Doctor Strange say 'one in 14 million'?",
+   "match": "14 Million",
+   "playlists": [],
+   "look": "a man meditating as hundreds of glowing futures branch around him, one tiny golden path among red ones, a hand opening to give something away"
+  },
+  {
+   "slug": "thanos-why-half",
+   "question": "Why did Thanos want to wipe out half the universe?",
+   "match": "Half the Universe",
+   "playlists": [],
+   "look": "a dying red desert planet with empty cities, a crowded starving market long ago, a scale balancing two glowing halves"
+  },
+  {
+   "slug": "doom-hates-reed",
+   "question": "Why does Doctor Doom hate Reed Richards?",
+   "match": "Hate Reed",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "a 1960s university lab at night, a machine exploding with blue fire, two young students' silhouettes, a burned blueprint"
+  },
+  {
+   "slug": "snap-killed-tony",
+   "question": "Why did the snap kill Tony Stark but not the Hulk?",
+   "match": "Snap Kill",
+   "playlists": [],
+   "look": "a burned glowing metal glove shape lying on stone (plain, no stones), a giant green-tinged silhouette with a scorched arm, rain on a battlefield"
+  },
+  {
+   "slug": "thor-stormbreaker",
+   "question": "How did Thor get his new axe, Stormbreaker?",
+   "match": "Stormbreaker",
+   "playlists": [],
+   "look": "a dead star forge in deep space, a dwarf giant's silhouette at a cooling forge, molten metal pouring, a small tree sapling growing a handle"
+  },
+  {
+   "slug": "why-doom-mask",
+   "question": "Why does Doctor Doom wear a mask? Every version of the story",
+   "match": "Wear a Mask",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "a plain iron mask in a forge, a mountain monastery, a cracked mirror"
+  },
+  {
+   "slug": "loki-god-of-stories",
+   "question": "Why did Loki become the God of Stories?",
+   "match": "God of Stories",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "a lone throne at the end of time, branches of green light, a man holding glowing threads"
+  },
+  {
+   "slug": "galactus-eats-planets",
+   "question": "Why does Galactus eat planets?",
+   "match": "Galactus",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "a planet-sized silhouette in space, a planet glowing as it is drained, a silver light streaking ahead"
+  },
+  {
+   "slug": "steve-shield-sam",
+   "question": "Why did Steve give his shield to Sam?",
+   "match": "Shield to Sam",
+   "playlists": [],
+   "look": "an old man on a bench by a lake (seen from behind), a round object wrapped in cloth (no star), a younger man's silhouette with metal wings"
+  },
+  {
+   "slug": "tva-arrest-loki",
+   "question": "Why did the TVA arrest Loki?",
+   "match": "TVA",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "an endless retro office, clocks on every wall, a man in a prison-style suit in a beige room, glowing timeline branches"
+  },
+  {
+   "slug": "sentry-dangerous",
+   "question": "Why is the Sentry Marvel's most dangerous hero?",
+   "match": "Sentry",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "a golden light in the sky, a dark shadow behind it, an empty city street, a hospital room window"
+  },
+  {
+   "slug": "vision-mind-stone",
+   "question": "Why did Vision have a stone in his head?",
+   "match": "Mind Stone",
+   "playlists": [],
+   "look": "a lab with a glowing cradle, a yellow light in the dark, a synthetic figure's silhouette waking (no costume)"
+  },
+  {
+   "slug": "wanda-scarlet-witch",
+   "question": "How did Wanda become the Scarlet Witch?",
+   "match": "Scarlet Witch",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "red mist swirling, a mountain fortress with ancient carvings, a woman's silhouette in a crown of red light (no costume)"
+  },
+  {
+   "slug": "why-earth-616",
+   "question": "Why is the main Marvel universe called Earth-616?",
+   "match": "Earth-616",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "a wall of glowing numbered planets, a 1980s comic writer's desk with blank pages, a library of worlds"
+  },
+  {
+   "slug": "quantum-time-travel",
+   "question": "How did the Quantum Realm make time travel possible?",
+   "match": "Quantum Realm",
+   "playlists": [],
+   "look": "a glowing microscopic world, swirling colours, a van's open back doors at night, a tiny figure falling into light"
+  },
+  {
+   "slug": "bucky-now",
+   "question": "Why is Bucky Barnes a politician now?",
+   "match": "Bucky",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "a metal arm silhouette (no star), a government building, a rainy campaign poster wall with no faces"
+  },
+  {
+   "slug": "yelena-black-widow",
+   "question": "Why is Yelena the new Black Widow?",
+   "match": "Yelena",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "a snowy training facility, a red-lit corridor, a city rooftop at night, a vest hanging on a hook"
+  },
+  {
+   "slug": "incursions",
+   "question": "Why do two Earths crash into each other in the multiverse?",
+   "match": "Incursion",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "two Earths touching in the sky, a cracked sky, falling light"
+  },
+  {
+   "slug": "battleworld",
+   "question": "Why does Doom build Battleworld?",
+   "match": "Battleworld",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "a patchwork planet of stitched worlds, walls of light between kingdoms, a throne above clouds"
+  },
+  {
+   "slug": "brand-new-day",
+   "question": "What happened in Spider-Man: Brand New Day? (spoilers)",
+   "match": "Brand New Day",
+   "playlists": [],
+   "look": "a city skyline at dawn, web-like light lines (no costume), an empty apartment"
+  },
+  {
+   "slug": "doomsday-watch-order",
+   "question": "What should you watch before Avengers: Doomsday?",
+   "match": "Watch Before Avengers",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "a cosy room with a TV glowing, a timeline of light, popcorn"
+  },
+  {
+   "slug": "doomsday-biggest",
+   "question": "Why is Avengers: Doomsday the biggest Avengers film since Endgame?",
+   "match": "Biggest Avengers",
+   "playlists": [
+    "doomsday"
+   ],
+   "look": "a packed cinema, storm over a city, many silhouettes facing one masked figure"
+  }
+ ]
+}

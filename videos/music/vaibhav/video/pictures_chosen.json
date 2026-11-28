@@ -1,0 +1,110 @@
+{
+ "_note": "Which take each start picture (animeA/NAME.png) is, how it was made, and which review passed it. Takes are in ~/.cache/music/vaibhav-video/takes/fix/ (not in git).",
+ "pictures": {
+  "c01": {
+   "take": "c01_ra",
+   "how": "fresh, only the father holds the bat (images_anime_fix_all.json)",
+   "passed_in": "review_fix_batch1b.json"
+  },
+  "c02": {
+   "take": "c02_fixed",
+   "how": "c02_b + patch_edit.py (far batter -> bowler, sticker) + paint-out (3 balls, stick) + background softened",
+   "passed_in": "review_fix_batch1b.json (minor faults left)"
+  },
+  "c03": {
+   "take": "c03_onehand_a",
+   "how": "fresh, one-hand finish",
+   "passed_in": "review_fix_batch1b.json"
+  },
+  "p05": {
+   "take": "p05_c",
+   "how": "fresh (the checker's remake prompt)",
+   "passed_in": "review_fix_batch1.json"
+  },
+  "t02": {
+   "take": "t02_t01a",
+   "how": "fresh with animeA/t01.png as the reference (same boy, lane, cow)",
+   "passed_in": "review_fix_batch1b.json"
+  },
+  "t01": {
+   "take": "original",
+   "how": "passed in the first check",
+   "passed_in": "review_pictures.json"
+  },
+  "e01": {
+   "take": "original",
+   "how": "passed in the first check",
+   "passed_in": "review_pictures.json"
+  },
+  "p04": {
+   "take": "p04_c edited, mirrored (left-handed)",
+   "how": "round 4",
+   "passed_in": "review_pictures.json"
+  },
+  "i01": {
+   "take": "i01_b masked paint-out (i01_mask_ns)",
+   "how": "round 6",
+   "passed_in": "review_pictures.json"
+  },
+  "c05": {
+   "take": "c05_a",
+   "how": "edit (goal removed)",
+   "passed_in": "review_fix_batch2.json"
+  },
+  "c06": {
+   "take": "c06_a",
+   "how": "edit (logos, lookalike)",
+   "passed_in": "review_fix_batch2.json"
+  },
+  "c07": {
+   "take": "c07_b",
+   "how": "edit (balls and bat removed); minor: the crowd does not read as Indian fans of many ages",
+   "passed_in": "review_fix_batch2.json"
+  },
+  "c04": {
+   "take": "c04_fixed",
+   "how": "c04_b with 4 letter-like marks painted out",
+   "passed_in": "review_fix_final.json"
+  },
+  "i02": {
+   "take": "i02_a",
+   "how": "edit (bat, ball and goal removed)",
+   "passed_in": "review_fix_batch3.json"
+  },
+  "i03": {
+   "take": "i03_a",
+   "how": "edit (balls and sticker removed)",
+   "passed_in": "review_fix_batch3.json"
+  },
+  "p03": {
+   "take": "p03_c",
+   "how": "edit (cricket seam)",
+   "passed_in": "review_fix_batch3.json"
+  },
+  "p06": {
+   "take": "p06_fixed",
+   "how": "p06_a, the crowd ball painted out, two look-alike faces repainted (patch_edit.py)",
+   "passed_in": "review_fix_final.json"
+  },
+  "t04": {
+   "take": "t04_t01a",
+   "how": "fresh with animeA/t01.png as the reference; one plank-like bat",
+   "passed_in": "review_fix_final.json"
+  },
+  "p01": {
+   "take": "p01_fixed3",
+   "how": "p01_a, the centre line filled from the mirrored columns beside it, the seam softened",
+   "passed_in": "review_fix_final.json recheck2"
+  },
+  "p02": {
+   "take": "p02_fixed3",
+   "how": "the old picture (helmet in hand): the ball removed with a round mask from p02_c, the scribble strokes and three signs painted out, then the blade outline (x 1030-1043, y 781-799) copied back from the old picture as recheck2 prescribed",
+   "passed_in": "review_fix_final.json recheck2, plus the prescribed outline restore (checked at a 4x crop by the boss; card 24 sees it again in S05/S23)"
+  },
+  "t03": {
+   "take": "t03_fixed",
+   "how": "fresh from the cast sheet (plank bat), three shirt prints painted out, mirrored for a left-handed batter",
+   "passed_in": "review_fix_final.json recheck2"
+  }
+ }
+}

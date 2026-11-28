@@ -1,0 +1,95 @@
+{
+ "_note": "SkyReels-V2 image-to-video prompts, one per start picture (animeA/NAME.png), in its own caption style: shot type and angle, subject, action, setting, camera. The bat is named once. seconds 4.04 = 97 frames (the model's most), 3.04 = 73. Made with --mode fast --steps 4 --size 960x544, 2 seeds a picture; a picture used by two shots gives each shot a different take.",
+ "pictures": {
+  "t01": {
+   "prompt": "Anime style, medium shot, eye level, front view. Vaibhav as a 10-year-old Indian village boy with short black hair, carrying a flat wooden cricket bat on his shoulder, walks forward along a misty village lane at dawn past brick houses; a cow behind him slowly turns its head; dust drifts through the sunbeams. The camera tracks back slowly in front of him.",
+   "seconds": 4.04
+  },
+  "t02": {
+   "prompt": "Anime style, close-up, eye level. A 10-year-old Indian village boy with round cheeks and short black hair grips the handle of an old flat-bladed cricket bat standing upright beside his face; he tightens his grip and looks up with a slow, determined smile; dust floats in the golden dawn light of a village. The camera pushes in slowly.",
+   "seconds": 4.04
+  },
+  "t04": {
+   "prompt": "Anime style, medium shot, slightly high angle. A small 10-year-old boy sleeps peacefully on a mat in a small village house at night, hugging a flat-bladed cricket bat; through the window a dreamlike stadium glows softly among the stars and flickers; the bulb light shimmers. The camera drifts slowly towards the window.",
+   "seconds": 4.04
+  },
+  "p01": {
+   "prompt": "Anime style, wide shot, low angle rising to high. A huge floodlit cricket stadium at night, packed with an Indian crowd; the floodlights flare, haze drifts, the crowd waves their arms and cheers. The camera rises slowly over the ground towards the stands.",
+   "seconds": 4.04
+  },
+  "p02": {
+   "prompt": "Anime style, medium shot, eye level, front view. Vaibhav, a slim 15-year-old Indian boy with a smooth young face and short black hair, in a plain blue cricket kit, walks out to bat towards the camera with his helmet in one hand and a flat-bladed cricket bat in the other, smiling; the crowd in the floodlit stadium behind him cheers and waves. The camera tracks back slowly in front of him.",
+   "seconds": 4.04
+  },
+  "p04": {
+   "prompt": "Anime style, medium shot, eye level, side view. A slim 15-year-old Indian boy with a smooth young face, a left-handed cricket batter in a dark blue helmet with a metal face grille, a plain blue shirt and white gloves, holds one flat wooden cricket bat high behind his head. The red cricket ball flies towards him from the left; he steps forward, swings down through the line of the ball, hits it cleanly and follows through high over his right shoulder as the ball flies away up into the night sky. A floodlit cricket stadium at night with a cheering crowd behind him. The camera stays steady and pans slightly with the swing.",
+   "seconds": 3.04
+  },
+  "p03": {
+   "prompt": "Anime style, low angle, looking up. One red leather cricket ball with a straight white seam flies up into the night sky, spinning, past blazing stadium floodlights that flare as it passes. The camera tilts up following the ball.",
+   "seconds": 3.04
+  },
+  "i03": {
+   "prompt": "Anime style, medium shot, low angle. Vaibhav, a slim 15-year-old Indian boy with a smooth young face, in a plain blue cricket kit, lifts a flat-bladed cricket bat high to the night sky and laughs, eyes closed in joy; golden confetti falls around him; the floodlit crowd behind him cheers. The camera pushes in slowly.",
+   "seconds": 3.04
+  },
+  "p06": {
+   "prompt": "Anime style, wide shot, eye level. An Indian cricket crowd of many ages, men and women in plain shirts, jumps and cheers with arms in the air in a floodlit stadium at night; confetti falls through the floodlights. The camera pans slowly across the crowd.",
+   "seconds": 3.04
+  },
+  "p05": {
+   "prompt": "Anime style, extreme close-up, side view, slow motion. One straight cricket bat with a long flat wooden blade hits one red leather cricket ball in the middle of the blade; dust and chalk burst outwards and the ball shoots off. The camera holds steady.",
+   "seconds": 3.04
+  },
+  "c04": {
+   "prompt": "Anime style, wide shot, eye level. One red cricket ball drops into the upper stands of a floodlit stadium at night; Indian fans leap up and stretch to catch it, then cheer wildly. The camera holds steady.",
+   "seconds": 3.04
+  },
+  "i01": {
+   "prompt": "Anime style, medium shot, eye level, front view. Three Tamil folk drummers stand side by side in a stadium aisle at night: a grey-haired man with a moustache, a young thin man and a heavy-set man, each with a flat round parai frame drum on a shoulder strap. Each drummer holds one thin bamboo stick in each hand and strikes the drum skin in a fast steady rhythm, both hands moving, shoulders bouncing; the crowd behind them claps and dances under the floodlights. The camera stays steady.",
+   "seconds": 3.04
+  },
+  "i02": {
+   "prompt": "Anime style, wide shot, low angle. Fireworks burst and bloom in gold and blue over a floodlit cricket stadium at night; the silhouettes of the crowd in the foreground raise empty hands and phones and cheer. The camera tilts up slowly with the fireworks.",
+   "seconds": 3.04
+  },
+  "c07": {
+   "prompt": "Anime style, wide shot, eye level. The whole Indian crowd in a floodlit cricket stadium at night rises as one in a standing ovation, arms waving, phone lights swaying. The camera pans slowly across the stands.",
+   "seconds": 3.04
+  },
+  "t03": {
+   "prompt": "Anime style, medium wide shot, eye level. On a dusty village cricket ground at golden hour, a small 10-year-old Indian boy in a plain blue shirt, batting left-handed, swings a flat wooden cricket bat at one red cricket ball and hits it; his friends, boys of 10 to 12, shout and run; dust kicks up. The camera pans slightly with the swing.",
+   "seconds": 4.04
+  },
+  "c01": {
+   "prompt": "Anime style, medium shot, eye level, side view. In a village courtyard in warm evening light, a father in a plain off-white kurta slowly hands a flat-bladed cricket bat to his 10-year-old son; the boy takes it with both hands and looks up at him with wonder. The camera holds steady and pushes in slightly.",
+   "seconds": 4.04
+  },
+  "c02": {
+   "prompt": "Anime style, medium shot, eye level, side view. Vaibhav, a slim 15-year-old Indian boy with a smooth young face, in a plain blue cricket kit, stands at the crease in a left-handed stance, taps a flat-bladed cricket bat on the ground and settles, eyes on a fast bowler in white running in far away. A floodlit cricket stadium at night. The camera holds steady.",
+   "seconds": 3.04
+  },
+  "c03": {
+   "prompt": "Anime style, medium shot, low angle. Vaibhav, a slim 15-year-old Indian boy with a smooth young face, in a plain blue cricket kit and helmet, holds his finish after a huge lofted shot, one hand high on a flat-bladed cricket bat over his right shoulder, the other hand open by his side, watching one red cricket ball rise high into the night sky; the floodlit crowd behind him rises. The camera tilts up slowly with the ball.",
+   "seconds": 3.04
+  },
+  "e01": {
+   "prompt": "Anime style, medium shot, low angle. Vaibhav, a slim 15-year-old Indian boy with a smooth young face, in a plain blue cricket kit, raises a flat-bladed cricket bat high to the roaring crowd and smiles; confetti swirls around him in the floodlights. The camera pushes in slowly.",
+   "seconds": 3.04
+  },
+  "c05": {
+   "prompt": "Anime style, medium close-up, eye level. A fast bowler in plain white kit scratches his head with both hands, frowns and shakes his head in disbelief, a funny moment; a floodlit cricket ground at night behind him. The camera holds steady.",
+   "seconds": 3.04
+  },
+  "c06": {
+   "prompt": "Anime style, medium shot, eye level. Two cricketers in plain white kits, an older fast bowler with a short beard and his captain, stand mid-pitch with hands on hips, look at each other, shrug and shake their heads, confused, in a light comic mood; a floodlit stadium at night. The camera holds steady.",
+   "seconds": 4.04
+  },
+  "p02b": {
+   "picture": "p02",
+   "untested": "28 Nov 2026: the remake of p02 suggested by the batch-2 clip check (both p02 takes invented a batting pose after about 2.5 s). Changes: no 'to bat', props held low and kept in frame, 73 frames instead of 97. Not made or checked yet.",
+   "prompt": "Anime style, medium-full shot, eye level, front view. Vaibhav, a slim 15-year-old Indian boy with a smooth young face and short black hair, in a plain blue cricket kit, walks slowly towards the camera across the grass, smiling, his helmet held low in one hand and a flat-bladed cricket bat held low in the other, both kept down by his legs; the crowd in the floodlit stadium behind him cheers and waves. The camera tracks back slowly in front of him, keeping the helmet and the bat in frame.",
+   "seconds": 3.04
+  }
+ }
+}

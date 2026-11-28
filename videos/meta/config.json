@@ -1,0 +1,24 @@
+{
+ "note": "Mirrors every Tea Break with Manoj YouTube video to the Facebook Page and Instagram at its YouTube publish time. Ids only; keys live in environment variables.",
+ "graph_version": "v27.0",
+ "token_env": "META_PAGE_TOKEN",
+ "app_id": "1476202361138315",
+ "app_name": "Tea Break Poster",
+ "page_id": "1454609281069084",
+ "page_name": "Tea Break with Manoj",
+ "ig_user_id": "17841478583761343",
+ "ig_username": "teabreakwithmanoj",
+ "queue_dataset": "Rggroups/meta-queue",
+ "dataset_owner": "Rggroups",
+ "youtube": {
+  "refresh_token_env": "YT_REFRESH_TOKEN_ADULT",
+  "client_id_env": "YT_CLIENT_ID",
+  "client_secret_env": "YT_CLIENT_SECRET"
+ },
+ "schedule_min_minutes": 15,
+ "short_max_seconds": 90,
+ "ig_caption_max": 2200,
+ "ig_hashtags_max": 30,
+ "drop_description_lines": ["Theme:", "Point:", "OLD COPY"],
+ "meta_hosts": ["graph.facebook.com", "graph-video.facebook.com", "rupload.facebook.com"]
+}

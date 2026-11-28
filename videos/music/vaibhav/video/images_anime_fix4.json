@@ -1,0 +1,24 @@
+{
+ "style": "",
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "i01_e1",
+   "edit": "/root/.cache/music/vaibhav-video/takes/i01_b.png",
+   "seed": 11,
+   "prompt": "The same picture, but remove only the short extra stick that crosses the long stick in the heavy-set drummer"
+  },
+  {
+   "name": "i01_e2",
+   "edit": "/root/.cache/music/vaibhav-video/takes/i01_b.png",
+   "seed": 22,
+   "prompt": "The same picture, but remove only the short extra stick that crosses the long stick in the heavy-set drummer"
+  },
+  {
+   "name": "i01_e3",
+   "edit": "/root/.cache/music/vaibhav-video/takes/i01_b.png",
+   "seed": 33,
+   "prompt": "The same picture, but remove only the short extra stick that crosses the long stick in the heavy-set drummer"
+  }
+ ]
+}

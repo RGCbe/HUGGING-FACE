@@ -1,0 +1,218 @@
+[
+ {
+  "clip": "skyreels/S01_fast.mp4",
+  "shot": "S01",
+  "model": "SkyReels-V2 DF 14B, fast mode (speed LoRA, 6 steps, guidance off, empty negative), seed 7, start t01.png",
+  "ok": true,
+  "severity": "minor",
+  "contact_time": null,
+  "checked": "26 Nov 2026, by the clip checker (card 24). sha256 89d0f052..., h264, 832x480, 24 fps, 69 frames, 2.875 s, no audio. Frame 0 matches t01.png (centre crop, PSNR 29.3 dB). Contact sheet at 5 fps; a face strip (t01 plus 7 times); full frames at 0, 1.0, 2.0 and 2.83 s; a strip of the cow area (t01 plus 12 times) and 2x zooms of the haze behind the cow; frames 0-8 one by one; brightness and frame-to-frame change for every frame.",
+  "problems": [
+   "minor: a pop at the very start. Frames 0-4 (0-0.17 s) are hazier and a little jittery (frame-to-frame change 14 at 0.04-0.08 s and at 0.17-0.21 s, against about 10 later). At frame 5 (0.21 s) the picture brightens by 6 levels in one frame (126 to 132) and turns crisper; after that the brightness rises smoothly to 143. Wan S01_a's biggest step is 0.7. None of our edit scripts can trim the start of a clip.",
+   "minor: the cow comes out of the haze much more strongly coloured than in t01. The pale tan cow at 0 s is a white cow with strong brown patches by 0.5 s, and the patches shift a little as it walks (for example 2.0 against 2.25 s). Its tail fades out by about 0.5 s and is back at 2.25-2.5 s.",
+   "minor: the cow walks straight at the camera and does not turn its head (Wan S01_a does the same). The dust in the sunbeams is hard to see.",
+   "minor: 2.875 s for a 5.5 s shot, 0.5 s shorter than the Wan clip, so the moving hold at the end is longer."
+  ],
+  "notes": [
+   "Held: his face is t01's boy of about 10 all through, painted anime, with no drift towards photo-real; only his eyes open a little wider at 2.5 s. One bat with a flat wooden blade and a black grip, in his right hand on his right shoulder all through; his free left hand stays whole. The cow keeps four legs and its horns. The faint second cow in the haze behind it is already in t01 and stays faint; nothing new appears. The houses, the lane and the trees hold as the camera trucks back with him. No text or logos. The last second is usable (the cow close, the boy in mid-step)."
+  ],
+  "fix": "None needed to use it. Not chosen: Wan S01_a is as good, starts smoothly and is longer."
+ },
+ {
+  "clip": "skyreels/S06_fast.mp4",
+  "shot": "S06",
+  "model": "SkyReels-V2 DF 14B, fast mode (speed LoRA, 6 steps, guidance off, empty negative), seed 7, start p04.png",
+  "ok": false,
+  "severity": "major",
+  "contact_time": null,
+  "contact_note": "No contact. The ball never comes to the bat: it drifts up and sticks to his forearm (2.33-2.83 s), while the blade sweeps below it and away from it (about 2.0-2.4 s).",
+  "checked": "26 Nov 2026. sha256 3a66c822..., h264, 832x480, 24 fps, 69 frames, 2.875 s, no audio. Frame 0 matches p04.png (centre crop, 30.5 dB). Contact sheet at 5 fps; a half-size grid of 16 frames from 0.5 to 2.83 s; full frames at 2.33 and 2.83 s; a face strip (p04 plus 7 times); red-blob tracking on all 69 frames; brightness and frame-to-frame change for every frame.",
+  "problems": [
+   "major: the bat turns into a baseball bat. It has a flat blade only at 0-0.5 s, as in p04. From about 0.8 s it stretches into a long, thin pole, and from about 1.5 s it is a round, tapered baseball bat with a red knob handle and a rounded end cap (clearest at 2.33-2.83 s). The lock rules out a baseball bat.",
+   "major: no hit, and the ball sticks to him. The one ball sits low at (246,447) until about 1.0 s, then drifts slowly up and to the right like a balloon ((271,333) at 1.75 s, (325,259) at 2.33 s). At 2.33-2.83 s it sits on his forearm and moves with his arm ((404,230) at 2.83 s). It never flies in and is never hit.",
+   "minor-to-major: from about 1.67 s his face turns rounder and flatter, cel-shaded instead of p04's painted look, with blushed cheeks at 2.5-2.83 s; the helmet's peak and grille change shape too. He reads younger, not older, with no drift towards photo-real.",
+   "minor: the swing is a flat sweep across his body that finishes low, to the left, at 2.83 s. It reads like a baseball swing, not a drive finishing high over the shoulder.",
+   "minor: as the camera circles round him, a dark board and a small white-clad figure come into the blurred far background at 2.17-2.83 s."
+  ],
+  "notes": [
+   "Held: one ball only; the bat is in one piece; the gloves stay whole; no flicker (brightness 99-112, no step above 2.6); smooth motion with no repeated frames; the boards are blurred with no readable text; painted anime throughout."
+  ],
+  "fix": "Discard. No cut saves it: the bat is already round by about 1.5 s, before any swing, and the ball is never hit. Keep Wan S06_a."
+ },
+ {
+  "clip": "skyreels/S06_full.mp4",
+  "shot": "S06",
+  "model": "SkyReels-V2 DF 14B, full mode (16 steps, guidance 5, the shot's negative prompt on), seed 7, start p04.png",
+  "ok": false,
+  "severity": "major",
+  "contact_time": null,
+  "contact_note": "No contact on screen. The ball has left the frame by 0.54 s. The swing passes at 1.04 s (frame 25) with no ball near it, and a ball appears flying at upper right at 1.08 s, as if hit.",
+  "checked": "26 Nov 2026. sha256 0cd9a35c..., h264, 832x480, 24 fps, 69 frames, 2.875 s, no audio. Frame 0 matches p04.png (centre crop, 30.5 dB). Contact sheet at 5 fps; a half-size grid of 16 frames from 0.33 to 1.25 s (every frame through the swing); a grid of 21 frames from 1.25 to 2.83 s; full frames at 1.5 and 2.83 s; a face strip (p04 plus 8 times); red-blob tracking on all 69 frames; brightness and frame-to-frame change for every frame.",
+  "problems": [
+   "major: the ball leaves before the swing. It drops from (250,429) to the bottom edge and is gone at 0.54 s (frame 13); there is no ball on screen from 0.58 to 1.04 s.",
+   "major: no hit on screen. The swing comes through at 1.04 s in one motion-blurred frame that also flashes (brightness 114 to 120.5, back to 110 by 1.125 s), and the bat meets nothing. A ball appears from nowhere at upper right at 1.08 s.",
+   "major: several balls. There are two at 1.125-1.29 s, three at 1.33-1.63 s (for example at (147,114), (426,72) and (353,49) at 1.46 s), and two again at 2.0-2.08 s and at 2.67 s. They fly about in different directions, some back towards him; at 1.96-2.0 s one is a stretched, oval red smear.",
+   "major: the bat breaks up. At 1.08 s two blades show at the left edge (a doubled bat); at 1.125 s it is bent like a sabre. It is missing from 1.42 to 2.17 s, comes back as a loose flat blade low behind him at 2.25-2.5 s, and is gone again from 2.58 s, so he holds no bat at the end.",
+   "major: the camera whips about 180 degrees round him at 1.04-1.25 s. From 1.125 s to the end we see his back, with a large yellow number \"4\" on his shirt: text on the kit, which the lock rules out.",
+   "major: the face changes. Before the whip (0-0.92 s) it is p04's face. After it, looking back over his shoulder (1.5-2.83 s), it is a softer, rounder face in a different style with pink blush on the cheeks, and it reads as another boy. He looks younger, not older, with no drift towards photo-real.",
+   "minor: judder. About every fourth frame repeats the one before (frame-to-frame change about 1, against 4-9 around it): frames 4, 8, 12, 16, 24, 36, 41, 44, 56, 60, 63 and 68. The motion hitches about 4-6 times a second; the fast clips have no repeated frames.",
+   "minor: it is not the action asked for. No ball flies in, and after 1.25 s he just stands with his back to us, looking over his shoulder."
+  ],
+  "notes": [
+   "Held: during the backlift (0.2-1.0 s) the bat is the best of all the S06 takes, a wide, flat cricket blade with a straight handle, in one piece. The gloves stay whole. Painted anime throughout. The stands and boards are blurred, with no readable text apart from the \"4\"."
+  ],
+  "fix": "Discard. The only clean part is the backlift (0-1.0 s), and by then the ball has already dropped out of the frame, so no cut keeps a hit."
+ },
+ {
+  "clip": "skyreels/S12_fast.mp4",
+  "shot": "S12",
+  "model": "SkyReels-V2 DF 14B, fast mode (speed LoRA, 6 steps, guidance off, empty negative), seed 7, start i01.png",
+  "ok": true,
+  "severity": "minor",
+  "contact_time": null,
+  "checked": "26 Nov 2026. sha256 5f92ad5e..., h264, 832x480, 24 fps, 69 frames, 2.875 s, no audio. Frame 0 matches i01.png (centre crop, 25.2 dB; the crowd's fine detail lowers the figure). Contact sheet at 5 fps; full-size crops of all six hands every 4 frames (0-68); every odd frame at half size; three one-second runs, frame by frame at full size (the middle drummer 1.0-1.96 s, the heavy-set drummer 0-0.96 s, the grey-haired drummer 1.83-2.79 s); 6 suspect frames at full size; the end frame (2.83 s) at 2x; faces and crowd at 0, 1.42 and 2.83 s; brightness and frame-to-frame change for every frame; the beat in the hand area measured against Wan S12_c.",
+  "problems": [
+   "minor: the strikes come mostly from one hand per drummer. The left-hand stick comes down on the skin about every 5 frames (4-5 strokes a second), while the right-hand stick stays mostly raised along the rim. The stick swings in a fist that hardly moves, and often flips from raised to down between two frames, so it reads as a flick rather than an arm strike. The beat is less clear than Wan S12_c's: its hand motion repeats strongly every 5 frames, this clip's only weakly.",
+   "minor: now and then a stick shortens to a stub where it points into the drum, for example the heavy-set drummer's left hand at 0.17-0.21 s, at 0.38-0.5 s and in the end frame (2.83 s), and the young drummer's right hand at 0.21 s. The stubs are solid wood, not frayed wisps.",
+   "minor: faint pinkish-red tints on some fists and along one stick: the grey-haired drummer's left stick at 1.21 s, the middle drummer's left fist at 1.71 s, and the grey-haired drummer's right fist at 2.21 and 2.54 s. The young drummer's right fist looks a little rough at 2.83 s.",
+   "minor: the bodies hardly move; the shoulders do not bounce as asked. The grey-haired drummer frowns more from about 1.4 s.",
+   "minor: 2.875 s for a 3.7 s shot, so lyric_video.py holds the last frame for about 0.8 s under the camera push. That frame (2.83 s) is clean: five full sticks, and a short stub in the heavy-set drummer's left hand."
+  ],
+  "notes": [
+   "Held: the sticks stay solid, thin wooden sticks in every frame checked, with no straw-like fraying, no dissolving and no melted or mitten hands. That is the fault that failed all three Wan takes. No third stick grows back where i01's extra stick was painted out. The three faces stay different (the grey moustache, the young man, the heavy-set round face), with no twins and no morphing. The crowd claps and waves, with no signs, text, sticks, bats or balls in it. Painted anime, with no drift towards photo-real. No flicker (brightness 118-127, biggest step 2.9)."
+  ],
+  "fix": "Usable as it is. To use it, the maker copies it to where lyric_video.py looks (clips_raw/S12_<take>.mp4) and sets that take in plan.json; that has not been done here. If the owner wants both hands striking, try 1-2 more SkyReels fast seeds."
+ },
+ {
+  "verdict": {"S01": "wan", "S06": "wan", "S12": "skyreels"},
+  "verdict_why": {
+   "S01": "Both are clean walks with the same boy and one flat bat. Wan S01_a passed with nothing to fix, starts smoothly and is 0.5 s longer for a 5.5 s shot. SkyReels pops brighter at 0.21 s and over-colours the cow, although its cow walk and camera move are livelier.",
+   "S06": "Wan S06_a is the only take with a real hit (2.31 s), and its bat stays one flat piece. SkyReels fast turns the bat into a round baseball bat and glues the ball to his arm. SkyReels full loses the ball, then fills the sky with 2-3 balls, whips the camera round to a \"4\" on his back and breaks the bat.",
+   "S12": "SkyReels keeps solid sticks and whole hands in every frame checked, which no Wan take managed (S12_c's sticks flick to stubs between strokes and fray with red smears at 2.79-2.96 s). Its strikes are weaker, mostly one hand per drummer, and the clip is 0.5 s shorter."
+  },
+  "contact_times": {"wan/S06_a": 2.31, "skyreels/S06_fast": null, "skyreels/S06_full": null},
+  "overall": "Keep Wan 2.1 as the main clip model. Use SkyReels fast for S12, the drummers, once the owner has seen it, and consider it for other shots where thin held props keep dissolving. SkyReels did not solve the batting shot: in both modes it failed worse than Wan (a baseball bat or a broken bat, no hit, extra balls). Its clips are 69 frames (2.875 s) against Wan's 81 (3.375 s), so every hold gets longer. There was one seed (7) per clip, so some of these differences may come from the seed rather than the model. Not checked: other seeds, other shots, and how a SkyReels clip looks after lyric_video.py (upscale, effects, moving hold).",
+  "fast_vs_full": "Neither is usable for S06. Full (16 steps, guidance 5, the negative on) drew the right flat cricket blade in the backlift, possibly because \"baseball bat\" in the negative counts only with guidance on, and it swung faster. But from 1.04 s it falls apart (the camera whip, the \"4\" on his back, a doubled, then bent, then missing bat, the ball gone at 0.54 s and then 2-3 balls, a changed face), and it judders with a repeated frame about every fourth frame. Fast (6 steps, guidance off, no negative) keeps the framing and moves smoothly, but the bat turns into a round baseball bat from about 1.5 s and the ball sticks to his arm. Full costs 4.7 times the GPU time (191 s against 41 s). With one seed each, and the same seed giving completely different motion in the two modes, this does not show that either mode is better in general. If full mode gets another go, try 2-3 seeds; its negative is the only thing that has kept the blade flat."
+ },
+{
+ "round": 2,
+ "clip": "skyreels/S06_i2v_s21.mp4",
+ "shot": "S06",
+ "model": "SkyReels-V2 I2V 14B 540P with the lightx2v I2V speed LoRA (4 steps, guidance off, empty negative), 960x544, 73 frames at 24 fps, SkyReels-style prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked), seed 21, start p04.png",
+ "ok": true,
+ "severity": "minor",
+ "contact_time": 1.19,
+ "contact_note": "A real strike. The ball comes in from the left (x 293 to 476 between 0 and 1.17 s) and ends in front of his waist. At frame 28 (1.167 s) the blade comes down on it; at frame 29 (1.208 s) the blade has swept low to the left through that spot and the ball is gone. At 1.29 s (frame 31) the ball shows for one frame at the left edge, level with the bat's toe. It is out of frame from 1.33 to 1.54 s, comes back in from the left edge at 1.58 s (24,362), and rises up into the night sky (274,56 at 2.0 s), with the camera tilting up after it.",
+ "clip_cut_end": 0.5,
+ "clip_cut_end_note": "Recommended. Ends on frame 60 (2.5 s): the ball is high in the sky and his bat is high over his shoulder. It drops the ball falling back onto the bat's toe and vanishing (2.42-2.67 s), and the end of the camera tilt into empty dark sky (2.67-3.04 s, brightness falling to 42).",
+ "checked": "26 Nov 2026, round 2, by the clip checker (card 24). sha256 17064b90..., h264, 960x544, 24 fps, 73 frames, 3.042 s, no audio (ffprobe, frames counted). Frame 0 matches p04.png (centre crop, 29.7 dB). Contact sheet at 5 fps; every frame from 24 to 39 at half size; full-size crops of frames 27-38 (the strike) and 60-67 (the ball's end); every second frame from 38 to 72; a face strip (p04 plus 9 times) and 2x face zooms of frames 46-53; 2x zooms of the bat label beside p04's bat; red-blob tracking on all 73 frames; brightness and frame-to-frame change for every frame; sharpness against round 1 and Wan at the same display size (1280 wide).",
+ "problems": [
+  "minor-to-major: the ball's path after the hit cannot happen. It leaves the frame on the left at 1.29-1.33 s, then 0.25 s later comes back in from the same left edge (1.58 s) next to the bat's toe, moving up and to the right. At full speed it should read as the ball lofted off the bat, but a sharp eye may see the ball turn round in the air.",
+  "major, cut by clip_cut_end 0.5: the ball comes back down (y 81 at 2.42 s to 203 at 2.58 s), lands on the toe of the bat as he raises it (2.625 s, frame 63) and vanishes into it (2.67 s). The camera then tilts up into empty dark sky, and he sinks to the bottom of the frame with his glove over his face (2.75-3.04 s).",
+  "minor: the face smears behind the grille for about 0.3 s as he turns to look up (1.92-2.21 s, worst at 2.04-2.08 s). The bars warp across his cheeks, and the nose and mouth blur. It stays a young, painted anime face, with no drift towards photo-real, and it is clear again from 2.25 s.",
+  "minor: the ball floats in slowly (about 160 px a second), like a lob rather than a bowled ball.",
+  "minor: a red maker's label with white pseudo-letters appears on the blade from about 1.4 s (p04's bat is plain wood). Nothing in it is readable, but it looks like a logo.",
+  "minor: at 1.17 s (frame 28) the blade swings straight at the camera and is drawn as a short, square block for one frame.",
+  "minor: the prompt asked for a steady camera that pans slightly. Instead the camera follows the ball, tilting up a long way into the sky from about 1.8 s."
+ ],
+ "notes": [
+  "Held: one ball, never more (the other red blobs tracked are the bat label). One flat-bladed cricket bat in one piece in every frame checked: no baseball bat, no bend, no second blade. Left-handed: a backlift over his left shoulder, a swing down through the line towards the bowler on the left, and a follow-through high over the shoulder (1.8-2.5 s). From 0 to 1.8 s the face is p04's soft, young face (side-on), and nothing reads older. Painted anime throughout. Boards and stands stay blurred, with no readable text. No flicker: brightness falls smoothly from 102 to 42 as the camera tilts to the sky, and the biggest step is 4.7. The only near-repeat frames come in the near-still first 0.35 s; there is no judder."
+ ],
+ "fix": "Use it with \"clip_cut_end\": 0.5, after the owner has seen it. That leaves 2.54 s for a shot of about 4.3 s, so lyric_video.py holds frame 60 (the ball high in the sky) under the camera push for about 1.8 s. Nothing else needs fixing to use it; the ball's 0.25 s exit and re-entry cannot be cut without losing the hit."
+},
+{
+ "round": 2,
+ "clip": "skyreels/S06_i2v_s7.mp4",
+ "shot": "S06",
+ "model": "SkyReels-V2 I2V 14B 540P with the lightx2v I2V speed LoRA (4 steps, guidance off, empty negative), 960x544, 73 frames at 24 fps, SkyReels-style prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked), seed 7, start p04.png",
+ "ok": false,
+ "severity": "major",
+ "contact_time": null,
+ "contact_note": "No clean hit. The ball hangs still in the air at (292,481) from 0 to 1.0 s. The blade sweeps past it at 0.96-1.0 s, but the ball does not fly off: it sticks under, then on top of, his gloves and moves with them from 1.04 to 1.21 s. It lifts off his hands at 1.25 s and floats up, and the camera then follows it into the sky.",
+ "checked": "26 Nov 2026, round 2. sha256 6e2b4090..., h264, 960x544, 24 fps, 73 frames, 3.042 s, no audio. Frame 0 matches p04.png (centre crop, 27.8 dB). Contact sheet at 5 fps; every frame from 18 to 33 at half size; full-size crops of frames 22-33; every second frame from 34 to 72; full-size bat crops at 1.25, 1.42, 2.33, 2.58, 2.67, 2.75, 2.79 and 2.83 s; a face strip (p04 plus 9 times) and 2x face zooms at 1.92-2.21, 2.42 and 2.58 s; red-blob tracking on all 73 frames; brightness and frame-to-frame change for every frame.",
+ "problems": [
+  "major: the ball rides on his gloves (1.04-1.21 s) and pops up off his hands (1.25 s), not off the blade. It is round 1's 'ball glued to his arm' again, only briefer.",
+  "major: the bat doubles. At 1.21-1.25 s a second, triangular blade sticks up behind his gloves. At 1.29-1.42 s the bat sticks out on both sides of him, a blade to the left of his gloves and another behind his back on the right.",
+  "major: the bat breaks up near the end. It is bent like a boomerang at 2.33 s, split into two blades (a fork) at 2.58 s, curved like a banana at 2.67 s, kinked into a Z at 2.75-2.79 s, and has a splinter blade at 2.83 s. It is one straight blade again only at 2.92-3.04 s. The lock rules out a bat in two pieces.",
+  "minor-to-major: when he looks up (1.92-2.58 s), his face sinks into the grille and blurs together with it, and at 2.21 s his glove merges with the grille. A dark patch from his ear down the jaw line under the helmet (1.92-2.08 s) could read as a beard. At 1.38 s the grille sits behind his face instead of in front of it. At 0.8-1.1 s the face is flatter and cel-shaded, with eyes nearly shut, but still young. Painted anime throughout.",
+  "minor: the red bat label with white pseudo-letters (1.58-2.17 s); nothing is readable, but it looks like a logo.",
+  "minor: the swing whirls the bat round (to the right at 0.92 s, down through to the left at 1.0-1.2 s, then behind his neck) instead of a clean drive with a follow-through."
+ ],
+ "notes": [
+  "Held: one ball only. A flat cricket blade (no baseball bat) whenever the bat is in one piece. No flicker: brightness falls smoothly from 110 to 66 as the camera tilts up, with a biggest step of 3.1. Stands are blurred, with no readable text."
+ ],
+ "fix": "Discard. No cut saves it: the fake contact and the doubled bat are at 1.0-1.42 s, in the middle of the shot, and the bat breaks again at 2.33-2.83 s."
+},
+{
+ "round": 2,
+ "clip": "skyreels/S12_i2v_s21.mp4",
+ "shot": "S12",
+ "model": "SkyReels-V2 I2V 14B 540P with the lightx2v I2V speed LoRA (4 steps, guidance off, empty negative), 960x544, 73 frames at 24 fps, SkyReels-style prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked), seed 21, start i01.png",
+ "ok": true,
+ "severity": "minor",
+ "contact_time": null,
+ "checked": "26 Nov 2026, round 2. sha256 46a18926..., h264, 960x544, 24 fps, 73 frames, 3.042 s, no audio. Frame 0 matches i01.png (centre crop, 24.6 dB; the crowd's fine detail lowers the figure). Contact sheet at 5 fps; full-size crops of all six hands every 4 frames (0-72); the hand band frame by frame at 0.33-0.63, 1.79-2.08 and 2.58-2.79 s; 1.5x zooms of 5 suspect hands; the end frame (3.0 s) at full size; the three faces at 0, 1.5 and 3.0 s; brightness and frame-to-frame change for every frame; the hand and head areas' motion measured.",
+ "problems": [
+  "minor: where the two sticks cross in front of the drum, they melt into a twisted, knotted join for 2-4 frames: 0.42-0.54 s (all three drummers), 1.88-2.0 s and 2.67-2.75 s. They stay wooden (not straw), and they are clean, separate sticks again at the next stroke.",
+  "minor: at 2.58 s (frame 62), for one frame, the heavy-set drummer's fists blur and his sticks shrink to short stubs.",
+  "minor: the bodies do not bounce. The head band moves less than 0.5 px (the prompt asked for bouncing shoulders). Both hands strike together, with all three drummers in unison, and the sticks are held up for about 0.5 s at 1.17-1.67 s. The beat reads as steady but not fast.",
+  "minor: 3.04 s for a 3.7 s shot, so the edit holds the last frame for about 0.7 s. That frame (3.0 s) is clean: all six sticks raised and solid."
+ ],
+ "notes": [
+  "Held: two thin, solid sticks per drummer in every frame checked (every 4th frame, plus the crossings frame by frame). No straw-like fraying, no dissolving, and no stick grows back where i01's extra stick was painted out. Hands stay whole fists, with no mittens. The three faces stay different (grey moustache, young man with a tilak, heavy-set round face, his mouth open as in i01), with no twins and no morphing. The crowd claps and waves, with no signs, text, sticks, bats or balls. Painted anime, with no drift towards photo-real. The camera is steady, as asked. No flicker (brightness 110.7-113.9, biggest step 0.7)."
+ ],
+ "fix": "None needed. Use it after the owner has seen it. To use it, the maker copies it to clips_raw/S12_<take>.mp4 and sets that take in plan.json; that has not been done here."
+},
+{
+ "round": 2,
+ "clip": "skyreels/S12_i2v_s7.mp4",
+ "shot": "S12",
+ "model": "SkyReels-V2 I2V 14B 540P with the lightx2v I2V speed LoRA (4 steps, guidance off, empty negative), 960x544, 73 frames at 24 fps, SkyReels-style prompt from skyreels_prompts.json; settings as logged in skyreels/skyreels_log.jsonl (the Space code itself was not checked), seed 7, start i01.png",
+ "ok": false,
+ "severity": "minor",
+ "contact_time": null,
+ "checked": "26 Nov 2026, round 2. sha256 537c23c2..., h264, 960x544, 24 fps, 73 frames, 3.042 s, no audio. Frame 0 matches i01.png (centre crop, 24.8 dB). Contact sheet at 5 fps; full-size crops of all six hands every 4 frames (0-72); 1.5x zooms of 5 suspect hands; the end frame (3.0 s) at full size; the three faces at 0, 1.5 and 3.0 s; brightness and frame-to-frame change for every frame.",
+ "problems": [
+  "minor-to-major: at most strokes, the sticks fray into bundles of 3-4 thin strands where they cross, which is a milder form of the straw-like fault that failed the Wan takes. Seen at 0.25, 0.33, 0.67, 1.0, 1.33, 1.67, 2.0, 2.33 and 2.67 s, across all three drummers. At 1.83 s the heavy-set drummer's stick splits into a fork with a ghost streak below it. In the end frame (3.0 s), the grey-haired drummer's crossed sticks have a knotted, forked join.",
+  "minor: the strokes are busier and less in unison than in seed 21. The bodies do not bounce (head band moves less than 0.5 px).",
+  "minor: 3.04 s for a 3.7 s shot."
+ ],
+ "notes": [
+  "Held: two sticks per drummer with both hands striking, whole hands and no mittens, no stick growing back in the painted-out patch, and three different faces with no twins (the grey-haired drummer frowns more from about 1.5 s). The crowd claps, with no signs or text. Painted anime. No flicker (brightness 115.4-118.3, biggest step 0.7). Crispest of all the S12 clips (see round2_verdict)."
+ ],
+ "fix": "Not chosen: S12_i2v_s21 has the same strengths, and its sticks merge only briefly at three crossings. Keep this one as a backup."
+},
+{
+ "round2_verdict": {
+  "best": {
+   "S06": "skyreels/S06_i2v_s21.mp4 (with clip_cut_end 0.5)",
+   "S12": "skyreels/S12_i2v_s21.mp4"
+  },
+  "why": {
+   "S06": "The only take of all eight so far (Wan a, b, c; SkyReels round 1 fast and full; round 2 seeds 7 and 21) where the ball comes in, the blade meets it (1.19 s) and it flies away up into the night sky. It keeps one flat cricket blade in one piece, a left-handed backlift and a high follow-through, and his young face. Wan S06_a, the old choice, has the ball frozen in the air until 2.29 s, a flat slog, and an older-looking face at the end. Caveats: the ball floats in slowly, is out of frame on the left for 0.25 s after the hit and comes back from the same edge, and the face smears behind the grille at 1.92-2.21 s.",
+   "S12": "Two solid sticks per drummer, both hands striking, all three in unison, steady camera, clean end frame. That beats SkyReels round 1 fast (solid sticks, but mostly one hand striking) and every Wan take (sticks dissolve into straw). Its only stick faults are knotted joins for 2-4 frames at three crossings."
+  },
+  "round2_clearer_than_round1": {
+   "S06": "Yes, a little. At the same 1280-wide display, the boy's region in the first 0.5 s has sharpness (Laplacian variance) 859 (s21) and 996 (s7), against 804 for round-1 fast, 462 for round-1 full and 827-836 for Wan S06_a/b. By eye the outlines are cleaner, but the gain is small; the face stays young and painted in all of them.",
+   "S12": "Yes, clearly. Matched region, first 0.5 s: 1063 (s21) and 1174 (s7), against 882 for round-1 fast and 660 for Wan S12_c. Over the whole clip: 802-858, against 722 and 496-539. By eye, the sticks and outlines are crisper. Measured against each clip's own start picture at its model size, round 1 fast and round 2 keep about the same share of detail (1.49 against 1.29-1.43), so most of the gain comes from the larger 960x544 frame."
+  },
+  "round2_more_correct_than_round1": {
+   "S06": "Yes for seed 21: a flat blade all through, one ball, a real hit. Round-1 fast drew a round baseball bat and stuck the ball to his arm, and round-1 full lost the ball, then showed 2-3 balls and a broken bat. Seed 7 fails in new ways (the ball rides on his gloves; the bat doubles, then bends and forks), so the seed still decides.",
+   "S12": "Yes for seed 21: both hands now strike, and the sticks stay as solid as in round-1 fast. Seed 7 frays the sticks at most crossings, so it is less solid than round-1 fast."
+  },
+  "S06_usable_hit": "Yes: skyreels/S06_i2v_s21.mp4, contact at 1.19 s (between frames 28 and 29), used with clip_cut_end 0.5. It is the first take in which the ball moves in, is struck and flies away. It still needs the owner's yes (test-batch rule).",
+  "contact_times": {
+   "skyreels/S06_i2v_s21": 1.19,
+   "skyreels/S06_i2v_s7": null
+  },
+  "what_changed_and_did_it_work": {
+   "model": "Cannot be isolated: round 2 changed the model, the LoRA, the size and the prompts all at once, with two seeds per shot. The identity held through big motion better than in round-1 fast (his face did not go rounder or cel-shaded), and frame 0 matches about as well (27.8-29.7 dB against 30.9 for S06; 24.6-24.8 against 25.6 for S12). The CLIP image encoder was not verified.",
+   "lora": "Works cleanly as far as can be seen: smooth motion, no judder or repeated frames, no flicker, and 44-45 s of GPU per clip (round-1 fast took 41 s; full took 191 s). Its own effect cannot be separated.",
+   "size": "Measurable: 960x544 gives about 15% more detail than 832x480 on the same start picture. At the same display size round 2 is crisper, clearly for S12 and only a little for S06. 73 frames (3.04 s) is 0.17 s longer than round 1 but 0.33 s shorter than Wan.",
+   "prompts": "Likely helped, though not proven. The bat stayed a flat cricket blade in both seeds (round-1 fast made a baseball bat), the drummers use both hands as asked, and the ball goes up into the night sky as asked. Not followed: 'shoulders bouncing', a 'fast' rhythm, and a camera that 'pans slightly' (both S06 seeds tilt far up into the sky)."
+  },
+  "not_checked": "Other seeds; other shots; the clips after lyric_video.py (scaling to the edit size, effects, moving hold); playback at full speed by eye (judged from frames, grids and measurements); whether the Space really loaded the I2V model, the CLIP encoder and the lightx2v LoRA (only the log says so). Nothing was copied into clips_raw or plan.json, and nothing was committed.",
+  "overall": "Round 2 is the first SkyReels setup to win both test shots. Use S06_i2v_s21 (clip_cut_end 0.5) for the hit and S12_i2v_s21 for the drummers, once the owner has seen them. One seed in each shot failed (S06 seed 7 badly), so keep making 2-3 seeds per shot and let the checker choose."
+ }
+}
+]

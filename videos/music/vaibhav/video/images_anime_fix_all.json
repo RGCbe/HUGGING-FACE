@@ -1,0 +1,503 @@
+{
+ "style": "Hyper-detailed semi-realistic anime digital painting in the look of a high-budget anime feature film key visual: clean outlines, realistic anatomy and faces, realistic skin, fabric and grass textures, volumetric lighting with glowing floodlights, depth of field, cinematic composition, rich warm gold and deep blue grade. A painting, not a photograph. No text, no letters, no numbers, no logos, no watermark.",
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "c01_a",
+   "seed": 1101,
+   "prompt": "A father's rough hands giving a cricket bat with a wide flat wooden blade to Vaibhav as a 10-year-old village boy with short black hair, round cheeks and child proportions, with the same face as the boy in the reference picture but younger, warm evening light in a village courtyard. The father, a lean man of about 40 with a moustache in a plain off-white kurta, holds the black rubber handle; the boy holds the flat blade with both of his own hands, clearly apart from his father's hands, five fingers on each hand, looking up at him with wonder.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c01_b",
+   "seed": 2202,
+   "prompt": "A father's rough hands giving a cricket bat with a wide flat wooden blade to Vaibhav as a 10-year-old village boy with short black hair, round cheeks and child proportions, with the same face as the boy in the reference picture but younger, warm evening light in a village courtyard. The father, a lean man of about 40 with a moustache in a plain off-white kurta, holds the black rubber handle; the boy holds the flat blade with both of his own hands, clearly apart from his father's hands, five fingers on each hand, looking up at him with wonder.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c01_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c01.png",
+   "seed": 3303,
+   "prompt": "The same picture, but the cricket bat has a complete wide flat wooden blade with straight edges and no piece missing; the handle ends in a plain black rubber grip with no red cap; the father holds the handle, and the boy holds the blade with both of his own hands, clearly apart from the father's hands, five fingers on each hand; the father wears a plain off-white kurta instead of the blue shirt."
+  },
+  {
+   "name": "c02_a",
+   "seed": 1101,
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin and short black hair in a plain blue cricket kit with no logos, alone at the crease in a left-handed batting stance with his right shoulder towards the bowler, a cricket bat with a wide flat wooden blade grounded behind his back foot, his eyes on a fast bowler far away in plain white clothes with no helmet and no pads running in to bowl, the only ball hidden in the bowler's hand; a floodlit cricket stadium at night, the boundary boards plain single colours with no writing, with exactly the face of the boy in the reference picture.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c02_b",
+   "seed": 2202,
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin and short black hair in a plain blue cricket kit with no logos, alone at the crease in a left-handed batting stance with his right shoulder towards the bowler, a cricket bat with a wide flat wooden blade grounded behind his back foot, his eyes on a fast bowler far away in plain white clothes with no helmet and no pads running in to bowl, the only ball hidden in the bowler's hand; a floodlit cricket stadium at night, the boundary boards plain single colours with no writing, with exactly the face of the boy in the reference picture.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c02_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c02.png",
+   "seed": 3303,
+   "prompt": "The same picture, but the far figure is a fast bowler in a plain white shirt and trousers with no helmet, no pads, no gloves and no bat, running in to bowl; remove all four red balls; the boundary boards are plain single colours with no writing and no logos; the boy stands side-on at the crease in a left-handed batting stance (right shoulder towards the bowler), the bat grounded behind his back foot, eyes on the bowler. (If edit mode cannot do all of this, remake with a new seed.)"
+  },
+  {
+   "name": "c03_a",
+   "seed": 1101,
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin in a plain blue cricket kit and a dark blue helmet with a metal grille below his eyes, stepping out and lofting a shot: both hands in matching white batting gloves grip the handle of one cricket bat with a wide flat wooden blade and square shoulders, finishing high over his right shoulder in a left-hander's follow-through, his eyes on exactly one red cricket ball sailing up into the night sky; a floodlit stadium at night, the boundary boards plain single colours with no writing, with exactly the face of the boy in the reference picture.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c03_b",
+   "seed": 2202,
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin in a plain blue cricket kit and a dark blue helmet with a metal grille below his eyes, stepping out and lofting a shot: both hands in matching white batting gloves grip the handle of one cricket bat with a wide flat wooden blade and square shoulders, finishing high over his right shoulder in a left-hander's follow-through, his eyes on exactly one red cricket ball sailing up into the night sky; a floodlit stadium at night, the boundary boards plain single colours with no writing, with exactly the face of the boy in the reference picture.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c03_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c03.png",
+   "seed": 3303,
+   "prompt": "The same picture, but both his hands, in matching white batting gloves, grip the handle of one cricket bat with a wide flat wooden blade and square shoulders, the bat finishing high over his right shoulder in a left-hander's follow-through, his eyes on the one red ball in the sky; the boundary boards are plain single colours with no writing."
+  },
+  {
+   "name": "c04_a",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c04.png",
+   "seed": 1101,
+   "prompt": "The same picture, but every fan in the stands is upright, with their own two arms and two legs; remove the loose legs kicking up in the middle of the crowd and the upside-down figure; keep the one red ball dropping into the stands."
+  },
+  {
+   "name": "c04_b",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c04.png",
+   "seed": 2202,
+   "prompt": "The same picture, but every fan in the stands is upright, with their own two arms and two legs; remove the loose legs kicking up in the middle of the crowd and the upside-down figure; keep the one red ball dropping into the stands."
+  },
+  {
+   "name": "c04_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c04.png",
+   "seed": 3303,
+   "prompt": "The same picture, but every fan in the stands is upright, with their own two arms and two legs; remove the loose legs kicking up in the middle of the crowd and the upside-down figure; keep the one red ball dropping into the stands."
+  },
+  {
+   "name": "c05_a",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c05.png",
+   "seed": 1101,
+   "prompt": "The same picture, but remove the white football goal at the lower left; the ground behind him is a plain cricket outfield."
+  },
+  {
+   "name": "c05_b",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c05.png",
+   "seed": 2202,
+   "prompt": "The same picture, but remove the white football goal at the lower left; the ground behind him is a plain cricket outfield."
+  },
+  {
+   "name": "c05_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c05.png",
+   "seed": 3303,
+   "prompt": "The same picture, but remove the white football goal at the lower left; the ground behind him is a plain cricket outfield."
+  },
+  {
+   "name": "c06_a",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c06.png",
+   "seed": 1101,
+   "prompt": "The same picture, but the cap is plain white with no logo; the left man's shirt is plain white with no badge; the left man is an older fast bowler, about 30, with a short beard and close-cropped hair, so he does not look like the hero."
+  },
+  {
+   "name": "c06_b",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c06.png",
+   "seed": 2202,
+   "prompt": "The same picture, but the cap is plain white with no logo; the left man's shirt is plain white with no badge; the left man is an older fast bowler, about 30, with a short beard and close-cropped hair, so he does not look like the hero."
+  },
+  {
+   "name": "c06_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c06.png",
+   "seed": 3303,
+   "prompt": "The same picture, but the cap is plain white with no logo; the left man's shirt is plain white with no badge; the left man is an older fast bowler, about 30, with a short beard and close-cropped hair, so he does not look like the hero."
+  },
+  {
+   "name": "c07_a",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c07.png",
+   "seed": 1101,
+   "prompt": "The same picture, but remove all three red balls (those hands are open or hold glowing phones) and remove the cricket bat in the crowd; the fans are Indian fans of many ages, men and women."
+  },
+  {
+   "name": "c07_b",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c07.png",
+   "seed": 2202,
+   "prompt": "The same picture, but remove all three red balls (those hands are open or hold glowing phones) and remove the cricket bat in the crowd; the fans are Indian fans of many ages, men and women."
+  },
+  {
+   "name": "c07_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/c07.png",
+   "seed": 3303,
+   "prompt": "The same picture, but remove all three red balls (those hands are open or hold glowing phones) and remove the cricket bat in the crowd; the fans are Indian fans of many ages, men and women."
+  },
+  {
+   "name": "i02_a",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/i02.png",
+   "seed": 1101,
+   "prompt": "The same picture, but the fans' raised hands are empty or hold glowing phones (no bat, no ball); remove the white goal frame from the field."
+  },
+  {
+   "name": "i02_b",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/i02.png",
+   "seed": 2202,
+   "prompt": "The same picture, but the fans' raised hands are empty or hold glowing phones (no bat, no ball); remove the white goal frame from the field."
+  },
+  {
+   "name": "i02_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/i02.png",
+   "seed": 3303,
+   "prompt": "The same picture, but the fans' raised hands are empty or hold glowing phones (no bat, no ball); remove the white goal frame from the field."
+  },
+  {
+   "name": "i03_a",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/i03.png",
+   "seed": 1101,
+   "prompt": "The same picture, but there is no ball anywhere: remove the red ball at the top of the bat and the red ball inside the helmet; the bat is plain wood with no sticker."
+  },
+  {
+   "name": "i03_b",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/i03.png",
+   "seed": 2202,
+   "prompt": "The same picture, but there is no ball anywhere: remove the red ball at the top of the bat and the red ball inside the helmet; the bat is plain wood with no sticker."
+  },
+  {
+   "name": "i03_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/i03.png",
+   "seed": 3303,
+   "prompt": "The same picture, but there is no ball anywhere: remove the red ball at the top of the bat and the red ball inside the helmet; the bat is plain wood with no sticker."
+  },
+  {
+   "name": "p01_a",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p01.png",
+   "seed": 1101,
+   "prompt": "The same picture, but the field is a cricket ground: remove the white centre line and side lines, and put a light-brown cricket pitch strip with white crease lines in the middle of the field and a boundary rope in front of the boards."
+  },
+  {
+   "name": "p01_b",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p01.png",
+   "seed": 2202,
+   "prompt": "The same picture, but the field is a cricket ground: remove the white centre line and side lines, and put a light-brown cricket pitch strip with white crease lines in the middle of the field and a boundary rope in front of the boards."
+  },
+  {
+   "name": "p01_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p01.png",
+   "seed": 3303,
+   "prompt": "The same picture, but the field is a cricket ground: remove the white centre line and side lines, and put a light-brown cricket pitch strip with white crease lines in the middle of the field and a boundary rope in front of the boards."
+  },
+  {
+   "name": "p02_a",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p02.png",
+   "seed": 1101,
+   "prompt": "The same picture, but the signs on the stands are plain colours with no writing; remove the red ball at the bat handle, so his hand holds only the rubber grip of the bat."
+  },
+  {
+   "name": "p02_b",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p02.png",
+   "seed": 2202,
+   "prompt": "The same picture, but the signs on the stands are plain colours with no writing; remove the red ball at the bat handle, so his hand holds only the rubber grip of the bat."
+  },
+  {
+   "name": "p02_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p02.png",
+   "seed": 3303,
+   "prompt": "The same picture, but the signs on the stands are plain colours with no writing; remove the red ball at the bat handle, so his hand holds only the rubber grip of the bat."
+  },
+  {
+   "name": "p03_a",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p03.png",
+   "seed": 1101,
+   "prompt": "The same picture, but the ball is a red leather cricket ball with one straight raised seam of white stitching running around its middle; no curved stitching."
+  },
+  {
+   "name": "p03_b",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p03.png",
+   "seed": 2202,
+   "prompt": "The same picture, but the ball is a red leather cricket ball with one straight raised seam of white stitching running around its middle; no curved stitching."
+  },
+  {
+   "name": "p03_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p03.png",
+   "seed": 3303,
+   "prompt": "The same picture, but the ball is a red leather cricket ball with one straight raised seam of white stitching running around its middle; no curved stitching."
+  },
+  {
+   "name": "p05_a",
+   "seed": 1101,
+   "prompt": "Extreme close-up from the side: one straight cricket bat, a short taped round handle running in a straight line into a long, wide, flat wooden blade with square shoulders, hits one red leather cricket ball (straight seam) in the middle of the blade; dust and chalk explode; nothing else in the frame."
+  },
+  {
+   "name": "p05_b",
+   "seed": 2202,
+   "prompt": "Extreme close-up from the side: one straight cricket bat, a short taped round handle running in a straight line into a long, wide, flat wooden blade with square shoulders, hits one red leather cricket ball (straight seam) in the middle of the blade; dust and chalk explode; nothing else in the frame."
+  },
+  {
+   "name": "p05_c",
+   "seed": 3303,
+   "prompt": "Extreme close-up from the side: one straight cricket bat, a short taped round handle running in a straight line into a long, wide, flat wooden blade with square shoulders, hits one red leather cricket ball (straight seam) in the middle of the blade; dust and chalk explode; nothing else in the frame."
+  },
+  {
+   "name": "p06_a",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p06.png",
+   "seed": 1101,
+   "prompt": "The same picture, but every shirt is plain with no patches or tags; the centre fan is an older man with a grey moustache in a yellow shirt; the front-row fans have clearly different faces, ages and hair, men and women."
+  },
+  {
+   "name": "p06_b",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p06.png",
+   "seed": 2202,
+   "prompt": "The same picture, but every shirt is plain with no patches or tags; the centre fan is an older man with a grey moustache in a yellow shirt; the front-row fans have clearly different faces, ages and hair, men and women."
+  },
+  {
+   "name": "p06_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/p06.png",
+   "seed": 3303,
+   "prompt": "The same picture, but every shirt is plain with no patches or tags; the centre fan is an older man with a grey moustache in a yellow shirt; the front-row fans have clearly different faces, ages and hair, men and women."
+  },
+  {
+   "name": "t02_a",
+   "seed": 1101,
+   "prompt": "Close-up in a dusty Indian village at dawn (not a stadium): Vaibhav as a 10-year-old Indian village boy with brown skin, round cheeks and short black hair, with the same face as the boy in the reference picture but younger, in a plain faded shirt with no badge, gripping the rubber handle of an old cricket bat with a long, wide, flat wooden blade and square shoulders, the blade standing upright beside his face, looking ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t02_b",
+   "seed": 2202,
+   "prompt": "Close-up in a dusty Indian village at dawn (not a stadium): Vaibhav as a 10-year-old Indian village boy with brown skin, round cheeks and short black hair, with the same face as the boy in the reference picture but younger, in a plain faded shirt with no badge, gripping the rubber handle of an old cricket bat with a long, wide, flat wooden blade and square shoulders, the blade standing upright beside his face, looking ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t02_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/t02.png",
+   "seed": 3303,
+   "prompt": "The same picture, but he grips the rubber handle of an old cricket bat with a long, wide, flat wooden blade and square shoulders, the blade standing upright beside his face; his shirt is plain with no badge."
+  },
+  {
+   "name": "t03_a",
+   "seed": 1101,
+   "prompt": "A dusty village cricket ground in Bihar at golden hour, no floodlights: Vaibhav as a 10-year-old Indian village boy, small with round cheeks and child proportions, brown skin, in a plain blue shirt, with the same face as the boy in the reference picture but younger, batting in a left-handed stance and swinging a plain wooden cricket bat with a wide flat blade at one red cricket ball coming towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; small village shops behind with plain signs and no writing.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t03_b",
+   "seed": 2202,
+   "prompt": "A dusty village cricket ground in Bihar at golden hour, no floodlights: Vaibhav as a 10-year-old Indian village boy, small with round cheeks and child proportions, brown skin, in a plain blue shirt, with the same face as the boy in the reference picture but younger, batting in a left-handed stance and swinging a plain wooden cricket bat with a wide flat blade at one red cricket ball coming towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; small village shops behind with plain signs and no writing.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t03_c",
+   "edit": "/root/.cache/music/vaibhav-video/animeA/t03.png",
+   "seed": 3303,
+   "prompt": "The same picture, but the batter is a 10-year-old boy (smaller, with a rounder face, like the boy in t02) in a left-handed stance; the friend at the back right wears a yellow vest and has close-cropped hair; the fielders are boys of about 10-12 with different faces; one red cricket ball in the air coming towards the bat; the bat is plain wood with no mark; the shop signs and shirts are plain, with no writing or badges; no floodlights, only the low golden sun. (If the age will not change in edit mode, remake with a new seed.)"
+  },
+  {
+   "name": "t04_a",
+   "seed": 1101,
+   "prompt": "Night in a small village house: Vaibhav as a 10-year-old village boy with short black hair, with the same face as the boy in the reference picture but younger: a small 10-year-old boy with child proportions and round cheeks asleep on a mat, hugging one cricket bat with a wide flat blade; the whole bat, handle and blade, lies in front of him, nothing behind his head; through the window a soft dreamlike stadium glows among the stars.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t04_b",
+   "seed": 2202,
+   "prompt": "Night in a small village house: Vaibhav as a 10-year-old village boy with short black hair, with the same face as the boy in the reference picture but younger: a small 10-year-old boy with child proportions and round cheeks asleep on a mat, hugging one cricket bat with a wide flat blade; the whole bat, handle and blade, lies in front of him, nothing behind his head; through the window a soft dreamlike stadium glows among the stars.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t04_c",
+   "seed": 3303,
+   "prompt": "Night in a small village house: Vaibhav as a 10-year-old village boy with short black hair, with the same face as the boy in the reference picture but younger: a small 10-year-old boy with child proportions and round cheeks asleep on a mat, hugging one cricket bat with a wide flat blade; the whole bat, handle and blade, lies in front of him, nothing behind his head; through the window a soft dreamlike stadium glows among the stars.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c03_onehand_a",
+   "seed": 4401,
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin in a plain blue cricket kit and a dark blue helmet with a metal grille below his eyes, at the end of a big lofted shot: his top hand holds the handle of one cricket bat with a wide flat wooden blade high over his right shoulder, his bottom hand has let go and is open by his side, the way batters finish a huge hit, his eyes on exactly one red cricket ball sailing up into the night sky; a floodlit stadium at night, the boundary boards plain single colours with no writing, with exactly the face of the boy in the reference picture.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c03_onehand_b",
+   "seed": 5502,
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin in a plain blue cricket kit and a dark blue helmet with a metal grille below his eyes, at the end of a big lofted shot: his top hand holds the handle of one cricket bat with a wide flat wooden blade high over his right shoulder, his bottom hand has let go and is open by his side, the way batters finish a huge hit, his eyes on exactly one red cricket ball sailing up into the night sky; a floodlit stadium at night, the boundary boards plain single colours with no writing, with exactly the face of the boy in the reference picture.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c03_onehand_c",
+   "seed": 6603,
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin in a plain blue cricket kit and a dark blue helmet with a metal grille below his eyes, at the end of a big lofted shot: his top hand holds the handle of one cricket bat with a wide flat wooden blade high over his right shoulder, his bottom hand has let go and is open by his side, the way batters finish a huge hit, his eyes on exactly one red cricket ball sailing up into the night sky; a floodlit stadium at night, the boundary boards plain single colours with no writing, with exactly the face of the boy in the reference picture.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c01_ra",
+   "seed": 7101,
+   "prompt": "In a village courtyard in warm evening light, a lean Indian father of about 40 with a moustache, in a plain off-white kurta, holds out a cricket bat with both of his hands on its black rubber handle, offering it to his son; the bat has a long, wide, flat rectangular wooden blade with square shoulders. His son Vaibhav, a 10-year-old village boy with short black hair, round cheeks and child proportions, in a plain blue shirt, with the same face as the boy in the reference picture but younger, reaches out with both open hands towards the blade, not yet touching it, looking up at his father with wonder.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t02_ra",
+   "seed": 7101,
+   "prompt": "Close-up in a dusty Indian village at dawn (not a stadium): Vaibhav as a 10-year-old Indian village boy with brown skin, round cheeks and short black hair parted to the side, in a plain light-blue collared shirt with no badge, with the same face as the boy in the reference picture but younger, his fist around the short round handle of an old cricket bat whose blade is a long, narrow, rectangular plank of flat wood with square shoulders and a square end, standing upright beside his face; he looks ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c01_rb",
+   "seed": 8202,
+   "prompt": "In a village courtyard in warm evening light, a lean Indian father of about 40 with a moustache, in a plain off-white kurta, holds out a cricket bat with both of his hands on its black rubber handle, offering it to his son; the bat has a long, wide, flat rectangular wooden blade with square shoulders. His son Vaibhav, a 10-year-old village boy with short black hair, round cheeks and child proportions, in a plain blue shirt, with the same face as the boy in the reference picture but younger, reaches out with both open hands towards the blade, not yet touching it, looking up at his father with wonder.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t02_rb",
+   "seed": 8202,
+   "prompt": "Close-up in a dusty Indian village at dawn (not a stadium): Vaibhav as a 10-year-old Indian village boy with brown skin, round cheeks and short black hair parted to the side, in a plain light-blue collared shirt with no badge, with the same face as the boy in the reference picture but younger, his fist around the short round handle of an old cricket bat whose blade is a long, narrow, rectangular plank of flat wood with square shoulders and a square end, standing upright beside his face; he looks ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c01_rc",
+   "seed": 9303,
+   "prompt": "In a village courtyard in warm evening light, a lean Indian father of about 40 with a moustache, in a plain off-white kurta, holds out a cricket bat with both of his hands on its black rubber handle, offering it to his son; the bat has a long, wide, flat rectangular wooden blade with square shoulders. His son Vaibhav, a 10-year-old village boy with short black hair, round cheeks and child proportions, in a plain blue shirt, with the same face as the boy in the reference picture but younger, reaches out with both open hands towards the blade, not yet touching it, looking up at his father with wonder.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t02_rc",
+   "seed": 9303,
+   "prompt": "Close-up in a dusty Indian village at dawn (not a stadium): Vaibhav as a 10-year-old Indian village boy with brown skin, round cheeks and short black hair parted to the side, in a plain light-blue collared shirt with no badge, with the same face as the boy in the reference picture but younger, his fist around the short round handle of an old cricket bat whose blade is a long, narrow, rectangular plank of flat wood with square shoulders and a square end, standing upright beside his face; he looks ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t02_t01a",
+   "seed": 1212,
+   "prompt": "Close-up in the same dusty Indian village at dawn: the same 10-year-old boy as in the reference picture (the same face, the same short black hair and the same blue polo shirt), his fist around the short round handle of an old cricket bat whose blade is a long, narrow, rectangular plank of flat wood with square shoulders and a square end, standing upright beside his face; he looks ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t02_t01b",
+   "seed": 2323,
+   "prompt": "Close-up in the same dusty Indian village at dawn: the same 10-year-old boy as in the reference picture (the same face, the same short black hair and the same blue polo shirt), his fist around the short round handle of an old cricket bat whose blade is a long, narrow, rectangular plank of flat wood with square shoulders and a square end, standing upright beside his face; he looks ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t02_t01c",
+   "seed": 3434,
+   "prompt": "Close-up in the same dusty Indian village at dawn: the same 10-year-old boy as in the reference picture (the same face, the same short black hair and the same blue polo shirt), his fist around the short round handle of an old cricket bat whose blade is a long, narrow, rectangular plank of flat wood with square shoulders and a square end, standing upright beside his face; he looks ahead with quiet determination, dust floating in the golden sunlight.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t03_t01a",
+   "seed": 1515,
+   "prompt": "A dusty village cricket ground at golden hour, no floodlights: the same 10-year-old boy as in the reference picture (the same face, short black hair and blue polo shirt) in a left-handed batting stance, his bat lifted behind him ready to swing, its blade a long, flat rectangular plank of wood with square shoulders; one red cricket ball comes towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; the village walls behind are plain mud and brick with no signboards.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t04_t01a",
+   "seed": 1515,
+   "prompt": "Night in a small village house: the same 10-year-old boy as in the reference picture (the same face and short black hair) asleep on a mat, hugging an old cricket bat upright against his chest: its blade is a long, flat rectangular plank of wood with a square end, and its short round handle rests under his chin; through the window a soft dreamlike stadium glows among the stars; a single bulb gives warm light.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t03_t01b",
+   "seed": 2626,
+   "prompt": "A dusty village cricket ground at golden hour, no floodlights: the same 10-year-old boy as in the reference picture (the same face, short black hair and blue polo shirt) in a left-handed batting stance, his bat lifted behind him ready to swing, its blade a long, flat rectangular plank of wood with square shoulders; one red cricket ball comes towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; the village walls behind are plain mud and brick with no signboards.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t04_t01b",
+   "seed": 2626,
+   "prompt": "Night in a small village house: the same 10-year-old boy as in the reference picture (the same face and short black hair) asleep on a mat, hugging an old cricket bat upright against his chest: its blade is a long, flat rectangular plank of wood with a square end, and its short round handle rests under his chin; through the window a soft dreamlike stadium glows among the stars; a single bulb gives warm light.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t03_t01c",
+   "seed": 3737,
+   "prompt": "A dusty village cricket ground at golden hour, no floodlights: the same 10-year-old boy as in the reference picture (the same face, short black hair and blue polo shirt) in a left-handed batting stance, his bat lifted behind him ready to swing, its blade a long, flat rectangular plank of wood with square shoulders; one red cricket ball comes towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; the village walls behind are plain mud and brick with no signboards.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t04_t01c",
+   "seed": 3737,
+   "prompt": "Night in a small village house: the same 10-year-old boy as in the reference picture (the same face and short black hair) asleep on a mat, hugging an old cricket bat upright against his chest: its blade is a long, flat rectangular plank of wood with a square end, and its short round handle rests under his chin; through the window a soft dreamlike stadium glows among the stars; a single bulb gives warm light.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/animeA/t01.png"
+   ]
+  },
+  {
+   "name": "t03_ra",
+   "seed": 4848,
+   "prompt": "A dusty village cricket ground at golden hour, no floodlights: Vaibhav as a 10-year-old Indian village boy, small with round cheeks and child proportions, brown skin, short black hair, in a plain blue polo shirt, with the same face as the boy in the reference picture but younger, in a left-handed batting stance on the dusty pitch, his bat lifted behind him ready to swing, its blade a long, flat rectangular plank of wood with square shoulders; one red cricket ball comes towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; the village walls behind are plain mud and brick with no signboards.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t03_rb",
+   "seed": 5959,
+   "prompt": "A dusty village cricket ground at golden hour, no floodlights: Vaibhav as a 10-year-old Indian village boy, small with round cheeks and child proportions, brown skin, short black hair, in a plain blue polo shirt, with the same face as the boy in the reference picture but younger, in a left-handed batting stance on the dusty pitch, his bat lifted behind him ready to swing, its blade a long, flat rectangular plank of wood with square shoulders; one red cricket ball comes towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; the village walls behind are plain mud and brick with no signboards.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t03_rc",
+   "seed": 6060,
+   "prompt": "A dusty village cricket ground at golden hour, no floodlights: Vaibhav as a 10-year-old Indian village boy, small with round cheeks and child proportions, brown skin, short black hair, in a plain blue polo shirt, with the same face as the boy in the reference picture but younger, in a left-handed batting stance on the dusty pitch, his bat lifted behind him ready to swing, its blade a long, flat rectangular plank of wood with square shoulders; one red cricket ball comes towards him through the air; behind him his friends, boys of 10 to 12 with different faces, one in a yellow vest with close-cropped hair, shout and run; the village walls behind are plain mud and brick with no signboards.",
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  }
+ ]
+}

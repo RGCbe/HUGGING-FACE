@@ -1,0 +1,150 @@
+{
+ "style": "Hyper-detailed semi-realistic anime digital painting in the look of a high-budget anime feature film key visual: clean outlines, realistic anatomy and faces, realistic skin, fabric and grass textures, volumetric lighting with glowing floodlights, depth of field, cinematic composition, rich warm gold and deep blue grade. A painting, not a photograph. No text, no letters, no numbers, no logos, no watermark.",
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "t01",
+   "prompt": "A misty village lane in Samastipur, Bihar, at dawn, golden light; Vaibhav as a 10-year-old Indian village boy with brown skin and short black hair, with the same face as the boy in the reference picture but younger, walks towards the camera carrying a cricket bat with a wide flat wooden blade on his right shoulder, simple brick houses, a cow",
+   "seed": 411,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t02",
+   "prompt": "Close-up in a dusty Indian village at dawn (not a stadium): Vaibhav as a 10-year-old Indian village boy with brown skin and short black hair, with the same face as the boy in the reference picture but younger, gripping the handle of an old a cricket bat with a wide flat wooden blade, eyes full of dreams, dust glowing in the sunlight, mud houses behind",
+   "seed": 412,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t03",
+   "prompt": "A dusty village cricket ground in Bihar at golden hour; Vaibhav as a 10-year-old Indian village boy with brown skin, with the same face as the boy in the reference picture but younger, batting with a cricket bat with a wide flat wooden blade in both hands, a big swing; the other boys are fielding; one red ball; long shadows",
+   "seed": 413,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "t04",
+   "prompt": "Night in a small village house; Vaibhav as a 10-year-old village boy with short black hair, with the same face as the boy in the reference picture but younger asleep beside a cricket bat with a wide flat wooden blade, a window glowing with an imagined stadium in the sky, dreamy",
+   "seed": 14,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "p01",
+   "prompt": "A huge floodlit cricket stadium at night from the pitch, packed crowd, floodlights flaring, haze, electric atmosphere",
+   "seed": 21
+  },
+  {
+   "name": "p02",
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with short black hair and a determined, cheerful face, a left-handed batter in a plain blue cricket kit with no logos and no numbers, with exactly the face of the boy in the reference picture, walking out to bat into a giant floodlit stadium, helmet in hand, confident smile, crowd roaring behind",
+   "seed": 22,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "p03",
+   "prompt": "Low angle: exactly one red leather cricket ball flying high into the night sky against blazing stadium floodlights, motion streaks; there is NO bat in the picture, only the ball, the sky and the stadium lights",
+   "seed": 323
+  },
+  {
+   "name": "p04",
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin and short black hair, a LEFT-handed batter (his right shoulder points towards the bowler), helmet on, finishing a huge swing: both gloved hands close together at the top of the straight taped handle of a cricket bat with a wide flat wooden blade, the handle running straight into the blade, the bat finishing high over his shoulder, the red ball flying away with a short motion trail behind it, stadium floodlights behind, with exactly the face of the boy in the reference picture",
+   "seed": 4242,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "p05",
+   "prompt": "Extreme close-up of a cricket bat with a wide flat wooden blade smashing a red leather cricket ball, dust and chalk exploding, frozen high-speed moment",
+   "seed": 25
+  },
+  {
+   "name": "p06",
+   "prompt": "A stadium crowd on its feet, thousands of fans with arms raised, cheering, confetti in the floodlights",
+   "seed": 26
+  },
+  {
+   "name": "i01",
+   "prompt": "Tamil folk drummers playing parai, a wide flat round frame drum with one skin, hung from the shoulder and struck with two thin bamboo sticks, in a stadium aisle between the seats at night, energetic, each drummer with a different face, age and build (one grey-haired with a moustache, one young and thin, one heavy-set), the crowd behind dancing and clapping with open empty hands raised",
+   "seed": 3131
+  },
+  {
+   "name": "i02",
+   "prompt": "Fireworks bursting over a cricket stadium at night, gold and blue sparks, crowd silhouettes in the foreground; no ball and no bat in the picture",
+   "seed": 332
+  },
+  {
+   "name": "i03",
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with short black hair and a determined, cheerful face, a left-handed batter in a plain blue cricket kit with no logos and no numbers, with exactly the face of the boy in the reference picture, raising a cricket bat with a wide flat wooden blade to the sky with one hand and his helmet in the other after a hundred, eyes closed, huge smile, confetti and floodlights",
+   "seed": 133,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c01",
+   "prompt": "A father's rough hands giving a cricket bat with a wide flat wooden blade to Vaibhav as a 10-year-old village boy with short black hair, with the same face as the boy in the reference picture but younger, warm evening light in a village courtyard, the father seen from behind",
+   "seed": 41,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c02",
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin and short black hair in a plain blue cricket kit, standing alone at the crease with a cricket bat with a wide flat wooden blade, a LEFT-handed stance, eyes locked on a fast bowler running in far away in a white kit; only ONE batter in the picture; huge floodlit stadium; with exactly the face of the boy in the reference picture",
+   "seed": 342,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c03",
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin in a plain blue cricket kit, stepping out and lofting a shot with a cricket bat with a wide flat wooden blade in both hands, follow-through high over his shoulder, exactly ONE red cricket ball sailing into the night sky, crowd rising, with exactly the face of the boy in the reference picture",
+   "seed": 443,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "c04",
+   "prompt": "A cricket ball dropping into the upper stands, fans leaping from their seats to catch it, night stadium",
+   "seed": 44
+  },
+  {
+   "name": "c05",
+   "prompt": "A frustrated fast bowler in a plain white kit scratching his head with both hands, puzzled and annoyed, funny moment, night stadium",
+   "seed": 45
+  },
+  {
+   "name": "c06",
+   "prompt": "A fast bowler and his captain in plain white kits talking mid-pitch with hands on hips, confused, looking at each other, light comic mood",
+   "seed": 46
+  },
+  {
+   "name": "c07",
+   "prompt": "The whole stadium crowd rising as one in a standing ovation, arms up, phone lights glowing, night",
+   "seed": 47
+  },
+  {
+   "name": "e01",
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with short black hair and a determined, cheerful face, a left-handed batter in a plain blue cricket kit with no logos and no numbers, with exactly the face of the boy in the reference picture, raising a cricket bat with a wide flat wooden blade high with both hands to a roaring crowd under floodlights, confetti falling, proud and young",
+   "seed": 151,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "e02",
+   "prompt": "Sunrise over an empty cricket stadium: a single a cricket bat with a wide flat wooden blade leaning against a set of exactly THREE wooden stumps with two bails on the pitch, golden light, hopeful",
+   "seed": 352
+  }
+ ],
+ "character_note": "His anime face (ref/char_A.png) was drawn from the official photo 'Vaibhav Suryavanshi meets PM Modi' (Prime Minister's Office / PIB, GODL-India, Wikimedia Commons), cropped to him; the owner chose style A on 26 Nov 2026. A stylised drawing, never a photo-real face."
+}

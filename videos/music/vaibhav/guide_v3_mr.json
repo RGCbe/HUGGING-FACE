@@ -1,0 +1,31 @@
+{
+ "slug": "vaibhav-v3-mr",
+ "title": "வைபவ் வந்தா வெறித்தனம்!",
+ "note": "The guide singer for v3 (26 Nov 2026): ACE-Step, one solo voice and no gang, so the lead converts cleanly to the owner's voice; the gang is made from his converted voice. Tamil script at 100 BPM was the clearest (sample C, 71%); sample D's rap-kuthu sound.",
+ "language": "ta",
+ "bpm": 100,
+ "duration": 120,
+ "seeds": [
+  11
+ ],
+ "spoken": false,
+ "caption": "A unique Tamil rap-kuthu song for a teenage cricket hero: hard-hitting hip-hop drums and a deep 808 bass fused with live kuthu percussion (parai, thavil and urumi), nadaswaram riffs, brass stabs, whistles and hand claps. One solo male Tamil singer performs every line alone: he sings the hook with a real melody and raps the verse with a punchy flow, with very clear, crisp diction, every word easy to understand. No backing vocals, no gang chorus, no crowd vocals. Natural voice, no autotune, not narrated.",
+ "lyrics": "[Thogaiyara - free rhythm, slow, no drums, a single held voice]\nசமஸ்திபூர் தெருவுல, ஒரு சின்னப் பையன்...\nகையில பேட்டு, கண்ணுல கனவு...\nஅந்த கனவு இன்னைக்கு...\nமைதானம் முழுக்க ஒலிக்குது!\n\n[Prelude - nadaswaram riff, 808 bass, parai, whistles, instrumental]\n\n[Pallavi - Chorus, sung hook, gang answers]\nவைபவ் வந்தா வெறித்தனம்!\nபந்து பறக்குது வானத்துல!\nபதினைஞ்சு வயசு தான் டா\nஆட்டத்த பாரு, சிங்கம் டா! (ஹே!)\n\n[Anupallavi - Pre-Chorus, climbs higher]\nஅடிச்சா சிக்ஸ் தான்! (சிக்ஸ் தான்!)\nமுடிச்சா மேட்ச் தான்! (மேட்ச் தான்!)\n\n[Pallavi - Chorus, first two lines again]\nவைபவ் வந்தா வெறித்தனம்!\nபந்து பறக்குது வானத்துல!\n\n[Interlude - dance break, call and response, lead and crowd]\nபதினாலு வயசுல (சதம்!)\nமுப்பத்தஞ்சு பால்ல (சதம்!)\nதோஹாவுல இப்போ (இருநூறு!)\nயாரு டா இவன்? (வைபவ்!)\n\n[Charanam - Verse, Tamil rap, punchy flow, his story and his batting]\nசமஸ்திபூர் மண்ணுல பொறந்தவன் டா\nலெஃப்ட் ஹேண்ட் பேட்டுல பொளந்தவன் டா\nமுதல் பாலே சிக்ஸர், மொத்த ஊரும் எழுந்துச்சு\nமுப்பத்தஞ்சு பால்ல சதம், உலகமே திரும்புச்சு!\nஆஃப் சைடு போட்டா, கவர் மேல போகும் (போகும்!)\nலெக் சைடு போட்டா, ஸ்டாண்டுல விழும் (விழும்!)\nபவுலர் தலைய சொறிஞ்சு நிக்கிறான்\nஎங்க போடுறதுன்னு கேப்டன பாக்குறான்!\n\n[Pallavi - Final Chorus, key change up, maximum energy]\nவைபவ் வந்தா வெறித்தனம்!\nபந்து பறக்குது வானத்துல!\nபதினைஞ்சு வயசு தான் டா\nஆட்டத்த பாரு, சிங்கம் டா! (ஹே!)\n\n[Ending - Outro, crowd chant, one huge bass hit and a whistle]\nவைபவ்! வைபவ்! (வைபவ்!)\nஇது வெறும் ஆரம்பம் தான்!",
+ "orig_under": 0,
+ "doubles": true,
+ "gang_words": [
+  "வைபவ்",
+  "வைப",
+  "சிக்ஸ்",
+  "சதம்",
+  "பந்து",
+  "ஆட்ட"
+ ],
+ "separator": "melroformer",
+ "voice_engine": "base",
+ "clear_lead": true,
+ "gang_gain": 0.6,
+ "lead_gain": 1.6,
+ "duck": 0.55,
+ "acapella": true
+}

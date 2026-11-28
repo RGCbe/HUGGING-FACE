@@ -1,0 +1,311 @@
+{
+ "title": "வைபவ் வந்தா வெறித்தனம்!",
+ "audio": "~/.cache/music/eleven-song/eleven.mp3",
+ "pictures": "~/.cache/music/vaibhav-video/animeA",
+ "work": "~/.cache/music/vaibhav-video/build",
+ "size": [
+  1920,
+  1080
+ ],
+ "fps": 30,
+ "shots": [
+  {
+   "pic": "t01",
+   "start": 0.0,
+   "end": 5.5,
+   "move": 0
+  },
+  {
+   "pic": "t02",
+   "start": 5.5,
+   "end": 9.7,
+   "move": 0
+  },
+  {
+   "pic": "t04",
+   "start": 9.7,
+   "end": 13.7,
+   "move": 2
+  },
+  {
+   "pic": "p01",
+   "start": 13.7,
+   "end": 19.6,
+   "move": 0
+  },
+  {
+   "pic": "p02",
+   "start": 19.6,
+   "end": 25.3,
+   "move": 1
+  },
+  {
+   "pic": "p04",
+   "start": 25.3,
+   "end": 29.6,
+   "move": 0
+  },
+  {
+   "pic": "p03",
+   "start": 29.6,
+   "end": 32.3,
+   "move": 3
+  },
+  {
+   "pic": "i03",
+   "start": 32.3,
+   "end": 35.4,
+   "move": 0
+  },
+  {
+   "pic": "p06",
+   "start": 35.4,
+   "end": 38.7,
+   "move": 1
+  },
+  {
+   "pic": "p05",
+   "start": 38.7,
+   "end": 40.8,
+   "move": 0
+  },
+  {
+   "pic": "c04",
+   "start": 40.8,
+   "end": 42.9,
+   "move": 3
+  },
+  {
+   "pic": "i01",
+   "start": 42.9,
+   "end": 46.6,
+   "move": 1
+  },
+  {
+   "pic": "i02",
+   "start": 46.6,
+   "end": 50.3,
+   "move": 2
+  },
+  {
+   "pic": "c07",
+   "start": 50.3,
+   "end": 53.9,
+   "move": 0
+  },
+  {
+   "pic": "t03",
+   "start": 53.9,
+   "end": 60.3,
+   "move": 1
+  },
+  {
+   "pic": "c01",
+   "start": 60.3,
+   "end": 64.3,
+   "move": 0
+  },
+  {
+   "pic": "c02",
+   "start": 64.3,
+   "end": 66.0,
+   "move": 0
+  },
+  {
+   "pic": "c03",
+   "start": 66.0,
+   "end": 67.6,
+   "move": 3
+  },
+  {
+   "pic": "e01",
+   "start": 67.6,
+   "end": 71.4,
+   "move": 0
+  },
+  {
+   "pic": "c05",
+   "start": 71.4,
+   "end": 75.1,
+   "move": 0
+  },
+  {
+   "pic": "c06",
+   "start": 75.1,
+   "end": 79.5,
+   "move": 1
+  },
+  {
+   "pic": "p03",
+   "start": 79.5,
+   "end": 81.2,
+   "move": 0
+  },
+  {
+   "pic": "p02",
+   "start": 81.2,
+   "end": 85.2,
+   "move": 0
+  },
+  {
+   "pic": "c03",
+   "start": 85.2,
+   "end": 88.8,
+   "move": 1
+  },
+  {
+   "pic": "i03",
+   "start": 88.8,
+   "end": 92.2,
+   "move": 2
+  },
+  {
+   "pic": "e01",
+   "start": 92.2,
+   "end": 96.0,
+   "move": 0
+  },
+  {
+   "pic": "i02",
+   "start": 96.0,
+   "end": 99.2,
+   "move": 3
+  },
+  {
+   "pic": "c07",
+   "start": 99.2,
+   "end": 101.5,
+   "move": 2
+  }
+ ],
+ "photo": {
+  "path": "~/.cache/music/vaibhav-video/ref/face.png",
+  "start": 101.5,
+  "end": 104.05,
+  "credit": "Photo: Prime Minister's Office / PIB, Government of India (GODL-India)"
+ },
+ "intro_note": {
+  "text": "A fan tribute song · ரசிகர் பாடல்",
+  "start": 0.3,
+  "end": 4.0
+ },
+ "captions": [
+  {
+   "text": "சமஸ்திபூர் தெருவுல, ஒரு சின்னப் பையன்...",
+   "start": 0.2,
+   "end": 5.5
+  },
+  {
+   "text": "கையில பேட்டு, கண்ணுல கனவு...",
+   "start": 5.7,
+   "end": 9.6
+  },
+  {
+   "text": "அந்த கனவு இன்னைக்கு, மைதானம் முழுக்க!",
+   "start": 9.8,
+   "end": 13.8
+  },
+  {
+   "text": "வைபவ் வந்தா வெறித்தனம்!",
+   "start": 25.3,
+   "end": 29.6
+  },
+  {
+   "text": "பந்து பறக்குது வானத்துல!",
+   "start": 29.6,
+   "end": 32.3
+  },
+  {
+   "text": "பதினைஞ்சு வயசு தான் டா",
+   "start": 32.4,
+   "end": 35.4
+  },
+  {
+   "text": "ஆட்டத்த பாரு, சிங்கம் டா!",
+   "start": 35.4,
+   "end": 38.7
+  },
+  {
+   "text": "அடிச்சா சிக்ஸ் தான்!",
+   "start": 38.8,
+   "end": 40.8
+  },
+  {
+   "text": "முடிச்சா மேட்ச் தான்!",
+   "start": 40.8,
+   "end": 42.9
+  },
+  {
+   "text": "பதினாலு வயசுல... சதம்!",
+   "start": 42.9,
+   "end": 50.3
+  },
+  {
+   "text": "யாரு டா இவன்? வைபவ்!",
+   "start": 50.3,
+   "end": 53.9
+  },
+  {
+   "text": "சமஸ்திபூர் மண்ணுல பொறந்தவன் டா",
+   "start": 56.8,
+   "end": 60.3
+  },
+  {
+   "text": "லெஃப்ட் ஹேண்ட் பேட்டுல பொளந்தவன் டா",
+   "start": 60.3,
+   "end": 64.3
+  },
+  {
+   "text": "முதல் பாலே சிக்ஸர், ஊரே எழுந்துச்சு",
+   "start": 64.3,
+   "end": 67.6
+  },
+  {
+   "text": "முப்பத்தஞ்சு பால்ல சதம், உலகமே திரும்புச்சு!",
+   "start": 67.6,
+   "end": 71.4
+  },
+  {
+   "text": "பவுலர் தலைய சொறிஞ்சு நிக்கிறான்",
+   "start": 71.4,
+   "end": 75.1
+  },
+  {
+   "text": "எங்க போடுறதுன்னு கேப்டன பாக்குறான்!",
+   "start": 75.1,
+   "end": 79.5
+  },
+  {
+   "text": "வைபவ் வந்தா வெறித்தனம்!",
+   "start": 81.2,
+   "end": 85.2
+  },
+  {
+   "text": "பந்து பறக்குது வானத்துல!",
+   "start": 85.3,
+   "end": 88.7
+  },
+  {
+   "text": "பதினைஞ்சு வயசு தான் டா",
+   "start": 88.9,
+   "end": 92.2
+  },
+  {
+   "text": "ஆட்டத்த பாரு, சிங்கம் டா!",
+   "start": 92.2,
+   "end": 96.0
+  },
+  {
+   "text": "வைபவ்! வைபவ்!",
+   "start": 99.2,
+   "end": 101.5
+  },
+  {
+   "text": "இது வெறும் ஆரம்பம் தான்!",
+   "start": 101.5,
+   "end": 104.0
+  }
+ ],
+ "note": "The owner's ElevenLabs Music track (26 Nov 2026), our v4 lyrics; line times from faster-whisper on the Mel-Band RoFormer vocal (the choruses with the lyrics as a hint). Pictures: painted anime (style A), his face from the official GODL-India photo; the real photo itself only at the end, with its credit.",
+ "clips": "~/.cache/music/vaibhav-video/clips"
+}

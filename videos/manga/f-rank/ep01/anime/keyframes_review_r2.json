@@ -1,0 +1,36 @@
+{
+ "round": 2,
+ "picks": {
+  "S01": "a",
+  "S02": "a",
+  "S06": "b",
+  "S11": "a",
+  "S12": "a",
+  "S16": "a",
+  "S17": "a",
+  "S18": "a",
+  "S21": "a",
+  "S22": "a",
+  "S24": "a",
+  "S28": "b",
+  "S31": "a",
+  "S33": "a",
+  "S40": "b",
+  "S45": "a",
+  "S46": "b",
+  "S49": "a",
+  "S51": "a",
+  "S52": "a",
+  "S53": "b",
+  "S54": "a"
+ },
+ "redo": {
+  "S19": "both versions: Meera holds two staffs (the description of her says 'carrying a staff' AND the shot says 'staff in her other hand')",
+  "S26": "both versions: Meera appears twice (two women), b also has an extra man",
+  "S50": "both versions: two Arjuns; the shot text said 'steam drifting between them', which asks for two people"
+ },
+ "fallback_until_redone": {
+  "S19": "round 1 b (daylight)",
+  "S50": "round 1 a (daylight)"
+ }
+}

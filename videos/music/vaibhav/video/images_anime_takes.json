@@ -1,0 +1,45 @@
+{
+ "style": "Hyper-detailed semi-realistic anime digital painting in the look of a high-budget anime feature film key visual: clean outlines, realistic anatomy and faces, realistic skin, fabric and grass textures, volumetric lighting with glowing floodlights, depth of field, cinematic composition, rich warm gold and deep blue grade. A painting, not a photograph. No text, no letters, no numbers, no logos, no watermark.",
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "p04_a",
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin and short black hair, a LEFT-handed batter, side-on in his batting stance at the crease, the moment before he hits: both gloved hands together at the top of the handle and a cricket bat with a wide flat wooden blade lifted high behind his head in one straight line from handle to blade, his eyes on the red ball coming towards him at knee height in front of him, a dark blue cricket batting helmet with a metal face grille below his eyes, blue shirt, stadium floodlights behind, with exactly the face of the boy in the reference picture",
+   "seed": 511,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "i01_a",
+   "prompt": "Three Tamil folk drummers playing parai, a wide flat round frame drum with a cream skin and a wooden rim, hung from the shoulder; each drummer holds exactly two thin bamboo sticks, one in each of his two hands; in a stadium aisle between the seats at night, energetic; each drummer with a different face, age and build (one grey-haired with a moustache, one young and thin, one heavy-set); the crowd behind dancing and clapping with open empty hands",
+   "seed": 512
+  },
+  {
+   "name": "p04_b",
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin and short black hair, a LEFT-handed batter, side-on in his batting stance at the crease, the moment before he hits: both gloved hands together at the top of the handle and a cricket bat with a wide flat wooden blade lifted high behind his head in one straight line from handle to blade, his eyes on the red ball coming towards him at knee height in front of him, a dark blue cricket batting helmet with a metal face grille below his eyes, blue shirt, stadium floodlights behind, with exactly the face of the boy in the reference picture",
+   "seed": 622,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "i01_b",
+   "prompt": "Three Tamil folk drummers playing parai, a wide flat round frame drum with a cream skin and a wooden rim, hung from the shoulder; each drummer holds exactly two thin bamboo sticks, one in each of his two hands; in a stadium aisle between the seats at night, energetic; each drummer with a different face, age and build (one grey-haired with a moustache, one young and thin, one heavy-set); the crowd behind dancing and clapping with open empty hands",
+   "seed": 623
+  },
+  {
+   "name": "p04_c",
+   "prompt": "Vaibhav, a slim 15-year-old Indian boy with brown skin and short black hair, a LEFT-handed batter, side-on in his batting stance at the crease, the moment before he hits: both gloved hands together at the top of the handle and a cricket bat with a wide flat wooden blade lifted high behind his head in one straight line from handle to blade, his eyes on the red ball coming towards him at knee height in front of him, a dark blue cricket batting helmet with a metal face grille below his eyes, blue shirt, stadium floodlights behind, with exactly the face of the boy in the reference picture",
+   "seed": 733,
+   "also": [
+    "/root/.cache/music/vaibhav-video/ref/char_A2.png"
+   ]
+  },
+  {
+   "name": "i01_c",
+   "prompt": "Three Tamil folk drummers playing parai, a wide flat round frame drum with a cream skin and a wooden rim, hung from the shoulder; each drummer holds exactly two thin bamboo sticks, one in each of his two hands; in a stadium aisle between the seats at night, energetic; each drummer with a different face, age and build (one grey-haired with a moustache, one young and thin, one heavy-set); the crowd behind dancing and clapping with open empty hands",
+   "seed": 734
+  }
+ ]
+}

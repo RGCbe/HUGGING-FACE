@@ -1,0 +1,704 @@
+[
+ {
+  "name": "p01",
+  "prompt": "scenery, night, a small closed tea stall with its metal shutter pulled down, a single oil lamp, empty city street, a giant glowing blue portal in the distance, moonlight, quiet, peaceful",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "2:13 a.m."
+   }
+  ],
+  "after": [
+   {
+    "text": "Everyone sleeps eventually."
+   }
+  ]
+ },
+ {
+  "name": "p02",
+  "prompt": "several big men in red armor with red lotus symbols on their chests, sneaking down a dark city street at night, crouching, tiptoeing, one of them holding a large empty sack, moonlight, comedy, stealth",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "Almost everyone."
+   }
+  ],
+  "sfx": [
+   {
+    "text": "tip... tip... tip...",
+    "x": 0.74,
+    "y": 0.86,
+    "size": 80,
+    "rotate": -4
+   }
+  ]
+ },
+ {
+  "name": "p03",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, sleeping deeply on a thin mat in a tiny room behind a tea stall, exhausted, mouth open, drooling, a steel tea pot beside him, moonlight through a small window, comedy",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.45,
+  "after": [
+   {
+    "text": "214 glasses will do that to a person."
+   }
+  ],
+  "sfx": [
+   {
+    "text": "zzz...",
+    "x": 0.78,
+    "y": 0.2,
+    "size": 90,
+    "rotate": 6
+   }
+  ]
+ },
+ {
+  "name": "p04",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, sitting on a low wooden stool in the dark next to a tea stall, sipping from a small steel cup, calm, one eye open, moonlight, mysterious, night",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "Five... no. Six of them.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.58,
+     0.3
+    ],
+    "kind": "thought"
+   }
+  ]
+ },
+ {
+  "name": "p05",
+  "prompt": "1boy, solo, adult man in a black suit and black sunglasses, slicked back black hair, red lotus pin on his chest, black tie, whispering, gesturing to men behind him, night, dark street, menacing, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p12.png",
+  "ref_scale": 0.45,
+  "bubbles": [
+   {
+    "text": "Grab the boy and the recipe. Quietly.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.34,
+    "to": [
+     0.42,
+     0.28
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p06",
+  "prompt": "a huge man in red armor slowly lifting the metal shutter of a small tea stall at night, close-up of his hands on the shutter, creaking, suspense",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "sfx": [
+   {
+    "text": "kreeeeak...",
+    "x": 0.74,
+    "y": 0.2,
+    "size": 90,
+    "rotate": 6
+   }
+  ]
+ },
+ {
+  "name": "p07",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, standing in the open doorway of a small tea stall in moonlight, tiny old woman in front of giant shadows of big men, calm, kind smile, full body, night",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.45,
+  "bubbles": [
+   {
+    "text": "Shop's closed, boys. Come back at six.",
+    "x": 0.28,
+    "y": 0.08,
+    "w": 0.4,
+    "to": [
+     0.5,
+     0.22
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p08",
+  "prompt": "several big men in red armor with red lotus symbols on their chests, laughing at someone in front of them, mocking, cracking knuckles, night street, from below, menacing",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "bubbles": [
+   {
+    "text": "Move, Grandma. This doesn't concern you.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.34,
+    "to": [
+     0.42,
+     0.3
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p09",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, close-up, drinking the last sip of tea from a small steel cup, eyes closed, calm, steam, moonlight, face focus",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "Hm. Cardamom.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.26,
+    "to": [
+     0.6,
+     0.3
+    ]
+   }
+  ],
+  "sfx": [
+   {
+    "text": "sip...",
+    "x": 0.78,
+    "y": 0.82,
+    "size": 80,
+    "rotate": -5
+   }
+  ]
+ },
+ {
+  "name": "p10",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, a huge golden aura bursting around her, grey hair glowing gold, eyes glowing gold, wind, light rays, sari fluttering, power up, dramatic, night street, from below",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.4,
+  "sfx": [
+   {
+    "text": "VWOOM",
+    "x": 0.72,
+    "y": 0.84,
+    "size": 130,
+    "rotate": -8
+   }
+  ]
+ },
+ {
+  "name": "p11",
+  "prompt": "several big men in red armor with red lotus symbols on their chests, staring in shock, jaws dropped, sweating, sweatdrops, golden light on their faces, comedy, night",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "bubbles": [
+   {
+    "text": "Since when do grandmothers GLOW?!",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.42,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p12",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, spinning a wooden walking stick, knocking three big men in red armor flying through the air, speed lines, golden glow, comedy action, dynamic angle, night street",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.35,
+  "sfx": [
+   {
+    "text": "THWACK!",
+    "x": 0.2,
+    "y": 0.12,
+    "size": 92,
+    "rotate": -8
+   },
+   {
+    "text": "THWACK!",
+    "x": 0.27,
+    "y": 0.62,
+    "size": 92,
+    "rotate": 6
+   },
+   {
+    "text": "THWACK!",
+    "x": 0.8,
+    "y": 0.14,
+    "size": 92,
+    "rotate": -4
+   }
+  ]
+ },
+ {
+  "name": "p13",
+  "prompt": "no humans visible, a big round steel milk can lying on its side on a night street, two legs in heavy red metal armor boots sticking out of the open end of the can and kicking in the air, comedy, motion lines, tea stall in the background",
+  "seed": 31,
+  "w": 1024,
+  "h": 1024,
+  "sfx": [
+   {
+    "text": "KLANG!",
+    "x": 0.74,
+    "y": 0.18,
+    "size": 120,
+    "rotate": 8
+   }
+  ]
+ },
+ {
+  "name": "p14",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, waking up, sitting up on a thin mat, rubbing his eyes, messy hair, sleepy, confused, night, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "Paati...? What's all the noise?",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.58,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p15",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, sitting cross-legged on top of a heap of knocked-out big men in red armor lying on top of each other in the middle of a street, swirly eyes, calmly sipping tea from a small steel cup, comedy, moonlight, wide shot",
+  "seed": 23,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.35,
+  "bubbles": [
+   {
+    "text": "Nothing, beta. Go back to sleep.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.6,
+     0.32
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p16",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, extremely shocked, jaw drop, wide-eyed, pointing, comedy, night, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "YOU DRANK THE TEA?!",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.42,
+     0.3
+    ],
+    "size": 28
+   }
+  ]
+ },
+ {
+  "name": "p17",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, close-up, face focus, kind smile, eyes glowing faint gold, holding a small steel cup, steam, warm lamp light, mysterious",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "Who do you think the first glass was for?",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.58,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p18",
+  "prompt": "1boy, solo, adult man in a black suit and black sunglasses, slicked back black hair, red lotus pin on his chest, black tie, trembling, sweating, backing away, holding a phone to his ear, night street, a pile of unconscious men in red armor behind him, comedy",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p12.png",
+  "ref_scale": 0.4,
+  "bubbles": [
+   {
+    "text": "Boss... we have a problem. The grandmother.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.34,
+    "to": [
+     0.42,
+     0.28
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p19",
+  "prompt": "1girl, solo, woman seen from behind, long black hair in a low bun, red blazer, red lotus earrings, standing at a huge dark office window at night, holding a phone to her ear, looking down at the glowing city, red light, ominous",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "bubbles": [
+   {
+    "text": "...Describe her.",
+    "x": 0.28,
+    "y": 0.08,
+    "w": 0.3,
+    "to": [
+     0.5,
+     0.22
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p20",
+  "prompt": "1boy, solo, adult man in a black suit and black sunglasses, slicked back black hair, red lotus pin on his chest, black tie, close-up, sweating, sunglasses cracked, phone to his ear, night, face focus",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p12.png",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "Grey hair. White sari. A walking stick. She hits like an S-Rank.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.36,
+    "to": [
+     0.45,
+     0.28
+    ],
+    "size": 23
+   }
+  ]
+ },
+ {
+  "name": "p21",
+  "prompt": "close-up of a woman's hand with red nails crushing a glass of water, shards flying, red lotus ring, dark office, red light, dramatic",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "bubbles": [
+   {
+    "text": "Impossible. The Kettle Queen died thirty years ago.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.34,
+    "to": [
+     0.42,
+     0.3
+    ],
+    "size": 24
+   }
+  ],
+  "sfx": [
+   {
+    "text": "KRAK!",
+    "x": 0.76,
+    "y": 0.2,
+    "size": 120,
+    "rotate": 8,
+    "color": "#ff5a4f"
+   }
+  ]
+ },
+ {
+  "name": "p22",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, running down a night street holding a phone on a selfie stick, live streaming, heroic, a girl in a white robe running behind him, motion lines",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.4,
+  "before": [
+   {
+    "text": "Twenty minutes later..."
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "Chat! We're here to save the tea stall! LIVE!",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.34,
+    "to": [
+     0.42,
+     0.3
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p23",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, frozen in place, staring at something, sweatdrop, awkward, holding a phone on a selfie stick, night street, comedy",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "...We're late, aren't we?",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.58,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p24",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, bowing politely to someone, cheerful smile, night street, lamp light, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/meera.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "Good evening! I'm Meera. I drink your grandson's tea every day!",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.36,
+    "to": [
+     0.45,
+     0.28
+    ],
+    "size": 23
+   }
+  ]
+ },
+ {
+  "name": "p25",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, sharp stern look, pointing her walking stick at a phone on a selfie stick held by a blonde man in silver armor, comedy, night street",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.35,
+  "bubbles": [
+   {
+    "text": "Turn that thing off, boy.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.42,
+     0.3
+    ]
+   },
+   {
+    "text": "Yes, ma'am.",
+    "x": 0.8,
+    "y": 0.5,
+    "w": 0.2,
+    "to": [
+     0.7,
+     0.62
+    ],
+    "size": 22
+   }
+  ]
+ },
+ {
+  "name": "p26",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, and an old woman with grey hair in a bun and a white sari, sitting side by side on a wooden bench in front of a small tea stall at dawn, two small steel cups of tea, steam, soft orange sunrise, quiet, warm, from the side",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "Dawn."
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "Paati. Who ARE you?",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.28,
+    "to": [
+     0.4,
+     0.36
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p27",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, smiling at the sunrise, holding a small steel cup, gentle, peaceful, soft orange light, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "Just a tea seller. Like you.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.58,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p28",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, close-up, face focus, serious, wise eyes, dawn light",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "Listen, beta. The tea doesn't give power. YOU do. Every glass carries a little of your life.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.38,
+    "to": [
+     0.45,
+     0.32
+    ],
+    "size": 22
+   }
+  ]
+ },
+ {
+  "name": "p29",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, looking down at his own trembling hand, faint golden glow, worried, thoughtful, dawn light, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.6,
+  "bubbles": [
+   {
+    "text": "A little of my life... in every glass.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.58,
+     0.3
+    ],
+    "kind": "thought"
+   }
+  ]
+ },
+ {
+  "name": "p30",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, holding up two fingers, mischievous smile, wink, dawn, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "Tomorrow I teach you the second recipe. The one that costs you nothing.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.36,
+    "to": [
+     0.45,
+     0.3
+    ],
+    "size": 22
+   }
+  ]
+ },
+ {
+  "name": "p31",
+  "prompt": "no humans, giant glowing portal at dawn, a giant red eye with a slit pupil inside the portal, the eye narrowing, red lightning, ominous, city skyline, small tea stall far below",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "And deep inside the Gate..."
+   }
+  ],
+  "after": [
+   {
+    "text": "...the eye had seen her too."
+   }
+  ],
+  "status": [
+   {
+    "title": "[ ??? ]",
+    "x": 0.5,
+    "y": 0.82,
+    "w": 0.7,
+    "lines": [
+     "The Kettle Queen has returned."
+    ]
+   }
+  ]
+ },
+ {
+  "name": "end",
+  "card": "To be continued",
+  "h": 360
+ }
+]

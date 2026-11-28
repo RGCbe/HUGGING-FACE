@@ -1,0 +1,91 @@
+{
+  "channel": {
+    "name": "Tea Break with Manoj",
+    "channel_id": "UCOEtL8JtwJ4TVJiJewHpwew",
+    "refresh_token_env": "YT_REFRESH_TOKEN_ADULT"
+  },
+  "voice_engine": "eleven",
+  "voice_only": true,
+  "timezone": "Asia/Kolkata",
+  "publish_time": "18:00",
+  "long_day": "Saturday",
+  "shorts_days": ["Monday", "Wednesday"],
+  "style": "Hand-drawn cartoon illustration with flat colours and clean black ink outlines, warm cream paper background, soft shadows, friendly and funny. The top third of the picture is plain empty cream paper. No text, no letters, no numbers anywhere.",
+  "style_ref": "../00-intro/img/s2.png",
+  "music_gain": 0.3,
+  "end_card": "../00-intro/img/s7.png",
+  "playlists": {
+    "history": {
+      "title": "Funny True History | வேடிக்கையான உண்மை வரலாறு",
+      "description": "Every Tea Break with Manoj history story in one place: the full stories and the Shorts, in English and in தமிழ். Funny true history, told in the time it takes to drink your tea. Every word is true, with the sources in each video's description.",
+      "id": "PLUAmyQAv4d68"
+    },
+    "office": {
+      "title": "Office Tea Talks | ஆபீஸ் கதைகள்",
+      "description": "Slightly funny office and IT life lessons from Tea Break with Manoj, told as short stories in Tamil and English. The characters are invented; the lessons are real.",
+      "id": "PLPWFuIoAlFcs"
+    },
+    "money": {
+      "title": "Money Tea Talks | பணக் கதைகள்",
+      "description": "Money lessons for working people from Tea Break with Manoj: saving, credit cards, EMIs, salary hikes and money scams, told as short stories with the numbers worked out on screen, in Tamil and English. The characters are invented and every rate shown is an example. Education only, not investment advice.\n\nபணம் பற்றிய பாடங்கள், சின்னக் கதைகளா, சரியான கணக்கோட, தமிழிலும் English-லும். கல்வி மட்டும், முதலீட்டு ஆலோசனை இல்லை.",
+      "id": "PLZ3wdsfEBWBo"
+    }
+  },
+  "length_seconds": [
+    120,
+    300
+  ],
+  "voice_repo": "Rggroups/super-kural-voice",
+  "actor": {
+    "instruct": "A warm, friendly Indian man in his thirties telling a story to a friend over tea. Relaxed and expressive, natural rhythm, real pauses, curious and amused, a smile on the funny parts. He is talking, not reading."
+  },
+  "eleven": {
+    "voice": "Manoj kumar T",
+    "model": "eleven_v4",
+    "stability": 0.3,
+    "similarity": 0.9
+  },
+  "retired_playlists_note": "The owner (27 Nov 2026): \"i only need 2 playlist\". These were set PRIVATE (not deleted) by playlists.py retire; make one public again in YouTube Studio to bring it back.",
+  "retired_playlists": [
+    {
+      "key": "shorts",
+      "title": "Funny History Shorts",
+      "id": "PLNMchGZEVlZw"
+    },
+    {
+      "key": "wars",
+      "title": "Weird Wars in History",
+      "id": "PLW9zRU1t75yY"
+    },
+    {
+      "key": "animals",
+      "title": "Animals That Made History",
+      "id": "PLNdt13_t8exE"
+    },
+    {
+      "key": "crazes",
+      "title": "History's Craziest Hoaxes and Crazes",
+      "id": "PLNx3CJ___yNM"
+    },
+    {
+      "key": "strange",
+      "title": "Strange But True History",
+      "id": "PLCxGCvqyFIG4"
+    },
+    {
+      "key": "tamil",
+      "title": "வேடிக்கையான உண்மை வரலாறு | Tea Break தமிழ்",
+      "id": "PLB6q-VVG9itI"
+    },
+    {
+      "key": "shorts_ta",
+      "title": "தமிழ் ஷார்ட்ஸ் | Tea Break தமிழ்",
+      "id": "PLQ7CXSfdmD90"
+    },
+    {
+      "key": "frank",
+      "title": "The F-Rank Tea Seller | Webtoon Reviews",
+      "id": "PLcloICv1OYq8"
+    }
+  ]
+}

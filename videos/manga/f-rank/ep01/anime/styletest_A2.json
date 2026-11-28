@@ -1,0 +1,66 @@
+{
+ "style": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field.",
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "s05_mumbai_gate_1",
+   "seed": 101,
+   "prompt": "Wide establishing shot of Marine Drive in Mumbai at dusk: the long curved seafront road along the Arabian Sea, a row of palm trees, art-deco apartment buildings and modern glass skyscrapers along the bay, black-and-yellow Mumbai taxis on the road, Indian people walking on the promenade by the sea wall. High in the sky over the sea hangs a gigantic ring-shaped portal made of swirling blue and purple light with plain geometric patterns, beams of light, clouds spiralling into it. Purple and orange sunset sky. There is no writing anywhere: no letters, no symbols, no text."
+  },
+  {
+   "name": "s05_mumbai_gate_2",
+   "seed": 202,
+   "prompt": "Wide establishing shot of Marine Drive in Mumbai at dusk: the long curved seafront road along the Arabian Sea, a row of palm trees, art-deco apartment buildings and modern glass skyscrapers along the bay, black-and-yellow Mumbai taxis on the road, Indian people walking on the promenade by the sea wall. High in the sky over the sea hangs a gigantic ring-shaped portal made of swirling blue and purple light with plain geometric patterns, beams of light, clouds spiralling into it. Purple and orange sunset sky. There is no writing anywhere: no letters, no symbols, no text."
+  },
+  {
+   "name": "s05_mumbai_gate_3",
+   "seed": 303,
+   "prompt": "Wide establishing shot of Marine Drive in Mumbai at dusk: the long curved seafront road along the Arabian Sea, a row of palm trees, art-deco apartment buildings and modern glass skyscrapers along the bay, black-and-yellow Mumbai taxis on the road, Indian people walking on the promenade by the sea wall. High in the sky over the sea hangs a gigantic ring-shaped portal made of swirling blue and purple light with plain geometric patterns, beams of light, clouds spiralling into it. Purple and orange sunset sky. There is no writing anywhere: no letters, no symbols, no text."
+  },
+  {
+   "name": "s08_arjun_pour_1",
+   "seed": 101,
+   "prompt": "An 18-year-old Indian boy with a boyish clean-shaven face, no beard and no moustache, dark brown skin and messy short black hair, slim, wearing a long plain white cotton kurta that reaches his knees with a round collar and no pocket, sleeves rolled up, a red cloth sash tied around his waist and a red string bracelet on his right wrist. He pours chai the traditional way: in his raised right hand a steel tea kettle held high above his head, in his left hand a small glass tumbler held low at waist height, and one thin continuous stream of milky light-brown tea falls straight down from the kettle spout into the glass. Steam rises. He grins and calls out to customers. Behind him his small wooden roadside tea stall with brass pots and small glasses, an evening street in Mumbai with hanging lanterns, shop signs blurred out of focus, and far away above the rooftops a giant glowing blue portal in the sky. Medium shot. No writing anywhere."
+  },
+  {
+   "name": "s08_arjun_pour_2",
+   "seed": 202,
+   "prompt": "An 18-year-old Indian boy with a boyish clean-shaven face, no beard and no moustache, dark brown skin and messy short black hair, slim, wearing a long plain white cotton kurta that reaches his knees with a round collar and no pocket, sleeves rolled up, a red cloth sash tied around his waist and a red string bracelet on his right wrist. He pours chai the traditional way: in his raised right hand a steel tea kettle held high above his head, in his left hand a small glass tumbler held low at waist height, and one thin continuous stream of milky light-brown tea falls straight down from the kettle spout into the glass. Steam rises. He grins and calls out to customers. Behind him his small wooden roadside tea stall with brass pots and small glasses, an evening street in Mumbai with hanging lanterns, shop signs blurred out of focus, and far away above the rooftops a giant glowing blue portal in the sky. Medium shot. No writing anywhere."
+  },
+  {
+   "name": "s08_arjun_pour_3",
+   "seed": 303,
+   "prompt": "An 18-year-old Indian boy with a boyish clean-shaven face, no beard and no moustache, dark brown skin and messy short black hair, slim, wearing a long plain white cotton kurta that reaches his knees with a round collar and no pocket, sleeves rolled up, a red cloth sash tied around his waist and a red string bracelet on his right wrist. He pours chai the traditional way: in his raised right hand a steel tea kettle held high above his head, in his left hand a small glass tumbler held low at waist height, and one thin continuous stream of milky light-brown tea falls straight down from the kettle spout into the glass. Steam rises. He grins and calls out to customers. Behind him his small wooden roadside tea stall with brass pots and small glasses, an evening street in Mumbai with hanging lanterns, shop signs blurred out of focus, and far away above the rooftops a giant glowing blue portal in the sky. Medium shot. No writing anywhere."
+  },
+  {
+   "name": "s17_meera_coins_1",
+   "seed": 101,
+   "prompt": "A young Indian woman of about 22 with brown skin and one long black braid over her right shoulder, wearing a white healer's robe with gold trim. In her left hand she holds a tall wooden healer's staff upright, taller than her, carved, with a small glowing green crystal at its top. With her right hand she puts three silver coins down on the wooden counter of a roadside tea stall. On the counter stand three small glass tumblers of milky light-brown chai with a little foam. She smiles kindly. Warm lantern light; an evening street in Mumbai far behind her, out of focus, signs blurred so no writing can be read. Medium shot."
+  },
+  {
+   "name": "s17_meera_coins_2",
+   "seed": 202,
+   "prompt": "A young Indian woman of about 22 with brown skin and one long black braid over her right shoulder, wearing a white healer's robe with gold trim. In her left hand she holds a tall wooden healer's staff upright, taller than her, carved, with a small glowing green crystal at its top. With her right hand she puts three silver coins down on the wooden counter of a roadside tea stall. On the counter stand three small glass tumblers of milky light-brown chai with a little foam. She smiles kindly. Warm lantern light; an evening street in Mumbai far behind her, out of focus, signs blurred so no writing can be read. Medium shot."
+  },
+  {
+   "name": "s17_meera_coins_3",
+   "seed": 303,
+   "prompt": "A young Indian woman of about 22 with brown skin and one long black braid over her right shoulder, wearing a white healer's robe with gold trim. In her left hand she holds a tall wooden healer's staff upright, taller than her, carved, with a small glowing green crystal at its top. With her right hand she puts three silver coins down on the wooden counter of a roadside tea stall. On the counter stand three small glass tumblers of milky light-brown chai with a little foam. She smiles kindly. Warm lantern light; an evening street in Mumbai far behind her, out of focus, signs blurred so no writing can be read. Medium shot."
+  },
+  {
+   "name": "s26_viktor_aura_1",
+   "seed": 101,
+   "prompt": "A 28-year-old Western man with a young handsome face, a full head of short slicked-back blonde hair and blue eyes, wearing full modern silver plate armor including steel gauntlets on both hands, and a black cape fastened at both shoulders with round silver clasps. He stands in a dark rocky cave dungeon. A powerful golden aura of energy rises from his whole body like flames and light, filling the air around him with glowing golden sparks, lighting the cave walls gold. His eyes glow yellow. He stares in shock at his own raised gauntleted hands. Medium close-up."
+  },
+  {
+   "name": "s26_viktor_aura_2",
+   "seed": 202,
+   "prompt": "A 28-year-old Western man with a young handsome face, a full head of short slicked-back blonde hair and blue eyes, wearing full modern silver plate armor including steel gauntlets on both hands, and a black cape fastened at both shoulders with round silver clasps. He stands in a dark rocky cave dungeon. A powerful golden aura of energy rises from his whole body like flames and light, filling the air around him with glowing golden sparks, lighting the cave walls gold. His eyes glow yellow. He stares in shock at his own raised gauntleted hands. Medium close-up."
+  },
+  {
+   "name": "s26_viktor_aura_3",
+   "seed": 303,
+   "prompt": "A 28-year-old Western man with a young handsome face, a full head of short slicked-back blonde hair and blue eyes, wearing full modern silver plate armor including steel gauntlets on both hands, and a black cape fastened at both shoulders with round silver clasps. He stands in a dark rocky cave dungeon. A powerful golden aura of energy rises from his whole body like flames and light, filling the air around him with glowing golden sparks, lighting the cave walls gold. His eyes glow yellow. He stares in shock at his own raised gauntleted hands. Medium close-up."
+  }
+ ]
+}

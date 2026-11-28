@@ -1,0 +1,26 @@
+{
+ "style": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, realistic skin texture and hair, anamorphic widescreen movie look, vivid saturated colours, warm golden key light and teal shadows, crisp detail, shallow depth of field, epic and bright.",
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "s05_mumbai_gate",
+   "seed": 31,
+   "prompt": "Wide establishing shot of the Mumbai skyline at dusk in the year 2031, skyscrapers and old colonial stone buildings, a gigantic glowing blue and purple magical portal ring with a slowly turning circle of runes hanging in the sky above the city, beams of light, clouds swirling around the portal, purple and orange sky, a few birds, epic scale."
+  },
+  {
+   "name": "s08_arjun_pour",
+   "seed": 32,
+   "prompt": "An 18-year-old Indian tea seller with dark brown skin and messy short black hair, slim, wearing a white cotton kurta with rolled-up sleeves, a red cloth sash and a red string bracelet, pouring hot milky chai from a steel kettle held high into a small glass, a long stream of tea in the air, steam rising, cheerful smile, shouting to customers. A small wooden roadside tea stall with brass pots and glass cups, an evening street in Mumbai with hanging lanterns, a giant glowing blue portal far away in the sky behind him. Medium shot."
+  },
+  {
+   "name": "s17_meera_coins",
+   "seed": 33,
+   "prompt": "A young Indian woman in her early twenties with brown skin and a long black braid over one shoulder, wearing a white robe with gold trim and holding a wooden healer's staff, smiling kindly as she places three coins on the wooden counter of a roadside tea stall, small glasses of chai on the counter, warm lantern light, an evening street in Mumbai softly blurred behind her. Medium shot."
+  },
+  {
+   "name": "s26_viktor_aura",
+   "seed": 34,
+   "prompt": "A tall Western man in his late twenties with short slicked-back blonde hair and blue eyes, wearing modern silver plate armor and a black cape, standing in a dark rocky cave, a bright golden aura of energy bursting from his whole body, glowing yellow eyes, staring in shock at his own glowing hands, sparks and light particles rising around him. Medium close-up."
+  }
+ ]
+}

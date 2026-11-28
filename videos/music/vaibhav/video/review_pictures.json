@@ -1,0 +1,269 @@
+[
+ {
+  "id": "c01",
+  "shots": ["S16"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the bat blade has a big curved bite cut out of its left edge near the toe",
+   "the end of the bat handle is drawn as a red stitched ball (a ball fused into the handle)",
+   "the hands are tangled at the shoulder of the blade: the father's right hand and the boy's hand merge, and the boy reaches with only one hand (S16: he takes it with both hands)",
+   "minor: the father wears the same blue shirt and has the same black hair as the boy, so from behind he reads like the grown-up hero"
+  ],
+  "fix": "edit: The same picture, but the cricket bat has a complete wide flat wooden blade with straight edges and no piece missing; the handle ends in a plain black rubber grip with no red cap; the father holds the handle, and the boy holds the blade with both of his own hands, clearly apart from the father's hands, five fingers on each hand; the father wears a plain off-white kurta instead of the blue shirt."
+ },
+ {
+  "id": "c02",
+  "shots": ["S17"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "a second batter in white (helmet, pads, gloves and his own bat) runs in the background: two bats, two batters, and no fast bowler",
+   "four red balls: one on the grass by the hero's bat, two on the grass by the white figure, one in the air",
+   "the white kit has a swoosh-like brand mark and a crest on the chest",
+   "letter-like sponsor writing on the boundary boards",
+   "the hero stands holding the bat across his body, not in a left-handed stance at the crease with his eyes on the bowler"
+  ],
+  "fix": "edit: The same picture, but the far figure is a fast bowler in a plain white shirt and trousers with no helmet, no pads, no gloves and no bat, running in to bowl; remove all four red balls; the boundary boards are plain single colours with no writing and no logos; the boy stands side-on at the crease in a left-handed batting stance (right shoulder towards the bowler), the bat grounded behind his back foot, eyes on the bowler. (If edit mode cannot do all of this, remake with a new seed.)"
+ },
+ {
+  "id": "c03",
+  "shots": ["S18", "S24"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the bat is held in one bare hand; the other hand, in a single white glove, reaches up to the ball as if to catch it, so this is not a lofted shot with both hands (S18 and S24 are hit shots)",
+   "the bat is narrow, tapered and round-topped, and the handle runs on below his fist, so it reads close to a baseball bat",
+   "letter-like writing on the boundary boards ('ld' and a 'REKAN'-like word on the right)"
+  ],
+  "fix": "edit: The same picture, but both his hands, in matching white batting gloves, grip the handle of one cricket bat with a wide flat wooden blade and square shoulders, the bat finishing high over his right shoulder in a left-hander's follow-through, his eyes on the one red ball in the sky; the boundary boards are plain single colours with no writing."
+ },
+ {
+  "id": "c04",
+  "shots": ["S11"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "tangled limbs in the middle of the crowd: legs kicking up out of the crowd with no body they belong to",
+   "an upside-down figure in the centre of the crowd",
+   "(one ball, as asked: fine)"
+  ],
+  "fix": "edit: The same picture, but every fan in the stands is upright, with their own two arms and two legs; remove the loose legs kicking up in the middle of the crowd and the upside-down figure; keep the one red ball dropping into the stands."
+ },
+ {
+  "id": "c05",
+  "shots": ["S20"],
+  "ok": false,
+  "severity": "minor",
+  "problems": [
+   "a white football goal stands at the lower left: a prop from the wrong sport in a cricket ground"
+  ],
+  "fix": "edit: The same picture, but remove the white football goal at the lower left; the ground behind him is a plain cricket outfield."
+ },
+ {
+  "id": "c06",
+  "shots": ["S21"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the white baseball cap on the right man has a letter-like logo",
+   "a red emblem on the chest of the left man's shirt",
+   "the left man (young, black side-swept fringe, same jaw) looks close to the hero's cast-sheet face"
+  ],
+  "fix": "edit: The same picture, but the cap is plain white with no logo; the left man's shirt is plain white with no badge; the left man is an older fast bowler, about 30, with a short beard and close-cropped hair, so he does not look like the hero."
+ },
+ {
+  "id": "c07",
+  "shots": ["S14", "S28"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "three red balls held up by fans (left, centre-right in a V-sign hand, right)",
+   "a flat bat floats in the crowd with no hand on it and no handle showing",
+   "minor: the crowd reads as Western and East Asian (several blonde fans), not an Indian cricket crowd"
+  ],
+  "fix": "edit: The same picture, but remove all three red balls (those hands are open or hold glowing phones) and remove the cricket bat in the crowd; the fans are Indian fans of many ages, men and women."
+ },
+ {
+  "id": "e01",
+  "shots": ["S19", "S26"],
+  "ok": true,
+  "problems": [],
+  "fix": "",
+  "notes": [
+   "on model, the closest of all to the cast sheet; plain blue kit, no logos",
+   "one flat bat with clear shoulders and a blank yellow-and-black label (no letters); five fingers on the bat hand",
+   "one red ball in the other hand (the prompt said both hands on the bat; acceptable for the celebration)",
+   "boundary boards are plain colours with no text; varied Indian crowd"
+  ]
+ },
+ {
+  "id": "i01",
+  "shots": ["S12"],
+  "ok": true,
+  "chosen": "takes/i01_mask_ns.png",
+  "checked": "Round 6, 26 Nov 2026: takes/i01_mask_ns.png (sha256 f5d9d63d...), the OpenCV Navier-Stokes inpaint of takes/i01_b.png (sha256 828a2411...). Seen at full size and next to i01_b. Crops of all six hands, a 5x before/after zoom of the edited fist, a 6x zoom of the drum mark, the three faces, the tilak, the left and right crowd, and the frame scaled to 832x480 (full frame plus 2x and 4x crops of the edit). A pixel diff gives 2,865 changed pixels (0.19%), all inside x 1328-1457, y 548-795. Everything else is pixel-identical to i01_b.",
+  "problems": [],
+  "notes": [
+   "Sticks: 2 per drummer, 6 in all, each held in a fist. Grey-haired drummer: a short diagonal stick (left of the picture) and a long upright one. Young drummer: a diagonal stick and an upright one. Heavy-set drummer: a long stick rising up-left and a long stick rising up-right. The short crossing stick is gone. Nothing is loose, and the crowd has no sticks, bats or balls.",
+   "Hands: 2 per drummer (6 fists, thumbs showing); the crowd's hands are open, raised or clapping.",
+   "The letter-like scribble on the heavy-set drummer's drum skin is gone. A tiny dark dot (about 2 px) and a soft patch remain at about x 1343, y 777, visible only at 6x zoom. At 832x480 it cannot be seen.",
+   "Minor painting-out marks, all around the heavy-set drummer's fist on the right of the picture. (1) A soft dark-grey diagonal smear on the shirt above the fist, where the stick crossed the shirt folds. (2) A short blurred gap in the black outline at the lower right of the fist and wrist. (3) A faint grey diagonal on the drum skin below the fist, the softened remains of the stick's shadow. At full size these show at 3x zoom. At 832x480 they are 2-3 px soft spots: the fist reads as one clean fist holding one stick, the smear disappears into the shirt folds, and the grey on the skin reads as the fist's own shadow. Not worth another round.",
+   "Locks unchanged from i01_b: three clearly different faces, ages and builds (grey-haired older man with a moustache, slim young man, heavy-set man; no twins). The young drummer has a clear red tilak dot, messy spiky hair, an olive shirt and a serious face, so he does not read as the hero (cast sheet: side-swept hair, blue shirt, smiling). Flat round parai frame drums with a cream skin and a cord-bound wooden rim, on shoulder straps; no barrel drums or clubs. Plain olive shirts; no logos, letters or readable text anywhere; no signs or flags in the crowd. Varied crowd faces. Stylised painted anime.",
+   "For the clip check: watch the heavy-set drummer's fist on the right of the picture in the S12 clip, in case the motion model grows the second stick back from the soft spots, or smears the fist."
+  ],
+  "fix": ""
+ },
+ {
+  "id": "i02",
+  "shots": ["S13", "S27"],
+  "ok": false,
+  "severity": "minor",
+  "problems": [
+   "a fan silhouette at the lower left holds up a flat cricket bat and another fan holds up a red ball; the prompt says no bat and no ball",
+   "a white football-style goal (two posts and a crossbar) stands on the field"
+  ],
+  "fix": "edit: The same picture, but the fans' raised hands are empty or hold glowing phones (no bat, no ball); remove the white goal frame from the field."
+ },
+ {
+  "id": "i03",
+  "shots": ["S08", "S25"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "two red balls: one stuck to the toe of the bat, one inside the helmet",
+   "a black sticker with letter-like writing on the shoulder of the bat",
+   "(face on model, eyes closed, big smile, plain blue kit, five fingers: fine)"
+  ],
+  "fix": "edit: The same picture, but there is no ball anywhere: remove the red ball at the top of the bat and the red ball inside the helmet; the bat is plain wood with no sticker."
+ },
+ {
+  "id": "p01",
+  "shots": ["S04"],
+  "ok": false,
+  "severity": "minor",
+  "problems": [
+   "the field has football markings (a white centre line and side lines) and no cricket pitch strip; the crowd and boards are clean, with no text"
+  ],
+  "fix": "edit: The same picture, but the field is a cricket ground: remove the white centre line and side lines, and put a light-brown cricket pitch strip with white crease lines in the middle of the field and a boundary rope in front of the boards."
+ },
+ {
+  "id": "p02",
+  "shots": ["S05", "S23"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "three signs on the stands carry letter-like writing",
+   "a red ball is wedged between his hand and the shoulder of the bat"
+  ],
+  "fix": "edit: The same picture, but the signs on the stands are plain colours with no writing; remove the red ball at the bat handle, so his hand holds only the rubber grip of the bat."
+ },
+ {
+  "id": "p03",
+  "shots": ["S07", "S22"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the ball has the curved figure-of-eight stitching of a baseball, not the single straight seam of a cricket ball (one ball and no bat, as asked: fine)"
+  ],
+  "fix": "edit: The same picture, but the ball is a red leather cricket ball with one straight raised seam of white stitching running around its middle; no curved stitching."
+ },
+ {
+  "id": "p04",
+  "shots": [
+   "S06"
+  ],
+  "ok": true,
+  "checked": "animeA/p04.png on 26 Nov 2026 at full size (round 4: take p04_c plus the fix3 glove edit, then mirrored left to right; sha256 09b52860...; pixel-identical to the mirror of takes/p04_edit.png). Crops of the bat (with a toe-to-knob guide line), both hands and gloves, both forearms, face and grille, chin, ball, shirt, boards and grass; compared with the mirrored p04_c and ref/char_A2.png.",
+  "problems": [],
+  "notes": [
+   "fixed: both hands wear matching plain white gloves with finger rolls; the logo-like marks (the Y or trident emblem, the red patch with letter-like squiggles, the blue wrist label) and the bare hand are gone. Two forearms and two hands: the front fist with its cuff, and the back hand's glove showing below that cuff; five digits on the visible fist; no extra hand",
+   "left-handed, as the lock says: we see his chest and the left side of his face (his left ear is on the right of the picture); his right shoulder (left of the picture) points at the bowler and the incoming ball on the left, and the bat is lifted over his left shoulder (right of the picture)",
+   "the bat is still one straight piece: the edit redrew the figure a few pixels off, but a line from the toe (peeking above the helmet) to the knob runs along the blade and down the handle exactly as in p04_c; a brown taped grip between the blade and the gloves",
+   "the grille is at the nose bridge, both eyes are open under the peak and his face is visible; he reads about 16, brown skin, short black hair, a slight smile; the dark area under the chin is the chin strap; no badge on the helmet",
+   "one red ball at the lower left, about hip height, coming in; plain blue shirt and trousers; the boards are blurred with no readable text; nobody else in frame; stylised painted anime, not photo-real",
+   "screen direction: S05 (he walks towards the camera) and S07 (the ball rises in the centre of the frame) have no left-right direction, so the mirror does not cross the line",
+   "minor, not blocking: the ball is plain glossy red with no seam; the front glove's cuff has a plain pale-blue band (no letters or marks); a faint blurred pale patch on the grass left of his hip, not readable; the knob end shows only wood rings",
+   "as a start picture for S06 it is right: the bat is up behind his head and the ball is coming in, so the downswing, contact and follow-through fit in 4.3 s"
+  ],
+  "fix": ""
+ },
+ {
+  "id": "p05",
+  "shots": ["S10"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the bat bends at a right angle at the ball: a long round club like a baseball bat comes in from the upper left and meets a flat blade going to the upper right, so it reads as two bats or a broken bat",
+   "(one red ball with a cricket seam: fine)"
+  ],
+  "fix": "remake with a new seed: 'Extreme close-up from the side: one straight cricket bat, a short taped round handle running in a straight line into a long, wide, flat wooden blade with square shoulders, hits one red leather cricket ball (straight seam) in the middle of the blade; dust and chalk explode; nothing else in the frame'."
+ },
+ {
+  "id": "p06",
+  "shots": ["S09"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "a red brand-like patch with white glyphs on a fan's white T-shirt (right of centre), and an orange tag on a fan's shirt (left)",
+   "the centre fan, the focal figure (young, dark swept hair, navy-blue shirt), reads like the hero",
+   "several men in the front row share one face",
+   "(one red ball in a fan's hand: allowed)"
+  ],
+  "fix": "edit: The same picture, but every shirt is plain with no patches or tags; the centre fan is an older man with a grey moustache in a yellow shirt; the front-row fans have clearly different faces, ages and hair, men and women."
+ },
+ {
+  "id": "t01",
+  "shots": ["S01"],
+  "ok": true,
+  "problems": [],
+  "fix": "",
+  "notes": [
+   "the boy looks about 11-12, a younger version of the cast sheet: short black hair, brown skin, a plain blue shirt with no logo",
+   "one bat on his right shoulder, seen edge-on; the blade widens past the grip; a tiny mark on it cannot be read",
+   "misty brick lane, dawn light, a cow: as the prompt asks",
+   "watch: the bat is edge-on, so check in the S01 test clip that it stays one flat-bladed bat; his free left hand is small and slightly clawed"
+  ]
+ },
+ {
+  "id": "t02",
+  "shots": ["S02"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the 'bat' is a short, tapered club shaped like a skittle, not a cricket bat with a wide flat blade",
+   "a gold leaf crest on the shirt",
+   "(face good, younger version of the cast sheet; five fingers: fine)"
+  ],
+  "fix": "edit: The same picture, but he grips the rubber handle of an old cricket bat with a long, wide, flat wooden blade and square shoulders, the blade standing upright beside his face; his shirt is plain with no badge."
+ },
+ {
+  "id": "t03",
+  "shots": ["S15"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "the hero looks about 14, not 10, and the fielders look like older teenagers",
+   "a friend at the back right wears the same blue polo and has the same dark hair and face: a double of the hero",
+   "no red ball in the frame, though S15 has him swinging at the ball",
+   "a triangle logo mark on the bat blade",
+   "letter-like writing on the shop signs; a crest on the red-shirt fielder's chest",
+   "minor: lit stadium floodlights on poles in a village ground",
+   "unsure: the stance reads right-handed (left shoulder towards the right of the frame), and he bats left-handed"
+  ],
+  "fix": "edit: The same picture, but the batter is a 10-year-old boy (smaller, with a rounder face, like the boy in t02) in a left-handed stance; the friend at the back right wears a yellow vest and has close-cropped hair; the fielders are boys of about 10-12 with different faces; one red cricket ball in the air coming towards the bat; the bat is plain wood with no mark; the shop signs and shirts are plain, with no writing or badges; no floodlights, only the low golden sun. (If the age will not change in edit mode, remake with a new seed.)"
+ },
+ {
+  "id": "t04",
+  "shots": ["S03"],
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "he looks 17-20 (adult jaw and build), not a 10-year-old",
+   "the bat handle runs from behind his head (a black round grip with a knob, against the wall) to in front of his jaw: it reads as a second round bat or as a bat through his head",
+   "minor: the window shows a real stadium at ground level, not a dreamy stadium glowing in the sky",
+   "(one red ball; blurred boards in the window cannot be read: fine)"
+  ],
+  "fix": "remake with a new seed and the reference picture, with a stronger age cue: 'a small 10-year-old boy with child proportions and round cheeks asleep on a mat, hugging one cricket bat with a wide flat blade; the whole bat, handle and blade, lies in front of him, nothing behind his head; through the window a soft dreamlike stadium glows among the stars'."
+ }
+]

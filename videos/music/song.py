@@ -1,0 +1,505 @@
+"""Make a song in the owner's own voice: takes on our private music Space, the lead re-voiced, mixed and checked.
+
+    python3 song.py SONG.json takes          # the takes (one per seed) from the Space's /song
+    python3 song.py SONG.json stems          # split each take into vocals and the rest (HDemucs, on this machine)
+    python3 song.py SONG.json check          # how clearly each take sings the lyrics (faster-whisper), ranked
+    python3 song.py SONG.json voice [N]      # the best N takes (default 2): vocals re-voiced with the owner's voice
+    python3 song.py SONG.json spoken         # the spoken intro and outro in the owner's ElevenLabs voice
+    python3 song.py SONG.json voice-eleven [N]   # the same, by ElevenLabs' voice changer (the owner's clone)
+    python3 song.py SONG.json check-voice [manoj|eleven]   # the lyric check on the re-voiced vocals
+    python3 song.py SONG.json mix            # the finals: re-voiced vocal + band + spoken parts, mastered
+    python3 song.py SONG.json save           # everything to the private dataset Rggroups/music-work/SLUG/
+
+Work files stay in ~/.cache/music/SLUG/ (never in this public repo: they hold the owner's voice).
+
+Where data goes (CLAUDE.md):
+- Lyrics, style and the owner's reference voice go only to the owner's own private Space Rggroups/music, with HF_TOKEN.
+- The spoken parts' text goes only to ElevenLabs' own API, with its key.
+- The finals go only to the owner's private dataset (refused if it is not private).
+- The separation model (torchaudio's HDemucs, trained on MUSDB-HQ + extra) loads in PyTorch's safe weights-only mode.
+- Gradio's client analytics are turned off.
+"""
+import difflib
+import json
+import os
+import re
+import subprocess
+import sys
+
+import numpy as np
+import soundfile as sf
+
+os.environ["GRADIO_ANALYTICS_ENABLED"] = "False"
+HERE = os.path.dirname(os.path.abspath(__file__))
+SPACE = "Rggroups/music"
+DATASET = "Rggroups/music-work"
+VOICE_REPO = "Rggroups/super-kural-voice"
+REFERENCE = "teabreak/natural.opus"  # the owner talking naturally, ~30 s of his real voice (not ElevenLabs)
+SR = 44100
+
+
+def work(song):
+    d = os.path.expanduser(os.path.join("~/.cache/music", song["slug"]))
+    os.makedirs(d, exist_ok=True)
+    return d
+
+
+def client():
+    from gradio_client import Client
+    return Client(SPACE, token=os.environ["HF_TOKEN"], analytics_enabled=False, verbose=False)
+
+
+def ffmpeg(*args):
+    subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", *args], check=True)
+
+
+def load(path, sr=SR, mono=False):
+    raw = subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-i", path, "-f", "f32le", "-ac", "1" if mono else "2",
+                          "-ar", str(sr), "-"], check=True, capture_output=True).stdout
+    a = np.frombuffer(raw, np.float32)
+    return a if mono else a.reshape(-1, 2)
+
+
+def takes(song):
+    d, c = work(song), None
+    for seed in song["seeds"]:
+        out = os.path.join(d, f"take_{seed}.flac")
+        if os.path.exists(out):
+            continue
+        c = c or client()
+        print(f"take {seed}: composing ...", flush=True)
+        path, info = c.predict(song["caption"], song["lyrics"], song["duration"], seed, song.get("bpm", 0),
+                               song.get("keyscale", ""), song["language"], song.get("lm_temperature", 0.85),
+                               api_name="/song")
+        ffmpeg("-i", path, out)
+        with open(os.path.join(d, f"take_{seed}.json"), "w") as f:
+            f.write(info)
+        i = json.loads(info)
+        print(f"take {seed}: {i.get('duration')} s, {i.get('bpm')} BPM, {i.get('keyscale')}, made in {i['seconds']} s")
+
+
+MELROFORMER = ("smank/mel-band-roformer-vocals-onnx", "60cb6b4b97e41b42f7ff16c2e386f47a8cc7e50a",
+               "melband_roformer_vocals.onnx", "64a4f3bee48fbe7d971b23875adc924ed004c3533f49672592641dddc0f6f561")
+
+
+def melroformer_vocals(x):
+    """Vocals of a stereo mix (2, n) at 44.1 kHz with Kimberley Jensen's Mel-Band RoFormer (MIT; SDR 10.98 on
+    MUSDB18-HQ), as an ONNX graph with its own STFT (smank's conversion, pinned and SHA-256 checked; ONNX holds no
+    pickle). Cleaner than HDemucs, so the re-voiced singing has less music in it (26 Nov 2026: "Voice is not clear")."""
+    import hashlib
+    import onnxruntime as ort
+    from huggingface_hub import hf_hub_download
+    repo, rev, name, sha = MELROFORMER
+    path = hf_hub_download(repo, name, revision=rev, token=False,
+                           local_dir=os.path.expanduser("~/.cache/music/weights/melroformer"))
+    ok = path + ".sha256-ok"
+    if not os.path.exists(ok):
+        h = hashlib.sha256()
+        with open(path, "rb") as f:
+            for b in iter(lambda: f.read(1 << 24), b""):
+                h.update(b)
+        if h.hexdigest() != sha:
+            raise SystemExit("separator checksum mismatch; refusing to use it")
+        open(ok, "w").close()
+    so = ort.SessionOptions()
+    so.intra_op_num_threads = os.cpu_count() or 4
+    so.enable_mem_pattern = False  # without these the session needs more than this machine's ~9 GB (one 8 s window
+    so.enable_cpu_mem_arena = False  # peaks at 8.7 GB with them), about 37 s per window on 4 CPU cores
+    sess = ort.InferenceSession(path, so, providers=["CPUExecutionProvider"])
+    seg, hop = 352800, 352800 - SR  # 8 s windows, 1 s overlap
+    n = x.shape[1]
+    out = np.zeros_like(x, dtype=np.float32)
+    weight = np.zeros(n, np.float32)
+    win = np.ones(seg, np.float32)
+    win[:SR] = np.linspace(0, 1, SR)
+    win[-SR:] = np.linspace(1, 0, SR)
+    for start in range(0, n, hop):
+        chunk = x[:, start:start + seg]
+        m = chunk.shape[1]
+        pad = np.pad(chunk, ((0, 0), (0, seg - m)))[None].astype(np.float32)
+        voc = sess.run(None, {"mix": pad})[0][0, 0, :, :m]
+        w = win[:m].copy()
+        if start == 0:
+            w[:SR] = 1
+        if start + seg >= n:
+            w[-min(SR, m):] = 1
+        out[:, start:start + m] += voc * w
+        weight[start:start + m] += w
+        if start + seg >= n:
+            break
+    return out / np.maximum(weight, 1e-6)
+
+
+def stems(song):
+    if song.get("separator") == "melroformer":
+        d = work(song)
+        for seed in song["seeds"]:
+            src = os.path.join(d, f"take_{seed}.flac")
+            voc, band = os.path.join(d, f"take_{seed}.vocals.wav"), os.path.join(d, f"take_{seed}.band.wav")
+            if not os.path.exists(src) or os.path.exists(voc):
+                continue
+            x = load(src).T.copy()
+            v = melroformer_vocals(x)
+            sf.write(voc, v.T, SR)
+            sf.write(band, (x - v).T, SR)
+            print(f"take {seed}: split (Mel-Band RoFormer)")
+        return
+    import torch
+    import torchaudio
+    from torchaudio.pipelines import HDEMUCS_HIGH_MUSDB_PLUS as bundle
+    d = work(song)
+    model = None
+    for seed in song["seeds"]:
+        src = os.path.join(d, f"take_{seed}.flac")
+        voc, band = os.path.join(d, f"take_{seed}.vocals.wav"), os.path.join(d, f"take_{seed}.band.wav")
+        if not os.path.exists(src) or os.path.exists(voc):
+            continue
+        if model is None:
+            torch.set_num_threads(os.cpu_count() or 4)
+            model = bundle.get_model()  # torch.load with PyTorch's default weights_only=True
+        x = torch.from_numpy(load(src).T.copy())
+        ref = x.mean(0)
+        x = (x - ref.mean()) / (ref.std() + 1e-8)
+        seg, ov = SR * 10, SR
+        out = torch.zeros(4, 2, x.shape[1])
+        weight = torch.zeros(x.shape[1])
+        fade = torch.ones(seg)
+        fade[:ov] = torch.linspace(0, 1, ov)
+        fade[-ov:] = torch.linspace(1, 0, ov)
+        with torch.no_grad():
+            for start in range(0, x.shape[1], seg - ov):
+                chunk = x[:, start:start + seg]
+                n = chunk.shape[1]
+                y = model(torch.nn.functional.pad(chunk, (0, seg - n))[None])[0][:, :, :n]
+                w = fade[:n].clone()
+                if start == 0:
+                    w[:min(ov, n)] = 1
+                out[:, :, start:start + n] += y * w
+                weight[start:start + n] += w
+                if start + seg >= x.shape[1]:
+                    break
+        out = out / weight.clamp(min=1e-6) * (ref.std() + 1e-8) + ref.mean()
+        v = out[list(model.sources).index("vocals")]
+        rest = out.sum(0) - v
+        sf.write(voc, v.T.numpy(), SR)
+        sf.write(band, rest.T.numpy(), SR)
+        print(f"take {seed}: split")
+
+
+def norm_text(s):
+    s = re.sub(r"\[[^\]]*\]", " ", s)
+    s = re.sub(r"[()!?,.…:;'\"-]", " ", s)
+    return re.sub(r"\s+", "", s)
+
+
+def check(song, stem="vocals"):
+    """stem "vocals": the generated singing (ranks the takes, check.json); "manoj": the re-voiced singing
+    (check_manoj.json). Romanised lyrics are scored against the Tamil-script words in check_lyrics."""
+    from faster_whisper import WhisperModel
+    d = work(song)
+    model = WhisperModel(song.get("check_model", "medium"), device="cpu", compute_type="int8")
+    want = norm_text(song.get("check_lyrics", song["lyrics"]))
+    rows = []
+    for seed in song["seeds"]:
+        voc = os.path.join(d, f"take_{seed}.vocals.wav" if stem == "vocals" else f"take_{seed}.vocals.{stem}.wav")
+        if not os.path.exists(voc):
+            continue
+        cache = os.path.join(d, f"take_{seed}.heard.txt" if stem == "vocals" else f"take_{seed}.{stem}.heard.txt")
+        if not os.path.exists(cache):
+            # whisper's "no speech" filters throw sung lines away (26 Nov 2026: even the AI singer's own vocal came back
+            # empty on a 30 s window), so they are off: the score then measures the words, not whisper's confidence
+            segs, _ = model.transcribe(load(voc, 16000, mono=True), language=song["language"], beam_size=5,
+                                       vad_filter=True, condition_on_previous_text=False, no_speech_threshold=None,
+                                       log_prob_threshold=None, compression_ratio_threshold=None)
+            with open(cache, "w") as f:
+                f.write("\n".join(f"{s.start:.1f}\t{s.end:.1f}\t{s.text.strip()}" for s in segs))
+        heard = open(cache).read()
+        got = norm_text(" ".join(l.split("\t")[-1] for l in heard.splitlines()))
+        sm = difflib.SequenceMatcher(None, want, got, autojunk=False)
+        matched = sum(b.size for b in sm.get_matching_blocks())
+        full = load(os.path.join(d, f"take_{seed}.flac"))
+        peak = float(np.abs(full).max())
+        info = json.load(open(os.path.join(d, f"take_{seed}.json")))
+        rows.append({"seed": seed, "lyrics_heard": round(matched / max(1, len(want)), 3), "peak": round(peak, 3),
+                     "seconds": round(len(full) / SR, 1), "bpm": info.get("bpm"), "key": info.get("keyscale")})
+    rows.sort(key=lambda r: -r["lyrics_heard"])
+    with open(os.path.join(d, "check.json" if stem == "vocals" else f"check_{stem}.json"), "w") as f:
+        json.dump(rows, f, indent=1, ensure_ascii=False)
+    for r in rows:
+        print(r)
+    return rows
+
+
+def reference(song):
+    from huggingface_hub import hf_hub_download
+    d = work(song)
+    ref = os.path.join(d, "reference.wav")
+    if not os.path.exists(ref):
+        p = hf_hub_download(VOICE_REPO, REFERENCE, repo_type="dataset", token=os.environ["HF_TOKEN"])
+        a = load(p, SR, mono=True)
+        # the clearest 15 s: Seed-VC gives each chunk 30 s minus the reference, so a shorter reference = longer chunks
+        win, hop = SR * 15, SR // 2
+        rms = [float(np.sqrt(np.mean(a[i:i + win] ** 2))) for i in range(0, max(1, len(a) - win), hop)]
+        loud = [float(np.mean(np.abs(a[i:i + win]) < 0.01)) for i in range(0, max(1, len(a) - win), hop)]
+        best = int(np.argmax([r * (1 - q) for r, q in zip(rms, loud)])) * hop
+        sf.write(ref, a[best:best + win], SR)
+    return ref
+
+
+def voice(song, n=2):
+    from gradio_client import handle_file
+    d = work(song)
+    rows = json.load(open(os.path.join(d, "check.json")))[:n]
+    ref, c = reference(song), None
+    for r in rows:
+        seed = r["seed"]
+        out = os.path.join(d, f"take_{seed}.vocals.manoj.wav")
+        if os.path.exists(out):
+            continue
+        c = c or client()
+        print(f"take {seed}: re-voicing ...", flush=True)
+        path = c.predict(handle_file(os.path.join(d, f"take_{seed}.vocals.wav")), handle_file(ref),
+                         song.get("vc_steps", 30), song.get("vc_cfg", 0.7), song.get("vc_semitones", 0),
+                         song.get("vc_model", "base"), api_name="/voice")
+        ffmpeg("-i", path, "-ar", str(SR), "-ac", "1", out)
+        print(f"take {seed}: re-voiced")
+
+
+def voice_eleven(song, n=2):
+    """The same vocals re-voiced by ElevenLabs' voice changer with the owner's own clone ("Manoj kumar T"), which keeps
+    the words clearer than Seed-VC on crowded or rapped vocals. The vocal goes only to ElevenLabs' own API."""
+    import requests
+    sys.path.insert(0, os.path.join(HERE, "..", "kural"))
+    import eleven
+    key = eleven.api_key()
+    cfg = json.load(open(os.path.join(HERE, "..", "teabreak", "config.json")))["eleven"]
+    vid = eleven.voice_id(cfg["voice"], key)
+    d = work(song)
+    for r in json.load(open(os.path.join(d, "check.json")))[:n]:
+        seed = r["seed"]
+        out = os.path.join(d, f"take_{seed}.vocals.eleven.wav")
+        if os.path.exists(out):
+            continue
+        src = os.path.join(d, f"take_{seed}.vocals.send.mp3")
+        ffmpeg("-i", os.path.join(d, f"take_{seed}.vocals.wav"), "-ac", "1", "-b:a", "192k", src)
+        settings = {"stability": song.get("sts_stability", 0.5), "similarity_boost": song.get("sts_similarity", 0.9)}
+        for fmt, rate in (("pcm_44100", 44100), ("pcm_24000", 24000)):
+            resp = requests.post(f"{eleven.API}/speech-to-speech/{vid}?output_format={fmt}", headers={"xi-api-key": key},
+                                 files={"audio": open(src, "rb")}, timeout=600,
+                                 data={"model_id": "eleven_multilingual_sts_v2", "seed": str(song.get("sts_seed", 7)),
+                                       "voice_settings": json.dumps(settings), "remove_background_noise": "false"})
+            if resp.status_code == 200:
+                break
+            if resp.status_code not in (400, 403, 422) or fmt == "pcm_24000":
+                raise SystemExit(f"ElevenLabs voice changer: HTTP {resp.status_code} {resp.text[:300]}")
+        raw = np.frombuffer(resp.content, np.int16).astype(np.float32) / 32768
+        tmp = out + ".tmp.wav"
+        sf.write(tmp, raw, rate)
+        ffmpeg("-i", tmp, "-ar", str(SR), "-ac", "1", out)
+        os.remove(tmp)
+        os.remove(src)
+        print(f"take {seed}: re-voiced by ElevenLabs ({fmt})")
+
+
+def spoken(song):
+    sys.path.insert(0, os.path.join(HERE, "..", "manga"))
+    import voices
+    cfg = json.load(open(os.path.join(HERE, "..", "teabreak", "config.json")))["eleven"]
+    key = os.environ["ELEVENLABS_API_KEY"]
+    vid = voices.voices(key)[cfg["voice"]]
+    d = work(song)
+    for part in ("intro", "outro"):
+        out = os.path.join(d, f"spoken_{part}.wav")
+        if os.path.exists(out):
+            continue
+        pcm = voices.speak(key, vid, song[f"spoken_{part}"], cfg, seed=song.get("spoken_seed", 7))
+        raw = os.path.join(d, f"spoken_{part}.raw.wav")
+        voices.write(raw, pcm)
+        ffmpeg("-i", raw, "-ar", str(SR), "-ac", "1", out)
+        os.remove(raw)
+        print(f"spoken {part}: {sf.info(out).duration:.1f} s")
+
+
+def his_gang(v, heard, words, verses=True):
+    """The owner's own voice, doubled (every voice his: 26 Nov 2026): two copies a few cents off and a few ms late,
+    left and right, all the way through; in the lines that hold a gang word (the hook) two more copies and one an
+    octave down, so the chorus sounds like a crowd of him."""
+    sys.path.insert(0, HERE)
+    import rap
+    n = len(v)
+    out = np.zeros((n, 2), np.float32)
+
+    def late(x, ms):
+        k = int(SR * ms / 1000)
+        return np.concatenate([np.zeros(k, np.float32), x[:n - k]])
+    if verses:  # doubles all the way through (off when the lead must be clear: they blur the consonants)
+        for cents, ms, l, r in ((12, 18, 0.42, 0.12), (-12, 31, 0.12, 0.42)):
+            x = late(rap.pitch(v, cents / 100), ms)
+            out[:, 0] += x * l
+            out[:, 1] += x * r
+    spans = []
+    if words and os.path.exists(heard):
+        for row in open(heard).read().splitlines():
+            t0, t1, text = row.split("\t", 2)
+            if any(w in text for w in words):
+                spans.append((int(float(t0) * SR), min(n, int(float(t1) * SR))))
+    if spans:
+        crowd = np.zeros((n, 2), np.float32)
+        for semis, ms, l, r in ((0.2, 45, 0.35, 0.2), (-0.25, 60, 0.2, 0.35), (-12, 25, 0.22, 0.22)):
+            x = late(rap.pitch(v, semis), ms)
+            crowd[:, 0] += x * l
+            crowd[:, 1] += x * r
+        mask = np.zeros(n, np.float32)
+        for a, b in spans:
+            mask[a:b] = 1
+        mask = np.convolve(mask, np.ones(SR // 10) / (SR // 10), mode="same")[:, None]
+        out += crowd * mask
+    return out
+
+
+def muffled(x, hz=450):
+    """Low-passed, as if heard from outside the stadium."""
+    from scipy.signal import butter, sosfilt
+    return sosfilt(butter(4, hz, fs=SR, output="sos"), x, axis=0).astype(np.float32)
+
+
+def master(src, out):
+    """Two-pass loudness to -14 LUFS (YouTube's level), true peak at most -1 dB."""
+    r = subprocess.run(["ffmpeg", "-nostdin", "-hide_banner", "-i", src, "-af",
+                        "loudnorm=I=-14:TP=-1.0:LRA=11:print_format=json", "-f", "null", "-"],
+                       capture_output=True, text=True, check=True).stderr
+    m = json.loads(r[r.rindex("{"): r.rindex("}") + 1])
+    ffmpeg("-i", src, "-af", f"loudnorm=I=-14:TP=-1.0:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
+           f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true",
+           "-ar", str(SR), out)
+
+
+def mix(song):
+    d = work(song)
+    rows = json.load(open(os.path.join(d, "check.json")))
+    spoken = song.get("spoken", True)  # samples have no spoken parts
+    if spoken:
+        intro, outro = (load(os.path.join(d, f"spoken_{p}.wav"), mono=True) for p in ("intro", "outro"))
+    for r in rows:
+        seed = r["seed"]
+        conv = os.path.join(d, f"take_{seed}.vocals.{song.get('voice_engine', 'manoj')}.wav")
+        if not os.path.exists(conv):
+            continue
+        band = load(os.path.join(d, f"take_{seed}.band.wav"))
+        orig = load(os.path.join(d, f"take_{seed}.vocals.wav"))
+        new = load(conv, mono=True)
+        n = min(len(band), len(orig), len(new))
+        band, orig, new = band[:n], orig[:n], new[:n]
+        # the owner's voice leads; the generated vocal stays underneath, quiet, so the gang chorus and the crowd
+        # keep their size (Seed-VC turns a crowd into one voice)
+        level = np.sqrt(np.mean(orig.mean(1) ** 2)) / max(1e-6, np.sqrt(np.mean(new ** 2)))  # as loud as the original
+        lead = (new * level * song.get("lead_gain", 1.0))[:, None] * np.ones(2, np.float32)
+        if song.get("clear_lead"):
+            # clarity first (26 Nov 2026, the owner: "Voice is not clear"): the lead cleaned and brought forward
+            # (low cut, less mud at 300 Hz, more presence at 3.5 kHz, steady level), no doubles in the verses, and the
+            # beat dipping under the voice
+            raw = os.path.join(d, "lead_raw.wav")
+            sf.write(raw, new * level, SR)
+            clean = os.path.join(d, "lead_clean.wav")
+            ffmpeg("-i", raw, "-af", "highpass=f=110,equalizer=f=300:t=q:w=1.2:g=-3,equalizer=f=3500:t=q:w=1:g=4,"
+                   "equalizer=f=8000:t=q:w=1:g=1.5,acompressor=threshold=-22dB:ratio=3.5:attack=4:release=80:makeup=3",
+                   "-ar", str(SR), clean)
+            v = load(clean, mono=True)[:n]
+            v = np.pad(v, (0, n - len(v)))
+            v *= np.sqrt(np.mean((new * level) ** 2)) / max(1e-6, np.sqrt(np.mean(v ** 2)))
+            lead = (v * song.get("lead_gain", 1.4))[:, None] * np.ones(2, np.float32)
+            env = np.convolve(np.abs(v), np.ones(SR // 10) / (SR // 10), mode="same")
+            on = np.clip(env / (0.2 * env.max() + 1e-9), 0, 1)
+            duck = 1 - song.get("duck", 0.45) * np.convolve(on, np.ones(SR // 5) / (SR // 5), mode="same")
+            if song.get("band_carve", True):
+                # make room for the words: the beat loses a little of 1-4 kHz, where Tamil consonants live
+                braw, bout = os.path.join(d, "band_raw.wav"), os.path.join(d, "band_carved.wav")
+                sf.write(braw, band, SR)
+                ffmpeg("-i", braw, "-af", "equalizer=f=2500:t=q:w=1.2:g=-5,equalizer=f=1200:t=q:w=1:g=-2.5",
+                       "-ar", str(SR), bout)
+                band = load(bout)[:n]
+                band = np.pad(band, ((0, n - len(band)), (0, 0)))
+                os.remove(braw)
+                os.remove(bout)
+            band = band * duck[:, None]
+            os.remove(raw)
+            os.remove(clean)
+        if song.get("doubles"):
+            g = his_gang(new * level, os.path.join(d, f"take_{seed}.heard.txt"), song.get("gang_words", []),
+                         verses=not song.get("clear_lead"))
+            lead = lead + g * song.get("gang_gain", 1.0)
+        body = band + lead + orig * song.get("orig_under", 0.25)
+        if song.get("acapella"):
+            sf.write(os.path.join(d, f"final_{seed}.vocal_only.wav"), lead.astype(np.float32), SR)
+        if not spoken:
+            total = body.astype(np.float32)
+            pre_len = 0
+        else:
+            total, pre_len = with_spoken(body, band, intro, outro)
+        pre_master = os.path.join(d, f"final_{seed}.premaster.wav")
+        sf.write(pre_master, total, SR)
+        out = os.path.join(d, f"final_{seed}.wav")
+        master(pre_master, out)
+        os.remove(pre_master)
+        ffmpeg("-i", out, "-c:a", "libmp3lame", "-b:a", "320k", os.path.join(d, f"final_{seed}.mp3"))
+        a = load(out)
+        print(f"final {seed}: {len(a) / SR:.1f} s, peak {np.abs(a).max():.3f}, the song bursts in at "
+              f"{pre_len / SR:.1f} s")
+
+
+def with_spoken(body, band, intro, outro):
+    """The spoken intro before the song and the spoken outro after it; returns (audio, where the song starts)."""
+    # the spoken intro first, over a muffled preview of the opening (as if outside the stadium); after
+    # "here he comes" the song bursts in at full size from its first beat
+    pre_len = len(intro) + int(SR * 0.9)
+    bed = muffled(band[:pre_len]) * 0.5
+    bed *= np.minimum(1, np.arange(pre_len) / (SR * 1.5))[:, None]  # fade in
+    pre = bed.copy()
+    pre[int(SR * 0.3): int(SR * 0.3) + len(intro)] += intro[:, None] * 0.9
+    # the spoken outro after the music ends, over a muffled, fading echo of the last bars
+    gap, tail = int(SR * 0.4), SR * 2
+    post_len = gap + len(outro) + tail
+    echo = muffled(body[-min(len(body), post_len):]) * 0.25
+    echo = np.pad(echo, ((post_len - len(echo), 0), (0, 0)))
+    echo *= np.linspace(1, 0, post_len)[:, None]
+    post = echo
+    post[gap: gap + len(outro)] += outro[:, None] * 0.9
+    return np.concatenate([pre, body, post]).astype(np.float32), pre_len
+
+
+def save(song):
+    from huggingface_hub import HfApi
+    api = HfApi(token=os.environ["HF_TOKEN"])
+    if api.repo_exists(DATASET, repo_type="dataset"):
+        if not api.dataset_info(DATASET).private:
+            raise SystemExit(f"{DATASET} is not private: refusing to upload")
+    else:
+        api.create_repo(DATASET, repo_type="dataset", private=True)
+    d = work(song)
+    with open(os.path.join(d, "song.json"), "w") as f:
+        json.dump(song, f, indent=1, ensure_ascii=False)
+    api.upload_folder(repo_id=DATASET, repo_type="dataset", folder_path=d, path_in_repo=song["slug"],
+                      allow_patterns=["*.flac", "*.wav", "*.mp3", "*.json", "*.txt"],
+                      commit_message=f"{song['slug']}: takes, stems, re-voiced vocals and finals")
+    print(f"saved to {DATASET}/{song['slug']}")
+
+
+def main():
+    if len(sys.argv) < 3:
+        sys.exit(__doc__)
+    song = json.load(open(sys.argv[1]))
+    step = sys.argv[2]
+    if step == "voice":
+        voice(song, int(sys.argv[3]) if len(sys.argv) > 3 else 2)
+    elif step == "voice-eleven":
+        voice_eleven(song, int(sys.argv[3]) if len(sys.argv) > 3 else 2)
+    elif step == "check-voice":
+        check(song, stem=sys.argv[3] if len(sys.argv) > 3 else "manoj")
+    elif step in ("takes", "stems", "check", "spoken", "mix", "save"):
+        globals()[step](song)
+    else:
+        sys.exit(__doc__)
+
+
+if __name__ == "__main__":
+    main()

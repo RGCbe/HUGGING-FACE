@@ -1,0 +1,167 @@
+[
+ {
+  "id": "c04",
+  "shots": [
+   "S11"
+  ],
+  "file": "/root/.cache/music/vaibhav-video/takes/fix/c04_fixed.png",
+  "source": "/root/.cache/music/vaibhav-video/takes/fix/c04_b.png",
+  "ok": true,
+  "severity": "minor",
+  "problems": [
+   "fixed: all 4 marks are gone ('DAIT' T-shirt, placard glyphs, bottle/leaf on the grey polo, oval badge on the yellow polo); pixel diff vs c04_b changes only the 4 boxes, rest identical",
+   "minor smears from the OpenCV fill (visible at 2x, soft shading at 1:1, ~15-30 px at clip size): brownish-pink bleed into the white T-shirt (box 300 480 340 520); the placard fill left a yellow-green streak and a brown smudge stuck to the right of the cap fan's head (box 1185 400 1231 440), reads as a raised yellow glow, not text; blurred vertical bands on the grey polo (box 325 712 385 750); a pale starburst on the yellow polo (box 1016 679 1052 714)",
+   "minor, already in c04_b and not in the batch-2 list: a small blank round white badge on the left navy polo (box 288 710 306 728) and a small blank shield badge on a navy polo at the right (box 1458 534 1476 554); ~6 px at clip size, nothing inside, not readable; optional paint-out",
+   "note: one red ball, no bat, no broken bodies (unchanged from batch 2)"
+  ],
+  "fix": "none needed before the clip; optional: re-fill the placard box (1174 397 1231 446) by cloning the dark stand background from the left (x 1120-1170) instead of inpainting, so the yellow streak and the head smudge go"
+ },
+ {
+  "id": "p01",
+  "shots": [
+   "S04"
+  ],
+  "file": "/root/.cache/music/vaibhav-video/takes/fix/p01_fixed.png",
+  "source": "/root/.cache/music/vaibhav-video/takes/fix/p01_a.png",
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "fixed: the white centre line is gone; pixel diff vs p01_a changes only box 800 734 868 928",
+   "NEW from the paint-out: the inpaint pulled the grey boundary wall down into the tan strip - a grey V-shaped wedge hangs into the top of the strip, tip at x 832-836 y 765 (the strip's top edge is at y 743 everywhere else; wedge box 806 743 864 766)",
+   "NEW: below it a smooth blurred column with a visible vertical edge near x 833 down the strip, and a soft band through the grass tufts with no blades (box 800 830 868 928)",
+   "at clip size it reads as a grey arrow/notch plus a seam at the exact centre of the frame, for 5.9 s of a slow camera rise"
+  ],
+  "fix": "No AI, no inpaint: clone columns, because every edge here is horizontal. From p01_a or p01_fixed, fill x 798-834 (rows 734-928) with x 762-798 mirrored and x 834-870 with x 870-906 mirrored, feather a 4-6 px seam at x 834; check at 3x that the strip's top edge stays at y 743 straight across and the grass tufts continue"
+ },
+ {
+  "id": "p02",
+  "shots": [
+   "S05",
+   "S23"
+  ],
+  "file": "/root/.cache/music/vaibhav-video/takes/fix/p02_fixed.png",
+  "source": "/root/.cache/music/vaibhav-video/animeA/replaced/p02.before_fix.png",
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "fixed: the helmet stays in his right hand (dark blue, metal grille); no red ball at the handle (navy grip); the three stand signs have no letters; face unchanged and on model (matches ref/char_A2.png); pixel diff vs the old picture changes only the 5 asked boxes",
+   "NEW: the bat-top paste is a hard rectangle that does not line up - the fist outline steps at the patch top (y 640); a vertical seam with a different crowd background and a flesh-coloured strip at the patch's right edge (x 1060, y 640-700); at the patch bottom (y 700) p02_c's blade shoulder sits on top of the old one, so the blade top shows a doubled shoulder with a horizontal line and a step on its left edge (box 1000 690 1060 712). Visible at 1:1; reads as a joint across the blade (the lock's 'never: a bat in two pieces')",
+   "NEW: the blade-scribble paint-out erased ~35 px of the blade's black LEFT outline (box 1019 758 1040 798) and pulled the yellow-green grass into the blade: a bite out of the blade edge with a dark smudge above it (the scribble itself was at 1039-1056 x 763-782; the box also covered the outline at x 1022-1035)",
+   "minor: the signs are inpaint smears (streaky vertical gradients, angular blocks), not the plain flat colour asked; in the blurred upper stands they read as soft panels; a ~10 px blue frame corner is left at the right end of sign 1 (around 1475 395). Not text"
+  ],
+  "fix": "Restart from animeA/replaced/p02.before_fix.png, local only, no AI edit. (1) Take from p02_c ONLY the pixels inside a tight mask of the old red ball (red-hue pixels around 1010-1052 x 652-692, dilated 3 px, feather 2-3 px) so the old fist outline, background and blade shoulder stay; any red fringe -> navy grip colour; check at 4x that the grip runs into ONE blade shoulder. (2) Mask only the scribble's dark strokes (dark pixels in 1036 758 1060 786, dilated 2 px), keep the blade outline at x 1022-1035 out of the mask, and clone wood grain from 15-20 px further down the blade along the grain instead of inpainting. (3) Optional: fill each sign box with one flat colour sampled from that sign's frame plus a 2-3 px blur"
+ },
+ {
+  "id": "p06",
+  "shots": [
+   "S09"
+  ],
+  "file": "/root/.cache/music/vaibhav-video/takes/fix/p06_fixed.png",
+  "source": "/root/.cache/music/vaibhav-video/takes/fix/p06_a.png",
+  "ok": true,
+  "severity": "minor",
+  "problems": [
+   "fixed: the red ball is gone; the left front-row face is now a plump middle-aged man with grey hair and a big black moustache, the right one a young woman with long black hair and a red bindi; both patches blend with no seam, halo or colour step at 2x; the triplet is broken (three different people in the front row); pixel diff vs p06_a changes only the 3 boxes",
+   "minor: the hand that held the ball is now a palm and thumb with the finger tops smeared soft (box 1505 288 1560 330); at 2x and at clip size it reads as a raised fist with a soft top",
+   "note: the new left man and the centre old man both wear big moustaches (black vs white-grey; different age, build and hair), so these are different faces with one repeated trait",
+   "note (unchanged from batch 3): belt buckle squiggle 'Fc'-like at 6x (box 975 813 1000 828), ~10x5 px at clip size, unreadable; optional flat-grey fill",
+   "note: nobody like the hero; no props in the crowd; no text"
+  ],
+  "fix": "none needed before the clip"
+ },
+ {
+  "id": "t03",
+  "shots": [
+   "S15"
+  ],
+  "file": "/root/.cache/music/vaibhav-video/takes/fix/t03_ra.png",
+  "source": "new take from ref/char_A2.png",
+  "ok": false,
+  "severity": "major",
+  "problems": [
+   "right-handed: his LEFT arm (the wristband arm, out of the sleeve on the viewer's right) crosses his chest and its hand is the top hand, nearest the handle end (~585 440 610 460); his right hand is nearer the blade; the bat is lifted over his RIGHT shoulder. That is a right-hander's grip and backlift; characters.json says a LEFT-handed batter (p04 was mirrored for the same reason)",
+   "minor: letter-like prints on friends' shirts - yellow polo, two lines of black print (box 1195 388 1245 412); yellow vest, small dark badge with letter-like marks (box 390 392 424 408); grey shirt, tiny name tag with faint marks (box 1074 416 1095 429)",
+   "good: ONE bat in one piece (flat rectangular plank blade, square toe and shoulders, dark taped handle, no round end); TWO hands on the handle (fists overlap, one thumb shows); ONE red ball in the air (about 685 75 735 120); plain brick and mud walls, no signboards; no floodlights (a bare wooden pole with a crossbar, box 415 0 470 135, no lamp); golden hour dust; friends shout and run; stylised painted anime; nobody else in blue",
+   "note on age: the hero reads ~11-12, about the same as the approved t01/t02 boy, so it matches the village shots; his polo is brighter royal blue with no chest pocket (t01/t02: slate blue with a pocket), grey jeans, maroon sneakers, spikier hair",
+   "note: friends read ~11-16 (the far-left beige T-shirt and the crew-cut boy look older teens); several share one round-face/black-hair template; the nearest to the hero is the yellow-vest boy (face box 330 255 420 345), kept apart by the vest and his hair",
+   "clip note: the ball sits above his head near the bat toe; watch S15 for a second ball appearing"
+  ],
+  "fix": "Paint the three shirt prints out to flat shirt colour (boxes above), then mirror the whole frame left to right (walls are plain, nothing to read). After the mirror the bat is up over his left shoulder with the right hand on top: left-handed. No new take needed"
+ },
+ {
+  "id": "t04",
+  "shots": [
+   "S03"
+  ],
+  "file": "/root/.cache/music/vaibhav-video/takes/fix/t04_t01a.png",
+  "source": "new takes with animeA/t01.png as reference",
+  "choice": "t04_t01a.png",
+  "ok": true,
+  "severity": "minor",
+  "problems": [
+   "minor: the handle ends in a flat wooden disc wider than the grip (box 925 625 985 700), a knob/mallet cue that the approved t01 bat does not have (t01: plain rounded end); ~28 px at clip size, half in shadow",
+   "minor (as in batch 3): the windows show a real ground-level stadium with floodlights under the stars rather than a dream stadium in the sky; both windows show stands",
+   "good: a child of ~9-10 (round cheeks, black hair, eyes closed, calm) asleep on his side on a mat, blue polo and dark trousers like t01; ONE bat in one piece, a flat rectangular plank blade with a square toe (carved grain only) into his two fists, black tape below; face fully clear of the bat; both arms traceable; legs curled, one foot tucked in; no ball; single warm bulb; nothing readable in the window",
+   "clip note: the bat is held up at ~45 deg off his chest, not lying on him; watch S03 for the bat drifting or falling"
+  ],
+  "fix": "optional, cheap, before the clip: paint the handle-end disc down to the grip's width as a plain rounded end (box 925 625 985 700)",
+  "rejected": [
+   {
+    "file": "/root/.cache/music/vaibhav-video/takes/fix/t04_t01b.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "the blade crosses his face and the face is painted ON the wood: eyebrow, closed eye, blush and nose sit on the blade, and the wood grain runs across his forehead and cheek (box 610 380 760 540); face and prop fused, which a sleeping-face clip will melt",
+     "a separate round wooden peg/log end behind his back (box 315 640 375 710) that can read as a second handle"
+    ]
+   }
+  ],
+  "why": "t01a is the only one of the two with the face clear of the bat; its one prop fault (the handle-end disc) is small and locally fixable. t01b fuses the face with the blade"
+ },
+ {
+  "recheck2": [
+   {
+    "id": "p01",
+    "file": "/root/.cache/music/vaibhav-video/takes/fix/p01_fixed3.png",
+    "ok": true,
+    "severity": "minor",
+    "problems": [
+     "fixed: the white centre line is gone; no wedge, notch or seam at the frame centre at clip size (960x544) or at 2x of clip size; the strip's top edge stays straight at y 743 across the column; pixel diff vs p01_a changes only box 798 736 870 924 (the asked column), rest identical",
+     "minor, only at 4-6x: a faint 6-10 luma step at x 834-836 in the wall's bottom rows and the strip's top band (y 736-745) - the left half of the column (mirror of x 762-798) is slightly darker than the original gradient; the strip/grass border has a ~3 px soft step near x 831-839 (y ~828-832)",
+     "minor, only at 4x: in the dark grass tufts the column is soft and bladeless with a faint brownish horizontal streak (box 818 870 845 882); reads as out-of-focus foreground grass",
+     "note: the white grass blob at x 858-870 y 838 is now a ~3x6 px pale fleck at x ~870; the dirt-dot row on the strip continues (mirrored); nothing else changed"
+    ],
+    "fix": "none needed before the clip"
+   },
+   {
+    "id": "p02",
+    "file": "/root/.cache/music/vaibhav-video/takes/fix/p02_fixed2.png",
+    "ok": false,
+    "severity": "major",
+    "problems": [
+     "fixed: no red ball; the navy grip runs out of the fist into ONE blade shoulder with one continuous top outline (the batch-3 doubled shoulder and joint line are gone); helmet still in his right hand; the three signs have no letters; face unchanged; pixel diff vs animeA/replaced/p02.before_fix.png changes only 5 boxes (ball 997 635 1064 703, scribble 1033 762 1056 798, signs 395 390 515 432, 1085 405 1190 450, 1362 365 1482 418)",
+     "MAJOR, broken outline on the hero bat: the scribble's dark-stroke mask also took the blade's black LEFT outline for 16 rows, y 782-797 (x 1033-1039). The outline (luma 6-17 in the old picture) is gone, with pale grass outside and a brown smear (luma 153-161) inside; the edge resumes at y 798. Visible at 2x and on a clip-size crop as a pale break in the bat's edge (~9 px at 960x544); not noticeable in the full frame at 1x. Same fault as the batch-3 'bite', half the size; the brief said the blade outline is kept",
+     "minor, the round mask's feather crosses the fist: a soft dark streak inside the fist right of the grip (box 1028 634 1040 650) and the fist's lower-right outline blurred/doubled (box 1040 650 1058 670); reads as a soft-edged fist at clip size",
+     "minor, only at 4x+: a faint grey second line beside the blade's top-right corner (box 1042 676 1060 690) and beside the blade's left shoulder edge (box 1011 690 1022 698)",
+     "minor: 2-3 faint brown dots left from the scribble (around 1045 765, 1053 765, 1045 771), not letter-like",
+     "minor (as in the last check): the signs are inpaint smears - sign 1 a grey gradient bar with a pointed left end, sign 2 a dark angular block with a pale corner, sign 3 a cream streaky panel over a dark trapezoid; no glyphs at 4x; soft panels in the blurred stands at clip size"
+    ],
+    "fix": "Local, no AI, on p02_fixed2.png: (1) copy the old picture's pixels (animeA/replaced/p02.before_fix.png) back in box 1030 781 1043 799 with a 1 px feather - checked: rows 780-798 of the old picture hold only the blade outline there (2-3 dark px per row at x 1032-1040), no scribble; then check at 4x that the left edge runs unbroken from y 750 to 810. (2) optional: inside the ball circle keep p02_c's pixels only where the old picture is red-hued (the ball, dilated 2-3 px) and the old pixels elsewhere, so the fist outline and blade corner come from one picture. (3) optional: one flat colour per sign box"
+   },
+   {
+    "id": "t03",
+    "file": "/root/.cache/music/vaibhav-video/takes/fix/t03_fixed.png",
+    "ok": true,
+    "severity": "minor",
+    "problems": [
+     "fixed: now LEFT-handed - after the mirror the wristband arm comes out of the sleeve on the viewer's left (his right arm), crosses his chest and its fist is the top hand nearest the handle end; the bat is lifted over his left shoulder. t03_fixed is an exact left-right mirror of t03_step1 (0 px differ); t03_step1 differs from t03_ra only in the 3 print boxes",
+     "fixed: the three letter-like prints are gone (t03_fixed coordinates: yellow polo 419 388 469 412, yellow vest 1240 392 1274 408, grey shirt tag 569 416 590 429); no glyphs at 5-7x; the grey tag fill is clean",
+     "minor, the paint-out reached two friends' fists: left yellow-polo boy - his raised thumb beside the print is now a dark blur on the shirt with a skin smear below it (box 418 386 445 415), ~6 px smudge at clip size; right yellow-vest boy - the top of his fist lost its outline and fades into the vest, with a soft dark wedge left of it (box 1238 390 1275 410); both read as soft fists at clip size",
+     "good (unchanged apart from the mirror): one bat in one piece (flat plank blade, square toe, taped handle), two hands on it; one red ball in the air (now about 929 75 979 120); plain walls, no signs or readable text, no floodlights (the bare pole is now top right); nobody else in blue; S15 in motion_shots.json sets no screen direction, so the mirror breaks no continuity",
+     "note: the mirror flips his hair parting; no mirrored text anywhere"
+    ],
+    "fix": "none needed before the clip; optional: restore the left friend's thumb by copying x 415-432 y 385-415 back from the mirrored t03_ra and painting only the print letters (x 432-469) to shirt yellow"
+   }
+  ]
+ }
+]

@@ -1,0 +1,3 @@
+# doodle/depthmove.py (pictures that move in 3D). Checked 22 Nov 2026: no known issues (OSV).
+onnxruntime==1.32.0
+opencv-python-headless==5.1.0.95

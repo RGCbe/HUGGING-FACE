@@ -1,0 +1,27 @@
+{
+ "note": "45 s demo on sample D's beat (rap-kuthu, 100 BPM, the owner's pick 26 Nov 2026): verse 2 rapped and the chorus shouted in the owner's ElevenLabs voice, a gang answering.",
+ "work": "~/.cache/music/vaibhav-sample-d",
+ "instrumental": "take_202.band.wav",
+ "bpm": 100,
+ "first_beat": 0.12,
+ "lines": [
+  {"bar": 0, "bars": 1.5, "who": "lead", "text": "ஆஃப் சைடு போட்டா, கவர் மேல போகும்!"},
+  {"bar": 1.5, "bars": 0.5, "who": "gang", "text": "போகும்!"},
+  {"bar": 2, "bars": 1.5, "who": "lead", "text": "லெக் சைடு போட்டா, ஸ்டாண்டுல விழும்!"},
+  {"bar": 3.5, "bars": 0.5, "who": "gang", "text": "விழும்!"},
+  {"bar": 4, "bars": 1.5, "who": "lead", "text": "பவுலர் தலைய சொறிஞ்சு நிக்கிறான்!"},
+  {"bar": 5.5, "bars": 0.5, "who": "gang", "text": "ஐயோ!"},
+  {"bar": 6, "bars": 2, "who": "lead", "text": "எங்க போடுறதுன்னு, கேப்டன பாக்குறான்!"},
+  {"bar": 8, "bars": 1, "who": "all", "text": "வைபவ் வந்தா வெறித்தனம்!"},
+  {"bar": 9, "bars": 1, "who": "lead", "text": "பந்து பறக்குது வானத்துல!"},
+  {"bar": 10, "bars": 1, "who": "lead", "text": "பதினைஞ்சு வயசு தான் டா!"},
+  {"bar": 11, "bars": 1, "who": "lead", "text": "ஆட்டத்த பாரு, சிங்கம் டா!"},
+  {"bar": 12, "bars": 0.5, "who": "all", "text": "வைபவ்! வைபவ்!"},
+  {"bar": 12.5, "bars": 0.5, "who": "gang", "text": "வைபவ்!"},
+  {"bar": 13, "bars": 0.5, "who": "lead", "text": "அடிச்சா சிக்ஸ் தான்!"},
+  {"bar": 13.5, "bars": 0.5, "who": "gang", "text": "சிக்ஸ் தான்!"},
+  {"bar": 14, "bars": 0.5, "who": "all", "text": "வைபவ்! வைபவ்!"},
+  {"bar": 14.5, "bars": 0.5, "who": "gang", "text": "வைபவ்!"},
+  {"bar": 15, "bars": 1, "who": "all", "text": "இவன் இந்தியாவோட பையன் டா!"}
+ ]
+}

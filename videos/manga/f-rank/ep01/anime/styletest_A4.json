@@ -1,0 +1,48 @@
+{
+ "style": "Photorealistic cinematic film still from a big-budget superhero blockbuster, real people, natural realistic skin and hair, correct human anatomy with five fingers on each hand, anamorphic widescreen movie look, vivid colours, warm golden key light and teal shadows, crisp detail, shallow depth of field.",
+ "aspect": "16:9",
+ "images": [
+  {
+   "name": "s08_arjun_pour_r4_1",
+   "seed": 404,
+   "prompt": "Seen from the side in profile, an 18-year-old Indian boy with a boyish clean-shaven face, dark brown skin and messy short black hair, wearing a long plain white cotton kurta with sleeves rolled up, a red cloth sash at his waist and a red string bracelet, pours chai the traditional way at his roadside tea stall: both arms in front of his body, his right hand lifts a steel kettle high, directly above the small glass tumbler held low in his left hand, and a long thin continuous stream of milky light-brown tea falls straight down from the kettle spout into the glass, glowing in the lantern light against the dark street behind. Steam rises from the glass. He grins. Evening street in Mumbai, out of focus, signs plain with no writing, a giant blue portal glowing faintly in the sky. Medium shot."
+  },
+  {
+   "name": "s08_arjun_pour_r4_2",
+   "seed": 505,
+   "prompt": "Seen from the side in profile, an 18-year-old Indian boy with a boyish clean-shaven face, dark brown skin and messy short black hair, wearing a long plain white cotton kurta with sleeves rolled up, a red cloth sash at his waist and a red string bracelet, pours chai the traditional way at his roadside tea stall: both arms in front of his body, his right hand lifts a steel kettle high, directly above the small glass tumbler held low in his left hand, and a long thin continuous stream of milky light-brown tea falls straight down from the kettle spout into the glass, glowing in the lantern light against the dark street behind. Steam rises from the glass. He grins. Evening street in Mumbai, out of focus, signs plain with no writing, a giant blue portal glowing faintly in the sky. Medium shot."
+  },
+  {
+   "name": "s08_arjun_pour_r4_3",
+   "seed": 606,
+   "prompt": "Seen from the side in profile, an 18-year-old Indian boy with a boyish clean-shaven face, dark brown skin and messy short black hair, wearing a long plain white cotton kurta with sleeves rolled up, a red cloth sash at his waist and a red string bracelet, pours chai the traditional way at his roadside tea stall: both arms in front of his body, his right hand lifts a steel kettle high, directly above the small glass tumbler held low in his left hand, and a long thin continuous stream of milky light-brown tea falls straight down from the kettle spout into the glass, glowing in the lantern light against the dark street behind. Steam rises from the glass. He grins. Evening street in Mumbai, out of focus, signs plain with no writing, a giant blue portal glowing faintly in the sky. Medium shot."
+  },
+  {
+   "name": "s05_mumbai_gate_r4_1",
+   "seed": 404,
+   "prompt": "High aerial view at dusk of Marine Drive in Mumbai, the famous curved seafront road along the bay known as the Queen's Necklace, its street lights glowing in a long golden curve beside the Arabian Sea, art-deco buildings and modern skyscrapers along the bay, the sea calm and reflecting the sky. High above the bay hangs a gigantic ring-shaped portal of swirling blue and purple light with plain geometric patterns, light beams falling to the water, clouds spiralling into it. Purple and orange sunset sky. No writing anywhere."
+  },
+  {
+   "name": "s05_mumbai_gate_r4_2",
+   "seed": 505,
+   "prompt": "High aerial view at dusk of Marine Drive in Mumbai, the famous curved seafront road along the bay known as the Queen's Necklace, its street lights glowing in a long golden curve beside the Arabian Sea, art-deco buildings and modern skyscrapers along the bay, the sea calm and reflecting the sky. High above the bay hangs a gigantic ring-shaped portal of swirling blue and purple light with plain geometric patterns, light beams falling to the water, clouds spiralling into it. Purple and orange sunset sky. No writing anywhere."
+  },
+  {
+   "name": "s05_mumbai_gate_r4_3",
+   "seed": 606,
+   "prompt": "High aerial view at dusk of Marine Drive in Mumbai, the famous curved seafront road along the bay known as the Queen's Necklace, its street lights glowing in a long golden curve beside the Arabian Sea, art-deco buildings and modern skyscrapers along the bay, the sea calm and reflecting the sky. High above the bay hangs a gigantic ring-shaped portal of swirling blue and purple light with plain geometric patterns, light beams falling to the water, clouds spiralling into it. Purple and orange sunset sky. No writing anywhere."
+  },
+  {
+   "name": "s17_meera_coins_r4_1",
+   "seed": 44,
+   "prompt": "The same photo of the same young woman with the same staff at the same tea stall, but now her right hand is held out palm up toward the camera with three silver coins resting on her open palm, offering them to the tea seller. Her other hand still holds the staff. The three glasses of chai stay on the counter. Photorealistic movie still.",
+   "edit": "out/styletest/A2/s17_meera_coins_3.png"
+  },
+  {
+   "name": "s17_meera_coins_r4_2",
+   "seed": 55,
+   "prompt": "The same photo of the same young woman with the same staff at the same tea stall, but now her right hand is held out palm up toward the camera with three silver coins resting on her open palm, offering them to the tea seller. Her other hand still holds the staff. The three glasses of chai stay on the counter. Photorealistic movie still.",
+   "edit": "out/styletest/A2/s17_meera_coins_3.png"
+  }
+ ]
+}
