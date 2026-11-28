@@ -55,7 +55,9 @@ description: Run the anime studio, the 34 job cards in .claude/agents/01..34, fo
   - `plan.json`, `motion_shots.json`, `images_anime.json`.
 - **The song is fixed:** `~/.cache/music/eleven-song/eleven.mp3`.
 - **Media:** `~/.cache/music/vaibhav-video/`, with the pictures in `animeA/`, the clips in `clips/` and the builds in
-  `build/`. The face reference `ref/char_A2.png` stays there and never goes in git.
+  `build/`.
+- **Handover (28 Nov):** `videos/music/vaibhav/video/HANDOVER.md`: where each of the 28 shots stands, what is
+  left, and how to restore the media from the private dataset `Rggroups/music-work`. The face reference `ref/char_A2.png` stays there and never goes in git.
 
 **A new project**
 - 16 makes `<EP>/STUDIO.md` (its kind, folders, guide, cast, the owner's wishes, the private backup) and adds the
