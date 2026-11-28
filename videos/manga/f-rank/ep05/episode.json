@@ -1,0 +1,663 @@
+[
+ {
+  "name": "p01",
+  "prompt": "scenery, morning, a small tea stall with its metal shutter pulled down, a long line of hunters in armor waiting in the street in front of it, a giant glowing blue portal in the distance, soft morning light",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "The next morning."
+   }
+  ],
+  "after": [
+   {
+    "text": "For the first time, the tea stall did not open."
+   }
+  ]
+ },
+ {
+  "name": "p02",
+  "prompt": "several hunters in armor standing in a line in a street, disappointed, comedy, one big man holding an empty small steel cup, sweatdrops, morning, upper body",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "bubbles": [
+   {
+    "text": "CLOSED?!",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.2,
+    "to": [
+     0.36,
+     0.34
+    ],
+    "size": 30
+   },
+   {
+    "text": "But I have a dungeon at nine!",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.66,
+     0.36
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p03",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, and an old woman with grey hair in a bun and a white sari, crouching side by side at a small clay stove in a tiny courtyard behind a tea stall, two small steel pots side by side on the fire, steam, morning light, from the side",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "Behind the stall..."
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "Two pots, beta. Two recipes.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.64,
+     0.38
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p04",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, close-up, face focus, serious, holding up one finger, steam, morning light",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "The first recipe pours YOUR life into the glass. Strong. But it empties you.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.38,
+    "to": [
+     0.45,
+     0.32
+    ],
+    "size": 22
+   }
+  ]
+ },
+ {
+  "name": "p05",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, curious, leaning forward, eager, morning light, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "And the second one?",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.28,
+    "to": [
+     0.58,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p06",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, holding up a single small green cardamom pod between two fingers, gentle smile, soft morning light, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "The second one gives nothing. It wakes up the fire that's already inside them.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.38,
+    "to": [
+     0.45,
+     0.3
+    ],
+    "size": 22
+   }
+  ]
+ },
+ {
+  "name": "p07",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, thoughtful, hand on his chin, looking at a steaming steel pot, morning, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "...Inside them?",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.26,
+    "to": [
+     0.58,
+     0.3
+    ],
+    "kind": "thought"
+   }
+  ]
+ },
+ {
+  "name": "p08",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, panicking, a steel pot on a small clay stove boiling over wildly, white foam spilling everywhere, comedy, motion lines, morning",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.4,
+  "before": [
+   {
+    "text": "Attempt one."
+   }
+  ],
+  "sfx": [
+   {
+    "text": "BLUB BLUB BLUB",
+    "x": 0.74,
+    "y": 0.16,
+    "size": 84,
+    "rotate": 6
+   }
+  ]
+ },
+ {
+  "name": "p09",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, sitting on a small wooden stool, holding a small steel cup, hiccupping, cheeks puffed, comedy, sweatdrop, a tray of empty steel cups beside him, morning",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.5,
+  "before": [
+   {
+    "text": "Attempt six. Volunteer: Viktor Hale."
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "Why... do I smell... flowers?",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.42,
+     0.32
+    ]
+   }
+  ],
+  "sfx": [
+   {
+    "text": "HIC!",
+    "x": 0.82,
+    "y": 0.78,
+    "size": 100,
+    "rotate": 8
+   }
+  ]
+ },
+ {
+  "name": "p10",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, his blonde hair standing straight up, crackling sparks of static electricity around his head, shocked face, comedy, morning, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.45,
+  "before": [
+   {
+    "text": "Attempt nineteen."
+   }
+  ],
+  "sfx": [
+   {
+    "text": "bzzt",
+    "x": 0.82,
+    "y": 0.8,
+    "size": 90,
+    "rotate": -6
+   }
+  ]
+ },
+ {
+  "name": "p11",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, laughing, covering her mouth with one hand, holding her staff, morning light, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/meera.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "Should I heal that... or film it?",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.58,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p12",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, sitting on the ground, head in his hands, frustrated, tired, a steel pot beside him, morning",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "I can't do it, Paati. The first recipe was easy!",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.34,
+    "to": [
+     0.42,
+     0.3
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p13",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, sitting on a low wooden stool, kind smile, warm morning light, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "The first was easy because it was about you. This one is about them.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.36,
+    "to": [
+     0.56,
+     0.3
+    ],
+    "size": 22
+   }
+  ]
+ },
+ {
+  "name": "p14",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, close-up, face focus, wise, tapping her ear with one finger, soft light",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "Don't push into the pot, beta. Listen to who you're making it for.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.36,
+    "to": [
+     0.45,
+     0.3
+    ],
+    "size": 22
+   }
+  ]
+ },
+ {
+  "name": "p15",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, eyes closed, calm, gently stirring a steel pot, soft steam swirling, faint warm glow, quiet, peaceful, upper body",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/arjun_face.jpg",
+  "ref_scale": 0.45,
+  "before": [
+   {
+    "text": "Attempt twenty."
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "Viktor. Loud. Scared of looking weak. Hasn't slept since the live stream.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.36,
+    "to": [
+     0.62,
+     0.34
+    ],
+    "kind": "thought",
+    "size": 22
+   }
+  ]
+ },
+ {
+  "name": "p16",
+  "prompt": "close-up of hands pouring tea from a steel pot into a small steel cup, a long thin stream of tea, steam, warm light, gentle",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "For you, Viktor. Less sugar.",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.4,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p17",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, drinking from a small steel cup, a soft blue glow rising from his chest, surprised, eyes wide, morning light",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.45,
+  "sfx": [
+   {
+    "text": "fwoosh...",
+    "x": 0.74,
+    "y": 0.86,
+    "size": 90,
+    "rotate": -6
+   }
+  ]
+ },
+ {
+  "name": "p18",
+  "prompt": "1boy, male focus, solo, adult, tall, blonde hair, short hair, slicked back hair, blue eyes, silver armor, black cape, looking down at his own open hands glowing soft blue, amazed, moved, emotional, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/viktor.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "This isn't your power...",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.42,
+     0.3
+    ]
+   },
+   {
+    "text": "...It's mine.",
+    "x": 0.78,
+    "y": 0.56,
+    "w": 0.22,
+    "to": [
+     0.68,
+     0.66
+    ],
+    "size": 26
+   }
+  ]
+ },
+ {
+  "name": "p19",
+  "prompt": "1girl, solo, young woman, dark-skinned female, brown skin, long black hair, single braid over shoulder, brown eyes, white robe, gold trim, holding staff with crystal, healer, gentle smile, looking at someone off to the side, morning light, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/meera_face.jpg",
+  "ref_scale": 0.55,
+  "bubbles": [
+   {
+    "text": "And you, Arjun? How do you feel?",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.3,
+    "to": [
+     0.58,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p20",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, stretching both arms up, energetic, big smile, bright morning light, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "...Not tired at all!",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.28,
+    "to": [
+     0.42,
+     0.3
+    ],
+    "size": 26
+   }
+  ]
+ },
+ {
+  "name": "p21",
+  "prompt": "1girl, solo, elderly woman, old woman, grandmother, about 70 years old, wrinkled face, deep wrinkles, grey hair in a bun, white cotton sari covering her body down to her feet, wooden walking stick, grinning, thumbs up, wink, playful, morning light, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "ref": "../ep03/out/img/p29.png",
+  "ref_scale": 0.5,
+  "bubbles": [
+   {
+    "text": "Costs you nothing. That's the second recipe.",
+    "x": 0.76,
+    "y": 0.12,
+    "w": 0.32,
+    "to": [
+     0.58,
+     0.3
+    ]
+   }
+  ]
+ },
+ {
+  "name": "p22",
+  "prompt": "1boy, male focus, solo, young man, dark-skinned male, dark skin, brown skin, short black hair, messy hair, brown eyes, white kurta, red sash, red string bracelet, lifting the metal shutter of a small tea stall, smiling, a long line of hunters in armor cheering in front of the stall, bright noon sunlight, wide shot",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "ref": "../ref/arjun.jpg",
+  "ref_scale": 0.35,
+  "before": [
+   {
+    "text": "Noon."
+   }
+  ],
+  "bubbles": [
+   {
+    "text": "Sorry for the wait! New recipe today!",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.34,
+    "to": [
+     0.4,
+     0.34
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p23",
+  "prompt": "a big bearded hunter in heavy armor holding a small steel cup of tea, suspicious squint, comedy, noon, upper body",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "bubbles": [
+   {
+    "text": "Same price?",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.22,
+    "to": [
+     0.38,
+     0.3
+    ]
+   },
+   {
+    "text": "Ten rupees a glass.",
+    "x": 0.76,
+    "y": 0.6,
+    "w": 0.28,
+    "to": [
+     0.96,
+     0.72
+    ],
+    "size": 24
+   }
+  ]
+ },
+ {
+  "name": "p24",
+  "prompt": "many hunters in armor drinking tea from small steel cups in a busy street, each person glowing a different colour, red glow, blue glow, green glow, purple glow, white glow, joyful, laughing, wide shot, noon",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "after": [
+   {
+    "text": "Every glass glowed a different colour. Their own."
+   }
+  ]
+ },
+ {
+  "name": "p25",
+  "prompt": "scenery, night, a very tall dark glass skyscraper towering over a glowing city, red lights at its top, ominous, low angle",
+  "seed": 7,
+  "w": 832,
+  "h": 1216,
+  "before": [
+   {
+    "text": "That night. Red Lotus Tower."
+   }
+  ]
+ },
+ {
+  "name": "p26",
+  "prompt": "1girl, solo, woman seen from behind, long black hair in a low bun, red blazer, red lotus earrings, sitting at a dark desk, opening a small old wooden box, dark office, red light, mysterious",
+  "seed": 7,
+  "w": 1216,
+  "h": 832
+ },
+ {
+  "name": "p27",
+  "prompt": "old faded sepia photograph, a young woman in a white sari holding a steel tea kettle, smiling, standing next to a little girl with long black hair and a red ribbon holding a small steel cup, worn photo edges, held between two fingers with red nails, red lotus ring, dark office, red light",
+  "seed": 7,
+  "w": 1024,
+  "h": 1024,
+  "before": [
+   {
+    "text": "An old photograph."
+   }
+  ]
+ },
+ {
+  "name": "p28",
+  "prompt": "close-up of a woman's mouth with red lipstick, a cold small smile, the rest of her face in deep shadow, red lotus earring, dark, red light, dramatic",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "bubbles": [
+   {
+    "text": "Hello again...",
+    "x": 0.24,
+    "y": 0.12,
+    "w": 0.26,
+    "to": [
+     0.4,
+     0.4
+    ]
+   },
+   {
+    "text": "...Teacher.",
+    "x": 0.78,
+    "y": 0.6,
+    "w": 0.22,
+    "to": [
+     0.62,
+     0.62
+    ],
+    "size": 28
+   }
+  ]
+ },
+ {
+  "name": "p29",
+  "prompt": "no humans, giant glowing portal at night, a giant red eye with a slit pupil inside the portal, wide open, cracks spreading through the air around the portal like broken glass, red lightning, ominous, city skyline, small tea stall far below",
+  "seed": 7,
+  "w": 1216,
+  "h": 832,
+  "before": [
+   {
+    "text": "And deep inside the Gate..."
+   }
+  ],
+  "after": [
+   {
+    "text": "...the eye had stopped watching. It was counting."
+   }
+  ],
+  "sfx": [
+   {
+    "text": "KRRRK",
+    "x": 0.8,
+    "y": 0.14,
+    "size": 110,
+    "rotate": 8,
+    "color": "#ff5a4f"
+   }
+  ],
+  "status": [
+   {
+    "title": "[ WARNING ]",
+    "x": 0.5,
+    "y": 0.82,
+    "w": 0.7,
+    "lines": [
+     "Gate Break in 7 days."
+    ]
+   }
+  ]
+ },
+ {
+  "name": "end",
+  "card": "To be continued",
+  "h": 360
+ }
+]
